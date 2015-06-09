@@ -53,6 +53,54 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\AttEditView.xaml.cs">
+      <DependentUpon>AttEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoryView.xaml.cs">
+      <DependentUpon>CategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CityView.xaml.cs">
+      <DependentUpon>CityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrewView.xaml.cs">
+      <DependentUpon>CrewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentView.xaml.cs">
+      <DependentUpon>DepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesignationView.xaml.cs">
+      <DependentUpon>DesignationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DivisionView.xaml.cs">
+      <DependentUpon>DivisionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeView.xaml.cs">
+      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmpTypeView.xaml.cs">
+      <DependentUpon>EmpTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HolidayView.xaml.cs">
+      <DependentUpon>HolidayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocationView.xaml.cs">
+      <DependentUpon>LocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LvApplicationView.xaml.cs">
+      <DependentUpon>LvApplicationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LvQuotaView.xaml.cs">
+      <DependentUpon>LvQuotaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReaderView.xaml.cs">
+      <DependentUpon>ReaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionView.xaml.cs">
+      <DependentUpon>SectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShiftView.xaml.cs">
+      <DependentUpon>ShiftView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -65,6 +113,70 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AttEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CrewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DesignationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DivisionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmpTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HolidayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LvApplicationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LvQuotaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReaderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShiftView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -92,6 +204,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\AttEdit\Commands\" />
+    <Folder Include="ViewModels\Category\Commands\" />
+    <Folder Include="ViewModels\City\Commands\" />
+    <Folder Include="ViewModels\Crew\Commands\" />
+    <Folder Include="ViewModels\Department\Commands\" />
+    <Folder Include="ViewModels\Designation\Commands\" />
+    <Folder Include="ViewModels\Division\Commands\" />
+    <Folder Include="ViewModels\Employee\Commands\" />
+    <Folder Include="ViewModels\EmpType\Commands\" />
+    <Folder Include="ViewModels\Holiday\Commands\" />
+    <Folder Include="ViewModels\Location\Commands\" />
+    <Folder Include="ViewModels\LvApplication\Commands\" />
+    <Folder Include="ViewModels\LvQuota\Commands\" />
+    <Folder Include="ViewModels\Reader\Commands\" />
+    <Folder Include="ViewModels\Section\Commands\" />
+    <Folder Include="ViewModels\Shift\Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
