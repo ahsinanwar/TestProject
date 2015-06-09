@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>aedc6f13-b216-4295-8a1e-e7b8efb7c76e</ProjectGuid>
+    <ProjectGuid>{71921084-8ED1-4C06-A31B-E0172201606A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TASModel</RootNamespace>

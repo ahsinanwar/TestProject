@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.Views;
 
 namespace TimeAttendanceSystem
 {
@@ -23,6 +24,12 @@ namespace TimeAttendanceSystem
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AttEditView aa = new AttEditView();
+            aa.Show();
         }
     }
 }
