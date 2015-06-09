@@ -5,6 +5,8 @@ Thumbs.db
 *.psess
 *.vsp
 *.vspx
+*.csproj
+*.sln
 # ReSharper is a .NET coding add-in
 *.[Rr]e[Ss]harper
 *.DotSettings.user
