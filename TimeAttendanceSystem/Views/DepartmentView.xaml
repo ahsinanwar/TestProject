@@ -34,34 +34,30 @@
     </Window.Resources>
     <Grid HorizontalAlignment="Left" Height="417" Margin="0,10,0,-0.6" VerticalAlignment="Top" Width="511">
         <Grid.RowDefinitions>
-            <RowDefinition Height="79*"/>
-            <RowDefinition Height="52*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="516" Margin="0,-12,-5,0" RenderTransformOrigin="0.498,0.057">
             <Button Command="{Binding AddCommand}" CommandParameter="{Binding}" Margin="6"
 				Content="Add" />
             <Button Content="Edit"  Command="{Binding EditCommand}" CommandParameter="{Binding}" Margin="6"/>
-            <Button Content="Delete" CommandParameter="ZoomOut" Margin="6"/>
+            <Button Content="Delete"  Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Margin="6"/>
             <Button Content="Search.." CommandParameter="ZoomNormal" Margin="6"/>
             <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
         </ToolBar>
-
-        <TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,144.2" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="79,84,0,0" VerticalAlignment="Top" Width="110" Loaded="ComboBox_Loaded"
+	    SelectionChanged="ComboBox_SelectionChanged"/>
+        <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
         <Label Content="Dept. name:" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-        <Label Content="Dept. no:" HorizontalAlignment="Left" Margin="214,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.19,-0.162" Width="64"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="283,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"  Text="{Binding Path=selectedDept.DeptID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
         <Label Content="Div id:" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.085,0.051"/>
-        <Label Content="Company Id:" HorizontalAlignment="Left" Margin="201,79,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedDept.DeptName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="286,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" RenderTransformOrigin="2.488,-1.509" Text="{Binding Path=selectedDept.CompanyID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
                           ItemsSource="{Binding listOfDepts}" 
                           SelectedItem="{Binding selectedDept}" 
-                          AutoGenerateColumns="False" Margin="0,115,0,-0.2" Grid.RowSpan="2" 
+                          AutoGenerateColumns="False" Margin="0,115,0,0" 
                          >
             <toolkit:DataGrid.Columns>
-                <toolkit:DataGridTextColumn Header="Department Name" Width="150" Binding="{Binding DeptName}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Item" Width="*" Binding="{Binding DeptID}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DeptID}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DeptName}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
 

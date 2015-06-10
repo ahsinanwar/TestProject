@@ -378,6 +378,7 @@
     </Compile>
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\AddCommand.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\DeleteCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\EditCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\SaveCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\VMDepartment.cs" />

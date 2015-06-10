@@ -43,6 +43,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
+        public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
 
         public Department selectedDept
@@ -99,6 +100,14 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             }
 
         }
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return _DeleteCommand;
+            }
+
+        }
         #endregion
 
         #region constructor
@@ -110,6 +119,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
             this._AddCommand = new AddCommand(_selectedDept);
             this._EditCommand = new EditCommand(this);
+            this._DeleteCommand = new DeleteCommand(_selectedDept);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommand(this);
