@@ -32,8 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +48,338 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AccessEmp.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttCode.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttData.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttDataManEdit.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttDataMonth.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttMnData.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttMnDataPer.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttProcess.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditForm.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditLog.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditOperation.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Card.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CardType.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Category.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\City.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Company.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Crew.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySumDept.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySumLoc.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySumSection.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySumShift.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DaysName.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Department.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Designation.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Division.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DownloadTime.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DutyCode.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DutyTime.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmailPerson.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Emp.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpAccess.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpFace.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpFp.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpPhoto.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpPresence.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpRdr.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpType.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpView.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Grade.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Holiday.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCard.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCardApp.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCardEmp.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobTitle.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Location.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvApplication.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvConsumed.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvData.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvQuota.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvShort.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvType.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Option.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PollData.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RdrDutyCode.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RdrEventLog.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Reader.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReaderType.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReaderVendor.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Reason.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Region.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Roster.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterApp.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterDetail.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterType.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Section.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceLog.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Shift.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Site.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TASModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TASModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TASModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TASModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TASModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserLocation.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserRole.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewAbsent.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewCard.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewCrew.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewDepartment.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEarlyIN.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEarlyOut.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEditAttendance.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmergencyDetail.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmpPic.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmpType.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLateComer.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLateOut.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLeaveData.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLeaveQuota.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLvConsumed.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMissingAtt.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMonthlyData.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMonthlyDataPer.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMultipleInOut.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewOverTime.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewPollData.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewPresentEmp.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSection.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSLData.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSummary.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewUserLocation.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Model\TASModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TASModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\TASModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TASModel.edmx</DependentUpon>
+      <LastGenOutput>TASModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\TASModel.edmx.diagram">
+      <DependentUpon>TASModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model\TASModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TASModel.edmx</DependentUpon>
+      <LastGenOutput>TASModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

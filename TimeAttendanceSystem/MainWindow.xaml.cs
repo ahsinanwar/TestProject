@@ -31,5 +31,11 @@ namespace TimeAttendanceSystem
             AttEditView aa = new AttEditView();
             aa.Show();
         }
+
+        private void MenuItemDept_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentView aa = new DepartmentView();
+            aa.Show();
+        }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMDepartment;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -22,6 +23,14 @@ namespace TimeAttendanceSystem.Views
         public DepartmentView()
         {
             InitializeComponent();
+            vmdepts = new VMDepartments();
+            this.DataContext = vmdepts;
+        }
+        VMDepartments vmdepts;
+       
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Windows loaded");
         }
     }
 }
