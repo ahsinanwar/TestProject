@@ -377,11 +377,26 @@
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\AddCommand.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\DeleteCommand.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\EditCommand.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMCity\VMCity.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\AddCommand.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\DeleteCommand.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\EditCommand.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMCrew\VMCrew.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\AddCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\DeleteCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\EditCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\SaveCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\VMDepartment.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\AddCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\DeleteCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\EditCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDesignation.cs" />
     <Compile Include="Views\AttEditView.xaml.cs">
       <DependentUpon>AttEditView.xaml</DependentUpon>
     </Compile>
@@ -555,9 +570,6 @@
   <ItemGroup>
     <Folder Include="ViewModels\VMAttEdit\Commands\" />
     <Folder Include="ViewModels\VMCategory\Commands\" />
-    <Folder Include="ViewModels\VMCity\Commands\" />
-    <Folder Include="ViewModels\VMCrew\Commands\" />
-    <Folder Include="ViewModels\VMDesignation\Commands\" />
     <Folder Include="ViewModels\VMDivision\Commands\" />
     <Folder Include="ViewModels\VMEmployee\Commands\" />
     <Folder Include="ViewModels\VMEmpType\Commands\" />
