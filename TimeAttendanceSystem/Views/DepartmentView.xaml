@@ -44,8 +44,6 @@
             <Button Content="Search.." CommandParameter="ZoomNormal" Margin="6"/>
             <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
         </ToolBar>
-        <ComboBox HorizontalAlignment="Left" Margin="79,84,0,0" VerticalAlignment="Top" Width="110" Loaded="ComboBox_Loaded"
-	    SelectionChanged="ComboBox_SelectionChanged"/>
         <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
         <Label Content="Dept. name:" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
         <Label Content="Div id:" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.085,0.051"/>
