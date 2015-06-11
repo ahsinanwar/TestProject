@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
-using TimeAttendanceSystem.ViewModels.VMDepartment.Commands;
+using TimeAttendanceSystem.ViewModels.VMLocation.Commands;
 
-namespace TimeAttendanceSystem.ViewModels.VMDepartment
+namespace TimeAttendanceSystem.ViewModels.VMLocation
 {
-    class VMDepartments : ObservableObject
+    class VMLocation: ObservableObject
     {
         #region Intialization
-        public Department _selectedDept;
+        public Location _selectedLoc;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -39,37 +39,37 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
                 base.OnPropertyChanged("isEnabled");
             }
         }
-        private ObservableCollection<Department> _listOfDepts;
+        private ObservableCollection<Location> _listOfLocs;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
 
-        public Department selectedDept
+        public Location selectedLoc
         {
             get
             {
-                return _selectedDept;
+                return _selectedLoc;
             }
             set
             {
                 this.isEnabled = false;
-                _selectedDept = value;
-                base.OnPropertyChanged("selectedDept");
+                _selectedLoc = value;
+                base.OnPropertyChanged("selectedLoc");
                 base.OnPropertyChanged("isEnabled");
 
             }
         }
 
-        public ObservableCollection<Department> listOfDepts
+        public ObservableCollection<Location> listOfLocs
         {
-            get { return _listOfDepts; }
+            get { return _listOfLocs; }
 
             set
             {
-                listOfDepts = value;
-                OnPropertyChanged("listOfDepts");
+                listOfLocs = value;
+                OnPropertyChanged("listOfLocs");
             }
         }
         #endregion
@@ -111,24 +111,20 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
         #endregion
 
         #region constructor
-        public VMDepartments()
+        public VMLocation()
         {
             entity = new TAS2013Entities();
-            _selectedDept = new Department();
-            _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
-            _selectedDept = entity.Departments.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedDept);
+            _selectedLoc = new Location();
+            _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
+            _selectedLoc = entity.Locations.ToList().FirstOrDefault();
+            this._AddCommand = new AddCommand(_selectedLoc);
             this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedDept);
+            this._DeleteCommand = new DeleteCommand(_selectedLoc);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommand(this);
-            base.OnPropertyChanged("_listOfDepts");
-            base.OnPropertyChanged("_listOfDivs");
+            base.OnPropertyChanged("_listOfLocs");
         }
         #endregion
-
-
-
     }
 }
