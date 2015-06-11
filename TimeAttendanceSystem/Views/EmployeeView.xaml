@@ -1,8 +1,6 @@
 ﻿<Window x:Class="TimeAttendanceSystem.Views.EmployeeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="EmployeeView" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        Title="EmployeeView" Height="516.854" Width="841.573">
+    <Grid/>
 </Window>

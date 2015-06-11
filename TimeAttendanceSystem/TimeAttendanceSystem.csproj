@@ -382,6 +382,9 @@
     <Compile Include="ViewModels\VMDepartment\Commands\EditCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\SaveCommand.cs" />
     <Compile Include="ViewModels\VMDepartment\VMDepartment.cs" />
+    <Compile Include="Views\AttEditJobCard.xaml.cs">
+      <DependentUpon>AttEditJobCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AttEditView.xaml.cs">
       <DependentUpon>AttEditView.xaml</DependentUpon>
     </Compile>
@@ -430,6 +433,12 @@
     <Compile Include="Views\ShiftView.xaml.cs">
       <DependentUpon>ShiftView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShortLvView.xaml.cs">
+      <DependentUpon>ShortLvView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -442,6 +451,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AttEditJobCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AttEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -503,6 +516,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShiftView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShortLvView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
