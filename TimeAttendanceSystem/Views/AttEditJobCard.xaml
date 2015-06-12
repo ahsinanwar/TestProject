@@ -13,7 +13,7 @@
         <DatePicker HorizontalAlignment="Left" Margin="175,219,-23,0" VerticalAlignment="Top" Width="140"/>
         <Label Content="Job Card:" HorizontalAlignment="Left" Margin="58,259,0,-20" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label Content="From" HorizontalAlignment="Left" Margin="61,175,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Left" Margin="175,259,-23,-20" VerticalAlignment="Top" Width="140" Height="31"/>
+        <ComboBox HorizontalAlignment="Left" Margin="174,259,0,0" VerticalAlignment="Top" Width="140" Height="31"/>
         <Label Content="Employee:" HorizontalAlignment="Left" Margin="50,304,0,-65" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Height="31" Margin="175,307,-23,-68" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontSize="16"/>
         <Button Content="Save" HorizontalAlignment="Left" Margin="175,351,0,-108" VerticalAlignment="Top" Width="75" FontSize="16"/>

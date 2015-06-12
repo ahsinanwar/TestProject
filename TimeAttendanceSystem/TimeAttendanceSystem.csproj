@@ -404,9 +404,7 @@
     <Compile Include="ViewModels\VMDesignation\Commands\EditCommand.cs" />
     <Compile Include="ViewModels\VMDesignation\Commands\SaveCommand.cs" />
     <Compile Include="ViewModels\VMDesignation\VMDesignation.cs" />
-<<<<<<< HEAD
-  
-=======
+
     <Compile Include="ViewModels\VMDivision\Commands\AddCommand.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\DeleteCommand.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\EditCommand.cs" />
@@ -443,7 +441,7 @@
     <Compile Include="ViewModels\VMSection\VMSection.cs" />
     <Compile Include="ViewModels\VMShift\Commands\AddCommand.cs" />
     <Compile Include="ViewModels\VMShift\VMShift.cs" />
->>>>>>> cf29eaa08e9741cee6116733472c86e94995b728
+    
     <Compile Include="Views\AttEditView.xaml.cs">
       <DependentUpon>AttEditView.xaml</DependentUpon>
     </Compile>
