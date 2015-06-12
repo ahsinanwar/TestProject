@@ -117,16 +117,14 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
             _selectedCity = new City();
             _listOfCities = new ObservableCollection<City>(entity.Cities.ToList());
             _selectedCity = entity.Cities.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedCity);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedCity);
+            this._AddCommand = new AddCommandCity(_selectedCity);
+            this._EditCommand = new EditCommandCity(this);
+            this._DeleteCommand = new DeleteCommandCity(_selectedCity);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
-            base.OnPropertyChanged("_listOfDepts");
+            this._SaveCommand = new SaveCommandCity(this);
+            base.OnPropertyChanged("_listOfCities");
         }
         #endregion
-
-        public object selectedDept { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMEmployee.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMEmployee
 {
@@ -116,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _selectedEmp = new Emp();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
             _selectedEmp = entity.Emps.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedEmp);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedEmp);
+            this._AddCommand = new AddCommandEmp(_selectedEmp);
+            this._EditCommand = new EditCommandEmp(this);
+            this._DeleteCommand = new DeleteCommandEmp(_selectedEmp);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandEmp(this);
             base.OnPropertyChanged("_listOfEmps");
         }
         #endregion

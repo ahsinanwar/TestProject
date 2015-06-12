@@ -117,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation
             _selectedDesg = new Designation();
             _listOfDesg = new ObservableCollection<Designation>(entity.Designations.ToList());
             _selectedDesg = entity.Designations.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedDesg);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedDesg);
+            this._AddCommand = new AddCommandDesg(_selectedDesg);
+            this._EditCommand = new EditCommandDesg(this);
+            this._DeleteCommand = new DeleteCommandDesg(_selectedDesg);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandDesg(this);
             base.OnPropertyChanged("_listOfDesg");
         }
         #endregion

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
-using TimeAttendanceSystem.ViewModels.VMCrew.Commands;
+using TimeAttendanceSystem.ViewModels.VMLocation.Commands;
 
-namespace TimeAttendanceSystem.ViewModels.VMCrew
+namespace TimeAttendanceSystem.ViewModels.VMLocation
 {
-    class VMCrew :ObservableObject
+    class VMLocation : ObservableObject
     {
         #region Intialization
-        public Crew _selectedCrew;
+        public Location _selectedLoc;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -39,37 +39,37 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew
                 base.OnPropertyChanged("isEnabled");
             }
         }
-        private ObservableCollection<Crew> _listOfcrews;
+        private ObservableCollection<Location> _listOfLocs;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
 
-        public Crew selectedCrew
+        public Location selectedLoc
         {
             get
             {
-                return _selectedCrew;
+                return _selectedLoc;
             }
             set
             {
                 this.isEnabled = false;
-                _selectedCrew = value;
-                base.OnPropertyChanged("selectedCrew");
+                _selectedLoc = value;
+                base.OnPropertyChanged("selectedLoc");
                 base.OnPropertyChanged("isEnabled");
 
             }
         }
 
-        public ObservableCollection<Crew> listOfcrews
+        public ObservableCollection<Location> listOfLocs
         {
-            get { return _listOfcrews; }
+            get { return _listOfLocs; }
 
             set
             {
-                listOfcrews = value;
-                OnPropertyChanged("listOfcrews");
+                listOfLocs = value;
+                OnPropertyChanged("listOfLocs");
             }
         }
         #endregion
@@ -111,19 +111,19 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew
         #endregion
 
         #region constructor
-        public VMCrew()
+        public VMLocation()
         {
             entity = new TAS2013Entities();
-            _selectedCrew = new Crew();
-            _listOfcrews = new ObservableCollection<Crew>(entity.Crews.ToList());
-            _selectedCrew = entity.Crews.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommandCrew(_selectedCrew);
-            this._EditCommand = new EditCommandCrew(this);
-            this._DeleteCommand = new DeleteCommandCrew(_selectedCrew);
+            _selectedLoc = new Location();
+            _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
+            _selectedLoc = entity.Locations.ToList().FirstOrDefault();
+            this._AddCommand = new AddCommandLoc(_selectedLoc);
+            this._EditCommand = new EditCommandLoc(this);
+            this._DeleteCommand = new DeleteCommandLoc(_selectedLoc);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommandCrew(this);
-            base.OnPropertyChanged("_listOfCrew");
+            this._SaveCommand = new SaveCommandLoc(this);
+            base.OnPropertyChanged("_listOfLocs");
         }
         #endregion
     }

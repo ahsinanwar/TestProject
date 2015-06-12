@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMHoliday.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMHoliday
 {
@@ -116,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday
             _selectedHoliday = new Holiday();
             _listOfHolidays = new ObservableCollection<Holiday>(entity.Holidays.ToList());
             _selectedHoliday = entity.Holidays.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedHoliday);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedHoliday);
+            this._AddCommand = new AddCommandHol(_selectedHoliday);
+            this._EditCommand = new EditCommandHol(this);
+            this._DeleteCommand = new DeleteCommandHol(_selectedHoliday);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandHol(this);
             base.OnPropertyChanged("_listOfHolidays");
         }
         #endregion  

@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 
-namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
+namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
 {
-    class SaveCommandSec : ICommand
+    class SaveCommandCrew : ICommand
     {
         #region Fields
-        VMSection _vmsection;
+        VMCrew _vmcrew;
         TAS2013Entities context = new TAS2013Entities();
         //Department _vm = new Department();
         #endregion
 
         #region constructors
-        public SaveCommandSec(VMSection vm)
-        { _vmsection = vm; }
+        public SaveCommandCrew(VMCrew vm)
+        { _vmcrew = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmsection.selectedSec != null);
+            return (_vmcrew.selectedCrew != null);
         }
         #endregion
 
@@ -30,18 +30,18 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
 
         public void Execute(object parameter)
         {
-            VMSection vmd = (VMSection)parameter;
+            VMCrew vmd = (VMCrew)parameter;
             if (vmd.isAdding)
             {
-                context.Sections.Add(vmd.selectedSec);
+                context.Crews.Add(vmd.selectedCrew);
                 context.SaveChanges();
-                vmd.listOfSecs.Add(vmd.selectedSec);
+                vmd.listOfcrews.Add(vmd.selectedCrew);
 
             }
             else
             {
-                Section sec = context.Sections.First(aa => aa.SectionID == vmd.selectedSec.SectionID);
-                sec.SectionName = vmd.selectedSec.SectionName;
+                Crew crew = context.Crews.First(aa => aa.CrewID == vmd.selectedCrew.CrewID);
+                crew.CrewName = vmd.selectedCrew.CrewName;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();

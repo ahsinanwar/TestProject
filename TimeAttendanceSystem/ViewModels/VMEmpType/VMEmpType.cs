@@ -117,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
             _selectedEmpType = new EmpType();
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
             _selectedEmpType = entity.EmpTypes.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedEmpType);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedEmpType);
+            this._AddCommand = new AddCommandEmpType(_selectedEmpType);
+            this._EditCommand = new EditCommandEmpType(this);
+            this._DeleteCommand = new DeleteCommandEmpType(_selectedEmpType);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandEmpType(this);
             base.OnPropertyChanged("_listOfEmpTypes");
         }
         #endregion

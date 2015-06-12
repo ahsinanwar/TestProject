@@ -8,16 +8,15 @@ using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
 {
-    class SaveCommandSec : ICommand
+    class EditCommandSec : ICommand
     {
         #region Fields
         VMSection _vmsection;
         TAS2013Entities context = new TAS2013Entities();
-        //Department _vm = new Department();
         #endregion
 
         #region constructors
-        public SaveCommandSec(VMSection vm)
+        public EditCommandSec(VMSection vm)
         { _vmsection = vm; }
         public bool CanExecute(object parameter)
         {
@@ -31,21 +30,8 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
         public void Execute(object parameter)
         {
             VMSection vmd = (VMSection)parameter;
-            if (vmd.isAdding)
-            {
-                context.Sections.Add(vmd.selectedSec);
-                context.SaveChanges();
-                vmd.listOfSecs.Add(vmd.selectedSec);
-
-            }
-            else
-            {
-                Section sec = context.Sections.First(aa => aa.SectionID == vmd.selectedSec.SectionID);
-                sec.SectionName = vmd.selectedSec.SectionName;
-                vmd.isEnabled = false;
-                vmd.isAdding = false;
-                context.SaveChanges();
-            }
+            vmd.isEnabled = true;
+            vmd.isAdding = false;
 
         }
         #endregion

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMLvApplication.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMLvApplication
 {
@@ -116,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
             _selectedLvApp = new LvApplication();
             _listOfLvApps = new ObservableCollection<LvApplication>(entity.LvApplications.ToList());
             _selectedLvApp = entity.LvApplications.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedLvApp);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedLvApp);
+            this._AddCommand = new AddCommandLvApp(_selectedLvApp);
+            this._EditCommand = new EditCommandLvApp(this);
+            this._DeleteCommand = new DeleteCommandLvApp(_selectedLvApp);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandLvApp(this);
             base.OnPropertyChanged("_listOfLvApps");
         }
         #endregion  

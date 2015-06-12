@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMCategory.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMCategory
 {
@@ -116,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory
             _selectedCat = new Category();
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
             _selectedCat = entity.Categories.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedCat);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedCat);
+            this._AddCommand = new AddCommandCat(_selectedCat);
+            this._EditCommand = new EditCommandCat(this);
+            this._DeleteCommand = new DeleteCommandCat(_selectedCat);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandCat(this);
             base.OnPropertyChanged("_listOfCats");
         }
         #endregion

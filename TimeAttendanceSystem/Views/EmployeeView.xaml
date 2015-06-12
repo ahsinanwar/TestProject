@@ -43,7 +43,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Personel" FontSize="22" Margin="15,0,-15,-1">
-                <Grid Background="#FFE5E5E5" Margin="-8,-3,-7,-22" RenderTransformOrigin="0.491,0.897">
+                <Grid Background="#FFE5E5E5" Margin="-8,-4,-7,-21" RenderTransformOrigin="0.491,0.897">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
