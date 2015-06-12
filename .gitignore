@@ -13,6 +13,7 @@ Thumbs.db
 # User-specific files
 *.suo
 *.user
+*.config
 *.userosscache
 *.sln.docstates
 # Build results
