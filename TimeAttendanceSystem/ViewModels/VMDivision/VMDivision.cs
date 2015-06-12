@@ -118,12 +118,12 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision
             _selectedDiv = new Division();
             _listOfDivs = new ObservableCollection<Division>(entity.Divisions.ToList());
             _selectedDiv = entity.Divisions.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommandDiv(_selectedDiv);
-            this._EditCommand = new EditCommandDiv(this);
-            this._DeleteCommand = new DeleteCommandDiv(_selectedDiv);
+            this._AddCommand = new AddCommand(_selectedDiv);
+            this._EditCommand = new EditCommand(this);
+            this._DeleteCommand = new DeleteCommand(_selectedDiv);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommandDiv(this);
+            this._SaveCommand = new SaveCommand(this);
             base.OnPropertyChanged("_listOfDivs");
         }
         #endregion
