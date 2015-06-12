@@ -117,17 +117,14 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             _selectedDept = new Department();
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedDept);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedDept);
+            this._AddCommand = new AddCommandDept(_selectedDept);
+            this._EditCommand = new EditCommandDept(this);
+            this._DeleteCommand = new DeleteCommandDept(_selectedDept);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandDept(this);
             base.OnPropertyChanged("_listOfDepts");
         }
         #endregion
-
-
-
     }
 }

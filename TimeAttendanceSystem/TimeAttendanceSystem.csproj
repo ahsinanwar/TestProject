@@ -380,11 +380,96 @@
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
-    <Compile Include="ViewModels\VMDepartment\Commands\AddCommand.cs" />
-    <Compile Include="ViewModels\VMDepartment\Commands\DeleteCommand.cs" />
-    <Compile Include="ViewModels\VMDepartment\Commands\EditCommand.cs" />
-    <Compile Include="ViewModels\VMDepartment\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
+    <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
+    <Compile Include="ViewModels\VMCategory\Commands\EditCommandCat.cs" />
+    <Compile Include="ViewModels\VMCategory\Commands\SaveCommandCat.cs" />
+    <Compile Include="ViewModels\VMCategory\VMCategory.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\AddCommandCity.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\DeleteCommandCity.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\EditCommandCity.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\SaveCommandCity.cs" />
+    <Compile Include="ViewModels\VMCity\VMCity.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\AddCommandCrew.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\DeleteCommandCrew.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\EditCommandCrew.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\SaveCommandCrew.cs" />
+    <Compile Include="ViewModels\VMCrew\VMCrew.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\AddCommandDept.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\DeleteCommandDept.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\EditCommandDept.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\SaveCommandDept.cs" />
     <Compile Include="ViewModels\VMDepartment\VMDepartment.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\AddCommandDesg.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\DeleteCommandDesg.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\EditCommandDesg.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\SaveCommandDesg.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDesignation.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\AddCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\DeleteCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="Views\AttEditJobCard.xaml.cs">
+      <DependentUpon>AttEditJobCard.xaml</DependentUpon>
+    </Compile>
+    <!--<Compile Include="ViewModels\VMDesignation\Commands\AddCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\DeleteCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\EditCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDesignation.cs" />
+
+    <Compile Include="ViewModels\VMDivision\Commands\AddCommand.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\DeleteCommand.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\EditCommand.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMDivision\VMDivision.cs" />-->
+    <Compile Include="ViewModels\VMEmployee\Commands\AddCommandEmp.cs" />
+    <Compile Include="ViewModels\VMEmployee\Commands\DeleteCommandEmp.cs" />
+    <Compile Include="ViewModels\VMEmployee\Commands\EditCommandEmp.cs" />
+    <Compile Include="ViewModels\VMEmployee\Commands\SaveCommandEmp.cs" />
+    <Compile Include="ViewModels\VMEmployee\VMEmployee.cs" />
+    <Compile Include="ViewModels\VMEmpType\Commands\AddCommandEmpType.cs" />
+    <Compile Include="ViewModels\VMEmpType\Commands\DeleteCommandEmpType.cs" />
+    <Compile Include="ViewModels\VMEmpType\Commands\EditCommandEmpType.cs" />
+    <Compile Include="ViewModels\VMEmpType\Commands\SaveCommandEmpType.cs" />
+    <Compile Include="ViewModels\VMEmpType\VMEmpType.cs" />
+    <Compile Include="ViewModels\VMHoliday\Commands\AddCommandHol.cs" />
+    <Compile Include="ViewModels\VMHoliday\Commands\DeleteCommandHol.cs" />
+    <Compile Include="ViewModels\VMHoliday\Commands\EditCommandHol.cs" />
+    <Compile Include="ViewModels\VMHoliday\Commands\SaveCommandHol.cs" />
+    <Compile Include="ViewModels\VMHoliday\VMHoliday.cs" />
+    <Compile Include="ViewModels\VMLocation\Commands\AddCommandLoc.cs" />
+    <Compile Include="ViewModels\VMLocation\Commands\DeleteCommandLoc.cs" />
+    <Compile Include="ViewModels\VMLocation\Commands\EditCommandLoc.cs" />
+    <Compile Include="ViewModels\VMLocation\Commands\SaveCommandLoc.cs" />
+    <Compile Include="ViewModels\VMLocation\VMLocation.cs" />
+    <Compile Include="ViewModels\VMLvApplication\Commands\AddCommandLvApp.cs" />
+    <Compile Include="ViewModels\VMLvApplication\Commands\DeleteCommandLvApp.cs" />
+    <Compile Include="ViewModels\VMLvApplication\Commands\EditCommandLvApp.cs" />
+    <Compile Include="ViewModels\VMLvApplication\Commands\SaveCommandLvApp.cs" />
+    <Compile Include="ViewModels\VMLvApplication\VMLvApplication.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\AddCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\DeleteCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\EditCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\SaveCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\VMLvQuota.cs" />
+    <Compile Include="ViewModels\VMReader\Commands\AddCommandRdr.cs" />
+    <Compile Include="ViewModels\VMReader\Commands\DeleteCommandRdr.cs" />
+    <Compile Include="ViewModels\VMReader\Commands\EditCommandRdr.cs" />
+    <Compile Include="ViewModels\VMReader\Commands\SaveCommandRdr.cs" />
+    <Compile Include="ViewModels\VMReader\VMReader.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\AddCommandSec.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\DeleteCommandSec.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\EditCommandSec.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMSection\VMSection.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\AddCommandShift.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\DeleteCommandShift.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\EditCommandShift.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\SaveCommandShift.cs" />
+    <Compile Include="ViewModels\VMShift\VMShift.cs" />
+
     <Compile Include="Views\AttEditView.xaml.cs">
       <DependentUpon>AttEditView.xaml</DependentUpon>
     </Compile>
@@ -433,6 +518,12 @@
     <Compile Include="Views\ShiftView.xaml.cs">
       <DependentUpon>ShiftView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShortLvView.xaml.cs">
+      <DependentUpon>ShortLvView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -445,6 +536,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AttEditJobCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AttEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -509,6 +604,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ShortLvView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -557,20 +660,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\VMAttEdit\Commands\" />
-    <Folder Include="ViewModels\VMCategory\Commands\" />
-    <Folder Include="ViewModels\VMCity\Commands\" />
-    <Folder Include="ViewModels\VMCrew\Commands\" />
-    <Folder Include="ViewModels\VMDesignation\Commands\" />
-    <Folder Include="ViewModels\VMDivision\Commands\" />
-    <Folder Include="ViewModels\VMEmployee\Commands\" />
-    <Folder Include="ViewModels\VMEmpType\Commands\" />
-    <Folder Include="ViewModels\VMHoliday\Commands\" />
-    <Folder Include="ViewModels\VMLocation\Commands\" />
-    <Folder Include="ViewModels\VMLvApplication\Commands\" />
-    <Folder Include="ViewModels\VMLvQuota\Commands\" />
-    <Folder Include="ViewModels\VMReader\Commands\" />
-    <Folder Include="ViewModels\VMSection\Commands\" />
-    <Folder Include="ViewModels\VMShift\Commands\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

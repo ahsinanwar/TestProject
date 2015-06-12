@@ -1,8 +1,39 @@
 ﻿<Window x:Class="TimeAttendanceSystem.Views.LvApplicationView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="LvApplicationView" Height="300" Width="300">
-    <Grid>
-        
+        Title="LvApplicationView" Height="385.393" Width="764.045">
+    <Grid Margin="0,0,2,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Leaves:" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Label Content="Emp No:" HorizontalAlignment="Left" Margin="71,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.721,1.52" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="140,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" FontSize="14"/>
+        <Label Content="Type:" HorizontalAlignment="Left" Margin="90,102,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox HorizontalAlignment="Left" Margin="138,107,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Date:" HorizontalAlignment="Left" Margin="91,138,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <DatePicker HorizontalAlignment="Left" Margin="140,140,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="to" HorizontalAlignment="Left" Margin="256,138,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <DatePicker HorizontalAlignment="Left" Margin="283,140,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Reason:" HorizontalAlignment="Left" Margin="72,230,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Adress:" HorizontalAlignment="Left" Margin="71,348,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Half Leave:" HorizontalAlignment="Left" Margin="72,182,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <CheckBox Content="" HorizontalAlignment="Left" Margin="154,189,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="189,186,0,0" VerticalAlignment="Top" Width="120"/>
+        <RichTextBox HorizontalAlignment="Left" Height="100" Margin="140,230,0,0" VerticalAlignment="Top" Width="100">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <RichTextBox HorizontalAlignment="Left" Height="100" Margin="138,348,0,0" VerticalAlignment="Top" Width="100">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
     </Grid>
 </Window>
