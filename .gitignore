@@ -5,7 +5,8 @@ Thumbs.db
 *.psess
 *.vsp
 *.vspx
-*.csproj
+*.csproj -text merge=union
+*.sln -text merge=union
 *.sln
 # ReSharper is a .NET coding add-in
 *.[Rr]e[Ss]harper

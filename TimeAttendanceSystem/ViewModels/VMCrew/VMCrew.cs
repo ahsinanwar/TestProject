@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
-using TimeAttendanceSystem.ViewModels.VMDepartment.Commands;
+using TimeAttendanceSystem.ViewModels.VMCrew.Commands;
 
-namespace TimeAttendanceSystem.ViewModels.VMDepartment
+namespace TimeAttendanceSystem.ViewModels.VMCrew
 {
-    class VMDepartments : ObservableObject
+    class VMCrew :ObservableObject
     {
         #region Intialization
-        public Department _selectedDept;
+        public Crew _selectedCrew;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -39,48 +39,37 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
                 base.OnPropertyChanged("isEnabled");
             }
         }
-        private ObservableCollection<Department> _listOfDepts;
-        private ObservableCollection<Division> _listOfDivs;
+        private ObservableCollection<Crew> _listOfcrews;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
 
-        public Department selectedDept
+        public Crew selectedCrew
         {
             get
             {
-                return _selectedDept;
+                return _selectedCrew;
             }
             set
             {
                 this.isEnabled = false;
-                _selectedDept = value;
-                base.OnPropertyChanged("selectedDept");
+                _selectedCrew = value;
+                base.OnPropertyChanged("selectedCrew");
                 base.OnPropertyChanged("isEnabled");
 
             }
         }
 
-        public ObservableCollection<Department> listOfDepts
+        public ObservableCollection<Crew> listOfcrews
         {
-            get { return _listOfDepts; }
+            get { return _listOfcrews; }
 
             set
             {
-                listOfDepts = value;
-                OnPropertyChanged("listOfDepts");
-            }
-        }
-        public ObservableCollection<Division> listOfDivs
-        {
-            get { return _listOfDivs; }
-
-            set
-            {
-                listOfDivs = value;
-                OnPropertyChanged("listOfDivs");
+                listOfcrews = value;
+                OnPropertyChanged("listOfcrews");
             }
         }
         #endregion
@@ -122,25 +111,20 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
         #endregion
 
         #region constructor
-        public VMDepartments()
+        public VMCrew()
         {
             entity = new TAS2013Entities();
-            _selectedDept = new Department();
-            _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
-            _listOfDivs = new ObservableCollection<Division>(entity.Divisions.ToList());
-            _selectedDept = entity.Departments.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedDept);
+            _selectedCrew = new Crew();
+            _listOfcrews = new ObservableCollection<Crew>(entity.Crews.ToList());
+            _selectedCrew = entity.Crews.ToList().FirstOrDefault();
+            this._AddCommand = new AddCommand(_selectedCrew);
             this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedDept);
+            this._DeleteCommand = new DeleteCommand(_selectedCrew);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommand(this);
-            base.OnPropertyChanged("_listOfDepts");
-            base.OnPropertyChanged("_listOfDivs");
+            base.OnPropertyChanged("_listOfCrew");
         }
         #endregion
-
-
-
     }
 }
