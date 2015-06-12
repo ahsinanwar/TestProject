@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMShift.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMShift
 {
@@ -116,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             _selectedShift = new Shift();
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _selectedShift = entity.Shifts.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedShift);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedShift);
+            this._AddCommand = new AddCommandShift(_selectedShift);
+            this._EditCommand = new EditCommandShift(this);
+            this._DeleteCommand = new DeleteCommandShift(_selectedShift);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandShift(this);
             base.OnPropertyChanged("_listOfShifts");
         }
         #endregion  

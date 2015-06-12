@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMReader.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMReader
 {
@@ -116,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _selectedRdr = new Reader();
             _listOfRdrs = new ObservableCollection<Reader>(entity.Readers.ToList());
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedRdr);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedRdr);
+            this._AddCommand = new AddCommandRdr(_selectedRdr);
+            this._EditCommand = new EditCommandRdr(this);
+            this._DeleteCommand = new DeleteCommandRdr(_selectedRdr);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandRdr(this);
             base.OnPropertyChanged("_listOfRdrs");
         }
         #endregion  

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMSection.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMSection
 {
@@ -116,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             _selectedSec = new Section();
             _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
             _selectedSec = entity.Sections.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedSec);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedSec);
+            this._AddCommand = new AddCommandSec(_selectedSec);
+            this._EditCommand = new EditCommandSec(this);
+            this._DeleteCommand = new DeleteCommandSec(_selectedSec);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandSec(this);
             base.OnPropertyChanged("_listOfSecs");
         }
         #endregion

@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 
-namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
+namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
 {
-    class SaveCommandSec : ICommand
+    class SaveCommandCat : ICommand
     {
         #region Fields
-        VMSection _vmsection;
+        VMCategory _vmcategory;
         TAS2013Entities context = new TAS2013Entities();
         //Department _vm = new Department();
         #endregion
 
         #region constructors
-        public SaveCommandSec(VMSection vm)
-        { _vmsection = vm; }
+        public SaveCommandCat(VMCategory vm)
+        { _vmcategory = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmsection.selectedSec != null);
+            return (_vmcategory.selectedCat != null);
         }
         #endregion
 
@@ -30,18 +30,18 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
 
         public void Execute(object parameter)
         {
-            VMSection vmd = (VMSection)parameter;
+            VMCategory vmd = (VMCategory)parameter;
             if (vmd.isAdding)
             {
-                context.Sections.Add(vmd.selectedSec);
+                context.Categories.Add(vmd.selectedCat);
                 context.SaveChanges();
-                vmd.listOfSecs.Add(vmd.selectedSec);
+                vmd.listOfCats.Add(vmd.selectedCat);
 
             }
             else
             {
-                Section sec = context.Sections.First(aa => aa.SectionID == vmd.selectedSec.SectionID);
-                sec.SectionName = vmd.selectedSec.SectionName;
+                Category cat = context.Categories.First(aa => aa.CatID == vmd.selectedCat.CatID);
+                cat.CatName = vmd.selectedCat.CatName;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();

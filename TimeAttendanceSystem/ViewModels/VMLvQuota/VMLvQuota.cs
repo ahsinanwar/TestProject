@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMLvQuota.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMLvQuota
 {
@@ -116,12 +117,12 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota
             _selectedLvQuota = new LvQuota();
             _listOfLvQuotas = new ObservableCollection<LvQuota>(entity.LvQuotas.ToList());
             _selectedLvQuota = entity.LvQuotas.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedLvQuota);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedLvQuota);
+            this._AddCommand = new AddCommandLvQuota(_selectedLvQuota);
+            this._EditCommand = new EditCommandLvQuota(this);
+            this._DeleteCommand = new DeleteCommandLvQuota(_selectedLvQuota);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandLvQuota(this);
             base.OnPropertyChanged("_listOfQuotas");
         }
         #endregion  

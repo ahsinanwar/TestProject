@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 
-namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
+namespace TimeAttendanceSystem.ViewModels.VMShift
 {
-    class SaveCommandSec : ICommand
+    class SaveCommandShift : ICommand
     {
         #region Fields
-        VMSection _vmsection;
+        VMShift _vmshift;
         TAS2013Entities context = new TAS2013Entities();
         //Department _vm = new Department();
         #endregion
 
         #region constructors
-        public SaveCommandSec(VMSection vm)
-        { _vmsection = vm; }
+        public SaveCommandShift(VMShift vm)
+        { _vmshift = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmsection.selectedSec != null);
+            return (_vmshift.selectedShift != null);
         }
         #endregion
 
@@ -30,18 +30,18 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
 
         public void Execute(object parameter)
         {
-            VMSection vmd = (VMSection)parameter;
+            VMShift vmd = (VMShift)parameter;
             if (vmd.isAdding)
             {
-                context.Sections.Add(vmd.selectedSec);
+                context.Shifts.Add(vmd.selectedShift);
                 context.SaveChanges();
-                vmd.listOfSecs.Add(vmd.selectedSec);
+                vmd.listOfShifts.Add(vmd.selectedShift);
 
             }
             else
             {
-                Section sec = context.Sections.First(aa => aa.SectionID == vmd.selectedSec.SectionID);
-                sec.SectionName = vmd.selectedSec.SectionName;
+                Shift shift = context.Shifts.First(aa => aa.ShiftID == vmd.selectedShift.ShiftID);
+                shift.ShiftName = vmd.selectedShift.ShiftName;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();

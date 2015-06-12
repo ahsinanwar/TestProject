@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 
-namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
+namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
 {
-    class SaveCommandSec : ICommand
+    class SaveCommandLvApp : ICommand
     {
         #region Fields
-        VMSection _vmsection;
+        VMLvApplication _vmlvapp;
         TAS2013Entities context = new TAS2013Entities();
         //Department _vm = new Department();
         #endregion
 
         #region constructors
-        public SaveCommandSec(VMSection vm)
-        { _vmsection = vm; }
+        public SaveCommandLvApp(VMLvApplication vm)
+        { _vmlvapp = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmsection.selectedSec != null);
+            return (_vmlvapp.selectedLvApp != null);
         }
         #endregion
 
@@ -30,18 +30,18 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
 
         public void Execute(object parameter)
         {
-            VMSection vmd = (VMSection)parameter;
+            VMLvApplication vmd = (VMLvApplication)parameter;
             if (vmd.isAdding)
             {
-                context.Sections.Add(vmd.selectedSec);
+                context.LvApplications.Add(vmd.selectedLvApp);
                 context.SaveChanges();
-                vmd.listOfSecs.Add(vmd.selectedSec);
+                vmd.listOfLvApps.Add(vmd.selectedLvApp);
 
             }
             else
             {
-                Section sec = context.Sections.First(aa => aa.SectionID == vmd.selectedSec.SectionID);
-                sec.SectionName = vmd.selectedSec.SectionName;
+                LvApplication lvapp = context.LvApplications.First(aa => aa.LvID == vmd.selectedLvApp.LvID);
+                lvapp.LvType = vmd.selectedLvApp.LvType;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();

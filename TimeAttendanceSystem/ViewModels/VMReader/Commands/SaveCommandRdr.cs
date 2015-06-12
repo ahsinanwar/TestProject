@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 
-namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
+namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
 {
-    class SaveCommandSec : ICommand
+    class SaveCommandRdr : ICommand
     {
         #region Fields
-        VMSection _vmsection;
+        VMReader _vmreader;
         TAS2013Entities context = new TAS2013Entities();
         //Department _vm = new Department();
         #endregion
 
         #region constructors
-        public SaveCommandSec(VMSection vm)
-        { _vmsection = vm; }
+        public SaveCommandRdr(VMReader vm)
+        { _vmreader = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmsection.selectedSec != null);
+            return (_vmreader.selectedRdr != null);
         }
         #endregion
 
@@ -30,18 +30,18 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
 
         public void Execute(object parameter)
         {
-            VMSection vmd = (VMSection)parameter;
+            VMReader vmd = (VMReader)parameter;
             if (vmd.isAdding)
             {
-                context.Sections.Add(vmd.selectedSec);
+                context.Readers.Add(vmd.selectedRdr);
                 context.SaveChanges();
-                vmd.listOfSecs.Add(vmd.selectedSec);
+                vmd.listOfRdrs.Add(vmd.selectedRdr);
 
             }
             else
             {
-                Section sec = context.Sections.First(aa => aa.SectionID == vmd.selectedSec.SectionID);
-                sec.SectionName = vmd.selectedSec.SectionName;
+                Reader rdr = context.Readers.First(aa => aa.RdrID == vmd.selectedRdr.RdrID);
+                rdr.RdrName = vmd.selectedRdr.RdrName;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
