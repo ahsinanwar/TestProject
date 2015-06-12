@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
-using TimeAttendanceSystem.ViewModels.VMDepartment.Commands;
 
-namespace TimeAttendanceSystem.ViewModels.VMDepartment
+namespace TimeAttendanceSystem.ViewModels.VMShift
 {
-    class VMDepartments : ObservableObject
+    class VMShift :ObservableObject
     {
         #region Intialization
-        public Department _selectedDept;
+        public Shift _selectedShift;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -39,37 +38,37 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
                 base.OnPropertyChanged("isEnabled");
             }
         }
-        private ObservableCollection<Department> _listOfDepts;
+        private ObservableCollection<Shift> _listOfShifts;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
 
-        public Department selectedDept
+        public Shift selectedShift
         {
             get
             {
-                return _selectedDept;
+                return _selectedShift;
             }
             set
             {
                 this.isEnabled = false;
-                _selectedDept = value;
-                base.OnPropertyChanged("selectedDept");
+                _selectedShift = value;
+                base.OnPropertyChanged("selectedShift");
                 base.OnPropertyChanged("isEnabled");
 
             }
         }
 
-        public ObservableCollection<Department> listOfDepts
+        public ObservableCollection<Shift> listOfShifts
         {
-            get { return _listOfDepts; }
+            get { return _listOfShifts; }
 
             set
             {
-                listOfDepts = value;
-                OnPropertyChanged("listOfDepts");
+                listOfShifts = value;
+                OnPropertyChanged("listOfShifts");
             }
         }
         #endregion
@@ -111,24 +110,20 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
         #endregion
 
         #region constructor
-        public VMDepartments()
+        public VMShift()
         {
             entity = new TAS2013Entities();
-            _selectedDept = new Department();
-            _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
-            _selectedDept = entity.Departments.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedDept);
+            _selectedShift = new Shift();
+            _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
+            _selectedShift = entity.Shifts.ToList().FirstOrDefault();
+            this._AddCommand = new AddCommand(_selectedShift);
             this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedDept);
+            this._DeleteCommand = new DeleteCommand(_selectedShift);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommand(this);
-            base.OnPropertyChanged("_listOfDepts");
-            base.OnPropertyChanged("_listOfDivs");
+            base.OnPropertyChanged("_listOfShifts");
         }
-        #endregion
-
-
-
+        #endregion  
     }
 }
