@@ -1,9 +1,10 @@
-﻿<Window x:Class="TimeAttendanceSystem.Views.DepartmentView"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-        Title="DepartmentView" Height="454.627" Width="520.896" WindowStartupLocation="CenterScreen">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="TimeAttendanceSystem.Views.DepartmentView"
+        mc:Ignorable="d"
+        Title="DepartmentView" Height="454.627" Width="969.096" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
         <!-- The WPF DataGrid (WPF Toolkit version) has a bug that throws a format exception
@@ -32,7 +33,7 @@
             <Setter Property="AllowDrop" Value="True" />
         </Style>
     </Window.Resources>
-    <Grid HorizontalAlignment="Left" Height="417" Margin="0,10,0,-0.6" VerticalAlignment="Top" Width="511">
+    <Grid HorizontalAlignment="Left" Height="417" Margin="0,10,0,-3" VerticalAlignment="Top" Width="391">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -48,17 +49,28 @@
         <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
         <Label Content="Dept. name:" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
         <Label Content="Div id:" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.085,0.051"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedDept.DeptName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
                           ItemsSource="{Binding listOfDepts}" 
                           SelectedItem="{Binding selectedDept}" 
-                          AutoGenerateColumns="False" Margin="0,115,0,0" 
+                          Margin="0,115,0,0" 
+                         AutoGenerateColumns="False" 
                          >
             <toolkit:DataGrid.Columns>
-                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DeptID}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DeptName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Binding="{Binding DeptID}" Header="ID" IsReadOnly="false" Width="40"/>
+                <toolkit:DataGridTextColumn Binding="{Binding DeptName}" Header="Name" IsReadOnly="false" Width="*"/>
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
+
+        <telerik:RadGridView HorizontalAlignment="Left" ItemsSource="{Binding listOfDepts}" 
+                          SelectedItem="{Binding selectedDept}" Margin="396,35,-568,0" VerticalAlignment="Top" Width="563" Height="354">
+            <telerik:RadGridView.Columns>
+                <!--<telerik:GridViewDataColumn Header="No"
+											DataMemberBinding="{Binding DeptID}" />
+                <telerik:GridViewDataColumn Header="Department"
+											DataMemberBinding="{Binding DeptName}" />-->
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
 
     </Grid>
 </Window>
