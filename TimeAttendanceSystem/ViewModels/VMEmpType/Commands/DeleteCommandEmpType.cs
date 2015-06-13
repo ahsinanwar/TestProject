@@ -35,8 +35,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
             {
                 if (context.SaveChanges() > 0)
                 {
-                    vmd.listOfDepts.Remove(vmd.selectedDept);
-                    vmd.selectedDept = vmd.listOfDepts[0];
+                    vmd.listOfEmpTypes.Remove(vmd.selectedEmpType);
+                    vmd.selectedEmpType = vmd.listOfEmpTypes[0];
                 }
             }
             catch (Exception)

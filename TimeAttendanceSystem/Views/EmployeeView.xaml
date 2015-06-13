@@ -6,7 +6,7 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="2.096,2.717" Margin="42,12,0,0" Height="43" FontSize="30" Width="255" FontFamily="Microsoft YaHei"><Run Text="Create Employee"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="91,111,0,0" TextWrapping="Wrap" Text="Employee No:" VerticalAlignment="Top" Height="24" Width="143" FontSize="20" FontFamily="Trebuchet MS"/>
         <TextBox HorizontalAlignment="Left" Height="31" Margin="239,104,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="239,151,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="31" Margin="239,151,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="56,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="178" Height="26" Text="Select EMP Photo:" FontFamily="Trebuchet MS"/>
         <Button Content="Choose Photo&#xA;" HorizontalAlignment="Left" Margin="239,202,0,0" VerticalAlignment="Top" Width="105" Height="25" RenderTransformOrigin="0.181,0.604" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="66,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Trebuchet MS" Height="31"><Run Text="Employee Name:"/><LineBreak/><Run/></TextBlock>
@@ -60,7 +60,7 @@
                         <ColumnDefinition Width="0*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,44,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,44,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="18" Grid.Column="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="50,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="125">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -70,7 +70,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="Father Name:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,112,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,112,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="18" Grid.Column="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="55,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" Height="19" Grid.Column="2" Width="121"><Run Text="Blood Group:"/><LineBreak/><Run/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="649,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" Height="28" Grid.Column="2" Width="102"><Run Text="Join Date:"/><LineBreak/><Run/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="649,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" Height="31" Grid.Column="2" Width="109"><Run Text="Valid Date:"/><LineBreak/><Run/></TextBlock>
@@ -92,9 +92,9 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="CNIC:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,44,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,44,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,211,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,44,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,44,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199"  FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="190,211,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="18" Grid.Column="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="652,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="105">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -104,7 +104,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="Phone No:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="767,159,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="767,159,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="18" Grid.Column="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="670,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="105">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -114,7 +114,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="Cell No:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="767,211,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="767,211,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="18" Grid.Column="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="51,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" Height="28" Grid.Column="2" Width="119"><Run Text="Date Of Birth:"/><LineBreak/><Run/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="679,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="105">
                         <TextBlock.RenderTransform>
@@ -125,7 +125,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="E-Mail:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="767,262,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="767,262,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199"  FontSize="18" Grid.Column="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="45,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" Height="26" Grid.Column="2" Width="121" RenderTransformOrigin="0.398,9.328" Text="Martial Status:"/>
                     <ComboBox HorizontalAlignment="Left" Margin="190,331,0,0" VerticalAlignment="Top" Width="143" Height="26" Grid.Column="2">
                         <Button/>
@@ -140,7 +140,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="767,309,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="767,309,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="18" Grid.Column="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="52,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="114" Text="Home Adress:">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -150,7 +150,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="187,375,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" TextChanged="TextBox_TextChanged_1" FontSize="18" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="31" Margin="187,375,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="199" FontSize="18" Grid.Column="2"/>
                     <Button Grid.ColumnSpan="3" Content="Create" HorizontalAlignment="Left" Margin="207,428,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Height="39"/>
                     <Button Grid.ColumnSpan="3" Content="Back to List" HorizontalAlignment="Left" Margin="290,428,0,0" VerticalAlignment="Top" Width="111" FontSize="16" Height="39"/>
                 </Grid>

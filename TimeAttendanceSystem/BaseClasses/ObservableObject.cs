@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TimeAttendanceSystem.BaseClasses
 {
-    class ObservableObject :INotifyPropertyChanged
+    public class ObservableObject :INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propName)

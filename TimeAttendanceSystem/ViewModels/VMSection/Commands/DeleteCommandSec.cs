@@ -35,8 +35,8 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
             {
                 if (context.SaveChanges() > 0)
                 {
-                    vmd.listOfDepts.Remove(vmd.selectedDept);
-                    vmd.selectedDept = vmd.listOfDepts[0];
+                    vmd.listOfSecs.Remove(vmd.selectedSec);
+                    vmd.selectedSec = vmd.listOfSecs[0];
                 }
             }
             catch (Exception)
