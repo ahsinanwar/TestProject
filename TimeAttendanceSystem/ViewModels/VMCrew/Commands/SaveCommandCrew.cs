@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
         { _vmcrew = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmcrew.selectedCrew != null);
+            //return (_vmcrew.selectedCrew != null);
+            return true;
         }
         #endregion
 
@@ -35,7 +36,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
             {
                 context.Crews.Add(vmd.selectedCrew);
                 context.SaveChanges();
-                vmd.listOfcrews.Add(vmd.selectedCrew);
+                vmd.listOfCrews.Add(vmd.selectedCrew);
 
             }
             else

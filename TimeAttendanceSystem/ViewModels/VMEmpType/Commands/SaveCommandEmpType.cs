@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
         { _vmemptype = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmemptype.selectedEmpType != null);
+            //return (_vmemptype.selectedEmpType != null);
+            return true;
                 }
         #endregion
 

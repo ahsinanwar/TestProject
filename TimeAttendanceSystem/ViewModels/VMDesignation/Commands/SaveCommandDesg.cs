@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation.Commands
         { _vmdesignation = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmdesignation.selectedDesg != null);
+            //return (_vmdesignation.selectedDesg != null);
+            return true;
         }
         #endregion
 

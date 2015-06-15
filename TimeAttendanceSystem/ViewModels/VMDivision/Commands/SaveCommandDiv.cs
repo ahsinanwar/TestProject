@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision.Commands
         { _vmdivision = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmdivision.selectedDiv != null);
+            //return (_vmdivision.selectedDiv != null);
+            return true;
                 }
         #endregion
 

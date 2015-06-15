@@ -35,8 +35,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
             {
                 if (context.SaveChanges() > 0)
                 {
-                    vmd.listOfcrews.Remove(vmd.selectedCrew);
-                    vmd.selectedCrew = vmd.listOfcrews[0];
+                    vmd.listOfCrews.Remove(vmd.selectedCrew);
+                    vmd.selectedCrew = vmd.listOfCrews[0];
                 }
             }
             catch (Exception)

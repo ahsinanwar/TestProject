@@ -123,5 +123,10 @@ namespace TimeAttendanceSystem
             ReaderView rv = new ReaderView();
             rv.Show();
         }
+        private void MenuItemDesg_Click(object sender, RoutedEventArgs e)
+        {
+            DesignationView rv = new DesignationView();
+            rv.Show();
+        }
     }
 }
