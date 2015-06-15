@@ -62,14 +62,14 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew
             }
         }
 
-        public ObservableCollection<Crew> listOfcrews
+        public ObservableCollection<Crew> listOfCrews
         {
             get { return _listOfcrews; }
 
             set
             {
-                listOfcrews = value;
-                OnPropertyChanged("listOfcrews");
+                listOfCrews = value;
+                OnPropertyChanged("listOfCrews");
             }
         }
         #endregion

@@ -46,15 +46,15 @@
         </ToolBar>
         <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
         <Label Content="Name:" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedDept.DeptName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedDiv.DivName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
-                          ItemsSource="{Binding listOfDepts}" 
-                          SelectedItem="{Binding selectedDept}" 
+                          ItemsSource="{Binding listOfDivs}" 
+                          SelectedItem="{Binding selectedDiv}" 
                           AutoGenerateColumns="False" Margin="0,115,0,0" 
                          >
             <toolkit:DataGrid.Columns>
-                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DeptID}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DeptName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DivID}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DivName}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
 
