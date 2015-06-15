@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMSection;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -19,9 +20,12 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class SectionView : Window
     {
+        VMSection vmsecs;
         public SectionView()
         {
-            InitializeComponent();
+                InitializeComponent();
+                vmsecs = new VMSection();
+                this.DataContext = vmsecs;
         }
     }
 }

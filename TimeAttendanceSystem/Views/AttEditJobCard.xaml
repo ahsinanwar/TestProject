@@ -3,20 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="AttEditJobCard" Height="633.708" Width="713.483">
     <Grid>
-        <Label Content="Assign Job Card" HorizontalAlignment="Left" Margin="13,1,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <RadioButton Content="By Shift" HorizontalAlignment="Left" Margin="67,58,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <RadioButton Content="By Crew" HorizontalAlignment="Left" Margin="67,85,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <RadioButton Content="By Section" HorizontalAlignment="Left" Margin="67,114,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <RadioButton Content="By Employee" HorizontalAlignment="Left" Margin="67,143,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="To:" HorizontalAlignment="Left" Margin="61,214,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <DatePicker HorizontalAlignment="Left" Margin="175,180,-23,0" VerticalAlignment="Top" Width="140"/>
-        <DatePicker HorizontalAlignment="Left" Margin="175,219,-23,0" VerticalAlignment="Top" Width="140"/>
-        <Label Content="Job Card:" HorizontalAlignment="Left" Margin="58,259,0,-20" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label Content="From" HorizontalAlignment="Left" Margin="61,175,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Left" Margin="174,259,0,0" VerticalAlignment="Top" Width="140" Height="31"/>
-        <Label Content="Employee:" HorizontalAlignment="Left" Margin="50,304,0,-65" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="175,307,-23,-68" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontSize="16"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="175,351,0,-108" VerticalAlignment="Top" Width="75" FontSize="16"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Assign Job Card" HorizontalAlignment="Left" Margin="13,1,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <RadioButton Content="By Shift" HorizontalAlignment="Left" Margin="67,58,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="By Crew" HorizontalAlignment="Left" Margin="67,85,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="By Section" HorizontalAlignment="Left" Margin="67,114,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="By Employee" HorizontalAlignment="Left" Margin="67,143,0,0" VerticalAlignment="Top"/>
+        <Label Content="To:" HorizontalAlignment="Left" Margin="76,214,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="135,178,0,0" VerticalAlignment="Top" Width="140" Height="23"/>
+        <DatePicker HorizontalAlignment="Left" Margin="135,217,0,0" VerticalAlignment="Top" Width="140" Height="23"/>
+        <Label Content="Job Card:" HorizontalAlignment="Left" Margin="46,259,0,0" VerticalAlignment="Top"/>
+        <Label Content="From:" HorizontalAlignment="Left" Margin="63,175,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="135,259,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
+        <Label Content="Employee:" HorizontalAlignment="Left" Margin="41,304,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="135,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="165,345,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

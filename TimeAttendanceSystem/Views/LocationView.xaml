@@ -54,12 +54,12 @@
                          >
             <toolkit:DataGrid.Columns>
                 <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding LocID}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding LocName}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding City.CityName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="LocationName" Width="*" Binding="{Binding LocName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="CityName" Width="*" Binding="{Binding CityID}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
         <Label Content="City:" HorizontalAlignment="Left" Margin="30,84,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="79,88,0,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityID}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" Width="110"/>
+        <ComboBox HorizontalAlignment="Left" Margin="79,88,0,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityName}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" Width="110"/>
 
     </Grid>
 </Window>

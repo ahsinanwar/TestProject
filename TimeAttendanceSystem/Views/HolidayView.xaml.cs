@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMHoliday;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -22,6 +23,14 @@ namespace TimeAttendanceSystem.Views
         public HolidayView()
         {
             InitializeComponent();
+            vmhols = new VMHoliday();
+            this.DataContext = vmhols;
+        }
+        VMHoliday vmhols;
+
+        private void MainGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -61,7 +61,17 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
 
             }
         }
+        private ObservableCollection<Department> _listOfDepts;
+        public ObservableCollection<Department> listOfDepts
+        {
+            get { return _listOfDepts; }
 
+            set
+            {
+                listOfDepts = value;
+                OnPropertyChanged("listOfDepts");
+            }
+        }
         public ObservableCollection<Section> listOfSecs
         {
             get { return _listOfSecs; }
@@ -117,6 +127,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             _selectedSec = new Section();
             _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
             _selectedSec = entity.Sections.ToList().FirstOrDefault();
+            _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
             this._AddCommand = new AddCommandSec(_selectedSec);
             this._EditCommand = new EditCommandSec(this);
             this._DeleteCommand = new DeleteCommandSec(_selectedSec);
@@ -124,6 +135,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandSec(this);
             base.OnPropertyChanged("_listOfSecs");
+            base.OnPropertyChanged("_listOfDepts");
         }
         #endregion
     }

@@ -29,11 +29,11 @@
     </Window.Background>
     <DockPanel Background="#f5f5f5">
 
-        <Border DockPanel.Dock="Top" Height="91">
+        <!--<Border DockPanel.Dock="Top" Height="91">
             <Border.Background>
                 <ImageBrush ImageSource="Resources/TMSHeader.png" Stretch="UniformToFill"/>
             </Border.Background>
-        </Border>
+        </Border>-->
         <Menu Height="28" FontSize="14" VerticalAlignment="Top">
             <Menu.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

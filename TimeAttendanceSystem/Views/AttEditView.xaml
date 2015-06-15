@@ -5,11 +5,11 @@
     <Grid>
         <Label Content="Edit Manual Time In/Out
                " HorizontalAlignment="Left" Margin="13,6,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Date:" HorizontalAlignment="Left" Margin="35,48,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Employee No:" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Date:" HorizontalAlignment="Left" Margin="35,53,0,0" VerticalAlignment="Top"/>
+        <Label Content="Employee No:" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top"/>
         <DatePicker HorizontalAlignment="Left" Margin="158,53,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="158,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" FontSize="16"/>
-        <Button Content="Next" HorizontalAlignment="Left" Margin="158,135,0,0" VerticalAlignment="Top" Width="49" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="157,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="-7.121,3.249"/>
+        <Button Content="Next" HorizontalAlignment="Left" Margin="158,135,0,0" VerticalAlignment="Top" Width="49"/>
         <Label Content="Edit Attendance for Date: 02-Jun-2015" HorizontalAlignment="Left" Margin="288,0,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="MS Reference Sans Serif"/>
         <Label Content="Old Attendance Details" HorizontalAlignment="Left" Margin="296,68,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Employee No:" HorizontalAlignment="Left" Margin="297,99,0,0" VerticalAlignment="Top"/>
@@ -42,22 +42,22 @@
         <Label Content="01:33:00" HorizontalAlignment="Left" Margin="454,304,0,0" VerticalAlignment="Top"/>
         <Label Content="01:33:00" HorizontalAlignment="Left" Margin="454,386,0,0" VerticalAlignment="Top"/>
         <Label Content="[LO][N-OT]" HorizontalAlignment="Left" Margin="454,407,0,0" VerticalAlignment="Top"/>
-        <Button Content="Previous Date" HorizontalAlignment="Left" Margin="890,6,0,0" VerticalAlignment="Top" Width="90" Height="27" FontWeight="Bold"/>
-        <Button Content="Next" HorizontalAlignment="Left" Margin="985,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="27"/>
+        <Button Content="Previous Date" HorizontalAlignment="Left" Margin="890,6,0,0" VerticalAlignment="Top" Width="90" Height="27"/>
+        <Button Content="Next" HorizontalAlignment="Left" Margin="985,6,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
         <Label Content="Enter New Time In and Out" HorizontalAlignment="Left" Margin="645,68,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Duty Time:" HorizontalAlignment="Left" Margin="643,99,0,0" VerticalAlignment="Top"/>
         <Label Content="Time In:" HorizontalAlignment="Left" Margin="643,143,0,0" VerticalAlignment="Top"/>
         <Label Content="Time Out:" HorizontalAlignment="Left" Margin="643,184,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181"/>
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181"/>
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181"/>
         <Label Content="Duty Code:" HorizontalAlignment="Left" Margin="643,222,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="746,220,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
         <CheckBox Content="Shift Minutes" HorizontalAlignment="Left" Margin="643,256,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181"/>
         <Label Content="Remarks:" HorizontalAlignment="Left" Margin="643,299,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" FontSize="16"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="746,339,0,0" VerticalAlignment="Top" Width="48" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="746,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="746,339,0,0" VerticalAlignment="Top" Width="48" Height="27"/>
 
     </Grid>
 </Window>

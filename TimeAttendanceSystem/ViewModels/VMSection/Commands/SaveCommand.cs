@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
         { _vmsection = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmsection.selectedSec != null);
+            //return (_vmsection.selectedSec != null);
+            return true;
         }
         #endregion
 

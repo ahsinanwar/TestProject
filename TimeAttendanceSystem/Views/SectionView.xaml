@@ -46,20 +46,20 @@
         </ToolBar>
         <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
         <Label HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedDept.DeptName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedSec.SecName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
-                          ItemsSource="{Binding listOfDepts}" 
-                          SelectedItem="{Binding selectedDept}" 
+                          ItemsSource="{Binding listOfSecs}" 
+                          SelectedItem="{Binding selectedSec}" 
                           AutoGenerateColumns="False" Margin="0,115,0,0" 
                          >
             <toolkit:DataGrid.Columns>
-                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DeptID}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DeptName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding SectionID}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding SectionName}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
         <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,51,0,0"/>
         <Label Content="Department:" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="79,90,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="79,88,0,0" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" SelectedValue="{Binding selectedSec.SecID}" ItemsSource="{Binding listOfDepts}" VerticalAlignment="Top" Width="110"/>
 
     </Grid>
 </Window>

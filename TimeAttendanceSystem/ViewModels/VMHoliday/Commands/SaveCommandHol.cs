@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
         { _vmemp = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmemp.selectedHoliday != null);
+            //return (_vmemp.selectedHoliday != null);
+            return true;
         }
         #endregion
 
