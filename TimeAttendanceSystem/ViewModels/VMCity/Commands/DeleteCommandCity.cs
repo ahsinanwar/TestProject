@@ -35,8 +35,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
             {
                 if (context.SaveChanges() > 0)
                 {
-                    vmd.listOfcities.Remove(vmd.selectedCity);
-                    vmd.selectedCity = vmd.listOfcities[0];
+                    vmd.listOfCities.Remove(vmd.selectedCity);
+                    vmd.selectedCity = vmd.listOfCities[0];
                 }
             }
             catch (Exception)

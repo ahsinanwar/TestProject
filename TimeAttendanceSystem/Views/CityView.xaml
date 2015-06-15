@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-        Title="City" Height="300" Width="300">
+        Title="City" Height="396.992" Width="322.556">
 
     <Window.Resources>
 
@@ -33,11 +33,11 @@
             <Setter Property="AllowDrop" Value="True" />
         </Style>
     </Window.Resources>
-    <Grid HorizontalAlignment="Left" Height="417" Margin="0,10,0,-0.6" VerticalAlignment="Top" Width="511">
+    <Grid HorizontalAlignment="Left" Height="355" Margin="0,10,0,0" VerticalAlignment="Top" Width="313">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="516" Margin="0,-12,-5,0" RenderTransformOrigin="0.498,0.057">
+        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="312" Margin="0,-12,-46,0" RenderTransformOrigin="0.498,0.057">
             <Button Command="{Binding AddCommand}" CommandParameter="{Binding}" Margin="6"
 				Content="Add" />
             <Button Content="Edit"  Command="{Binding EditCommand}" CommandParameter="{Binding}" Margin="6"/>
@@ -46,15 +46,15 @@
             <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
         </ToolBar>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="20,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedDept.DeptName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedCity.CityName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
-                          ItemsSource="{Binding listOfDepts}" 
-                          SelectedItem="{Binding selectedDept}" 
+                          ItemsSource="{Binding listOfCities}" 
+                          SelectedItem="{Binding selectedCity}" 
                           AutoGenerateColumns="False" Margin="0,115,0,0" 
                          >
             <toolkit:DataGrid.Columns>
-                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DeptID}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DeptName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding CityID}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding CityName}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
 

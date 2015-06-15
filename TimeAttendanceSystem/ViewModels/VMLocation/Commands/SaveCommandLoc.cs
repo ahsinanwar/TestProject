@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
         { _vmloc = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmloc.selectedLoc != null);
+            //return (_vmloc.selectedLoc != null);
+            return true;
                 }
         #endregion
 

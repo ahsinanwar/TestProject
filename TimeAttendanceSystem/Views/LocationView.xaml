@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-        Title="LocationView" Height="300" Width="300">
+        Title="LocationView" Height="454.511" Width="378.947">
     <Window.Resources>
 
         <!-- The WPF DataGrid (WPF Toolkit version) has a bug that throws a format exception
@@ -32,11 +32,11 @@
             <Setter Property="AllowDrop" Value="True" />
         </Style>
     </Window.Resources>
-    <Grid HorizontalAlignment="Left" Height="417" Margin="0,10,0,-0.6" VerticalAlignment="Top" Width="511">
+    <Grid HorizontalAlignment="Left" Height="417" Margin="0,10,-82,-157" VerticalAlignment="Top" Width="374">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="516" Margin="0,-12,-5,0" RenderTransformOrigin="0.498,0.057">
+        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="374" Margin="0,-12,0,0" RenderTransformOrigin="0.498,0.057">
             <Button Command="{Binding AddCommand}" CommandParameter="{Binding}" Margin="6"
 				Content="Add" />
             <Button Content="Edit"  Command="{Binding EditCommand}" CommandParameter="{Binding}" Margin="6"/>
@@ -46,19 +46,20 @@
         </ToolBar>
         <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
         <Label Content="Name:" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedDept.DeptName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedLoc.LocName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
-                          ItemsSource="{Binding listOfDepts}" 
-                          SelectedItem="{Binding selectedDept}" 
+                          ItemsSource="{Binding listOfLocs}" 
+                          SelectedItem="{Binding selectedLoc}" 
                           AutoGenerateColumns="False" Margin="0,115,0,0" 
                          >
             <toolkit:DataGrid.Columns>
-                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DeptID}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DeptName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding LocID}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding LocName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding City.CityName}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
         <Label Content="City:" HorizontalAlignment="Left" Margin="30,84,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="79,88,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="79,88,0,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityID}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" Width="110"/>
 
     </Grid>
 </Window>

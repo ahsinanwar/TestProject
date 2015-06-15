@@ -62,14 +62,14 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
             }
         }
 
-        public ObservableCollection<City> listOfcities
+        public ObservableCollection<City> listOfCities
         {
             get { return _listOfCities; }
 
             set
             {
-                listOfcities = value;
-                OnPropertyChanged("listOfcities");
+                listOfCities = value;
+                OnPropertyChanged("listOfCities");
             }
         }
         #endregion
@@ -123,7 +123,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandCity(this);
-            base.OnPropertyChanged("_listOfCities");
+            base.OnPropertyChanged("listOfCities");
         }
         #endregion
     }

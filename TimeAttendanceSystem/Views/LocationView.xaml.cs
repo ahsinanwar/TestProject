@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMLocation;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -22,6 +23,9 @@ namespace TimeAttendanceSystem.Views
         public LocationView()
         {
             InitializeComponent();
+            vmlocs = new VMLocation();
+            this.DataContext = vmlocs;
         }
+        VMLocation vmlocs;
     }
 }

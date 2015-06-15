@@ -45,7 +45,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-
+        private ObservableCollection<City> _listOfCities;
         public Location selectedLoc
         {
             get
@@ -70,6 +70,16 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
             {
                 listOfLocs = value;
                 OnPropertyChanged("listOfLocs");
+            }
+        }
+        public ObservableCollection<City> listOfCities
+        {
+            get { return _listOfCities; }
+
+            set
+            {
+                listOfCities = value;
+                OnPropertyChanged("listOfCities");
             }
         }
         #endregion
@@ -117,6 +127,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
             _selectedLoc = new Location();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             _selectedLoc = entity.Locations.ToList().FirstOrDefault();
+            _listOfCities = new ObservableCollection<City>(entity.Cities.ToList());
             this._AddCommand = new AddCommandLoc(_selectedLoc);
             this._EditCommand = new EditCommandLoc(this);
             this._DeleteCommand = new DeleteCommandLoc(_selectedLoc);
@@ -124,6 +135,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandLoc(this);
             base.OnPropertyChanged("_listOfLocs");
+            base.OnPropertyChanged("_listOfCities");
         }
         #endregion
     }

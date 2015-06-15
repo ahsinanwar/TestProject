@@ -21,7 +21,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
         { _vmcity = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmcity.selectedCity != null);
+            return true;
         }
         #endregion
 
@@ -35,8 +35,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
             {
                 context.Cities.Add(vmd.selectedCity);
                 context.SaveChanges();
-                vmd.listOfcities.Add(vmd.selectedCity);
-
+                vmd.listOfCities.Add(vmd.selectedCity);
             }
             else
             {
