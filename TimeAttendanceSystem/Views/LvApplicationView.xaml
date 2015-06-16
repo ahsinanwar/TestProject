@@ -60,5 +60,6 @@
                 <toolkit:DataGridTextColumn Header="Lv Type" Width="*" Binding="{Binding LvType}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
+        <Button x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="274,66,0,0" VerticalAlignment="Top" Width="21" Height="23" Click="btn_empView_Click"/>
     </Grid>
 </Window>
