@@ -34,99 +34,60 @@ namespace TimeAttendanceSystem
             aa.Show();
         }
 
-        private void MenuItemDept_Click(object sender, RoutedEventArgs e)
+        private void OnTreeViewSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            DepartmentView aa = new DepartmentView();
-            aa.Show();
-        }
-
-        private void MenuItemEmp_Click(object sender, RoutedEventArgs e)
-        {
-            EmployeeView em = new EmployeeView();
-            em.Show();
-        }
-
-        private void MenuItemShift_Click(object sender, RoutedEventArgs e)
-        {
-            ShiftView sv = new ShiftView();
-            sv.Show();
-        }
-
-        private void MenuItemCat_Click(object sender, RoutedEventArgs e)
-        {
-            CategoryView cv = new CategoryView();
-            cv.Show();
-        }
-
-        private void MenuItemEmpType_Click(object sender, RoutedEventArgs e)
-        {
-            EmpTypeView emt = new EmpTypeView();
-            emt.Show();
-        }
-
-        private void MenuItemSec_Click(object sender, RoutedEventArgs e)
-        {
-            SectionView scv = new SectionView();
-            scv.Show();
-        }
-
-        private void MenuItemDiv_Click(object sender, RoutedEventArgs e)
-        {
-            DivisionView dv = new DivisionView();
-            dv.Show();
-        }
-
-        private void MenuItemLoc_Click(object sender, RoutedEventArgs e)
-        {
-            LocationView lv = new LocationView();
-            lv.Show();
-        }
-
-        private void MenuItemCity_Click(object sender, RoutedEventArgs e)
-        {
-            CityView cv = new CityView();
-            cv.Show();
-        }
-
-        private void MenuItemHol_Click(object sender, RoutedEventArgs e)
-        {
-            HolidayView hv = new HolidayView();
-            hv.Show();
-        }
-
-        private void MenuItemCrew_Click(object sender, RoutedEventArgs e)
-        {
-            CrewView cvv = new CrewView();
-            cvv.Show();
-        }
-
-        private void MenuItemLvApp_Click(object sender, RoutedEventArgs e)
-        {
-            LvApplicationView lvAppV = new LvApplicationView();
-            lvAppV.Show();
-        }
-
-        private void MenuItemSLv_Click(object sender, RoutedEventArgs e)
-        {
-            ShortLvView slvV = new ShortLvView();
-            slvV.Show();
-        }
-
-        private void MenuItemQuota_Click(object sender, RoutedEventArgs e)
-        {
-            LvQuotaView lvQV = new LvQuotaView();
-            lvQV.Show();
-        }
-
-        private void MenuItemRdr_Click(object sender, RoutedEventArgs e)
-        {
-            ReaderView rv = new ReaderView();
-            rv.Show();
-        }
-        private void MenuItemDesg_Click(object sender, RoutedEventArgs e)
-        {
-            DesignationView rv = new DesignationView();
-            rv.Show();
+            string selectedMenuText = ((TreeViewItem)((TreeView)sender).SelectedItem).Header.ToString();
+            switch (selectedMenuText)
+            {
+                case "Sections":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+                case "Departments":
+                    _mainFrame.Navigate(new DepartmentView());
+                    break;
+                case "Division":
+                    _mainFrame.Navigate(new DivisionView());
+                    break;
+                case "Designation":
+                    _mainFrame.Navigate(new DesignationView());
+                    break;
+                case "Crew":
+                    _mainFrame.Navigate(new CrewView());
+                    break;
+                case "City":
+                    _mainFrame.Navigate(new CityView());
+                    break;
+                case "Location":
+                    _mainFrame.Navigate(new LocationView());
+                    break;
+                case "Category":
+                    _mainFrame.Navigate(new CategoryView());
+                    break;
+                case "Emp Types":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+                case "Holidays":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+                case "User":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+                case "Application":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+                case "Short Leave":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+                case "Quota":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+                case "Daily":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+                case "Monthly":
+                    _mainFrame.Navigate(new SectionView());
+                    break;
+            }
         }
     }
 }

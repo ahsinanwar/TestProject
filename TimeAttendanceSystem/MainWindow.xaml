@@ -34,40 +34,52 @@
             </Border.Background>
         </Border>
         <Border DockPanel.Dock="Top" Height="30" BorderThickness="0,0,0,2" Margin="0,0,0,0" BorderBrush="#6441a5">
-            <Menu Height="28" FontSize="14" VerticalAlignment="Top">
-                <Menu.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#4f748e" Offset="0"/>
-                        <GradientStop Color="#4f748e" Offset="1"/>
-                    </LinearGradientBrush>
-                </Menu.Background>
-                <MenuItem Header="Company" Foreground='White'>
-                    <MenuItem x:Name="MenuItemEmp" Header="Employee" Width="200" Click="MenuItemEmp_Click" Background="#FF4F748E" BorderBrush="{DynamicResource BlueLightGradientBrush}"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemShift" Header="Shift"  Width="200" Click="MenuItemShift_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemCat" Header="Category"  Width="200" Click="MenuItemCat_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemEmpType" Header="Employee Type"  Width="200" Click="MenuItemEmpType_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemSec" Header="Sections"  Width="200" Click="MenuItemSec_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemDesg" Header="Designation"  Width="200" Click="MenuItemDesg_Click"/>
-                    <MenuItem Background="#4f748e" Header="Departments"  Width="200" Click="MenuItemDept_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemDiv" Header="Division"  Width="200" Click="MenuItemDiv_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemLoc" Header="Location"  Width="200" Click="MenuItemLoc_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemCity" Header="City"  Width="200" Click="MenuItemCity_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemHol" Header="Holiday" Width="200" Click="MenuItemHol_Click"/>
-                    <MenuItem Background="#4f748e" x:Name="MenuItemCrew" Header="Crew"  Width="200" Click="MenuItemCrew_Click"/>
-                </MenuItem>
-                <MenuItem Header="Leave" Foreground='White'>
-                    <MenuItem x:Name="MenuItemLvApp" Header="Application" Width="200" Click="MenuItemLvApp_Click"/>
-                    <MenuItem x:Name="MenuItemSLv" Header="Short Leave"  Width="200" Click="MenuItemSLv_Click"/>
-                    <MenuItem x:Name="MenuItemQuota" Header="Quota"  Width="200" Click="MenuItemQuota_Click"/>
-                </MenuItem>
-                <MenuItem Header="Device" Foreground='White'>
-                    <MenuItem x:Name="MenuItemRdr" Header="Readers"  Width="145" Click="MenuItemRdr_Click"/>
-                </MenuItem>
-            </Menu>
+            <StackPanel Orientation="Horizontal">
+                <Label>Home</Label>
+                <Label>Employee</Label>
+                <Label>Shift</Label>
+                <Label >Leave</Label>
+            </StackPanel>
         </Border>
-        <Border DockPanel.Dock="Left" Width="150" BorderThickness="0,0,1,0" Margin="0,0,5,0" BorderBrush="#6441a5">
+        <Border DockPanel.Dock="Left" Width="170" BorderThickness="0,0,1,0" Margin="0,0,5,0" BorderBrush="#6441a5">
+            <StackPanel>
+                <StackPanel Background="#6441a5">
+                    <Label Padding="15,2,5,0" FontSize="16px" Foreground="White" >Menu</Label>
+                    <Label Padding="15,0,0,5" FontSize="11px" Foreground="White">Click an option</Label>
+                </StackPanel>
+
+                <TreeView Background="#eff3f6" FontSize="14px" SelectedItemChanged="OnTreeViewSelectedItemChanged">
+
+                    <TreeViewItem Header="Company">
+                        <TreeViewItem Header="Sections"></TreeViewItem>
+                        <TreeViewItem Header="Departments"></TreeViewItem>
+                        <TreeViewItem Header="Division"></TreeViewItem>
+                        <TreeViewItem Header="Designation"></TreeViewItem>
+                        <TreeViewItem Header="Crew"></TreeViewItem>
+                        <TreeViewItem Header="City"></TreeViewItem>
+                        <TreeViewItem Header="Location"></TreeViewItem>
+                        <TreeViewItem Header="Category"></TreeViewItem>
+                        <TreeViewItem Header="Emp Types"></TreeViewItem>
+                        <TreeViewItem Header="Holidays"></TreeViewItem>
+                        <TreeViewItem Header="Users"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Leaves">
+                        <TreeViewItem Header="Application"></TreeViewItem>
+                        <TreeViewItem Header="Short Leave"></TreeViewItem>
+                        <TreeViewItem Header="Quota"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Reports">
+                        <TreeViewItem Header="Daily"></TreeViewItem>
+                        <TreeViewItem Header="Monthly"></TreeViewItem>
+                        <TreeViewItem Header="Present"></TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+            </StackPanel>
         </Border>
         <Border DockPanel.Dock="Bottom"/>
+        <Frame x:Name="_mainFrame">
+            
+        </Frame>
         <Border/>
 
     </DockPanel>
