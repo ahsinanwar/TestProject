@@ -1,0 +1,14 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="TimeAttendanceSystem.Views.SelectEmpWindow"
+        Title="SelectEmpWindow" Height="407.067" Width="368.905">
+    <Grid>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+
+        <telerik:RadGridView x:Name="lstView_emps" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="263" Width="351" Grid.ColumnSpan="2"/>
+        <Button Content="Select" HorizontalAlignment="Left" Margin="142,327,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
