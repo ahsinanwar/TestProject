@@ -2664,7 +2664,7 @@
           <Key>
             <PropertyRef Name="TypeID" />
           </Key>
-          <Property Name="TypeID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeID" Type="tinyint" Nullable="false" />
           <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="CatID" Type="smallint" />
         </EntityType>
@@ -6533,7 +6533,7 @@
           <Key>
             <PropertyRef Name="TypeID" />
           </Key>
-          <Property Type="Byte" Name="TypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TypeID" Nullable="false" />
           <Property Type="String" Name="TypeName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="CatID" />
           <NavigationProperty Name="Category" Relationship="TASDesktopModel.FK_EmpType_Category" FromRole="EmpType" ToRole="Category" />
