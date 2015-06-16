@@ -6,20 +6,28 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="Assign Job Card" HorizontalAlignment="Left" Margin="13,1,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <RadioButton Content="By Shift" HorizontalAlignment="Left" Margin="67,58,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="By Crew" HorizontalAlignment="Left" Margin="67,85,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="By Section" HorizontalAlignment="Left" Margin="67,114,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="By Employee" HorizontalAlignment="Left" Margin="67,143,0,0" VerticalAlignment="Top"/>
-        <Label Content="To:" HorizontalAlignment="Left" Margin="76,214,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="135,178,0,0" VerticalAlignment="Top" Width="140" Height="23"/>
-        <DatePicker HorizontalAlignment="Left" Margin="135,217,0,0" VerticalAlignment="Top" Width="140" Height="23"/>
-        <Label Content="Job Card:" HorizontalAlignment="Left" Margin="46,259,0,0" VerticalAlignment="Top"/>
-        <Label Content="From:" HorizontalAlignment="Left" Margin="63,175,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="135,259,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
-        <Label Content="Employee:" HorizontalAlignment="Left" Margin="41,304,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="135,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="165,345,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Assign Job Card" HorizontalAlignment="Left" Margin="13,71,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <RadioButton Content="By Shift" HorizontalAlignment="Left" Margin="67,128,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="By Crew" HorizontalAlignment="Left" Margin="67,155,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="By Section" HorizontalAlignment="Left" Margin="67,184,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="By Employee" HorizontalAlignment="Left" Margin="67,213,0,0" VerticalAlignment="Top"/>
+        <Label Content="To:" HorizontalAlignment="Left" Margin="76,284,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="135,248,0,0" VerticalAlignment="Top" Width="140" Height="23"/>
+        <DatePicker HorizontalAlignment="Left" Margin="135,287,0,0" VerticalAlignment="Top" Width="140" Height="23"/>
+        <Label Content="Job Card:" HorizontalAlignment="Left" Margin="46,329,0,0" VerticalAlignment="Top"/>
+        <Label Content="From:" HorizontalAlignment="Left" Margin="63,245,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="135,329,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
+        <Label Content="Employee:" HorizontalAlignment="Left" Margin="41,374,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="135,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="165,415,0,0" VerticalAlignment="Top" Width="75"/>
+        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="516" Margin="1,10,0,0" >
+            <Button Command="{Binding AddCommand}" CommandParameter="{Binding}" Margin="6"
+        		Content="Add" />
+            <Button Content="Edit"  Command="{Binding EditCommand}" CommandParameter="{Binding}" Margin="6"/>
+            <Button Content="Delete"  Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Margin="6"/>
+            <Button Content="Search.." CommandParameter="ZoomNormal" Margin="6"/>
+            <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
+        </ToolBar>
 
     </Grid>
 </Window>

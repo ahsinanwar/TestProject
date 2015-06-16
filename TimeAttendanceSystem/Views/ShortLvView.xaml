@@ -3,23 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ShortLvView" Height="479.775" Width="731.461">
     <Grid Margin="0,0,-8,-3">
-        <Label Content="Short Leaves:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Label Content="Emp No:" HorizontalAlignment="Left" Margin="101,67,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="169,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Date:" HorizontalAlignment="Left" Margin="101,109,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="169,116,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Start:" HorizontalAlignment="Left" Margin="101,151,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="169,158,0,0" VerticalAlignment="Top" Width="50"/>
-        <Label Content="End:" HorizontalAlignment="Left" Margin="224,151,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox HorizontalAlignment="Left" Margin="265,158,0,0" VerticalAlignment="Top" Width="50"/>
-        <Label Content="Remarks:" HorizontalAlignment="Left" Margin="98,196,0,0" VerticalAlignment="Top"/>
-        <RichTextBox HorizontalAlignment="Left" Height="100" Margin="169,200,0,0" VerticalAlignment="Top" Width="100">
+        <Label Content="Short Leaves:" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Label Content="Emp No:" HorizontalAlignment="Left" Margin="101,116,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="169,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Date:" HorizontalAlignment="Left" Margin="101,158,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="169,165,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Start:" HorizontalAlignment="Left" Margin="101,200,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="169,207,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="End:" HorizontalAlignment="Left" Margin="224,200,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox HorizontalAlignment="Left" Margin="265,207,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="Remarks:" HorizontalAlignment="Left" Margin="98,245,0,0" VerticalAlignment="Top"/>
+        <RichTextBox HorizontalAlignment="Left" Height="100" Margin="169,249,0,0" VerticalAlignment="Top" Width="100">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="516" Margin="10,10,0,0" >
+            <Button Command="{Binding AddCommand}" CommandParameter="{Binding}" Margin="6"
+        		Content="Add" />
+            <Button Content="Edit"  Command="{Binding EditCommand}" CommandParameter="{Binding}" Margin="6"/>
+            <Button Content="Delete"  Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Margin="6"/>
+            <Button Content="Search.." CommandParameter="ZoomNormal" Margin="6"/>
+            <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
+        </ToolBar>
 
     </Grid>
 </Window>
