@@ -27,18 +27,21 @@
                     <Label HorizontalAlignment="Left" Margin="157,473,0,0" VerticalAlignment="Top"/>
                     <Label Content="Crew Name:" HorizontalAlignment="Left" Margin="26,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.839"/>
                     <Label Content="Status:" HorizontalAlignment="Left" Margin="55,262,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.118,-0.649"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,21,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="CatName" SelectedValuePath="CatID" SelectedValue="{Binding selectedEmp.CatName}" ItemsSource="{Binding listOfCats}"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,48,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,75,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,102,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,129,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,156,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,183,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,210,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,237,0,0" VerticalAlignment="Top" Width="152"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,264,0,0" VerticalAlignment="Top" Width="152"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,21,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="CatName" SelectedValuePath="CatID" ItemsSource="{Binding listOfCats}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,48,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,75,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DesignationName" SelectedValuePath="DesignationID" ItemsSource="{Binding listOfDesgs}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,102,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="GradeName" SelectedValuePath="GradeID" ItemsSource="{Binding listOfDesgs}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,129,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="ShiftName" SelectedValuePath="ShiftID" ItemsSource="{Binding listOfShifts}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,156,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" ItemsSource="{Binding listOfDepts}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,183,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="SecName" SelectedValuePath="SecID" ItemsSource="{Binding listOfSecs}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,210,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="LocName" SelectedValuePath="LocID" ItemsSource="{Binding listOfLocs}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,237,0,0" VerticalAlignment="Top" Width="152" DisplayMemberPath="CrewName" SelectedValuePath="CrewID" ItemsSource="{Binding listOfCrews}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,264,0,0" VerticalAlignment="Top" Width="152" >
+                        <ComboBoxItem Name="cbi1">True</ComboBoxItem>
+                        <ComboBoxItem Name="cbi2">False</ComboBoxItem>
+                    </ComboBox>
                     <Label Content="Card No:" HorizontalAlignment="Left" Margin="309,17,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="24" Margin="371,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132"/>
+                    <TextBox HorizontalAlignment="Left" Height="24" Margin="371,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Text="{Binding selectedEmp.CardNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Button Content="Create" HorizontalAlignment="Left" Margin="135,322,0,0" VerticalAlignment="Top" Width="57"/>
                 </Grid>
             </TabItem>
@@ -69,7 +72,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="Father Name:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="148,84,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="143" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="148,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Grid.Column="2" Text="{Binding selectedEmp.BloodGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock HorizontalAlignment="Left" Margin="53,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" Height="19" Grid.Column="2" Width="121"><Run Text="Blood Group:"/><LineBreak/><Run/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="488,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" Height="28" Grid.Column="2" Width="102"><Run Text="Join Date:"/><LineBreak/><Run/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="483,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" Height="31" Grid.Column="2" Width="109"><Run Text="Valid Date:"/><LineBreak/><Run/></TextBlock>
@@ -77,8 +80,8 @@
                     <DatePicker HorizontalAlignment="Left" Margin="148,210,0,0" VerticalAlignment="Top" Width="143" Height="22" Grid.Column="2"/>
                     <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Margin="564,84,0,0" Height="22" Width="143" RenderTransformOrigin="0.468,-0.512"/>
                     <ComboBox HorizontalAlignment="Left" Margin="148,123,0,0" VerticalAlignment="Top" Width="143" Height="26" Grid.Column="2" RenderTransformOrigin="0.266,-0.312">
-                        <Button/>
-                        <Button/>
+                        <ComboBoxItem Name="CBMale">Male</ComboBoxItem>
+                        <ComboBoxItem Name="CBFemale">Female</ComboBoxItem>
                     </ComboBox>
                     <TextBlock HorizontalAlignment="Left" Margin="80,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" Height="19" Grid.Column="2" Width="65"><Run Text="Gander:"/><LineBreak/><Run/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="93,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="105">
@@ -90,8 +93,8 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="CNIC:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="148,42,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="143" FontSize="18" Grid.Column="2"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="148,169,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="143" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="148,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" FontSize="18" Grid.Column="2" Text="{Binding selectedEmp.FatherName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="148,169,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Grid.Column="2" Text="{Binding selectedEmp.NicNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock HorizontalAlignment="Left" Margin="488,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="105">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -101,7 +104,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="Phone No:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="564,127,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="143" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="564,127,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Grid.Column="2" Text="{Binding selectedEmp.PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock HorizontalAlignment="Left" Margin="499,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="105">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -111,7 +114,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="Cell No:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="564,169,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="143" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="564,169,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Grid.Column="2" Text="{Binding selectedEmp.CellNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock HorizontalAlignment="Left" Margin="50,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" Height="28" Grid.Column="2" Width="119"><Run Text="Date Of Birth:"/><LineBreak/><Run/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="503,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="105">
                         <TextBlock.RenderTransform>
@@ -122,11 +125,11 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="E-Mail:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="564,210,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="143" Grid.Column="2" RenderTransformOrigin="0.616,10.317"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="564,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="2" RenderTransformOrigin="0.616,10.317" Text="{Binding selectedEmp.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock HorizontalAlignment="Left" Margin="48,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" Height="26" Grid.Column="2" Width="121" RenderTransformOrigin="0.398,9.328" Text="Martial Status:"/>
                     <ComboBox HorizontalAlignment="Left" Margin="148,251,0,0" VerticalAlignment="Top" Width="143" Height="26" Grid.Column="2">
-                        <Button/>
-                        <Button/>
+                        <ComboBoxItem >Married</ComboBoxItem>
+                        <ComboBoxItem >UnMarried</ComboBoxItem>
                     </ComboBox>
                     <TextBlock HorizontalAlignment="Left" Margin="491,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="105" Text="Remarks:">
                         <TextBlock.RenderTransform>
@@ -137,7 +140,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="564,251,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="143" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="564,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="2" Text="{Binding selectedEmp.Remarks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock HorizontalAlignment="Left" Margin="54,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" RenderTransformOrigin="0.5,0.5" Height="25" Grid.Column="2" Width="114" Text="Home Adress:">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -147,7 +150,7 @@
                                 <TranslateTransform Y="-1.291"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform></TextBlock>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="148,296,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="143" Grid.Column="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="148,296,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Grid.Column="2" Text="{Binding selectedEmp.Adress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Button Grid.ColumnSpan="3" Content="Create" HorizontalAlignment="Left" Margin="163,334,0,0" VerticalAlignment="Top" Width="48" Height="25"/>
                     <Button Grid.ColumnSpan="3" Content="Back to List" HorizontalAlignment="Left" Margin="216,334,0,0" VerticalAlignment="Top" Width="75" Height="25" RenderTransformOrigin="0.4,0.596"/>
                 </Grid>

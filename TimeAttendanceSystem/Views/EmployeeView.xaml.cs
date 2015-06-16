@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMEmployee;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -22,6 +23,9 @@ namespace TimeAttendanceSystem.Views
         public EmployeeView()
         {
             InitializeComponent();
+            vmemps = new VMEmployee();
+            this.DataContext = vmemps;
         }
+        VMEmployee vmemps;
     }
 }

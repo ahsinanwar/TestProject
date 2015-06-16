@@ -45,53 +45,70 @@
             <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
         </ToolBar>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="41,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="97,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedDept.DeptName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="97,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedShift.ShiftName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
-                          ItemsSource="{Binding listOfDepts}" 
-                          SelectedItem="{Binding selectedDept}" 
-                          AutoGenerateColumns="False" Margin="0,433,10,43" 
+                          ItemsSource="{Binding listOfShifts}" 
+                          SelectedItem="{Binding selectedShift}" 
+                          AutoGenerateColumns="False" Margin="0,350,10,43" 
                          >
             <toolkit:DataGrid.Columns>
-                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DeptID}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DeptName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Shift ID" Width="40" Binding="{Binding ShiftID}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Shift Name" Width="*" Binding="{Binding ShiftName}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
         <Label Content="Start Time:" HorizontalAlignment="Left" Margin="22,124,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="97,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="97,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding selectedShift.ShiftName, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
         <Label Content="Day Off 1:" HorizontalAlignment="Left" Margin="23,158,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="97,160,0,0" VerticalAlignment="Top" Width="110"/>
+        <ComboBox HorizontalAlignment="Left" Margin="97,160,0,0" VerticalAlignment="Top" Width="110">
+            
+            <ComboBoxItem >Monday</ComboBoxItem>
+            <ComboBoxItem >Tuesday</ComboBoxItem>
+            <ComboBoxItem >Wednesday</ComboBoxItem>
+            <ComboBoxItem >Thursday</ComboBoxItem>
+            <ComboBoxItem >Friday</ComboBoxItem>
+            <ComboBoxItem >Saturday</ComboBoxItem>
+            <ComboBoxItem >Sunday</ComboBoxItem>
+        </ComboBox>
         <Label Content="Day Off 2:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,187,0,0"/>
-        <ComboBox HorizontalAlignment="Left" Margin="97,192,0,0" VerticalAlignment="Top" Width="110"/>
+        <ComboBox HorizontalAlignment="Left" Margin="97,192,0,0" VerticalAlignment="Top" Width="110">
+            <ComboBoxItem >Monday</ComboBoxItem>
+            <ComboBoxItem >Tuesday</ComboBoxItem>
+            <ComboBoxItem >Wednesday</ComboBoxItem>
+            <ComboBoxItem >Thursday</ComboBoxItem>
+            <ComboBoxItem >Friday</ComboBoxItem>
+            <ComboBoxItem >Saturday</ComboBoxItem>
+            <ComboBoxItem >Sunday</ComboBoxItem>
+        </ComboBox>
         <Label Content="GZ Holidays:" HorizontalAlignment="Left" Margin="23,222,0,0" VerticalAlignment="Top"/>
         <CheckBox Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,228,0,0"/>
         <Label Content="Break" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,392"/>
         <CheckBox Content="" HorizontalAlignment="Left" Margin="100,250,0,0" VerticalAlignment="Top"/>
         <Label Content="Work Minuts" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="375,0,0,589" FontSize="22"/>
         <Label Content="Monday:" HorizontalAlignment="Left" Margin="378,84,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.ShiftName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
         <Label Content="Tuesday:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="8.261,8.124" Margin="378,121,0,0"/>
         <Label Content="Wednesday:" HorizontalAlignment="Left" Margin="378,158,0,0" VerticalAlignment="Top"/>
         <Label Content="Thursday:" HorizontalAlignment="Left" Margin="378,190,0,0" VerticalAlignment="Top"/>
         <Label Content="Friday:" HorizontalAlignment="Left" Margin="378,222,0,0" VerticalAlignment="Top"/>
         <Label Content="Saturday:" HorizontalAlignment="Left" Margin="378,257,0,0" VerticalAlignment="Top"/>
         <Label Content="Sunday:" HorizontalAlignment="Left" Margin="378,290,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="452,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="452,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.TueMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="452,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="{Binding selectedShift.WedMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.ShiftThuMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="452,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="{Binding selectedShift.ShiftFriMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.ShiftSatMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="454,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.Shift.SunMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
         <Label Content="Margin" HorizontalAlignment="Left" Margin="597,37,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Late In:" HorizontalAlignment="Left" Margin="598,87,0,0" VerticalAlignment="Top"/>
         <Label Content="Late Out:" HorizontalAlignment="Left" Margin="598,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.23,0.497"/>
         <Label Content="Early In:" HorizontalAlignment="Left" Margin="598,158,0,0" VerticalAlignment="Top"/>
         <Label Content="Early Out:" HorizontalAlignment="Left" Margin="598,190,0,0" VerticalAlignment="Top"/>
         <Label Content="Minut Work:" HorizontalAlignment="Left" Margin="597,223,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="668,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="668,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="668,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="668,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="675,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="668,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.LateIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="668,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.LateOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="668,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.EarlyIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="668,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.EarlyOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="675,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding selectedShift.MinHrs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
 
     </Grid>
 </Window>
