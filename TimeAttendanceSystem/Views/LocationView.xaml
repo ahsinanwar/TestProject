@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-        Title="LocationView" Height="454.511" Width="378.947">
+        Title="LocationView" Height="454.511" Width="378.947" FontSize="9">
     <Window.Resources>
 
         <!-- The WPF DataGrid (WPF Toolkit version) has a bug that throws a format exception

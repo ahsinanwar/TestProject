@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-        Title="LvApplicationView" Height="544.604" Width="735.097">
+        Title="LvApplicationView" Height="544.604" Width="735.097" FontSize="10">
     <Grid Margin="0,0,2,-1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,9 +17,13 @@
             <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
         </ToolBar>
         <Label Content="Employee:" Margin="70,66,582,0" VerticalAlignment="Top"  FontSize="14" Height="29" Width="73"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="152,66,0,0" Text="" VerticalAlignment="Top" Width="117" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="152,66,0,0" Text="{Binding Path=selectedLvApp.EmpName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}" VerticalAlignment="Top" Width="117" FontSize="14"/>
+
+
         <Label Content="Type:" HorizontalAlignment="Left" Margin="101,102,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="43"/>
-        <ComboBox HorizontalAlignment="Left" Margin="152,102,0,0" VerticalAlignment="Top" Width="117" Height="22"/>
+        <ComboBox HorizontalAlignment="Left" Margin="152,102,0,0" VerticalAlignment="Top" Width="117" Height="22" DisplayMemberPath="LvDesc" SelectedValuePath="LvType" SelectedValue="{Binding selectedLvApp.LvType}" ItemsSource="{Binding listOfLvTypes}" />
+
+        
         <Label Content="Date:" HorizontalAlignment="Left" Margin="101,136,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="42"/>
         <DatePicker HorizontalAlignment="Left" Margin="152,139,0,0" VerticalAlignment="Top" FontSize="14" Height="27" Width="113"/>
         <Label Content="to" HorizontalAlignment="Left" Margin="272,138,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="23"/>
@@ -28,7 +32,10 @@
         <Label Content="Adress:" HorizontalAlignment="Left" Margin="89,244,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="54"/>
         <Label Content="Half Leave:" HorizontalAlignment="Left" Margin="66,169,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="77"/>
         <CheckBox Content="" HorizontalAlignment="Left" Margin="150,182,0,0" VerticalAlignment="Top" Height="16" Width="17"/>
-        <ComboBox HorizontalAlignment="Left" Margin="272,176,0,0" VerticalAlignment="Top" Width="94" Height="22"/>
+        <ComboBox HorizontalAlignment="Left" Margin="272,176,0,0" VerticalAlignment="Top" Width="94" Height="22">
+            <ComboBoxItem  Name="cbi1">First Half</ComboBoxItem>
+            <ComboBoxItem  Name="cbi2">Second Half</ComboBoxItem>
+        </ComboBox>
         <RichTextBox HorizontalAlignment="Left" Height="29" Margin="152,210,0,0" VerticalAlignment="Top" Width="260">
             <FlowDocument>
                 <Paragraph>
@@ -49,8 +56,8 @@
                           AutoGenerateColumns="False" Margin="0,278,0,0" 
                          >
             <toolkit:DataGrid.Columns>
-                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding DeptID}" IsReadOnly="false" />
-                <toolkit:DataGridTextColumn Header="Name" Width="*" Binding="{Binding DeptName}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="ID" Width="40" Binding="{Binding lvID}" IsReadOnly="false" />
+                <toolkit:DataGridTextColumn Header="Lv Type" Width="*" Binding="{Binding LvType}" IsReadOnly="false" />
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
     </Grid>

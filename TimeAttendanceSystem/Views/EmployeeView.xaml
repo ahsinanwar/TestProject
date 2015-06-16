@@ -27,7 +27,7 @@
                     <Label HorizontalAlignment="Left" Margin="157,473,0,0" VerticalAlignment="Top"/>
                     <Label Content="Crew Name:" HorizontalAlignment="Left" Margin="26,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.839"/>
                     <Label Content="Status:" HorizontalAlignment="Left" Margin="55,262,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.118,-0.649"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,21,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,21,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="CatName" SelectedValuePath="CatID" SelectedValue="{Binding selectedEmp.CatName}" ItemsSource="{Binding listOfCats}"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,48,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,75,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,102,0,0" VerticalAlignment="Top" Width="152" FontSize="12"/>
