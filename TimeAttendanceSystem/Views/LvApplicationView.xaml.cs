@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMLvApplication;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -19,9 +20,13 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class LvApplicationView : Window
     {
+        VMLvApplication vmlvapps;
         public LvApplicationView()
         {
             InitializeComponent();
+            vmlvapps = new VMLvApplication();
+            this.DataContext = vmlvapps;
+
         }
     }
 }

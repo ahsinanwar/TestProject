@@ -45,7 +45,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-
+        private ObservableCollection<LvType> _listOfLvTypes;
         public LvApplication selectedLvApp
         {
             get
@@ -72,6 +72,17 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
                 OnPropertyChanged("_listOfLvApps");
             }
         }
+        public ObservableCollection<LvType> listOfLvTypes
+        {
+            get { return _listOfLvTypes; }
+
+            set
+            {
+                listOfLvTypes = value;
+                OnPropertyChanged("listOfLvTypes");
+            }
+        }
+       
         #endregion
 
         #region ICommands
@@ -117,6 +128,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
             _selectedLvApp = new LvApplication();
             _listOfLvApps = new ObservableCollection<LvApplication>(entity.LvApplications.ToList());
             _selectedLvApp = entity.LvApplications.ToList().FirstOrDefault();
+            _listOfLvTypes = new ObservableCollection<LvType>(entity.LvTypes.ToList());
             this._AddCommand = new AddCommandLvApp(_selectedLvApp);
             this._EditCommand = new EditCommandLvApp(this);
             this._DeleteCommand = new DeleteCommandLvApp(_selectedLvApp);
@@ -124,6 +136,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandLvApp(this);
             base.OnPropertyChanged("_listOfLvApps");
+            base.OnPropertyChanged("_listOfLvTypes");
         }
         #endregion  
     }

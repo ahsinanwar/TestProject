@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
         { _vmlvapp = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmlvapp.selectedLvApp != null);
+            //return (_vmlvapp.selectedLvApp != null);
+            return true;
         }
         #endregion
 
@@ -40,7 +41,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
             }
             else
             {
-                LvApplication lvapp = context.LvApplications.First(aa => aa.LvID == vmd.selectedLvApp.LvID);
+                LvApplication lvapp = context.LvApplications.FirstOrDefault(aa => aa.LvType == vmd.selectedLvApp.LvType);
                 lvapp.LvType = vmd.selectedLvApp.LvType;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;

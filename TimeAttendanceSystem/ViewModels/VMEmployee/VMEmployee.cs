@@ -39,13 +39,13 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
                 base.OnPropertyChanged("isEnabled");
             }
         }
+        private ObservableCollection<Category> _listOfCats;
         private ObservableCollection<Emp> _listOfEmps;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-
         public Emp selectedEmp
         {
             get
@@ -70,6 +70,16 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             {
                 listOfEmps = value;
                 OnPropertyChanged("listOfEmps");
+            }
+        }
+        public ObservableCollection<Category> listOfCats
+        {
+            get { return _listOfCats; }
+
+            set
+            {
+                listOfCats = value;
+                OnPropertyChanged("listOfCats");
             }
         }
         #endregion
