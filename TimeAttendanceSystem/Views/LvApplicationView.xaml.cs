@@ -28,5 +28,13 @@ namespace TimeAttendanceSystem.Views
             this.DataContext = vmlvapps;
 
         }
+
+        private void btn_empView_Click(object sender, RoutedEventArgs e)
+        {
+            SelectEmpWindow window = new SelectEmpWindow();
+            window.Show();
+        }
+
+        
     }
 }
