@@ -37,6 +37,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
                 context.Crews.Add(vmd.selectedCrew);
                 context.SaveChanges();
                 vmd.listOfCrews.Add(vmd.selectedCrew);
+                vmd.isEnabled = false;
+                vmd.isAdding = false;
 
             }
             else

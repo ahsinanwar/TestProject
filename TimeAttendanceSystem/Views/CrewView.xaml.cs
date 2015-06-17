@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for CrewView.xaml
     /// </summary>
-    public partial class CrewView : Window
+    public partial class CrewView : Page
     {
         public CrewView()
         {

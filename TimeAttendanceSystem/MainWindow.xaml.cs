@@ -51,9 +51,9 @@ namespace TimeAttendanceSystem
                 //case "Designation":
                 //    _mainFrame.Navigate(new DesignationView());
                 //    break;
-                //case "Crew":
-                //    _mainFrame.Navigate(new CrewView());
-                //    break;
+                case "Crew":
+                    _mainFrame.Navigate(new CrewView());
+                    break;
                 case "City":
                     _mainFrame.Navigate(new CityView());
                     break;
