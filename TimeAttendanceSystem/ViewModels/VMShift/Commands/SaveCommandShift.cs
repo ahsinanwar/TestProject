@@ -21,7 +21,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
         { _vmshift = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmshift.selectedShift != null);
+            //return (_vmshift.selectedShift != null);
+            return true;
         }
         #endregion
 

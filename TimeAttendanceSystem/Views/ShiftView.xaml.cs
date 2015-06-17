@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMShift;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -19,9 +20,13 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class ShiftView : Window
     {
+        VMShift vmshifts;
         public ShiftView()
         {
             InitializeComponent();
+            vmshifts = new VMShift();
+            this.DataContext = vmshifts;
         }
+        
     }
 }
