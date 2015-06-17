@@ -34,12 +34,16 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
            {
                context.Departments.Add(vmd.selectedDept);
                context.SaveChanges();
+               vmd.selectedDept.Division = context.Divisions.FirstOrDefault(aa => aa.DivisionID == vmd.selectedDept.DivID);
                vmd.listOfDepts.Add(vmd.selectedDept);
+               vmd.isEnabled = false;
+               vmd.isAdding = false;
 
            }
            else {
                Department dept = context.Departments.First(aa => aa.DeptID == vmd.selectedDept.DeptID);
                dept.DeptName = vmd.selectedDept.DeptName;
+               dept.DivID = vmd.selectedDept.DivID;
                vmd.isEnabled = false;
                vmd.isAdding = false;
                context.SaveChanges();

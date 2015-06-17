@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for SectionView.xaml
     /// </summary>
-    public partial class SectionView : Page
+    public partial class SectionView : Window
     {
         VMSection vmsecs;
         public SectionView()

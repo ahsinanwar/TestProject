@@ -40,6 +40,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             }
         }
         private ObservableCollection<Department> _listOfDepts;
+        private ObservableCollection<Division> _listOfDivs;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -70,6 +71,16 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             {
                 listOfDepts = value;
                 OnPropertyChanged("listOfDepts");
+            }
+        }
+        public ObservableCollection<Division> listOfDivs
+        {
+            get { return _listOfDivs; }
+
+            set
+            {
+                listOfDivs = value;
+                OnPropertyChanged("listOfDivs");
             }
         }
         #endregion
@@ -116,6 +127,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             entity = new TAS2013Entities();
             _selectedDept = new Department();
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
+            _listOfDivs = new ObservableCollection<Division>(entity.Divisions.ToList());
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
             this._AddCommand = new AddCommandDept(_selectedDept);
             this._EditCommand = new EditCommandDept(this);
@@ -124,6 +136,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandDept(this);
             base.OnPropertyChanged("_listOfDepts");
+            base.OnPropertyChanged("_listOfDivs");
         }
         #endregion
     }

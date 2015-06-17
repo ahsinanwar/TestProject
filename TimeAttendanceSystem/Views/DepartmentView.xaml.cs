@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for DepartmentView.xaml
     /// </summary>
-    public partial class DepartmentView : Window
+    public partial class DepartmentView : Page
     {
         public DepartmentView()
         {
