@@ -37,6 +37,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation.Commands
                 context.Designations.Add(vmd.selectedDesg);
                 context.SaveChanges();
                 vmd.listOfDesgs.Add(vmd.selectedDesg);
+                vmd.isEnabled = false;
+                vmd.isAdding = false;
 
             }
             else
