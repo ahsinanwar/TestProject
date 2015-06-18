@@ -33,9 +33,6 @@
             <Setter Property="AllowDrop" Value="True" />
         </Style>
     </Page.Resources>
-<<<<<<< HEAD
-    <Grid HorizontalAlignment="Left" Height="417" Margin="0,10,0,-0.6" VerticalAlignment="Top" Width="511">
-=======
     <!--Main Panel-->
     <Border BorderBrush="#FF25A0DA" BorderThickness="1">
         <StackPanel Background="White">
@@ -95,7 +92,6 @@
     </Border>
 
     <!--<Grid HorizontalAlignment="Left" Height="417" Margin="0,10,0,-0.6" VerticalAlignment="Top" Width="511">
->>>>>>> c48eef57dcf50ba0059cfcb836061acc73a02da3
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -125,5 +121,6 @@
     </Grid>
 =======
     </Grid>-->
->>>>>>> c48eef57dcf50ba0059cfcb836061acc73a02da3
+
+   
 </Page>
