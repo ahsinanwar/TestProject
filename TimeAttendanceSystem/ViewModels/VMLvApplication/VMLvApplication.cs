@@ -14,6 +14,38 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
     class VMLvApplication: ObservableObject
     {
         #region Intialization
+        private ObservableCollection<Emp> _listOfEmps;
+        private Emp _selectedEmp;
+        public Emp selectedEmp
+        {
+            get
+            {
+                return _selectedEmp;
+            }
+            set
+            {
+
+                _selectedEmp = value;
+                base.OnPropertyChanged("selectedEmp");
+              
+
+            }
+        }
+        public ObservableCollection<Emp> listOFEmps
+         {
+            get
+            {
+                return _listOfEmps;
+            }
+            set
+            {
+
+                _listOfEmps = value;
+
+                base.OnPropertyChanged("listOFEmps");
+
+            }
+        }
         public LvApplication _selectedLvApp;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
@@ -127,6 +159,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
             entity = new TAS2013Entities();
             _selectedLvApp = new LvApplication();
             _listOfLvApps = new ObservableCollection<LvApplication>(entity.LvApplications.ToList());
+            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
+            _selectedEmp = entity.Emps.ToList().FirstOrDefault();
             _selectedLvApp = entity.LvApplications.ToList().FirstOrDefault();
             _listOfLvTypes = new ObservableCollection<LvType>(entity.LvTypes.ToList());
             this._AddCommand = new AddCommandLvApp(_selectedLvApp);
@@ -137,6 +171,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
             this._SaveCommand = new SaveCommandLvApp(this);
             base.OnPropertyChanged("_listOfLvApps");
             base.OnPropertyChanged("_listOfLvTypes");
+            base.OnPropertyChanged("_listOfEmps");
+            base.OnPropertyChanged("_selectedEmp");
         }
         #endregion  
     }

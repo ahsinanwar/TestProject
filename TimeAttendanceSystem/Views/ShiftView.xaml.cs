@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for ShiftView.xaml
     /// </summary>
-    public partial class ShiftView : Window
+    public partial class ShiftView : Page
     {
         VMShift vmshifts;
         public ShiftView()

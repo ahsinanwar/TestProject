@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for LocationView.xaml
     /// </summary>
-    public partial class LocationView : Window
+    public partial class LocationView : Page
     {
         public LocationView()
         {

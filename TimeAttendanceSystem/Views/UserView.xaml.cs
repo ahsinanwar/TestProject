@@ -17,7 +17,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for UserView.xaml
     /// </summary>
-    public partial class UserView : Window
+    public partial class UserView : Page
     {
         public UserView()
         {

@@ -1,4 +1,4 @@
-﻿<Window x:Class="TimeAttendanceSystem.Views.ShortLvView"
+﻿<Page x:Class="TimeAttendanceSystem.Views.ShortLvView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ShortLvView" Height="479.775" Width="731.461">
@@ -30,4 +30,4 @@
         </ToolBar>
 
     </Grid>
-</Window>
+</Page>

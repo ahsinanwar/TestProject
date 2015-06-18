@@ -17,7 +17,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for ShortLvView.xaml
     /// </summary>
-    public partial class ShortLvView : Window
+    public partial class ShortLvView : Page
     {
         public ShortLvView()
         {
