@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for Designation.xaml
     /// </summary>
-    public partial class DesignationView : Window
+    public partial class DesignationView : Page
     {
         public DesignationView()
         {

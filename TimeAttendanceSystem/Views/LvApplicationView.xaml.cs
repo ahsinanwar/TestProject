@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for LvApplicationView.xaml
     /// </summary>
-    public partial class LvApplicationView : Window
+    public partial class LvApplicationView : Page
     {
         VMLvApplication vmlvapps;
         public LvApplicationView()

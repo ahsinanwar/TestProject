@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for EmployeeView.xaml
     /// </summary>
-    public partial class EmployeeView : Window
+    public partial class EmployeeView : Page
     {
         public EmployeeView()
         {

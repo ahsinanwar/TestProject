@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for EmpTypeView.xaml
     /// </summary>
-    public partial class EmpTypeView : Window
+    public partial class EmpTypeView : Page
     {
         public EmpTypeView()
         {

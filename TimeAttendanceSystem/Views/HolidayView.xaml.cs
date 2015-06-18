@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for HolidayView.xaml
     /// </summary>
-    public partial class HolidayView : Window
+    public partial class HolidayView : Page
     {
         public HolidayView()
         {

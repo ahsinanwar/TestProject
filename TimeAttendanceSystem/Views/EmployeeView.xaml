@@ -1,4 +1,4 @@
-﻿<Window x:Class="TimeAttendanceSystem.Views.EmployeeView"
+﻿<Page x:Class="TimeAttendanceSystem.Views.EmployeeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="EmployeeView" Height="631.585" Width="738.125">
@@ -164,4 +164,4 @@
             </TabItem>
         </TabControl>
     </Grid>
-</Window>
+</Page>
