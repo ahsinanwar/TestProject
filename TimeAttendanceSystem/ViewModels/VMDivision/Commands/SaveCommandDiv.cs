@@ -37,7 +37,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision.Commands
                context.Divisions.Add(vmd.selectedDiv);
                context.SaveChanges();
                vmd.listOfDivs.Add(vmd.selectedDiv);
-
+               vmd.isEnabled = false;
+               vmd.isAdding = false;
            }
            else {
                Division div = context.Divisions.First(aa => aa.DivisionID == vmd.selectedDiv.DivisionID);
