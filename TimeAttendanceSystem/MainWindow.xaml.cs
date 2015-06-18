@@ -74,6 +74,7 @@ namespace TimeAttendanceSystem
                     break;
                 case "Application":
                     _mainFrame.Navigate(new LvApplicationView());
+
                     break;
                 case "Short Leave":
                     _mainFrame.Navigate(new SectionView());
