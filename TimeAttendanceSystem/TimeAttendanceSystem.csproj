@@ -390,6 +390,7 @@
     </Compile>
     <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
@@ -519,6 +520,7 @@
     <Compile Include="Views\EmpTypeView.xaml.cs">
       <DependentUpon>EmpTypeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ErrorsToMessageConverter.cs" />
     <Compile Include="Views\HolidayView.xaml.cs">
       <DependentUpon>HolidayView.xaml</DependentUpon>
     </Compile>
@@ -531,7 +533,6 @@
     <Compile Include="Views\LvQuotaView.xaml.cs">
       <DependentUpon>LvQuotaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NameValidator.cs" />
     <Compile Include="Views\ReaderView.xaml.cs">
       <DependentUpon>ReaderView.xaml</DependentUpon>
     </Compile>
