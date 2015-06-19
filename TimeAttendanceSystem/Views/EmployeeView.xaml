@@ -1,9 +1,11 @@
 ﻿<Page x:Class="TimeAttendanceSystem.Views.EmployeeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
         xmlns:local="clr-namespace:TimeAttendanceSystem.Views"
-      
-        Title="EmployeeView" Height="631.585" Width="738.125">
+        xmlns:validations="clr-namespace:TimeAttendanceSystem.Validation"
+        Title="EmployeeView" Height="631.585" Width="1000">
     <Page.Resources>
         <ControlTemplate x:Key="validationErrorTemplate">
             <DockPanel>
@@ -15,12 +17,125 @@
             </DockPanel>
         </ControlTemplate>
     </Page.Resources>
-    <Grid Margin="0,-24,0.4,-60.8">
-        
+    <Border BorderBrush="#FF25A0DA" BorderThickness="1" Margin="0,0,-152,0">
+        <StackPanel Background="White">
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="35px">
+                <Label Foreground="White" FontSize="17">Employees</Label>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="589">
+                <!--List View Panel-->
+                <StackPanel Margin="5,5,5,5">
+                    <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
+                        telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
+                        ItemsSource="{Binding listOfDivs}" SelectedItem="{Binding selectedDiv}" 
+                        VerticalAlignment="Top" Grid.RowSpan="2" 
+                        CanUserFreezeColumns="False" MinWidth="387">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="DivisionName" DataMemberBinding="{Binding DivisionName}" />
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+
+                </StackPanel>
+                <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Width="400">
+                    <StackPanel Margin="5,0,5,3" Background="White">
+                        <!--Buttons Panel-->
+                        <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
+                            <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
+                                <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png">
+                                </Image>
+                            </Button>
+                            <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
+                                <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png">
+                                </Image>
+                            </Button>
+                            <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
+                                <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png">
+                                </Image>
+                            </Button>
+                        </StackPanel>
+                        <!--Data Input Panel-->
+                        <StackPanel Margin="5,5,5,5">
+                            <StackPanel>
+                                <Grid Height="140">
+                                    <Button telerik:StyleManager.Theme="Windows8" Margin="10,10,268,22">
+                                        <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/Blank-Person1.png">
+                                        </Image>
+                                    </Button>
+                                    <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="115,26,0,0"></Label>
+                                    <TextBox Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Margin="179,30,0,0">
+                                        <TextBox.Text>
+                                            <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
+        UpdateSourceTrigger="LostFocus">
+                                                <Binding.ValidationRules>
+                                                    <local:NameValidator></local:NameValidator>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <Label HorizontalAlignment="Left" Content="Name:" VerticalAlignment="Top" Height="22" Width="48" FontFamily="Trebuchet MS" Margin="126,57,0,0"/>
+                                    <Label Content="Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,85,0,0"/>
+                                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="126" Margin="179,85,0,0" >
+                                        <ComboBoxItem Name="cbi1">True</ComboBoxItem>
+                                        <ComboBoxItem Name="cbi2">False</ComboBoxItem>
+                                    </ComboBox>
+                                    <TextBox Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="179,57,0,0">
+                                        <TextBox.Text>
+                                            <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
+        UpdateSourceTrigger="LostFocus">
+                                                <Binding.ValidationRules>
+                                                    <local:NameValidator></local:NameValidator>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel>
+                                <TabControl Height="402">
+                                    <TabItem Header="Job">
+                                        <Grid Height="316">
+                                            <Label Content="Employee Type:" HorizontalAlignment="Left" Margin="51,5,0,0" VerticalAlignment="Top" FontSize="12" Width="110"/>
+                                            <Label Content="Designation:" HorizontalAlignment="Left" Margin="68,33,0,0" VerticalAlignment="Top" FontSize="12" Width="90"/>
+                                            <Label Content="Grade:" HorizontalAlignment="Left" Margin="100,60,0,0" VerticalAlignment="Top" FontSize="12" Width="52"/>
+                                            <Label Content="Shift:" HorizontalAlignment="Left" Margin="108,87,0,0" VerticalAlignment="Top" FontSize="12" Width="43"/>
+                                            <Label Content="Department:" HorizontalAlignment="Left" Margin="69,115,0,0" VerticalAlignment="Top" FontSize="12" Width="90"/>
+                                            <Label Content="Section:" HorizontalAlignment="Left" Margin="95,142,0,0" VerticalAlignment="Top" FontSize="12" Width="63"/>
+                                            <Label Content="Location:" HorizontalAlignment="Left" Margin="89,168,0,0" VerticalAlignment="Top" FontSize="12" Width="68"/>
+                                            <Label HorizontalAlignment="Left" Margin="157,473,0,0" VerticalAlignment="Top"/>
+                                            <Label Content="Crew:" HorizontalAlignment="Left" Margin="108,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.839"/>
+                                            <ComboBox HorizontalAlignment="Left" Margin="152,8,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes,Mode=TwoWay}"/>
+                                            <ComboBox HorizontalAlignment="Left" Margin="152,35,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DesignationName" SelectedValuePath="DesignationID" ItemsSource="{Binding listOfDesgs}"/>
+                                            <ComboBox HorizontalAlignment="Left" Margin="152,62,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="GradeName" SelectedValuePath="GradeID" ItemsSource="{Binding listOfDesgs}"/>
+                                            <ComboBox HorizontalAlignment="Left" Margin="152,89,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="ShiftName" SelectedValuePath="ShiftID" ItemsSource="{Binding listOfShifts}"/>
+                                            <ComboBox HorizontalAlignment="Left" Margin="152,116,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" ItemsSource="{Binding listOfDepts}" SelectedItem="{Binding selectedDept,Mode=TwoWay}"/>
+                                            <ComboBox HorizontalAlignment="Left" Margin="152,143,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="SectionName" SelectedValuePath="SectionID" ItemsSource="{Binding listOfSecs, Mode=TwoWay}"/>
+                                            <ComboBox HorizontalAlignment="Left" Margin="152,170,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="LocName" SelectedValuePath="LocID" ItemsSource="{Binding listOfLocs}"/>
+                                            <ComboBox HorizontalAlignment="Left" Margin="152,197,0,0" VerticalAlignment="Top" Width="152" DisplayMemberPath="CrewName" SelectedValuePath="CrewID" ItemsSource="{Binding listOfCrews}"/>
+                                        </Grid>
+                                    </TabItem>
+                                    <TabItem Header="Personal" >
+                                        <Label Content="Content goes here..." />
+                                    </TabItem>
+                                    <TabItem Header="Leaves" >
+                                        <Label Content="Content goes here..." />
+                                    </TabItem>
+                                </TabControl>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+    <!--<Grid Margin="0,-24,-241,-575">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="516" Margin="19,32,0,0" >
+        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="516" Margin="41,398,0,0" >
             <Button Command="{Binding AddCommand}" CommandParameter="{Binding}" Margin="6"
 				Content="Add" />
             <Button Content="Edit"  Command="{Binding EditCommand}" CommandParameter="{Binding}" Margin="6"/>
@@ -28,8 +143,8 @@
             <Button Content="Search.." CommandParameter="ZoomNormal" Margin="6"/>
             <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
         </ToolBar>
-        <TextBlock HorizontalAlignment="Left" Margin="78,108,0,0" TextWrapping="Wrap" Text="Employee No:" VerticalAlignment="Top" Height="17" Width="79" FontFamily="Trebuchet MS"/>
-        <TextBox Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" HorizontalAlignment="Left" Height="20" Margin="171,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126">
+        <TextBlock HorizontalAlignment="Left" Margin="100,474,0,0" TextWrapping="Wrap" Text="Employee No:" VerticalAlignment="Top" Height="17" Width="79" FontFamily="Trebuchet MS"/>
+        <TextBox Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" HorizontalAlignment="Left" Height="20" Margin="193,471,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126">
             <TextBox.Text>
                 <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
         UpdateSourceTrigger="LostFocus">
@@ -39,11 +154,11 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="171,139,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="126"/>
-        <TextBlock HorizontalAlignment="Left" Margin="56,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" Height="16" Text="Select EMP Photo:" FontFamily="Trebuchet MS"/>
-        <Button Content="Choose Photo&#xA;" HorizontalAlignment="Left" Margin="171,166,0,0" VerticalAlignment="Top" Width="98" Height="21" RenderTransformOrigin="0.181,0.604"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" Height="18"><Run Text="Employee Name:"/><LineBreak/><Run/></TextBlock>
-        <TabControl HorizontalAlignment="Left" Height="524" Margin="0,191,-63,-136" VerticalAlignment="Top" Width="793">
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="193,505,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="126"/>
+        <TextBlock HorizontalAlignment="Left" Margin="78,537,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" Height="16" Text="Select EMP Photo:" FontFamily="Trebuchet MS"/>
+        <Button Content="Choose Photo&#xA;" HorizontalAlignment="Left" Margin="193,532,0,0" VerticalAlignment="Top" Width="98" Height="21" RenderTransformOrigin="0.181,0.604"/>
+        <TextBlock HorizontalAlignment="Left" Margin="88,505,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" Height="18"><Run Text="Employee Name:"/><LineBreak/><Run/></TextBlock>
+        <TabControl HorizontalAlignment="Left" Height="524" Margin="22,557,0,0" VerticalAlignment="Top" Width="793">
             <TabItem Header="Job" Margin="0,0,-14,-2">
                 <Grid Background="#FFE5E5E5" Margin="0,5,6,-8">
                     <Label Content="Category:" HorizontalAlignment="Left" Margin="35,21,0,0" VerticalAlignment="Top" FontSize="12" Width="71" Height="32"/>
@@ -186,5 +301,5 @@
                 </Grid>
             </TabItem>
         </TabControl>
-    </Grid>
+    </Grid>-->
 </Page>
