@@ -20,12 +20,15 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class EmployeeView : Page
     {
+        
+        VMEmployee vmemps;
+        
         public EmployeeView()
-        {
+        { 
             InitializeComponent();
             vmemps = new VMEmployee();
             this.DataContext = vmemps;
         }
-        VMEmployee vmemps;
+        
     }
 }
