@@ -30,14 +30,14 @@ namespace TimeAttendanceSystem.Controllers
                         while (_DTimeLV <= lvappl.ToDate)
                         {
                             if (_DTime == _DTimeLV)
-                                return false;
+                                return true;
                             _DTimeLV = _DTimeLV.AddDays(1);
                         }
                         _DTime = _DTime.AddDays(1);
                     }
                 }
             }
-            return true;
+            return false;
         }
 
         public bool CheckLeaveBalance(LvApplication _lvapp)

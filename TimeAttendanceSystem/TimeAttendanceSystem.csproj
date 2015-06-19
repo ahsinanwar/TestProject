@@ -34,13 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Controls.Input.Toolkit">
@@ -388,7 +393,12 @@
     <Compile Include="Model\ViewUserLocation.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\SaveCommandAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\EditCommandCat.cs" />
@@ -419,6 +429,16 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\EditCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\SaveCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\VMShortLeave.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\AddCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\DeleteCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\EditCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\SaveCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\VMUser.cs" />
     <Compile Include="Views\AttEditJobCard.xaml.cs">
       <DependentUpon>AttEditJobCard.xaml</DependentUpon>
     </Compile>
@@ -505,6 +525,7 @@
     <Compile Include="Views\EmpTypeView.xaml.cs">
       <DependentUpon>EmpTypeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ErrorsToMessageConverter.cs" />
     <Compile Include="Views\HolidayView.xaml.cs">
       <DependentUpon>HolidayView.xaml</DependentUpon>
     </Compile>
@@ -675,9 +696,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\VMAttEdit\Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

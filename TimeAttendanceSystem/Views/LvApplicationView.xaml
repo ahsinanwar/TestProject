@@ -2,9 +2,101 @@
          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-        Title="LvApplicationView" Height="544.604" Width="735.097" FontSize="10">
-    <Grid Margin="0,0,2,-1">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+         Title="LvApplicationView" Width="500" >
+   
+    <!--Main Panel-->
+    <Border BorderBrush="#FF25A0DA" BorderThickness="1">
+        <StackPanel Background="White">
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="35px">
+                <Label Foreground="White" FontSize="17">Lv App</Label>
+            </StackPanel>
+            <!--List View Panel-->
+            <StackPanel Margin="5,5,5,5">
+                <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
+                        telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
+                          ItemsSource="{Binding listOfLvApps}" 
+                          SelectedItem="{Binding selectedLvApp}" 
+                           VerticalAlignment="Top"  Height="140" Grid.RowSpan="2" 
+                         MinWidth="387" Width="488">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Header="LvType" Width="60" DataMemberBinding="{Binding lvID}" IsReadOnly="false" />  
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+
+            </StackPanel>
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="30px">
+                <Label Foreground="White" FontSize="14">Lv Details</Label>
+            </StackPanel>
+            <!--CRUD Panel-->
+            <!--<Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">-->
+                <StackPanel  Background="White">
+                    <!--Buttons Panel-->
+                    <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
+                        <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png">
+                            </Image>
+                        </Button>
+                        <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png">
+                            </Image>
+                        </Button>
+                        <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png">
+                            </Image>
+                        </Button>
+                    </StackPanel>
+                    <!--Data Input Panel-->
+                    
+                    <StackPanel Margin="5,5,5,5">
+                        
+                        <Grid Height="400">
+                            <Label Content="Employee:" HorizontalAlignment="Left" Margin="47,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                            <TextBox x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="133,27,0,0" Text="{Binding Path=selectedLvApp.EmpID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}" VerticalAlignment="Top" Width="117" FontSize="14"/>
+
+                          
+                            <Label Content="Type:" HorizontalAlignment="Left" Margin="48,50,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="43"/>
+                            <ComboBox HorizontalAlignment="Left" Margin="133,57,0,0" VerticalAlignment="Top" Width="117" Height="22" DisplayMemberPath="LvDesc" SelectedValuePath="LvType" SelectedValue="{Binding selectedLvApp.LvType}" ItemsSource="{Binding listOfLvTypes}" IsEnabled="{Binding Path=isEnabled}" />
+                            <Label Content="Date:" HorizontalAlignment="Left" Margin="52,79,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="42"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="133,84,0,0" VerticalAlignment="Top" FontSize="14" Height="27" Width="113" IsEnabled="{Binding Path=isEnabled}"/>
+                            <Label Content="to" HorizontalAlignment="Left" Margin="251,84,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="23" RenderTransformOrigin="0.261,0.241"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="293,84,0,0" VerticalAlignment="Top" FontSize="14" Height="27" Width="113" IsEnabled="{Binding Path=isEnabled}"/>
+                            <Label Content="Reason:" HorizontalAlignment="Left" Margin="48,0,0,174" FontSize="14" Width="58" Height="29" VerticalAlignment="Bottom"/>
+                            <Label Content="Adress:" HorizontalAlignment="Left" Margin="52,181,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="54"/>
+                            <Label Content="Half Leave:" HorizontalAlignment="Left" Margin="47,113,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="77"/>
+                            <CheckBox Content="" HorizontalAlignment="Left" Margin="152,126,0,0" VerticalAlignment="Top" Height="16" Width="17" IsEnabled="{Binding Path=isEnabled}"/>
+                            <ComboBox HorizontalAlignment="Left" Margin="293,120,0,0" VerticalAlignment="Top" Width="113" Height="22" IsEnabled="{Binding Path=isEnabled}">
+                                <ComboBoxItem  Name="cbi1">First Half</ComboBoxItem>
+                                <ComboBoxItem  Name="cbi2">Second Half</ComboBoxItem>
+                            </ComboBox>
+                            <RichTextBox HorizontalAlignment="Left" Height="29" Margin="152,147,0,0" VerticalAlignment="Top" Width="216" IsEnabled="{Binding Path=isEnabled}">
+                                <FlowDocument>
+                                    <Paragraph>
+                                        <Run Text=""/>
+                                    </Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+                            <RichTextBox HorizontalAlignment="Left" Height="29" Margin="152,181,0,0" VerticalAlignment="Top" Width="216" IsEnabled="{Binding Path=isEnabled}">
+                                <FlowDocument>
+                                    <Paragraph>
+                                        <Run Text=""/>
+                                    </Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="220,215,202,158" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
+                            <Button x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="274,27,0,0" VerticalAlignment="Top" Width="21" Height="23" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            <!--</Border>-->
+        </StackPanel>
+    </Border>
+
+
+    <!--<Grid Margin="0,0,2,-1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -61,5 +153,5 @@
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
         <Button x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="274,66,0,0" VerticalAlignment="Top" Width="21" Height="23" Click="btn_empView_Click"/>
-    </Grid>
+    </Grid>-->
 </Page>

@@ -1,8 +1,82 @@
-﻿<Window x:Class="TimeAttendanceSystem.Views.AttEditView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Page x:Class="TimeAttendanceSystem.Views.AttEditView"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="AttEditView" Height="526.64" Width="1151.123">
-    <Grid Margin="0,0,0,-30">
+         xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+      xmlns:l="clr-namespace:TimeAttendanceSystem.ValueConvertors"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+        Title="AttEditView" Height="526.64" Width="1000">
+    <Page.Resources>
+        <l:minuteToHourMinuteConverter x:Key="converter" />
+    </Page.Resources>
+    <Border BorderBrush="#FF25A0DA" BorderThickness="1">
+        <StackPanel Background="White">
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="35px">
+                <Label Foreground="White" FontSize="17">Edit Attendance</Label>
+            </StackPanel>
+            <!--List View Panel-->
+            <StackPanel Margin="5,5,5,5">
+                <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
+                        telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
+                        ItemsSource="{Binding listOfAttData}" SelectedItem="{Binding selectedAttData}" 
+                        VerticalAlignment="Top"  Height="260" Grid.RowSpan="2" 
+                        CanUserFreezeColumns="False" MinWidth="387">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Header="Date" DataMemberBinding="{Binding AttDate, StringFormat='{}{0: dd-MMM-yyyy}'}" />
+                        <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
+                        <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
+                        <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding SectionName}" />
+                        <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding DeptName}" /> 
+                        <telerik:GridViewDataColumn Header="Shift" DataMemberBinding="{Binding ShiftName}" />
+                        <telerik:GridViewDataColumn Header="Duty" DataMemberBinding="{Binding DutyCode}" />
+                        <telerik:GridViewDataColumn Header="In" DataMemberBinding="{Binding TimeIn, StringFormat='{}{0: h:mm tt}'}" />
+                        <telerik:GridViewDataColumn Header="Out" DataMemberBinding="{Binding TimeOut, StringFormat='{}{0: h:mm tt}'}" />
+                        <telerik:GridViewDataColumn Header="Late In" DataMemberBinding="{Binding LateIn,Converter={StaticResource converter}}" />
+                        <telerik:GridViewDataColumn Header="Late Out" DataMemberBinding="{Binding LateOut,Converter={StaticResource converter}}" />
+                        <telerik:GridViewDataColumn Header="Early In" DataMemberBinding="{Binding EarlyIn,Converter={StaticResource converter}}" />
+                        <telerik:GridViewDataColumn Header="Early Out" DataMemberBinding="{Binding EarlyOut,Converter={StaticResource converter}}" />
+                        <telerik:GridViewDataColumn Header="Over time" DataMemberBinding="{Binding OTMin,Converter={StaticResource converter}}" />
+                        <telerik:GridViewDataColumn Header="Remarks" DataMemberBinding="{Binding Remarks}" />
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+
+            </StackPanel>
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="30px">
+                <Label Foreground="White" FontSize="14">Attendance Details</Label>
+            </StackPanel>
+            <!--CRUD Panel-->
+            <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
+                <StackPanel Margin="5,0,5,3" Background="White">
+                    <!--Buttons Panel-->
+                    <StackPanel Orientation="Horizontal" Margin="500,5,5,5">
+                        <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png">
+                            </Image>
+                        </Button>
+                    </StackPanel>
+                    <!--Data Input Panel-->
+                    <StackPanel Margin="5,5,5,5">
+                        <Grid Height="130">
+                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker" VerticalAlignment="Top" SelectedValue="{Binding TimeIn, StringFormat='{}{0: h:mm tt}'}"  Margin="225,10,649,0"/>
+                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker"  VerticalAlignment="Top" SelectedValue="{Binding TimeOut}" Margin="225,63,649,0"/>
+                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker" VerticalAlignment="Top" Margin="225,36,649,0"/>
+                            <Label Content="Duty Time:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,62,0,0"/>
+                            <Label Content="Time In:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="168,10,0,0"/>
+                            <Label Content="Time Out:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="158,36,0,0"/>
+                            <TextBox HorizontalAlignment="Left"  VerticalAlignment="Top" Width="116" Margin="411,21,0,0"/>
+                            <Label Content="Duty Code:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="151,88,0,0"/>
+                            <ComboBox HorizontalAlignment="Left"  VerticalAlignment="Top" Width="92" Margin="225,88,0,0" />
+                            <Label Content="Remarks:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,21,0,0"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="473,63,439,40" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Border>
+    <!--<Grid Margin="0,0,0,-30">
         <Label Content="Edit Manual Time In/Out
                " HorizontalAlignment="Left" Margin="13,73,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Date:" HorizontalAlignment="Left" Margin="35,120,0,0" VerticalAlignment="Top"/>
@@ -67,5 +141,5 @@
             <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
         </ToolBar>
 
-    </Grid>
-</Window>
+    </Grid>-->
+</Page>
