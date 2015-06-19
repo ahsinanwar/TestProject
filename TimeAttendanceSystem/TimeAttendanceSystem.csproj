@@ -423,6 +423,16 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\EditCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\SaveCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\VMShortLeave.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\AddCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\DeleteCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\EditCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\SaveCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\VMUser.cs" />
     <Compile Include="Views\AttEditJobCard.xaml.cs">
       <DependentUpon>AttEditJobCard.xaml</DependentUpon>
     </Compile>
@@ -680,10 +690,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\VMShortLv\" />
-    <Folder Include="ViewModels\VMUser\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
