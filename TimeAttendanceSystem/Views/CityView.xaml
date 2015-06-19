@@ -4,33 +4,7 @@
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
         Title="City" Width="400">
-    <Page.Resources>
-
-        <!-- The WPF DataGrid (WPF Toolkit version) has a bug that throws a format exception
-        when a WPF DataGrid is bound to a SelectedItem property, as we do here. The Ignore New
-        Item Plave Holder Converter works around this bug. For more information on the bug and
-        the converter, see Nigel Spencer's Blog (2009-04-30), which discusses the bug and provides 
-        the fix. Link to blog post can be found in the remarks to the value converter.  -->
-
-        <!-- DataGrid Background -->
-        <LinearGradientBrush x:Key="BlueLightGradientBrush" StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Offset="0" Color="#FFEAF3FF"/>
-            <GradientStop Offset="0.654" Color="#FFC0DEFF"/>
-            <GradientStop Offset="1" Color="#FFC0D9FB"/>
-        </LinearGradientBrush>
-
-        <!-- DatGrid style -->
-        <Style TargetType="{x:Type Grid}">
-            <Setter Property="Margin" Value="5" />
-            <Setter Property="Background" Value="{StaticResource BlueLightGradientBrush}" />
-
-        </Style>
-
-        <!-- Enable rows as drop targets -->
-        <Style TargetType="{x:Type toolkit:DataGridRow}">
-            <Setter Property="AllowDrop" Value="True" />
-        </Style>
-    </Page.Resources>
+   
     <!--Main Panel-->
     <Border BorderBrush="#FF25A0DA" BorderThickness="1">
         <StackPanel Background="White">
@@ -77,7 +51,7 @@
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="150">
                             <Label Content="Name:" HorizontalAlignment="Left" Margin="47,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                            <TextBox HorizontalAlignment="Left" Height="26" Margin="106,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedCity.CityName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                            <TextBox HorizontalAlignment="Left" Height="26" Margin="106,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedCity.CityName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
                             <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="201,80,111,43" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                             <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         </Grid>
