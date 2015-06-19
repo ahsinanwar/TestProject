@@ -390,6 +390,7 @@
     </Compile>
     <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
