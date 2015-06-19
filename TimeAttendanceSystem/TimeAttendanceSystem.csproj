@@ -390,6 +390,9 @@
     </Compile>
     <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\SaveCommandAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\EditCommandCat.cs" />
@@ -678,7 +681,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\VMAttEdit\Commands\" />
+    <Folder Include="ViewModels\VMShortLv\" />
+    <Folder Include="ViewModels\VMUser\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

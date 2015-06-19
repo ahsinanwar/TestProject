@@ -11,17 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMAttEdit;
 
 namespace TimeAttendanceSystem.Views
 {
     /// <summary>
     /// Interaction logic for AttEditView.xaml
     /// </summary>
-    public partial class AttEditView : Window
+    public partial class AttEditView : Page
     {
         public AttEditView()
         {
             InitializeComponent();
+            vmAttEdit = new VMAttEdit();
+            this.DataContext = vmAttEdit;
         }
+        VMAttEdit vmAttEdit;
     }
 }
