@@ -35,10 +35,11 @@
         </Border>
         <Border DockPanel.Dock="Top" Height="30" BorderThickness="0,0,0,2" Margin="0,0,0,0" BorderBrush="#6441a5">
             <StackPanel Orientation="Horizontal">
-                <Label>Home</Label>
-                <Label>Employee</Label>
-                <Label>Shift</Label>
-                <Label >Leave</Label>
+                <Button>Home</Button>
+                <Button x:Name="btn_employee" Click="btn_employee_Click">Employee</Button>
+                <Button>Shift
+                    </Button>
+                <Button >Leave</Button>
             </StackPanel>
         </Border>
         <Border DockPanel.Dock="Left" Width="170" BorderThickness="0,0,1,0" Margin="0,0,5,0" BorderBrush="#6441a5">

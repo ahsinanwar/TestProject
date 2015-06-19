@@ -1,8 +1,22 @@
 ﻿<Page x:Class="TimeAttendanceSystem.Views.EmployeeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TimeAttendanceSystem.Views"
+      
         Title="EmployeeView" Height="631.585" Width="738.125">
-    <Grid Margin="0,-24,0,47">
+    <Page.Resources>
+        <ControlTemplate x:Key="validationErrorTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" 
+            DockPanel.Dock="Top">!</TextBlock>
+                <AdornedElementPlaceholder 
+           x:Name="ErrorAdorner"
+        ></AdornedElementPlaceholder>
+            </DockPanel>
+        </ControlTemplate>
+    </Page.Resources>
+    <Grid Margin="0,-24,0.4,-60.8">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -15,7 +29,16 @@
             <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
         </ToolBar>
         <TextBlock HorizontalAlignment="Left" Margin="78,108,0,0" TextWrapping="Wrap" Text="Employee No:" VerticalAlignment="Top" Height="17" Width="79" FontFamily="Trebuchet MS"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="171,105,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="126"/>
+        <TextBox Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" HorizontalAlignment="Left" Height="20" Margin="171,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126">
+            <TextBox.Text>
+                <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
+        UpdateSourceTrigger="LostFocus">
+                    <Binding.ValidationRules>
+                        <local:NameValidator></local:NameValidator>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBox HorizontalAlignment="Left" Height="20" Margin="171,139,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="126"/>
         <TextBlock HorizontalAlignment="Left" Margin="56,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" Height="16" Text="Select EMP Photo:" FontFamily="Trebuchet MS"/>
         <Button Content="Choose Photo&#xA;" HorizontalAlignment="Left" Margin="171,166,0,0" VerticalAlignment="Top" Width="98" Height="21" RenderTransformOrigin="0.181,0.604"/>
@@ -34,13 +57,13 @@
                     <Label HorizontalAlignment="Left" Margin="157,473,0,0" VerticalAlignment="Top"/>
                     <Label Content="Crew Name:" HorizontalAlignment="Left" Margin="26,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.839"/>
                     <Label Content="Status:" HorizontalAlignment="Left" Margin="55,262,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.118,-0.649"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,21,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="CatName" SelectedValuePath="CatID" ItemsSource="{Binding listOfCats}"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,48,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,21,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="CatName" SelectedValuePath="CatID" ItemsSource="{Binding listOfCats}"  SelectedItem="{Binding selectedCat,Mode=TwoWay}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,48,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes,Mode=TwoWay}"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,75,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DesignationName" SelectedValuePath="DesignationID" ItemsSource="{Binding listOfDesgs}"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,102,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="GradeName" SelectedValuePath="GradeID" ItemsSource="{Binding listOfDesgs}"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,129,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="ShiftName" SelectedValuePath="ShiftID" ItemsSource="{Binding listOfShifts}"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,156,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" ItemsSource="{Binding listOfDepts}"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="121,183,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="SecName" SelectedValuePath="SecID" ItemsSource="{Binding listOfSecs}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,156,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" ItemsSource="{Binding listOfDepts}" SelectedItem="{Binding selectedDept,Mode=TwoWay}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="121,183,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="SectionName" SelectedValuePath="SectionID" ItemsSource="{Binding listOfSecs, Mode=TwoWay}"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,210,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="LocName" SelectedValuePath="LocID" ItemsSource="{Binding listOfLocs}"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,237,0,0" VerticalAlignment="Top" Width="152" DisplayMemberPath="CrewName" SelectedValuePath="CrewID" ItemsSource="{Binding listOfCrews}"/>
                     <ComboBox HorizontalAlignment="Left" Margin="121,264,0,0" VerticalAlignment="Top" Width="152" >
@@ -48,7 +71,7 @@
                         <ComboBoxItem Name="cbi2">False</ComboBoxItem>
                     </ComboBox>
                     <Label Content="Card No:" HorizontalAlignment="Left" Margin="309,17,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="24" Margin="371,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Text="{Binding selectedEmp.CardNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox  HorizontalAlignment="Left" Height="24" Margin="371,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Text="{Binding selectedEmp.CardNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Button Content="Create" HorizontalAlignment="Left" Margin="135,322,0,0" VerticalAlignment="Top" Width="57"/>
                 </Grid>
             </TabItem>

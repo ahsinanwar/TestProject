@@ -90,5 +90,13 @@ namespace TimeAttendanceSystem
                     break;
             }
         }
+
+        private void btn_employee_Click(object sender, RoutedEventArgs e)
+        {
+            
+            _mainFrame.Navigate(new EmployeeView());
+        }
+
+      
     }
 }

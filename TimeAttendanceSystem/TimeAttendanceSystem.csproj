@@ -388,6 +388,7 @@
     <Compile Include="Model\ViewUserLocation.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
@@ -517,6 +518,7 @@
     <Compile Include="Views\LvQuotaView.xaml.cs">
       <DependentUpon>LvQuotaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NameValidator.cs" />
     <Compile Include="Views\ReaderView.xaml.cs">
       <DependentUpon>ReaderView.xaml</DependentUpon>
     </Compile>
