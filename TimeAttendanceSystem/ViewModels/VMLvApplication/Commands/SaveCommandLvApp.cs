@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.Controllers;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
@@ -34,9 +35,23 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
             VMLvApplication vmd = (VMLvApplication)parameter;
             if (vmd.isAdding)
             {
-                context.LvApplications.Add(vmd.selectedLvApp);
-                context.SaveChanges();
-                vmd.listOfLvApps.Add(vmd.selectedLvApp);
+                LvController lvctrl = new LvController();
+                bool chkdup = lvctrl.CheckDuplicateLeave(vmd.selectedLvApp);
+                if (chkdup == false)
+                {
+                    bool chkbal = lvctrl.CheckLeaveBalance(vmd.selectedLvApp);
+                    if (chkbal == true)
+                    {
+                        context.LvApplications.Add(vmd.selectedLvApp);
+                        context.SaveChanges();
+                        lvctrl.AddLeaveToLeaveAttData(vmd.selectedLvApp);
+                        lvctrl.BalanceLeaves(vmd.selectedLvApp);
+                        vmd.listOfLvApps.Add(vmd.selectedLvApp);
+
+                    }
+                }
+                    
+                
 
             }
             else

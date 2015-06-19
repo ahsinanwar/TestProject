@@ -12,6 +12,7 @@ namespace TimeAttendanceSystem.Validation
         public override ValidationResult Validate
           (object value, System.Globalization.CultureInfo cultureInfo)
         {
+            Console.WriteLine(value);
             if (value == null)
                 return new ValidationResult(false, "value cannot be empty.");
             else
