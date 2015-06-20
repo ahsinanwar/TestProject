@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.
 
 
 namespace TimeAttendanceSystem.Views
