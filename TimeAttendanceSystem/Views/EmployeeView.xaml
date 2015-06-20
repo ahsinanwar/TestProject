@@ -85,7 +85,7 @@
                                         <ComboBoxItem Name="cbi1">True</ComboBoxItem>
                                         <ComboBoxItem Name="cbi2">False</ComboBoxItem>
                                     </ComboBox>
-                                    <TextBox Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="179,57,0,0">
+                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="179,57,0,0">
                                         <TextBox.Text>
                                             <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
         UpdateSourceTrigger="LostFocus">
