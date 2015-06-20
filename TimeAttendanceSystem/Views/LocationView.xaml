@@ -5,34 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
         Title="LocationView"  Width="400" FontSize="9">
 
-    <Page.Resources>
-
-        <!-- The WPF DataGrid (WPF Toolkit version) has a bug that throws a format exception
-        when a WPF DataGrid is bound to a SelectedItem property, as we do here. The Ignore New
-        Item Plave Holder Converter works around this bug. For more information on the bug and
-        the converter, see Nigel Spencer's Blog (2009-04-30), which discusses the bug and provides 
-        the fix. Link to blog post can be found in the remarks to the value converter.  -->
-
-
-        <!-- DataGrid Background -->
-        <LinearGradientBrush x:Key="BlueLightGradientBrush" StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Offset="0" Color="#FFEAF3FF"/>
-            <GradientStop Offset="0.654" Color="#FFC0DEFF"/>
-            <GradientStop Offset="1" Color="#FFC0D9FB"/>
-        </LinearGradientBrush>
-
-        <!-- DatGrid style -->
-        <Style TargetType="{x:Type Grid}">
-            <Setter Property="Margin" Value="5" />
-            <Setter Property="Background" Value="{StaticResource BlueLightGradientBrush}" />
-
-        </Style>
-
-        <!-- Enable rows as drop targets -->
-        <Style TargetType="{x:Type toolkit:DataGridRow}">
-            <Setter Property="AllowDrop" Value="True" />
-        </Style>
-    </Page.Resources>
+  
     
     <!--Main Panel-->
     
@@ -64,7 +37,7 @@
             </StackPanel>
             <!--CRUD Panel-->
             <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
-                <StackPanel Margin="5,0,5,3" Background="White">
+                <StackPanel Margin="1,0,9,3" Background="White">
                     <!--Buttons Panel-->
                     <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
                         <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
@@ -84,11 +57,11 @@
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="150">
                             <Label Content="Name:" HorizontalAlignment="Left" Margin="47,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                            <TextBox HorizontalAlignment="Left" Height="26" Margin="88,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedLoc.LocName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
-                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="201,80,111,43" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <TextBox HorizontalAlignment="Left" Height="26" Margin="88,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedLoc.LocName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="241,88,71,35" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                             <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
-                            <Label Content="City:" HorizontalAlignment="Left" Margin="30,84,0,0" VerticalAlignment="Top"/>
-                            <ComboBox HorizontalAlignment="Left" Margin="79,88,0,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityName}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" Width="110"/>
+                            <Label Content="City:" HorizontalAlignment="Left" Margin="56,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.963,0.318"/>
+                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" Margin="88,62,168,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityName}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" Width="110" FontWeight="Bold"/>
 
                         </Grid>
                     </StackPanel>

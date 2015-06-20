@@ -510,6 +510,9 @@
     <Compile Include="Views\CrewView.xaml.cs">
       <DependentUpon>CrewView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DepartmentView.xaml.cs">
       <DependentUpon>DepartmentView.xaml</DependentUpon>
     </Compile>
@@ -585,6 +588,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CrewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
