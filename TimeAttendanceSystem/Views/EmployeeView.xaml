@@ -69,12 +69,14 @@
                                         </Image>
                                     </Button>
                                     <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="115,26,0,0"></Label>
-                                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Margin="179,30,0,0">
+                                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Margin="179,30,0,0" TextChanged="TextBox_TextChanged_1">
                                         <TextBox.Text>
-                                            <Binding Path="selectedEmp.EmpNo" Mode="TwoWay" 
-        UpdateSourceTrigger="LostFocus">
+                                            <Binding Path="selectedEmp.EmpNo" 
+             ValidatesOnExceptions="True" 
+             UpdateSourceTrigger="PropertyChanged" 
+             ValidatesOnDataErrors="True">
                                                 <Binding.ValidationRules>
-                                                    <validations:NameValidator></validations:NameValidator>
+                                                    <validations:NameValidator/>
                                                 </Binding.ValidationRules>
                                             </Binding>
                                         </TextBox.Text>
@@ -87,10 +89,11 @@
                                     </ComboBox>
                                     <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="179,57,0,0">
                                         <TextBox.Text>
-                                            <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
-        UpdateSourceTrigger="LostFocus">
+                                            <Binding Path="selectedEmp.EmpName" ValidatesOnExceptions="True" 
+             UpdateSourceTrigger="PropertyChanged" 
+             ValidatesOnDataErrors="True">
                                                 <Binding.ValidationRules>
-                                                    <validations:NameValidator></validations:NameValidator>
+                                                    <validations:NameValidator/>
                                                 </Binding.ValidationRules>
                                             </Binding>
                                         </TextBox.Text>
