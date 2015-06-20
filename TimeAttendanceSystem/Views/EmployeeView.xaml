@@ -4,8 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:validations="clr-namespace:TimeAttendanceSystem.Validation"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
-        xmlns:local="clr-namespace:TimeAttendanceSystem.Views"     
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"    
         Title="EmployeeView" Height="631.585" Width="851.558">
     <Page.Resources>
         <Style TargetType="TextBox">
@@ -72,10 +71,10 @@
                                     <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="115,26,0,0"></Label>
                                     <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Margin="179,30,0,0">
                                         <TextBox.Text>
-                                            <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
+                                            <Binding Path="selectedEmp.EmpNo" Mode="TwoWay" 
         UpdateSourceTrigger="LostFocus">
                                                 <Binding.ValidationRules>
-                                                    <local:NameValidator></local:NameValidator>
+                                                    <validations:NameValidator></validations:NameValidator>
                                                 </Binding.ValidationRules>
                                             </Binding>
                                         </TextBox.Text>
@@ -91,7 +90,7 @@
                                             <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
         UpdateSourceTrigger="LostFocus">
                                                 <Binding.ValidationRules>
-                                                    <local:NameValidator></local:NameValidator>
+                                                    <validations:NameValidator></validations:NameValidator>
                                                 </Binding.ValidationRules>
                                             </Binding>
                                         </TextBox.Text>
