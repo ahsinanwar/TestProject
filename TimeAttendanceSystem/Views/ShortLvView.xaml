@@ -1,6 +1,7 @@
 ﻿<Page x:Class="TimeAttendanceSystem.Views.ShortLvView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
         Title="ShortLvView" Height="479.775" Width="731.461">
     <Grid Margin="0,0,-8,-3">
         <Label Content="Short Leaves:" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" FontSize="22"/>

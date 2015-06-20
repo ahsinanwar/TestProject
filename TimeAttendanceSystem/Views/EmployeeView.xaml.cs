@@ -29,6 +29,8 @@ namespace TimeAttendanceSystem.Views
             vmemps = new VMEmployee();
             this.DataContext = vmemps;
         }
+
+        
         
     }
 }

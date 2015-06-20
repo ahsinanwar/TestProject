@@ -4,11 +4,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:validations="clr-namespace:TimeAttendanceSystem.Validation"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
-        xmlns:local="clr-namespace:TimeAttendanceSystem.Views"     
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"    
         Title="EmployeeView" Height="631.585" Width="851.558">
     <Page.Resources>
-        <!--<local:ErrorsToMessageConverter x:Key="eToMConverter"/>-->
         <Style TargetType="TextBox">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" 
@@ -71,28 +69,31 @@
                                         </Image>
                                     </Button>
                                     <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="115,26,0,0"></Label>
-                                    <TextBox Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Margin="179,30,0,0">
+                                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Margin="179,30,0,0" TextChanged="TextBox_TextChanged_1">
                                         <TextBox.Text>
-                                            <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
-        UpdateSourceTrigger="LostFocus">
+                                            <Binding Path="selectedEmp.EmpNo" 
+             ValidatesOnExceptions="True" 
+             UpdateSourceTrigger="PropertyChanged" 
+             ValidatesOnDataErrors="True">
                                                 <Binding.ValidationRules>
-                                                    <local:NameValidator></local:NameValidator>
+                                                    <validations:NameValidator/>
                                                 </Binding.ValidationRules>
                                             </Binding>
                                         </TextBox.Text>
                                     </TextBox>
-                                    <Label HorizontalAlignment="Left" Content="Name:" VerticalAlignment="Top" Height="22" Width="48" FontFamily="Trebuchet MS" Margin="126,57,0,0"/>
+                                    <Label HorizontalAlignment="Left" Content="Name:" VerticalAlignment="Top" Height="28" Width="48"  Margin="126,57,0,0"/>
                                     <Label Content="Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,85,0,0"/>
                                     <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="126" Margin="179,85,0,0" >
                                         <ComboBoxItem Name="cbi1">True</ComboBoxItem>
                                         <ComboBoxItem Name="cbi2">False</ComboBoxItem>
                                     </ComboBox>
-                                    <TextBox Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="179,57,0,0">
+                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="179,57,0,0">
                                         <TextBox.Text>
-                                            <Binding Path="selectedEmp.EmpName" Mode="TwoWay" 
-        UpdateSourceTrigger="LostFocus">
+                                            <Binding Path="selectedEmp.EmpName" ValidatesOnExceptions="True" 
+             UpdateSourceTrigger="PropertyChanged" 
+             ValidatesOnDataErrors="True">
                                                 <Binding.ValidationRules>
-                                                    <local:NameValidator></local:NameValidator>
+                                                    <validations:NameValidator/>
                                                 </Binding.ValidationRules>
                                             </Binding>
                                         </TextBox.Text>
@@ -112,18 +113,51 @@
                                             <Label Content="Location:" HorizontalAlignment="Left" Margin="89,168,0,0" VerticalAlignment="Top" FontSize="12" Width="68"/>
                                             <Label HorizontalAlignment="Left" Margin="157,473,0,0" VerticalAlignment="Top"/>
                                             <Label Content="Crew:" HorizontalAlignment="Left" Margin="108,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.839"/>
-                                            <ComboBox HorizontalAlignment="Left" Margin="152,8,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes,Mode=TwoWay}"/>
-                                            <ComboBox HorizontalAlignment="Left" Margin="152,35,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DesignationName" SelectedValuePath="DesignationID" ItemsSource="{Binding listOfDesgs}"/>
-                                            <ComboBox HorizontalAlignment="Left" Margin="152,62,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="GradeName" SelectedValuePath="GradeID" ItemsSource="{Binding listOfDesgs}"/>
-                                            <ComboBox HorizontalAlignment="Left" Margin="152,89,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="ShiftName" SelectedValuePath="ShiftID" ItemsSource="{Binding listOfShifts}"/>
-                                            <ComboBox HorizontalAlignment="Left" Margin="152,116,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" ItemsSource="{Binding listOfDepts}" SelectedItem="{Binding selectedDept,Mode=TwoWay}"/>
-                                            <ComboBox HorizontalAlignment="Left" Margin="152,143,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="SectionName" SelectedValuePath="SectionID" ItemsSource="{Binding listOfSecs, Mode=TwoWay}"/>
-                                            <ComboBox HorizontalAlignment="Left" Margin="152,170,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="LocName" SelectedValuePath="LocID" ItemsSource="{Binding listOfLocs}"/>
-                                            <ComboBox HorizontalAlignment="Left" Margin="152,197,0,0" VerticalAlignment="Top" Width="152" DisplayMemberPath="CrewName" SelectedValuePath="CrewID" ItemsSource="{Binding listOfCrews}"/>
+                                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="152,8,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes,Mode=TwoWay}"/>
+                                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="152,35,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DesignationName" SelectedValuePath="DesignationID" ItemsSource="{Binding listOfDesgs}"/>
+                                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="152,62,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="GradeName" SelectedValuePath="GradeID" ItemsSource="{Binding listOfDesgs}"/>
+                                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="152,89,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="ShiftName" SelectedValuePath="ShiftID" ItemsSource="{Binding listOfShifts}"/>
+                                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="152,116,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" ItemsSource="{Binding listOfDepts}" SelectedItem="{Binding selectedDept,Mode=TwoWay}"/>
+                                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="152,143,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="SectionName" SelectedValuePath="SectionID" ItemsSource="{Binding listOfSecs, Mode=TwoWay}"/>
+                                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="152,170,0,0" VerticalAlignment="Top" Width="152" FontSize="12" DisplayMemberPath="LocName" SelectedValuePath="LocID" ItemsSource="{Binding listOfLocs}"/>
+                                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="152,197,0,0" VerticalAlignment="Top" Width="152" DisplayMemberPath="CrewName" SelectedValuePath="CrewID" ItemsSource="{Binding listOfCrews}"/>
                                         </Grid>
                                     </TabItem>
                                     <TabItem Header="Personal" >
-                                        <Label Content="Content goes here..." />
+                                        <Grid>
+                                            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,22,0,0">Father Name:</Label>
+                                            <TextBox HorizontalAlignment="Left" Height="22" Margin="148,26,0,0"  VerticalAlignment="Top" Width="143" FontSize="18" Text="{Binding selectedEmp.FatherName}"/>
+                                            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,52,0,0">Join Date:</Label>
+                                            <Label HorizontalAlignment="Left" Margin="483,85,0,0" VerticalAlignment="Top" >Valid Date:</Label>
+                                            <DatePicker HorizontalAlignment="Left" Margin="564,42,0,0" VerticalAlignment="Top" Width="143" Height="22" Grid.Column="2"/>
+                                            <DatePicker HorizontalAlignment="Left" Margin="148,141,0,0" VerticalAlignment="Top" Width="143"/>
+                                            <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Width="143" Margin="148,53,0,0" />
+                                            <ComboBox HorizontalAlignment="Left" Margin="148,82,0,0" VerticalAlignment="Top" Width="143" Height="26" RenderTransformOrigin="0.266,-0.312">
+                                                <ComboBoxItem Name="CBMale">Male</ComboBoxItem>
+                                                <ComboBoxItem Name="CBFemale">Female</ComboBoxItem>
+                                            </ComboBox>
+                                            <Label HorizontalAlignment="Left" Margin="78,83,0,0" VerticalAlignment="Top" >Gender:</Label>
+                                            <Label HorizontalAlignment="Left" Margin="89,114,0,0" VerticalAlignment="Top">CNIC:</Label>
+                                            <TextBox HorizontalAlignment="Left" Margin="148,114,0,0"   VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.NicNo}"/>
+                                            <Label HorizontalAlignment="Left" Margin="488,127,0,0" VerticalAlignment="Top" >Phone No:"/></Label>
+                                            <TextBox HorizontalAlignment="Left" Height="22" Margin="564,127,0,0"   VerticalAlignment="Top"  Text="{Binding selectedEmp.PhoneNo}" />
+                                            <Label HorizontalAlignment="Left" Margin="499,170,0,0" VerticalAlignment="Top" >Cell No:</Label>
+                                            <TextBox HorizontalAlignment="Left" Height="22" Margin="564,169,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Grid.Column="2" Text="{Binding selectedEmp.CellNo}"/>
+                                            <Label HorizontalAlignment="Left" Margin="55,141,0,0" VerticalAlignment="Top">Date Of Birth:</Label>
+                                            <Label HorizontalAlignment="Left" Margin="74,205,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="55">E-Mail:
+                                            </Label>
+                                            <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.Email}" Margin="148,206,0,0"/>
+                                            <Label HorizontalAlignment="Left" Margin="48,174,0,0" VerticalAlignment="Top">Martial Status:</Label>
+                                            <ComboBox HorizontalAlignment="Left" Margin="148,174,0,0" VerticalAlignment="Top" Width="143">
+                                                <ComboBoxItem >Married</ComboBoxItem>
+                                                <ComboBoxItem >UnMarried</ComboBoxItem>
+                                            </ComboBox>
+                                            <Label HorizontalAlignment="Left" Margin="491,254,0,0" VerticalAlignment="Top">Remarks</Label>
+                                            <TextBox HorizontalAlignment="Left" Height="22" Margin="564,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Column="2" Text="{Binding selectedEmp.Remarks}"/>
+                                            <Label HorizontalAlignment="Left" Margin="52,279,0,0" VerticalAlignment="Top">Home Adress:</Label>
+                                            <TextBox HorizontalAlignment="Left" Height="22" Margin="148,263,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.Adress}"/>
+
+                                        </Grid>
                                     </TabItem>
                                     <TabItem Header="Leaves" >
                                         <Label Content="Content goes here..." />

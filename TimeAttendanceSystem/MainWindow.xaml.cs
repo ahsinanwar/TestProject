@@ -26,7 +26,6 @@ namespace TimeAttendanceSystem
             InitializeComponent();
             
             WindowState = WindowState.Maximized;
-            _mainFrame.Navigate(new DashboardView());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
