@@ -18,11 +18,12 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for DashView.xaml
     /// </summary>
-    public partial class DashView : Page
+    public partial class DashView : UserControl
     {
         public DashView()
         {
             InitializeComponent();
+           
         }
     }
 }
