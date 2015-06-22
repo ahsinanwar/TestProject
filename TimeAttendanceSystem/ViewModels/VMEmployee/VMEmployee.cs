@@ -105,7 +105,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
         public ObservableCollection<Emp> listOfEmps
         {
-            get { return _listOfEmps; }
+            get { 
+                return _listOfEmps; }
 
             set
             {

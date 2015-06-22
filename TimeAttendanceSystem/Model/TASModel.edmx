@@ -2364,7 +2364,6 @@
           </Key>
           <Property Name="CatID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CompanyID" Type="smallint" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -6195,7 +6194,6 @@
           </Key>
           <Property Type="Int16" Name="CatID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int16" Name="CompanyID" />
           <NavigationProperty Name="EmpTypes" Relationship="TASDesktopModel.FK_EmpType_Category" FromRole="Category" ToRole="EmpType" />
         </EntityType>
         <EntityType Name="City">
@@ -9687,7 +9685,6 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="TASDesktopModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
               </MappingFragment>

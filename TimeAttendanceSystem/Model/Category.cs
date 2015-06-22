@@ -21,7 +21,6 @@ namespace TimeAttendanceSystem.Model
     
         public short CatID { get; set; }
         public string CatName { get; set; }
-        public Nullable<short> CompanyID { get; set; }
     
         public virtual ICollection<EmpType> EmpTypes { get; set; }
     }

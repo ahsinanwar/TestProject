@@ -51,32 +51,32 @@
                 </StackPanel>
 
                 <StackPanel Background="#FFF4F7FB">
-<TreeView BorderBrush="#fafbfc" Background="#FFF4F7FB" FontSize="14px" SelectedItemChanged="OnTreeViewSelectedItemChanged">
+                    <TreeView BorderBrush="#fafbfc" Background="#FFF4F7FB" FontSize="14px" SelectedItemChanged="OnTreeViewSelectedItemChanged">
 
-                    <TreeViewItem Header="Company">
-                        <TreeViewItem Header="Sections"></TreeViewItem>
-                        <TreeViewItem Header="Departments"></TreeViewItem>
-                        <TreeViewItem Header="Division"></TreeViewItem>
-                        <TreeViewItem Header="Designation"></TreeViewItem>
-                        <TreeViewItem Header="Crew"></TreeViewItem>
-                        <TreeViewItem Header="City"></TreeViewItem>
-                        <TreeViewItem Header="Location"></TreeViewItem>
-                        <TreeViewItem Header="Category"></TreeViewItem>
-                        <TreeViewItem Header="Emp Types"></TreeViewItem>
-                        <TreeViewItem Header="Holidays"></TreeViewItem>
-                        <TreeViewItem Header="Users"></TreeViewItem>
-                    </TreeViewItem>
-                    <TreeViewItem Header="Leaves">
-                        <TreeViewItem Header="Application"></TreeViewItem>
-                        <TreeViewItem Header="Short Leave"></TreeViewItem>
-                        <TreeViewItem Header="Quota"></TreeViewItem>
-                    </TreeViewItem>
-                    <TreeViewItem Header="Reports">
-                        <TreeViewItem Header="Daily"></TreeViewItem>
-                        <TreeViewItem Header="Monthly"></TreeViewItem>
-                        <TreeViewItem Header="Present"></TreeViewItem>
-                    </TreeViewItem>
-                </TreeView>
+                        <TreeViewItem Header="Company">
+                            <TreeViewItem Header="Sections"></TreeViewItem>
+                            <TreeViewItem Header="Departments"></TreeViewItem>
+                            <TreeViewItem Header="Division"></TreeViewItem>
+                            <TreeViewItem Header="Designation"></TreeViewItem>
+                            <TreeViewItem Header="Crew"></TreeViewItem>
+                            <TreeViewItem Header="City"></TreeViewItem>
+                            <TreeViewItem Header="Location"></TreeViewItem>
+                            <TreeViewItem Header="Category"></TreeViewItem>
+                            <TreeViewItem Header="Emp Types"></TreeViewItem>
+                            <TreeViewItem Header="Holidays"></TreeViewItem>
+                            <TreeViewItem Header="Users"></TreeViewItem>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Leaves">
+                            <TreeViewItem Header="Application"></TreeViewItem>
+                            <TreeViewItem Header="Short Leave"></TreeViewItem>
+                            <TreeViewItem Header="Quota"></TreeViewItem>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Reports">
+                            <TreeViewItem Header="Daily"></TreeViewItem>
+                            <TreeViewItem Header="Monthly"></TreeViewItem>
+                            <TreeViewItem Header="Present"></TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
                 </StackPanel>
             </StackPanel>
         </Border>
