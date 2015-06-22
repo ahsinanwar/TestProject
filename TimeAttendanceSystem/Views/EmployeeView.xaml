@@ -35,7 +35,7 @@
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
                         ItemsSource="{Binding listOfEmps}" SelectedItem="{Binding selectedEmp}" 
                         VerticalAlignment="Top" Grid.RowSpan="2" 
-                        CanUserFreezeColumns="False" MinWidth="387">
+                        CanUserFreezeColumns="False" Width="600">
                         <telerik:RadGridView.Columns>
                             <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding 
 EmpNo}" />
