@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace TimeAttendanceSystem.Views
 {
     /// <summary>
-    /// Interaction logic for DashboardView.xaml
+    /// Interaction logic for DashView.xaml
     /// </summary>
-    public partial class DashboardView : Page
+    public partial class DashView : Page
     {
-        public DashboardView()
+        public DashView()
         {
             InitializeComponent();
         }
