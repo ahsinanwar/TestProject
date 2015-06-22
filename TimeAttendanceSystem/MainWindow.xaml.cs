@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.Reports.ReportForms;
 using TimeAttendanceSystem.Views;
 
 namespace TimeAttendanceSystem
@@ -83,7 +84,8 @@ namespace TimeAttendanceSystem
                     _mainFrame.Navigate(new SectionView());
                     break;
                 case "Daily":
-                    _mainFrame.Navigate(new SectionView());
+                    DFAbsent d = new DFAbsent();
+                    d.Show();
                     break;
                 case "Monthly":
                     _mainFrame.Navigate(new SectionView());
