@@ -25,6 +25,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDashboard
         {
             context = new TAS2013Entities();
             _presence = new ObservableCollection<DailySummary>(context.DailySummaries);
+            Console.WriteLine(_presence);
             OnPropertyChanged("_presence");
         }
         #endregion
