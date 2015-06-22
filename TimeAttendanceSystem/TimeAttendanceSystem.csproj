@@ -45,6 +45,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -55,6 +56,7 @@
     <Reference Include="System.Windows.Controls.Layout.Toolkit">
       <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -399,6 +401,12 @@
     <Compile Include="Model\ViewUserLocation.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\DFAbsent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFAbsent.Designer.cs">
+      <DependentUpon>DFAbsent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
     <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
@@ -681,6 +689,35 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RDLC\DRAbsent.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRDetailed.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DREarlyIn.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DREarlyOut.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRLateIn.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRLateOut.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRLeave.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRLeaveQuota.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRMissingAtt.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRMultipleInOut.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DROverTime.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRPresent.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRShortLeave.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\EmpAttSummary.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\Employee.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\EmployeeDetail.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MLvApplication.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRDetailExcelC.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRDetailExcelP.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRLeaveBal.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRSheetC.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRSheetP.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRSummary.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRSummaryC.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MYLeaveSummary.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\RAuditLog.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\REditAttendance.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\RLeaveQuota.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\RShortLeave.rdlc" />
     <EntityDeploy Include="Model\TASModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TASModel.Designer.cs</LastGenOutput>
@@ -727,6 +764,9 @@
   <ItemGroup>
     <Resource Include="Images\add.png" />
     <Resource Include="Images\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\UserControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
