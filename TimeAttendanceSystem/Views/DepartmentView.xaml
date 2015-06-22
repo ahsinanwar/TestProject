@@ -15,6 +15,7 @@
             </StackPanel>
             <!--List View Panel-->
             <StackPanel Margin="5,5,5,5">
+
                 <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" ItemsSource="{Binding listOfDepts}" 
                               SelectedItem="{Binding selectedDept}" VerticalAlignment="Top" Width="390" Height="260" Grid.RowSpan="2" CanUserFreezeColumns="False">
                     <telerik:RadGridView.Columns>
