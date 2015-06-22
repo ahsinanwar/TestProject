@@ -75,8 +75,10 @@ EmpNo}" />
                                         <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/Blank-Person1.png">
                                         </Image>
                                     </Button>
+
                                     <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="98,10,0,0"></Label>
                                     <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Margin="162,14,0,0">
+
                                         <TextBox.Text>
                                             <Binding Path="selectedEmp.EmpNo" 
              ValidatesOnExceptions="True" 
