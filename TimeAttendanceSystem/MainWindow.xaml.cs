@@ -79,7 +79,7 @@ namespace TimeAttendanceSystem
 
                     break;
                 case "Short Leave":
-                    _mainFrame.Navigate(new SectionView());
+                    _mainFrame.Navigate(new ShortLvView());
                     break;
                 case "Quota":
                     _mainFrame.Navigate(new SectionView());
