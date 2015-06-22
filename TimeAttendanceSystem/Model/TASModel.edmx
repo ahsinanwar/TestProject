@@ -200,6 +200,7 @@
       [DailySumLoc].[SLeaves] AS [SLeaves]
       FROM [dbo].[DailySumLoc] AS [DailySumLoc]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="DailySummary" EntityType="TASDesktopModel.Store.DailySummary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DailySumSection" EntityType="TASDesktopModel.Store.DailySumSection" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DailySumShift" EntityType="TASDesktopModel.Store.DailySumShift" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DaysName" EntityType="TASDesktopModel.Store.DaysName" store:Type="Tables" Schema="dbo" />
@@ -2438,6 +2439,43 @@
           <Property Name="ALeaves" Type="smallint" />
           <Property Name="CLeaves" Type="smallint" />
           <Property Name="SLeaves" Type="smallint" />
+        </EntityType>
+        <EntityType Name="DailySummary">
+          <Key>
+            <PropertyRef Name="SummaryDateCriteria" />
+          </Key>
+          <Property Name="SummaryDateCriteria" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Criteria" Type="nvarchar" MaxLength="10" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="TotalEmps" Type="smallint" />
+          <Property Name="PresentEmps" Type="smallint" />
+          <Property Name="AbsentEmps" Type="smallint" />
+          <Property Name="LvEmps" Type="smallint" />
+          <Property Name="ShortLvEmps" Type="smallint" />
+          <Property Name="HalfLvEmps" Type="smallint" />
+          <Property Name="LIEmps" Type="smallint" />
+          <Property Name="LOEmps" Type="smallint" />
+          <Property Name="EIEmps" Type="smallint" />
+          <Property Name="EOEmps" Type="smallint" />
+          <Property Name="OTEmps" Type="smallint" />
+          <Property Name="OnTimeEmps" Type="smallint" />
+          <Property Name="DayOffEmps" Type="smallint" />
+          <Property Name="LIMins" Type="int" />
+          <Property Name="LOMins" Type="int" />
+          <Property Name="EIMins" Type="int" />
+          <Property Name="EOMins" Type="int" />
+          <Property Name="OTMins" Type="int" />
+          <Property Name="ExpectedWorkMins" Type="int" />
+          <Property Name="ActualWorkMins" Type="int" />
+          <Property Name="LossWorkMins" Type="int" />
+          <Property Name="ALIMins" Type="smallint" />
+          <Property Name="ALOMins" Type="smallint" />
+          <Property Name="AEIMins" Type="smallint" />
+          <Property Name="AEOMins" Type="smallint" />
+          <Property Name="AOTMins" Type="smallint" />
+          <Property Name="AExpectedMins" Type="smallint" />
+          <Property Name="AActualMins" Type="smallint" />
+          <Property Name="ALossMins" Type="smallint" />
         </EntityType>
         <EntityType Name="DailySumSection">
           <Key>
@@ -5365,6 +5403,7 @@
           <EntitySet Name="Crews" EntityType="TASDesktopModel.Crew" />
           <EntitySet Name="DailySumDepts" EntityType="TASDesktopModel.DailySumDept" />
           <EntitySet Name="DailySumLocs" EntityType="TASDesktopModel.DailySumLoc" />
+          <EntitySet Name="DailySummaries" EntityType="TASDesktopModel.DailySummary" />
           <EntitySet Name="DailySumSections" EntityType="TASDesktopModel.DailySumSection" />
           <EntitySet Name="DailySumShifts" EntityType="TASDesktopModel.DailySumShift" />
           <EntitySet Name="DaysNames" EntityType="TASDesktopModel.DaysName" />
@@ -6271,6 +6310,43 @@
           <Property Type="Int16" Name="ALeaves" />
           <Property Type="Int16" Name="CLeaves" />
           <Property Type="Int16" Name="SLeaves" />
+        </EntityType>
+        <EntityType Name="DailySummary">
+          <Key>
+            <PropertyRef Name="SummaryDateCriteria" />
+          </Key>
+          <Property Type="String" Name="SummaryDateCriteria" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Criteria" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" Precision="3" />
+          <Property Type="Int16" Name="TotalEmps" />
+          <Property Type="Int16" Name="PresentEmps" />
+          <Property Type="Int16" Name="AbsentEmps" />
+          <Property Type="Int16" Name="LvEmps" />
+          <Property Type="Int16" Name="ShortLvEmps" />
+          <Property Type="Int16" Name="HalfLvEmps" />
+          <Property Type="Int16" Name="LIEmps" />
+          <Property Type="Int16" Name="LOEmps" />
+          <Property Type="Int16" Name="EIEmps" />
+          <Property Type="Int16" Name="EOEmps" />
+          <Property Type="Int16" Name="OTEmps" />
+          <Property Type="Int16" Name="OnTimeEmps" />
+          <Property Type="Int16" Name="DayOffEmps" />
+          <Property Type="Int32" Name="LIMins" />
+          <Property Type="Int32" Name="LOMins" />
+          <Property Type="Int32" Name="EIMins" />
+          <Property Type="Int32" Name="EOMins" />
+          <Property Type="Int32" Name="OTMins" />
+          <Property Type="Int32" Name="ExpectedWorkMins" />
+          <Property Type="Int32" Name="ActualWorkMins" />
+          <Property Type="Int32" Name="LossWorkMins" />
+          <Property Type="Int16" Name="ALIMins" />
+          <Property Type="Int16" Name="ALOMins" />
+          <Property Type="Int16" Name="AEIMins" />
+          <Property Type="Int16" Name="AEOMins" />
+          <Property Type="Int16" Name="AOTMins" />
+          <Property Type="Int16" Name="AExpectedMins" />
+          <Property Type="Int16" Name="AActualMins" />
+          <Property Type="Int16" Name="ALossMins" />
         </EntityType>
         <EntityType Name="DailySumSection">
           <Key>
@@ -9763,6 +9839,44 @@
                 <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
                 <ScalarProperty Name="LocID" ColumnName="LocID" />
                 <ScalarProperty Name="LocDate" ColumnName="LocDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailySummaries">
+            <EntityTypeMapping TypeName="TASDesktopModel.DailySummary">
+              <MappingFragment StoreEntitySet="DailySummary">
+                <ScalarProperty Name="ALossMins" ColumnName="ALossMins" />
+                <ScalarProperty Name="AActualMins" ColumnName="AActualMins" />
+                <ScalarProperty Name="AExpectedMins" ColumnName="AExpectedMins" />
+                <ScalarProperty Name="AOTMins" ColumnName="AOTMins" />
+                <ScalarProperty Name="AEOMins" ColumnName="AEOMins" />
+                <ScalarProperty Name="AEIMins" ColumnName="AEIMins" />
+                <ScalarProperty Name="ALOMins" ColumnName="ALOMins" />
+                <ScalarProperty Name="ALIMins" ColumnName="ALIMins" />
+                <ScalarProperty Name="LossWorkMins" ColumnName="LossWorkMins" />
+                <ScalarProperty Name="ActualWorkMins" ColumnName="ActualWorkMins" />
+                <ScalarProperty Name="ExpectedWorkMins" ColumnName="ExpectedWorkMins" />
+                <ScalarProperty Name="OTMins" ColumnName="OTMins" />
+                <ScalarProperty Name="EOMins" ColumnName="EOMins" />
+                <ScalarProperty Name="EIMins" ColumnName="EIMins" />
+                <ScalarProperty Name="LOMins" ColumnName="LOMins" />
+                <ScalarProperty Name="LIMins" ColumnName="LIMins" />
+                <ScalarProperty Name="DayOffEmps" ColumnName="DayOffEmps" />
+                <ScalarProperty Name="OnTimeEmps" ColumnName="OnTimeEmps" />
+                <ScalarProperty Name="OTEmps" ColumnName="OTEmps" />
+                <ScalarProperty Name="EOEmps" ColumnName="EOEmps" />
+                <ScalarProperty Name="EIEmps" ColumnName="EIEmps" />
+                <ScalarProperty Name="LOEmps" ColumnName="LOEmps" />
+                <ScalarProperty Name="LIEmps" ColumnName="LIEmps" />
+                <ScalarProperty Name="HalfLvEmps" ColumnName="HalfLvEmps" />
+                <ScalarProperty Name="ShortLvEmps" ColumnName="ShortLvEmps" />
+                <ScalarProperty Name="LvEmps" ColumnName="LvEmps" />
+                <ScalarProperty Name="AbsentEmps" ColumnName="AbsentEmps" />
+                <ScalarProperty Name="PresentEmps" ColumnName="PresentEmps" />
+                <ScalarProperty Name="TotalEmps" ColumnName="TotalEmps" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Criteria" ColumnName="Criteria" />
+                <ScalarProperty Name="SummaryDateCriteria" ColumnName="SummaryDateCriteria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

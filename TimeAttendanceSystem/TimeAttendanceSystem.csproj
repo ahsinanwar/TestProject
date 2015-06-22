@@ -152,6 +152,9 @@
     <Compile Include="Model\DailySumLoc.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DailySummary.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DailySumSection.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
