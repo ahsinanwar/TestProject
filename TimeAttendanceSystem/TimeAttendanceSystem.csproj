@@ -34,13 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Controls.Input.Toolkit">
@@ -58,6 +63,7 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Telerik.Windows.Controls, Version=2013.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="telerik.windows.controls.data, Version=2013.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="telerik.windows.controls.gridview, Version=2013.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Controls.Input, Version=2013.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Controls.Navigation, Version=2013.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
@@ -387,7 +393,12 @@
     <Compile Include="Model\ViewUserLocation.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\SaveCommandAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\EditCommandCat.cs" />
@@ -418,6 +429,16 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\EditCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\SaveCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\VMShortLeave.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\AddCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\DeleteCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\EditCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\SaveCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\VMUser.cs" />
     <Compile Include="Views\AttEditJobCard.xaml.cs">
       <DependentUpon>AttEditJobCard.xaml</DependentUpon>
     </Compile>
@@ -504,6 +525,7 @@
     <Compile Include="Views\EmpTypeView.xaml.cs">
       <DependentUpon>EmpTypeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ErrorsToMessageConverter.cs" />
     <Compile Include="Views\HolidayView.xaml.cs">
       <DependentUpon>HolidayView.xaml</DependentUpon>
     </Compile>
@@ -675,7 +697,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\VMAttEdit\Commands\" />
+    <Resource Include="Images\home.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -684,6 +706,13 @@
     <Resource Include="Images\Blank-Person1.png" />
     <Resource Include="Images\Nvidia_alpha.png" />
     <Resource Include="Images\TMSHeader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\edit-document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

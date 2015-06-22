@@ -36,6 +36,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
                 context.Cities.Add(vmd.selectedCity);
                 context.SaveChanges();
                 vmd.listOfCities.Add(vmd.selectedCity);
+                vmd.isEnabled = false;
+                vmd.isAdding = false;
             }
             else
             {

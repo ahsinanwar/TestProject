@@ -37,6 +37,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
                context.EmpTypes.Add(vmd.selectedEmpType);
                context.SaveChanges();
                vmd.listOfEmpTypes.Add(vmd.selectedEmpType);
+               vmd.isEnabled = false;
+               vmd.isAdding = false;
 
            }
            else {

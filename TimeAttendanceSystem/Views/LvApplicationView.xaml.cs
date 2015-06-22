@@ -18,8 +18,9 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for LvApplicationView.xaml
     /// </summary>
-    public partial class LvApplicationView : Window
+    public partial class LvApplicationView : Page
     {
+        SelectEmpWindow window;
         VMLvApplication vmlvapps;
         public LvApplicationView()
         {
@@ -28,12 +29,23 @@ namespace TimeAttendanceSystem.Views
             this.DataContext = vmlvapps;
 
         }
-
+  
+            
         private void btn_empView_Click(object sender, RoutedEventArgs e)
         {
-            SelectEmpWindow window = new SelectEmpWindow();
-            window.Show();
+            window = new SelectEmpWindow();
+            
+           
+            if ((bool)window.ShowDialog())
+            {
+                Console.WriteLine(window._selectedEmp);
+                txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+
+
+            }
         }
+
+        
 
         
     }

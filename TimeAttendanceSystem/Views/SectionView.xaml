@@ -1,51 +1,73 @@
 ﻿<Page x:Class="TimeAttendanceSystem.Views.SectionView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-        Title="SectionView" Height="300" Width="300">
-    <Page.Resources>
+         xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="SectionView"  Width="400">
+  
+    <!--Main Panel-->
+    <Border BorderBrush="#FF25A0DA" BorderThickness="1">
+        <StackPanel Background="White">
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="35px">
+                <Label Foreground="White" FontSize="17">Section</Label>
+            </StackPanel>
+            <!--List View Panel-->
+            <StackPanel Margin="5,5,5,5">
+                <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
+                        telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
+                        ItemsSource="{Binding listOfSecs}" SelectedItem="{Binding selectedSec}" 
+                        VerticalAlignment="Top"  Height="260" Grid.RowSpan="2" 
+                        CanUserFreezeColumns="False" MinWidth="387">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Header="SectionName" DataMemberBinding="{Binding SectionName}" />
+                        <telerik:GridViewDataColumn Header="DemartmentName" DataMemberBinding="{Binding Department.DeptName}" />
+                        <telerik:GridViewDataColumn Header="DivisionName" DataMemberBinding="{Binding Department.Division.Divname}" />
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
 
-        <!-- The WPF DataGrid (WPF Toolkit version) has a bug that throws a format exception
-        when a WPF DataGrid is bound to a SelectedItem property, as we do here. The Ignore New
-        Item Plave Holder Converter works around this bug. For more information on the bug and
-        the converter, see Nigel Spencer's Blog (2009-04-30), which discusses the bug and provides 
-        the fix. Link to blog post can be found in the remarks to the value converter.  -->
+            </StackPanel>
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="30px">
+                <Label Foreground="White" FontSize="14">Section Details</Label>
+            </StackPanel>
+            <!--CRUD Panel-->
+            <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
+                <StackPanel Margin="5,0,5,3" Background="White">
+                    <!--Buttons Panel-->
+                    <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
+                        <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png">
+                            </Image>
+                        </Button>
+                        <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png">
+                            </Image>
+                        </Button>
+                        <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png">
+                            </Image>
+                        </Button>
+                    </StackPanel>
+                    <!--Data Input Panel-->
+                    <StackPanel Margin="5,5,5,5">
+                        <Grid Height="150">
+                            <Label Content="Name:" HorizontalAlignment="Left" Margin="47,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                            <TextBox HorizontalAlignment="Left" Height="26" Margin="106,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedCity.CityName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="201,80,111,43" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Border>
 
-
-        <!-- DataGrid Background -->
-        <LinearGradientBrush x:Key="BlueLightGradientBrush" StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Offset="0" Color="#FFEAF3FF"/>
-            <GradientStop Offset="0.654" Color="#FFC0DEFF"/>
-            <GradientStop Offset="1" Color="#FFC0D9FB"/>
-        </LinearGradientBrush>
-
-        <!-- DatGrid style -->
-        <Style TargetType="{x:Type Grid}">
-            <Setter Property="Margin" Value="5" />
-            <Setter Property="Background" Value="{StaticResource BlueLightGradientBrush}" />
-
-        </Style>
-
-        <!-- Enable rows as drop targets -->
-        <Style TargetType="{x:Type toolkit:DataGridRow}">
-            <Setter Property="AllowDrop" Value="True" />
-        </Style>
-    </Page.Resources>
-    <Grid HorizontalAlignment="Left" Height="417" Margin="0,10,0,-0.6" VerticalAlignment="Top" Width="511">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="516" Margin="0,-12,-5,0" RenderTransformOrigin="0.498,0.057">
-            <Button Command="{Binding AddCommand}" CommandParameter="{Binding}" Margin="6"
-				Content="Add" />
-            <Button Content="Edit"  Command="{Binding EditCommand}" CommandParameter="{Binding}" Margin="6"/>
-            <Button Content="Delete"  Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Margin="6"/>
-            <Button Content="Search.." CommandParameter="ZoomNormal" Margin="6"/>
-            <Button Content="Save" Height="37" VerticalAlignment="Top" Width="75" Margin="0,0,0,-0.2"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"/>
-        </ToolBar>
+   
         <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
-        <Label HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+        <!--<Label HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
         <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedSec.SecName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
                           ItemsSource="{Binding listOfSecs}" 
@@ -61,5 +83,5 @@
         <Label Content="Department:" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="79,88,0,0" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" SelectedValue="{Binding selectedSec.SecID}" ItemsSource="{Binding listOfDepts}" VerticalAlignment="Top" Width="110"/>
 
-    </Grid>
+    </Grid>-->
 </Page>

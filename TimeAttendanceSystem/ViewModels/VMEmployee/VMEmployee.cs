@@ -15,6 +15,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
     {
         #region Intialization
         public Emp _selectedEmp;
+        public Category _selectedCat;
+        public Department _selectedDept;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -54,6 +56,37 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
+        public Category selectedCat
+        {
+            get
+            {
+                return _selectedCat;
+            }
+            set
+            {
+                this.isEnabled = false;
+                _selectedCat = value;
+                listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.Where(aa => aa.CatID == selectedCat.CatID));
+                //add more code
+            }
+    
+    }
+        public Department selectedDept
+        {
+            get
+            {
+                return _selectedDept;
+            }
+            set
+            {
+
+                _selectedDept = value;
+                listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
+                base.OnPropertyChanged("selectedDept");
+               
+
+            }
+        }
         public Emp selectedEmp
         {
             get
@@ -72,7 +105,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
         public ObservableCollection<Emp> listOfEmps
         {
-            get { return _listOfEmps; }
+            get { 
+                return _listOfEmps; }
 
             set
             {
@@ -96,7 +130,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
-                listOfEmpTypes = value;
+                _listOfEmpTypes = value;
                 OnPropertyChanged("listOfEmpTypes");
             }
         }
@@ -106,7 +140,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
-                listOfDesgs = value;
+                _listOfDesgs = value;
                 OnPropertyChanged("listOfDesgs");
             }
         }
@@ -116,7 +150,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
-                listOfGrades = value;
+                _listOfGrades = value;
                 OnPropertyChanged("listOfGrades");
             }
         }
@@ -126,7 +160,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
-                listOfShifts = value;
+                _listOfShifts = value;
                 OnPropertyChanged("listOfShifts");
             }
         }
@@ -136,7 +170,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
-                listOfDepts = value;
+                _listOfDepts = value;
                 OnPropertyChanged("listOfDepts");
             }
         }
@@ -146,7 +180,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
-                listOfLocs = value;
+                _listOfLocs = value;
                 OnPropertyChanged("listOfLocs");
             }
         }
@@ -156,7 +190,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
-                listOfSecs = value;
+                _listOfSecs = value;
                 OnPropertyChanged("listOfSecs");
             }
         }
@@ -166,7 +200,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
-                listOfCrews = value;
+                _listOfCrews = value;
                 OnPropertyChanged("listOfCrews");
             }
         }
@@ -214,17 +248,21 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         {
             entity = new TAS2013Entities();
             _selectedEmp = new Emp();
+            _selectedDept = new Department();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
+             _selectedEmp = entity.Emps.ToList().FirstOrDefault();
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
-            _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
+             _selectedCat = entity.Categories.ToList().FirstOrDefault();
+            _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.Where(aa=>aa.CatID==_selectedCat.CatID));
             _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList());
             _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList());
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
+            _selectedDept = entity.Departments.ToList().FirstOrDefault();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
-            _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
+            _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
             _listOfCrews = new ObservableCollection<Crew>(entity.Crews.ToList());
-            _selectedEmp = entity.Emps.ToList().FirstOrDefault();
+           
             this._AddCommand = new AddCommandEmp(_selectedEmp);
             this._EditCommand = new EditCommandEmp(this);
             this._DeleteCommand = new DeleteCommandEmp(_selectedEmp);

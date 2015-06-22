@@ -26,12 +26,12 @@ namespace TimeAttendanceSystem
             InitializeComponent();
             
             WindowState = WindowState.Maximized;
+            //_mainFrame.Navigate(new EmployeeView());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AttEditView aa = new AttEditView();
-            aa.Show();
+            _mainFrame.Navigate(new AttEditView());
         }
 
         private void OnTreeViewSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -73,7 +73,8 @@ namespace TimeAttendanceSystem
                     _mainFrame.Navigate(new SectionView());
                     break;
                 case "Application":
-                    _mainFrame.Navigate(new SectionView());
+                    _mainFrame.Navigate(new LvApplicationView());
+
                     break;
                 case "Short Leave":
                     _mainFrame.Navigate(new SectionView());
@@ -89,5 +90,23 @@ namespace TimeAttendanceSystem
                     break;
             }
         }
+
+        private void btn_employee_Click(object sender, RoutedEventArgs e)
+        {
+            
+            _mainFrame.Navigate(new EmployeeView());
+        }
+
+        private void btn_shift_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new ShiftView());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new AttEditView());
+        }
+
+      
     }
 }

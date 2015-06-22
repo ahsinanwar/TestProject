@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for Division.xaml
     /// </summary>
-    public partial class DivisionView : Window
+    public partial class DivisionView : Page
     {
         public DivisionView()
         {

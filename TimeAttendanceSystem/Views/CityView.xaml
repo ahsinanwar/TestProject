@@ -1,39 +1,66 @@
-﻿<Window x:Class="TimeAttendanceSystem.Views.CityView"
+﻿<Page x:Class="TimeAttendanceSystem.Views.CityView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-        Title="City" Height="396.992" Width="322.556">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+        Title="City" Width="400">
 
-    <Window.Resources>
+    <!--Main Panel-->
+    <Border BorderBrush="#FF25A0DA" BorderThickness="1">
+        <StackPanel Background="White">
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="35px">
+                <Label Foreground="White" FontSize="17">City</Label>
+            </StackPanel>
+            <!--List View Panel-->
+            <StackPanel Margin="5,5,5,5">
+                <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
+                        telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
+                        ItemsSource="{Binding listOfCities}" SelectedItem="{Binding selectedCity}" 
+                        VerticalAlignment="Top"  Height="260" Grid.RowSpan="2" 
+                        CanUserFreezeColumns="False" MinWidth="387">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Header="CityName" DataMemberBinding="{Binding CityName}" />
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
 
-        <!-- The WPF DataGrid (WPF Toolkit version) has a bug that throws a format exception
-        when a WPF DataGrid is bound to a SelectedItem property, as we do here. The Ignore New
-        Item Plave Holder Converter works around this bug. For more information on the bug and
-        the converter, see Nigel Spencer's Blog (2009-04-30), which discusses the bug and provides 
-        the fix. Link to blog post can be found in the remarks to the value converter.  -->
-
-
-        <!-- DataGrid Background -->
-        <LinearGradientBrush x:Key="BlueLightGradientBrush" StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Offset="0" Color="#FFEAF3FF"/>
-            <GradientStop Offset="0.654" Color="#FFC0DEFF"/>
-            <GradientStop Offset="1" Color="#FFC0D9FB"/>
-        </LinearGradientBrush>
-
-        <!-- DatGrid style -->
-        <Style TargetType="{x:Type Grid}">
-            <Setter Property="Margin" Value="5" />
-            <Setter Property="Background" Value="{StaticResource BlueLightGradientBrush}" />
-
-        </Style>
-
-        <!-- Enable rows as drop targets -->
-        <Style TargetType="{x:Type toolkit:DataGridRow}">
-            <Setter Property="AllowDrop" Value="True" />
-        </Style>
-    </Window.Resources>
-    <Grid HorizontalAlignment="Left" Height="355" Margin="0,10,0,0" VerticalAlignment="Top" Width="313">
+            </StackPanel>
+            <!--Header-->
+            <StackPanel Background="#FF25A0DA" Height="30px">
+                <Label Foreground="White" FontSize="14">City Details</Label>
+            </StackPanel>
+            <!--CRUD Panel-->
+            <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
+                <StackPanel Margin="5,0,5,3" Background="White">
+                    <!--Buttons Panel-->
+                    <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
+                        <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png">
+                            </Image>
+                        </Button>
+                        <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png">
+                            </Image>
+                        </Button>
+                        <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png">
+                            </Image>
+                        </Button>
+                    </StackPanel>
+                    <!--Data Input Panel-->
+                    <StackPanel Margin="5,5,5,5">
+                        <Grid Height="150">
+                            <Label Content="Name:" HorizontalAlignment="Left" Margin="73,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="26" Margin="132,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Text="{Binding Path=selectedCity.CityName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="219,79,93,44" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Border>
+    <!--<Grid HorizontalAlignment="Left" Height="355" Margin="0,10,0,0" VerticalAlignment="Top" Width="313">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -58,6 +85,7 @@
             </toolkit:DataGrid.Columns>
         </toolkit:DataGrid>
 
-    </Grid>
-</Window>
+    </Grid>-->
+
+</Page>
 

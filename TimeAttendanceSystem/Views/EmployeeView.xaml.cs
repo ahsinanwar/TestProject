@@ -18,14 +18,19 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for EmployeeView.xaml
     /// </summary>
-    public partial class EmployeeView : Window
+    public partial class EmployeeView : Page
     {
+        
+        VMEmployee vmemps;
+        
         public EmployeeView()
-        {
+        { 
             InitializeComponent();
             vmemps = new VMEmployee();
             this.DataContext = vmemps;
         }
-        VMEmployee vmemps;
+
+        
+        
     }
 }

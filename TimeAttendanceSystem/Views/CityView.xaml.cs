@@ -18,7 +18,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for CityView.xaml
     /// </summary>
-    public partial class CityView : Window
+    public partial class CityView : Page
     {
         public CityView()
         {
