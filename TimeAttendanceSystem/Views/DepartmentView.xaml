@@ -11,6 +11,7 @@
     <Border BorderBrush="#FF25A0DA" BorderThickness="1">
         <StackPanel Background="White">
             <!--Header-->
+            
             <StackPanel Background="#FF25A0DA" Height="35px">
                 <Label Foreground="White" FontSize="17">Departments</Label>
             </StackPanel>
