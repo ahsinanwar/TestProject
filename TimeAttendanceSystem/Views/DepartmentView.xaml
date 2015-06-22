@@ -35,7 +35,7 @@
             </StackPanel>
             <!--CRUD Panel-->
             <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
-                <StackPanel Margin="5,0,5,3" Background="White">
+                <StackPanel Margin="1,0,9,3" Background="White">
                     <!--Buttons Panel-->
                     <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
                         <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
@@ -54,11 +54,11 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="150">
-                            <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="26" Width="47" Margin="75,11,0,0"/>
+                            <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top"   Width="47" Margin="75,11,0,0"/>
                             <TextBox telerik:StyleManager.Theme="Windows8" TextWrapping="Wrap" Text="{Binding selectedDept.DeptName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" Margin="123,12,111,115" FontWeight="Bold"/>
                             <Label Content="Division" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="26" Width="59" Margin="64,40,0,0"/>
-                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="123,40,0,0" VerticalAlignment="Top" Width="132" Height="24"  FontWeight="Bold" DisplayMemberPath="DivisionName" SelectedValuePath="DivisionID" SelectedValue="{Binding selectedDept.DivID, Mode=TwoWay}" ItemsSource="{Binding listOfDivs}" IsEnabled="{Binding isEnabled}"/>
-                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="201,80,111,43" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="123,40,0,0" VerticalAlignment="Top" Width="132"   FontWeight="Bold" DisplayMemberPath="DivisionName" SelectedValuePath="DivisionID" SelectedValue="{Binding selectedDept.DivID, Mode=TwoWay}" ItemsSource="{Binding listOfDivs}" IsEnabled="{Binding isEnabled}"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="201,67,111,61"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                             <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         </Grid>
                     </StackPanel>
