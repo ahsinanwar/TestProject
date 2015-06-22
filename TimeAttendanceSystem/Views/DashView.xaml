@@ -1,0 +1,39 @@
+﻿<UserControl
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       x:Class="TimeAttendanceSystem.Views.DashView" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+
+        <telerik:RadPieChart HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">
+            <telerik:PieSeries>
+                <telerik:PieSeries.DataPoints>
+                    <telerik:PieDataPoint IsSelected="False" Label="60 %" OffsetFromCenter="0" Value="9"/>
+                    <telerik:PieDataPoint IsSelected="False" Label="20 %" OffsetFromCenter="0" Value="3"/>
+                    <telerik:PieDataPoint IsSelected="False" Label="20 %" OffsetFromCenter="0" Value="3"/>
+                </telerik:PieSeries.DataPoints>
+            </telerik:PieSeries>
+        </telerik:RadPieChart>
+        <telerik:RadPieChart HorizontalAlignment="Left" Margin="190,11,0,0" VerticalAlignment="Top">
+            <telerik:PieSeries>
+                <telerik:PieSeries.DataPoints>
+                    <telerik:PieDataPoint IsSelected="False" Label="60 %" OffsetFromCenter="0" Value="9"/>
+                    <telerik:PieDataPoint IsSelected="False" Label="20 %" OffsetFromCenter="0" Value="3"/>
+                    <telerik:PieDataPoint IsSelected="False" Label="20 %" OffsetFromCenter="0" Value="3"/>
+                </telerik:PieSeries.DataPoints>
+            </telerik:PieSeries>
+        </telerik:RadPieChart>
+        <telerik:RadLinearSparkline HorizontalAlignment="Left" Height="107" Margin="10,130,0,0" VerticalAlignment="Top" Width="280"
+                                    ShowAxis="False"
+                                    ItemsSource="{Binding}"
+                                    XValuePath="presence.Date"
+                                    YValuePath="presence.PresentEmp"/>
+        <telerik:RadLinearSparkline HorizontalAlignment="Left" Height="64" Margin="10,207,0,0" VerticalAlignment="Top" Width="280"/>
+
+    </Grid>
+</UserControl>

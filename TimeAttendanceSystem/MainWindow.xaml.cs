@@ -7,11 +7,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using Telerik.Charting;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.Reports.ReportForms;
 using TimeAttendanceSystem.Views;
 
 namespace TimeAttendanceSystem
@@ -26,7 +28,7 @@ namespace TimeAttendanceSystem
             InitializeComponent();
             
             WindowState = WindowState.Maximized;
-            //_mainFrame.Navigate(new EmployeeView());
+            _mainFrame.Navigate(new DashView());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -83,7 +85,8 @@ namespace TimeAttendanceSystem
                     _mainFrame.Navigate(new SectionView());
                     break;
                 case "Daily":
-                    _mainFrame.Navigate(new SectionView());
+                    DFAbsent d = new DFAbsent();
+                    d.Show();
                     break;
                 case "Monthly":
                     _mainFrame.Navigate(new SectionView());
