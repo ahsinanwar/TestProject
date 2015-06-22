@@ -27,7 +27,11 @@
                 </telerik:PieSeries.DataPoints>
             </telerik:PieSeries>
         </telerik:RadPieChart>
-        <telerik:RadLinearSparkline HorizontalAlignment="Left" Height="55" Margin="10,130,0,0" VerticalAlignment="Top" Width="280"/>
+        <telerik:RadLinearSparkline HorizontalAlignment="Left" Height="55" Margin="10,130,0,0" VerticalAlignment="Top" Width="280"
+                                    ShowAxis="False"
+                                    ItemsSource="{Binding}"
+                                    XValuePath="presence.Date"
+                                    YValuePath="presence.PresentEmp"/>
         <telerik:RadLinearSparkline HorizontalAlignment="Left" Height="64" Margin="10,207,0,0" VerticalAlignment="Top" Width="280"/>
 
     </Grid>
