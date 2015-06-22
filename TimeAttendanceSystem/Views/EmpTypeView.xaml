@@ -31,7 +31,7 @@
             </StackPanel>
             <!--CRUD Panel-->
             <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
-                <StackPanel Margin="5,0,5,3" Background="White">
+                <StackPanel Margin="-1,0,11,3" Background="White">
                     <!--Buttons Panel-->
                     <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
                         <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
@@ -50,11 +50,11 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="150">
-                            <Label Content="Name:" HorizontalAlignment="Left" Margin="47,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                            <TextBox HorizontalAlignment="Left" Height="26" Margin="130,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedEmpType.TypeName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
-                            <Label Content="Category:" HorizontalAlignment="Left" Margin="47,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="130,60,0,0" VerticalAlignment="Top" Width="110" Height="24"  FontWeight="Bold" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" SelectedValue="{Binding selectedCat.CatID, Mode=TwoWay}" ItemsSource="{Binding listOfCats}" IsEnabled="{Binding isEnabled}"/>
-                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="130,107,172,16" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <Label Content="Name:" HorizontalAlignment="Left" Margin="81,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="130,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Text="{Binding Path=selectedEmpType.TypeName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                            <Label Content="Category:" HorizontalAlignment="Left" Margin="64,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="130,51,0,0" VerticalAlignment="Top" Width="123" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" SelectedValue="{Binding selectedCat.CatID, Mode=TwoWay}" ItemsSource="{Binding listOfCats}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="199,78,113,50"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                             <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         </Grid>
                     </StackPanel>

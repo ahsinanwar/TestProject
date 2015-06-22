@@ -56,12 +56,12 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="150">
-                            <Label Content="Name:" HorizontalAlignment="Left" Margin="47,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                            <TextBox HorizontalAlignment="Left" Height="26" Margin="88,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedLoc.LocName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
-                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="241,88,71,35" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <Label Content="Name:" HorizontalAlignment="Left" Margin="61,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347" FontSize="12"/>
+                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="110,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Text="{Binding Path=selectedLoc.LocName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="184,82,128,46"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.481,-0.045" />
                             <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
-                            <Label Content="City:" HorizontalAlignment="Left" Margin="56,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.963,0.318"/>
-                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" Margin="88,62,168,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityName}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" Width="110" FontWeight="Bold"/>
+                            <Label Content="City:" HorizontalAlignment="Left" Margin="72,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.963,0.318" FontSize="12"/>
+                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" Margin="110,55,128,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityName}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" FontWeight="Bold"/>
 
                         </Grid>
                     </StackPanel>
