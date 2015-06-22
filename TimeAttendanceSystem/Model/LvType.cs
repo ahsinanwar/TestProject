@@ -20,7 +20,7 @@ namespace TimeAttendanceSystem.Model
             this.LvDatas = new HashSet<LvData>();
         }
     
-        public string LvType1 { get; set; }
+        public string LvTypeID { get; set; }
         public string LvDesc { get; set; }
         public string FldName { get; set; }
         public bool HalfLeave { get; set; }
