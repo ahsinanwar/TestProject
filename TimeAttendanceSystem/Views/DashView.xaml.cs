@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMDashboard;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -20,9 +21,12 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class DashView : UserControl
     {
+        VMDashboard vmdash;
         public DashView()
         {
             InitializeComponent();
+            vmdash = new VMDashboard();
+            this.DataContext = vmdash;
            
         }
     }

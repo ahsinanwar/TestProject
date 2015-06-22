@@ -428,7 +428,7 @@
     <Compile Include="ViewModels\VMCrew\Commands\EditCommandCrew.cs" />
     <Compile Include="ViewModels\VMCrew\Commands\SaveCommandCrew.cs" />
     <Compile Include="ViewModels\VMCrew\VMCrew.cs" />
-    <Compile Include="ViewModels\VMDashboard.cs" />
+    <Compile Include="ViewModels\VMDashboard\VMDashboard.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\AddCommandDept.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\DeleteCommandDept.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\EditCommandDept.cs" />
