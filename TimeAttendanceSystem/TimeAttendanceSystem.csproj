@@ -731,6 +731,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TASModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.config" />
     <None Include="Model\TASModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TASModel.edmx</DependentUpon>
@@ -750,11 +751,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\home.png" />

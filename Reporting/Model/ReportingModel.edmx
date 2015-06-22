@@ -5380,7 +5380,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TASDesktopModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="TAS2013Entities" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="TASReportingEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="AccessEmps" EntityType="TASDesktopModel.AccessEmp" />
           <EntitySet Name="AttCodes" EntityType="TASDesktopModel.AttCode" />
           <EntitySet Name="AttDatas" EntityType="TASDesktopModel.AttData" />
@@ -9209,7 +9209,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TASDesktopModelStoreContainer" CdmEntityContainer="TAS2013Entities">
+        <EntityContainerMapping StorageEntityContainer="TASDesktopModelStoreContainer" CdmEntityContainer="TASReportingEntities">
           <EntitySetMapping Name="AccessEmps">
             <EntityTypeMapping TypeName="TASDesktopModel.AccessEmp">
               <MappingFragment StoreEntitySet="AccessEmp">
