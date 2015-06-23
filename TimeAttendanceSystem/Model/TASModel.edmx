@@ -2790,7 +2790,7 @@
           </Key>
           <Property Name="LvID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="LvDate" Type="date" Nullable="false" />
-          <Property Name="LvType" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="TypeID" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="EmpID" Type="int" Nullable="false" />
           <Property Name="FromDate" Type="date" Nullable="false" />
           <Property Name="ToDate" Type="date" Nullable="false" />
@@ -2895,9 +2895,9 @@
         </EntityType>
         <EntityType Name="LvType">
           <Key>
-            <PropertyRef Name="LvType" />
+            <PropertyRef Name="LvTypeID" />
           </Key>
-          <Property Name="LvType" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="LvTypeID" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="LvDesc" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="FldName" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="HalfLeave" Type="bit" Nullable="false" />
@@ -3177,9 +3177,6 @@
       -->
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="LocName" />
-            <PropertyRef Name="TypeName" />
-            <PropertyRef Name="ShiftName" />
             <PropertyRef Name="EmpNo" />
             <PropertyRef Name="EmpName" />
             <PropertyRef Name="ProcessAtt" />
@@ -3190,11 +3187,11 @@
           <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
           <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LocName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
-          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ShiftName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
           <Property Name="EmpNo" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="EmpName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="DesigID" Type="int" />
@@ -5010,10 +5007,10 @@
           <End Role="LvApplication" Type="TASDesktopModel.Store.LvApplication" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LvType">
-              <PropertyRef Name="LvType" />
+              <PropertyRef Name="LvTypeID" />
             </Principal>
             <Dependent Role="LvApplication">
-              <PropertyRef Name="LvType" />
+              <PropertyRef Name="TypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5046,7 +5043,7 @@
           <End Role="LvData" Type="TASDesktopModel.Store.LvData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LvType">
-              <PropertyRef Name="LvType" />
+              <PropertyRef Name="LvTypeID" />
             </Principal>
             <Dependent Role="LvData">
               <PropertyRef Name="LvCode" />
@@ -6706,7 +6703,7 @@
           </Key>
           <Property Type="Int32" Name="LvID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="LvDate" Nullable="false" Precision="0" />
-          <Property Type="String" Name="LvType" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TypeID" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="Int32" Name="EmpID" Nullable="false" />
           <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="0" />
           <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="0" />
@@ -6722,7 +6719,7 @@
           <Property Type="Boolean" Name="Active" />
           <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_LvApplication_Emp" FromRole="LvApplication" ToRole="Emp" />
           <NavigationProperty Name="User" Relationship="TASDesktopModel.FK_LvApplication_User" FromRole="LvApplication" ToRole="User" />
-          <NavigationProperty Name="LvType1" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvApplication" ToRole="LvType" />
+          <NavigationProperty Name="LvType" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvApplication" ToRole="LvType" />
           <NavigationProperty Name="LvDatas" Relationship="TASDesktopModel.FK_LvData_LvApplications" FromRole="LvApplication" ToRole="LvData" />
         </EntityType>
         <EntityType Name="LvConsumed">
@@ -6820,9 +6817,9 @@
         </EntityType>
         <EntityType Name="LvType">
           <Key>
-            <PropertyRef Name="LvType1" />
+            <PropertyRef Name="LvTypeID" />
           </Key>
-          <Property Type="String" Name="LvType1" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="LvTypeID" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="LvDesc" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="FldName" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="HalfLeave" Nullable="false" />
@@ -7136,9 +7133,6 @@
         </EntityType>
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="LocName" />
-            <PropertyRef Name="TypeName" />
-            <PropertyRef Name="ShiftName" />
             <PropertyRef Name="EmpNo" />
             <PropertyRef Name="EmpName" />
             <PropertyRef Name="ProcessAtt" />
@@ -7149,11 +7143,11 @@
           <Property Type="String" Name="JobTitle" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LocName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CrewName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ShiftName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmpNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmpName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="DesigID" />
@@ -9071,10 +9065,10 @@
           <End Type="TASDesktopModel.LvApplication" Role="LvApplication" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LvType">
-              <PropertyRef Name="LvType1" />
+              <PropertyRef Name="LvTypeID" />
             </Principal>
             <Dependent Role="LvApplication">
-              <PropertyRef Name="LvType" />
+              <PropertyRef Name="TypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -9095,7 +9089,7 @@
           <End Type="TASDesktopModel.LvData" Role="LvData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LvType">
-              <PropertyRef Name="LvType1" />
+              <PropertyRef Name="LvTypeID" />
             </Principal>
             <Dependent Role="LvData">
               <PropertyRef Name="LvCode" />
@@ -10228,7 +10222,7 @@
                 <ScalarProperty Name="ToDate" ColumnName="ToDate" />
                 <ScalarProperty Name="FromDate" ColumnName="FromDate" />
                 <ScalarProperty Name="EmpID" ColumnName="EmpID" />
-                <ScalarProperty Name="LvType" ColumnName="LvType" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
                 <ScalarProperty Name="LvDate" ColumnName="LvDate" />
                 <ScalarProperty Name="LvID" ColumnName="LvID" />
               </MappingFragment>
@@ -10341,7 +10335,7 @@
                 <ScalarProperty Name="HalfLeave" ColumnName="HalfLeave" />
                 <ScalarProperty Name="FldName" ColumnName="FldName" />
                 <ScalarProperty Name="LvDesc" ColumnName="LvDesc" />
-                <ScalarProperty Name="LvType1" ColumnName="LvType" />
+                <ScalarProperty Name="LvTypeID" ColumnName="LvTypeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

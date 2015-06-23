@@ -14,6 +14,38 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
     class VMShortLeave :ObservableObject
     {
         #region Intialization
+        private ObservableCollection<Emp> _listOfEmps;
+        private Emp _selectedEmp;
+        public Emp selectedEmp
+        {
+            get
+            {
+                return _selectedEmp;
+            }
+            set
+            {
+
+                _selectedEmp = value;
+                base.OnPropertyChanged("selectedEmp");
+
+
+            }
+        }
+        public ObservableCollection<Emp> listOFEmps
+        {
+            get
+            {
+                return _listOfEmps;
+            }
+            set
+            {
+
+                _listOfEmps = value;
+
+                base.OnPropertyChanged("listOFEmps");
+
+            }
+        }
         public LvShort _selectedShortLv;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
@@ -116,6 +148,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
             entity = new TAS2013Entities();
             _selectedShortLv = new LvShort ();
             _listOfShortLvs = new ObservableCollection<LvShort>(entity.LvShorts.ToList());
+            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
+            _selectedEmp = entity.Emps.ToList().FirstOrDefault();
             _selectedShortLv = entity.LvShorts.ToList().FirstOrDefault();
             this._AddCommand = new AddCommandLvShort(_selectedShortLv);
             this._EditCommand = new EditCommandLvShort(this);
@@ -124,6 +158,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandLvShort(this);
             base.OnPropertyChanged("_listOfShortLvs");
+            base.OnPropertyChanged("_selectedEmp");
         }
         #endregion  
     }

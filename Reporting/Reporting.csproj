@@ -32,10 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +54,315 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AccessEmp.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttCode.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttData.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttDataManEdit.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttDataMonth.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttMnData.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttMnDataPer.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttProcess.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditForm.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditLog.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditOperation.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Card.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CardType.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Category.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\City.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Company.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Crew.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySumDept.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySumLoc.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySummary.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySumSection.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySumShift.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DaysName.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Department.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Designation.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Division.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DownloadTime.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DutyCode.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DutyTime.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmailPerson.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Emp.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpAccess.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpFace.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpFp.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpPhoto.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpPresence.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpRdr.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpType.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpView.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Grade.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Holiday.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCard.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCardApp.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCardEmp.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobTitle.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Location.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvApplication.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvConsumed.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvData.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvQuota.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvShort.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvType.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Option.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PollData.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RdrDutyCode.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RdrEventLog.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Reader.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReaderType.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReaderVendor.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Reason.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Region.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Roster.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterApp.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterDetail.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterType.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Section.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceLog.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Shift.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Site.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserLocation.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserRole.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewAbsent.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewCard.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewCrew.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewDepartment.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEarlyIN.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEarlyOut.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEditAttendance.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmergencyDetail.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmpPic.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmpType.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLateComer.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLateOut.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLeaveData.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLeaveQuota.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLvConsumed.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMissingAtt.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMonthlyData.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMonthlyDataPer.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMultipleInOut.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewOverTime.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewPollData.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewPresentEmp.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSection.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSLData.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSummary.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewUserLocation.cs">
+      <DependentUpon>ReportingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MultipleFilterSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +383,9 @@
     <Compile Include="UCReportFilter.Designer.cs">
       <DependentUpon>UCReportFilter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MultipleFilterSelect.resx">
+      <DependentUpon>MultipleFilterSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -82,6 +401,25 @@
     <EmbeddedResource Include="UCReportFilter.resx">
       <DependentUpon>UCReportFilter.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\ReportingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ReportingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="Model\ReportingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ReportingModel.edmx</DependentUpon>
+      <LastGenOutput>ReportingModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\ReportingModel.edmx.diagram">
+      <DependentUpon>ReportingModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model\ReportingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ReportingModel.edmx</DependentUpon>
+      <LastGenOutput>ReportingModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,11 +431,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="RDLC\" />
     <Folder Include="UserControl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

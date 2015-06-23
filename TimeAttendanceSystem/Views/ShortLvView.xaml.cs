@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMShortLv;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -19,9 +20,24 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class ShortLvView : Page
     {
+        SelectEmpWindow window;
+        VMShortLeave vmlvshorts;
         public ShortLvView()
         {
             InitializeComponent();
+            vmlvshorts = new VMShortLeave();
+            this.DataContext = vmlvshorts;
+        }
+        private void btn_empView_Click(object sender, RoutedEventArgs e)
+        {
+            window = new SelectEmpWindow();
+
+
+            if ((bool)window.ShowDialog())
+            {
+                Console.WriteLine(window._selectedEmp);
+                txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+            }
         }
     }
 }
