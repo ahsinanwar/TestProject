@@ -15,6 +15,10 @@ namespace Reporting.ReportForms
         public DFDaily()
         {
             InitializeComponent();
+            this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+            this.Height = Screen.PrimaryScreen.WorkingArea.Height;
         }
+
+       
     }
 }

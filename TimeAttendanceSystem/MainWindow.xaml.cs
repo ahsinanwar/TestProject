@@ -82,14 +82,13 @@ namespace TimeAttendanceSystem
                     _mainFrame.Navigate(new ShortLvView());
                     break;
                 case "Quota":
-                    _mainFrame.Navigate(new SectionView());
+                    _mainFrame.Navigate(new DFDaily());
                     break;
                 case "Daily":
-                    DFAbsent d = new DFAbsent();
-                    d.Show();
+                    _mainFrame.Navigate(new DFDaily());
                     break;
                 case "Monthly":
-                    _mainFrame.Navigate(new SectionView());
+                    _mainFrame.Navigate(new DFDaily());
                     break;
             }
         }

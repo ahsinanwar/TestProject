@@ -13,11 +13,12 @@ namespace Reporting
 {
     public partial class MultipleFilterSelect : Form
     {
-        public MultipleFilterSelect(string Criteria)
+        public MultipleFilterSelect(string Criteria,List<EmpView> selEmps)
         {
             InitializeComponent();
             _emp = context.EmpViews.ToList();
-
+            lvwList.CheckBoxes = true;
+            selectedEmps = selEmps;
             ClearGrid();
             if (_emp.Count > 0)
             {
@@ -32,7 +33,7 @@ namespace Reporting
         {
             // Define columns in grid
             lvwList.Columns.Clear();
-            lvwList.Columns.Add("EmpID", 0, HorizontalAlignment.Left);
+            lvwList.Columns.Add(" ", 22, HorizontalAlignment.Left);
             lvwList.Columns.Add("Employee No", 90, HorizontalAlignment.Left);
             lvwList.Columns.Add("Employee Name", 160, HorizontalAlignment.Left);
             lvwList.Columns.Add("Card No", 90, HorizontalAlignment.Left);
@@ -44,17 +45,32 @@ namespace Reporting
         //DataView view = new DataView(person);
         public void AddObjectToGrid(EmpView employee)
         {
-            ListViewItem parent;
-            parent = lvwList.Items.Add(employee.EmpID.ToString());
-            parent.SubItems.Add(employee.EmpNo);
-            parent.SubItems.Add(employee.EmpName);
-            parent.SubItems.Add(employee.CardNo);
-            parent.SubItems.Add(employee.DeptName);
-            parent.SubItems.Add(employee.CityName);
-            parent.SubItems.Add(employee.NicNo);
+            if (selectedEmps.Where(aa => aa.EmpID == employee.EmpID).Count() > 0)
+            {
+                ListViewItem parent;
+                parent = lvwList.Items.Add(employee.EmpID.ToString());
+                parent.Checked = true;
+                parent.SubItems.Add(employee.EmpNo);
+                parent.SubItems.Add(employee.EmpName);
+                parent.SubItems.Add(employee.CardNo);
+                parent.SubItems.Add(employee.DeptName);
+                parent.SubItems.Add(employee.CityName);
+                parent.SubItems.Add(employee.NicNo);
+            }
+            else
+            {
+                ListViewItem parent;
+                parent = lvwList.Items.Add(employee.EmpID.ToString());
+                parent.SubItems.Add(employee.EmpNo);
+                parent.SubItems.Add(employee.EmpName);
+                parent.SubItems.Add(employee.CardNo);
+                parent.SubItems.Add(employee.DeptName);
+                parent.SubItems.Add(employee.CityName);
+                parent.SubItems.Add(employee.NicNo);
+            }
         }
 
-        public int EmpID { get { return Convert.ToInt32(this.lvwList.SelectedItems[0].Text); } }
+        public List<EmpView> selectedEmps;
         private void lvwList_SelectedIndexChanged(object sender, EventArgs e)
         {
             //this.DialogResult = DialogResult.OK;
@@ -68,6 +84,17 @@ namespace Reporting
 
         private void lvwList_DoubleClick(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            selectedEmps.Clear();
+            foreach (ListViewItem item in lvwList.CheckedItems)
+            {
+                int empID = Convert.ToInt32(item.SubItems[0].Text);
+                selectedEmps.Add(_emp.First(aa=>aa.EmpID == empID));
+            }
             this.DialogResult = DialogResult.OK;
         }
     }

@@ -30,6 +30,7 @@
         {
             this.btnSearch = new System.Windows.Forms.Button();
             this.lvwList = new System.Windows.Forms.ListView();
+            this.btnOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -55,11 +56,24 @@
             this.lvwList.UseCompatibleStateImageBehavior = false;
             this.lvwList.View = System.Windows.Forms.View.Details;
             // 
+            // btnOK
+            // 
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.Location = new System.Drawing.Point(298, 375);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(146, 29);
+            this.btnOK.TabIndex = 10;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // MultipleFilterSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 415);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lvwList);
             this.Name = "MultipleFilterSelect";
@@ -72,5 +86,6 @@
 
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ListView lvwList;
+        private System.Windows.Forms.Button btnOK;
     }
 }

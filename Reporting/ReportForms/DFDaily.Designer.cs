@@ -39,25 +39,26 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(193, 413);
+            this.panel1.Size = new System.Drawing.Size(217, 663);
             this.panel1.TabIndex = 0;
             // 
             // ucReportFilter1
             // 
-            this.ucReportFilter1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ucReportFilter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
             this.ucReportFilter1.Dock = System.Windows.Forms.DockStyle.Left;
             this.ucReportFilter1.Location = new System.Drawing.Point(0, 0);
             this.ucReportFilter1.Name = "ucReportFilter1";
-            this.ucReportFilter1.Size = new System.Drawing.Size(174, 413);
+            this.ucReportFilter1.Size = new System.Drawing.Size(209, 663);
             this.ucReportFilter1.TabIndex = 0;
             // 
             // DFDaily
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 413);
+            this.ClientSize = new System.Drawing.Size(730, 663);
             this.Controls.Add(this.panel1);
             this.Name = "DFDaily";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DFDaily";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
