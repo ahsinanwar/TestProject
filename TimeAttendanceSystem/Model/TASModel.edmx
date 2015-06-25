@@ -1811,10 +1811,6 @@
             <End Role="Emp" EntitySet="Emp" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Location" Association="TASDesktopModel.Store.FK_User_Location">
-            <End Role="Location" EntitySet="Location" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_UserRole1" Association="TASDesktopModel.Store.FK_User_UserRole1">
             <End Role="UserRole" EntitySet="UserRole" />
             <End Role="User" EntitySet="User" />
@@ -3151,9 +3147,8 @@
           <Property Name="MRGraph" Type="bit" />
           <Property Name="ViewPermanentStaff" Type="bit" />
           <Property Name="ViewPermanentMgm" Type="bit" />
-          <Property Name="ViewContractual" Type="bit" />
-          <Property Name="ViewLocation" Type="bit" />
-          <Property Name="LocationID" Type="smallint" />
+          <Property Name="ViewContractualMgm" Type="bit" />
+          <Property Name="ViewContractualStaff" Type="bit" />
           <Property Name="MRoster" Type="bit" />
         </EntityType>
         <EntityType Name="UserLocation">
@@ -5290,18 +5285,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Location">
-          <End Role="Location" Type="TASDesktopModel.Store.Location" Multiplicity="0..1" />
-          <End Role="User" Type="TASDesktopModel.Store.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_UserRole1">
           <End Role="UserRole" Type="TASDesktopModel.Store.UserRole" Multiplicity="0..1" />
           <End Role="User" Type="TASDesktopModel.Store.User" Multiplicity="*" />
@@ -5626,10 +5609,6 @@
           <AssociationSet Name="FK_Shift_Location" Association="TASDesktopModel.FK_Shift_Location">
             <End Role="Location" EntitySet="Locations" />
             <End Role="Shift" EntitySet="Shifts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Location" Association="TASDesktopModel.FK_User_Location">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="User" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_UserLocation_Location" Association="TASDesktopModel.FK_UserLocation_Location">
             <End Role="Location" EntitySet="Locations" />
@@ -6694,7 +6673,6 @@
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Location" FromRole="Location" ToRole="Emp" />
           <NavigationProperty Name="Readers" Relationship="TASDesktopModel.FK_Reader_Location" FromRole="Location" ToRole="Reader" />
           <NavigationProperty Name="Shifts" Relationship="TASDesktopModel.FK_Shift_Location" FromRole="Location" ToRole="Shift" />
-          <NavigationProperty Name="Users" Relationship="TASDesktopModel.FK_User_Location" FromRole="Location" ToRole="User" />
           <NavigationProperty Name="UserLocations" Relationship="TASDesktopModel.FK_UserLocation_Location" FromRole="Location" ToRole="UserLocation" />
         </EntityType>
         <EntityType Name="LvApplication">
@@ -7104,12 +7082,10 @@
           <Property Type="Boolean" Name="MRGraph" />
           <Property Type="Boolean" Name="ViewPermanentStaff" />
           <Property Type="Boolean" Name="ViewPermanentMgm" />
-          <Property Type="Boolean" Name="ViewContractual" />
-          <Property Type="Boolean" Name="ViewLocation" />
-          <Property Type="Int16" Name="LocationID" />
+          <Property Type="Boolean" Name="ViewContractualMgm" />
+          <Property Type="Boolean" Name="ViewContractualStaff" />
           <Property Type="Boolean" Name="MRoster" />
           <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_User_Emp" FromRole="User" ToRole="Emp" />
-          <NavigationProperty Name="Location" Relationship="TASDesktopModel.FK_User_Location" FromRole="User" ToRole="Location" />
           <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplication_User" FromRole="User" ToRole="LvApplication" />
           <NavigationProperty Name="UserRole" Relationship="TASDesktopModel.FK_User_UserRole1" FromRole="User" ToRole="UserRole" />
         </EntityType>
@@ -9024,18 +9000,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Location">
-          <End Type="TASDesktopModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="TASDesktopModel.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UserLocation_Location">
           <End Type="TASDesktopModel.Location" Role="Location" Multiplicity="0..1" />
           <End Type="TASDesktopModel.UserLocation" Role="UserLocation" Multiplicity="*" />
@@ -10566,9 +10530,8 @@
             <EntityTypeMapping TypeName="TASDesktopModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="MRoster" ColumnName="MRoster" />
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="ViewLocation" ColumnName="ViewLocation" />
-                <ScalarProperty Name="ViewContractual" ColumnName="ViewContractual" />
+                <ScalarProperty Name="ViewContractualStaff" ColumnName="ViewContractualStaff" />
+                <ScalarProperty Name="ViewContractualMgm" ColumnName="ViewContractualMgm" />
                 <ScalarProperty Name="ViewPermanentMgm" ColumnName="ViewPermanentMgm" />
                 <ScalarProperty Name="ViewPermanentStaff" ColumnName="ViewPermanentStaff" />
                 <ScalarProperty Name="MRGraph" ColumnName="MRGraph" />
