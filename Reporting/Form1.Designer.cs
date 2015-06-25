@@ -28,31 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportingFilterControl1 = new Reporting.ReportingFilterControl();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // reportingFilterControl1
+            // reportViewer1
             // 
-            this.reportingFilterControl1.Location = new System.Drawing.Point(46, 38);
-            this.reportingFilterControl1.Name = "reportingFilterControl1";
-            this.reportingFilterControl1.Size = new System.Drawing.Size(153, 103);
-            this.reportingFilterControl1.TabIndex = 0;
+            this.reportViewer1.Location = new System.Drawing.Point(163, 12);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(237, 244);
+            this.reportViewer1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.reportingFilterControl1);
+            this.ClientSize = new System.Drawing.Size(422, 322);
+            this.Controls.Add(this.reportViewer1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ReportingFilterControl reportingFilterControl1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+
     }
 }
 
