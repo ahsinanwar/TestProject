@@ -167,6 +167,9 @@
     <Compile Include="Model\DailySumShift.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DailyTimeMonitor.cs">
+      <DependentUpon>TASModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DaysName.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>

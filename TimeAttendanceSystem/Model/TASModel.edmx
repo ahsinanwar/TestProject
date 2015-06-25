@@ -2473,6 +2473,8 @@
           <Property Name="AExpectedMins" Type="smallint" />
           <Property Name="AActualMins" Type="smallint" />
           <Property Name="ALossMins" Type="smallint" />
+          <Property Name="AvgTimeIn" Type="time" />
+          <Property Name="AvgTimeOut" Type="time" />
         </EntityType>
         <EntityType Name="DailySumSection">
           <Key>
@@ -2543,6 +2545,7 @@
           <Property Name="OutLabelTwoValue" Type="int" />
           <Property Name="OutLabelThreeValue" Type="int" />
           <Property Name="OutLabeFourValue" Type="int" />
+          <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DaysName">
           <Key>
@@ -6348,6 +6351,8 @@
           <Property Type="Int16" Name="AExpectedMins" />
           <Property Type="Int16" Name="AActualMins" />
           <Property Type="Int16" Name="ALossMins" />
+          <Property Type="Time" Name="AvgTimeIn" Precision="7" />
+          <Property Type="Time" Name="AvgTimeOut" Precision="7" />
         </EntityType>
         <EntityType Name="DailySumSection">
           <Key>
@@ -6420,6 +6425,7 @@
           <Property Type="Int32" Name="OutLabelTwoValue" />
           <Property Type="Int32" Name="OutLabelThreeValue" />
           <Property Type="Int32" Name="OutLabeFourValue" />
+          <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DaysName">
           <Key>
@@ -9851,6 +9857,8 @@
           <EntitySetMapping Name="DailySummaries">
             <EntityTypeMapping TypeName="TASDesktopModel.DailySummary">
               <MappingFragment StoreEntitySet="DailySummary">
+                <ScalarProperty Name="AvgTimeOut" ColumnName="AvgTimeOut" />
+                <ScalarProperty Name="AvgTimeIn" ColumnName="AvgTimeIn" />
                 <ScalarProperty Name="ALossMins" ColumnName="ALossMins" />
                 <ScalarProperty Name="AActualMins" ColumnName="AActualMins" />
                 <ScalarProperty Name="AExpectedMins" ColumnName="AExpectedMins" />
@@ -9938,6 +9946,7 @@
           <EntitySetMapping Name="DailyTimeMonitors">
             <EntityTypeMapping TypeName="TASDesktopModel.DailyTimeMonitor">
               <MappingFragment StoreEntitySet="DailyTimeMonitor">
+                <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
                 <ScalarProperty Name="OutLabeFourValue" ColumnName="OutLabeFourValue" />
                 <ScalarProperty Name="OutLabelThreeValue" ColumnName="OutLabelThreeValue" />
                 <ScalarProperty Name="OutLabelTwoValue" ColumnName="OutLabelTwoValue" />

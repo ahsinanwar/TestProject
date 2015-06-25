@@ -32,5 +32,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<int> OutLabelTwoValue { get; set; }
         public Nullable<int> OutLabelThreeValue { get; set; }
         public Nullable<int> OutLabeFourValue { get; set; }
+        public string ShiftName { get; set; }
     }
 }
