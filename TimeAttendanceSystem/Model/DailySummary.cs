@@ -46,5 +46,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> AExpectedMins { get; set; }
         public Nullable<short> AActualMins { get; set; }
         public Nullable<short> ALossMins { get; set; }
+        public Nullable<System.TimeSpan> AvgTimeIn { get; set; }
+        public Nullable<System.TimeSpan> AvgTimeOut { get; set; }
     }
 }

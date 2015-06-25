@@ -2545,6 +2545,7 @@
           <Property Name="OutLabelTwoValue" Type="int" />
           <Property Name="OutLabelThreeValue" Type="int" />
           <Property Name="OutLabeFourValue" Type="int" />
+          <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DaysName">
           <Key>
@@ -6424,6 +6425,7 @@
           <Property Type="Int32" Name="OutLabelTwoValue" />
           <Property Type="Int32" Name="OutLabelThreeValue" />
           <Property Type="Int32" Name="OutLabeFourValue" />
+          <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DaysName">
           <Key>
@@ -9944,6 +9946,7 @@
           <EntitySetMapping Name="DailyTimeMonitors">
             <EntityTypeMapping TypeName="TASDesktopModel.DailyTimeMonitor">
               <MappingFragment StoreEntitySet="DailyTimeMonitor">
+                <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
                 <ScalarProperty Name="OutLabeFourValue" ColumnName="OutLabeFourValue" />
                 <ScalarProperty Name="OutLabelThreeValue" ColumnName="OutLabelThreeValue" />
                 <ScalarProperty Name="OutLabelTwoValue" ColumnName="OutLabelTwoValue" />
