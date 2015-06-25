@@ -49,13 +49,11 @@ namespace TimeAttendanceSystem.Model
         public Nullable<bool> MRGraph { get; set; }
         public Nullable<bool> ViewPermanentStaff { get; set; }
         public Nullable<bool> ViewPermanentMgm { get; set; }
-        public Nullable<bool> ViewContractual { get; set; }
-        public Nullable<bool> ViewLocation { get; set; }
-        public Nullable<short> LocationID { get; set; }
+        public Nullable<bool> ViewContractualMgm { get; set; }
+        public Nullable<bool> ViewContractualStaff { get; set; }
         public Nullable<bool> MRoster { get; set; }
     
         public virtual Emp Emp { get; set; }
-        public virtual Location Location { get; set; }
         public virtual ICollection<LvApplication> LvApplications { get; set; }
         public virtual UserRole UserRole { get; set; }
     }

@@ -27,6 +27,7 @@ namespace TimeAttendanceSystem.Views
             InitializeComponent();
             vmlvapps = new VMLvApplication();
             this.DataContext = vmlvapps;
+            
 
         }
   
@@ -40,8 +41,6 @@ namespace TimeAttendanceSystem.Views
             {
                 Console.WriteLine(window._selectedEmp);
                 txtEmpID.Text = window._selectedEmp.EmpID.ToString();
-
-
             }
         }
 

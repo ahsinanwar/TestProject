@@ -203,6 +203,7 @@
           <EntitySet Name="DailySummary" EntityType="TASDesktopModel.Store.DailySummary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DailySumSection" EntityType="TASDesktopModel.Store.DailySumSection" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DailySumShift" EntityType="TASDesktopModel.Store.DailySumShift" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DailyTimeMonitor" EntityType="TASDesktopModel.Store.DailyTimeMonitor" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DaysName" EntityType="TASDesktopModel.Store.DaysName" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Department" EntityType="TASDesktopModel.Store.Department" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Designation" EntityType="TASDesktopModel.Store.Designation" store:Type="Tables" Schema="dbo" />
@@ -1811,10 +1812,6 @@
             <End Role="Emp" EntitySet="Emp" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Location" Association="TASDesktopModel.Store.FK_User_Location">
-            <End Role="Location" EntitySet="Location" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_UserRole1" Association="TASDesktopModel.Store.FK_User_UserRole1">
             <End Role="UserRole" EntitySet="UserRole" />
             <End Role="User" EntitySet="User" />
@@ -2476,6 +2473,8 @@
           <Property Name="AExpectedMins" Type="smallint" />
           <Property Name="AActualMins" Type="smallint" />
           <Property Name="ALossMins" Type="smallint" />
+          <Property Name="AvgTimeIn" Type="time" />
+          <Property Name="AvgTimeOut" Type="time" />
         </EntityType>
         <EntityType Name="DailySumSection">
           <Key>
@@ -2523,6 +2522,29 @@
           <Property Name="ShortLeaveEmp" Type="smallint" />
           <Property Name="HalfLeaveEmp" Type="smallint" />
           <Property Name="CompanyID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="DailyTimeMonitor">
+          <Key>
+            <PropertyRef Name="CriteriaDate" />
+          </Key>
+          <Property Name="CriteriaDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CriteriaShiftID" Type="tinyint" />
+          <Property Name="InLabelOne" Type="nvarchar" MaxLength="50" />
+          <Property Name="InLabelTwo" Type="nvarchar" MaxLength="50" />
+          <Property Name="InLabelThree" Type="nvarchar" MaxLength="50" />
+          <Property Name="InLabelFour" Type="nvarchar" MaxLength="50" />
+          <Property Name="InLabelOneValue" Type="int" />
+          <Property Name="InLabelTwoValue" Type="int" />
+          <Property Name="InLabelThreeValue" Type="int" />
+          <Property Name="InLabeFourValue" Type="int" />
+          <Property Name="OutLabelOne" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutLabelTwo" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutLabelThree" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutLabelFour" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutLabelOneValue" Type="int" />
+          <Property Name="OutLabelTwoValue" Type="int" />
+          <Property Name="OutLabelThreeValue" Type="int" />
+          <Property Name="OutLabeFourValue" Type="int" />
         </EntityType>
         <EntityType Name="DaysName">
           <Key>
@@ -2790,7 +2812,7 @@
           </Key>
           <Property Name="LvID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="LvDate" Type="date" Nullable="false" />
-          <Property Name="LvType" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="TypeID" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="EmpID" Type="int" Nullable="false" />
           <Property Name="FromDate" Type="date" Nullable="false" />
           <Property Name="ToDate" Type="date" Nullable="false" />
@@ -2895,9 +2917,9 @@
         </EntityType>
         <EntityType Name="LvType">
           <Key>
-            <PropertyRef Name="LvType" />
+            <PropertyRef Name="LvTypeID" />
           </Key>
-          <Property Name="LvType" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="LvTypeID" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="LvDesc" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="FldName" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="HalfLeave" Type="bit" Nullable="false" />
@@ -3151,9 +3173,8 @@
           <Property Name="MRGraph" Type="bit" />
           <Property Name="ViewPermanentStaff" Type="bit" />
           <Property Name="ViewPermanentMgm" Type="bit" />
-          <Property Name="ViewContractual" Type="bit" />
-          <Property Name="ViewLocation" Type="bit" />
-          <Property Name="LocationID" Type="smallint" />
+          <Property Name="ViewContractualMgm" Type="bit" />
+          <Property Name="ViewContractualStaff" Type="bit" />
           <Property Name="MRoster" Type="bit" />
         </EntityType>
         <EntityType Name="UserLocation">
@@ -3177,9 +3198,6 @@
       -->
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="LocName" />
-            <PropertyRef Name="TypeName" />
-            <PropertyRef Name="ShiftName" />
             <PropertyRef Name="EmpNo" />
             <PropertyRef Name="EmpName" />
             <PropertyRef Name="ProcessAtt" />
@@ -3190,11 +3208,11 @@
           <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
           <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LocName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
-          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ShiftName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
           <Property Name="EmpNo" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="EmpName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="DesigID" Type="int" />
@@ -5010,10 +5028,10 @@
           <End Role="LvApplication" Type="TASDesktopModel.Store.LvApplication" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LvType">
-              <PropertyRef Name="LvType" />
+              <PropertyRef Name="LvTypeID" />
             </Principal>
             <Dependent Role="LvApplication">
-              <PropertyRef Name="LvType" />
+              <PropertyRef Name="TypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5046,7 +5064,7 @@
           <End Role="LvData" Type="TASDesktopModel.Store.LvData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LvType">
-              <PropertyRef Name="LvType" />
+              <PropertyRef Name="LvTypeID" />
             </Principal>
             <Dependent Role="LvData">
               <PropertyRef Name="LvCode" />
@@ -5293,18 +5311,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Location">
-          <End Role="Location" Type="TASDesktopModel.Store.Location" Multiplicity="0..1" />
-          <End Role="User" Type="TASDesktopModel.Store.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_UserRole1">
           <End Role="UserRole" Type="TASDesktopModel.Store.UserRole" Multiplicity="0..1" />
           <End Role="User" Type="TASDesktopModel.Store.User" Multiplicity="*" />
@@ -5406,6 +5412,7 @@
           <EntitySet Name="DailySummaries" EntityType="TASDesktopModel.DailySummary" />
           <EntitySet Name="DailySumSections" EntityType="TASDesktopModel.DailySumSection" />
           <EntitySet Name="DailySumShifts" EntityType="TASDesktopModel.DailySumShift" />
+          <EntitySet Name="DailyTimeMonitors" EntityType="TASDesktopModel.DailyTimeMonitor" />
           <EntitySet Name="DaysNames" EntityType="TASDesktopModel.DaysName" />
           <EntitySet Name="Departments" EntityType="TASDesktopModel.Department" />
           <EntitySet Name="Designations" EntityType="TASDesktopModel.Designation" />
@@ -5629,10 +5636,6 @@
           <AssociationSet Name="FK_Shift_Location" Association="TASDesktopModel.FK_Shift_Location">
             <End Role="Location" EntitySet="Locations" />
             <End Role="Shift" EntitySet="Shifts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Location" Association="TASDesktopModel.FK_User_Location">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="User" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_UserLocation_Location" Association="TASDesktopModel.FK_UserLocation_Location">
             <End Role="Location" EntitySet="Locations" />
@@ -6347,6 +6350,8 @@
           <Property Type="Int16" Name="AExpectedMins" />
           <Property Type="Int16" Name="AActualMins" />
           <Property Type="Int16" Name="ALossMins" />
+          <Property Type="Time" Name="AvgTimeIn" Precision="7" />
+          <Property Type="Time" Name="AvgTimeOut" Precision="7" />
         </EntityType>
         <EntityType Name="DailySumSection">
           <Key>
@@ -6396,6 +6401,29 @@
           <Property Type="Int16" Name="HalfLeaveEmp" />
           <Property Type="Int16" Name="CompanyID" />
           <NavigationProperty Name="Shift" Relationship="TASDesktopModel.FK_SummaryShift_Shift" FromRole="DailySumShift" ToRole="Shift" />
+        </EntityType>
+        <EntityType Name="DailyTimeMonitor">
+          <Key>
+            <PropertyRef Name="CriteriaDate" />
+          </Key>
+          <Property Type="String" Name="CriteriaDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="CriteriaShiftID" />
+          <Property Type="String" Name="InLabelOne" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InLabelTwo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InLabelThree" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InLabelFour" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="InLabelOneValue" />
+          <Property Type="Int32" Name="InLabelTwoValue" />
+          <Property Type="Int32" Name="InLabelThreeValue" />
+          <Property Type="Int32" Name="InLabeFourValue" />
+          <Property Type="String" Name="OutLabelOne" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OutLabelTwo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OutLabelThree" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OutLabelFour" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OutLabelOneValue" />
+          <Property Type="Int32" Name="OutLabelTwoValue" />
+          <Property Type="Int32" Name="OutLabelThreeValue" />
+          <Property Type="Int32" Name="OutLabeFourValue" />
         </EntityType>
         <EntityType Name="DaysName">
           <Key>
@@ -6697,7 +6725,6 @@
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Location" FromRole="Location" ToRole="Emp" />
           <NavigationProperty Name="Readers" Relationship="TASDesktopModel.FK_Reader_Location" FromRole="Location" ToRole="Reader" />
           <NavigationProperty Name="Shifts" Relationship="TASDesktopModel.FK_Shift_Location" FromRole="Location" ToRole="Shift" />
-          <NavigationProperty Name="Users" Relationship="TASDesktopModel.FK_User_Location" FromRole="Location" ToRole="User" />
           <NavigationProperty Name="UserLocations" Relationship="TASDesktopModel.FK_UserLocation_Location" FromRole="Location" ToRole="UserLocation" />
         </EntityType>
         <EntityType Name="LvApplication">
@@ -6706,7 +6733,7 @@
           </Key>
           <Property Type="Int32" Name="LvID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="LvDate" Nullable="false" Precision="0" />
-          <Property Type="String" Name="LvType" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TypeID" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="Int32" Name="EmpID" Nullable="false" />
           <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="0" />
           <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="0" />
@@ -6722,7 +6749,7 @@
           <Property Type="Boolean" Name="Active" />
           <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_LvApplication_Emp" FromRole="LvApplication" ToRole="Emp" />
           <NavigationProperty Name="User" Relationship="TASDesktopModel.FK_LvApplication_User" FromRole="LvApplication" ToRole="User" />
-          <NavigationProperty Name="LvType1" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvApplication" ToRole="LvType" />
+          <NavigationProperty Name="LvType" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvApplication" ToRole="LvType" />
           <NavigationProperty Name="LvDatas" Relationship="TASDesktopModel.FK_LvData_LvApplications" FromRole="LvApplication" ToRole="LvData" />
         </EntityType>
         <EntityType Name="LvConsumed">
@@ -6820,9 +6847,9 @@
         </EntityType>
         <EntityType Name="LvType">
           <Key>
-            <PropertyRef Name="LvType1" />
+            <PropertyRef Name="LvTypeID" />
           </Key>
-          <Property Type="String" Name="LvType1" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="LvTypeID" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="LvDesc" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="FldName" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="HalfLeave" Nullable="false" />
@@ -7107,12 +7134,10 @@
           <Property Type="Boolean" Name="MRGraph" />
           <Property Type="Boolean" Name="ViewPermanentStaff" />
           <Property Type="Boolean" Name="ViewPermanentMgm" />
-          <Property Type="Boolean" Name="ViewContractual" />
-          <Property Type="Boolean" Name="ViewLocation" />
-          <Property Type="Int16" Name="LocationID" />
+          <Property Type="Boolean" Name="ViewContractualMgm" />
+          <Property Type="Boolean" Name="ViewContractualStaff" />
           <Property Type="Boolean" Name="MRoster" />
           <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_User_Emp" FromRole="User" ToRole="Emp" />
-          <NavigationProperty Name="Location" Relationship="TASDesktopModel.FK_User_Location" FromRole="User" ToRole="Location" />
           <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplication_User" FromRole="User" ToRole="LvApplication" />
           <NavigationProperty Name="UserRole" Relationship="TASDesktopModel.FK_User_UserRole1" FromRole="User" ToRole="UserRole" />
         </EntityType>
@@ -7136,9 +7161,6 @@
         </EntityType>
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="LocName" />
-            <PropertyRef Name="TypeName" />
-            <PropertyRef Name="ShiftName" />
             <PropertyRef Name="EmpNo" />
             <PropertyRef Name="EmpName" />
             <PropertyRef Name="ProcessAtt" />
@@ -7149,11 +7171,11 @@
           <Property Type="String" Name="JobTitle" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LocName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CrewName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ShiftName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmpNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmpName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="DesigID" />
@@ -9030,18 +9052,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Location">
-          <End Type="TASDesktopModel.Location" Role="Location" Multiplicity="0..1" />
-          <End Type="TASDesktopModel.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UserLocation_Location">
           <End Type="TASDesktopModel.Location" Role="Location" Multiplicity="0..1" />
           <End Type="TASDesktopModel.UserLocation" Role="UserLocation" Multiplicity="*" />
@@ -9071,10 +9081,10 @@
           <End Type="TASDesktopModel.LvApplication" Role="LvApplication" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LvType">
-              <PropertyRef Name="LvType1" />
+              <PropertyRef Name="LvTypeID" />
             </Principal>
             <Dependent Role="LvApplication">
-              <PropertyRef Name="LvType" />
+              <PropertyRef Name="TypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -9095,7 +9105,7 @@
           <End Type="TASDesktopModel.LvData" Role="LvData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LvType">
-              <PropertyRef Name="LvType1" />
+              <PropertyRef Name="LvTypeID" />
             </Principal>
             <Dependent Role="LvData">
               <PropertyRef Name="LvCode" />
@@ -9845,6 +9855,8 @@
           <EntitySetMapping Name="DailySummaries">
             <EntityTypeMapping TypeName="TASDesktopModel.DailySummary">
               <MappingFragment StoreEntitySet="DailySummary">
+                <ScalarProperty Name="AvgTimeOut" ColumnName="AvgTimeOut" />
+                <ScalarProperty Name="AvgTimeIn" ColumnName="AvgTimeIn" />
                 <ScalarProperty Name="ALossMins" ColumnName="ALossMins" />
                 <ScalarProperty Name="AActualMins" ColumnName="AActualMins" />
                 <ScalarProperty Name="AExpectedMins" ColumnName="AExpectedMins" />
@@ -9926,6 +9938,30 @@
                 <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
                 <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
                 <ScalarProperty Name="ShiftDate" ColumnName="ShiftDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyTimeMonitors">
+            <EntityTypeMapping TypeName="TASDesktopModel.DailyTimeMonitor">
+              <MappingFragment StoreEntitySet="DailyTimeMonitor">
+                <ScalarProperty Name="OutLabeFourValue" ColumnName="OutLabeFourValue" />
+                <ScalarProperty Name="OutLabelThreeValue" ColumnName="OutLabelThreeValue" />
+                <ScalarProperty Name="OutLabelTwoValue" ColumnName="OutLabelTwoValue" />
+                <ScalarProperty Name="OutLabelOneValue" ColumnName="OutLabelOneValue" />
+                <ScalarProperty Name="OutLabelFour" ColumnName="OutLabelFour" />
+                <ScalarProperty Name="OutLabelThree" ColumnName="OutLabelThree" />
+                <ScalarProperty Name="OutLabelTwo" ColumnName="OutLabelTwo" />
+                <ScalarProperty Name="OutLabelOne" ColumnName="OutLabelOne" />
+                <ScalarProperty Name="InLabeFourValue" ColumnName="InLabeFourValue" />
+                <ScalarProperty Name="InLabelThreeValue" ColumnName="InLabelThreeValue" />
+                <ScalarProperty Name="InLabelTwoValue" ColumnName="InLabelTwoValue" />
+                <ScalarProperty Name="InLabelOneValue" ColumnName="InLabelOneValue" />
+                <ScalarProperty Name="InLabelFour" ColumnName="InLabelFour" />
+                <ScalarProperty Name="InLabelThree" ColumnName="InLabelThree" />
+                <ScalarProperty Name="InLabelTwo" ColumnName="InLabelTwo" />
+                <ScalarProperty Name="InLabelOne" ColumnName="InLabelOne" />
+                <ScalarProperty Name="CriteriaShiftID" ColumnName="CriteriaShiftID" />
+                <ScalarProperty Name="CriteriaDate" ColumnName="CriteriaDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10228,7 +10264,7 @@
                 <ScalarProperty Name="ToDate" ColumnName="ToDate" />
                 <ScalarProperty Name="FromDate" ColumnName="FromDate" />
                 <ScalarProperty Name="EmpID" ColumnName="EmpID" />
-                <ScalarProperty Name="LvType" ColumnName="LvType" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
                 <ScalarProperty Name="LvDate" ColumnName="LvDate" />
                 <ScalarProperty Name="LvID" ColumnName="LvID" />
               </MappingFragment>
@@ -10341,7 +10377,7 @@
                 <ScalarProperty Name="HalfLeave" ColumnName="HalfLeave" />
                 <ScalarProperty Name="FldName" ColumnName="FldName" />
                 <ScalarProperty Name="LvDesc" ColumnName="LvDesc" />
-                <ScalarProperty Name="LvType1" ColumnName="LvType" />
+                <ScalarProperty Name="LvTypeID" ColumnName="LvTypeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10572,9 +10608,8 @@
             <EntityTypeMapping TypeName="TASDesktopModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="MRoster" ColumnName="MRoster" />
-                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="ViewLocation" ColumnName="ViewLocation" />
-                <ScalarProperty Name="ViewContractual" ColumnName="ViewContractual" />
+                <ScalarProperty Name="ViewContractualStaff" ColumnName="ViewContractualStaff" />
+                <ScalarProperty Name="ViewContractualMgm" ColumnName="ViewContractualMgm" />
                 <ScalarProperty Name="ViewPermanentMgm" ColumnName="ViewPermanentMgm" />
                 <ScalarProperty Name="ViewPermanentStaff" ColumnName="ViewPermanentStaff" />
                 <ScalarProperty Name="MRGraph" ColumnName="MRGraph" />

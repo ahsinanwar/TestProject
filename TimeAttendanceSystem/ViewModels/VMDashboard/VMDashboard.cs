@@ -39,6 +39,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDashboard
         } }
         #region constructor
         public VMDashboard()
+
         {  
                context = new TAS2013Entities();
               _dummy = new ObservableCollection<DailySummary>(context.DailySummaries.ToList());
@@ -54,6 +55,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDashboard
               base.OnPropertyChanged("_registeredUsers");
               base.OnPropertyChanged("_presence");
            
+
         }
         #endregion
     }

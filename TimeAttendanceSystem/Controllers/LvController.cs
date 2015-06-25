@@ -97,11 +97,11 @@ namespace TimeAttendanceSystem.Controllers
                             _EmpAttData.StatusGZOT = null;
                             _EmpAttData.StatusMN = null;
                             _EmpAttData.StatusOD = null;
-                            if (lvappl.LvType == "A")//Casual Leave
+                            if (lvappl.TypeID == "A")//Casual Leave
                                 _EmpAttData.Remarks = "[CL]";
-                            if (lvappl.LvType == "B")//Anual Leave
+                            if (lvappl.TypeID == "B")//Anual Leave
                                 _EmpAttData.Remarks = "[AL]";
-                            if (lvappl.LvType == "C")//Sick Leave
+                            if (lvappl.TypeID == "C")//Sick Leave
                                 _EmpAttData.Remarks = "[SL]";
                             _EmpAttData.StatusAB = false;
                             _EmpAttData.StatusLeave = true;
@@ -132,7 +132,7 @@ namespace TimeAttendanceSystem.Controllers
                 _LVData.Remarks = lvappl.LvReason;
                 _LVData.LvID = lvappl.LvID;
                 _LVData.AttDate = datetime.Date;
-                _LVData.LvCode = lvappl.LvType;
+                _LVData.LvCode = lvappl.TypeID;
                 try
                 {
                     using (var context = new TAS2013Entities())
@@ -394,7 +394,7 @@ namespace TimeAttendanceSystem.Controllers
             _LVData.HalfLeave = true;
             _LVData.LvID = lvappl.LvID;
             _LVData.AttDate = datetime.Date;
-            _LVData.LvCode = lvappl.LvType;
+            _LVData.LvCode = lvappl.TypeID;
             _LVData.FirstHalf = lvappl.FirstHalf;
             try
             {
@@ -423,11 +423,11 @@ namespace TimeAttendanceSystem.Controllers
                 {
                     AttData _EmpAttData = new AttData();
                     _EmpAttData = db.AttDatas.First(aa => aa.EmpDate == _EmpDate);
-                    if (lvappl.LvType == "A")//Casual Leave
+                    if (lvappl.TypeID == "A")//Casual Leave
                         _EmpAttData.Remarks = _EmpAttData.Remarks + "[H-CL]";
-                    if (lvappl.LvType == "B")//Anual Leave
+                    if (lvappl.TypeID == "B")//Anual Leave
                         _EmpAttData.Remarks = _EmpAttData.Remarks + "[H-AL]";
-                    if (lvappl.LvType == "C")//Sick Leave
+                    if (lvappl.TypeID == "C")//Sick Leave
                         _EmpAttData.Remarks = _EmpAttData.Remarks + "[H-SL]";
 
                     if (_EmpAttData.Remarks.Contains("[Absent]"))
