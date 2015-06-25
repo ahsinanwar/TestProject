@@ -203,6 +203,7 @@
           <EntitySet Name="DailySummary" EntityType="TASDesktopModel.Store.DailySummary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DailySumSection" EntityType="TASDesktopModel.Store.DailySumSection" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DailySumShift" EntityType="TASDesktopModel.Store.DailySumShift" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DailyTimeMonitor" EntityType="TASDesktopModel.Store.DailyTimeMonitor" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DaysName" EntityType="TASDesktopModel.Store.DaysName" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Department" EntityType="TASDesktopModel.Store.Department" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Designation" EntityType="TASDesktopModel.Store.Designation" store:Type="Tables" Schema="dbo" />
@@ -2519,6 +2520,29 @@
           <Property Name="ShortLeaveEmp" Type="smallint" />
           <Property Name="HalfLeaveEmp" Type="smallint" />
           <Property Name="CompanyID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="DailyTimeMonitor">
+          <Key>
+            <PropertyRef Name="CriteriaDate" />
+          </Key>
+          <Property Name="CriteriaDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CriteriaShiftID" Type="tinyint" />
+          <Property Name="InLabelOne" Type="nvarchar" MaxLength="50" />
+          <Property Name="InLabelTwo" Type="nvarchar" MaxLength="50" />
+          <Property Name="InLabelThree" Type="nvarchar" MaxLength="50" />
+          <Property Name="InLabelFour" Type="nvarchar" MaxLength="50" />
+          <Property Name="InLabelOneValue" Type="int" />
+          <Property Name="InLabelTwoValue" Type="int" />
+          <Property Name="InLabelThreeValue" Type="int" />
+          <Property Name="InLabeFourValue" Type="int" />
+          <Property Name="OutLabelOne" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutLabelTwo" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutLabelThree" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutLabelFour" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutLabelOneValue" Type="int" />
+          <Property Name="OutLabelTwoValue" Type="int" />
+          <Property Name="OutLabelThreeValue" Type="int" />
+          <Property Name="OutLabeFourValue" Type="int" />
         </EntityType>
         <EntityType Name="DaysName">
           <Key>
@@ -5386,6 +5410,7 @@
           <EntitySet Name="DailySummaries" EntityType="TASDesktopModel.DailySummary" />
           <EntitySet Name="DailySumSections" EntityType="TASDesktopModel.DailySumSection" />
           <EntitySet Name="DailySumShifts" EntityType="TASDesktopModel.DailySumShift" />
+          <EntitySet Name="DailyTimeMonitors" EntityType="TASDesktopModel.DailyTimeMonitor" />
           <EntitySet Name="DaysNames" EntityType="TASDesktopModel.DaysName" />
           <EntitySet Name="Departments" EntityType="TASDesktopModel.Department" />
           <EntitySet Name="Designations" EntityType="TASDesktopModel.Designation" />
@@ -6372,6 +6397,29 @@
           <Property Type="Int16" Name="HalfLeaveEmp" />
           <Property Type="Int16" Name="CompanyID" />
           <NavigationProperty Name="Shift" Relationship="TASDesktopModel.FK_SummaryShift_Shift" FromRole="DailySumShift" ToRole="Shift" />
+        </EntityType>
+        <EntityType Name="DailyTimeMonitor">
+          <Key>
+            <PropertyRef Name="CriteriaDate" />
+          </Key>
+          <Property Type="String" Name="CriteriaDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="CriteriaShiftID" />
+          <Property Type="String" Name="InLabelOne" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InLabelTwo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InLabelThree" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InLabelFour" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="InLabelOneValue" />
+          <Property Type="Int32" Name="InLabelTwoValue" />
+          <Property Type="Int32" Name="InLabelThreeValue" />
+          <Property Type="Int32" Name="InLabeFourValue" />
+          <Property Type="String" Name="OutLabelOne" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OutLabelTwo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OutLabelThree" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OutLabelFour" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OutLabelOneValue" />
+          <Property Type="Int32" Name="OutLabelTwoValue" />
+          <Property Type="Int32" Name="OutLabelThreeValue" />
+          <Property Type="Int32" Name="OutLabeFourValue" />
         </EntityType>
         <EntityType Name="DaysName">
           <Key>
@@ -9884,6 +9932,30 @@
                 <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
                 <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
                 <ScalarProperty Name="ShiftDate" ColumnName="ShiftDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyTimeMonitors">
+            <EntityTypeMapping TypeName="TASDesktopModel.DailyTimeMonitor">
+              <MappingFragment StoreEntitySet="DailyTimeMonitor">
+                <ScalarProperty Name="OutLabeFourValue" ColumnName="OutLabeFourValue" />
+                <ScalarProperty Name="OutLabelThreeValue" ColumnName="OutLabelThreeValue" />
+                <ScalarProperty Name="OutLabelTwoValue" ColumnName="OutLabelTwoValue" />
+                <ScalarProperty Name="OutLabelOneValue" ColumnName="OutLabelOneValue" />
+                <ScalarProperty Name="OutLabelFour" ColumnName="OutLabelFour" />
+                <ScalarProperty Name="OutLabelThree" ColumnName="OutLabelThree" />
+                <ScalarProperty Name="OutLabelTwo" ColumnName="OutLabelTwo" />
+                <ScalarProperty Name="OutLabelOne" ColumnName="OutLabelOne" />
+                <ScalarProperty Name="InLabeFourValue" ColumnName="InLabeFourValue" />
+                <ScalarProperty Name="InLabelThreeValue" ColumnName="InLabelThreeValue" />
+                <ScalarProperty Name="InLabelTwoValue" ColumnName="InLabelTwoValue" />
+                <ScalarProperty Name="InLabelOneValue" ColumnName="InLabelOneValue" />
+                <ScalarProperty Name="InLabelFour" ColumnName="InLabelFour" />
+                <ScalarProperty Name="InLabelThree" ColumnName="InLabelThree" />
+                <ScalarProperty Name="InLabelTwo" ColumnName="InLabelTwo" />
+                <ScalarProperty Name="InLabelOne" ColumnName="InLabelOne" />
+                <ScalarProperty Name="CriteriaShiftID" ColumnName="CriteriaShiftID" />
+                <ScalarProperty Name="CriteriaDate" ColumnName="CriteriaDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
