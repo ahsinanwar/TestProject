@@ -81,7 +81,7 @@
             </StackPanel>
         </Border>
         <Border DockPanel.Dock="Bottom">
-            <Frame x:Name="_mainFrame" HorizontalAlignment="Center" Margin="0,15,0,15">
+            <Frame x:Name="_mainFrame" HorizontalAlignment="Center" NavigationUIVisibility="Hidden" Margin="0,15,0,15">
 
             </Frame>
         </Border>

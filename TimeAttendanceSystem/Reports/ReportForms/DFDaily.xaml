@@ -4,11 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
+      xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
       xmlns:local="clr-namespace:TimeAttendanceSystem.Reports.UserControls"
-      d:DesignHeight="300" d:DesignWidth="300"
 	Title="DFDaily">
 
-    <Grid>
-        <local:UCReportFilters x:Name="LogView" />
-    </Grid>
+    <StackPanel Orientation="Horizontal">
+        <StackPanel>
+            <local:UCReportFilters x:Name="UserControlReport" HorizontalAlignment="Left"  />
+            <Button Content="Button" Width="76" Click="Button_Click"/>
+        </StackPanel>
+        <StackPanel>
+            <WindowsFormsHost HorizontalAlignment="Left" Height="370" VerticalAlignment="Top" Width="400">
+                <rv:ReportViewer x:Name="rptViewer"  RenderingComplete="reportViewer_RenderingComplete"></rv:ReportViewer>
+            </WindowsFormsHost>
+        </StackPanel>
+    </StackPanel>
 </Page>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,22 @@ namespace TimeAttendanceSystem.Reports.UserControls
             selectedDepts = new List<Department>();
             selectedSecs = new List<Model.Section>();
             selectedLoc = new List<Location>();
+            selectedShift = new List<Shift>();
+            selectedType = new List<EmpType>();
+            selectedCrew = new List<Crew>();
+            startDate.SelectedDate = DateTime.Today;
+            endDate.SelectedDate = DateTime.Today;
+        }
+        public DateTime StartDate
+        {
+            get { return (DateTime)startDate.SelectedValue; }
+        }
+        public DateTime EndDate
+        {
+            get { return (DateTime)endDate.SelectedValue; }
         }
 
+        #region -- Employee filter --
         public List<Emp> selectedEmps;
         RFEmployees window;
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
@@ -50,6 +65,9 @@ namespace TimeAttendanceSystem.Reports.UserControls
             ListBoxEmp.Items.Clear();
             selectedEmps.Clear();
         }
+        #endregion
+
+        #region -- Department filter --
         public List<Department> selectedDepts;
         RFDepts windowDept;
         private void btnAddDept_Click(object sender, RoutedEventArgs e)
@@ -70,7 +88,9 @@ namespace TimeAttendanceSystem.Reports.UserControls
             ListBoxDept.Items.Clear();
             selectedDepts.Clear();
         }
+        #endregion
 
+        #region -- Section filter --
         public List<TimeAttendanceSystem.Model.Section> selectedSecs;
         RFSections windowSec;
         private void btnAddSec_Click(object sender, RoutedEventArgs e)
@@ -83,7 +103,7 @@ namespace TimeAttendanceSystem.Reports.UserControls
                 selectedSecs = windowSec.selectedSecs;
             }
             foreach (var item in selectedSecs)
-                ListBoxDept.Items.Add(item.SectionName);
+                ListBoxSec.Items.Add(item.SectionName);
         }
 
         private void btnClearSec_Click(object sender, RoutedEventArgs e)
@@ -91,7 +111,9 @@ namespace TimeAttendanceSystem.Reports.UserControls
             ListBoxSec.Items.Clear();
             selectedSecs.Clear();
         }
+        #endregion
 
+        #region -- Location filter --
         public List<Location> selectedLoc;
         RFLocations windowLoc;
         private void btnAddLoc_Click(object sender, RoutedEventArgs e)
@@ -112,19 +134,22 @@ namespace TimeAttendanceSystem.Reports.UserControls
             ListBoxLoc.Items.Clear();
             selectedLoc.Clear();
         }
-        public List<Location> selectedShift;
-        RFLocations windowShift;
+        #endregion
+
+        #region -- Shift filter --
+        public List<Shift> selectedShift;
+        RFShifts windowShift;
         private void btnAddShift_Click(object sender, RoutedEventArgs e)
         {
-            ListBoxLoc.Items.Clear();
-            windowLoc = new RFLocations(selectedShift);
-            if ((bool)windowLoc.ShowDialog())
+            ListBoxShift.Items.Clear();
+            windowShift = new RFShifts(selectedShift);
+            if ((bool)windowShift.ShowDialog())
             {
                 selectedShift.Clear();
-                selectedShift = windowLoc.selectedLocs;
+                selectedShift = windowShift.selectedShifts;
             }
             foreach (var item in selectedShift)
-                ListBoxLoc.Items.Add(item.LocName);
+                ListBoxShift.Items.Add(item.ShiftName);
         }
 
         private void btnClearShift_Click(object sender, RoutedEventArgs e)
@@ -132,5 +157,52 @@ namespace TimeAttendanceSystem.Reports.UserControls
             ListBoxShift.Items.Clear();
             selectedShift.Clear();
         }
+        #endregion
+
+        #region -- Employee Type filter --
+        public List<EmpType> selectedType;
+        RFEmpTypes windowType;
+        private void btnAddEmpType_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxEmpType.Items.Clear();
+            windowType = new RFEmpTypes(selectedType);
+            if ((bool)windowType.ShowDialog())
+            {
+                selectedType.Clear();
+                selectedType = windowType.selectedEmpTypes;
+            }
+            foreach (var item in selectedType)
+                ListBoxEmpType.Items.Add(item.TypeName);
+        }
+
+        private void btnClearEmpType_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxEmpType.Items.Clear();
+            selectedType.Clear();
+        }
+        #endregion
+
+        #region -- Employee Type filter --
+        public List<Crew> selectedCrew;
+        RFCrews windowCrew;
+        private void btnAddCrew_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxCrew.Items.Clear();
+            windowCrew = new RFCrews(selectedCrew);
+            if ((bool)windowCrew.ShowDialog())
+            {
+                selectedCrew.Clear();
+                selectedCrew = windowCrew.selectedCrews;
+            }
+            foreach (var item in selectedCrew)
+                ListBoxCrew.Items.Add(item.CrewName);
+        }
+
+        private void btnClearCrew_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxCrew.Items.Clear();
+            selectedCrew.Clear();
+        }
+        #endregion
     }
 }

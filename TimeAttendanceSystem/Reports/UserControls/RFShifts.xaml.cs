@@ -24,38 +24,38 @@ namespace TimeAttendanceSystem.Reports.UserControls
     /// </summary>
     public partial class RFShifts : Window
     {
-        public ObservableCollection<Emp> listOfEmps;
-        public List<Emp> _selectedEmps;
-        public List<Emp> selectedEmps
+        public ObservableCollection<Shift> listOfShifts;
+        public List<Shift> _selectedShifts;
+        public List<Shift> selectedShifts
         {
             get
             {
-                return _selectedEmps;
+                return _selectedShifts;
             }
             set
             {
-                _selectedEmps = value;
+                _selectedShifts = value;
             }
         }
         TAS2013Entities context = new TAS2013Entities();
-        public RFShifts(List<Emp> _selectedEmps)
+        public RFShifts(List<Shift> _selectedShifts)
         {
             InitializeComponent();
-            selectedEmps = new List<Emp>();
-            listOfEmps = new ObservableCollection<Emp>(context.Emps.ToList());
-            lstView_emps.ItemsSource = listOfEmps;
+            selectedShifts = new List<Shift>();
+            listOfShifts = new ObservableCollection<Shift>(context.Shifts.ToList());
+            lstView_shifts.ItemsSource = listOfShifts;
 
             //lstView_emps.Items.Clear();
 
 
-            //foreach (var item in listOfEmps)
+            //foreach (var item in listOfShifts)
             //{
             //    //lstView_emps.Items.Add(item);
-            //    Emp emp = listOfEmps.FirstOrDefault();
+            //    Emp emp = listOfShifts.FirstOrDefault();
             //    this.lstView_emps.SelectedItem = emp;
             //}
-           
-            this.lstView_emps.SelectAll();
+
+            this.lstView_shifts.SelectAll();
 
 
         }
@@ -64,10 +64,10 @@ namespace TimeAttendanceSystem.Reports.UserControls
         {
             this.DialogResult = true;
             //lstView_emps
-            foreach (var item in lstView_emps.SelectedItems)
+            foreach (var item in lstView_shifts.SelectedItems)
             {
-                Emp _selectedEmp = item as Emp;
-                selectedEmps.Add(_selectedEmp);
+                Shift _selectedEmp = item as Shift;
+                selectedShifts.Add(_selectedEmp);
             }
 
         }

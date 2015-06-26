@@ -13,8 +13,6 @@
                 <telerik:GridViewSelectColumn />
                 <telerik:GridViewDataColumn Header="Name"
 											    DataMemberBinding="{Binding LocName}" />
-                <telerik:GridViewDataColumn Header="Id"
-											    DataMemberBinding="{Binding LocID}" />
             </telerik:RadGridView.Columns>
 
 

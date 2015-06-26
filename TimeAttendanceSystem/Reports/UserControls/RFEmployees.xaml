@@ -3,19 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         x:Class="TimeAttendanceSystem.Reports.UserControls.RFEmployees"
-        Title="SelectEmpWindow" Height="407.067" Width="368.905">
-    <Grid>
+        Title="SelectEmpWindow" Height="407.067" Width="477.612">
+    <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
 
-        <telerik:RadGridView x:Name="lstView_emps" SelectionMode="Extended" SelectedItem="{Binding selectedEmp, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="263" Width="351" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectionChanged="lstView_emps_SelectionChanged">
+        <telerik:RadGridView x:Name="lstView_emps" SelectionMode="Extended" SelectedItem="{Binding selectedEmp, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="278" Width="458" AutoGenerateColumns="False" SelectionChanged="lstView_emps_SelectionChanged">
             <telerik:RadGridView.Columns>
                 <telerik:GridViewSelectColumn />
-                <telerik:GridViewCheckBoxColumn DataMemberBinding="{Binding Status}"></telerik:GridViewCheckBoxColumn>
-                <telerik:GridViewDataColumn Header="Employee Name"
+                <telerik:GridViewDataColumn Header="Emp No"
+											    DataMemberBinding="{Binding EmpNo}" />
+                <telerik:GridViewDataColumn Header="Name"
 											    DataMemberBinding="{Binding EmpName}" />
-                <telerik:GridViewDataColumn Header="Employee Id"
-											    DataMemberBinding="{Binding EmpID}" />
+                <telerik:GridViewDataColumn Header="Designation"
+											    DataMemberBinding="{Binding Designation.DesignationName}" />
+                <telerik:GridViewDataColumn Header="Department"
+											    DataMemberBinding="{Binding Section.Department.DeptName}" />
+                <telerik:GridViewDataColumn Header="Type"
+											    DataMemberBinding="{Binding EmptYpe.TypeName}" />
+                <telerik:GridViewDataColumn Header="Status"
+											    DataMemberBinding="{Binding Status}" />
+
             </telerik:RadGridView.Columns>
 
 

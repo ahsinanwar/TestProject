@@ -18,8 +18,6 @@ namespace TimeAttendanceSystem.Model
         public string GradeName { get; set; }
         public string JobTitle { get; set; }
         public string CityName { get; set; }
-        public string RegionName { get; set; }
-        public string LocName { get; set; }
         public string CrewName { get; set; }
         public string TypeName { get; set; }
         public string CatName { get; set; }
@@ -65,5 +63,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> CrewID { get; set; }
         public int EmpID { get; set; }
         public Nullable<short> CityID { get; set; }
+        public string LocName { get; set; }
     }
 }

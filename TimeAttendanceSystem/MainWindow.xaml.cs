@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TimeAttendanceSystem.Reports.ReportForms;
 using TimeAttendanceSystem.Views;
+using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem
 {
@@ -26,11 +27,10 @@ namespace TimeAttendanceSystem
         public MainWindow()
         {
             InitializeComponent();
-            
             WindowState = WindowState.Maximized;
             _mainFrame.Navigate(new DashView());
         }
-
+        TAS2013Entities ctx = new TAS2013Entities(); 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new AttEditView());

@@ -21,7 +21,6 @@ namespace TimeAttendanceSystem.Model
         public string TypeName { get; set; }
         public string CatName { get; set; }
         public string CityName { get; set; }
-        public string RegionName { get; set; }
         public string LocName { get; set; }
         public string DesignationName { get; set; }
         public string ShiftName { get; set; }
@@ -30,7 +29,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<int> FpID { get; set; }
         public string CardNo { get; set; }
         public string GradeName { get; set; }
-        public string CompName { get; set; }
         public Nullable<bool> FlagCard { get; set; }
         public Nullable<bool> FlagFace { get; set; }
         public Nullable<bool> FlagFP { get; set; }
@@ -48,7 +46,6 @@ namespace TimeAttendanceSystem.Model
         public string DivisionName { get; set; }
         public Nullable<int> DesigID { get; set; }
         public string CellNo { get; set; }
-        public Nullable<short> CompanyID { get; set; }
         public Nullable<byte> TypeID { get; set; }
         public Nullable<short> CatID { get; set; }
         public Nullable<short> DeptID { get; set; }
