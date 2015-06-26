@@ -25,6 +25,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         public DFDaily()
         {
             InitializeComponent();
+            this.rptViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void Button_Click(object sender, RoutedEventArgs e)

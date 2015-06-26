@@ -6,17 +6,36 @@
       mc:Ignorable="d" 
       xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
       xmlns:local="clr-namespace:TimeAttendanceSystem.Reports.UserControls"
-	Title="DFDaily">
-
-    <StackPanel Orientation="Horizontal">
-        <StackPanel>
+	Title="DFDaily"  Background="#E6E6DC" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Border Background="#FF25A0DA" Grid.ColumnSpan="2" Grid.Row="0" ></Border>
+        <StackPanel Grid.Column="0" Grid.Row="1">
             <local:UCReportFilters x:Name="UserControlReport" HorizontalAlignment="Left"  />
-            <Button Content="Button" Width="76" Click="Button_Click"/>
         </StackPanel>
-        <StackPanel>
-            <WindowsFormsHost HorizontalAlignment="Left" Height="370" VerticalAlignment="Top" Width="400">
-                <rv:ReportViewer x:Name="rptViewer"  RenderingComplete="reportViewer_RenderingComplete"></rv:ReportViewer>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+            <WindowsFormsHost Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualHeight}" x:Name="WinFromHost">
+                <rv:ReportViewer Dock="Fill" x:Name="rptViewer" RenderingComplete="reportViewer_RenderingComplete"></rv:ReportViewer>
             </WindowsFormsHost>
         </StackPanel>
-    </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <Button Content="Button" Width="76" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+    <!--<DockPanel LastChildFill="True">
+        <Border>
+            
+        </Border>
+        <Border>
+            
+        </Border>
+    </DockPanel>-->
 </Page>

@@ -9,8 +9,8 @@
     <StackPanel Orientation="Vertical">
         <!--Date Filter-->
         <StackPanel>
-            <Expander Header="Date">
-                <Grid Height="60">
+            <Expander Background="Aqua" Header="Date">
+                <Grid Height="60" Background="White">
                     <Label Content="From" Margin="10,0,122,34" />
                     <telerik:RadDatePicker x:Name="startDate" Width="96" Margin="51,4,21,34" />
                     <Label Content="To" Margin="10,26,122,10"/>

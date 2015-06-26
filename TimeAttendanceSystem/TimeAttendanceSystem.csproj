@@ -470,6 +470,9 @@
     <Compile Include="Reports\ReportForms\DFDaily.xaml.cs">
       <DependentUpon>DFDaily.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\DFPresent.xaml.cs">
+      <DependentUpon>DFPresent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\UserControls\RFCrews.xaml.cs">
       <DependentUpon>RFCrews.xaml</DependentUpon>
     </Compile>
@@ -674,6 +677,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Reports\ReportForms\DFDaily.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFPresent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
