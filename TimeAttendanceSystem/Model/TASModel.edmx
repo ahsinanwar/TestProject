@@ -2512,6 +2512,7 @@
             <PropertyRef Name="CriteriaDate" />
           </Key>
           <Property Name="CriteriaDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AttDate" Type="date" />
           <Property Name="CriteriaShiftID" Type="tinyint" />
           <Property Name="InLabelOne" Type="nvarchar" MaxLength="50" />
           <Property Name="InLabelTwo" Type="nvarchar" MaxLength="50" />
@@ -6379,6 +6380,7 @@
             <PropertyRef Name="CriteriaDate" />
           </Key>
           <Property Type="String" Name="CriteriaDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AttDate" Precision="0" />
           <Property Type="Byte" Name="CriteriaShiftID" />
           <Property Type="String" Name="InLabelOne" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="InLabelTwo" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -9922,6 +9924,7 @@
                 <ScalarProperty Name="InLabelTwo" ColumnName="InLabelTwo" />
                 <ScalarProperty Name="InLabelOne" ColumnName="InLabelOne" />
                 <ScalarProperty Name="CriteriaShiftID" ColumnName="CriteriaShiftID" />
+                <ScalarProperty Name="AttDate" ColumnName="AttDate" />
                 <ScalarProperty Name="CriteriaDate" ColumnName="CriteriaDate" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -15,6 +15,7 @@ namespace TimeAttendanceSystem.Model
     public partial class DailyTimeMonitor
     {
         public string CriteriaDate { get; set; }
+        public Nullable<System.DateTime> AttDate { get; set; }
         public Nullable<byte> CriteriaShiftID { get; set; }
         public string InLabelOne { get; set; }
         public string InLabelTwo { get; set; }

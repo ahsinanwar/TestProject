@@ -37,28 +37,40 @@ namespace TimeAttendanceSystem.Views
         }
          private void SetUpChart(List<DailySummary> data)
         {
-            var series = new Telerik.Windows.Controls.ChartView.LineSeries();
-            var bar = new Telerik.Windows.Controls.ChartView.BarSeries();
-            var seriesEI = new Telerik.Windows.Controls.ChartView.LineSeries();
-            var seriesEO = new Telerik.Windows.Controls.ChartView.LineSeries();
-            var seriesLI = new Telerik.Windows.Controls.ChartView.LineSeries();
-            var seriesLO = new Telerik.Windows.Controls.ChartView.LineSeries();
+            var intime = new Telerik.Windows.Controls.ChartView.DoughnutSeries();
+            var series = new Telerik.Windows.Controls.ChartView.SplineSeries();
+            series.StrokeThickness = 4;
+            var tbiTemplate = this.Resources["theTemplate"] as DataTemplate;
+            series.TrackBallInfoTemplate = tbiTemplate;
+            var seriesEI = new Telerik.Windows.Controls.ChartView.BarSeries() { CombineMode = ChartSeriesCombineMode.Stack };
+            var seriesEO = new Telerik.Windows.Controls.ChartView.BarSeries() { CombineMode = ChartSeriesCombineMode.Stack };
+            var seriesLI = new Telerik.Windows.Controls.ChartView.BarSeries() { CombineMode = ChartSeriesCombineMode.Stack };
+            var seriesLO = new Telerik.Windows.Controls.ChartView.BarSeries() { CombineMode = ChartSeriesCombineMode.Stack };
             for (int i = 0; i < data.Count; i++)
             {
                 series.DataPoints.Add(new CategoricalDataPoint { Category = data[i].Date, Value = data[i].PresentEmps });
-                bar.DataPoints.Add(new CategoricalDataPoint { Category = data[i].Date, Value = data[i].PresentEmps });
                 seriesEI.DataPoints.Add(new CategoricalDataPoint { Category = data[i].Date, Value = data[i].EIEmps });
                 seriesEO.DataPoints.Add(new CategoricalDataPoint { Category = data[i].Date, Value = data[i].EOEmps });
                 seriesLI.DataPoints.Add(new CategoricalDataPoint { Category = data[i].Date, Value = data[i].LIEmps});
                 seriesLO.DataPoints.Add(new CategoricalDataPoint { Category = data[i].Date, Value = data[i].LOEmps });
             }
+            series.CategoryBinding = new PropertyNameDataPointBinding() { PropertyName = "Time" };
+            series.ValueBinding = new PropertyNameDataPointBinding() { PropertyName = "Present" };
            
             this.xCartesianGraphPresence.Series.Add(series);
-            this.xCartesianGraphPresence.Series.Add(bar);
+            var Tei = this.Resources["TemplateEarlyIn"] as DataTemplate;
+            seriesEI.TrackBallInfoTemplate = Tei;
+            var Teo = this.Resources["TemplateEarlyOut"] as DataTemplate;
+            seriesEO.TrackBallInfoTemplate = Teo;
+            var Tli = this.Resources["TemplateLateIn"] as DataTemplate;
+            seriesLI.TrackBallInfoTemplate = Tli;
+            var Tlo = this.Resources["TemplateLateOut"] as DataTemplate;
+            seriesLO.TrackBallInfoTemplate = Tlo;
             this.Departments.Series.Add(seriesEI);
             this.Departments.Series.Add(seriesEO);
             this.Departments.Series.Add(seriesLI);
             this.Departments.Series.Add(seriesLO);
+            this.intimeanalysis.Series[0].ItemsSource = vmdash.Value;
  
              
            
