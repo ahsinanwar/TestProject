@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using TimeAttendanceSystem.Reports.ReportForms;
 using TimeAttendanceSystem.Views;
 using TimeAttendanceSystem.Model;
+using WPFPieChart;
 
 namespace TimeAttendanceSystem
 {
@@ -28,6 +29,7 @@ namespace TimeAttendanceSystem
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
+
             _mainFrame.Navigate(new DashView());
         }
         TAS2013Entities ctx = new TAS2013Entities(); 

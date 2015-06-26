@@ -5,13 +5,86 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       x:Class="TimeAttendanceSystem.Views.DashView" 
-      xmlns:telerikChart="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Charting"
+    xmlns:c="clr-namespace:ScottLogic.Controls.PieChart"
+    xmlns:b="clr-namespace:ScottLogic.Shapes"
+      xmlns:telerikChart="clr-namespace:Telerik.Windows.Controls.ChartView;assembly=Telerik.Windows.Controls.ChartView"
       xmlns:telerikCharting="clr-namespace:Telerik.Windows.Controls.Charting;assembly=Telerik.Windows.Controls.Charting"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       Width="400" Height="135.2">
+    <UserControl.Resources>
+        <x:ArrayExtension Type="{x:Type Brush}" x:Key="brushes">
+            <SolidColorBrush Color="#9F15C3"/>
+            <SolidColorBrush Color="#FF8E01"/>
+            <SolidColorBrush Color="#339933"/>
+            <SolidColorBrush Color="#00AAFF"/>
+            <SolidColorBrush Color="#818183"/>
+            <SolidColorBrush Color="#000033"/>
+        </x:ArrayExtension>
+        <DataTemplate x:Key="theTemplate">
+            <StackPanel Orientation="Horizontal">
+             
+                
+                <TextBlock Text="{Binding DataPoint.Value}" />
+                <TextBlock Text=" Employees present " />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TemplateEarlyIn">
+            <StackPanel Orientation="Horizontal">
+
+
+                <TextBlock Text="{Binding DataPoint.Value}" />
+                <TextBlock Text=" employees came early" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TemplateActual">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text=" Actual work hour(s):" />
+                <TextBlock Text="{Binding DataPoint.Value}" />
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TemplateLoss">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text=" Lost hour(s):" />
+                <TextBlock Text="{Binding DataPoint.Value}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TemplateTargeted">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text=" Targeted hour(s):" />
+                <TextBlock Text="{Binding DataPoint.Value}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TemplateEarlyOut">
+            <StackPanel Orientation="Horizontal">
+
+
+                <TextBlock Text="{Binding DataPoint.Value}" />
+                <TextBlock Text=" employees left early" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TemplateLateIn">
+            <StackPanel Orientation="Horizontal">
+
+
+                <TextBlock Text="{Binding DataPoint.Value}" />
+                <TextBlock Text=" employees came late" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TemplateLateOut">
+            <StackPanel Orientation="Horizontal">
+
+
+                <TextBlock Text="{Binding DataPoint.Value}" />
+                <TextBlock Text=" employees left office late" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Border BorderBrush="#FF25A0DA" BorderThickness="1">
-        <StackPanel Background="White" Margin="-223.8,-261.8,-217.8,-20.4">
+        <StackPanel Background="White" Margin="-223.8,-261.8,-217.8,-199.4">
             <StackPanel Orientation="Horizontal">
                 <Border
             		Height="70"
@@ -39,7 +112,7 @@
             		Background="Red"
             		CornerRadius="15"
             		Margin="5,5,5,2"
-            		BorderThickness="1" Width="120">
+            		BorderThickness="1" Width="130">
 
                     <Grid Margin="0,0.2,0,-0.2" Width="130">
                         <Grid.RowDefinitions>
@@ -86,7 +159,7 @@
                             <RowDefinition Height="41*"/>
                             <RowDefinition Height="31*"/>
                         </Grid.RowDefinitions>
-                        <Label Foreground="White" FontSize="22" Content="{Binding AverageTimeIn}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
+                        <Label Foreground="White" FontSize="22" Content="{Binding AverageTimeIn}" Margin="0,0,0,18.2" HorizontalAlignment="Center" Width="125" Grid.RowSpan="2"/>
                         <Label Foreground="White" FontSize="10" Content="Average Time In" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
                     </Grid>
 
@@ -99,14 +172,14 @@
             		Background="DarkGoldenrod"
             		CornerRadius="15"
             		Margin="5,5,5,2"
-            		BorderThickness="1" Width="107">
+            		BorderThickness="1" Width="130">
 
                     <Grid Margin="0,0.2,0,-0.2" Width="130">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="41*"/>
                             <RowDefinition Height="31*"/>
                         </Grid.RowDefinitions>
-                        <Label Foreground="White" FontSize="22" Content="{Binding Absent}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
+                        <Label Foreground="White" Content="{Binding AverageTimeOut}" FontSize="22" Margin="0,0,0,18.8" HorizontalAlignment="Center" Width="105" Grid.RowSpan="2"/>
                         <Label Foreground="White" FontSize="9" Content="Average Time Out" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
                     </Grid>
 
@@ -119,14 +192,14 @@
             		Background="BurlyWood"
             		CornerRadius="15"
             		Margin="5,5,5,2"
-            		BorderThickness="1" Width="120">
+            		BorderThickness="1" Width="130">
 
                     <Grid Margin="0,0.2,0,-0.2" Width="130">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="41*"/>
                             <RowDefinition Height="31*"/>
                         </Grid.RowDefinitions>
-                        <Label Foreground="White" FontSize="22" Content="{Binding Absent}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
+                        <Label Foreground="White" FontSize="22" Content="{Binding OnLeave}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
                         <Label Foreground="White" FontSize="9" Content="On Leave" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
                     </Grid>
 
@@ -146,13 +219,34 @@
                         <Style x:Key="axisLabelStyle" TargetType="{x:Type TextBlock}">
                             <Setter Property="FontFamily" Value="Segoe UI" />
                         </Style>
-                        <DataTemplate x:Key="seriesTrackBallInfoTemplate">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding DataPoint.DataItem.Employee}" />
-                                <TextBlock Text=": " />
-                                <TextBlock Text="{Binding DataPoint.DataItem.Value}" />
-                            </StackPanel>
-                        </DataTemplate>
+                       
+                    </telerik:RadCartesianChart.Resources>
+                    <telerik:RadCartesianChart.Behaviors>
+                        <telerik:ChartTrackBallBehavior ShowIntersectionPoints="True"
+        				ShowTrackInfo="true"/>
+                    </telerik:RadCartesianChart.Behaviors>
+
+                    <telerik:RadCartesianChart.HorizontalAxis>
+                        <telerik:DateTimeContinuousAxis LabelFormat="dd MMM" LabelStyle="{StaticResource axisLabelStyle}"/>
+                    </telerik:RadCartesianChart.HorizontalAxis>
+                    <telerik:RadCartesianChart.VerticalAxis>
+                        <telerik:LinearAxis  Minimum="0" MajorStep="100" LabelStyle="{StaticResource axisLabelStyle}"/>
+                    </telerik:RadCartesianChart.VerticalAxis>
+                    <telerik:RadCartesianChart.Grid>
+                        <telerik:CartesianChartGrid MajorLinesVisibility="Y" />
+                    </telerik:RadCartesianChart.Grid>
+
+                </telerik:RadCartesianChart>
+            </StackPanel>
+            <StackPanel Margin="5,5,5,5" Orientation="Horizontal">
+                <telerik:RadCartesianChart x:Name="ActualvsTargeted" Palette="Windows8" Height="82" HorizontalAlignment="Left" Width="820">
+
+                    <telerik:RadCartesianChart.Resources>
+
+                        <Style x:Key="axisLabelStyle" TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="Segoe UI" />
+                        </Style>
+
                     </telerik:RadCartesianChart.Resources>
                     <telerik:RadCartesianChart.Behaviors>
                         <telerik:ChartTrackBallBehavior ShowIntersectionPoints="True"
@@ -172,7 +266,7 @@
                 </telerik:RadCartesianChart>
             </StackPanel>
             <StackPanel Background="#FF25A0DA" Height="35px">
-                <Label Foreground="White" FontSize="17" HorizontalAlignment="Center">Department Presence</Label>
+                <Label Foreground="White" FontSize="17" HorizontalAlignment="Center">In/Out Analysis</Label>
             </StackPanel>
             <StackPanel Margin="5,5,5,5">
                 <telerik:RadCartesianChart x:Name="Departments" Palette="Windows8" Height="82" HorizontalAlignment="Left" Width="779">
@@ -182,13 +276,7 @@
                         <Style x:Key="axisLabelStyle" TargetType="{x:Type TextBlock}">
                             <Setter Property="FontFamily" Value="Segoe UI" />
                         </Style>
-                        <DataTemplate x:Key="seriesTrackBallInfoTemplate">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding DataPoint.DataItem.Employee}" />
-                                <TextBlock Text=": " />
-                                <TextBlock Text="{Binding DataPoint.DataItem.Value}" />
-                            </StackPanel>
-                        </DataTemplate>
+                       
                     </telerik:RadCartesianChart.Resources>
                     <telerik:RadCartesianChart.Behaviors>
                         <telerik:ChartTrackBallBehavior ShowIntersectionPoints="True"
@@ -207,7 +295,18 @@
 
                 </telerik:RadCartesianChart>
             </StackPanel>
-           
+            <StackPanel Background="#FF25A0DA" Height="35px">
+                <Label Foreground="White" FontSize="17" HorizontalAlignment="Center">In-time Analysis</Label>
+            </StackPanel>
+            <StackPanel DataContext="{Binding Value}">
+                <c:PieChartLayout HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0"
+                              x:Name="piePlotter" PlottedProperty="Fund" Margin="10">
+                    <c:PieChartLayout.ColorSelector>
+                        <c:IndexedColourSelector Brushes="{StaticResource brushes}"/>
+                    </c:PieChartLayout.ColorSelector>
+                </c:PieChartLayout>
+               
+            </StackPanel>
         </StackPanel>
         
     </Border>
