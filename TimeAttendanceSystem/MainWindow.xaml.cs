@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using TimeAttendanceSystem.Reports.ReportForms;
 using TimeAttendanceSystem.Views;
 using TimeAttendanceSystem.Model;
+using WPFPieChart;
 
 namespace TimeAttendanceSystem
 {

@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 using TimeAttendanceSystem.BaseClasses;
 
 using TimeAttendanceSystem.Model;
+using WPFPieChart;
 
 namespace TimeAttendanceSystem.ViewModels.VMDashboard
 {
     class VMDashboard : ObservableObject
     {
-        private List<Double> _value;
+        private ObservableCollection<AssetClass> _value;
         private double _registeredUsers;
-        public List<double> Value { get {
+        public ObservableCollection<AssetClass> Value
+        {
+            get
+            {
             return _value;
         
         } set { } }
@@ -79,17 +83,19 @@ namespace TimeAttendanceSystem.ViewModels.VMDashboard
         #endregion
 
         #region getInTimeValues
-        private List<Double> CreateInTimeValues()
+        private ObservableCollection<AssetClass> CreateInTimeValues()
         {
-            
-            List<Double> data = new List<Double>();
+
+            ObservableCollection<AssetClass> data = new ObservableCollection<AssetClass>();
             DateTime date = DateTime.Now;
             List<DailyTimeMonitor> d= context.DailyTimeMonitors.ToList();
+
+            data.Add(new AssetClass() { Class = d[d.Count - 1].InLabelOne, Fund = (Double)d[d.Count - 1].InLabelOneValue, Total = (Double)d[d.Count - 1].InLabelOneValue, Benchmark = 4.82 });
+            data.Add(new AssetClass() { Class = d[d.Count - 1].InLabelTwo, Fund = (Double)d[d.Count - 1].InLabelTwoValue, Total = (Double)d[d.Count - 1].InLabelTwoValue, Benchmark = 4.82 });
+            data.Add(new AssetClass() { Class = d[d.Count - 1].InLabelThree, Fund = (Double)d[d.Count - 1].InLabelThreeValue, Total = (Double)d[d.Count - 1].InLabelThreeValue, Benchmark = 4.82 });
+            data.Add(new AssetClass() { Class = d[d.Count - 1].InLabelFour, Fund = (Double)d[d.Count - 1].InLabeFourValue, Total = (Double)d[d.Count - 1].InLabeFourValue, Benchmark = 4.82 });
+         
             
-            data.Add((Double)d[d.Count-1].InLabelOneValue);
-            data.Add((Double)d[d.Count - 1].InLabelTwoValue);
-            data.Add((Double)d[d.Count - 1].InLabelThreeValue);
-            data.Add((Double)d[d.Count - 1].InLabeFourValue);
              return data;
         }
         #endregion
