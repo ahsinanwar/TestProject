@@ -259,8 +259,6 @@
       [EmpView].[GradeName] AS [GradeName], 
       [EmpView].[JobTitle] AS [JobTitle], 
       [EmpView].[CityName] AS [CityName], 
-      [EmpView].[RegionName] AS [RegionName], 
-      [EmpView].[LocName] AS [LocName], 
       [EmpView].[CrewName] AS [CrewName], 
       [EmpView].[TypeName] AS [TypeName], 
       [EmpView].[CatName] AS [CatName], 
@@ -305,7 +303,8 @@
       [EmpView].[DivID] AS [DivID], 
       [EmpView].[CrewID] AS [CrewID], 
       [EmpView].[EmpID] AS [EmpID], 
-      [EmpView].[CityID] AS [CityID]
+      [EmpView].[CityID] AS [CityID], 
+      [EmpView].[LocName] AS [LocName]
       FROM [dbo].[EmpView] AS [EmpView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewAbsent" EntityType="TASDesktopModel.Store.ViewAbsent" store:Type="Views" store:Schema="dbo" store:Name="ViewAbsent">
@@ -317,7 +316,6 @@
       [ViewAbsent].[TypeName] AS [TypeName], 
       [ViewAbsent].[CatName] AS [CatName], 
       [ViewAbsent].[CityName] AS [CityName], 
-      [ViewAbsent].[RegionName] AS [RegionName], 
       [ViewAbsent].[LocName] AS [LocName], 
       [ViewAbsent].[DesignationName] AS [DesignationName], 
       [ViewAbsent].[ShiftName] AS [ShiftName], 
@@ -326,7 +324,6 @@
       [ViewAbsent].[FpID] AS [FpID], 
       [ViewAbsent].[CardNo] AS [CardNo], 
       [ViewAbsent].[GradeName] AS [GradeName], 
-      [ViewAbsent].[CompName] AS [CompName], 
       [ViewAbsent].[FlagCard] AS [FlagCard], 
       [ViewAbsent].[FlagFace] AS [FlagFace], 
       [ViewAbsent].[FlagFP] AS [FlagFP], 
@@ -344,7 +341,6 @@
       [ViewAbsent].[DivisionName] AS [DivisionName], 
       [ViewAbsent].[DesigID] AS [DesigID], 
       [ViewAbsent].[CellNo] AS [CellNo], 
-      [ViewAbsent].[CompanyID] AS [CompanyID], 
       [ViewAbsent].[TypeID] AS [TypeID], 
       [ViewAbsent].[CatID] AS [CatID], 
       [ViewAbsent].[DeptID] AS [DeptID], 
@@ -413,7 +409,6 @@
       [ViewEarlyIN].[TypeName] AS [TypeName], 
       [ViewEarlyIN].[CatName] AS [CatName], 
       [ViewEarlyIN].[CityName] AS [CityName], 
-      [ViewEarlyIN].[RegionName] AS [RegionName], 
       [ViewEarlyIN].[LocName] AS [LocName], 
       [ViewEarlyIN].[DesignationName] AS [DesignationName], 
       [ViewEarlyIN].[ShiftName] AS [ShiftName], 
@@ -431,7 +426,6 @@
       [ViewEarlyIN].[FlagFace] AS [FlagFace], 
       [ViewEarlyIN].[FlagCard] AS [FlagCard], 
       [ViewEarlyIN].[GradeName] AS [GradeName], 
-      [ViewEarlyIN].[CompName] AS [CompName], 
       [ViewEarlyIN].[DeptName] AS [DeptName], 
       [ViewEarlyIN].[EmpDate] AS [EmpDate], 
       [ViewEarlyIN].[AttDate] AS [AttDate], 
@@ -465,7 +459,6 @@
       [ViewEarlyIN].[LocID] AS [LocID], 
       [ViewEarlyIN].[CatID] AS [CatID], 
       [ViewEarlyIN].[TypeID] AS [TypeID], 
-      [ViewEarlyIN].[CompanyID] AS [CompanyID], 
       [ViewEarlyIN].[DivID] AS [DivID], 
       [ViewEarlyIN].[SecID] AS [SecID], 
       [ViewEarlyIN].[DesigID] AS [DesigID]
@@ -480,7 +473,6 @@
       [ViewEarlyOut].[TypeName] AS [TypeName], 
       [ViewEarlyOut].[CatName] AS [CatName], 
       [ViewEarlyOut].[CityName] AS [CityName], 
-      [ViewEarlyOut].[RegionName] AS [RegionName], 
       [ViewEarlyOut].[LocName] AS [LocName], 
       [ViewEarlyOut].[DesignationName] AS [DesignationName], 
       [ViewEarlyOut].[ShiftName] AS [ShiftName], 
@@ -493,7 +485,6 @@
       [ViewEarlyOut].[JoinDate] AS [JoinDate], 
       [ViewEarlyOut].[Status] AS [Status], 
       [ViewEarlyOut].[GradeName] AS [GradeName], 
-      [ViewEarlyOut].[CompName] AS [CompName], 
       [ViewEarlyOut].[DeptName] AS [DeptName], 
       [ViewEarlyOut].[EmpDate] AS [EmpDate], 
       [ViewEarlyOut].[AttDate] AS [AttDate], 
@@ -528,7 +519,6 @@
       [ViewEarlyOut].[LocID] AS [LocID], 
       [ViewEarlyOut].[CatID] AS [CatID], 
       [ViewEarlyOut].[TypeID] AS [TypeID], 
-      [ViewEarlyOut].[CompanyID] AS [CompanyID], 
       [ViewEarlyOut].[SecID] AS [SecID], 
       [ViewEarlyOut].[DivID] AS [DivID], 
       [ViewEarlyOut].[DesigID] AS [DesigID]
@@ -1253,7 +1243,6 @@
       [ViewMultipleInOut].[TypeName] AS [TypeName], 
       [ViewMultipleInOut].[CatName] AS [CatName], 
       [ViewMultipleInOut].[CityName] AS [CityName], 
-      [ViewMultipleInOut].[RegionName] AS [RegionName], 
       [ViewMultipleInOut].[LocName] AS [LocName], 
       [ViewMultipleInOut].[DesignationName] AS [DesignationName], 
       [ViewMultipleInOut].[ShiftName] AS [ShiftName], 
@@ -1265,7 +1254,6 @@
       [ViewMultipleInOut].[CardNo] AS [CardNo], 
       [ViewMultipleInOut].[Status] AS [Status], 
       [ViewMultipleInOut].[DeptName] AS [DeptName], 
-      [ViewMultipleInOut].[CompName] AS [CompName], 
       [ViewMultipleInOut].[GradeName] AS [GradeName], 
       [ViewMultipleInOut].[EmpDate] AS [EmpDate], 
       [ViewMultipleInOut].[AttDate] AS [AttDate], 
@@ -1320,7 +1308,6 @@
       [ViewMultipleInOut].[Remarks] AS [Remarks], 
       [ViewMultipleInOut].[TimeIn] AS [TimeIn], 
       [ViewMultipleInOut].[TimeOut] AS [TimeOut], 
-      [ViewMultipleInOut].[CompanyID] AS [CompanyID], 
       [ViewMultipleInOut].[TypeID] AS [TypeID], 
       [ViewMultipleInOut].[CatID] AS [CatID], 
       [ViewMultipleInOut].[DesigID] AS [DesigID], 
@@ -1440,7 +1427,6 @@
       [ViewPresentEmp].[CatName] AS [CatName], 
       [ViewPresentEmp].[TypeName] AS [TypeName], 
       [ViewPresentEmp].[CityName] AS [CityName], 
-      [ViewPresentEmp].[RegionName] AS [RegionName], 
       [ViewPresentEmp].[LocName] AS [LocName], 
       [ViewPresentEmp].[DesignationName] AS [DesignationName], 
       [ViewPresentEmp].[ShiftName] AS [ShiftName], 
@@ -1452,7 +1438,6 @@
       [ViewPresentEmp].[JoinDate] AS [JoinDate], 
       [ViewPresentEmp].[Status] AS [Status], 
       [ViewPresentEmp].[GradeName] AS [GradeName], 
-      [ViewPresentEmp].[CompName] AS [CompName], 
       [ViewPresentEmp].[DeptName] AS [DeptName], 
       [ViewPresentEmp].[EmpDate] AS [EmpDate], 
       [ViewPresentEmp].[AttDate] AS [AttDate], 
@@ -1483,7 +1468,6 @@
       [ViewPresentEmp].[Remarks] AS [Remarks], 
       [ViewPresentEmp].[CatID] AS [CatID], 
       [ViewPresentEmp].[TypeID] AS [TypeID], 
-      [ViewPresentEmp].[CompanyID] AS [CompanyID], 
       [ViewPresentEmp].[LocID] AS [LocID], 
       [ViewPresentEmp].[CrewID] AS [CrewID], 
       [ViewPresentEmp].[GradeID] AS [GradeID], 
@@ -2528,6 +2512,7 @@
             <PropertyRef Name="CriteriaDate" />
           </Key>
           <Property Name="CriteriaDate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AttDate" Type="date" />
           <Property Name="CriteriaShiftID" Type="tinyint" />
           <Property Name="InLabelOne" Type="nvarchar" MaxLength="50" />
           <Property Name="InLabelTwo" Type="nvarchar" MaxLength="50" />
@@ -3208,8 +3193,6 @@
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
           <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
@@ -3255,6 +3238,7 @@
           <Property Name="CrewID" Type="smallint" />
           <Property Name="EmpID" Type="int" Nullable="false" />
           <Property Name="CityID" Type="smallint" />
+          <Property Name="LocName" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'TASDesktop.dbo.ViewAbsent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -3270,7 +3254,6 @@
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
@@ -3279,7 +3262,6 @@
           <Property Name="FpID" Type="int" />
           <Property Name="CardNo" Type="char" MaxLength="10" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
-          <Property Name="CompName" Type="nvarchar" MaxLength="50" />
           <Property Name="FlagCard" Type="bit" />
           <Property Name="FlagFace" Type="bit" />
           <Property Name="FlagFP" Type="bit" />
@@ -3297,7 +3279,6 @@
           <Property Name="DivisionName" Type="nvarchar" MaxLength="50" />
           <Property Name="DesigID" Type="int" />
           <Property Name="CellNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="CompanyID" Type="smallint" />
           <Property Name="TypeID" Type="tinyint" />
           <Property Name="CatID" Type="smallint" />
           <Property Name="DeptID" Type="smallint" />
@@ -3384,7 +3365,6 @@
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
@@ -3402,7 +3382,6 @@
           <Property Name="FlagFace" Type="bit" />
           <Property Name="FlagCard" Type="bit" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
-          <Property Name="CompName" Type="nvarchar" MaxLength="50" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
           <Property Name="EmpDate" Type="nvarchar" Nullable="false" MaxLength="15" />
           <Property Name="AttDate" Type="date" />
@@ -3436,7 +3415,6 @@
           <Property Name="LocID" Type="smallint" />
           <Property Name="CatID" Type="smallint" />
           <Property Name="TypeID" Type="tinyint" />
-          <Property Name="CompanyID" Type="smallint" />
           <Property Name="DivID" Type="smallint" />
           <Property Name="SecID" Type="smallint" />
           <Property Name="DesigID" Type="int" />
@@ -3455,7 +3433,6 @@
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
@@ -3468,7 +3445,6 @@
           <Property Name="JoinDate" Type="date" />
           <Property Name="Status" Type="bit" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
-          <Property Name="CompName" Type="nvarchar" MaxLength="50" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
           <Property Name="EmpDate" Type="nvarchar" Nullable="false" MaxLength="15" />
           <Property Name="AttDate" Type="date" />
@@ -3503,7 +3479,6 @@
           <Property Name="LocID" Type="smallint" />
           <Property Name="CatID" Type="smallint" />
           <Property Name="TypeID" Type="tinyint" />
-          <Property Name="CompanyID" Type="smallint" />
           <Property Name="SecID" Type="smallint" />
           <Property Name="DivID" Type="smallint" />
           <Property Name="DesigID" Type="int" />
@@ -4319,7 +4294,6 @@
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
@@ -4331,7 +4305,6 @@
           <Property Name="CardNo" Type="char" MaxLength="10" />
           <Property Name="Status" Type="bit" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
-          <Property Name="CompName" Type="nvarchar" MaxLength="50" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
           <Property Name="EmpDate" Type="nvarchar" Nullable="false" MaxLength="15" />
           <Property Name="AttDate" Type="date" />
@@ -4386,7 +4359,6 @@
           <Property Name="Remarks" Type="varchar" MaxLength="100" />
           <Property Name="TimeIn" Type="datetime" />
           <Property Name="TimeOut" Type="datetime" />
-          <Property Name="CompanyID" Type="smallint" />
           <Property Name="TypeID" Type="tinyint" />
           <Property Name="CatID" Type="smallint" />
           <Property Name="DesigID" Type="int" />
@@ -4512,16 +4484,18 @@
       -->
         <EntityType Name="ViewPresentEmp">
           <Key>
+            <PropertyRef Name="EmpNo" />
+            <PropertyRef Name="EmpID" />
+            <PropertyRef Name="EmpName" />
             <PropertyRef Name="EmpDate" />
           </Key>
-          <Property Name="EmpNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmpID" Type="int" />
-          <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpNo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="EmpName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
@@ -4533,7 +4507,6 @@
           <Property Name="JoinDate" Type="date" />
           <Property Name="Status" Type="bit" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
-          <Property Name="CompName" Type="nvarchar" MaxLength="50" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
           <Property Name="EmpDate" Type="nvarchar" Nullable="false" MaxLength="15" />
           <Property Name="AttDate" Type="date" />
@@ -4564,7 +4537,6 @@
           <Property Name="Remarks" Type="varchar" MaxLength="100" />
           <Property Name="CatID" Type="smallint" />
           <Property Name="TypeID" Type="tinyint" />
-          <Property Name="CompanyID" Type="smallint" />
           <Property Name="LocID" Type="smallint" />
           <Property Name="CrewID" Type="smallint" />
           <Property Name="GradeID" Type="tinyint" />
@@ -6408,6 +6380,7 @@
             <PropertyRef Name="CriteriaDate" />
           </Key>
           <Property Type="String" Name="CriteriaDate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AttDate" Precision="0" />
           <Property Type="Byte" Name="CriteriaShiftID" />
           <Property Type="String" Name="InLabelOne" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="InLabelTwo" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7172,8 +7145,6 @@
           <Property Type="String" Name="GradeName" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="JobTitle" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CrewName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7219,6 +7190,7 @@
           <Property Type="Int16" Name="CrewID" />
           <Property Type="Int32" Name="EmpID" Nullable="false" />
           <Property Type="Int16" Name="CityID" />
+          <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ViewAbsent">
           <Key>
@@ -7231,7 +7203,6 @@
           <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DesignationName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7240,7 +7211,6 @@
           <Property Type="Int32" Name="FpID" />
           <Property Type="String" Name="CardNo" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="GradeName" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CompName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="FlagCard" />
           <Property Type="Boolean" Name="FlagFace" />
           <Property Type="Boolean" Name="FlagFP" />
@@ -7258,7 +7228,6 @@
           <Property Type="String" Name="DivisionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="DesigID" />
           <Property Type="String" Name="CellNo" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int16" Name="CompanyID" />
           <Property Type="Byte" Name="TypeID" />
           <Property Type="Int16" Name="CatID" />
           <Property Type="Int16" Name="DeptID" />
@@ -7333,7 +7302,6 @@
           <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DesignationName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7351,7 +7319,6 @@
           <Property Type="Boolean" Name="FlagFace" />
           <Property Type="Boolean" Name="FlagCard" />
           <Property Type="String" Name="GradeName" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CompName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="DeptName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmpDate" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="AttDate" Precision="0" />
@@ -7385,7 +7352,6 @@
           <Property Type="Int16" Name="LocID" />
           <Property Type="Int16" Name="CatID" />
           <Property Type="Byte" Name="TypeID" />
-          <Property Type="Int16" Name="CompanyID" />
           <Property Type="Int16" Name="DivID" />
           <Property Type="Int16" Name="SecID" />
           <Property Type="Int32" Name="DesigID" />
@@ -7401,7 +7367,6 @@
           <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DesignationName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7414,7 +7379,6 @@
           <Property Type="DateTime" Name="JoinDate" Precision="0" />
           <Property Type="Boolean" Name="Status" />
           <Property Type="String" Name="GradeName" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CompName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="DeptName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmpDate" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="AttDate" Precision="0" />
@@ -7449,7 +7413,6 @@
           <Property Type="Int16" Name="LocID" />
           <Property Type="Int16" Name="CatID" />
           <Property Type="Byte" Name="TypeID" />
-          <Property Type="Int16" Name="CompanyID" />
           <Property Type="Int16" Name="SecID" />
           <Property Type="Int16" Name="DivID" />
           <Property Type="Int32" Name="DesigID" />
@@ -8226,7 +8189,6 @@
           <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DesignationName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -8238,7 +8200,6 @@
           <Property Type="String" Name="CardNo" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Type="Boolean" Name="Status" />
           <Property Type="String" Name="DeptName" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CompName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="GradeName" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmpDate" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="AttDate" Precision="0" />
@@ -8293,7 +8254,6 @@
           <Property Type="String" Name="Remarks" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="TimeIn" Precision="3" />
           <Property Type="DateTime" Name="TimeOut" Precision="3" />
-          <Property Type="Int16" Name="CompanyID" />
           <Property Type="Byte" Name="TypeID" />
           <Property Type="Int16" Name="CatID" />
           <Property Type="Int32" Name="DesigID" />
@@ -8410,16 +8370,18 @@
         </EntityType>
         <EntityType Name="ViewPresentEmp">
           <Key>
+            <PropertyRef Name="EmpNo" />
+            <PropertyRef Name="EmpID" />
+            <PropertyRef Name="EmpName" />
             <PropertyRef Name="EmpDate" />
           </Key>
-          <Property Type="String" Name="EmpNo" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="EmpID" />
-          <Property Type="String" Name="EmpName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EmpID" Nullable="false" />
+          <Property Type="String" Name="EmpName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="JobTitle" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DesignationName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -8431,7 +8393,6 @@
           <Property Type="DateTime" Name="JoinDate" Precision="0" />
           <Property Type="Boolean" Name="Status" />
           <Property Type="String" Name="GradeName" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CompName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="DeptName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmpDate" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="AttDate" Precision="0" />
@@ -8462,7 +8423,6 @@
           <Property Type="String" Name="Remarks" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="CatID" />
           <Property Type="Byte" Name="TypeID" />
-          <Property Type="Int16" Name="CompanyID" />
           <Property Type="Int16" Name="LocID" />
           <Property Type="Int16" Name="CrewID" />
           <Property Type="Byte" Name="GradeID" />
@@ -9964,6 +9924,7 @@
                 <ScalarProperty Name="InLabelTwo" ColumnName="InLabelTwo" />
                 <ScalarProperty Name="InLabelOne" ColumnName="InLabelOne" />
                 <ScalarProperty Name="CriteriaShiftID" ColumnName="CriteriaShiftID" />
+                <ScalarProperty Name="AttDate" ColumnName="AttDate" />
                 <ScalarProperty Name="CriteriaDate" ColumnName="CriteriaDate" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -10667,6 +10628,7 @@
           <EntitySetMapping Name="EmpViews">
             <EntityTypeMapping TypeName="TASDesktopModel.EmpView">
               <MappingFragment StoreEntitySet="EmpView">
+                <ScalarProperty Name="LocName" ColumnName="LocName" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
                 <ScalarProperty Name="EmpID" ColumnName="EmpID" />
                 <ScalarProperty Name="CrewID" ColumnName="CrewID" />
@@ -10712,8 +10674,6 @@
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="CrewName" ColumnName="CrewName" />
-                <ScalarProperty Name="LocName" ColumnName="LocName" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
                 <ScalarProperty Name="GradeName" ColumnName="GradeName" />
@@ -10733,7 +10693,6 @@
                 <ScalarProperty Name="DeptID" ColumnName="DeptID" />
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="CellNo" ColumnName="CellNo" />
                 <ScalarProperty Name="DesigID" ColumnName="DesigID" />
                 <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
@@ -10751,7 +10710,6 @@
                 <ScalarProperty Name="FlagFP" ColumnName="FlagFP" />
                 <ScalarProperty Name="FlagFace" ColumnName="FlagFace" />
                 <ScalarProperty Name="FlagCard" ColumnName="FlagCard" />
-                <ScalarProperty Name="CompName" ColumnName="CompName" />
                 <ScalarProperty Name="GradeName" ColumnName="GradeName" />
                 <ScalarProperty Name="CardNo" ColumnName="CardNo" />
                 <ScalarProperty Name="FpID" ColumnName="FpID" />
@@ -10760,7 +10718,6 @@
                 <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
                 <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
                 <ScalarProperty Name="LocName" ColumnName="LocName" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
@@ -10831,7 +10788,6 @@
                 <ScalarProperty Name="DesigID" ColumnName="DesigID" />
                 <ScalarProperty Name="SecID" ColumnName="SecID" />
                 <ScalarProperty Name="DivID" ColumnName="DivID" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
                 <ScalarProperty Name="LocID" ColumnName="LocID" />
@@ -10865,7 +10821,6 @@
                 <ScalarProperty Name="AttDate" ColumnName="AttDate" />
                 <ScalarProperty Name="EmpDate" ColumnName="EmpDate" />
                 <ScalarProperty Name="DeptName" ColumnName="DeptName" />
-                <ScalarProperty Name="CompName" ColumnName="CompName" />
                 <ScalarProperty Name="GradeName" ColumnName="GradeName" />
                 <ScalarProperty Name="FlagCard" ColumnName="FlagCard" />
                 <ScalarProperty Name="FlagFace" ColumnName="FlagFace" />
@@ -10883,7 +10838,6 @@
                 <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
                 <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
                 <ScalarProperty Name="LocName" ColumnName="LocName" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
@@ -10900,7 +10854,6 @@
                 <ScalarProperty Name="DesigID" ColumnName="DesigID" />
                 <ScalarProperty Name="DivID" ColumnName="DivID" />
                 <ScalarProperty Name="SecID" ColumnName="SecID" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
                 <ScalarProperty Name="LocID" ColumnName="LocID" />
@@ -10935,7 +10888,6 @@
                 <ScalarProperty Name="AttDate" ColumnName="AttDate" />
                 <ScalarProperty Name="EmpDate" ColumnName="EmpDate" />
                 <ScalarProperty Name="DeptName" ColumnName="DeptName" />
-                <ScalarProperty Name="CompName" ColumnName="CompName" />
                 <ScalarProperty Name="GradeName" ColumnName="GradeName" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
@@ -10948,7 +10900,6 @@
                 <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
                 <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
                 <ScalarProperty Name="LocName" ColumnName="LocName" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
@@ -11707,7 +11658,6 @@
                 <ScalarProperty Name="DesigID" ColumnName="DesigID" />
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
                 <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
                 <ScalarProperty Name="Remarks" ColumnName="Remarks" />
@@ -11762,7 +11712,6 @@
                 <ScalarProperty Name="AttDate" ColumnName="AttDate" />
                 <ScalarProperty Name="EmpDate" ColumnName="EmpDate" />
                 <ScalarProperty Name="GradeName" ColumnName="GradeName" />
-                <ScalarProperty Name="CompName" ColumnName="CompName" />
                 <ScalarProperty Name="DeptName" ColumnName="DeptName" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="CardNo" ColumnName="CardNo" />
@@ -11774,7 +11723,6 @@
                 <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
                 <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
                 <ScalarProperty Name="LocName" ColumnName="LocName" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
@@ -11894,7 +11842,6 @@
                 <ScalarProperty Name="GradeID" ColumnName="GradeID" />
                 <ScalarProperty Name="CrewID" ColumnName="CrewID" />
                 <ScalarProperty Name="LocID" ColumnName="LocID" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
                 <ScalarProperty Name="Remarks" ColumnName="Remarks" />
@@ -11925,7 +11872,6 @@
                 <ScalarProperty Name="AttDate" ColumnName="AttDate" />
                 <ScalarProperty Name="EmpDate" ColumnName="EmpDate" />
                 <ScalarProperty Name="DeptName" ColumnName="DeptName" />
-                <ScalarProperty Name="CompName" ColumnName="CompName" />
                 <ScalarProperty Name="GradeName" ColumnName="GradeName" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
@@ -11937,7 +11883,6 @@
                 <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
                 <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
                 <ScalarProperty Name="LocName" ColumnName="LocName" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
