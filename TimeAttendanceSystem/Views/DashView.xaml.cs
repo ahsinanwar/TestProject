@@ -27,7 +27,7 @@ namespace TimeAttendanceSystem.Views
     /// <summary>
     /// Interaction logic for DashView.xaml
     /// </summary>
-    public partial class DashView : UserControl
+    public partial class DashView : Page
     {
          VMDashboard vmdash;
          private ObservableCollection<AssetClass> classes;
@@ -43,7 +43,7 @@ namespace TimeAttendanceSystem.Views
         private void OnColumnHeaderClick(object sender, RoutedEventArgs e)
         {
             System.Windows.Controls.GridViewColumn column = ((GridViewColumnHeader)e.OriginalSource).Column;
-            piePlotter.PlottedProperty = column.Header.ToString();
+            //piePlotter.PlottedProperty = column.Header.ToString();
         }
         public DashView()
         {
@@ -98,9 +98,9 @@ namespace TimeAttendanceSystem.Views
             seriesActual.TrackBallInfoTemplate = sA;
             seriesLoss.TrackBallInfoTemplate = sL;
             seriesTargeted.TrackBallInfoTemplate = sT;
-          this.Departments.Series.Add(seriesEI);
-           this.Departments.Series.Add(seriesEO);
-           this.Departments.Series.Add(seriesLI);
+            this.Departments.Series.Add(seriesEI);
+            this.Departments.Series.Add(seriesEO);
+            this.Departments.Series.Add(seriesLI);
             this.Departments.Series.Add(seriesLO);
             this.ActualvsTargeted.Series.Add(seriesActual);
             this.ActualvsTargeted.Series.Add(seriesLoss);

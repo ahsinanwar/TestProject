@@ -29,7 +29,7 @@ namespace TimeAttendanceSystem
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
-            _mainFrame.Navigate(new DFDaily());
+            _mainFrame.Navigate(new DashView());
         }
         TAS2013Entities ctx = new TAS2013Entities(); 
         private void Button_Click(object sender, RoutedEventArgs e)
