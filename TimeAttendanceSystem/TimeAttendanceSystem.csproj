@@ -914,7 +914,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Blank-Person1.png" />
-    <Resource Include="Images\Nvidia_alpha.png" />
+    <SplashScreen Include="Images\Nvidia_alpha.png" />
     <Resource Include="Images\TMSHeader.png" />
   </ItemGroup>
   <ItemGroup>
