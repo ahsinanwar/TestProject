@@ -21,6 +21,7 @@ using TimeAttendanceSystem.Model;
 using TimeAttendanceSystem.ViewModels.VMDashboard;
 using System.Collections.ObjectModel;
 using WPFPieChart;
+using TimeAttendanceSystem.HelperClasses;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -29,6 +30,7 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class DashView : Page
     {
+        private List<StackedBarObject> StackedBarData;
          VMDashboard vmdash;
          private ObservableCollection<AssetClass> classes;
          TAS2013Entities context = new TAS2013Entities();
@@ -43,17 +45,59 @@ namespace TimeAttendanceSystem.Views
         private void OnColumnHeaderClick(object sender, RoutedEventArgs e)
         {
             System.Windows.Controls.GridViewColumn column = ((GridViewColumnHeader)e.OriginalSource).Column;
-            //piePlotter.PlottedProperty = column.Header.ToString();
+            piePlotter.PlottedProperty = column.Header.ToString();
         }
         public DashView()
         {
+            StackedBarData = new List<StackedBarObject>();
             InitializeComponent();
             vmdash = new VMDashboard();
+            this.CreateStackedChart(vmdash.presence.ToList());
             this.SetUpChart(vmdash.presence.ToList());
             classes = new ObservableCollection<AssetClass>(AssetClass.ConstructTestData(context));
             this.DataContext = vmdash;
           
         }
+
+
+
+        private void CreateStackedChart(List<DailySummary> data)
+        {
+
+             
+            for (int i = 0; i < 4; i++)
+            {
+                SeriesMapping seriesMapping = new SeriesMapping();
+                seriesMapping.SeriesDefinition = new StackedBarSeriesDefinition("stack 1");
+                
+                seriesMapping.SeriesDefinition.ShowItemToolTips = true;
+                seriesMapping.SeriesDefinition.ShowItemLabels = false;
+                seriesMapping.SeriesDefinition.InteractivitySettings.HoverScope = InteractivityScope.Series;
+                seriesMapping.SeriesDefinition.InteractivitySettings.SelectionScope = InteractivityScope.Series;
+                seriesMapping.ItemMappings.Add(new ItemMapping("Value1", DataPointMember.YValue));
+                switch (i)
+                {
+                    case 0: seriesMapping.LegendLabel = "Early In";
+                        break;
+                    case 1: seriesMapping.LegendLabel = "Early Out";
+                        break;
+                    case 2: seriesMapping.LegendLabel = "Late In";
+                        break;
+                        
+                    case 3: seriesMapping.LegendLabel = "Late Out";
+                        break;
+                }
+                
+                chart.SeriesMappings.Add(seriesMapping);
+            }
+
+
+         
+            for (int i = 0; i < data.Count; i++)
+                StackedBarData.Add(new StackedBarObject((DateTime)data[i].Date, (Double)data[i].EIEmps, (Double)data[i].EOEmps, (Double)data[i].LIEmps, (Double)data[i].LOEmps));
+            this.chart.DefaultSeriesDefinition.LegendDisplayMode = LegendDisplayMode.DataPointLabel;
+            this.chart.ItemsSource = StackedBarData;
+        }        
          private void SetUpChart(List<DailySummary> data)
         {   
             //Presence Employee
@@ -98,10 +142,6 @@ namespace TimeAttendanceSystem.Views
             seriesActual.TrackBallInfoTemplate = sA;
             seriesLoss.TrackBallInfoTemplate = sL;
             seriesTargeted.TrackBallInfoTemplate = sT;
-            this.Departments.Series.Add(seriesEI);
-            this.Departments.Series.Add(seriesEO);
-            this.Departments.Series.Add(seriesLI);
-            this.Departments.Series.Add(seriesLO);
             this.ActualvsTargeted.Series.Add(seriesActual);
             this.ActualvsTargeted.Series.Add(seriesLoss);
             this.ActualvsTargeted.Series.Add(seriesTargeted);
