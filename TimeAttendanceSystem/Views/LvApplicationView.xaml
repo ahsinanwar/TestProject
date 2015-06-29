@@ -23,7 +23,7 @@
                     <telerik:RadGridView.Columns>
                         <telerik:GridViewDataColumn Header="Emp No" Width="60" DataMemberBinding="{Binding Emp.EmpNo}" IsReadOnly="false" />
                         <telerik:GridViewDataColumn Header="Name" Width="60" DataMemberBinding="{Binding Emp.EmpName}" IsReadOnly="false" />
-                        <telerik:GridViewDataColumn Header="Section" Width="60" DataMemberBinding="{Binding Section.SectionName}" IsReadOnly="false" />
+                        <telerik:GridViewDataColumn Header="Section" Width="60" DataMemberBinding="{Binding Emp.Section.SectionName}" IsReadOnly="false" />
                         <telerik:GridViewDataColumn Header="From" Width="60" DataMemberBinding="{Binding FromDate}" IsReadOnly="false" />
                         <telerik:GridViewDataColumn Header="To" Width="60" DataMemberBinding="{Binding ToDate}" IsReadOnly="false" />
                         <telerik:GridViewDataColumn Header="Type" Width="60" DataMemberBinding="{Binding LvType.LvDesc}" IsReadOnly="false" />

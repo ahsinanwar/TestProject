@@ -15,6 +15,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
     {
         #region Intialization
         public Emp _selectedEmp;
+        public Emp _dummyEmp;
         public Category _selectedCat;
         public Department _selectedDept;
         public Boolean _isEnabled = false;
@@ -97,7 +98,24 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             {
                 this.isEnabled = false;
                 _selectedEmp = value;
+                _dummyEmp = value;
+                base.OnPropertyChanged("dummyEmp");
                 base.OnPropertyChanged("selectedEmp");
+                base.OnPropertyChanged("isEnabled");
+
+            }
+        }
+        public Emp dummyEmp
+        {
+            get
+            {
+                return _dummyEmp;
+            }
+            set
+            {
+                this.isEnabled = false;
+                _dummyEmp = value;
+                base.OnPropertyChanged("dummyEmp");
                 base.OnPropertyChanged("isEnabled");
 
             }
@@ -281,5 +299,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             base.OnPropertyChanged("_listOfCrews");
         }
         #endregion
+
+        internal void raiseEmpChange()
+        {
+          
+            base.OnPropertyChanged("dummyEmp");
+        }
     }
 }

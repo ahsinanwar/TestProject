@@ -28,6 +28,7 @@
             <StackPanel Background="#FF25A0DA" Height="35px">
                 <Label Foreground="White" FontSize="17">Employees</Label>
             </StackPanel>
+            <Button Width="53" Margin="893,0,0,0" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" />
             <StackPanel Orientation="Horizontal">
                 <!--List View Panel-->
                 <StackPanel Margin="5,5,5,5">
@@ -71,10 +72,12 @@ EmpNo}" />
                         <StackPanel Margin="5,5,5,5">
                             <StackPanel>
                                 <Grid Height="100">
-                                    <Button telerik:StyleManager.Theme="Windows8" Margin="10,3,286,10">
-                                        <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/Blank-Person1.png">
-                                        </Image>
-                                    </Button>
+
+                                    <Image  x:Name="_image" Margin="10,3,286,10" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}">
+                                    </Image>
+                                    <Button x:Name="btn_imageSelect" Content="..." Margin="66,68,292,15" RenderTransformOrigin="-0.967,0.333" Click="btn_imageSelect_Click"/>
+
+
 
                                     <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="98,10,0,0"></Label>
                                     <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Margin="162,14,0,0">
@@ -82,7 +85,7 @@ EmpNo}" />
                                         <TextBox.Text>
                                             <Binding Path="selectedEmp.EmpNo" 
              ValidatesOnExceptions="True" 
-             UpdateSourceTrigger="PropertyChanged" 
+             UpdateSourceTrigger="PropertyChanged"
              ValidatesOnDataErrors="True">
                                                 <Binding.ValidationRules>
                                                     <validations:NameValidator/>
@@ -181,5 +184,8 @@ EmpNo}" />
                 </Border>
             </StackPanel>
         </StackPanel>
+        
+
     </Border>
+
 </Page>

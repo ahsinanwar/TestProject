@@ -42,10 +42,6 @@ namespace TimeAttendanceSystem.Views
                 Console.WriteLine(window._selectedEmp);
                 txtEmpID.Text = window._selectedEmp.EmpID.ToString();
             }
-        }
-
-        
-
-        
+        }  
     }
 }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
-Title="ShortLvView"  Width="1000" >
+Title="ShortLvView"  Width="1100" >
     <!--Main Panel-->
     <Border BorderBrush="#FF25A0DA" BorderThickness="1">
         <StackPanel Background="White" Margin="0,0,0,-1">
@@ -25,7 +25,7 @@ Title="ShortLvView"  Width="1000" >
                             <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding Emp.Section.Department.DeptName}" />
                             <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding Emp.Section.SectionName}" />
                             <telerik:GridViewDataColumn Header="Designation" DataMemberBinding="{Binding Emp.Designation.DesignationName}" />
-                            <telerik:GridViewDataColumn Header="Date" DataMemberBinding="{Binding DutyDate,StringFormat='{}{0: dd-MMM-yyyy}'}" />
+                            <telerik:GridViewDataColumn Header="Date" DataMemberBinding="{Binding DutyDate, StringFormat=\{0: dd-MMM-yyyy\}}" />
                             <telerik:GridViewDataColumn Header="Start Time" DataMemberBinding="{Binding SHour}" />
                             <telerik:GridViewDataColumn Header="End Time" DataMemberBinding="{Binding EHour}" />
                             <telerik:GridViewDataColumn Header="Total Hours" DataMemberBinding="{Binding THour}" />
@@ -61,7 +61,7 @@ Title="ShortLvView"  Width="1000" >
                                 <Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="183,0,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>
                                 <Label Content="Date:" HorizontalAlignment="Left" Margin="16,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.216,-0.038"/>
                                 <Label Content="Start:" HorizontalAlignment="Left" Margin="16,51,0,0" VerticalAlignment="Top"/>
-                                <telerik:RadTimePicker HorizontalAlignment="Left" Margin="66,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.924,0.318" FontWeight="Bold" Width="102" SelectedValue="{Binding Path=selectedShortLv.SHour}"/>
+                                <telerik:RadTimePicker x:Name="radTimePickerStartOn" HorizontalAlignment="Left" Margin="66,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.924,0.318" FontWeight="Bold" Width="102" SelectedValue="{Binding selectedShortLv.SHour}"/>
                                 <Label Content="End:" HorizontalAlignment="Left" Margin="20,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.417,-0.448"/>
                                 <telerik:RadTimePicker HorizontalAlignment="Left" Margin="66,82,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="-0.786,2.227" Width="102" SelectedValue="{Binding Path=selectedShortLv.EHour}"/>
                                 <Label Content="Remarks:" HorizontalAlignment="Left" Margin="-5,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.569,0.192"/>
