@@ -151,7 +151,7 @@
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
-    <Compile Include="HelperClasses\PieValues.cs" />
+    <Compile Include="HelperClasses\StackedBarObject.cs" />
     <Compile Include="Model\AccessEmp.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
