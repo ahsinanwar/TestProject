@@ -40,14 +40,43 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
             }
             else
             {
-                Emp emp = context.Emps.First(aa => aa.EmpID == vmd.selectedEmp.EmpID);
-                emp.EmpName = vmd.selectedEmp.EmpName;
+                Emp emp = context.Emps.First(aa => aa.EmpID == vmd.dummyEmp.EmpID);
+                emp.EmpName = vmd.dummyEmp.EmpName;
+
+
+                emp.EmpPhoto = context.EmpPhotoes.FirstOrDefault(aa => aa.EmpID == emp.EmpID);
+
+                if (emp.EmpPhoto == null)
+                {
+                    EmpPhoto ep = new EmpPhoto()
+                    {
+                        EmpID = emp.EmpID,
+                        EmpPic = vmd.dummyEmp.EmpPhoto.EmpPic
+                    };
+                    context.EmpPhotoes.Add(ep);
+                    emp.EmpImageID = ep.PhotoID;
+                }
+                else
+                {
+                    
+                }
+
+
+                
+
+                
+                context.SaveChanges();
+
+                
+                emp.EmpImageID = emp.EmpPhoto.PhotoID;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
             }
 
         }
+
+        
         #endregion
     }
 }
