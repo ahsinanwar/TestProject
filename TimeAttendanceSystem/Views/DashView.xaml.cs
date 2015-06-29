@@ -43,7 +43,7 @@ namespace TimeAttendanceSystem.Views
         private void OnColumnHeaderClick(object sender, RoutedEventArgs e)
         {
             System.Windows.Controls.GridViewColumn column = ((GridViewColumnHeader)e.OriginalSource).Column;
-            //piePlotter.PlottedProperty = column.Header.ToString();
+            piePlotter.PlottedProperty = column.Header.ToString();
         }
         public DashView()
         {

@@ -18,13 +18,17 @@ using TimeAttendanceSystem.Model;
 namespace TimeAttendanceSystem.Reports.ReportForms
 {
     /// <summary>
-    /// Interaction logic for DFPresent.xaml
+    /// Interaction logic for DFAbsent.xaml
     /// </summary>
-    public partial class DFPresent : Page
+    public partial class DFAbsent : Page
     {
-        public DFPresent()
+        public DFAbsent()
         {
             InitializeComponent();
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+             List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate<=dateTo).ToList();
+             LoadReport(Properties.Settings.Default.ReportPath + "DRAbsent.rdlc", _ViewList);
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
@@ -32,7 +36,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             List<ViewAbsent> _TempViewList = new List<ViewAbsent>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate<=dateTo).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -127,7 +131,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
 
-            LoadReport(Properties.Settings.Default.ReportPath + "DRPresent.rdlc", _ViewList);
+            LoadReport(Properties.Settings.Default.ReportPath + "DRAbsent.rdlc", _ViewList);
 
         }
         private void LoadReport(string Path, List<ViewAbsent> _List)

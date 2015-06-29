@@ -31,7 +31,9 @@ namespace TimeAttendanceSystem
             WindowState = WindowState.Maximized;
             _mainFrame.Navigate(new DashView());
         }
+
         TAS2013Entities ctx = new TAS2013Entities(); 
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new AttEditView());
@@ -91,7 +93,25 @@ namespace TimeAttendanceSystem
                 case "Monthly":
                     _mainFrame.Navigate(new DFDaily());
                     break;
-                        case "Present":
+                case "Present":
+                    _mainFrame.Navigate(new DFPresent());
+                    break;
+                case "Absent":
+                    _mainFrame.Navigate(new DFPresent());
+                    break;
+                case "Late In":
+                    _mainFrame.Navigate(new DFPresent());
+                    break;
+                case "Late Out":
+                    _mainFrame.Navigate(new DFPresent());
+                    break;
+                case "Early In":
+                    _mainFrame.Navigate(new DFPresent());
+                    break;
+                case "Early Out":
+                    _mainFrame.Navigate(new DFPresent());
+                    break;
+                case "Over Time":
                     _mainFrame.Navigate(new DFPresent());
                     break;
             }
@@ -113,6 +133,5 @@ namespace TimeAttendanceSystem
             _mainFrame.Navigate(new AttEditView());
         }
 
-      
     }
 }

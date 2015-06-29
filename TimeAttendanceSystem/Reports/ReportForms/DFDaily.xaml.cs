@@ -126,7 +126,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
            
-            LoadReport("", _ViewList);
+            LoadReport(Properties.Settings.Default.ReportPath+"DRDetailed.rdlc", _ViewList);
            
         }
         private void LoadReport(string Path, List<ViewMultipleInOut> _List)
@@ -137,7 +137,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
             //rptViewer.ProcessingMode = ProcessingMode.Local;
             //rptViewer.LocalReport.ReportPath = "WpfApplication1.Report1.rdlc";
-            rptViewer.LocalReport.ReportPath = @"D:\\Projects\\CNS\\Working Projects\\Desktop TMS\\TimeAttendanceSystem\\TimeAttendanceSystem\\Reports\\RDLC\\DRDetailed.rdlc";
+            rptViewer.LocalReport.ReportPath = Path;
             //System.Security.PermissionSet sec = new System.Security.PermissionSet(System.Security.Permissions.PermissionState.Unrestricted);
             //rptViewer.LocalReport.SetBasePermissionsForSandboxAppDomain(sec);
             IEnumerable<ViewMultipleInOut> ie;

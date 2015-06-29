@@ -18,11 +18,11 @@ using TimeAttendanceSystem.Model;
 namespace TimeAttendanceSystem.Reports.ReportForms
 {
     /// <summary>
-    /// Interaction logic for DFPresent.xaml
+    /// Interaction logic for DFMultupleInOut.xaml
     /// </summary>
-    public partial class DFPresent : Page
+    public partial class DFMultupleInOut : Page
     {
-        public DFPresent()
+        public DFMultupleInOut()
         {
             InitializeComponent();
         }
@@ -127,7 +127,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
 
-            LoadReport(Properties.Settings.Default.ReportPath + "DRPresent.rdlc", _ViewList);
+            LoadReport(Properties.Settings.Default.ReportPath + "DRMultipleInOut.rdlc", _ViewList);
 
         }
         private void LoadReport(string Path, List<ViewAbsent> _List)
