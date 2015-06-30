@@ -32,7 +32,7 @@ namespace TimeAttendanceSystem.Reports.UserControls
             selectedShift = new List<Shift>();
             selectedType = new List<EmpType>();
             selectedCrew = new List<Crew>();
-            startDate.SelectedDate = DateTime.Today;
+            startDate.SelectedDate = new DateTime(2015,03,20);
             endDate.SelectedDate = DateTime.Today;
         }
         public DateTime StartDate

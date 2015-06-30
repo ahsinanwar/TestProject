@@ -55,5 +55,12 @@ namespace TimeAttendanceSystem.Model
         public Nullable<byte> ShiftID { get; set; }
         public Nullable<short> DivID { get; set; }
         public Nullable<short> SecID { get; set; }
+        public Nullable<short> CityID { get; set; }
+        public Nullable<short> JobID { get; set; }
+        public Nullable<System.DateTime> JoinDate { get; set; }
+        public Nullable<System.DateTime> ValidDate { get; set; }
+        public Nullable<System.DateTime> IssueDate { get; set; }
+        public Nullable<System.DateTime> ResignDate { get; set; }
+        public string Email { get; set; }
     }
 }

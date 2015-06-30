@@ -147,6 +147,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseClasses\CommanVariables.cs" />
     <Compile Include="BaseClasses\ObservableObject.cs" />
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
@@ -472,11 +473,53 @@
     <Compile Include="Model\ViewUserLocation.cs">
       <DependentUpon>TASModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\DFAbsent.xaml.cs">
+      <DependentUpon>DFAbsent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportForms\DFDaily.xaml.cs">
       <DependentUpon>DFDaily.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\DFEarlyIn.xaml.cs">
+      <DependentUpon>DFEarlyIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFEarlyOut.xaml.cs">
+      <DependentUpon>DFEarlyOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFEmpAttSummary.xaml.cs">
+      <DependentUpon>DFEmpAttSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFLateIn.xaml.cs">
+      <DependentUpon>DFLateIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFLateOut.xaml.cs">
+      <DependentUpon>DFLateOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFLeave.xaml.cs">
+      <DependentUpon>DFLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFLeaveQuota.xaml.cs">
+      <DependentUpon>DFLeaveQuota.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFMissingAtt.xaml.cs">
+      <DependentUpon>DFMissingAtt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFMultupleInOut.xaml.cs">
+      <DependentUpon>DFMultupleInOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFOverTime.xaml.cs">
+      <DependentUpon>DFOverTime.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportForms\DFPresent.xaml.cs">
       <DependentUpon>DFPresent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFShortLeave.xaml.cs">
+      <DependentUpon>DFShortLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\EmpDetail.xaml.cs">
+      <DependentUpon>EmpDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\Employee.xaml.cs">
+      <DependentUpon>Employee.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports\UserControls\RFCrews.xaml.cs">
       <DependentUpon>RFCrews.xaml</DependentUpon>
@@ -693,11 +736,67 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Reports\ReportForms\DFAbsent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reports\ReportForms\DFDaily.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reports\ReportForms\DFEarlyIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFEarlyOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFEmpAttSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFLateIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFLateOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFLeave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFLeaveQuota.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFMissingAtt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFMultupleInOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFOverTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reports\ReportForms\DFPresent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFShortLeave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\EmpDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\Employee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -917,7 +1016,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Blank-Person1.png" />
-    <Resource Include="Images\Nvidia_alpha.png" />
+    <SplashScreen Include="Images\Nvidia_alpha.png" />
     <Resource Include="Images\TMSHeader.png" />
   </ItemGroup>
   <ItemGroup>
@@ -927,9 +1026,7 @@
     <Resource Include="Images\add.png" />
     <Resource Include="Images\delete.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\UserControl\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

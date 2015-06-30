@@ -74,5 +74,8 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> DivID { get; set; }
         public Nullable<short> SecID { get; set; }
         public Nullable<int> DesigID { get; set; }
+        public Nullable<short> CityID { get; set; }
+        public Nullable<System.DateTime> ValidDate { get; set; }
+        public Nullable<System.DateTime> IssueDate { get; set; }
     }
 }

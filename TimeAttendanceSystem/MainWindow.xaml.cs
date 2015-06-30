@@ -17,6 +17,7 @@ using TimeAttendanceSystem.Reports.ReportForms;
 using TimeAttendanceSystem.Views;
 using TimeAttendanceSystem.Model;
 using WPFPieChart;
+using TimeAttendanceSystem.BaseClasses;
 
 namespace TimeAttendanceSystem
 {
@@ -30,8 +31,11 @@ namespace TimeAttendanceSystem
             InitializeComponent();
             WindowState = WindowState.Maximized;
             _mainFrame.Navigate(new DashView());
+            CommanVariables.CompanyName = "INVEN TECHNOLOGIES"; 
         }
+
         TAS2013Entities ctx = new TAS2013Entities(); 
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new AttEditView());
@@ -79,6 +83,14 @@ namespace TimeAttendanceSystem
                     _mainFrame.Navigate(new LvApplicationView());
 
                     break;
+
+                case "Employee":
+                    _mainFrame.Navigate(new Employee());
+                    break;
+                case "Employee(Excel)":
+                    _mainFrame.Navigate(new EmpDetail());
+                    break;
+
                 case "Short Leave":
                     _mainFrame.Navigate(new ShortLvView());
                     break;
@@ -91,8 +103,26 @@ namespace TimeAttendanceSystem
                 case "Monthly":
                     _mainFrame.Navigate(new DFDaily());
                     break;
-                        case "Present":
+                case "Present":
                     _mainFrame.Navigate(new DFPresent());
+                    break;
+                case "Absent":
+                    _mainFrame.Navigate(new DFAbsent());
+                    break;
+                case "Late In":
+                    _mainFrame.Navigate(new DFLateIn());
+                    break;
+                case "Late Out":
+                    _mainFrame.Navigate(new DFLateOut());
+                    break;
+                case "Early In":
+                    _mainFrame.Navigate(new DFEarlyIn());
+                    break;
+                case "Early Out":
+                    _mainFrame.Navigate(new DFEarlyOut());
+                    break;
+                case "Over Time":
+                    _mainFrame.Navigate(new DFOverTime());
                     break;
             }
         }
@@ -113,6 +143,5 @@ namespace TimeAttendanceSystem
             _mainFrame.Navigate(new AttEditView());
         }
 
-      
     }
 }

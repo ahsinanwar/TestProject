@@ -84,9 +84,34 @@
                             <TreeViewItem Header="Quota"></TreeViewItem>
                         </TreeViewItem>
                         <TreeViewItem Header="Reports">
-                            <TreeViewItem Header="Daily"></TreeViewItem>
-                            <TreeViewItem Header="Monthly"></TreeViewItem>
-                            <TreeViewItem Header="Present"></TreeViewItem>
+                            <TreeViewItem Header="Employee Details">
+                                <TreeViewItem Header="Employee"></TreeViewItem>
+                                <TreeViewItem Header="Employee(Excel)"></TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Daily">
+                                <TreeViewItem Header="Daily"></TreeViewItem>
+                                <TreeViewItem Header="Present"></TreeViewItem>
+                                <TreeViewItem Header="Absent"></TreeViewItem>
+                                <TreeViewItem Header="Leave"></TreeViewItem>
+                                <TreeViewItem Header="Short Leave"></TreeViewItem>
+                                <TreeViewItem Header="Early In"></TreeViewItem>
+                                <TreeViewItem Header="Early Out"></TreeViewItem>
+                                <TreeViewItem Header="Late In"></TreeViewItem>
+                                <TreeViewItem Header="Late Out"></TreeViewItem>
+                                <TreeViewItem Header="Overtime"></TreeViewItem>
+                                <TreeViewItem Header="Missing"></TreeViewItem>
+                                <TreeViewItem Header="Multiple In/Out"></TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Monthly">
+                                <TreeViewItem Header="Daily"></TreeViewItem>
+                                <TreeViewItem Header="Monthly"></TreeViewItem>
+                                <TreeViewItem Header="Present"></TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Summary">
+                                <TreeViewItem Header="Daily"></TreeViewItem>
+                                <TreeViewItem Header="Monthly"></TreeViewItem>
+                                <TreeViewItem Header="Present"></TreeViewItem>
+                            </TreeViewItem>
                         </TreeViewItem>
                     </TreeView>
                 </StackPanel>
