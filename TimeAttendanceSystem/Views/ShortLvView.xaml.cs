@@ -36,6 +36,7 @@ namespace TimeAttendanceSystem.Views
             if ((bool)window.ShowDialog())
             {
                 Console.WriteLine(window._selectedEmp);
+                vmlvshorts.selectedEmp = window._selectedEmp;
                 txtEmpID.Text = window._selectedEmp.EmpID.ToString();
             }
         }
