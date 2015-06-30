@@ -81,10 +81,10 @@ namespace TimeAttendanceSystem.Views
                         break;
                     case 1: seriesMapping.LegendLabel = "Early Out";
                         break;
-                    case 2: seriesMapping.LegendLabel = "Late In";
+                    case 3: seriesMapping.LegendLabel = "Late In";
                         break;
                         
-                    case 3: seriesMapping.LegendLabel = "Late Out";
+                    case 4: seriesMapping.LegendLabel = "Late Out";
                         break;
                 }
                 
