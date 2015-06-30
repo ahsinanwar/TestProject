@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.Controllers;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
@@ -28,15 +29,30 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
         {
             VMLvApplication vmd = (VMLvApplication)parameter;
             LvApplication selectedLvApp = context.LvApplications.FirstOrDefault(aa => aa.LvID == vmd.selectedEmpAndLvApp.LvApp.LvID);
-            context.LvApplications.Remove(selectedLvApp);
+            LvController lvctrl = new LvController();
+            if ((bool)selectedLvApp.IsHalf)
+            {
+                lvctrl.DeleteHLFromAttData(selectedLvApp);
+                lvctrl.DeleteHLFromLVData(selectedLvApp);
+                lvctrl.UpdateHLeaveBalance(selectedLvApp);
+            }
+            else {
+            
+                lvctrl.DeleteFromLVData(selectedLvApp);
+                lvctrl.UpdateLeaveBalance(selectedLvApp);
+            
+            
+            }
+            
+           context.LvApplications.Remove(selectedLvApp);
             //vmd.isAdding = true;
             //vmd.isEnabled = true;
             try
             {
                 if (context.SaveChanges() > 0)
                 {
-                 //   vmd.listOfLvApps.Remove(vmd.selectedLvApp);
-                 //   vmd.selectedLvApp = vmd.listOfLvApps[0];
+                   vmd.listOfEmpsAndLvApps.Remove(vmd.selectedEmpAndLvApp);
+                    vmd.selectedEmpAndLvApp = vmd.listOfEmpsAndLvApps[0];
                 }
             }
             catch (Exception)

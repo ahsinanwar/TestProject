@@ -37,18 +37,27 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
             {   
 
                 LvController lvctrl = new LvController();
-                bool chkdup = lvctrl.CheckDuplicateLeave(vmd.selectedEmpAndLvApp.LvApp);
-                if (chkdup == false)
+                if (vmd.selectedEmpAndLvApp.LvApp.IsHalf == true)
                 {
-                    bool chkbal = lvctrl.CheckLeaveBalance(vmd.selectedEmpAndLvApp.LvApp);
-                    if (chkbal == true)
-                    {
-                        context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
-                        context.SaveChanges();
-                        lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
-                        lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
-                        vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
 
+                }
+                else
+                {
+                    bool chkdup = lvctrl.CheckDuplicateLeave(vmd.selectedEmpAndLvApp.LvApp);
+                    if (chkdup == false)
+                    {
+                        bool chkbal = lvctrl.CheckLeaveBalance(vmd.selectedEmpAndLvApp.LvApp);
+                        if (chkbal == true)
+                        {
+                            vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days+1;
+                            context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
+                            context.SaveChanges();
+                            lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
+                            lvctrl.AddLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
+                          //  lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
+                            vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
+
+                        }
                     }
                 }
                     

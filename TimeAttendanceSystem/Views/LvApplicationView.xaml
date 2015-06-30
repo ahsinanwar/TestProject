@@ -26,7 +26,7 @@
                         <telerik:GridViewDataColumn Header="Section" Width="60" DataMemberBinding="{Binding Employee.Section.SectionName}" IsReadOnly="false" />
                         <telerik:GridViewDataColumn Header="From" Width="60" DataMemberBinding="{Binding LvApp.FromDate}" IsReadOnly="false" />
                         <telerik:GridViewDataColumn Header="To" Width="60" DataMemberBinding="{Binding LvApp.ToDate}" IsReadOnly="false" />
-                        <telerik:GridViewDataColumn Header="Type" Width="60" DataMemberBinding="{Binding LvType.TypeID}" IsReadOnly="false" />
+                        <telerik:GridViewDataColumn Header="Type" Width="60" DataMemberBinding="{Binding LvApp.TypeID}" IsReadOnly="false" />
                         <telerik:GridViewDataColumn Header="Days" Width="60" DataMemberBinding="{Binding LvApp.NoOfDays}" IsReadOnly="false" />
                     </telerik:RadGridView.Columns>
                 </telerik:RadGridView>

@@ -27,6 +27,9 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
         {
             this.Employee = new Emp();
             this.LvApp = new LvApplication();
+            this.LvApp.IsHalf = true;
+            this.LvApp.FromDate = DateTime.Now;
+            this.LvApp.ToDate = DateTime.Now.AddDays(2);
             this.LvType = new LvType();
         }
        
