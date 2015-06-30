@@ -127,9 +127,6 @@
                     <Label Foreground="White" FontSize="22" Content="{Binding inOffice}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
                     <Label Foreground="White" FontSize="10" Content="In Office" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
                 </Grid>
-
-
-
             </Border>
             <Border
             		Height="70"

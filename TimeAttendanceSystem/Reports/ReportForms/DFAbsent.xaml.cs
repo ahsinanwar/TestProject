@@ -27,7 +27,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             InitializeComponent();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-             List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate<=dateTo).ToList();
+             List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate<=dateTo && aa.StatusAB==true).ToList();
              LoadReport(Properties.Settings.Default.ReportPath + "DRAbsent.rdlc", _ViewList);
         }
         TAS2013Entities ctx = new TAS2013Entities();

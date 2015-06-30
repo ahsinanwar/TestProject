@@ -81,6 +81,14 @@ namespace TimeAttendanceSystem
                     _mainFrame.Navigate(new LvApplicationView());
 
                     break;
+
+                case "Employee":
+                    _mainFrame.Navigate(new Employee());
+                    break;
+                case "Employee(Excel)":
+                    _mainFrame.Navigate(new EmpDetail());
+                    break;
+
                 case "Short Leave":
                     _mainFrame.Navigate(new ShortLvView());
                     break;
@@ -97,22 +105,22 @@ namespace TimeAttendanceSystem
                     _mainFrame.Navigate(new DFPresent());
                     break;
                 case "Absent":
-                    _mainFrame.Navigate(new DFPresent());
+                    _mainFrame.Navigate(new DFAbsent());
                     break;
                 case "Late In":
-                    _mainFrame.Navigate(new DFPresent());
+                    _mainFrame.Navigate(new DFLateIn());
                     break;
                 case "Late Out":
-                    _mainFrame.Navigate(new DFPresent());
+                    _mainFrame.Navigate(new DFLateOut());
                     break;
                 case "Early In":
-                    _mainFrame.Navigate(new DFPresent());
+                    _mainFrame.Navigate(new DFEarlyIn());
                     break;
                 case "Early Out":
-                    _mainFrame.Navigate(new DFPresent());
+                    _mainFrame.Navigate(new DFEarlyOut());
                     break;
                 case "Over Time":
-                    _mainFrame.Navigate(new DFPresent());
+                    _mainFrame.Navigate(new DFOverTime());
                     break;
             }
         }

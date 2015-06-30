@@ -25,14 +25,18 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         public DFPresent()
         {
             InitializeComponent();
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            List<ViewPresentEmp> _ViewList = ctx.ViewPresentEmps.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            LoadReport(Properties.Settings.Default.ReportPath + "DRPresent.rdlc", _ViewList);
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
-            List<ViewAbsent> _TempViewList = new List<ViewAbsent>();
+            List<ViewPresentEmp> _TempViewList = new List<ViewPresentEmp>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewPresentEmp> _ViewList = ctx.ViewPresentEmps.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -65,7 +69,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             {
                 foreach (var sec in UserControlReport.selectedSecs)
                 {
-                    _TempViewList.AddRange(_ViewList.Where(aa => aa.SecID == sec.SectionID).ToList());
+                    _TempViewList.AddRange(_ViewList.Where(aa => aa.SectionName == sec.SectionName).ToList());
                 }
                 _ViewList = _TempViewList.ToList();
             }
@@ -130,12 +134,12 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             LoadReport(Properties.Settings.Default.ReportPath + "DRPresent.rdlc", _ViewList);
 
         }
-        private void LoadReport(string Path, List<ViewAbsent> _List)
+        private void LoadReport(string Path, List<ViewPresentEmp> _List)
         {
             //rptViewer.Reset();
             string DateToFor = "";
-            string _Header = "Daily Attendance Report";
-            this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
+            string _Header = "Present Employee Report";
+            this.rptViewer.LocalReport.DisplayName = "Present Employee Report";
             //rptViewer.ProcessingMode = ProcessingMode.Local;
             //rptViewer.LocalReport.ReportPath = "WpfApplication1.Report1.rdlc";
             rptViewer.LocalReport.ReportPath = Path;

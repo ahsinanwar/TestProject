@@ -84,7 +84,10 @@
                             <TreeViewItem Header="Quota"></TreeViewItem>
                         </TreeViewItem>
                         <TreeViewItem Header="Reports">
-                            <TreeViewItem Header="Employee"></TreeViewItem>
+                            <TreeViewItem Header="Employee Details">
+                                <TreeViewItem Header="Employee"></TreeViewItem>
+                                <TreeViewItem Header="Employee(Excel)"></TreeViewItem>
+                            </TreeViewItem>
                             <TreeViewItem Header="Daily">
                                 <TreeViewItem Header="Daily"></TreeViewItem>
                                 <TreeViewItem Header="Present"></TreeViewItem>

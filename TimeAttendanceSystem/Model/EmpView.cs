@@ -17,11 +17,9 @@ namespace TimeAttendanceSystem.Model
         public string DesignationName { get; set; }
         public string GradeName { get; set; }
         public string JobTitle { get; set; }
-        public string CityName { get; set; }
         public string CrewName { get; set; }
         public string TypeName { get; set; }
         public string CatName { get; set; }
-        public string ShiftName { get; set; }
         public string EmpNo { get; set; }
         public string EmpName { get; set; }
         public Nullable<int> DesigID { get; set; }
@@ -62,7 +60,9 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> DivID { get; set; }
         public Nullable<short> CrewID { get; set; }
         public int EmpID { get; set; }
-        public Nullable<short> CityID { get; set; }
         public string LocName { get; set; }
+        public Nullable<short> CityID { get; set; }
+        public string ShiftName { get; set; }
+        public string CityName { get; set; }
     }
 }

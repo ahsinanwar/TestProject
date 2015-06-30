@@ -25,13 +25,17 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         public DFDaily()
         {
             InitializeComponent();
-            this.rptViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            LoadReport(Properties.Settings.Default.ReportPath + "DRDetailed.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
             List<ViewMultipleInOut> _TempViewList = new List<ViewMultipleInOut>();
-            List<ViewMultipleInOut> _ViewList = ctx.ViewMultipleInOuts.ToList();
+            List<ViewMultipleInOut> _ViewList = ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -141,6 +145,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             //System.Security.PermissionSet sec = new System.Security.PermissionSet(System.Security.Permissions.PermissionState.Unrestricted);
             //rptViewer.LocalReport.SetBasePermissionsForSandboxAppDomain(sec);
             IEnumerable<ViewMultipleInOut> ie;
+            this.rptViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             ie = _List.AsQueryable();
             ReportDataSource datasource1 = new ReportDataSource("DataSet1", ie);
             rptViewer.LocalReport.DataSources.Clear();

@@ -67,5 +67,8 @@ namespace TimeAttendanceSystem.Model
         public Nullable<byte> GradeID { get; set; }
         public Nullable<short> DeptID { get; set; }
         public Nullable<byte> ShiftID { get; set; }
+        public Nullable<short> DivID { get; set; }
+        public Nullable<short> CityID { get; set; }
+        public Nullable<short> SecID { get; set; }
     }
 }
