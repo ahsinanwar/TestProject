@@ -15,8 +15,19 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
     {
          #region Intialization
         public AttData _selectedAttData;
+        public AttData _attDataShow;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
+        public AttData AttDataShow
+        {
+            get { return _attDataShow; }
+            set {
+
+                _attDataShow = value;
+                OnPropertyChanged("AttDataShow");
+            }
+        
+        }
         public Boolean isAdding
         {
             get { return _isAdding; }
@@ -57,7 +68,10 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
             {
                 this.isEnabled = false;
                 _selectedAttData = value;
-                base.OnPropertyChanged("selectedAttData");
+                AttDataShow = new AttData();
+                AttDataShow = value;
+               // base.OnPropertyChanged("selectedAttData");
+                base.OnPropertyChanged("AttDataShow");
                 base.OnPropertyChanged("isEnabled");
 
             }
@@ -108,14 +122,17 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
         public VMAttEdit()
         {
             entity = new TAS2013Entities();
+            _attDataShow = new AttData();
             _selectedAttData = new AttData();
             _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.ToList());
             _selectedAttData = entity.AttDatas.ToList().FirstOrDefault();
+            _attDataShow = entity.AttDatas.ToList().FirstOrDefault();
             _listOfDutyCodes = new ObservableCollection<DutyCode>(entity.DutyCodes.ToList());
             this._EditCommand = new EditCommandAttData(this);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandAttEdit(this);
+            base.OnPropertyChanged("_attDataShow");
             base.OnPropertyChanged("_listOfAttData");
             base.OnPropertyChanged("_listOfdutyCodes");
         }

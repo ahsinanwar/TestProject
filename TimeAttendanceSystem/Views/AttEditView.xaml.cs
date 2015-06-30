@@ -27,7 +27,13 @@ namespace TimeAttendanceSystem.Views
             InitializeComponent();
             vmAttEdit = new VMAttEdit();
             this.DataContext = vmAttEdit;
+           // this.radGridView.BeginningEdit += new EventHandler<Telerik.Windows.Controls.GridViewBeginningEditRoutedEventArgs>(radGridView_BeginningEdit);
         }
+        private void EditGrid_BeginningEdit(object sender, Telerik.Windows.Controls.GridViewBeginningEditRoutedEventArgs e)
+        {
+            e.Cancel = true;
+        }
+       
        
         //private void btn_empView_Click(object sender, RoutedEventArgs e)
         //{
