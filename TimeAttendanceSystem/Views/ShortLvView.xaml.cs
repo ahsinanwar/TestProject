@@ -40,7 +40,7 @@ namespace TimeAttendanceSystem.Views
 
               
                 vmlvshorts.selectedEmpAndShortLv.Employee = window._selectedEmp;
-                txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+                txtEmpID.Text = window._selectedEmp.EmpNo.ToString();
             }
         }
 

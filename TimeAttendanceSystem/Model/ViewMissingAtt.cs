@@ -22,7 +22,6 @@ namespace TimeAttendanceSystem.Model
         public string TypeName { get; set; }
         public string CatName { get; set; }
         public string CityName { get; set; }
-        public string RegionName { get; set; }
         public string LocName { get; set; }
         public string DesignationName { get; set; }
         public string ShiftName { get; set; }
@@ -35,7 +34,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<System.DateTime> JoinDate { get; set; }
         public Nullable<bool> Status { get; set; }
         public string GradeName { get; set; }
-        public string CompName { get; set; }
         public string DeptName { get; set; }
         public Nullable<System.DateTime> AttDate { get; set; }
         public string DutyCode { get; set; }
@@ -44,7 +42,6 @@ namespace TimeAttendanceSystem.Model
         public string DivisionName { get; set; }
         public string Remarks { get; set; }
         public Nullable<System.DateTime> TimeIn { get; set; }
-        public Nullable<short> CompanyID { get; set; }
         public Nullable<byte> TypeID { get; set; }
         public Nullable<short> CatID { get; set; }
         public Nullable<byte> ShiftID { get; set; }

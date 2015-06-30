@@ -47,7 +47,7 @@ namespace TimeAttendanceSystem.Controllers
             using (var ctx = new TAS2013Entities())
             {
                 List<LvConsumed> _lvConsumed = new List<LvConsumed>();
-                string empLvType = _lvapp.EmpID.ToString() + _lvapp.LvType;
+                string empLvType = _lvapp.EmpID.ToString() + _lvapp.TypeID;
                 _lvConsumed = ctx.LvConsumeds.Where(aa => aa.EmpLvType == empLvType).ToList();
                 RemainingLeaves = (decimal)_lvConsumed.FirstOrDefault().YearRemaining;
                 if ((RemainingLeaves - Convert.ToDecimal(_lvapp.NoOfDays)) >= 0)

@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=Ahsin-PC\SQLEXPRESS2014;Initial Catalog=TASDesktop;Persist Security Info=True;User ID=sa;Password=Cns123;MultipleActiveResultSets=True;Application Name=EntityFramework</Value>
     </Setting>
+    <Setting Name="ReportPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">D:\\Projects\\CNS\\Working Projects\\Desktop TMS\\TimeAttendanceSystem\\TimeAttendanceSystem\\Reports\\RDLC\\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

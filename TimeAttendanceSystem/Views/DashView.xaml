@@ -7,9 +7,9 @@
       x:Class="TimeAttendanceSystem.Views.DashView" 
     xmlns:c="clr-namespace:ScottLogic.Controls.PieChart"
     xmlns:b="clr-namespace:ScottLogic.Shapes"
+    
       xmlns:telerikChart="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Charting"
         xmlns:telerikCharting="clr-namespace:Telerik.Windows.Controls.Charting;assembly=Telerik.Windows.Controls.Charting"
-     
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" Background="White" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
     <Page.Resources>
@@ -127,9 +127,6 @@
                     <Label Foreground="White" FontSize="22" Content="{Binding inOffice}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
                     <Label Foreground="White" FontSize="10" Content="In Office" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
                 </Grid>
-
-
-
             </Border>
             <Border
             		Height="70"
@@ -147,8 +144,6 @@
                     <Label Foreground="White" FontSize="22" Content="{Binding Absent}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
                     <Label Foreground="White" FontSize="10" Content="Absent" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
                 </Grid>
-
-
 
             </Border>
             <Border
@@ -253,7 +248,7 @@
                 <Label  Foreground="White" FontSize="17" HorizontalAlignment="Center">In-time Analysis</Label>
             </StackPanel>
             <StackPanel DataContext="{Binding Value}">
-                <c:PieChartLayout HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0"
+             <c:PieChartLayout HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0"
                               x:Name="piePlotter" PlottedProperty="Fund" Margin="10">
                     <c:PieChartLayout.ColorSelector>
                         <c:IndexedColourSelector Brushes="{StaticResource brushes}"/>

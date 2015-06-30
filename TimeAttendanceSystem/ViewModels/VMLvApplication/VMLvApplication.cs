@@ -14,39 +14,48 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
     class VMLvApplication: ObservableObject
     {
         #region Intialization
-        private ObservableCollection<Emp> _listOfEmps;
-        private Emp _selectedEmp;
-        public Emp selectedEmp
+        private ObservableCollection<CombinedEmpAndLvApps> _listOfEmpsAndLvApps;
+        private CombinedEmpAndLvApps _selectedEmpAndLvApp;
+        private ObservableCollection<LvType> _listOfLvTypes;
+        public CombinedEmpAndLvApps selectedEmpAndLvApp
         {
             get
             {
-                return _selectedEmp;
+                return _selectedEmpAndLvApp;
             }
             set
             {
 
-                _selectedEmp = value;
-                base.OnPropertyChanged("selectedEmp");
+                _selectedEmpAndLvApp = value;
+                base.OnPropertyChanged("selectedEmpAndLvApp");
               
 
             }
         }
-        public ObservableCollection<Emp> listOFEmps
+        public ObservableCollection<LvType> listOfLvTypes
+        {
+            get { return _listOfLvTypes; }
+            set
+            {
+                _listOfLvTypes = value;
+                base.OnPropertyChanged("listOfLvTypes");
+            }
+        }
+        public ObservableCollection<CombinedEmpAndLvApps> listOfEmpsAndLvApps
          {
             get
             {
-                return _listOfEmps;
+                return _listOfEmpsAndLvApps;
             }
             set
             {
-
-                _listOfEmps = value;
-
-                base.OnPropertyChanged("listOFEmps");
+                this.isEnabled = false;
+                _listOfEmpsAndLvApps = value;
+                base.OnPropertyChanged("isEnabled");
+                base.OnPropertyChanged("listOfEmpsAndLvApps");
 
             }
         }
-        public LvApplication _selectedLvApp;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -71,49 +80,11 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
                 base.OnPropertyChanged("isEnabled");
             }
         }
-        private ObservableCollection<LvApplication> _listOfLvApps;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-        private ObservableCollection<LvType> _listOfLvTypes;
-        public LvApplication selectedLvApp
-        {
-            get
-            {
-                return _selectedLvApp;
-            }
-            set
-            {
-                this.isEnabled = false;
-                _selectedLvApp = value;
-                base.OnPropertyChanged("selectedLvApp");
-                base.OnPropertyChanged("isEnabled");
-
-            }
-        }
-
-        public ObservableCollection<LvApplication> listOfLvApps
-        {
-            get { return _listOfLvApps; }
-
-            set
-            {
-                listOfLvApps = value;
-                OnPropertyChanged("_listOfLvApps");
-            }
-        }
-        public ObservableCollection<LvType> listOfLvTypes
-        {
-            get { return _listOfLvTypes; }
-
-            set
-            {
-                listOfLvTypes = value;
-                OnPropertyChanged("listOfLvTypes");
-            }
-        }
        
         #endregion
 
@@ -157,23 +128,22 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
         public VMLvApplication()
         {
             entity = new TAS2013Entities();
-            _selectedLvApp = new LvApplication();
-            
-            _listOfLvApps = new ObservableCollection<LvApplication>(entity.LvApplications.ToList());
-            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
-            _selectedEmp = entity.Emps.ToList().FirstOrDefault();
-            _selectedLvApp = entity.LvApplications.ToList().FirstOrDefault();
+            _selectedEmpAndLvApp = new CombinedEmpAndLvApps();
+            _listOfEmpsAndLvApps = new ObservableCollection<CombinedEmpAndLvApps>();
             _listOfLvTypes = new ObservableCollection<LvType>(entity.LvTypes.ToList());
-            this._AddCommand = new AddCommandLvApp(_selectedLvApp);
+           
+            List<LvApplication> LvAppDatacollection = entity.LvApplications.ToList();// 1 2 3
+            foreach (LvApplication value in LvAppDatacollection)
+                _listOfEmpsAndLvApps.Add(new CombinedEmpAndLvApps(entity.Emps.FirstOrDefault(aa => aa.EmpID == value.EmpID), value,entity.LvTypes.FirstOrDefault(aa => aa.LvTypeID == value.TypeID)));
+            _selectedEmpAndLvApp = _listOfEmpsAndLvApps.FirstOrDefault();
+            this._AddCommand = new AddCommandLvApp(_selectedEmpAndLvApp);
             this._EditCommand = new EditCommandLvApp(this);
-            this._DeleteCommand = new DeleteCommandLvApp(_selectedLvApp);
+            this._DeleteCommand = new DeleteCommandLvApp(_selectedEmpAndLvApp);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandLvApp(this);
-            base.OnPropertyChanged("_listOfLvApps");
-            base.OnPropertyChanged("_listOfLvTypes");
-            base.OnPropertyChanged("_listOfEmps");
-            base.OnPropertyChanged("_selectedEmp");
+            base.OnPropertyChanged("_listOfEmpsAndLvApps");
+            base.OnPropertyChanged("_selectedEmpAndLvApp");
         }
         #endregion  
     }

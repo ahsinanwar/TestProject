@@ -20,7 +20,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
         { _vmlvapp = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmlvapp.selectedLvApp != null);
+            return (_vmlvapp.selectedEmpAndLvApp != null);
         }
         #endregion
 

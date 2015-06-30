@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace TimeAttendanceSystem.Reports.ReportForms
+{
+    /// <summary>
+    /// Interaction logic for DFLateOut.xaml
+    /// </summary>
+    public partial class DFLateOut : Page
+    {
+        public DFLateOut()
+        {
+            InitializeComponent();
+        }
+        private void ButtonGenerate(object sender, RoutedEventArgs e)
+        {
+        }
+    }
+}

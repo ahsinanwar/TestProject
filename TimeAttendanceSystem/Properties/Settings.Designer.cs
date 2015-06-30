@@ -34,5 +34,15 @@ namespace TimeAttendanceSystem.Properties {
                 return ((string)(this["TASDesktopConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\\\Projects\\\\CNS\\\\Working Projects\\\\Desktop TMS\\\\TimeAttendanceSystem\\\\TimeAtten" +
+            "danceSystem\\\\Reports\\\\RDLC\\\\")]
+        public string ReportPath {
+            get {
+                return ((string)(this["ReportPath"]));
+            }
+        }
     }
 }
