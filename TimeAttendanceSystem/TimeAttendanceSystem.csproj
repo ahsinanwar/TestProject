@@ -147,6 +147,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseClasses\CommanVariables.cs" />
     <Compile Include="BaseClasses\ObservableObject.cs" />
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />

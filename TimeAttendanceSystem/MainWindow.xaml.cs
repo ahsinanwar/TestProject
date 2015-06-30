@@ -17,6 +17,7 @@ using TimeAttendanceSystem.Reports.ReportForms;
 using TimeAttendanceSystem.Views;
 using TimeAttendanceSystem.Model;
 using WPFPieChart;
+using TimeAttendanceSystem.BaseClasses;
 
 namespace TimeAttendanceSystem
 {
@@ -30,6 +31,7 @@ namespace TimeAttendanceSystem
             InitializeComponent();
             WindowState = WindowState.Maximized;
             _mainFrame.Navigate(new DashView());
+            CommanVariables.CompanyName = "INVEN TECHNOLOGIES"; 
         }
 
         TAS2013Entities ctx = new TAS2013Entities(); 
