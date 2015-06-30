@@ -23,10 +23,10 @@
                         CanUserFreezeColumns="False" MinWidth="387">
                     <telerik:RadGridView.Columns>
                         <telerik:GridViewDataColumn Header="Date" DataMemberBinding="{Binding AttDate, StringFormat='{}{0: dd-MMM-yyyy}'}" />
-                        <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
-                        <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
-                        <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding SectionName}" />
-                        <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding DeptName}" /> 
+                        <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding Emp.EmpNo}" />
+                        <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding Emp.EmpName}" />
+                        <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding Emp.Section.SectionName}" />
+                        <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding Emp.Department.DeptName}" /> 
                         <telerik:GridViewDataColumn Header="Shift" DataMemberBinding="{Binding ShiftName}" />
                         <telerik:GridViewDataColumn Header="Duty" DataMemberBinding="{Binding DutyCode}" />
                         <telerik:GridViewDataColumn Header="In" DataMemberBinding="{Binding TimeIn, StringFormat='{}{0: h:mm tt}'}" />

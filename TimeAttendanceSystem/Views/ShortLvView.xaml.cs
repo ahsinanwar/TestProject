@@ -39,5 +39,7 @@ namespace TimeAttendanceSystem.Views
                 txtEmpID.Text = window._selectedEmp.EmpID.ToString();
             }
         }
+
+       
     }
 }
