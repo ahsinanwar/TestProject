@@ -34,24 +34,23 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
             VMShortLeave vmd = (VMShortLeave)parameter;
             if (vmd.isAdding)
             {
-                if (vmd.selectedShortLv.SHour == null)
-                    vmd.selectedShortLv.SHour = new TimeSpan(0,12,0,0);
+                if (vmd.selectedEmpAndShortLv.Lvshort.SHour == null)
+                    vmd.selectedEmpAndShortLv.Lvshort.SHour = new TimeSpan(0, 12, 0, 0);
 
-                vmd.selectedShortLv.THour = vmd.selectedShortLv.EHour - vmd.selectedShortLv.SHour;
-                vmd.selectedShortLv.THour = vmd.selectedShortLv.THour.Value.Duration();
-                   
-                context.LvShorts.Add(vmd.selectedShortLv);
-                context.SaveChanges();
-                vmd.listOfShortLvs.Add(vmd.selectedShortLv);
-
+                vmd.selectedEmpAndShortLv.Lvshort.THour = vmd.selectedEmpAndShortLv.Lvshort.EHour - vmd.selectedEmpAndShortLv.Lvshort.SHour;
+                vmd.selectedEmpAndShortLv.Lvshort.THour = vmd.selectedEmpAndShortLv.Lvshort.THour.Value.Duration();
+                context.LvShorts.Add(vmd.selectedEmpAndShortLv.Lvshort);
+            context.SaveChanges();
+            vmd.listOfEmpsAndShortLv.Add(new CombinedEmpAndShortLvcs(vmd.selectedEmpAndShortLv.Employee, vmd.selectedEmpAndShortLv.Lvshort));
+            
             }
             else
-            {
-                LvShort lvshort = context.LvShorts.First(aa => aa.EmpID == vmd.selectedShortLv.EmpID);
-                lvshort.CreatedBy = vmd.selectedShortLv.CreatedBy;
-                vmd.isEnabled = false;
-                vmd.isAdding = false;
-                context.SaveChanges();
+           {
+               LvShort lvshort = context.LvShorts.First(aa => aa.EmpID == vmd.selectedEmpAndShortLv.Employee.EmpID);
+              lvshort.CreatedBy = vmd.selectedEmpAndShortLv.Lvshort.CreatedBy;
+             vmd.isEnabled = false;
+            vmd.isAdding = false;
+            context.SaveChanges();
             }
 
         }

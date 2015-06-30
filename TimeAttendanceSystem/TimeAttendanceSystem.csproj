@@ -549,6 +549,7 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMShortLv\CombinedEmpAndShortLvcs.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\EditCommandLvShort.cs" />

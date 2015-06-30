@@ -12,9 +12,9 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
     {
         #region Fields
         TAS2013Entities context = new TAS2013Entities();
-        LvShort _vm = new LvShort();
+        CombinedEmpAndShortLvcs _vm = new CombinedEmpAndShortLvcs();
         #endregion
-        public DeleteCommandLvShort(LvShort vm)
+        public DeleteCommandLvShort(CombinedEmpAndShortLvcs vm)
         { _vm = vm; }
 
         public bool CanExecute(object parameter)
@@ -26,23 +26,23 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
 
         public void Execute(object parameter)
         {
-            VMShortLeave vmd = (VMShortLeave)parameter;
-            LvShort selectedShortLv = context.LvShorts.FirstOrDefault(aa => aa.EmpID == vmd.selectedShortLv.EmpID);
-            context.LvShorts.Remove(selectedShortLv);
+          //  VMShortLeave vmd = (VMShortLeave)parameter;
+            //LvShort selectedShortLv = context.LvShorts.FirstOrDefault(aa => aa.EmpID == vmd.selectedShortLv.EmpID);
+       //     context.LvShorts.Remove(selectedShortLv);
             //vmd.isAdding = true;
             //vmd.isEnabled = true;
-            try
-            {
-                if (context.SaveChanges() > 0)
-                {
-                    vmd.listOfShortLvs.Remove(vmd.selectedShortLv);
-                    vmd.selectedShortLv = vmd.listOfShortLvs[0];
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Exception While Deleting...");
-            }
+           // try
+           // {
+            //    if (context.SaveChanges() > 0)
+            //    {
+             //       vmd.listOfShortLvs.Remove(vmd.selectedShortLv);
+             //       vmd.selectedShortLv = vmd.listOfShortLvs[0];
+             //   }
+          //  }
+          //  catch (Exception)
+          //  {
+          //      Console.WriteLine("Exception While Deleting...");
+           // }
         }
     }
 }
