@@ -40,6 +40,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
             }
         }
         private ObservableCollection<AttData> _listOfAttData;
+        private ObservableCollection<DutyCode> _listOfDutyCodes;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -72,6 +73,16 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
                 OnPropertyChanged("listOfAttData");
             }
         }
+        public ObservableCollection<DutyCode> listOfDutyCodes
+        {
+            get { return _listOfDutyCodes; }
+
+            set
+            {
+                _listOfDutyCodes = value;
+                OnPropertyChanged("listOfDutyCodes");
+            }
+        }
         #endregion
 
         #region ICommands
@@ -100,11 +111,13 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
             _selectedAttData = new AttData();
             _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.ToList());
             _selectedAttData = entity.AttDatas.ToList().FirstOrDefault();
+            _listOfDutyCodes = new ObservableCollection<DutyCode>(entity.DutyCodes.ToList());
             this._EditCommand = new EditCommandAttData(this);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandAttEdit(this);
             base.OnPropertyChanged("_listOfAttData");
+            base.OnPropertyChanged("_listOfdutyCodes");
         }
         #endregion
     }

@@ -20,12 +20,25 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class AttEditView : Page
     {
+        //SelectEmpWindow window;
+        VMAttEdit vmAttEdit;
         public AttEditView()
         {
             InitializeComponent();
             vmAttEdit = new VMAttEdit();
             this.DataContext = vmAttEdit;
         }
-        VMAttEdit vmAttEdit;
+       
+        //private void btn_empView_Click(object sender, RoutedEventArgs e)
+        //{
+        //    window = new SelectEmpWindow();
+
+
+        //    if ((bool)window.ShowDialog())
+        //    {
+        //        Console.WriteLine(window._selectedEmp);
+        //        txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+        //    }
+        //}  
     }
 }
