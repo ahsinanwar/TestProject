@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.Model;
 using TimeAttendanceSystem.ViewModels.VMShortLv;
 
 namespace TimeAttendanceSystem.Views
@@ -22,6 +23,7 @@ namespace TimeAttendanceSystem.Views
     {
         SelectEmpWindow window;
         VMShortLeave vmlvshorts;
+        TAS2013Entities context;
         public ShortLvView()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace TimeAttendanceSystem.Views
 
             if ((bool)window.ShowDialog())
             {
-                Console.WriteLine(window._selectedEmp);
+                vmlvshorts.selectedEmpAndShortLv.Employee = window._selectedEmp;
                 txtEmpID.Text = window._selectedEmp.EmpID.ToString();
             }
         }

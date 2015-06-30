@@ -12,11 +12,11 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
     {
          #region Fields
         TAS2013Entities context = new TAS2013Entities();
-        LvShort _vm = new LvShort();
+        CombinedEmpAndShortLvcs _vm = new CombinedEmpAndShortLvcs();
         #endregion
 
         #region constructors
-        public AddCommandLvShort(LvShort vm)
+        public AddCommandLvShort(CombinedEmpAndShortLvcs vm)
         { _vm = vm; }
         public bool CanExecute(object parameter)
         {
@@ -29,7 +29,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
         public void Execute(object parameter)
         {
             VMShortLeave vmd = (VMShortLeave)parameter;
-            vmd.selectedShortLv = new LvShort();
+            vmd.selectedEmpAndShortLv = new CombinedEmpAndShortLvcs();
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

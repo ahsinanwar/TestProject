@@ -10,8 +10,6 @@ namespace TimeAttendanceSystem.HelperClasses
 {
     public class StackedBarObject
     {
-        private static Random rand = new Random(Environment.TickCount);
-       
         private DateTime _XValue;
         private double _Value1;
         private double _Value2;
