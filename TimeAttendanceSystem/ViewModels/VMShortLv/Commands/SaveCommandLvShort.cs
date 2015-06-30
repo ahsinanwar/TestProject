@@ -34,6 +34,12 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
             VMShortLeave vmd = (VMShortLeave)parameter;
             if (vmd.isAdding)
             {
+                if (vmd.selectedShortLv.SHour == null)
+                    vmd.selectedShortLv.SHour = new TimeSpan(0,12,0,0);
+
+                vmd.selectedShortLv.THour = vmd.selectedShortLv.EHour - vmd.selectedShortLv.SHour;
+                vmd.selectedShortLv.THour = vmd.selectedShortLv.THour.Value.Duration();
+                   
                 context.LvShorts.Add(vmd.selectedShortLv);
                 context.SaveChanges();
                 vmd.listOfShortLvs.Add(vmd.selectedShortLv);

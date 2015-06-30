@@ -158,6 +158,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandLvShort(this);
             base.OnPropertyChanged("_listOfShortLvs");
+            base.OnPropertyChanged("_listOfEmps");
             base.OnPropertyChanged("_selectedEmp");
         }
         #endregion  
