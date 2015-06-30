@@ -507,7 +507,7 @@
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
     <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
-    <Compile Include="ViewModels\VMAttEdit\Commands\SaveCommandAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttEdit\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
@@ -549,6 +549,7 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMLvApplication\CombinedEmpAndLvApps.cs" />
     <Compile Include="ViewModels\VMShortLv\CombinedEmpAndShortLvcs.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
