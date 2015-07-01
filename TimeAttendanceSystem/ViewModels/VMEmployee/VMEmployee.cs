@@ -16,10 +16,20 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         #region Intialization
         public Emp _selectedEmp;
         public Emp _dummyEmp;
+        private Boolean _isChecked;
         public Category _selectedCat;
         public Department _selectedDept;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
+        public Boolean IsChecked
+        {
+            get { return _isChecked; }
+            set {
+
+                _isChecked = value;
+                OnPropertyChanged("IsChecked");
+            }
+        }
         public Boolean isAdding
         {
             get { return _isAdding; }
@@ -264,6 +274,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         #region constructor
         public VMEmployee()
         {
+            IsChecked = false;
             entity = new TAS2013Entities();
             _selectedEmp = new Emp();
             _selectedDept = new Department();
@@ -297,6 +308,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             base.OnPropertyChanged("_listOfLocs");
             base.OnPropertyChanged("_listOfSecs");
             base.OnPropertyChanged("_listOfCrews");
+            IsChecked = true;
         }
         #endregion
 
