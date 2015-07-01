@@ -28,8 +28,8 @@
                         <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding Emp.EmpNo}" />
                         <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding Emp.EmpName}" />
                         <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding Emp.Section.SectionName}" />
-                        <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding Emp.Department.DeptName}" /> 
-                        <telerik:GridViewDataColumn Header="Shift" DataMemberBinding="{Binding ShiftName}" />
+                        <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding Emp.Section.Department.DeptName}" /> 
+                        <telerik:GridViewDataColumn Header="Shift" DataMemberBinding="{Binding Emp.Shift.ShiftName}" />
                         <telerik:GridViewDataColumn Header="Duty Code" DataMemberBinding="{Binding DutyCode}" />
                         <telerik:GridViewDataColumn Header="Duty Time" DataMemberBinding="{Binding DutyTime}" />
                         <telerik:GridViewDataColumn Header="In" DataMemberBinding="{Binding TimeIn, StringFormat='{}{0: h:mm tt}'}" />
