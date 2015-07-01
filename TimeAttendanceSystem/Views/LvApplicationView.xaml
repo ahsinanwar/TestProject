@@ -7,7 +7,9 @@
 
     <!--Main Panel-->
     <Border BorderBrush="#FF25A0DA" BorderThickness="1">
+        
         <StackPanel Background="White">
+            <telerik:RadBusyIndicator IsIndeterminate="False" />
             <!--Header-->
             <StackPanel Background="#FF25A0DA" Height="35px">
                 <Label Foreground="White" FontSize="17">Leave Applications</Label>
