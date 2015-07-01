@@ -37,6 +37,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
             {   
 
                 LvController lvctrl = new LvController();
+                // IF Leave is half Leave
                 if (vmd.selectedEmpAndLvApp.LvApp.IsHalf == true)
                 {
 
@@ -54,9 +55,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                             context.SaveChanges();
                             lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
                             lvctrl.AddLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
-                          //  lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
+                            lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
                             vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
-
                         }
                     }
                 }
