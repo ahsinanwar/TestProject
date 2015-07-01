@@ -148,7 +148,7 @@ namespace TimeAttendanceSystem.Controllers
                 datetime = datetime.AddDays(1);
                 // Balance Leaves from Emp Table
             }
-            BalanceLeaves(lvappl);
+            //BalanceLeaves(lvappl);
             return true;
         }
 
