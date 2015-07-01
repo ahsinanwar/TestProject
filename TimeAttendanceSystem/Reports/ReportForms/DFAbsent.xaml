@@ -19,7 +19,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Border Background="#FF25A0DA" Grid.ColumnSpan="2" Grid.Row="0" >
-            <Label Foreground="White" FontSize="16" FontWeight="Bold">Report : Absent Employees</Label>
+            <Label Foreground="White" FontSize="16" >Report : Absent Employees</Label>
         </Border>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <local:UCReportFilters x:Name="UserControlReport" HorizontalAlignment="Left"  />

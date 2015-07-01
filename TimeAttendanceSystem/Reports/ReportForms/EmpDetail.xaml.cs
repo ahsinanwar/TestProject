@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Reporting.WinForms;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.BaseClasses;
 
 namespace TimeAttendanceSystem.Reports.ReportForms
 {
@@ -147,7 +148,8 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             rptViewer.LocalReport.DataSources.Clear();
             rptViewer.LocalReport.DataSources.Add(datasource1);
             ReportParameter rp1 = new ReportParameter("Header", _Header, false);
-            this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1 });
+            ReportParameter rp2 = new ReportParameter("CompanyName", CommanVariables.CompanyName, false);
+            this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1,rp2 });
             rptViewer.RefreshReport();
         }
     }

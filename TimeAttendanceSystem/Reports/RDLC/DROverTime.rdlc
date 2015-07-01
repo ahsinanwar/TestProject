@@ -1676,7 +1676,7 @@
   <Width>9.70868in</Width>
   <Page>
     <PageHeader>
-      <Height>0.65625in</Height>
+      <Height>0.58125in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1689,8 +1689,9 @@
                 <TextRun>
                   <Value>=Parameters!Header.Value</Value>
                   <Style>
-                    <FontSize>12pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
+                    <FontStyle>Normal</FontStyle>
+                    <FontWeight>Normal</FontWeight>
+                    <Color>Gray</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1698,10 +1699,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox90</rd:DefaultName>
-          <Top>0.06528in</Top>
-          <Left>0.05834in</Left>
+          <Top>0.29167in</Top>
           <Height>0.25in</Height>
-          <Width>5.48958in</Width>
+          <Width>3.34583in</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1719,10 +1719,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Parameters!Date.Value</Value>
+                  <Value>=Parameters!CompanyName.Value</Value>
                   <Style>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>DimGray</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1730,8 +1730,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox90</rd:DefaultName>
-          <Top>0.35972in</Top>
-          <Left>0.05834in</Left>
           <Height>0.25in</Height>
           <Width>2.65625in</Width>
           <ZIndex>1</ZIndex>
@@ -2147,10 +2145,8 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="Date">
+    <ReportParameter Name="CompanyName">
       <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
