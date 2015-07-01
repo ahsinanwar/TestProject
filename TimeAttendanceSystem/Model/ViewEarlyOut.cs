@@ -70,5 +70,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> SecID { get; set; }
         public Nullable<short> DivID { get; set; }
         public Nullable<int> DesigID { get; set; }
+        public Nullable<short> CityID { get; set; }
     }
 }

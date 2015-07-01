@@ -14,39 +14,39 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
     class VMShortLeave :ObservableObject
     {
         #region Intialization
-        private ObservableCollection<Emp> _listOfEmps;
-        private Emp _selectedEmp;
-        public Emp selectedEmp
+        private ObservableCollection<CombinedEmpAndShortLvcs> _listOfEmpsAndShortLv;
+        private CombinedEmpAndShortLvcs _selectedEmpAndShortLv;
+        public CombinedEmpAndShortLvcs selectedEmpAndShortLv
         {
             get
             {
-                return _selectedEmp;
+                return _selectedEmpAndShortLv;
             }
             set
             {
-
-                _selectedEmp = value;
-                base.OnPropertyChanged("selectedEmp");
+              
+                _selectedEmpAndShortLv = value;
+                base.OnPropertyChanged("selectedEmpAndShortLv");
 
 
             }
         }
-        public ObservableCollection<Emp> listOFEmps
+        public ObservableCollection<CombinedEmpAndShortLvcs> listOfEmpsAndShortLv
         {
             get
             {
-                return _listOfEmps;
+                return _listOfEmpsAndShortLv;
             }
             set
             {
-
-                _listOfEmps = value;
-
-                base.OnPropertyChanged("listOFEmps");
+                this.isEnabled = false;
+                _listOfEmpsAndShortLv = value;
+                base.OnPropertyChanged("isEnabled");
+                base.OnPropertyChanged("listOfEmpsAndShortLv");
 
             }
         }
-        public LvShort _selectedShortLv;
+        
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -71,40 +71,13 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
                 base.OnPropertyChanged("isEnabled");
             }
         }
-        private ObservableCollection<LvShort> _listOfShortLvs;
+       
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-
-        public LvShort selectedShortLv
-        {
-            get
-            {
-                return _selectedShortLv;
-            }
-            set
-            {
-                this.isEnabled = false;
-                _selectedShortLv = value;
-                base.OnPropertyChanged("selectedShortLv");
-                base.OnPropertyChanged("isEnabled");
-
-            }
-        }
-
-        public ObservableCollection<LvShort> listOfShortLvs
-        {
-            get { return _listOfShortLvs; }
-
-            set
-            {
-                listOfShortLvs = value;
-                OnPropertyChanged("listOfShortLvs");
-            }
-        }
-        #endregion
+         #endregion
 
         #region ICommands
         public ICommand EditCommand
@@ -146,19 +119,20 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
         public VMShortLeave()
         {
             entity = new TAS2013Entities();
-            _selectedShortLv = new LvShort ();
-            _listOfShortLvs = new ObservableCollection<LvShort>(entity.LvShorts.ToList());
-            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
-            _selectedEmp = entity.Emps.ToList().FirstOrDefault();
-            _selectedShortLv = entity.LvShorts.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommandLvShort(_selectedShortLv);
+            _selectedEmpAndShortLv = new CombinedEmpAndShortLvcs();
+            _listOfEmpsAndShortLv = new ObservableCollection<CombinedEmpAndShortLvcs>();
+            List<LvShort> LvShortDatacollection = entity.LvShorts.ToList();// 1 2 3
+            foreach (LvShort value in LvShortDatacollection)
+                   _listOfEmpsAndShortLv.Add(new CombinedEmpAndShortLvcs(entity.Emps.FirstOrDefault(aa => aa.EmpID == value.EmpID), value));
+            _selectedEmpAndShortLv = _listOfEmpsAndShortLv.FirstOrDefault();
+            this._AddCommand = new AddCommandLvShort(_selectedEmpAndShortLv);
             this._EditCommand = new EditCommandLvShort(this);
-            this._DeleteCommand = new DeleteCommandLvShort(_selectedShortLv);
+            this._DeleteCommand = new DeleteCommandLvShort(_selectedEmpAndShortLv);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandLvShort(this);
-            base.OnPropertyChanged("_listOfShortLvs");
-            base.OnPropertyChanged("_selectedEmp");
+            base.OnPropertyChanged("_listOfEmpsAndShortLv");
+            base.OnPropertyChanged("_selectedEmpAndShortLv");
         }
         #endregion  
     }

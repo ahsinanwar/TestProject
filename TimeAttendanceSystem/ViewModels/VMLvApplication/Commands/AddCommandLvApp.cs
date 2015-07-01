@@ -12,11 +12,11 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
     {
         #region Fields
         TAS2013Entities context = new TAS2013Entities();
-        LvApplication _vm = new LvApplication();
+        CombinedEmpAndLvApps _vm = new CombinedEmpAndLvApps();
         #endregion
 
         #region constructors
-        public AddCommandLvApp(LvApplication vm)
+        public AddCommandLvApp(CombinedEmpAndLvApps vm)
         { _vm = vm; }
         public bool CanExecute(object parameter)
         {
@@ -29,7 +29,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
         public void Execute(object parameter)
         {
             VMLvApplication vmd = (VMLvApplication)parameter;
-            vmd.selectedLvApp = new LvApplication();
+            vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

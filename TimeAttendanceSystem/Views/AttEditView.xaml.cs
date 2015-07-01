@@ -20,12 +20,31 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class AttEditView : Page
     {
+        //SelectEmpWindow window;
+        VMAttEdit vmAttEdit;
         public AttEditView()
         {
             InitializeComponent();
             vmAttEdit = new VMAttEdit();
             this.DataContext = vmAttEdit;
+           // this.radGridView.BeginningEdit += new EventHandler<Telerik.Windows.Controls.GridViewBeginningEditRoutedEventArgs>(radGridView_BeginningEdit);
         }
-        VMAttEdit vmAttEdit;
+        private void EditGrid_BeginningEdit(object sender, Telerik.Windows.Controls.GridViewBeginningEditRoutedEventArgs e)
+        {
+            e.Cancel = true;
+        }
+       
+       
+        //private void btn_empView_Click(object sender, RoutedEventArgs e)
+        //{
+        //    window = new SelectEmpWindow();
+
+
+        //    if ((bool)window.ShowDialog())
+        //    {
+        //        Console.WriteLine(window._selectedEmp);
+        //        txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+        //    }
+        //}  
     }
 }

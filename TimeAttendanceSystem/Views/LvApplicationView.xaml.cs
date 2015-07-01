@@ -41,11 +41,9 @@ namespace TimeAttendanceSystem.Views
             {
                 Console.WriteLine(window._selectedEmp);
                 txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+                vmlvapps.selectedEmpAndLvApp.Employee = window._selectedEmp;
+                vmlvapps.selectedEmpAndLvApp.LvApp.EmpID = window._selectedEmp.EmpID;
             }
-        }
-
-        
-
-        
+        }  
     }
 }
