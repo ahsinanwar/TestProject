@@ -27,6 +27,7 @@ namespace TimeAttendanceSystem.Controllers
             using (var context = new TAS2013Entities())
             {
                 _Lv = context.LvApplications.Where(aa => aa.EmpID == lvappl.EmpID).ToList();
+
                 foreach (var item in _Lv)
                 {
                     _DTime = item.FromDate;
@@ -37,7 +38,7 @@ namespace TimeAttendanceSystem.Controllers
                         {
                             if (_DTime.Date == _DTimeLV.Date)
                             {
-                                PopUp.popUp("Duplicate Application", "Please enter different Date(s)",NotificationType.Warning);
+                                PopUp.popUp("Duplicate Application", _Lv.FirstOrDefault().Emp.EmpName+" is already on leave on these days",NotificationType.Warning);
                                 return true; }
                                 
                             _DTimeLV = _DTimeLV.AddDays(1);
@@ -163,7 +164,14 @@ namespace TimeAttendanceSystem.Controllers
             //BalanceLeaves(lvappl);
             return true;
         }
-
+        public bool IsDateFromToValid(LvApplication lvappl)
+        {
+            if (lvappl.FromDate > lvappl.ToDate)
+            {
+                return false;
+            }
+            return true;
+        }
         public void BalanceLeaves(LvApplication lvappl)
         {
             using (var ctx = new TAS2013Entities())

@@ -277,7 +277,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             IsChecked = false;
             entity = new TAS2013Entities();
             _selectedEmp = new Emp();
-           
+         
             _selectedDept = new Department();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();

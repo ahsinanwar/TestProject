@@ -21,12 +21,15 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
         {
             get
             {
+               
                 return _selectedEmpAndLvApp;
+                
             }
             set
             {
 
                 _selectedEmpAndLvApp = value;
+                
                 base.OnPropertyChanged("selectedEmpAndLvApp");
               
 

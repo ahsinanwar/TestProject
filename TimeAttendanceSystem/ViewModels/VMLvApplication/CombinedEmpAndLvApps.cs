@@ -29,7 +29,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
             this.LvApp = new LvApplication();
             this.LvApp.IsHalf = true;
             this.LvApp.FromDate = DateTime.Now;
-            this.LvApp.ToDate = DateTime.Now.AddDays(2);
+            this.LvApp.ToDate = DateTime.Now;
             this.LvType = new LvType();
         }
        

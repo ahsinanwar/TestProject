@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Controllers;
 using TimeAttendanceSystem.Model;
-
+using TimeAttendanceSystem.HelperClasses;
+using Mantin.Controls.Wpf.Notification;
 namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
 {
     class DeleteCommandLvApp : ICommand
@@ -55,10 +56,14 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                    vmd.listOfEmpsAndLvApps.Remove(vmd.selectedEmpAndLvApp);
                     if(vmd.listOfEmpsAndLvApps.Count>0)
                     vmd.selectedEmpAndLvApp = vmd.listOfEmpsAndLvApps[0];
+                    PopUp.popUp("Application", "Application has been successfully deleted for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
+                      
                 }
             }
             catch (Exception)
             {
+                PopUp.popUp("Database Error", "Something went terribly wrong. Contact the vendor", NotificationType.Warning);
+                    
                 Console.WriteLine("Exception While Deleting...");
             }
         }

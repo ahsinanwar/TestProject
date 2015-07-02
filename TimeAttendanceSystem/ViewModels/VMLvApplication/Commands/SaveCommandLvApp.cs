@@ -39,11 +39,26 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
             {   
 
                 LvController lvctrl = new LvController();
+                bool chkIsFromToDateValid = lvctrl.IsDateFromToValid(vmd.selectedEmpAndLvApp.LvApp);
+                if (!chkIsFromToDateValid)
+                {
+                    PopUp.popUp("From/To Date Invalid", "From Date should be less than To Date", NotificationType.Warning);
+                }
+                else{
+
                 // IF Leave is half Leave
                 if (vmd.selectedEmpAndLvApp.LvApp.IsHalf == true)
                 {
+                   
+                   if (vmd.selectedEmpAndLvApp.LvApp.FirstHalf == null)
+                    {
+                        PopUp.popUp("Half Day", "Please select First Half or Second Half", NotificationType.Warning);
+                       
+                    }
+                    else
                     if ((vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days == 0)
                     {
+                       
                         bool chkdup = lvctrl.CheckDuplicateLeave(vmd.selectedEmpAndLvApp.LvApp);
                         if (chkdup == false)
                         {
@@ -54,9 +69,15 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                             lvctrl.AddHalfLeaveToAttData(vmd.selectedEmpAndLvApp.LvApp);
                             lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
                             vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
+                            PopUp.popUp("Application", "Application has been successfully registered for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
                             vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
-                            PopUp.popUp("Application", "Application has been successfully registered", NotificationType.Warning);
                         }
+                    }
+                    else
+                    {
+                        PopUp.popUp("Half Day", "Please select same Dates", NotificationType.Warning);
+                        
+                    
                     }
                 }
                 else
@@ -70,28 +91,32 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                             vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days+1;
                             context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
                             context.SaveChanges();
+                            vmd.selectedEmpAndLvApp.LvApp.LvDate = DateTime.Now;
                             lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
                             lvctrl.AddLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
                             lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
-                           
                             vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
+                            PopUp.popUp("Application", "Application has been successfully registered for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
                             vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
-                            PopUp.popUp("Application", "Application has been successfully registered", NotificationType.Information);
-                     
+                           
                         }
                     }
                 }
+            }
                     
                 
 
             }
             else
             {
-                LvApplication lvapp = context.LvApplications.FirstOrDefault(aa => aa.LvType == vmd.selectedEmpAndLvApp.LvApp.LvType);
-                lvapp.LvType = vmd.selectedEmpAndLvApp.LvType;
+                LvApplication lvapp = new LvApplication();
+                lvapp = context.LvApplications.FirstOrDefault(aa => aa.LvID == vmd.selectedEmpAndLvApp.LvApp.LvID);
+                lvapp = vmd.selectedEmpAndLvApp.LvApp;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                PopUp.popUp("Application", "Application has been successfully edited for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
+                            
             }
 
         }
