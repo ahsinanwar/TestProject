@@ -77,7 +77,7 @@
                     </TextBox>
                     <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="143,148,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvApp.LvAddress}" VerticalAlignment="Top" Width="216" IsEnabled="{Binding Path=isEnabled}">
                     </TextBox>
-                    <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="305,175,129,48" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                    <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="239,203,97,70" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                     <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                     <Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="265,7,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>
                 </Grid>
