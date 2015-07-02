@@ -122,6 +122,8 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
         public VMAttEdit()
         {
             entity = new TAS2013Entities();
+            Emp sd = new Emp();
+         
             _attDataShow = new AttData();
             _selectedAttData = new AttData();
             _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.ToList());

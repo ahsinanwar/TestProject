@@ -28,8 +28,8 @@
                         <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding Emp.EmpNo}" />
                         <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding Emp.EmpName}" />
                         <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding Emp.Section.SectionName}" />
-                        <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding Emp.Department.DeptName}" /> 
-                        <telerik:GridViewDataColumn Header="Shift" DataMemberBinding="{Binding ShiftName}" />
+                        <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding Emp.Section.Department.DeptName}" /> 
+                        <telerik:GridViewDataColumn Header="Shift" DataMemberBinding="{Binding Emp.Shift.ShiftName}" />
                         <telerik:GridViewDataColumn Header="Duty Code" DataMemberBinding="{Binding DutyCode}" />
                         <telerik:GridViewDataColumn Header="Duty Time" DataMemberBinding="{Binding DutyTime}" />
                         <telerik:GridViewDataColumn Header="In" DataMemberBinding="{Binding TimeIn, StringFormat='{}{0: h:mm tt}'}" />
@@ -61,13 +61,13 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="130">
-                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker" VerticalAlignment="Top" SelectedValue="{Binding AttDataShow.TimeIn,Mode=TwoWay, StringFormat='{}{0: h:mm tt}'}"  Margin="225,10,649,0" IsEnabled="{Binding Path=isEnabled}"/>
-                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker"  SelectedValue="{Binding AttDataShow.DutyTime,Converter={StaticResource DateConverter},StringFormat='{}{0: h:mm tt}', Mode=TwoWay}" VerticalAlignment="Top"  Margin="225,63,649,0"/>
-                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker" SelectedValue="{Binding AttDataShow.TimeOut,StringFormat='{}{0: h:mm tt}'}" VerticalAlignment="Top" Margin="225,36,649,0" IsEnabled="{Binding Path=isEnabled}"/>
+                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DateTimePicker" VerticalAlignment="Top" SelectedValue="{Binding AttDataShow.TimeIn,Mode=TwoWay, StringFormat='{}{0: h:mm tt}'}"  Margin="225,10,649,0" IsEnabled="{Binding Path=isEnabled}"/>
+                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker"  SelectedValue="{Binding AttDataShow.DutyTime,Converter={StaticResource DateConverter},StringFormat='{}{0: h:mm tt}', Mode=TwoWay}" VerticalAlignment="Top"  Margin="225,63,649,0" IsEnabled="{Binding Path=isEnabled}"/>
+                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DateTimePicker" SelectedValue="{Binding AttDataShow.TimeOut,StringFormat='{}{0: h:mm tt}'}" VerticalAlignment="Top" Margin="225,36,649,0" IsEnabled="{Binding Path=isEnabled}"/>
                             <Label Content="Duty Time:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,62,0,0"/>
                             <Label Content="Time In:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="168,10,0,0"/>
                             <Label Content="Time Out:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="158,36,0,0"/>
-                            <TextBox HorizontalAlignment="Left"  VerticalAlignment="Top" Width="116" Margin="411,21,0,0" Text="{Binding AttDataShow.Remarks}" />
+                            <TextBox HorizontalAlignment="Left"  VerticalAlignment="Top" Width="116" Margin="411,21,0,0" Text="{Binding AttDataShow.Remarks}" IsEnabled="{Binding Path=isEnabled}"/>
                             <Label Content="Duty Code:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="151,88,0,0"/>
                             <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="225,90,0,0" VerticalAlignment="Top" Width="92" Height="22" DisplayMemberPath="DutyName" SelectedValuePath="CodeID" SelectedValue="{Binding AttDataShow.DutyCode}" ItemsSource="{Binding listOfDutyCodes}" IsEnabled="{Binding Path=isEnabled}" />
                             <Label Content="Remarks:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,21,0,0"/>
@@ -76,7 +76,9 @@
                             <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" Text="{Binding Path=AttDataShow.EmpNo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" VerticalAlignment="Top" Width="117" FontSize="14"/>
                             <!--<Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="Selected Employee" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="118" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>-->
                             <Label Content="Emp No" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="55"/>
-                            
+                            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,88,0,0" TextWrapping="Wrap" Text="{Binding Path= AttDataShow.ShifMin}" VerticalAlignment="Top" Width="117"  IsEnabled="{Binding Path=isEnabled}"/>
+                            <Label Content="Shift Mints" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Width="70"/>
+
                         </Grid>
                     </StackPanel>
                 </StackPanel>

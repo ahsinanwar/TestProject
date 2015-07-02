@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,16 +24,19 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class EmployeeView : Page
     {
-        
+        private BackgroundWorker worker = new BackgroundWorker();
         VMEmployee vmemps;
         byte[] binaryImage;
         
         public EmployeeView()
         { 
             InitializeComponent();
+
             vmemps = new VMEmployee();
             this.DataContext = vmemps;
         }
+       
+
         
         private void btn_imageSelect_Click(object sender, RoutedEventArgs e)
         {

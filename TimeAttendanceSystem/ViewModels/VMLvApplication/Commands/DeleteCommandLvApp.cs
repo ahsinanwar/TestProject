@@ -39,6 +39,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
             else {
             
                 lvctrl.DeleteFromLVData(selectedLvApp);
+                lvctrl.DeleteHLFromAttData(selectedLvApp);
                 lvctrl.UpdateLeaveBalance(selectedLvApp);
             
             

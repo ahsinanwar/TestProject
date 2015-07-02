@@ -147,8 +147,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseClasses\BackgroundVisualHost.cs" />
+    <Compile Include="BaseClasses\BusyDecorator.cs" />
     <Compile Include="BaseClasses\CommanVariables.cs" />
     <Compile Include="BaseClasses\ObservableObject.cs" />
+    <Compile Include="BaseClasses\VisualTargetPresentationSource.cs" />
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
@@ -831,6 +834,10 @@
     <Page Include="Reports\UserControls\UCReportFilters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ViewModels\VMDashboard\ScottLogic\PieChart\PieChartLayout.xaml">
       <Generator>MSBuild:Compile</Generator>
