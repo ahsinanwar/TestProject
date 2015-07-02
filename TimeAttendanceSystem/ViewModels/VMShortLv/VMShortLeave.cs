@@ -121,7 +121,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
             entity = new TAS2013Entities();
             _selectedEmpAndShortLv = new CombinedEmpAndShortLvcs();
             _listOfEmpsAndShortLv = new ObservableCollection<CombinedEmpAndShortLvcs>();
-            List<LvShort> LvShortDatacollection = entity.LvShorts.ToList();
+            List<LvShort> LvShortDatacollection = entity.LvShorts.ToList();// 1 2 3
             foreach (LvShort value in LvShortDatacollection)
                    _listOfEmpsAndShortLv.Add(new CombinedEmpAndShortLvcs(entity.Emps.FirstOrDefault(aa => aa.EmpID == value.EmpID), value));
             _selectedEmpAndShortLv = _listOfEmpsAndShortLv.FirstOrDefault();
