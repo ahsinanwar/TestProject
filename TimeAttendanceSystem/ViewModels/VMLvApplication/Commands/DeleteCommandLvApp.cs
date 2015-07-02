@@ -53,6 +53,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                 if (context.SaveChanges() > 0)
                 {
                    vmd.listOfEmpsAndLvApps.Remove(vmd.selectedEmpAndLvApp);
+                    if(vmd.listOfEmpsAndLvApps.Count>0)
                     vmd.selectedEmpAndLvApp = vmd.listOfEmpsAndLvApps[0];
                 }
             }

@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
 using TimeAttendanceSystem.Model;
+using Mantin.Controls.Wpf.Notification;
+using System.Windows.Media;
+using TimeAttendanceSystem.HelperClasses;
 
 namespace TimeAttendanceSystem.Controllers
 {
@@ -18,6 +23,7 @@ namespace TimeAttendanceSystem.Controllers
             List<LvApplication> _Lv = new List<LvApplication>();
             DateTime _DTime = new DateTime();
             DateTime _DTimeLV = new DateTime();
+           
             using (var context = new TAS2013Entities())
             {
                 _Lv = context.LvApplications.Where(aa => aa.EmpID == lvappl.EmpID).ToList();
@@ -30,7 +36,10 @@ namespace TimeAttendanceSystem.Controllers
                         while (_DTimeLV <= lvappl.ToDate)
                         {
                             if (_DTime.Date == _DTimeLV.Date)
-                                return true;
+                            {
+                                PopUp.popUp("Duplicate Application", "Please enter different Date(s)",NotificationType.Warning);
+                                return true; }
+                                
                             _DTimeLV = _DTimeLV.AddDays(1);
                         }
                         _DTime = _DTime.AddDays(1);
@@ -55,7 +64,10 @@ namespace TimeAttendanceSystem.Controllers
                     balance = true;
                 }
                 else
+                {
+                    PopUp.popUp("Holiday Quota", "The Quota for "+_lvapp.Emp.EmpName+" is exhausted", NotificationType.Warning);
                     balance = false;
+                }
 
             }
 
