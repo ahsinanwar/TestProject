@@ -29,7 +29,7 @@ namespace TimeAttendanceSystem.Controllers
                     {
                         while (_DTimeLV <= lvappl.ToDate)
                         {
-                            if (_DTime == _DTimeLV)
+                            if (_DTime.Date == _DTimeLV.Date)
                                 return true;
                             _DTimeLV = _DTimeLV.AddDays(1);
                         }
