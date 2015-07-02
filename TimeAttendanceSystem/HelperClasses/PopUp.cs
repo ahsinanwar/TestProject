@@ -11,7 +11,7 @@ namespace TimeAttendanceSystem.HelperClasses
 {
     public static class PopUp
     {
-
+        //why wont this update
 
         public static void popUp(String title,String Message, NotificationType note)
         {
