@@ -61,9 +61,9 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="130">
-                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker" VerticalAlignment="Top" SelectedValue="{Binding AttDataShow.TimeIn,Mode=TwoWay, StringFormat='{}{0: h:mm tt}'}"  Margin="225,10,649,0" IsEnabled="{Binding Path=isEnabled}"/>
+                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DateTimePicker" VerticalAlignment="Top" SelectedValue="{Binding AttDataShow.TimeIn,Mode=TwoWay, StringFormat='{}{0: h:mm tt}'}"  Margin="225,10,649,0" IsEnabled="{Binding Path=isEnabled}"/>
                             <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker"  SelectedValue="{Binding AttDataShow.DutyTime,Converter={StaticResource DateConverter},StringFormat='{}{0: h:mm tt}', Mode=TwoWay}" VerticalAlignment="Top"  Margin="225,63,649,0" IsEnabled="{Binding Path=isEnabled}"/>
-                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker" SelectedValue="{Binding AttDataShow.TimeOut,StringFormat='{}{0: h:mm tt}'}" VerticalAlignment="Top" Margin="225,36,649,0" IsEnabled="{Binding Path=isEnabled}"/>
+                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DateTimePicker" SelectedValue="{Binding AttDataShow.TimeOut,StringFormat='{}{0: h:mm tt}'}" VerticalAlignment="Top" Margin="225,36,649,0" IsEnabled="{Binding Path=isEnabled}"/>
                             <Label Content="Duty Time:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,62,0,0"/>
                             <Label Content="Time In:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="168,10,0,0"/>
                             <Label Content="Time Out:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="158,36,0,0"/>

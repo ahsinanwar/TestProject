@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.Controllers;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
@@ -33,6 +34,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
             VMAttEdit vmd = (VMAttEdit)parameter;
             if (vmd.isAdding)
             {
+                
                 //context.Categories.Add(vmd.selectedCat);
                 //context.SaveChanges();
                 //vmd.listOfCats.Add(vmd.selectedCat);
@@ -40,13 +42,8 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
             }
             else
             {
-                //Category cat = context.Categories.First(aa => aa.CatID == vmd.selectedCat.CatID);
-                //cat.CatName = vmd.selectedCat.CatName;
-                //vmd.isEnabled = false;
-                //vmd.isAdding = false;
-                //context.SaveChanges();
+                EditAttController _pma = new EditAttController(vmd.selectedAttData.EmpDate, "", false, (DateTime)vmd.selectedAttData.TimeIn, (DateTime)vmd.selectedAttData.TimeOut, vmd.selectedAttData.DutyCode, 1, (TimeSpan)vmd.selectedAttData.DutyTime, vmd.selectedAttData.Remarks, (short)vmd.selectedAttData.ShifMin);
             }
-
         }
         #endregion
     }
