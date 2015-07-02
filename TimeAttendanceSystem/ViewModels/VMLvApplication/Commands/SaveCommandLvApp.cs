@@ -69,7 +69,9 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                             lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
                             lvctrl.AddLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
                             lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
+                           
                             vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
+                            vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
                         }
                     }
                 }
