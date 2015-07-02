@@ -277,6 +277,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             IsChecked = false;
             entity = new TAS2013Entities();
             _selectedEmp = new Emp();
+           
             _selectedDept = new Department();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
@@ -291,7 +292,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
             _listOfCrews = new ObservableCollection<Crew>(entity.Crews.ToList());
-           
+         
             this._AddCommand = new AddCommandEmp(_selectedEmp);
             this._EditCommand = new EditCommandEmp(this);
             this._DeleteCommand = new DeleteCommandEmp(_selectedEmp);
