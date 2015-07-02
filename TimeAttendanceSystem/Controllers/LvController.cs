@@ -37,7 +37,7 @@ namespace TimeAttendanceSystem.Controllers
                         {
                             if (_DTime.Date == _DTimeLV.Date)
                             {
-                                PopUp.popUp("Invalid Application", "Please enter different Date(s)",NotificationType.Error);
+                                PopUp.popUp("Duplicate Application", "Please enter different Date(s)",NotificationType.Warning);
                                 return true; }
                                 
                             _DTimeLV = _DTimeLV.AddDays(1);
@@ -64,7 +64,10 @@ namespace TimeAttendanceSystem.Controllers
                     balance = true;
                 }
                 else
+                {
+                    PopUp.popUp("Holiday Quota", "The Quota for "+_lvapp.Emp.EmpName+" is exhausted", NotificationType.Warning);
                     balance = false;
+                }
 
             }
 

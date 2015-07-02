@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Controllers;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.HelperClasses;
+using Mantin.Controls.Wpf.Notification;
 
 namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
 {
@@ -52,6 +54,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                             lvctrl.AddHalfLeaveToAttData(vmd.selectedEmpAndLvApp.LvApp);
                             lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
                             vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
+                            vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
+                            PopUp.popUp("Application", "Application has been successfully registered", NotificationType.Warning);
                         }
                     }
                 }
@@ -72,6 +76,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                            
                             vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
                             vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
+                            PopUp.popUp("Application", "Application has been successfully registered", NotificationType.Information);
+                     
                         }
                     }
                 }

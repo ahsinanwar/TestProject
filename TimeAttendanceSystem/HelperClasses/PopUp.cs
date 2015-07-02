@@ -21,11 +21,7 @@ namespace TimeAttendanceSystem.HelperClasses
             {
 
                 new ToastPopUp(title, Message,note)
-                {
-                    Background = new LinearGradientBrush(Color.FromArgb(255, 4, 253, 82), Color.FromArgb(255, 10, 13, 248), 90),
-                    BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0)),
-                    FontColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255))
-                }.Show();
+               .Show();
             }));
         
         }
