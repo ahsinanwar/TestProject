@@ -92,7 +92,7 @@ namespace TimeAttendanceSystem
                     break;
 
                 case "Short Leave":
-                    _mainFrame.Navigate(new ShortLvView());
+                    _mainFrame.Navigate(new DFShortLeave());
                     break;
                 case "Quota":
                     _mainFrame.Navigate(new DFDaily());
