@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Reporting.WinForms;
+using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.Reports.ReportForms
@@ -25,14 +26,17 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         public DFLateIn()
         {
             InitializeComponent();
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            LoadReport(Properties.Settings.Default.ReportPath + "DRLateIn.rdlc", ctx.ViewLateComers.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
-            List<ViewAbsent> _TempViewList = new List<ViewAbsent>();
+            List<ViewLateComer> _TempViewList = new List<ViewLateComer>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewLateComer> _ViewList = ctx.ViewLateComers.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -130,7 +134,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             LoadReport(Properties.Settings.Default.ReportPath + "DRLateOut.rdlc", _ViewList);
 
         }
-        private void LoadReport(string Path, List<ViewAbsent> _List)
+        private void LoadReport(string Path, List<ViewLateComer> _List)
         {
             //rptViewer.Reset();
             string DateToFor = "";

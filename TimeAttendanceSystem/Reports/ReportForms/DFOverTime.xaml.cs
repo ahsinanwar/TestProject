@@ -26,14 +26,17 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         public DFOverTime()
         {
             InitializeComponent();
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            LoadReport(Properties.Settings.Default.ReportPath + "DROverTime.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
-            List<ViewAbsent> _TempViewList = new List<ViewAbsent>();
+            List<ViewOverTime> _TempViewList = new List<ViewOverTime>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewOverTime> _ViewList = ctx.ViewOverTimes.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -131,7 +134,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             LoadReport(Properties.Settings.Default.ReportPath + "DROverTime.rdlc", _ViewList);
 
         }
-        private void LoadReport(string Path, List<ViewAbsent> _List)
+        private void LoadReport(string Path, List<ViewOverTime> _List)
         {
             //rptViewer.Reset();
             string DateToFor = "";
