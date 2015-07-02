@@ -156,5 +156,5 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         }
     }
 
-}   
+}
 
