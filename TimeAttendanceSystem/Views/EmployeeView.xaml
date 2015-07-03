@@ -39,7 +39,7 @@
                 <StackPanel Margin="5,5,5,5">
                     <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
-                        ItemsSource="{Binding listOfEmps}" SelectedItem="{Binding selectedEmp}" 
+                        ItemsSource="{Binding PagedSource,ElementName=rdpData}" SelectedItem="{Binding selectedEmp}" 
                         VerticalAlignment="Top" Grid.RowSpan="2" 
                         CanUserFreezeColumns="False" Width="600">
                         <telerik:RadGridView.Columns>
@@ -53,7 +53,7 @@ EmpNo}" />
                             <telerik:GridViewDataColumn Header="Type" DataMemberBinding="{Binding EmpType.TypeName}" />
                         </telerik:RadGridView.Columns>
                     </telerik:RadGridView>
-
+                    <telerik:RadDataPager Source="{Binding listOfEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="10" DisplayMode="All"/>
                 </StackPanel>
 
                 <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
