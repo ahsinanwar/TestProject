@@ -100,9 +100,9 @@ EmpNo}" />
                                     </TextBox>
                                     <Label HorizontalAlignment="Left" Content="Name:" VerticalAlignment="Top" Height="28" Width="48"  Margin="109,36,0,0"/>
                                     <Label Content="Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,64,0,0"/>
-                                    <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="162,68,0,0" SelectedValuePath="Tag" SelectedValue="{Binding Path=selectedEmp.Status,Mode=TwoWay}">
-                                        <ComboBoxItem Tag="True">Active</ComboBoxItem>
-                                        <ComboBoxItem Tag="False">InActive</ComboBoxItem>
+                                    <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="165,67,0,0" VerticalAlignment="Top" Width="95" Height="22" IsEnabled="{Binding Path=isEnabled}" SelectedValue="{Binding Path=selectedEmp.Status,Mode=TwoWay}" SelectedValuePath="Tag">
+                                        <telerik:RadComboBoxItem Tag="True" Content="Active"/>
+                                        <telerik:RadComboBoxItem Tag="False" Content="Inactive"/>
                                     </telerik:RadComboBox>
                                     <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="162,41,0,0">
                                         <TextBox.Text>

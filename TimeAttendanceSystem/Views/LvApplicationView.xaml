@@ -71,8 +71,8 @@
                     <Label Content="Half Leave:" HorizontalAlignment="Left" Margin="70,88,0,0" VerticalAlignment="Top" Height="29" Width="77"/>
                     <CheckBox  telerik:StyleManager.Theme="Windows8" Content="" HorizontalAlignment="Left" Margin="143,94,0,0" VerticalAlignment="Top" Height="22" Width="17" IsEnabled="{Binding Path=isEnabled}" IsChecked="{Binding Path=selectedEmpAndLvApp.LvApp.IsHalf,Mode=TwoWay}"/>
                     <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="165,92,0,0" VerticalAlignment="Top" Width="95" Height="22" IsEnabled="{Binding Path=isEnabled}" SelectedValue="{Binding Path=selectedEmpAndLvApp.LvApp.FirstHalf,Mode=TwoWay}" SelectedValuePath="Tag">
-                        <ComboBoxItem Tag="True" >First Half</ComboBoxItem>
-                        <ComboBoxItem Tag="False">Second Half</ComboBoxItem>
+                        <telerik:RadComboBoxItem Tag="True" Content="First Half"/>
+                        <telerik:RadComboBoxItem Tag="False" Content="Second Half"/>
                     </telerik:RadComboBox>
                     <TextBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="143,121,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvApp.LvReason}" VerticalAlignment="Top" Width="216" IsEnabled="{Binding Path=isEnabled}" >
                     </TextBox>

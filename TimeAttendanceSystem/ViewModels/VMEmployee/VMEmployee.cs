@@ -298,7 +298,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _selectedDept = new Department();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
-
+         
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.Where(aa=>aa.CatID==_selectedCat.CatID));
