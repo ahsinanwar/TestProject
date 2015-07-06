@@ -19,6 +19,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         private Boolean _isChecked;
         public Category _selectedCat;
         public Department _selectedDept;
+        public Grade _selectedGrade;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean IsChecked
@@ -95,6 +96,22 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
                 listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
                 base.OnPropertyChanged("selectedDept");
                
+
+            }
+        }
+        public Grade selectedGrade
+        {
+            get
+            {
+                return _selectedGrade;
+            }
+            set
+            {
+
+                _selectedGrade = value;
+                listOfGrades = new ObservableCollection<Grade>(entity.Grades.Where(aa => aa.GradeID == _selectedGrade.GradeID));
+                base.OnPropertyChanged("selectedGrade");
+
 
             }
         }
@@ -276,16 +293,19 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         {
             IsChecked = false;
             entity = new TAS2013Entities();
-            _selectedEmp = new Emp();
-         
+
+            
             _selectedDept = new Department();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
+
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.Where(aa=>aa.CatID==_selectedCat.CatID));
             _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList());
             _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList());
+          
+            _selectedGrade = entity.Grades.ToList().FirstOrDefault();
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
