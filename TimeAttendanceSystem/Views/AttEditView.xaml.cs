@@ -33,6 +33,22 @@ namespace TimeAttendanceSystem.Views
         {
             e.Cancel = true;
         }
+
+        private void btnOpenEmpList(object sender, RoutedEventArgs e)
+        {
+
+        }
+        SelectEmpWindow window;
+        private void btnOpenEmp_Click(object sender, RoutedEventArgs e)
+        {
+            window = new SelectEmpWindow();
+
+
+            if ((bool)window.ShowDialog())
+            {
+                txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+            }
+        }
        
        
         //private void btn_empView_Click(object sender, RoutedEventArgs e)
