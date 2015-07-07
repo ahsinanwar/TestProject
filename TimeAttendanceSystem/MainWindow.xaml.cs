@@ -30,8 +30,15 @@ namespace TimeAttendanceSystem
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
+            CheckForRegistered();
             _mainFrame.Navigate(new DashView());
             CommanVariables.CompanyName = "INVEN TECHNOLOGIES"; 
+        }
+
+        private void CheckForRegistered()
+        {
+            
+
         }
 
         TAS2013Entities ctx = new TAS2013Entities(); 
