@@ -18,11 +18,8 @@ namespace TimeAttendanceSystem.ValueConvertors
                 int duration = (Int16)value;
                 if (duration < 0)
                     return "None";
-                Console.WriteLine(duration);
                 int hours = duration / 60;
-                Console.WriteLine(hours);
                 int minutes = duration - (hours * 60);
-                Console.WriteLine(minutes);
                 // Console.WriteLine(hours+":"+minutes);
                 String min = minutes + "";
                 if (minutes < 10)

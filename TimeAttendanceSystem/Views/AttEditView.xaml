@@ -24,7 +24,7 @@
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         BeginningEdit="EditGrid_BeginningEdit"
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                        ItemsSource="{Binding listOfAttData}" SelectedItem="{Binding selectedAttData,UpdateSourceTrigger=PropertyChanged}" 
+                        ItemsSource="{Binding PagedSource,ElementName=rdpData}" SelectedItem="{Binding selectedAttData,UpdateSourceTrigger=PropertyChanged}" 
                         VerticalAlignment="Stretch"  
                         CanUserFreezeColumns="False">
                 <telerik:RadGridView.Columns>
@@ -46,7 +46,7 @@
                     <telerik:GridViewDataColumn Header="Remarks" DataMemberBinding="{Binding Remarks}" />
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-
+            <telerik:RadDataPager Source="{Binding listOfAttData}" x:Name="rdpData" NumericButtonCount="20" PageSize="10" DisplayMode="All"/>
         </StackPanel>
         <!--CRUD Panel-->
         <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Grid.Row="2">

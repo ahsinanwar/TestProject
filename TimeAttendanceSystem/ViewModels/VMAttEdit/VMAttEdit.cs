@@ -125,7 +125,8 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
             Emp sd = new Emp();
             _attDataShow = new AttData();
             _selectedAttData = new AttData();
-            _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.ToList());
+            DateTime date = new DateTime(2015,03,15);
+            _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.Where(aa=>aa.AttDate==date).ToList());
             _selectedAttData = entity.AttDatas.ToList().FirstOrDefault();
             _attDataShow = entity.AttDatas.ToList().FirstOrDefault();
             _listOfDutyCodes = new ObservableCollection<DutyCode>(entity.DutyCodes.ToList());
