@@ -18,6 +18,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         public Emp _dummyEmp;
         private Boolean _isChecked;
         public Category _selectedCat;
+        public Section _selectedSec;
         public Department _selectedDept;
         public Grade _selectedGrade;
         public Boolean _isEnabled = false;
@@ -93,9 +94,25 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             {
 
                 _selectedDept = value;
-                listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
+                listOfDepts = new ObservableCollection<Department>(entity.Departments.Where(aa => aa.DeptID == _selectedDept.DeptID));
                 base.OnPropertyChanged("selectedDept");
                
+
+            }
+        }
+        public Section selectedSec
+        {
+            get
+            {
+                return _selectedSec;
+            }
+            set
+            {
+
+                _selectedSec = value;
+                listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
+                base.OnPropertyChanged("selectedSec");
+
 
             }
         }
@@ -119,6 +136,10 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         {
             get
             {
+                _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedEmp.Section.Department.DeptID));
+                _selectedSec = _selectedEmp.Section;
+                base.OnPropertyChanged("selectedSec");
+                base.OnPropertyChanged("listOfSecs");
                 return _selectedEmp;
             }
             set
@@ -310,7 +331,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
-            _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
+            _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedEmp.Section.Department.DeptID));
+            _selectedSec = _listOfSecs.FirstOrDefault();
             _listOfCrews = new ObservableCollection<Crew>(entity.Crews.ToList());
          
             this._AddCommand = new AddCommandEmp(_selectedEmp);
@@ -329,6 +351,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             base.OnPropertyChanged("_listOfLocs");
             base.OnPropertyChanged("_listOfSecs");
             base.OnPropertyChanged("_listOfCrews");
+            base.OnPropertyChanged("_listOfSecs");
             IsChecked = true;
         }
         #endregion
