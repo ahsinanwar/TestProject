@@ -12,12 +12,9 @@ namespace TimeAttendanceSystem.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Company
+    public partial class ClientLicense
     {
-        public short CompID { get; set; }
-        public string CompName { get; set; }
-        public string Address { get; set; }
-        public string TelNo { get; set; }
-        public string Email { get; set; }
+        public short LicenseID { get; set; }
+        public string LicenseName { get; set; }
     }
 }

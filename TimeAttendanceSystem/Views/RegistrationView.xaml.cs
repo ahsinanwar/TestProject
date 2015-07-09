@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net.NetworkInformation;
+using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -24,25 +25,39 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class RegistrationView : Window
     {
+        TAS2013Entities context = new TAS2013Entities();
         public RegistrationView()
         {
+            
+            //add code for sql database checking if its valid jump to the mainWindow
+            
             InitializeComponent();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             MainWindow win2 = new MainWindow();
-            String d=this.firsthalf.Text + this.secondhalf.Text;
-           String mac=GetMacAddress();
-            var url = "https://timeattendanceserver.herokuapp.com/registration/" + d + "/" + GetMacAddress();
-          
-            
+
+            String d = this.firsthalf.Text;
+            String mac=GetMacAddress();
+            var url = "http://localhost:3000/registration/" + d + "/" + GetMacAddress();
             var syncClient = new WebClient();
             String content = syncClient.DownloadString(url);
             Package df = JsonConvert.DeserializeObject<Package>(content);
-            Console.WriteLine(df.mac);
-            win2.Show();
-            this.Close();
+            if (df.valid && df.key==d && df.mac==GetMacAddress())
+            {
+                win2.Show();
+                this.Close();
+            }
+            if (df.key!=d)
+            {
+                Console.WriteLine("Key is not valid");
+            }
+            if(df.key==d && df.mac!=GetMacAddress())
+            {
+                Console.WriteLine("This key is not licensed to you");
+             }
+            
         }
         private string GetMacAddress()
         {
@@ -76,14 +91,15 @@ namespace TimeAttendanceSystem.Views
         [JsonProperty("mac")]
         public String mac { get; set; }
         [JsonProperty("valid")]
-        public bool version { get; set; }
+        public bool valid { get; set; }
         [JsonProperty("type")]
-        public String content { get; set; }
+        public String type { get; set; }
         [JsonProperty("uptill")]
-        public DateTime title { get; set; }
+        public DateTime uptill { get; set; }
         [JsonProperty("createdby")]
-        public String created { get; set; }
-    
+        public String createdby { get; set; }
+        [JsonProperty("key")]
+        public String key { get; set; }
     
     
     }

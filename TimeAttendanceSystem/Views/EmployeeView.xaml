@@ -185,9 +185,9 @@ SelectedItem="{Binding selectedEmp.Shift,Mode=TwoWay}" IsEnabled="{Binding isEna
                                         <TextBox HorizontalAlignment="Left" Height="43" Margin="127,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.Adress}" IsEnabled="{Binding isEnabled}"/>
                                         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Content="Address:" Margin="62,232,0,0"/>
                                     </Grid>
-                                </TabItem>
-                                <Button Width="53" Margin="0,0,0,0" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" />
+                                </TabItem>                               
                             </TabControl>
+                            <Button Width="53" Margin="150,20,0,30" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" />
                         </StackPanel>
 
                     </StackPanel>
