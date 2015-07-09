@@ -15,8 +15,7 @@ namespace TimeAttendanceSystem.Controllers
     public class LvController
     {
         #region -- Add Leaves--
-        List<LvQuota> _empQuota = new List<LvQuota>();
-
+       
         //Check Duplication of Leave for a date
         public bool CheckDuplicateLeave(LvApplication lvappl)
         {

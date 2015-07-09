@@ -40,7 +40,9 @@ namespace TimeAttendanceSystem.Model
         public DbSet<CardType> CardTypes { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<City> Cities { get; set; }
-        public DbSet<Company> Companies { get; set; }
+        public DbSet<ClientInfo> ClientInfoes { get; set; }
+        public DbSet<ClientLicense> ClientLicenses { get; set; }
+        public DbSet<ClientMAC> ClientMACs { get; set; }
         public DbSet<Crew> Crews { get; set; }
         public DbSet<DailySumDept> DailySumDepts { get; set; }
         public DbSet<DailySumLoc> DailySumLocs { get; set; }
@@ -61,8 +63,6 @@ namespace TimeAttendanceSystem.Model
         public DbSet<EmpFace> EmpFaces { get; set; }
         public DbSet<EmpFp> EmpFps { get; set; }
         public DbSet<EmpPhoto> EmpPhotoes { get; set; }
-        public DbSet<EmpPresence> EmpPresences { get; set; }
-        public DbSet<EmpRdr> EmpRdrs { get; set; }
         public DbSet<EmpType> EmpTypes { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
@@ -74,7 +74,6 @@ namespace TimeAttendanceSystem.Model
         public DbSet<LvApplication> LvApplications { get; set; }
         public DbSet<LvConsumed> LvConsumeds { get; set; }
         public DbSet<LvData> LvDatas { get; set; }
-        public DbSet<LvQuota> LvQuotas { get; set; }
         public DbSet<LvShort> LvShorts { get; set; }
         public DbSet<LvType> LvTypes { get; set; }
         public DbSet<Option> Options { get; set; }
@@ -94,8 +93,8 @@ namespace TimeAttendanceSystem.Model
         public DbSet<ServiceLog> ServiceLogs { get; set; }
         public DbSet<Shift> Shifts { get; set; }
         public DbSet<Site> Sites { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserLocation> UserLocations { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<EmpView> EmpViews { get; set; }
         public DbSet<ViewAbsent> ViewAbsents { get; set; }

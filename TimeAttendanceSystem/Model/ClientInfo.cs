@@ -12,12 +12,19 @@ namespace TimeAttendanceSystem.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class UserLocation
+    public partial class ClientInfo
     {
-        public int UserLocID { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<short> LocationID { get; set; }
+        public ClientInfo()
+        {
+            this.ClientMACs = new HashSet<ClientMAC>();
+        }
     
-        public virtual Location Location { get; set; }
+        public int ClientID { get; set; }
+        public string ClientName { get; set; }
+        public Nullable<short> LiscenceTypeID { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<bool> isActive { get; set; }
+    
+        public virtual ICollection<ClientMAC> ClientMACs { get; set; }
     }
 }
