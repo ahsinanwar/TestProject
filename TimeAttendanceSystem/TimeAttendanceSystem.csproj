@@ -669,7 +669,7 @@
     <Compile Include="ViewModels\VMSection\Commands\AddCommandSec.cs" />
     <Compile Include="ViewModels\VMSection\Commands\DeleteCommandSec.cs" />
     <Compile Include="ViewModels\VMSection\Commands\EditCommandSec.cs" />
-    <Compile Include="ViewModels\VMSection\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\SaveCommandSec.cs" />
     <Compile Include="ViewModels\VMSection\VMSection.cs" />
     <Compile Include="ViewModels\VMShift\Commands\AddCommandShift.cs" />
     <Compile Include="ViewModels\VMShift\Commands\DeleteCommandShift.cs" />

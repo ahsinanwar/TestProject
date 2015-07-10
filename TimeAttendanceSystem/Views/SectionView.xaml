@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         Title="SectionView"  Width="400">
-  
+
     <!--Main Panel-->
     <Border BorderBrush="#FF25A0DA" BorderThickness="1">
         <StackPanel Background="White">
@@ -23,8 +23,8 @@
                         CanUserFreezeColumns="False" MinWidth="387">
                     <telerik:RadGridView.Columns>
                         <telerik:GridViewDataColumn Header="SectionName" DataMemberBinding="{Binding SectionName}" />
-                        <telerik:GridViewDataColumn Header="DemartmentName" DataMemberBinding="{Binding Department.DeptName}" />
-                        <telerik:GridViewDataColumn Header="DivisionName" DataMemberBinding="{Binding Department.Division.Divname}" />
+                        <telerik:GridViewDataColumn Header="DepartmentName" DataMemberBinding="{Binding Department.DeptName}" />
+                        <telerik:GridViewDataColumn Header="DivisionName" DataMemberBinding="{Binding Department.Division.DivisionName}" />
                     </telerik:RadGridView.Columns>
                 </telerik:RadGridView>
 
@@ -54,10 +54,13 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="150">
-                            <Label Content="Name:" HorizontalAlignment="Left" Margin="57,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="106,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedCity.CityName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
-                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="162,51,150,77"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <Label Content="Section Name:" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="128,0,0,97" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="132" Text="{Binding Path=selectedSec.SectionName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="128,58,184,70"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                             <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
+                            <Label Content="Department Name:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="128,4,0,0" VerticalAlignment="Top" Width="132"   FontWeight="Bold" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" SelectedItem="{Binding selectedSec.Department,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding listOfDepts}" IsEnabled="{Binding isEnabled}"/>
+                            <!--<TextBox HorizontalAlignment="Left" Height="23" Margin="128,0,0,0" TextWrapping="Wrap" Text="{Binding Path=selectedSec.Department.DeptName}" IsEnabled="{Binding Path=isEnabled}"  VerticalAlignment="Top" Width="110"/>-->
                         </Grid>
                     </StackPanel>
                 </StackPanel>
@@ -65,9 +68,9 @@
         </StackPanel>
     </Border>
 
-   
-        <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
-        <!--<Label HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+
+    <!--<TextBox Height="23" TextWrapping="Wrap" Margin="79,84,322,310" Text="{Binding Path=selectedDept.DivID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>-->
+    <!--<Label HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
         <TextBox HorizontalAlignment="Left" Height="26" Margin="79,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Text="{Binding Path=selectedSec.SecName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=isEnabled}"/>
         <toolkit:DataGrid x:Name="MainGrid" 
                           ItemsSource="{Binding listOfSecs}" 
