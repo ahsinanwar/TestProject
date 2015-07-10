@@ -134,6 +134,8 @@
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
+    <Compile Include="HelperClasses\License.cs" />
+    <Compile Include="HelperClasses\Package.cs" />
     <Compile Include="HelperClasses\PopUp.cs" />
     <Compile Include="HelperClasses\StackedBarObject.cs" />
     <Compile Include="Model\AccessEmp.cs">
@@ -654,6 +656,9 @@
     <Compile Include="Views\DivisionView.xaml.cs">
       <DependentUpon>DivisionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DownloadingView.xaml.cs">
+      <DependentUpon>DownloadingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
@@ -844,6 +849,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DivisionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DownloadingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

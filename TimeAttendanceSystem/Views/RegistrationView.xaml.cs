@@ -17,6 +17,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net.NetworkInformation;
 using TimeAttendanceSystem.Model;
+using Microsoft.Win32;
+using System.IO;
+using TimeAttendanceSystem.HelperClasses;
+
+
 
 namespace TimeAttendanceSystem.Views
 {
@@ -25,40 +30,76 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class RegistrationView : Window
     {
+        ClientInfo clientinfo = new ClientInfo();
         TAS2013Entities context = new TAS2013Entities();
         public RegistrationView()
         {
             
-            //add code for sql database checking if its valid jump to the mainWindow
-            
-            InitializeComponent();
+            //Intitial check whether its registered already or not
+            ClientInfo checkForRegistered = context.ClientInfoes.FirstOrDefault();
+            if (checkForRegistered != null)
+            {   
+                MainWindow win2 = new MainWindow();
+                win2.Show();
+                this.Close();
+            }
+            else
+                InitializeComponent();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainWindow win2 = new MainWindow();
 
-            String d = this.firsthalf.Text;
-            String mac=GetMacAddress();
-            var url = "http://localhost:3000/registration/" + d + "/" + GetMacAddress();
-            var syncClient = new WebClient();
-            String content = syncClient.DownloadString(url);
-            Package df = JsonConvert.DeserializeObject<Package>(content);
-            if (df.valid && df.key==d && df.mac==GetMacAddress())
-            {
-                win2.Show();
-                this.Close();
-            }
-            if (df.key!=d)
-            {
-                Console.WriteLine("Key is not valid");
-            }
-            if(df.key==d && df.mac!=GetMacAddress())
-            {
-                Console.WriteLine("This key is not licensed to you");
-             }
+
             
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Inv Files (.inv)|*.inv";
+            openFileDialog1.FilterIndex = 1;
+
+            if (openFileDialog1.ShowDialog() == true)
+            {
+              
+               String nameOfFile = openFileDialog1.FileName;
+               string json = File.ReadAllText(nameOfFile);
+               Package df = JsonConvert.DeserializeObject<Package>(json);
+               ClientInfo clientinfo = new ClientInfo();
+               ClientMAC cm = new ClientMAC();
+               clientinfo = context.ClientInfoes.FirstOrDefault(aa => aa.isActive == df.isActive && aa.ClientName == df.Name);
+               if (clientinfo == null)
+               {
+                   ClientInfo clientinfo2 = new ClientInfo();
+                   clientinfo2.isActive = df.isActive;
+                   clientinfo2.CreatedBy = df.createdby;
+                   clientinfo2.ClientName = df.Name;
+                   clientinfo2.LiscenceTypeID = df.license.LiscenceTypeID;
+                   context.ClientInfoes.Add(clientinfo2);
+                   context.SaveChanges();
+                   clientinfo2 = context.ClientInfoes.FirstOrDefault(aa => aa.isActive == clientinfo2.isActive && aa.ClientName == clientinfo2.ClientName);
+                   cm.MACAddress = Convert.ToInt16(df.mac);
+                   cm.ClientTabID = clientinfo2.ClientID;
+                   DownloadingView dv = new DownloadingView(clientinfo2, cm);
+                  
+               }
+                   //works if there is already a clientinfo made
+               else
+               {
+
+                   cm.MACAddress = Convert.ToInt16(df.mac);
+                   cm.ClientTabID = clientinfo.ClientID;
+                   DownloadingView dv = new DownloadingView(clientinfo, cm);
+               }
+               context.ClientMACs.Add(cm);
+               context.SaveChanges();
+
+             
+              
+
         }
+
+                           
+            }
+
+               
         private string GetMacAddress()
         {
             const int MIN_MAC_ADDR_LENGTH = 12;
@@ -85,22 +126,4 @@ namespace TimeAttendanceSystem.Views
         }
       
     }
-    public partial class Package {
-        [JsonProperty("_id")]
-        public String id { get; set; }
-        [JsonProperty("mac")]
-        public String mac { get; set; }
-        [JsonProperty("valid")]
-        public bool valid { get; set; }
-        [JsonProperty("type")]
-        public String type { get; set; }
-        [JsonProperty("uptill")]
-        public DateTime uptill { get; set; }
-        [JsonProperty("createdby")]
-        public String createdby { get; set; }
-        [JsonProperty("key")]
-        public String key { get; set; }
-    
-    
     }
-}

@@ -1,0 +1,8 @@
+﻿<Window x:Class="TimeAttendanceSystem.Views.DownloadingView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DownloadingView" Height="83.881" Width="300">
+    <Grid Margin="0,0,-0.4,196">
+        
+    </Grid>
+</Window>
