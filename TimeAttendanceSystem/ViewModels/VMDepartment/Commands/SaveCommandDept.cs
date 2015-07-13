@@ -36,7 +36,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
             {
                 if (vmd.selectedDept.DeptName == "" || vmd.selectedDept.DeptName == null)
                 {
-                    PopUp.popUp("Empty Value", "Please write and select Department and Division Name before saving", NotificationType.Warning);
+                    PopUp.popUp("Empty Value", "Please write Department Name before saving", NotificationType.Warning);
                 }
 
                 else
@@ -50,6 +50,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                         context.Departments.Add(vmd.selectedDept);
                         context.SaveChanges();
                         vmd.listOfDepts.Add(vmd.selectedDept);
+                        PopUp.popUp("Save", "Department is created Successfully", NotificationType.Warning);
+                  
                     }
                 }
             }

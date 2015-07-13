@@ -78,10 +78,10 @@ namespace TimeAttendanceSystem
                     _mainFrame.Navigate(new CategoryView());
                     break;
                 case "Emp Types":
-                    _mainFrame.Navigate(new SectionView());
+                    _mainFrame.Navigate(new EmpTypeView());
                     break;
                 case "Holidays":
-                    _mainFrame.Navigate(new SectionView());
+                    _mainFrame.Navigate(new HolidayView());
                     break;
                 case "User":
                     _mainFrame.Navigate(new SectionView());

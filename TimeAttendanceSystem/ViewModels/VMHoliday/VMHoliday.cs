@@ -115,6 +115,7 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday
         {
             entity = new TAS2013Entities();
             _selectedHoliday = new Holiday();
+            
             _listOfHolidays = new ObservableCollection<Holiday>(entity.Holidays.ToList());
             _selectedHoliday = entity.Holidays.ToList().FirstOrDefault();
             this._AddCommand = new AddCommandHol(_selectedHoliday);
