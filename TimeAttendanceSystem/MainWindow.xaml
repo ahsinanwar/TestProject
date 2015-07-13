@@ -54,7 +54,7 @@
             <Border Background="#004b79" Grid.ColumnSpan="2" Grid.Row="1">
             <StackPanel Margin="150,0,0,0"  Background="#004b79"  HorizontalAlignment="Stretch"  Orientation="Horizontal">
                 <telerik:RadMenu telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" Orientation="Horizontal" BorderBrush="#004b79" Background="#004b79" Foreground="White">
-                    <telerik:RadMenuItem Header="Home" >
+                    <telerik:RadMenuItem Header="Home" Click="btn_home_Click" >
                     </telerik:RadMenuItem>
                     <telerik:RadMenuSeparatorItem />
                     <telerik:RadMenuItem Header="Employees" Click="btn_employee_Click" >

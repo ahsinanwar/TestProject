@@ -149,7 +149,12 @@ namespace TimeAttendanceSystem
                
             }
         }
-
+        private void btn_home_Click(object sender, RoutedEventArgs e)
+        {
+            
+            _mainFrame.Navigate(new DashView());
+        }
+       
         private void btn_employee_Click(object sender, RoutedEventArgs e)
         {
             
