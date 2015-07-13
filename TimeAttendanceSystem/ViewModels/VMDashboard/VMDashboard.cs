@@ -15,6 +15,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDashboard
     {
         private ObservableCollection<AssetClass> _value;
         private double _registeredUsers;
+        private DateTime _currentDate;
         public ObservableCollection<AssetClass> Value
         {
             get
@@ -52,6 +53,12 @@ namespace TimeAttendanceSystem.ViewModels.VMDashboard
             set { }
         
         }
+        public DateTime currentDate
+        {
+            get { return _currentDate; }
+            set { }
+
+        }
         public ObservableCollection<DailySummary> presence { get{
             return _presence;
         
@@ -74,6 +81,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDashboard
                       _presence.Add(_dummy[_dummy.Count-7+i]);
 
               _registeredUsers = context.Emps.Where(aa => aa.Status == true).Count();
+              _currentDate = _dummy.FirstOrDefault().Date.Value;
               _value = CreateInTimeValues();
               base.OnPropertyChanged("_registeredUsers");
               base.OnPropertyChanged("_presence");
