@@ -55,8 +55,8 @@
             <telerik:RadDataPager Source="{Binding listOfEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-            <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
-                <StackPanel Margin="0,0,0,0" Background="White">
+            <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,6,5,9" Width="331">
+                <StackPanel Margin="0,9,0,-1" Background="White" Width="346">
                     <!--Buttons Panel-->
                     <StackPanel Orientation="Horizontal" Margin="180,5,5,5">
                        
@@ -80,14 +80,14 @@
                         <StackPanel Width="381">
                             <Grid Height="100" Margin="0,0,22,0">
 
-                                <Image  x:Name="_image" Margin="10,3,266,0" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}">
+                                <Image  x:Name="_image" Margin="15,3,261,0" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}">
                                 </Image>
                                 <Button x:Name="btn_imageSelect" Content="..." Margin="66,68,292,15" RenderTransformOrigin="-0.967,0.333" Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}"/>
 
 
 
                                 <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="98,10,0,0"></Label>
-                                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Margin="162,14,0,0" IsEnabled="{Binding isEnabled}">
+                                <TextBox telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Margin="162,14,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
 
                                     <TextBox.Text>
                                         <Binding Path="selectedEmp.EmpNo" 
@@ -102,11 +102,11 @@
                                 </TextBox>
                                 <Label HorizontalAlignment="Left" Content="Name:" VerticalAlignment="Top" Height="28" Width="48"  Margin="109,36,0,0"/>
                                 <Label Content="Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,64,0,0"/>
-                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="165,67,0,0" VerticalAlignment="Top" Width="95" Height="22" IsEnabled="{Binding Path=isEnabled}" SelectedValue="{Binding Path=selectedEmp.Status,Mode=TwoWay}" SelectedValuePath="Tag">
+                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="165,67,0,0" VerticalAlignment="Top" Width="95" Height="22" IsEnabled="{Binding Path=isEnabled}" SelectedValue="{Binding Path=selectedEmp.Status,Mode=TwoWay}" SelectedValuePath="Tag" FontWeight="Bold">
                                     <telerik:RadComboBoxItem Tag="True" Content="Active"/>
                                     <telerik:RadComboBoxItem Tag="False" Content="Inactive"/>
                                 </telerik:RadComboBox>
-                                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="162,41,0,0" IsEnabled="{Binding isEnabled}">
+                                <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="162,41,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
                                     <TextBox.Text>
                                         <Binding Path="selectedEmp.EmpName" ValidatesOnExceptions="True" 
              UpdateSourceTrigger="PropertyChanged" 
@@ -120,7 +120,7 @@
                             </Grid>
                         </StackPanel>
                         <StackPanel>
-                            <TabControl Margin="0,0,50,0" Width="323" Background="White">
+                            <TabControl Margin="10,10,25,0" Background="White">
                                 <!--<TabItem Header="Leaves" >
                                         <Label Content="Content goes here..." />
                                     </TabItem>-->
@@ -139,55 +139,58 @@
                                         <Label Content="Location:" HorizontalAlignment="Left" Margin="61,164,0,0" VerticalAlignment="Top" FontSize="12" Width="63"/>
                                         <Label HorizontalAlignment="Left" Margin="157,473,0,-193" VerticalAlignment="Top"/>
                                         <Label Content="Crew:" HorizontalAlignment="Left" Margin="76,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.839"/>
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,16,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes}" 
-SelectedItem="{Binding selectedEmp.EmpType,Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="121,15,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes}" 
+                            				SelectedItem="{Binding selectedEmp.EmpType, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,41,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="DesignationName" SelectedValuePath="DesignationID" ItemsSource="{Binding listOfDesgs}"
-SelectedItem="{Binding selectedEmp.Designation,Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,67,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="GradeName" SelectedValuePath="GradeName" ItemsSource="{Binding listOfGrades}" SelectedItem="{Binding selectedEmp.Grade,Mode=TwoWay}" IsEnabled="{Binding isEnabled}"                                               />
+                            				SelectedItem="{Binding selectedEmp.Designation, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,67,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="GradeName" SelectedValuePath="GradeName" ItemsSource="{Binding listOfGrades}" SelectedItem="{Binding selectedEmp.Grade, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"                                               />
                                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,92,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="ShiftName" SelectedValuePath="ShiftID" ItemsSource="{Binding listOfShifts}"
-SelectedItem="{Binding selectedEmp.Shift,Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,118,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" ItemsSource="{Binding listOfDepts}" SelectedItem="{Binding  selectedEmp.Section.Department,Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,143,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="SectionName" SelectedValuePath="SectionID" SelectedItem="{Binding selectedSec}" ItemsSource="{Binding listOfSecs, Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,169,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="LocName" SelectedValuePath="LocID" SelectedItem="{Binding  selectedEmp.Location}" ItemsSource="{Binding listOfLocs, Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,195,0,0" VerticalAlignment="Top" Width="153" DisplayMemberPath="CrewName" SelectedValuePath="CrewID" SelectedItem="{Binding  selectedEmp.Crew}" ItemsSource="{Binding listOfCrews, Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
+                            				SelectedItem="{Binding selectedEmp.Shift, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,118,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" ItemsSource="{Binding listOfDepts}" SelectedItem="{Binding selectedEmp.Section.Department, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,143,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="SectionName" SelectedValuePath="SectionID" SelectedItem="{Binding selectedSec}" ItemsSource="{Binding listOfSecs, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,169,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="LocName" SelectedValuePath="LocID" SelectedItem="{Binding selectedEmp.Location}" ItemsSource="{Binding listOfLocs, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,195,0,0" VerticalAlignment="Top" Width="153" DisplayMemberPath="CrewName" SelectedValuePath="CrewID" SelectedItem="{Binding selectedEmp.Crew}" ItemsSource="{Binding listOfCrews, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                                         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,217,0,0" Content="Join Date:"/>
                                         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,247,0,0" Content="Valid Date:" />
-                                        <DatePicker  HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Margin="120,222,0,0" SelectedDate="{Binding selectedEmp.JoinDate, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
-                                        <DatePicker HorizontalAlignment="Left" Margin="120,251,0,0" VerticalAlignment="Top" Width="153" Height="22" SelectedDate="{Binding selectedEmp.ValidDate, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
+                                        <DatePicker  HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Margin="120,222,0,0" SelectedDate="{Binding selectedEmp.JoinDate, Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
+                                        <DatePicker HorizontalAlignment="Left" Margin="120,251,0,0" VerticalAlignment="Top" Width="153" Height="22" SelectedDate="{Binding selectedEmp.ValidDate, Mode=TwoWay}" IsEnabled="{Binding isEnabled}"/>
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="Personal" >
                                     <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
                                         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,12,0,0" Content="Father Name:"/>
-                                        <TextBox HorizontalAlignment="Left" Height="22" Margin="127,14,0,0"  VerticalAlignment="Top" Width="143" FontSize="18" Text="{Binding selectedEmp.FatherName}" IsEnabled="{Binding isEnabled}"/>
+                                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="22" Margin="127,14,0,0"  VerticalAlignment="Top" Width="143" FontSize="12" Text="{Binding selectedEmp.FatherName}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
 
-                                        <DatePicker HorizontalAlignment="Left" Margin="127,92,0,0" VerticalAlignment="Top" Width="143" IsEnabled="{Binding isEnabled}"/>
+                                        <DatePicker HorizontalAlignment="Left" Margin="127,92,0,0" VerticalAlignment="Top" Width="143" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
 
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.266,-0.312" IsEnabled="{Binding isEnabled}">
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.266,-0.312" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
                                             <ComboBoxItem x:Name="CBMale" Content="Male"/>
                                             <ComboBoxItem x:Name="CBFemale" Content="Female"/>
                                         </telerik:RadComboBox>
                                         <Label HorizontalAlignment="Left" Margin="63,37,0,0" VerticalAlignment="Top" Content="Gender:" />
                                         <Label HorizontalAlignment="Left" Margin="75,65,0,0" VerticalAlignment="Top" Content="CNIC:"/>
-                                        <TextBox HorizontalAlignment="Left" Margin="127,66,0,0"   VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.NicNo}" IsEnabled="{Binding isEnabled}"/>
+                                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="127,66,0,0"   VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.NicNo}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                                         <Label HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="66,171,0,0" Content="Cell No:" />
-                                        <TextBox HorizontalAlignment="Left" Height="22" Margin="127,173,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.CellNo}" IsEnabled="{Binding isEnabled}" />
+                                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="22" Margin="127,173,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.CellNo}" IsEnabled="{Binding isEnabled}" FontWeight="Bold" />
                                         <Label HorizontalAlignment="Left" Margin="35,90,0,0" VerticalAlignment="Top" Content="Date Of Birth:"/>
                                         <Label HorizontalAlignment="Left" Margin="72,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="55" Content="E-Mail:"/>
-                                        <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.Email}" Margin="127,146,0,0" IsEnabled="{Binding isEnabled}"/>
+                                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.Email}" Margin="127,146,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                                         <Label HorizontalAlignment="Left" Margin="32,118,0,0" VerticalAlignment="Top" Content="Martial Status:"/>
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="127,120,0,0" VerticalAlignment="Top" Width="143" IsEnabled="{Binding isEnabled}">
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="127,120,0,0" VerticalAlignment="Top" Width="143" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
                                             <ComboBoxItem Content="Married" />
                                             <ComboBoxItem Content="UnMarried" />
                                         </telerik:RadComboBox>
                                         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,197,0,0" Content="Remarks:"/>
-                                        <TextBox HorizontalAlignment="Left" Height="22" Margin="127,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.Remarks}" IsEnabled="{Binding isEnabled}"/>
-                                        <TextBox HorizontalAlignment="Left" Height="43" Margin="127,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.Adress}" IsEnabled="{Binding isEnabled}"/>
+                                        <TextBox telerik:StyleManager.Theme="Windows8" Height="22" Margin="127,199,21,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding selectedEmp.Remarks}" IsEnabled="{Binding isEnabled}" FontWeight="Bold" RenderTransformOrigin="0.455,0.591"/>
+                                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="43" Margin="127,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" Text="{Binding selectedEmp.Adress}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                                         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Content="Address:" Margin="62,232,0,0"/>
                                     </Grid>
-                                </TabItem>                               
+                                </TabItem>
                             </TabControl>
-                            <Button Width="53" Margin="150,20,0,30" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" />
+                            <Button  telerik:StyleManager.Theme="Windows8" Width="53" Margin="150,20,0,30" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" />
                         </StackPanel>
 
                     </StackPanel>
