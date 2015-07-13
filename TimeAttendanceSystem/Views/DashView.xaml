@@ -84,20 +84,20 @@
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="73*"/>
-            <RowDefinition Height="64*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220*"/>
             <ColumnDefinition Width="321*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" Margin="20,10,0,0">
             <Border
             		Height="70"
             		BorderBrush="#FFE0E0E0"
-            		Background="Green"
-            		CornerRadius="15"
+            		Background="#d52685"
+            		CornerRadius="5"
             		Margin="5,5,5,2"
             		BorderThickness="1" Width="130">
 
@@ -106,32 +106,15 @@
                         <RowDefinition Height="41*"/>
                         <RowDefinition Height="31*"/>
                     </Grid.RowDefinitions>
-                    <Label Foreground="White" FontSize="22" Content="{Binding registeredUsers}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
-                    <Label Foreground="White" FontSize="10" Content="Registered Users" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1"/>
+                    <Label Foreground="White" FontSize="18"  Content="{Binding currentDate}" Margin="10,34,0,5" HorizontalAlignment="Left" Width="105" Grid.RowSpan="2" FontWeight="Bold"/>
+                    <Label Foreground="White" FontSize="16" Content="Date" Height="32" Margin="35,2,36,5" VerticalAlignment="Center"/>
                 </Grid>
             </Border>
             <Border
             		Height="70"
             		BorderBrush="#FFE0E0E0"
-            		Background="Red"
-            		CornerRadius="15"
-            		Margin="5,5,5,2"
-            		BorderThickness="1" Width="130">
-
-                <Grid Margin="0,0.2,0,-0.2" Width="130">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="41*"/>
-                        <RowDefinition Height="31*"/>
-                    </Grid.RowDefinitions>
-                    <Label Foreground="White" FontSize="22" Content="{Binding inOffice}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
-                    <Label Foreground="White" FontSize="10" Content="In Office" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
-                </Grid>
-            </Border>
-            <Border
-            		Height="70"
-            		BorderBrush="#FFE0E0E0"
-            		Background="BlueViolet"
-            		CornerRadius="15"
+            		Background="#fd9f3e"
+            		CornerRadius="5"
             		Margin="5,5,5,2"
             		BorderThickness="1" Width="130">
 
@@ -140,16 +123,32 @@
                         <RowDefinition Height="41*"/>
                         <RowDefinition Height="31*"/>
                     </Grid.RowDefinitions>
-                    <Label Foreground="White" FontSize="22" Content="{Binding Absent}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
-                    <Label Foreground="White" FontSize="10" Content="Absent" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <Label Foreground="White" FontSize="20"  Content="{Binding registeredUsers}" Margin="39,29,29,0" HorizontalAlignment="Center" Width="57" Grid.RowSpan="2" FontWeight="Bold"/>
+                    <Label Foreground="White" FontSize="16" Content="Employees" Height="32" Margin="18,2,18,5" VerticalAlignment="Center"/>
                 </Grid>
-
             </Border>
             <Border
             		Height="70"
             		BorderBrush="#FFE0E0E0"
-            		Background="Crimson"
-            		CornerRadius="15"
+            		Background="#76b852"
+            		CornerRadius="5"
+            		Margin="5,5,5,2"
+            		BorderThickness="1" Width="130">
+
+                <Grid Margin="0,0.2,0,-0.2" Width="130">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="41*"/>
+                        <RowDefinition Height="31*"/>
+                    </Grid.RowDefinitions>
+                    <Label Foreground="White" FontSize="20" FontWeight="Bold" Content="{Binding inOffice}" Margin="48,34,20,0" HorizontalAlignment="Center" Width="62" Grid.RowSpan="2"/>
+                    <Label Foreground="White" FontSize="16" Content="Present" Height="32" Margin="35,2,33,5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="62"/>
+                </Grid>
+            </Border>
+            <Border
+            		Height="70"
+            		BorderBrush="#FFE0E0E0"
+            		Background="#ee4f4f"
+            		CornerRadius="5"
             		Margin="5,5,5,2"
             		BorderThickness="1" Width="130">
 
@@ -158,8 +157,26 @@
                         <RowDefinition Height="41*"/>
                         <RowDefinition Height="31*"/>
                     </Grid.RowDefinitions>
-                    <Label Foreground="White" FontSize="22" Content="{Binding AverageTimeIn}" Margin="0,0,0,18.2" HorizontalAlignment="Center" Width="125" Grid.RowSpan="2"/>
-                    <Label Foreground="White" FontSize="10" Content="Average Time In" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <Label Foreground="White" FontSize="20" FontWeight="Bold" Content="{Binding Absent}" Margin="49,32,15,0" HorizontalAlignment="Center" Width="61" Grid.RowSpan="2"/>
+                    <Label Foreground="White" FontSize="16" Content="Absent" Height="29" Margin="34,3,20,7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="71"/>
+                </Grid>
+
+            </Border>
+            <Border
+            		Height="70"
+            		BorderBrush="#FFE0E0E0"
+            		Background="#5482ab"
+            		CornerRadius="5"
+            		Margin="5,5,5,2"
+            		BorderThickness="1" Width="130">
+
+                <Grid Margin="0,0.2,0,-0.2" Width="125">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="41*"/>
+                        <RowDefinition Height="31*"/>
+                    </Grid.RowDefinitions>
+                    <Label Foreground="White" FontSize="20" FontWeight="Bold" Content="{Binding AverageTimeIn}" Margin="10,34,20,0" HorizontalAlignment="Center" Width="95" Grid.RowSpan="2"/>
+                    <Label Foreground="White" FontSize="16" Content="Avg. Time In" Height="32" Margin="10,2,10,5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="105"/>
                 </Grid>
 
 
@@ -168,8 +185,8 @@
             <Border
             		Height="70"
             		BorderBrush="#FFE0E0E0"
-            		Background="DarkGoldenrod"
-            		CornerRadius="15"
+            		Background="#71c6c1"
+            		CornerRadius="5"
             		Margin="5,5,5,2"
             		BorderThickness="1" Width="130">
 
@@ -178,8 +195,8 @@
                         <RowDefinition Height="41*"/>
                         <RowDefinition Height="31*"/>
                     </Grid.RowDefinitions>
-                    <Label Foreground="White" Content="{Binding AverageTimeOut}" FontSize="22" Margin="0,0,0,18.8" HorizontalAlignment="Center" Width="105" Grid.RowSpan="2"/>
-                    <Label Foreground="White" FontSize="9" Content="Average Time Out" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <Label Foreground="White" Content="{Binding AverageTimeOut}" FontWeight="Bold" FontSize="20" Margin="21,34,10,0" HorizontalAlignment="Center" Width="99" Grid.RowSpan="2"/>
+                    <Label Foreground="White" FontSize="16" Content="Avg. Time Out" Height="32" Margin="4,2,8,5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="118"/>
                 </Grid>
 
 
@@ -188,8 +205,8 @@
             <Border
             		Height="70"
             		BorderBrush="#FFE0E0E0"
-            		Background="BurlyWood"
-            		CornerRadius="15"
+            		Background="#47525d"
+            		CornerRadius="5"
             		Margin="5,5,5,2"
             		BorderThickness="1" Width="130">
 
@@ -198,19 +215,20 @@
                         <RowDefinition Height="41*"/>
                         <RowDefinition Height="31*"/>
                     </Grid.RowDefinitions>
-                    <Label Foreground="White" FontSize="22" Content="{Binding OnLeave}" Margin="36,0,0,18.4" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2"/>
-                    <Label Foreground="White" FontSize="9" Content="On Leave" Height="22" Margin="10,4.8,28,3.6" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <Label Foreground="White" FontSize="20" FontWeight="Bold" Content="{Binding OnLeave}" Margin="49,34,0,0" HorizontalAlignment="Left" Width="71" Grid.RowSpan="2"/>
+                    <Label Foreground="White" FontSize="16" Content="On Leave" Height="32" Margin="22,2,26,5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="82"/>
                 </Grid>
 
 
 
             </Border>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" >
-            <StackPanel Background="#FF25A0DA">
-                <Label  Foreground="White" FontSize="17" HorizontalAlignment="Center">Employee Presence</Label>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Margin="10,10,10,10">
+            <StackPanel Background="#004b79">
+                <Label  Foreground="White" FontSize="17" HorizontalAlignment="Left">Employee Presence</Label>
             </StackPanel>
-            <telerik:RadCartesianChart x:Name="xCartesianGraphPresence" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Palette="Windows8">
+            <Border>
+                <telerik:RadCartesianChart x:Name="xCartesianGraphPresence" Margin="10,15,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Palette="Windows8">
                 <telerik:RadCartesianChart.Resources>
                     <Style x:Key="axisLabelStyle" TargetType="{x:Type TextBlock}">
                         <Setter Property="FontFamily" Value="Segoe UI" />
@@ -230,25 +248,24 @@
                     <telerik:CartesianChartGrid MajorLinesVisibility="Y" />
                 </telerik:RadCartesianChart.Grid>
             </telerik:RadCartesianChart>
+            </Border>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" >
-            <StackPanel Background="#FF25A0DA">
-                <Label  Foreground="White" FontSize="17" HorizontalAlignment="Center">In/Out Analysis</Label>
+        <StackPanel Grid.Row="2" Grid.Column="1"  Margin="0,10,10,10">
+            <StackPanel Background="#004b79">
+                <Label  Foreground="White" FontSize="17" HorizontalAlignment="Left">In/Out Analysis</Label>
             </StackPanel>
-            <telerikChart:RadChart x:Name="chart" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="139">
-               
-
+            <telerikChart:RadChart x:Name="chart" Margin="10,15,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="230" BorderThickness="0">
             </telerikChart:RadChart>
             
 
         </StackPanel>
-        <StackPanel  Grid.Row="2" Grid.Column="0">
-            <StackPanel Background="#FF25A0DA">
-                <Label  Foreground="White" FontSize="17" HorizontalAlignment="Center">In-time Analysis</Label>
+        <StackPanel  Grid.Row="2" Grid.Column="0"  Margin="10,10,10,10">
+            <StackPanel Background="#004b79">
+                <Label  Foreground="White" FontSize="17" HorizontalAlignment="Left">In-time Analysis</Label>
             </StackPanel>
             <StackPanel DataContext="{Binding Value}">
-             <c:PieChartLayout HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0"
-                              x:Name="piePlotter" PlottedProperty="Fund" Margin="10">
+                <c:PieChartLayout Margin="10,15,5,5"  HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0"
+                              x:Name="piePlotter" PlottedProperty="Fund">
                     <c:PieChartLayout.ColorSelector>
                         <c:IndexedColourSelector Brushes="{StaticResource brushes}"/>
                     </c:PieChartLayout.ColorSelector>
@@ -256,11 +273,11 @@
 
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="1">
-            <StackPanel Background="#FF25A0DA">
-                <Label  Foreground="White" FontSize="17" HorizontalAlignment="Center">Work Time</Label>
+        <StackPanel Grid.Row="1" Grid.Column="1"  Margin="0,10,10,10">
+            <StackPanel Background="#004b79">
+                <Label  Foreground="White" FontSize="17" HorizontalAlignment="Left">Work Time</Label>
             </StackPanel>
-                <telerik:RadCartesianChart x:Name="ActualvsTargeted" Palette="Windows8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="820">
+                <telerik:RadCartesianChart Margin="10,15,5,5"  x:Name="ActualvsTargeted" Palette="Windows8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="820">
 
                     <telerik:RadCartesianChart.Resources>
 

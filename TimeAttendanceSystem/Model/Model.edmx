@@ -2372,7 +2372,7 @@
           <Key>
             <PropertyRef Name="MacClientID" />
           </Key>
-          <Property Name="MacClientID" Type="smallint" Nullable="false" />
+          <Property Name="MacClientID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MACAddress" Type="smallint" />
           <Property Name="ClientTabID" Type="int" />
         </EntityType>
@@ -6177,7 +6177,7 @@
           <Key>
             <PropertyRef Name="MacClientID" />
           </Key>
-          <Property Name="MacClientID" Type="Int16" Nullable="false" />
+          <Property Name="MacClientID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="MACAddress" Type="Int16" />
           <Property Name="ClientTabID" Type="Int32" />
           <NavigationProperty Name="ClientInfo" Relationship="TASDesktopModel.FK_ClientMAC_ClientInfo" FromRole="ClientMAC" ToRole="ClientInfo" />

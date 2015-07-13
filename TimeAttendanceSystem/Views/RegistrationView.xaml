@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="RegistrationView" Height="167.463" Width="413.433">
     <Grid>
-        <Label Content="Please Register yourself by entering the key" HorizontalAlignment="Left" Margin="53,41,0,0" VerticalAlignment="Top" Width="285"/>
-        <TextBox  x:Name="firsthalf" HorizontalAlignment="Left" Height="23" Margin="83,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
-        <Button Content="Register" HorizontalAlignment="Left" Margin="258,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Please Register By using the license" HorizontalAlignment="Left" Margin="102,22,0,0" VerticalAlignment="Top" Width="285" Grid.ColumnSpan="2"/>
+        <Button Content="Open License File" HorizontalAlignment="Left" Margin="109,82,0,0" VerticalAlignment="Top" Width="190" Click="Button_Click_1" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

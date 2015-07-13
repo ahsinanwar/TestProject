@@ -178,6 +178,8 @@
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
+    <Compile Include="HelperClasses\License.cs" />
+    <Compile Include="HelperClasses\Package.cs" />
     <Compile Include="HelperClasses\PopUp.cs" />
     <Compile Include="HelperClasses\StackedBarObject.cs" />
     <Compile Include="Model\AccessEmp.cs">
@@ -667,7 +669,7 @@
     <Compile Include="ViewModels\VMSection\Commands\AddCommandSec.cs" />
     <Compile Include="ViewModels\VMSection\Commands\DeleteCommandSec.cs" />
     <Compile Include="ViewModels\VMSection\Commands\EditCommandSec.cs" />
-    <Compile Include="ViewModels\VMSection\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\SaveCommandSec.cs" />
     <Compile Include="ViewModels\VMSection\VMSection.cs" />
     <Compile Include="ViewModels\VMShift\Commands\AddCommandShift.cs" />
     <Compile Include="ViewModels\VMShift\Commands\DeleteCommandShift.cs" />
@@ -697,6 +699,9 @@
     </Compile>
     <Compile Include="Views\DivisionView.xaml.cs">
       <DependentUpon>DivisionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DownloadingView.xaml.cs">
+      <DependentUpon>DownloadingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
@@ -891,6 +896,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DownloadingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EmployeeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1031,7 +1040,9 @@
     <Resource Include="Images\add.png" />
     <Resource Include="Images\delete.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\trackk_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
