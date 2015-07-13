@@ -29,7 +29,10 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
         public void Execute(object parameter)
         {
             VMEmpType vmd = (VMEmpType)parameter;
-            vmd.selectedEmpType = new EmpType();
+            vmd._selectedEmpType = new EmpType();
+            vmd._selectedEmpType.Category = vmd.listOfCats.FirstOrDefault();
+            vmd._selectedEmpType.CatID = vmd.selectedEmpType.Category.CatID;
+            vmd.selectedEmpType = vmd._selectedEmpType;
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

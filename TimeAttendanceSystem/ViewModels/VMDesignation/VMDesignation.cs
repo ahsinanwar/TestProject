@@ -115,6 +115,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation
         {
             entity = new TAS2013Entities();
             _selectedDesg = new Designation();
+            
             _listOfDesg = new ObservableCollection<Designation>(entity.Designations.ToList());
             _selectedDesg = entity.Designations.ToList().FirstOrDefault();
             this._AddCommand = new AddCommandDesg(_selectedDesg);

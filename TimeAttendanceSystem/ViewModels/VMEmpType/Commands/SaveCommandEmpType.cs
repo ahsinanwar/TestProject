@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
@@ -34,11 +36,27 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
            VMEmpType vmd= (VMEmpType)parameter;
            if (vmd.isAdding)
            {
-               context.EmpTypes.Add(vmd.selectedEmpType);
-               context.SaveChanges();
-               vmd.listOfEmpTypes.Add(vmd.selectedEmpType);
-               vmd.isEnabled = false;
-               vmd.isAdding = false;
+               if (vmd.selectedEmpType.TypeName == "" || vmd.selectedEmpType.TypeName == null)
+               {
+                   PopUp.popUp("Empty Value", "Please write Emp Type before saving", NotificationType.Warning);
+               }
+
+               else
+               {
+                   if (context.EmpTypes.Where(aa => aa.TypeName == vmd.selectedEmpType.TypeName).Count() > 0)
+                   {
+                       PopUp.popUp("Sorry!", "Emptype already been created", NotificationType.Warning);
+                   }
+                   else
+                   {
+                       context.EmpTypes.Add(vmd.selectedEmpType);
+                       context.SaveChanges();
+                       vmd.listOfEmpTypes.Add(vmd.selectedEmpType);
+                       vmd.isEnabled = false;
+                       vmd.isAdding = false;
+                       PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+                   }
+               }
 
            }
            else {
@@ -47,6 +65,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
                vmd.isEnabled = false;
                vmd.isAdding = false;
                context.SaveChanges();
+               PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
                 }
          
         }
