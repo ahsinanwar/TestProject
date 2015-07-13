@@ -568,6 +568,7 @@
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
     <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\SearchCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />

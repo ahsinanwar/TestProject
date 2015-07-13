@@ -34,10 +34,11 @@ namespace TimeAttendanceSystem.Views
             e.Cancel = true;
         }
 
-        private void btnOpenEmpList(object sender, RoutedEventArgs e)
+        private void btnOpenAttendance_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
         SelectEmpWindow window;
         private void btnOpenEmp_Click(object sender, RoutedEventArgs e)
         {
