@@ -130,6 +130,9 @@ namespace TimeAttendanceSystem
                     case "Over Time":
                         _mainFrame.Navigate(new DFOverTime());
                         break;
+                    case "Yearly Leaves":
+                        _mainFrame.Navigate(new YLSummary());
+                        break;
                 }
             }
         }

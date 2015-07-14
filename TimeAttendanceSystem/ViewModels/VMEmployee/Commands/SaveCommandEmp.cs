@@ -36,28 +36,28 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
             VMEmployee vmd = (VMEmployee)parameter;
             if (vmd.isAdding)
             {
-              if (vmd.selectedEmp.EmpName == "" || vmd.selectedEmp.EmpName == null)
-                   {
-                       PopUp.popUp("Empty Value", "Please write Emp Name before saving", NotificationType.Warning);
-                   }
-                      else if (vmd.selectedEmp.EmpNo == "" || vmd.selectedEmp.EmpNo == null)
-                            {
-                               PopUp.popUp("Empty Value", "Please write Emp No before saving", NotificationType.Warning);
-                            }
+                if (vmd.selectedEmp.EmpName == "" || vmd.selectedEmp.EmpName == null)
+                       {
+                           PopUp.popUp("Empty Value", "Please write Emp Name before saving", NotificationType.Warning);
+                       }
+                else if (vmd.selectedEmp.EmpNo == "" || vmd.selectedEmp.EmpNo == null)
+                    {
+                        PopUp.popUp("Empty Value", "Please write Emp No before saving", NotificationType.Warning);
+                    }
                   
-                        else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)
+                else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)
   
-                            {
-                               PopUp.popUp("Duplication", "Emp no already exit", NotificationType.Warning);
-                            }
-                        else
-                            {
+                    {
+                        PopUp.popUp("Duplication", "Emp no already exit", NotificationType.Warning);
+                    }
+                else
+                    {
                 
-                                context.Emps.Add(vmd.selectedEmp);
-                                context.SaveChanges();
-                                vmd.listOfEmps.Add(vmd.selectedEmp);
-                                PopUp.popUp("Congratulations", "Emp is Created", NotificationType.Warning);
-                            }
+                        context.Emps.Add(vmd.selectedEmp);
+                        context.SaveChanges();
+                        vmd.listOfEmps.Add(vmd.selectedEmp);
+                        PopUp.popUp("Congratulations", "Emp is Created", NotificationType.Warning);
+                    }
               }
        
             else
@@ -81,15 +81,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                 else
                 {
                     
-                }
-
-
-                
-
-                
+                }                       
                 context.SaveChanges();
-
-                
                 emp.EmpImageID = emp.EmpPhoto.PhotoID;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;

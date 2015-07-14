@@ -141,7 +141,7 @@
                             </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                             <telerik:RadMenuItem Header="Summary Reports">
-                                <telerik:RadMenuItem Header="Daily"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="Yearly Leaves"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Monthly"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
                             </telerik:RadMenuItem>

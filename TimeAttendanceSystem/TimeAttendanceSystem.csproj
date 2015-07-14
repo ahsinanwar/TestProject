@@ -544,6 +544,9 @@
     <Compile Include="Reports\ReportForms\Employee.xaml.cs">
       <DependentUpon>Employee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\YLSummary.xaml.cs">
+      <DependentUpon>YLSummary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\UserControls\RFCrews.xaml.cs">
       <DependentUpon>RFCrews.xaml</DependentUpon>
     </Compile>
@@ -822,6 +825,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reports\ReportForms\YLSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reports\UserControls\RFCrews.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1002,6 +1009,7 @@
     <EmbeddedResource Include="Reports\RDLC\REditAttendance.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\RLeaveQuota.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\RShortLeave.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\YLSummary.rdlc" />
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
