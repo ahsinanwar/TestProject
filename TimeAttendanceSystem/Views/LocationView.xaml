@@ -19,11 +19,11 @@
             <StackPanel Margin="5,5,5,5">
                 <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
-                        ItemsSource="{Binding listOfCities}" SelectedItem="{Binding selectedCity}" 
+                        ItemsSource="{Binding listOfLocs}" SelectedItem="{Binding selectedLoc}" 
                         VerticalAlignment="Top"  Height="260" Grid.RowSpan="2" 
                         CanUserFreezeColumns="False" MinWidth="387">
                     <telerik:RadGridView.Columns>
-                        <telerik:GridViewDataColumn Header="Location" DataMemberBinding="{Binding LocName}" />
+                        <telerik:GridViewDataColumn Header="Location" DataMemberBinding="{Binding    LocName}" />
                         <telerik:GridViewDataColumn Header="City" DataMemberBinding="{Binding City.CityName}" />
 
                         
@@ -61,7 +61,7 @@
                             <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="184,82,128,46"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.481,-0.045" />
                             <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                             <Label Content="City:" HorizontalAlignment="Left" Margin="72,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.963,0.318" FontSize="12"/>
-                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" Margin="110,55,128,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityName}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" Margin="110,55,128,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityID}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" FontWeight="Bold"/>
 
                         </Grid>
                     </StackPanel>

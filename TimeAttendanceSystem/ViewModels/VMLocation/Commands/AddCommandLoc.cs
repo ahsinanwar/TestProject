@@ -29,7 +29,18 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
         public void Execute(object parameter)
         {
             VMLocation vmd = (VMLocation)parameter;
-            vmd.selectedLoc = new Location();
+            vmd._selectedLoc = new Location();
+            vmd._selectedLoc.City = vmd.listOfCities.FirstOrDefault();
+            vmd._selectedLoc.City.CityID = vmd.selectedLoc.City.CityID;
+            vmd.selectedLoc = vmd._selectedLoc;
+
+            //VMEmpType vmd = (VMEmpType)parameter;
+            //vmd._selectedEmpType = new EmpType();
+            //vmd._selectedEmpType.Category = vmd.listOfCats.FirstOrDefault();
+            //vmd._selectedEmpType.CatID = vmd.selectedEmpType.Category.CatID;
+            //vmd.selectedEmpType = vmd._selectedEmpType;
+
+
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

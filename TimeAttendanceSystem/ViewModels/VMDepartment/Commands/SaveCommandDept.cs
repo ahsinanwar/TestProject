@@ -69,6 +69,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     context.SaveChanges();
+                    PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+              
                 }
             }
 

@@ -29,7 +29,30 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
         public void Execute(object parameter)
         {
             VMEmployee vmd = (VMEmployee)parameter;
-            vmd.selectedEmp = new Emp();
+            vmd._selectedEmp = new Emp();
+            vmd._selectedEmp.EmpType = vmd.listOfEmpTypes.FirstOrDefault();
+            vmd._selectedEmp.TypeID = vmd.selectedEmp.EmpType.TypeID;
+            vmd._selectedEmp.Designation = vmd.listOfDesgs.FirstOrDefault();
+            vmd._selectedEmp.DesigID = vmd.selectedEmp.Designation.DesignationID;
+            vmd._selectedEmp.Grade = vmd.listOfGrades.FirstOrDefault();
+            vmd._selectedEmp.GradeID = vmd.selectedEmp.Grade.GradeID;
+            vmd._selectedEmp.Shift = vmd.listOfShifts.FirstOrDefault();
+            vmd._selectedEmp.ShiftID = vmd.selectedEmp.Shift.ShiftID;
+            vmd._selectedEmp.Location = vmd.listOfLocs.FirstOrDefault();
+            vmd._selectedEmp.LocID = vmd.selectedEmp.Location.LocID;
+            vmd._selectedEmp.Crew = vmd.listOfCrews.FirstOrDefault();
+            vmd._selectedEmp.CrewID = vmd.selectedEmp.Crew.CrewID;
+            vmd._selectedEmp.JoinDate = DateTime.Today;
+            //vmd._selectedEmp.Status = vmd.selectedEmp.Status.Value;
+            
+            vmd._selectedEmp.ValidDate = DateTime.Today.AddYears(10);
+           
+            vmd.selectedEmp = vmd._selectedEmp;
+
+            //vmd._selectedDept.Division = vmd.listOfDivs.FirstOrDefault();
+            //vmd._selectedDept.DivID = vmd.selectedDept.Division.DivisionID;
+            //vmd.selectedDept = vmd._selectedDept;
+
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();
