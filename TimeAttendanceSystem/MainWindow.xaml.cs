@@ -167,5 +167,10 @@ namespace TimeAttendanceSystem
             _mainFrame.Navigate(new AttEditView());
         }
 
+        private void _mainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
+
     }
 }
