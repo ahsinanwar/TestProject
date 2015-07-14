@@ -407,6 +407,11 @@
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\TASReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -1016,6 +1021,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
+    </None>
+    <None Include="Model\TASReportDataset.xsc">
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Model\TASReportDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TASReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Model\TASReportDataset.xss">
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
