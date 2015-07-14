@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
@@ -34,11 +36,28 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
             VMCrew vmd = (VMCrew)parameter;
             if (vmd.isAdding)
             {
-                context.Crews.Add(vmd.selectedCrew);
-                context.SaveChanges();
-                vmd.listOfCrews.Add(vmd.selectedCrew);
-                vmd.isEnabled = false;
-                vmd.isAdding = false;
+                if (vmd.selectedCrew.CrewName == "" || vmd.selectedCrew.CrewName == null)
+                {
+                    PopUp.popUp("Empty Value", "Please write Crew name before saving", NotificationType.Warning);
+                }
+
+                else
+                {
+                    if (context.Crews.Where(aa => aa.CrewName == vmd.selectedCrew.CrewName).Count() > 0)
+                    {
+                        PopUp.popUp("Sorry!", "Crew already been created", NotificationType.Warning);
+                    }
+                    else
+                    {
+                        context.Crews.Add(vmd.selectedCrew);
+                        context.SaveChanges();
+                        vmd.listOfCrews.Add(vmd.selectedCrew);
+                        vmd.isEnabled = false;
+                        vmd.isAdding = false;
+                        PopUp.popUp("Congratulations", "A Crew is Created", NotificationType.Warning);
+                  
+                    }
+                }
 
             }
             else
@@ -48,6 +67,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+                  
             }
 
         }

@@ -30,6 +30,10 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
         {
             VMCrew vmd = (VMCrew)parameter;
             vmd.selectedCrew = new Crew();
+            //vmd._selectedCrew = vmd.listOfCrews.FirstOrDefault();
+            //vmd._selectedCrew.CrewID = vmd.selectedCrew.CrewID;
+            //vmd.selectedCrew = vmd._selectedCrew;
+
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

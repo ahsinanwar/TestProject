@@ -15,6 +15,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
     {
         #region Intialization
         public Location _selectedLoc;
+        public City _selectedCity;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -125,9 +126,11 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
         {
             entity = new TAS2013Entities();
             _selectedLoc = new Location();
+         
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             _selectedLoc = entity.Locations.ToList().FirstOrDefault();
             _listOfCities = new ObservableCollection<City>(entity.Cities.ToList());
+            _selectedCity = entity.Cities.ToList().FirstOrDefault();
             this._AddCommand = new AddCommandLoc(_selectedLoc);
             this._EditCommand = new EditCommandLoc(this);
             this._DeleteCommand = new DeleteCommandLoc(_selectedLoc);
