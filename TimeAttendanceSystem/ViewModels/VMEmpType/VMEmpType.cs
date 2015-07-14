@@ -15,6 +15,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
     {
         #region Intialization
         public EmpType _selectedEmpType;
+        public Category _selectedCat;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -40,6 +41,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
             }
         }
         private ObservableCollection<EmpType> _listOfEmpTypes;
+        private ObservableCollection<Category> _listOfCats;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -70,6 +72,16 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
             {
                 listOfEmpTypes = value;
                 OnPropertyChanged("listOfEmpTypes");
+            }
+        }
+        public ObservableCollection<Category> listOfCats
+        {
+            get { return _listOfCats; }
+
+            set
+            {
+                listOfCats = value;
+                OnPropertyChanged("listOfCats");
             }
         }
         #endregion
@@ -115,7 +127,9 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
         {
             entity = new TAS2013Entities();
             _selectedEmpType = new EmpType();
+          
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
+            _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
             _selectedEmpType = entity.EmpTypes.ToList().FirstOrDefault();
             this._AddCommand = new AddCommandEmpType(_selectedEmpType);
             this._EditCommand = new EditCommandEmpType(this);
@@ -124,6 +138,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandEmpType(this);
             base.OnPropertyChanged("_listOfEmpTypes");
+            base.OnPropertyChanged("_listOfCats");
         }
         #endregion
     }

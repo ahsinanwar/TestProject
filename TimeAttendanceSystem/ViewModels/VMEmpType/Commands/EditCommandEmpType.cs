@@ -30,6 +30,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
         public void Execute(object parameter)
         {
             VMEmpType vmd = (VMEmpType)parameter;
+            
+
             vmd.isEnabled = true;
             vmd.isAdding = false;
 
