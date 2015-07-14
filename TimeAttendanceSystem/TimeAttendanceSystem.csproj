@@ -1044,6 +1044,9 @@
   <ItemGroup>
     <Resource Include="Images\trackk_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\VMJobCard\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

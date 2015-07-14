@@ -222,6 +222,26 @@
 
 
             </Border>
+            <Border
+            		Height="70"
+            		BorderBrush="#FFE0E0E0"
+            		Background="#70b29c"
+            		CornerRadius="5"
+            		Margin="5,5,5,2"
+            		BorderThickness="1" Width="130">
+
+                <Grid Margin="0,0.2,0,-0.2" Width="130">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="41*"/>
+                        <RowDefinition Height="31*"/>
+                    </Grid.RowDefinitions>
+                    <Label Foreground="White" FontSize="20" FontWeight="Bold" Content="{Binding OnLeave}" Margin="49,34,0,0" HorizontalAlignment="Left" Width="71" Grid.RowSpan="2"/>
+                    <Label Foreground="White" FontSize="16" Content="On Leave" Height="32" Margin="22,2,26,5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="82"/>
+                </Grid>
+
+
+
+            </Border>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Margin="10,10,10,10">
             <StackPanel Background="#004b79">

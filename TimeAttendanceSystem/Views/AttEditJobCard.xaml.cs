@@ -19,6 +19,7 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class AttEditJobCard : Window
     {
+
         public AttEditJobCard()
         {
             InitializeComponent();

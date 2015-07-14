@@ -63,12 +63,15 @@
                     <telerik:RadMenuItem Header="Shifts" Click="btn_shift_Click">
                     </telerik:RadMenuItem>
                     <telerik:RadMenuSeparatorItem />
-                    <telerik:RadMenuItem Header="Leaves" >
+                        <telerik:RadMenuItem Header="Leaves" Click="btn_leave_Click">
                     </telerik:RadMenuItem>
                     <telerik:RadMenuSeparatorItem />
-                    <telerik:RadMenuItem Header="Edit Attendance" Click="Button_Click_1" >
+                        <telerik:RadMenuItem Header="Attendance Edit" Click="Button_Click_1" >
                     </telerik:RadMenuItem>
-                </telerik:RadMenu>
+                        <telerik:RadMenuSeparatorItem />
+                        <telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" >
+                        </telerik:RadMenuItem>
+                    </telerik:RadMenu>
             </StackPanel>
             </Border>
             <StackPanel Grid.Row="2" Grid.Column="0">
@@ -147,7 +150,7 @@
             </StackPanel>
             <Border Grid.Column="1" Grid.Row="2" Background="white">
                 <Frame  x:Name="_mainFrame" ScrollViewer.VerticalScrollBarVisibility="Visible" 
-    ScrollViewer.CanContentScroll="True" NavigationUIVisibility="Hidden" Margin="3,0,0,0" Navigated="_mainFrame_Navigated">
+    ScrollViewer.CanContentScroll="True" NavigationUIVisibility="Hidden" Margin="3,0,0,0">
                 </Frame>
             </Border>
         </Grid>

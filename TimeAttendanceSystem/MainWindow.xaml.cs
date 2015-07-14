@@ -88,7 +88,6 @@ namespace TimeAttendanceSystem
                         break;
                     case "Application":
                         _mainFrame.Navigate(new LvApplicationView());
-
                         break;
 
                     case "Employee":
@@ -167,10 +166,13 @@ namespace TimeAttendanceSystem
             _mainFrame.Navigate(new AttEditView());
         }
 
-        private void _mainFrame_Navigated(object sender, NavigationEventArgs e)
+        private void btn_leave_Click(object sender, RoutedEventArgs e)
         {
-
+            _mainFrame.Navigate(new LvApplicationView());
         }
-
+        private void btn_JobCard_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new AttEditJobCard());
+        }
     }
 }
