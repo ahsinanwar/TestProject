@@ -140,7 +140,7 @@ namespace TimeAttendanceSystem
                         _mainFrame.Navigate(new MFAttSheetxaml());
                         break;
                     case "Attendance Summary":
-                        _mainFrame.Navigate(new MFAttSheetxaml());
+                        _mainFrame.Navigate(new MFAttSummary());
                         break;
                 }
             }
