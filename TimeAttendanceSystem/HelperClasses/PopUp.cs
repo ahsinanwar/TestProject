@@ -20,7 +20,12 @@ namespace TimeAttendanceSystem.HelperClasses
                        new Action(delegate
             {
 
-                new ToastPopUp(title, Message,note)
+                new ToastPopUp(title, Message, note)
+                {
+                    Background = new SolidColorBrush(Color.FromRgb(37, 160, 218)),
+                    BorderBrush = new SolidColorBrush(Color.FromRgb(37, 160, 218)),
+                    FontColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255))
+                }
                .Show();
             }));
         
