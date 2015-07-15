@@ -407,6 +407,10 @@
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\TASReportDataset.cs">
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\TASReportDataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -543,6 +547,15 @@
     </Compile>
     <Compile Include="Reports\ReportForms\Employee.xaml.cs">
       <DependentUpon>Employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MFAttSheetxaml.xaml.cs">
+      <DependentUpon>MFAttSheetxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MFAttSummary.xaml.cs">
+      <DependentUpon>MFAttSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MFLeaves.xaml.cs">
+      <DependentUpon>MFLeaves.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports\ReportForms\YLSummary.xaml.cs">
       <DependentUpon>YLSummary.xaml</DependentUpon>
@@ -822,6 +835,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reports\ReportForms\Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\MFAttSheetxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\MFAttSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\MFLeaves.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

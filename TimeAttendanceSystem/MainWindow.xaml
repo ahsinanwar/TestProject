@@ -135,9 +135,9 @@
                             </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                             <telerik:RadMenuItem Header="Monthly Reports">
-                                <telerik:RadMenuItem Header="Daily"></telerik:RadMenuItem>
-                                <telerik:RadMenuItem Header="Monthly"></telerik:RadMenuItem>
-                                <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="Leave Quota"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Attendance Sheet"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="Attendance Summary"></telerik:RadMenuItem>
                             </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                             <telerik:RadMenuItem Header="Summary Reports">

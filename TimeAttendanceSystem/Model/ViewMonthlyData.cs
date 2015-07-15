@@ -99,10 +99,8 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> OT31 { get; set; }
         public string DesignationName { get; set; }
         public string GradeName { get; set; }
-        public string CompName { get; set; }
         public string JobTitle { get; set; }
         public string CityName { get; set; }
-        public string RegionName { get; set; }
         public string CrewName { get; set; }
         public string LocName { get; set; }
         public string SectionName { get; set; }
@@ -122,7 +120,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<bool> FlagCard { get; set; }
         public string DivisionName { get; set; }
         public string CardNo { get; set; }
-        public Nullable<short> CompanyID { get; set; }
         public Nullable<byte> TypeID { get; set; }
         public Nullable<short> CatID { get; set; }
         public string L1 { get; set; }
