@@ -15,7 +15,7 @@ namespace TimeAttendanceSystem.Model
     public partial class ClientMAC
     {
         public short MacClientID { get; set; }
-        public Nullable<short> MACAddress { get; set; }
+        public string MACAddress { get; set; }
         public Nullable<int> ClientTabID { get; set; }
     
         public virtual ClientInfo ClientInfo { get; set; }

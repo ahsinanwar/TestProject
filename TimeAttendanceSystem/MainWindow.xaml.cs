@@ -142,6 +142,12 @@ namespace TimeAttendanceSystem
                     case "Attendance Summary":
                         _mainFrame.Navigate(new MFAttSheetxaml());
                         break;
+                    case "By Company":
+                        _mainFrame.Navigate(new SDailyCompany());
+                        break;
+                    case "By Department":
+                        _mainFrame.Navigate(new SDailyDept());
+                        break;
                 }
             }
         }

@@ -179,32 +179,7 @@
           <EntitySet Name="ClientLicense" EntityType="TASDesktopModel.Store.ClientLicense" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ClientMAC" EntityType="TASDesktopModel.Store.ClientMAC" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Crew" EntityType="TASDesktopModel.Store.Crew" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="DailySumDept" EntityType="TASDesktopModel.Store.DailySumDept" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="DailySumLoc" EntityType="TASDesktopModel.Store.DailySumLoc" store:Type="Tables" store:Schema="dbo" store:Name="DailySumLoc">
-            <DefiningQuery>SELECT 
-      [DailySumLoc].[LocDate] AS [LocDate], 
-      [DailySumLoc].[LocID] AS [LocID], 
-      [DailySumLoc].[SummaryDate] AS [SummaryDate], 
-      [DailySumLoc].[TotalEmp] AS [TotalEmp], 
-      [DailySumLoc].[PresentEmp] AS [PresentEmp], 
-      [DailySumLoc].[AbsentEmp] AS [AbsentEmp], 
-      [DailySumLoc].[LateIn] AS [LateIn], 
-      [DailySumLoc].[LateOut] AS [LateOut], 
-      [DailySumLoc].[EarlyIn] AS [EarlyIn], 
-      [DailySumLoc].[EarlyOut] AS [EarlyOut], 
-      [DailySumLoc].[OverTime] AS [OverTime], 
-      [DailySumLoc].[LeavesEmp] AS [LeavesEmp], 
-      [DailySumLoc].[ShortLeaveEmp] AS [ShortLeaveEmp], 
-      [DailySumLoc].[HalfLeaveEmp] AS [HalfLeaveEmp], 
-      [DailySumLoc].[CompanyID] AS [CompanyID], 
-      [DailySumLoc].[ALeaves] AS [ALeaves], 
-      [DailySumLoc].[CLeaves] AS [CLeaves], 
-      [DailySumLoc].[SLeaves] AS [SLeaves]
-      FROM [dbo].[DailySumLoc] AS [DailySumLoc]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="DailySummary" EntityType="TASDesktopModel.Store.DailySummary" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="DailySumSection" EntityType="TASDesktopModel.Store.DailySumSection" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="DailySumShift" EntityType="TASDesktopModel.Store.DailySumShift" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DailyTimeMonitor" EntityType="TASDesktopModel.Store.DailyTimeMonitor" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DaysName" EntityType="TASDesktopModel.Store.DaysName" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Department" EntityType="TASDesktopModel.Store.Department" store:Type="Tables" Schema="dbo" />
@@ -1777,18 +1752,6 @@
             <End Role="City" EntitySet="City" />
             <End Role="Site" EntitySet="Site" />
           </AssociationSet>
-          <AssociationSet Name="FK_SummaryDepartment_Department" Association="TASDesktopModel.Store.FK_SummaryDepartment_Department">
-            <End Role="Department" EntitySet="Department" />
-            <End Role="DailySumDept" EntitySet="DailySumDept" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SummarySection_Section" Association="TASDesktopModel.Store.FK_SummarySection_Section">
-            <End Role="Section" EntitySet="Section" />
-            <End Role="DailySumSection" EntitySet="DailySumSection" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SummaryShift_Shift" Association="TASDesktopModel.Store.FK_SummaryShift_Shift">
-            <End Role="Shift" EntitySet="Shift" />
-            <End Role="DailySumShift" EntitySet="DailySumShift" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_Emp" Association="TASDesktopModel.Store.FK_User_Emp">
             <End Role="Emp" EntitySet="Emp" />
             <End Role="User" EntitySet="User" />
@@ -2370,7 +2333,7 @@
             <PropertyRef Name="MacClientID" />
           </Key>
           <Property Name="MacClientID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="MACAddress" Type="smallint" />
+          <Property Name="MACAddress" Type="varchar(max)" />
           <Property Name="ClientTabID" Type="int" />
         </EntityType>
         <EntityType Name="Crew">
@@ -2380,61 +2343,14 @@
           <Property Name="CrewID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="DailySumDept">
-          <Key>
-            <PropertyRef Name="DeptDate" />
-          </Key>
-          <Property Name="DeptDate" Type="int" Nullable="false" />
-          <Property Name="DeptID" Type="smallint" />
-          <Property Name="SummaryDate" Type="datetime" />
-          <Property Name="TotalEmp" Type="smallint" />
-          <Property Name="PresentEmp" Type="smallint" />
-          <Property Name="AbsentEmp" Type="smallint" />
-          <Property Name="LateIn" Type="smallint" />
-          <Property Name="LateOut" Type="smallint" />
-          <Property Name="EarlyIn" Type="smallint" />
-          <Property Name="EarlyOut" Type="smallint" />
-          <Property Name="OverTime" Type="smallint" />
-          <Property Name="LeavesEmp" Type="smallint" />
-          <Property Name="ShortLeaveEmp" Type="smallint" />
-          <Property Name="HalfLeaveEmp" Type="smallint" />
-          <Property Name="CompanyID" Type="smallint" />
-          <Property Name="ALeaves" Type="smallint" />
-          <Property Name="CLeaves" Type="smallint" />
-          <Property Name="SLeaves" Type="smallint" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'TASDesktop.dbo.DailySumLoc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="DailySumLoc">
-          <Key>
-            <PropertyRef Name="LocDate" />
-          </Key>
-          <Property Name="LocDate" Type="int" Nullable="false" />
-          <Property Name="LocID" Type="smallint" />
-          <Property Name="SummaryDate" Type="datetime" />
-          <Property Name="TotalEmp" Type="smallint" />
-          <Property Name="PresentEmp" Type="smallint" />
-          <Property Name="AbsentEmp" Type="smallint" />
-          <Property Name="LateIn" Type="smallint" />
-          <Property Name="LateOut" Type="smallint" />
-          <Property Name="EarlyIn" Type="smallint" />
-          <Property Name="EarlyOut" Type="smallint" />
-          <Property Name="OverTime" Type="smallint" />
-          <Property Name="LeavesEmp" Type="smallint" />
-          <Property Name="ShortLeaveEmp" Type="smallint" />
-          <Property Name="HalfLeaveEmp" Type="smallint" />
-          <Property Name="CompanyID" Type="smallint" />
-          <Property Name="ALeaves" Type="smallint" />
-          <Property Name="CLeaves" Type="smallint" />
-          <Property Name="SLeaves" Type="smallint" />
-        </EntityType>
         <EntityType Name="DailySummary">
           <Key>
             <PropertyRef Name="SummaryDateCriteria" />
           </Key>
           <Property Name="SummaryDateCriteria" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="Criteria" Type="nvarchar" MaxLength="10" />
+          <Property Name="Criteria" Type="char" MaxLength="1" />
+          <Property Name="CriteriaValue" Type="smallint" />
+          <Property Name="CriteriaName" Type="nvarchar" MaxLength="100" />
           <Property Name="Date" Type="datetime" />
           <Property Name="TotalEmps" Type="smallint" />
           <Property Name="PresentEmps" Type="smallint" />
@@ -2467,53 +2383,6 @@
           <Property Name="ALossMins" Type="smallint" />
           <Property Name="AvgTimeIn" Type="time" />
           <Property Name="AvgTimeOut" Type="time" />
-        </EntityType>
-        <EntityType Name="DailySumSection">
-          <Key>
-            <PropertyRef Name="SectionDate" />
-          </Key>
-          <Property Name="SectionDate" Type="int" Nullable="false" />
-          <Property Name="SectionID" Type="smallint" />
-          <Property Name="SummaryDate" Type="datetime" />
-          <Property Name="TotalEmp" Type="smallint" />
-          <Property Name="PresentEmp" Type="smallint" />
-          <Property Name="AbsentEmp" Type="smallint" />
-          <Property Name="LateIn" Type="smallint" />
-          <Property Name="LateOut" Type="smallint" />
-          <Property Name="EarlyIn" Type="smallint" />
-          <Property Name="EarlyOut" Type="smallint" />
-          <Property Name="OverTime" Type="smallint" />
-          <Property Name="LeavesEmp" Type="smallint" />
-          <Property Name="ShortLeaveEmp" Type="smallint" />
-          <Property Name="HalfLeaveEmp" Type="smallint" />
-          <Property Name="LateInMins" Type="time" />
-          <Property Name="LateOutMins" Type="time" />
-          <Property Name="EarlyInMins" Type="time" />
-          <Property Name="EarlyOutMins" Type="time" />
-          <Property Name="OverTimeMins" Type="time" />
-          <Property Name="ExpectedWorkMins" Type="time" />
-          <Property Name="ActualWorkMins" Type="time" />
-          <Property Name="LossWorkMins" Type="time" />
-        </EntityType>
-        <EntityType Name="DailySumShift">
-          <Key>
-            <PropertyRef Name="ShiftDate" />
-          </Key>
-          <Property Name="ShiftDate" Type="int" Nullable="false" />
-          <Property Name="ShiftID" Type="tinyint" />
-          <Property Name="SummaryDate" Type="datetime" />
-          <Property Name="TotalEmp" Type="smallint" />
-          <Property Name="PresentEmp" Type="smallint" />
-          <Property Name="AbsentEmp" Type="smallint" />
-          <Property Name="LateIn" Type="smallint" />
-          <Property Name="LateOut" Type="smallint" />
-          <Property Name="EarlyIn" Type="smallint" />
-          <Property Name="EarlyOut" Type="smallint" />
-          <Property Name="OverTime" Type="smallint" />
-          <Property Name="LeavesEmp" Type="smallint" />
-          <Property Name="ShortLeaveEmp" Type="smallint" />
-          <Property Name="HalfLeaveEmp" Type="smallint" />
-          <Property Name="CompanyID" Type="smallint" />
         </EntityType>
         <EntityType Name="DailyTimeMonitor">
           <Key>
@@ -5185,42 +5054,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SummaryDepartment_Department">
-          <End Role="Department" Type="TASDesktopModel.Store.Department" Multiplicity="0..1" />
-          <End Role="DailySumDept" Type="TASDesktopModel.Store.DailySumDept" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="DeptID" />
-            </Principal>
-            <Dependent Role="DailySumDept">
-              <PropertyRef Name="DeptID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SummarySection_Section">
-          <End Role="Section" Type="TASDesktopModel.Store.Section" Multiplicity="0..1" />
-          <End Role="DailySumSection" Type="TASDesktopModel.Store.DailySumSection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Section">
-              <PropertyRef Name="SectionID" />
-            </Principal>
-            <Dependent Role="DailySumSection">
-              <PropertyRef Name="SectionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SummaryShift_Shift">
-          <End Role="Shift" Type="TASDesktopModel.Store.Shift" Multiplicity="0..1" />
-          <End Role="DailySumShift" Type="TASDesktopModel.Store.DailySumShift" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Shift">
-              <PropertyRef Name="ShiftID" />
-            </Principal>
-            <Dependent Role="DailySumShift">
-              <PropertyRef Name="ShiftID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_Emp">
           <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="0..1" />
           <End Role="User" Type="TASDesktopModel.Store.User" Multiplicity="*" />
@@ -5316,11 +5149,7 @@
           <EntitySet Name="ClientLicenses" EntityType="TASDesktopModel.ClientLicense" />
           <EntitySet Name="ClientMACs" EntityType="TASDesktopModel.ClientMAC" />
           <EntitySet Name="Crews" EntityType="TASDesktopModel.Crew" />
-          <EntitySet Name="DailySumDepts" EntityType="TASDesktopModel.DailySumDept" />
-          <EntitySet Name="DailySumLocs" EntityType="TASDesktopModel.DailySumLoc" />
           <EntitySet Name="DailySummaries" EntityType="TASDesktopModel.DailySummary" />
-          <EntitySet Name="DailySumSections" EntityType="TASDesktopModel.DailySumSection" />
-          <EntitySet Name="DailySumShifts" EntityType="TASDesktopModel.DailySumShift" />
           <EntitySet Name="DailyTimeMonitors" EntityType="TASDesktopModel.DailyTimeMonitor" />
           <EntitySet Name="DaysNames" EntityType="TASDesktopModel.DaysName" />
           <EntitySet Name="Departments" EntityType="TASDesktopModel.Department" />
@@ -5442,18 +5271,6 @@
           <AssociationSet Name="FK_Emp_Crew" Association="TASDesktopModel.FK_Emp_Crew">
             <End Role="Crew" EntitySet="Crews" />
             <End Role="Emp" EntitySet="Emps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SummaryDepartment_Department" Association="TASDesktopModel.FK_SummaryDepartment_Department">
-            <End Role="Department" EntitySet="Departments" />
-            <End Role="DailySumDept" EntitySet="DailySumDepts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SummarySection_Section" Association="TASDesktopModel.FK_SummarySection_Section">
-            <End Role="Section" EntitySet="Sections" />
-            <End Role="DailySumSection" EntitySet="DailySumSections" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SummaryShift_Shift" Association="TASDesktopModel.FK_SummaryShift_Shift">
-            <End Role="Shift" EntitySet="Shifts" />
-            <End Role="DailySumShift" EntitySet="DailySumShifts" />
           </AssociationSet>
           <AssociationSet Name="FK_Shift_DaysName" Association="TASDesktopModel.FK_Shift_DaysName">
             <End Role="DaysName" EntitySet="DaysNames" />
@@ -6170,7 +5987,7 @@
             <PropertyRef Name="MacClientID" />
           </Key>
           <Property Type="Int16" Name="MacClientID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int16" Name="MACAddress" />
+          <Property Type="String" Name="MACAddress" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="ClientTabID" />
           <NavigationProperty Name="ClientInfo" Relationship="TASDesktopModel.FK_ClientMAC_ClientInfo" FromRole="ClientMAC" ToRole="ClientInfo" />
         </EntityType>
@@ -6182,59 +5999,14 @@
           <Property Type="String" Name="CrewName" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Crew" FromRole="Crew" ToRole="Emp" />
         </EntityType>
-        <EntityType Name="DailySumDept">
-          <Key>
-            <PropertyRef Name="DeptDate" />
-          </Key>
-          <Property Type="Int32" Name="DeptDate" Nullable="false" />
-          <Property Type="Int16" Name="DeptID" />
-          <Property Type="DateTime" Name="SummaryDate" Precision="3" />
-          <Property Type="Int16" Name="TotalEmp" />
-          <Property Type="Int16" Name="PresentEmp" />
-          <Property Type="Int16" Name="AbsentEmp" />
-          <Property Type="Int16" Name="LateIn" />
-          <Property Type="Int16" Name="LateOut" />
-          <Property Type="Int16" Name="EarlyIn" />
-          <Property Type="Int16" Name="EarlyOut" />
-          <Property Type="Int16" Name="OverTime" />
-          <Property Type="Int16" Name="LeavesEmp" />
-          <Property Type="Int16" Name="ShortLeaveEmp" />
-          <Property Type="Int16" Name="HalfLeaveEmp" />
-          <Property Type="Int16" Name="CompanyID" />
-          <Property Type="Int16" Name="ALeaves" />
-          <Property Type="Int16" Name="CLeaves" />
-          <Property Type="Int16" Name="SLeaves" />
-          <NavigationProperty Name="Department" Relationship="TASDesktopModel.FK_SummaryDepartment_Department" FromRole="DailySumDept" ToRole="Department" />
-        </EntityType>
-        <EntityType Name="DailySumLoc">
-          <Key>
-            <PropertyRef Name="LocDate" />
-          </Key>
-          <Property Type="Int32" Name="LocDate" Nullable="false" />
-          <Property Type="Int16" Name="LocID" />
-          <Property Type="DateTime" Name="SummaryDate" Precision="3" />
-          <Property Type="Int16" Name="TotalEmp" />
-          <Property Type="Int16" Name="PresentEmp" />
-          <Property Type="Int16" Name="AbsentEmp" />
-          <Property Type="Int16" Name="LateIn" />
-          <Property Type="Int16" Name="LateOut" />
-          <Property Type="Int16" Name="EarlyIn" />
-          <Property Type="Int16" Name="EarlyOut" />
-          <Property Type="Int16" Name="OverTime" />
-          <Property Type="Int16" Name="LeavesEmp" />
-          <Property Type="Int16" Name="ShortLeaveEmp" />
-          <Property Type="Int16" Name="HalfLeaveEmp" />
-          <Property Type="Int16" Name="CompanyID" />
-          <Property Type="Int16" Name="ALeaves" />
-          <Property Type="Int16" Name="CLeaves" />
-          <Property Type="Int16" Name="SLeaves" />
-        </EntityType>
         <EntityType Name="DailySummary">
           <Key>
             <PropertyRef Name="SummaryDateCriteria" />
           </Key>
           <Property Type="String" Name="SummaryDateCriteria" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Criteria" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Criteria" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int16" Name="CriteriaValue" />
+          <Property Type="String" Name="CriteriaName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Date" Precision="3" />
           <Property Type="Int16" Name="TotalEmps" />
           <Property Type="Int16" Name="PresentEmps" />
@@ -6267,55 +6039,6 @@
           <Property Type="Int16" Name="ALossMins" />
           <Property Type="Time" Name="AvgTimeIn" Precision="7" />
           <Property Type="Time" Name="AvgTimeOut" Precision="7" />
-        </EntityType>
-        <EntityType Name="DailySumSection">
-          <Key>
-            <PropertyRef Name="SectionDate" />
-          </Key>
-          <Property Type="Int32" Name="SectionDate" Nullable="false" />
-          <Property Type="Int16" Name="SectionID" />
-          <Property Type="DateTime" Name="SummaryDate" Precision="3" />
-          <Property Type="Int16" Name="TotalEmp" />
-          <Property Type="Int16" Name="PresentEmp" />
-          <Property Type="Int16" Name="AbsentEmp" />
-          <Property Type="Int16" Name="LateIn" />
-          <Property Type="Int16" Name="LateOut" />
-          <Property Type="Int16" Name="EarlyIn" />
-          <Property Type="Int16" Name="EarlyOut" />
-          <Property Type="Int16" Name="OverTime" />
-          <Property Type="Int16" Name="LeavesEmp" />
-          <Property Type="Int16" Name="ShortLeaveEmp" />
-          <Property Type="Int16" Name="HalfLeaveEmp" />
-          <Property Type="Time" Name="LateInMins" Precision="7" />
-          <Property Type="Time" Name="LateOutMins" Precision="7" />
-          <Property Type="Time" Name="EarlyInMins" Precision="7" />
-          <Property Type="Time" Name="EarlyOutMins" Precision="7" />
-          <Property Type="Time" Name="OverTimeMins" Precision="7" />
-          <Property Type="Time" Name="ExpectedWorkMins" Precision="7" />
-          <Property Type="Time" Name="ActualWorkMins" Precision="7" />
-          <Property Type="Time" Name="LossWorkMins" Precision="7" />
-          <NavigationProperty Name="Section" Relationship="TASDesktopModel.FK_SummarySection_Section" FromRole="DailySumSection" ToRole="Section" />
-        </EntityType>
-        <EntityType Name="DailySumShift">
-          <Key>
-            <PropertyRef Name="ShiftDate" />
-          </Key>
-          <Property Type="Int32" Name="ShiftDate" Nullable="false" />
-          <Property Type="Byte" Name="ShiftID" />
-          <Property Type="DateTime" Name="SummaryDate" Precision="3" />
-          <Property Type="Int16" Name="TotalEmp" />
-          <Property Type="Int16" Name="PresentEmp" />
-          <Property Type="Int16" Name="AbsentEmp" />
-          <Property Type="Int16" Name="LateIn" />
-          <Property Type="Int16" Name="LateOut" />
-          <Property Type="Int16" Name="EarlyIn" />
-          <Property Type="Int16" Name="EarlyOut" />
-          <Property Type="Int16" Name="OverTime" />
-          <Property Type="Int16" Name="LeavesEmp" />
-          <Property Type="Int16" Name="ShortLeaveEmp" />
-          <Property Type="Int16" Name="HalfLeaveEmp" />
-          <Property Type="Int16" Name="CompanyID" />
-          <NavigationProperty Name="Shift" Relationship="TASDesktopModel.FK_SummaryShift_Shift" FromRole="DailySumShift" ToRole="Shift" />
         </EntityType>
         <EntityType Name="DailyTimeMonitor">
           <Key>
@@ -6358,7 +6081,6 @@
           <Property Type="Int16" Name="DeptID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="DeptName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="DivID" />
-          <NavigationProperty Name="DailySumDepts" Relationship="TASDesktopModel.FK_SummaryDepartment_Department" FromRole="Department" ToRole="DailySumDept" />
           <NavigationProperty Name="Division" Relationship="TASDesktopModel.FK_Department_Division" FromRole="Department" ToRole="Division" />
           <NavigationProperty Name="Sections" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Department" ToRole="Section" />
         </EntityType>
@@ -6898,7 +6620,6 @@
           <Property Type="Int16" Name="SectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="SectionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="DeptID" />
-          <NavigationProperty Name="DailySumSections" Relationship="TASDesktopModel.FK_SummarySection_Section" FromRole="Section" ToRole="DailySumSection" />
           <NavigationProperty Name="Department" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Section" ToRole="Department" />
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Section" FromRole="Section" ToRole="Emp" />
         </EntityType>
@@ -6942,7 +6663,6 @@
           <Property Type="Boolean" Name="GZDays" />
           <Property Type="Boolean" Name="OpenShift" />
           <Property Type="Int16" Name="LocationID" />
-          <NavigationProperty Name="DailySumShifts" Relationship="TASDesktopModel.FK_SummaryShift_Shift" FromRole="Shift" ToRole="DailySumShift" />
           <NavigationProperty Name="DaysName" Relationship="TASDesktopModel.FK_Shift_DaysName" FromRole="Shift" ToRole="DaysName" />
           <NavigationProperty Name="DaysName1" Relationship="TASDesktopModel.FK_Shift_DaysName1" FromRole="Shift" ToRole="DaysName" />
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_ShiftID" FromRole="Shift" ToRole="Emp" />
@@ -8603,42 +8323,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SummaryDepartment_Department">
-          <End Type="TASDesktopModel.Department" Role="Department" Multiplicity="0..1" />
-          <End Type="TASDesktopModel.DailySumDept" Role="DailySumDept" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="DeptID" />
-            </Principal>
-            <Dependent Role="DailySumDept">
-              <PropertyRef Name="DeptID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SummarySection_Section">
-          <End Type="TASDesktopModel.Section" Role="Section" Multiplicity="0..1" />
-          <End Type="TASDesktopModel.DailySumSection" Role="DailySumSection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Section">
-              <PropertyRef Name="SectionID" />
-            </Principal>
-            <Dependent Role="DailySumSection">
-              <PropertyRef Name="SectionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SummaryShift_Shift">
-          <End Type="TASDesktopModel.Shift" Role="Shift" Multiplicity="0..1" />
-          <End Type="TASDesktopModel.DailySumShift" Role="DailySumShift" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Shift">
-              <PropertyRef Name="ShiftID" />
-            </Principal>
-            <Dependent Role="DailySumShift">
-              <PropertyRef Name="ShiftID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Shift_DaysName">
           <End Type="TASDesktopModel.DaysName" Role="DaysName" Multiplicity="1" />
           <End Type="TASDesktopModel.Shift" Role="Shift" Multiplicity="*" />
@@ -9648,54 +9332,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DailySumDepts">
-            <EntityTypeMapping TypeName="TASDesktopModel.DailySumDept">
-              <MappingFragment StoreEntitySet="DailySumDept">
-                <ScalarProperty Name="SLeaves" ColumnName="SLeaves" />
-                <ScalarProperty Name="CLeaves" ColumnName="CLeaves" />
-                <ScalarProperty Name="ALeaves" ColumnName="ALeaves" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="HalfLeaveEmp" ColumnName="HalfLeaveEmp" />
-                <ScalarProperty Name="ShortLeaveEmp" ColumnName="ShortLeaveEmp" />
-                <ScalarProperty Name="LeavesEmp" ColumnName="LeavesEmp" />
-                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
-                <ScalarProperty Name="EarlyOut" ColumnName="EarlyOut" />
-                <ScalarProperty Name="EarlyIn" ColumnName="EarlyIn" />
-                <ScalarProperty Name="LateOut" ColumnName="LateOut" />
-                <ScalarProperty Name="LateIn" ColumnName="LateIn" />
-                <ScalarProperty Name="AbsentEmp" ColumnName="AbsentEmp" />
-                <ScalarProperty Name="PresentEmp" ColumnName="PresentEmp" />
-                <ScalarProperty Name="TotalEmp" ColumnName="TotalEmp" />
-                <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
-                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
-                <ScalarProperty Name="DeptDate" ColumnName="DeptDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DailySumLocs">
-            <EntityTypeMapping TypeName="TASDesktopModel.DailySumLoc">
-              <MappingFragment StoreEntitySet="DailySumLoc">
-                <ScalarProperty Name="SLeaves" ColumnName="SLeaves" />
-                <ScalarProperty Name="CLeaves" ColumnName="CLeaves" />
-                <ScalarProperty Name="ALeaves" ColumnName="ALeaves" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="HalfLeaveEmp" ColumnName="HalfLeaveEmp" />
-                <ScalarProperty Name="ShortLeaveEmp" ColumnName="ShortLeaveEmp" />
-                <ScalarProperty Name="LeavesEmp" ColumnName="LeavesEmp" />
-                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
-                <ScalarProperty Name="EarlyOut" ColumnName="EarlyOut" />
-                <ScalarProperty Name="EarlyIn" ColumnName="EarlyIn" />
-                <ScalarProperty Name="LateOut" ColumnName="LateOut" />
-                <ScalarProperty Name="LateIn" ColumnName="LateIn" />
-                <ScalarProperty Name="AbsentEmp" ColumnName="AbsentEmp" />
-                <ScalarProperty Name="PresentEmp" ColumnName="PresentEmp" />
-                <ScalarProperty Name="TotalEmp" ColumnName="TotalEmp" />
-                <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
-                <ScalarProperty Name="LocID" ColumnName="LocID" />
-                <ScalarProperty Name="LocDate" ColumnName="LocDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DailySummaries">
             <EntityTypeMapping TypeName="TASDesktopModel.DailySummary">
               <MappingFragment StoreEntitySet="DailySummary">
@@ -9731,57 +9367,10 @@
                 <ScalarProperty Name="PresentEmps" ColumnName="PresentEmps" />
                 <ScalarProperty Name="TotalEmps" ColumnName="TotalEmps" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CriteriaName" ColumnName="CriteriaName" />
+                <ScalarProperty Name="CriteriaValue" ColumnName="CriteriaValue" />
                 <ScalarProperty Name="Criteria" ColumnName="Criteria" />
                 <ScalarProperty Name="SummaryDateCriteria" ColumnName="SummaryDateCriteria" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DailySumSections">
-            <EntityTypeMapping TypeName="TASDesktopModel.DailySumSection">
-              <MappingFragment StoreEntitySet="DailySumSection">
-                <ScalarProperty Name="LossWorkMins" ColumnName="LossWorkMins" />
-                <ScalarProperty Name="ActualWorkMins" ColumnName="ActualWorkMins" />
-                <ScalarProperty Name="ExpectedWorkMins" ColumnName="ExpectedWorkMins" />
-                <ScalarProperty Name="OverTimeMins" ColumnName="OverTimeMins" />
-                <ScalarProperty Name="EarlyOutMins" ColumnName="EarlyOutMins" />
-                <ScalarProperty Name="EarlyInMins" ColumnName="EarlyInMins" />
-                <ScalarProperty Name="LateOutMins" ColumnName="LateOutMins" />
-                <ScalarProperty Name="LateInMins" ColumnName="LateInMins" />
-                <ScalarProperty Name="HalfLeaveEmp" ColumnName="HalfLeaveEmp" />
-                <ScalarProperty Name="ShortLeaveEmp" ColumnName="ShortLeaveEmp" />
-                <ScalarProperty Name="LeavesEmp" ColumnName="LeavesEmp" />
-                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
-                <ScalarProperty Name="EarlyOut" ColumnName="EarlyOut" />
-                <ScalarProperty Name="EarlyIn" ColumnName="EarlyIn" />
-                <ScalarProperty Name="LateOut" ColumnName="LateOut" />
-                <ScalarProperty Name="LateIn" ColumnName="LateIn" />
-                <ScalarProperty Name="AbsentEmp" ColumnName="AbsentEmp" />
-                <ScalarProperty Name="PresentEmp" ColumnName="PresentEmp" />
-                <ScalarProperty Name="TotalEmp" ColumnName="TotalEmp" />
-                <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
-                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
-                <ScalarProperty Name="SectionDate" ColumnName="SectionDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DailySumShifts">
-            <EntityTypeMapping TypeName="TASDesktopModel.DailySumShift">
-              <MappingFragment StoreEntitySet="DailySumShift">
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="HalfLeaveEmp" ColumnName="HalfLeaveEmp" />
-                <ScalarProperty Name="ShortLeaveEmp" ColumnName="ShortLeaveEmp" />
-                <ScalarProperty Name="LeavesEmp" ColumnName="LeavesEmp" />
-                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
-                <ScalarProperty Name="EarlyOut" ColumnName="EarlyOut" />
-                <ScalarProperty Name="EarlyIn" ColumnName="EarlyIn" />
-                <ScalarProperty Name="LateOut" ColumnName="LateOut" />
-                <ScalarProperty Name="LateIn" ColumnName="LateIn" />
-                <ScalarProperty Name="AbsentEmp" ColumnName="AbsentEmp" />
-                <ScalarProperty Name="PresentEmp" ColumnName="PresentEmp" />
-                <ScalarProperty Name="TotalEmp" ColumnName="TotalEmp" />
-                <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
-                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
-                <ScalarProperty Name="ShiftDate" ColumnName="ShiftDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

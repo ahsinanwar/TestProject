@@ -239,19 +239,7 @@
     <Compile Include="Model\Crew.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DailySumDept.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DailySumLoc.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\DailySummary.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DailySumSection.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DailySumShift.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DailyTimeMonitor.cs">
@@ -557,6 +545,21 @@
     <Compile Include="Reports\ReportForms\MFLeaves.xaml.cs">
       <DependentUpon>MFLeaves.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\SDailyCompany.xaml.cs">
+      <DependentUpon>SDailyCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailyDept.xaml.cs">
+      <DependentUpon>SDailyDept.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailyEmpType.xaml.cs">
+      <DependentUpon>SDailyEmpType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailySection.xaml.cs">
+      <DependentUpon>SDailySection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailyShift.xaml.cs">
+      <DependentUpon>SDailyShift.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportForms\YLSummary.xaml.cs">
       <DependentUpon>YLSummary.xaml</DependentUpon>
     </Compile>
@@ -847,6 +850,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reports\ReportForms\MFLeaves.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailyCompany.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailyDept.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailyEmpType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailySection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailyShift.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
