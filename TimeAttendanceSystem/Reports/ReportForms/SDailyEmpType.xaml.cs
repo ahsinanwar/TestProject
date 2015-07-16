@@ -86,11 +86,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
             if (RBConsolidated.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Conolidated Department Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Conolidated EmpType Summary Report");
             if (RBWorkTime.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Conolidated Department Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Conolidated EmpType Summary Report");
             if (RBEmpstrength.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Conolidated Department Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Conolidated EmpType Summary Report");
 
 
             LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, Title);

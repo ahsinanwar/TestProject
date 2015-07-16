@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
 using TimeAttendanceSystem.Reports.UserControls;
 
@@ -27,6 +28,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         {
             InitializeComponent();
             selectedShift = new List<Shift>();
+            startDate.SelectedDate = DateTime.Today.AddDays(-7);
+            endDate.SelectedDate = DateTime.Today;
+            RBConsolidated.IsChecked = true;
+            LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", ctx.DailySummaries.Where(aa => aa.Criteria == "S").ToList(), "Consolidated Shift Summary Report");
+
         }
         public DateTime StartDate
         {
@@ -77,16 +83,23 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             else
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
+            if (RBConsolidated.IsChecked == true)
+                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Conolidated Shift Summary Report");
+            if (RBWorkTime.IsChecked == true)
+                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Conolidated Shift Summary Report");
+            if (RBEmpstrength.IsChecked == true)
+                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Conolidated Shift Summary Report");
 
-            LoadReport(Properties.Settings.Default.ReportPath + "DROverTime.rdlc", _ViewList);
+
+            LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, Title);
 
         }
-        private void LoadReport(string Path, List<DailySummary> _List)
+        private void LoadReport(string Path, List<DailySummary> _List,string Title)
         {
             //rptViewer.Reset();
-            string DateToFor = "";
-            string _Header = "By Section";
-            this.rptViewer.LocalReport.DisplayName = "By Section";
+            string Date = "From: " + StartDate.ToString("dd-MMM-yyyy") + " To: " + EndDate.ToString("dd-MMM-yyyy");
+            this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
+           
             //rptViewer.ProcessingMode = ProcessingMode.Local;
             //rptViewer.LocalReport.ReportPath = "WpfApplication1.Report1.rdlc";
             rptViewer.LocalReport.ReportPath = Path;
@@ -98,6 +111,10 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             //ReportParameter rp1 = new ReportParameter("Header", _Header, false);
             //ReportParameter rp2 = new ReportParameter("CompanyName", CommanVariables.CompanyName, false);
             //this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2 });
+            ReportParameter rp1 = new ReportParameter("Title", Title, false);
+            ReportParameter rp2 = new ReportParameter("CompanyName", CommanVariables.CompanyName, false);
+            ReportParameter rp3 = new ReportParameter("Date", Date, false);
+            this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2, rp3 });
             rptViewer.RefreshReport();
         }
     }
