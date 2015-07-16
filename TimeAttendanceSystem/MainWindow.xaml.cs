@@ -148,6 +148,9 @@ namespace TimeAttendanceSystem
                     case "By Department":
                         _mainFrame.Navigate(new SDailyDept());
                         break;
+                    case "By Type":
+                        _mainFrame.Navigate(new SDailyEmpType());
+                        break;
                 }
             }
         }
