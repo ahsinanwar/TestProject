@@ -106,7 +106,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             ReportParameter rp1 = new ReportParameter("Title", Title, false);
             ReportParameter rp2 = new ReportParameter("CompanyName", CommanVariables.CompanyName, false);
             ReportParameter rp3 = new ReportParameter("Date", Date, false);
-            this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2 });
+            this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2,rp3 });
             rptViewer.RefreshReport();
         }
     }
