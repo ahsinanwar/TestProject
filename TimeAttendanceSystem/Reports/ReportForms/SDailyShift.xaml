@@ -45,12 +45,12 @@
                         <Label FontSize="16" Foreground="#004b79" Content="Select Shift:"/>
                     </StackPanel>
                     <StackPanel>
-                        <Grid Height="150" Margin="5,5,0,0">
-                            <telerik:RadListBox x:Name="ListBoxDept" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="136" Margin="2,4,0,0">
+                        <Grid Height="120" Margin="5,5,0,0">
+                            <telerik:RadListBox x:Name="ListBoxShift" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="115">
                             </telerik:RadListBox>
-                            <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddDept" Content="Add" HorizontalAlignment="Left" Margin="134,4,0,0" VerticalAlignment="Top" Width="38" Click="btnAddDept_Click" >
+                            <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddShift" Content="Add" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="38" Click="btnAddShift_Click">
                             </Button>
-                            <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearDept" Content="Clear" HorizontalAlignment="Left" Margin="134,31,0,0" VerticalAlignment="Top" Width="38" Click="btnClearDept_Click" ></Button>
+                            <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearShift" Content="Clear" HorizontalAlignment="Left" Margin="135,33,0,0" VerticalAlignment="Top" Width="38" Click="btnClearShift_Click" ></Button>
                         </Grid>
                     </StackPanel>
 

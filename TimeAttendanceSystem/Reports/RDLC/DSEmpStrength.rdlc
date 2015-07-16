@@ -2860,7 +2860,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>TASReportDataset</rd:DataSetName>
-        <rd:SchemaPath>D:\Projects\inven\Development\TAS Desktop\TimeAttendanceSystem\TimeAttendanceSystem\Model\TASReportDataset.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Projects\inven Projects\TimeAttendanceSystem\TimeAttendanceSystem\Model\TASReportDataset.xsd</rd:SchemaPath>
         <rd:TableName>DailySummary</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

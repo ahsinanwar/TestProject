@@ -28,6 +28,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         {
             InitializeComponent();
             selectedDepts = new List<Department>();
+            startDate.SelectedDate = DateTime.Today.AddDays(-7);
+            endDate.SelectedDate = DateTime.Today;
+            RBConsolidated.IsChecked = true;
+            LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", ctx.DailySummaries.Where(aa => aa.Criteria == "D" ).ToList(), "Conolidated Department Summary Report");
+
         }
         public DateTime StartDate
         {
@@ -63,7 +68,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
             List<DailySummary> _TempViewList = new List<DailySummary>();
-            List<DailySummary> _ViewList = ctx.DailySummaries.ToList();
+            List<DailySummary> _ViewList = ctx.DailySummaries.Where(aa=>aa.Criteria=="D" && aa.Date>=StartDate && aa.Date<= EndDate).ToList();
 
 
             //for department
@@ -78,15 +83,17 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             else
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
-
-            LoadReport(Properties.Settings.Default.ReportPath + "DROverTime.rdlc", _ViewList);
+            if(RBConsolidated.IsChecked == true)
+                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList,"Conolidated Department Summary Report");
+            if (RBWorkTime.IsChecked == true)
+                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Conolidated Department Summary Report");
+            if (RBEmpstrength.IsChecked == true)
+                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Conolidated Department Summary Report");
 
         }
-        private void LoadReport(string Path, List<DailySummary> _List)
+        private void LoadReport(string Path, List<DailySummary> _List, string Title)
         {
-            //rptViewer.Reset();
-            string DateToFor = "";
-            string _Header = "Daily Attendance Report";
+            string Date = "From: "+StartDate.ToString("dd-MMM-yyyy") +" To: "+ EndDate.ToString("dd-MMM-yyyy");
             this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
             //rptViewer.ProcessingMode = ProcessingMode.Local;
             //rptViewer.LocalReport.ReportPath = "WpfApplication1.Report1.rdlc";
@@ -96,9 +103,10 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             ReportDataSource datasource1 = new ReportDataSource("DataSet1", _List.AsQueryable());
             rptViewer.LocalReport.DataSources.Clear();
             rptViewer.LocalReport.DataSources.Add(datasource1);
-            //ReportParameter rp1 = new ReportParameter("Header", _Header, false);
-            //ReportParameter rp2 = new ReportParameter("CompanyName", CommanVariables.CompanyName, false);
-            //this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2 });
+            ReportParameter rp1 = new ReportParameter("Title", Title, false);
+            ReportParameter rp2 = new ReportParameter("CompanyName", CommanVariables.CompanyName, false);
+            ReportParameter rp3 = new ReportParameter("Date", Date, false);
+            this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2 });
             rptViewer.RefreshReport();
         }
     }

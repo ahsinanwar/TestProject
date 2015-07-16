@@ -37,7 +37,6 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             get { return (DateTime)endDate.SelectedValue; }
         }
         #region -- Section filter --
-        //TAS2013Entities context = new TAS2013Entities();
         public List<TimeAttendanceSystem.Model.Section> selectedSecs;
         RFSections windowSec;
         private void btnAddSec_Click(object sender, RoutedEventArgs e)
