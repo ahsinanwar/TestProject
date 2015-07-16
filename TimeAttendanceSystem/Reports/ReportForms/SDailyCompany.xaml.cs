@@ -23,6 +23,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         public SDailyCompany()
         {
             InitializeComponent();
+            selectedCompa = new List<Department>();
         }
     }
 }
