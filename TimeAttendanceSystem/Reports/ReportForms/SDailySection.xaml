@@ -6,7 +6,7 @@
       mc:Ignorable="d" 
        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
      xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-	Title="DFDaily"  Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
+	Title="Title"  Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -59,9 +59,9 @@
             <Border BorderBrush="LightGray" BorderThickness="1,1,1,1" Margin="5,5,5,5">
                 <StackPanel Background="White" Height="110">
                     <Label Background="#efecea" FontSize="16" Foreground="#004b79" Content="Select Report Type"></Label>
-                    <RadioButton telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0" Content="Employee Strength"/>
-                    <RadioButton telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0" Content="Work Times"/>
-                    <RadioButton telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0"  Content="Consolidated"/>
+                    <RadioButton  x:Name="RBEmpstrength"  telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0" Content="Employee Strength"/>
+                    <RadioButton x:Name="RBWorkTime"  telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0" Content="Work Times"/>
+                    <RadioButton x:Name="RBConsolidated"  telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0"  Content="Consolidated"/>
                 </StackPanel>
             </Border>
         </StackPanel>
