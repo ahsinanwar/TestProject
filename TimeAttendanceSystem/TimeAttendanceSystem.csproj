@@ -1044,6 +1044,7 @@
     <EmbeddedResource Include="Reports\RDLC\EmpAttSummary.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\Employee.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\EmployeeDetail.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DSConsolidated.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\MLvApplication.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\MRDetailExcelC.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\MRDetailExcelP.rdlc" />
@@ -1055,6 +1056,8 @@
     <EmbeddedResource Include="Reports\RDLC\MYLeaveSummary.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\RAuditLog.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\REditAttendance.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DSummary.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\RLeaveQuota.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\RShortLeave.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\YLSummary.rdlc" />
