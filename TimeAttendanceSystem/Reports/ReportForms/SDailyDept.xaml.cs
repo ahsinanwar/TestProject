@@ -79,9 +79,6 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
 
-
-            
-
             LoadReport(Properties.Settings.Default.ReportPath + "DROverTime.rdlc", _ViewList);
 
         }

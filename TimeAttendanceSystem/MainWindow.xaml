@@ -144,7 +144,10 @@
                                 <telerik:RadMenuItem Header="Yearly Leaves"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="By Company"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="By Department"></telerik:RadMenuItem>
-                            </telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="By Shift"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="By Section"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="By Type"></telerik:RadMenuItem>
+                        </telerik:RadMenuItem>
                     </telerik:RadMenu>
                 </StackPanel>
             </StackPanel>
