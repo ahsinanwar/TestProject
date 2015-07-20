@@ -31,8 +31,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             startDate.SelectedDate = DateTime.Today.AddDays(-7);
             endDate.SelectedDate = DateTime.Today;
             RBConsolidated.IsChecked = true;
-            LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", ctx.DailySummaries.Where(aa => aa.Criteria == "D" ).ToList(), "Conolidated Department Summary Report");
-
+            LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", ctx.DailySummaries.Where(aa => aa.Criteria == "D" ).ToList(), "Consolidated Department Summary Report");
         }
         public DateTime StartDate
         {
@@ -84,17 +83,18 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
             if(RBConsolidated.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Conolidated Department Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Consolidated Department Summary");
             if (RBWorkTime.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Conolidated Department Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Department Work Time Summary");
             if (RBEmpstrength.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Conolidated Department Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Department Strength Summary");
 
         }
         private void LoadReport(string Path, List<DailySummary> _List, string Title)
         {
             string Date = "From: "+StartDate.ToString("dd-MMM-yyyy") +" To: "+ EndDate.ToString("dd-MMM-yyyy");
-            this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
+            this.rptViewer.LocalReport.DisplayName = Title;
+            this.rptViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             //rptViewer.ProcessingMode = ProcessingMode.Local;
             //rptViewer.LocalReport.ReportPath = "WpfApplication1.Report1.rdlc";
             rptViewer.LocalReport.ReportPath = Path;

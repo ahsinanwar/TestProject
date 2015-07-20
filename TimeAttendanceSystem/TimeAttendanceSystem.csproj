@@ -1107,7 +1107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Blank-Person1.png" />
-    <SplashScreen Include="Images\Nvidia_alpha.png" />
     <Resource Include="Images\TMSHeader.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1122,6 +1121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\VMJobCard\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\SplashScreen1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

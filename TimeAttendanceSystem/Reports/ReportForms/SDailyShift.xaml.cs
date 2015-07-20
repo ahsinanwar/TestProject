@@ -68,7 +68,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
             List<DailySummary> _TempViewList = new List<DailySummary>();
-            List<DailySummary> _ViewList = ctx.DailySummaries.ToList();
+            List<DailySummary> _ViewList = ctx.DailySummaries.Where(aa => aa.Criteria == "S" && aa.Date >= StartDate && aa.Date <= EndDate).ToList();
 
 
             //for department
@@ -84,11 +84,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
             if (RBConsolidated.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Conolidated Shift Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Consolidated Section Summary");
             if (RBWorkTime.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Conolidated Shift Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Shift Work Time Summary");
             if (RBEmpstrength.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Conolidated Shift Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Shift Strength Summary");
 
 
             LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, Title);
@@ -98,7 +98,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         {
             //rptViewer.Reset();
             string Date = "From: " + StartDate.ToString("dd-MMM-yyyy") + " To: " + EndDate.ToString("dd-MMM-yyyy");
-            this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
+            this.rptViewer.LocalReport.DisplayName = Title;
            
             //rptViewer.ProcessingMode = ProcessingMode.Local;
             //rptViewer.LocalReport.ReportPath = "WpfApplication1.Report1.rdlc";

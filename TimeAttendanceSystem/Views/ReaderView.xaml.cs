@@ -11,17 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMReader;
 
 namespace TimeAttendanceSystem.Views
 {
     /// <summary>
     /// Interaction logic for ReaderView.xaml
     /// </summary>
-    public partial class ReaderView : Window
+    public partial class ReaderView : Page
     {
         public ReaderView()
         {
-            InitializeComponent();
+             InitializeComponent();
+            vmreader = new VMReader();
+            this.DataContext = vmreader;
         }
+        VMReader vmreader;
     }
 }

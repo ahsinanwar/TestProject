@@ -27,5 +27,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<System.DateTime> ContractualMonthlyClose { get; set; }
         public Nullable<short> CompanyID { get; set; }
         public Nullable<bool> EmergencyStart { get; set; }
+        public string NoDevices { get; set; }
+        public string NoUsers { get; set; }
     }
 }

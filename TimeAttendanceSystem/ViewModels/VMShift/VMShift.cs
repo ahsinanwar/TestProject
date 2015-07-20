@@ -40,6 +40,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             }
         }
         private ObservableCollection<Shift> _listOfShifts;
+        private ObservableCollection<Emp> _listOfShiftEmps;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -70,6 +71,16 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             {
                 listOfShifts = value;
                 OnPropertyChanged("listOfShifts");
+            }
+        }
+        public ObservableCollection<Emp> listOfShiftEmps
+        {
+            get { return _listOfShiftEmps; }
+
+            set
+            {
+                _listOfShiftEmps = value;
+                OnPropertyChanged("listOfShiftEmps");
             }
         }
         #endregion
@@ -117,6 +128,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             _selectedShift = new Shift();
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _selectedShift = entity.Shifts.ToList().FirstOrDefault();
+            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ShiftID == _selectedShift.ShiftID).ToList());
             this._AddCommand = new AddCommandShift(_selectedShift);
             this._EditCommand = new EditCommandShift(this);
             this._DeleteCommand = new DeleteCommandShift(_selectedShift);
@@ -124,6 +136,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandShift(this);
             base.OnPropertyChanged("_listOfShifts");
+            base.OnPropertyChanged("_listOfShiftEmps");
         }
         #endregion  
     }

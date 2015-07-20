@@ -113,6 +113,9 @@
                             <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Quota"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Devices">
+                            <telerik:RadMenuItem Header="Device Setup"></telerik:RadMenuItem>
+                        </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                             <telerik:RadMenuItem Header="Employee Reports">
                                 <telerik:RadMenuItem Header="Employee"></telerik:RadMenuItem>

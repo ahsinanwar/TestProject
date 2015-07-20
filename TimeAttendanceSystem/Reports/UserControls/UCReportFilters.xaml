@@ -9,7 +9,7 @@
     <StackPanel Orientation="Vertical">
         <!--Date Filter-->
         <StackPanel Background="White"  Margin="3,20,3,3">
-            <Expander Header="Date" BorderBrush="Gray" BorderThickness="1" Width="185" >
+            <Expander Header="Date" BorderBrush="Gray" BorderThickness="1" Width="185" IsExpanded="True" >
                 <StackPanel Height="69">
                     <Grid Height="60" Margin="5,5,0,0" Background="White">
                         <Label Content="From" Margin="3,4,124,32" />

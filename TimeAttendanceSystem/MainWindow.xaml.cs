@@ -157,6 +157,9 @@ namespace TimeAttendanceSystem
                     case "By Shift":
                         _mainFrame.Navigate(new SDailyShift());
                         break;
+                            case "Device Setup":
+                        _mainFrame.Navigate(new ReaderView());
+                        break;
                 }
             }
         }

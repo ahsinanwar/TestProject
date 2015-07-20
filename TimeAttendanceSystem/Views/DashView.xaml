@@ -236,7 +236,7 @@
                         <RowDefinition Height="31*"/>
                     </Grid.RowDefinitions>
                     <Label Foreground="White" FontSize="20" FontWeight="Bold" Content="{Binding OnLeave}" Margin="49,34,0,0" HorizontalAlignment="Left" Width="71" Grid.RowSpan="2"/>
-                    <Label Foreground="White" FontSize="16" Content="On Leave" Height="32" Margin="22,2,26,5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="82"/>
+                    <Label Foreground="White" FontSize="16" Content="Late Comers" Height="32" Margin="10,2,10,5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="110"/>
                 </Grid>
 
 
@@ -249,25 +249,25 @@
             </StackPanel>
             <Border>
                 <telerik:RadCartesianChart x:Name="xCartesianGraphPresence" Margin="10,15,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Palette="Windows8">
-                <telerik:RadCartesianChart.Resources>
-                    <Style x:Key="axisLabelStyle" TargetType="{x:Type TextBlock}">
-                        <Setter Property="FontFamily" Value="Segoe UI" />
-                    </Style>
-                </telerik:RadCartesianChart.Resources>
-                <telerik:RadCartesianChart.Behaviors>
-                    <telerik:ChartTrackBallBehavior ShowIntersectionPoints="True"
+                    <telerik:RadCartesianChart.Resources>
+                        <Style x:Key="axisLabelStyle" TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="Segoe UI" />
+                        </Style>
+                    </telerik:RadCartesianChart.Resources>
+                    <telerik:RadCartesianChart.Behaviors>
+                        <telerik:ChartTrackBallBehavior ShowIntersectionPoints="True"
         				ShowTrackInfo="true"/>
-                </telerik:RadCartesianChart.Behaviors>
-                <telerik:RadCartesianChart.HorizontalAxis>
-                    <telerik:DateTimeContinuousAxis LabelFormat="dd MMM" LabelStyle="{StaticResource axisLabelStyle}"/>
-                </telerik:RadCartesianChart.HorizontalAxis>
-                <telerik:RadCartesianChart.VerticalAxis>
-                    <telerik:LinearAxis  Minimum="0" MajorStep="100" LabelStyle="{StaticResource axisLabelStyle}"/>
-                </telerik:RadCartesianChart.VerticalAxis>
-                <telerik:RadCartesianChart.Grid>
-                    <telerik:CartesianChartGrid MajorLinesVisibility="Y" />
-                </telerik:RadCartesianChart.Grid>
-            </telerik:RadCartesianChart>
+                    </telerik:RadCartesianChart.Behaviors>
+                    <telerik:RadCartesianChart.HorizontalAxis>
+                        <telerik:DateTimeContinuousAxis LabelFormat="dd MMM" LabelStyle="{StaticResource axisLabelStyle}"/>
+                    </telerik:RadCartesianChart.HorizontalAxis>
+                    <telerik:RadCartesianChart.VerticalAxis>
+                        <telerik:LinearAxis  Minimum="0" MajorStep="100" LabelStyle="{StaticResource axisLabelStyle}"/>
+                    </telerik:RadCartesianChart.VerticalAxis>
+                    <telerik:RadCartesianChart.Grid>
+                        <telerik:CartesianChartGrid MajorLinesVisibility="Y" />
+                    </telerik:RadCartesianChart.Grid>
+                </telerik:RadCartesianChart>
             </Border>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1"  Margin="0,10,10,10">
@@ -276,7 +276,7 @@
             </StackPanel>
             <telerikChart:RadChart x:Name="chart" Margin="10,15,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="230" BorderThickness="0">
             </telerikChart:RadChart>
-            
+
 
         </StackPanel>
         <StackPanel  Grid.Row="2" Grid.Column="0"  Margin="10,10,10,10">
@@ -297,33 +297,33 @@
             <StackPanel Background="#004b79">
                 <Label  Foreground="White" FontSize="17" HorizontalAlignment="Left">Work Time</Label>
             </StackPanel>
-                <telerik:RadCartesianChart Margin="10,15,5,5"  x:Name="ActualvsTargeted" Palette="Windows8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="820">
+            <telerik:RadCartesianChart Margin="10,15,5,5"  x:Name="ActualvsTargeted" Palette="Windows8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="820">
 
-                    <telerik:RadCartesianChart.Resources>
+                <telerik:RadCartesianChart.Resources>
 
-                        <Style x:Key="axisLabelStyle" TargetType="{x:Type TextBlock}">
-                            <Setter Property="FontFamily" Value="Segoe UI" />
-                        </Style>
+                    <Style x:Key="axisLabelStyle" TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontFamily" Value="Segoe UI" />
+                    </Style>
 
-                    </telerik:RadCartesianChart.Resources>
-                    <telerik:RadCartesianChart.Behaviors>
-                        <telerik:ChartTrackBallBehavior ShowIntersectionPoints="True"
+                </telerik:RadCartesianChart.Resources>
+                <telerik:RadCartesianChart.Behaviors>
+                    <telerik:ChartTrackBallBehavior ShowIntersectionPoints="True"
         				ShowTrackInfo="true"/>
-                    </telerik:RadCartesianChart.Behaviors>
+                </telerik:RadCartesianChart.Behaviors>
 
-                    <telerik:RadCartesianChart.HorizontalAxis>
-                        <telerik:DateTimeContinuousAxis LabelFormat="dd MMM" LabelStyle="{StaticResource axisLabelStyle}"/>
-                    </telerik:RadCartesianChart.HorizontalAxis>
-                    <telerik:RadCartesianChart.VerticalAxis>
-                        <telerik:LinearAxis  Minimum="0" MajorStep="100" LabelStyle="{StaticResource axisLabelStyle}"/>
-                    </telerik:RadCartesianChart.VerticalAxis>
-                    <telerik:RadCartesianChart.Grid>
-                        <telerik:CartesianChartGrid MajorLinesVisibility="Y" />
-                    </telerik:RadCartesianChart.Grid>
+                <telerik:RadCartesianChart.HorizontalAxis>
+                    <telerik:DateTimeContinuousAxis LabelFormat="dd MMM" LabelStyle="{StaticResource axisLabelStyle}"/>
+                </telerik:RadCartesianChart.HorizontalAxis>
+                <telerik:RadCartesianChart.VerticalAxis>
+                    <telerik:LinearAxis  Minimum="0" MajorStep="100" LabelStyle="{StaticResource axisLabelStyle}"/>
+                </telerik:RadCartesianChart.VerticalAxis>
+                <telerik:RadCartesianChart.Grid>
+                    <telerik:CartesianChartGrid MajorLinesVisibility="Y" />
+                </telerik:RadCartesianChart.Grid>
 
-                </telerik:RadCartesianChart>
+            </telerik:RadCartesianChart>
         </StackPanel>
     </Grid>
-   
+
 </Page>
 
