@@ -595,6 +595,7 @@
     <Compile Include="ViewModels\VMAttEdit\Commands\SearchCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttJobCard\VMAttJobCard.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\EditCommandCat.cs" />
