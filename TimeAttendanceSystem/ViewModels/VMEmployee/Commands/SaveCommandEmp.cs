@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
@@ -30,14 +32,34 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
 
         public void Execute(object parameter)
         {
+
             VMEmployee vmd = (VMEmployee)parameter;
             if (vmd.isAdding)
             {
-                context.Emps.Add(vmd.selectedEmp);
-                context.SaveChanges();
-                vmd.listOfEmps.Add(vmd.selectedEmp);
-
-            }
+                if (vmd.selectedEmp.EmpName == "" || vmd.selectedEmp.EmpName == null)
+                       {
+                           PopUp.popUp("Empty Value", "Please write Emp Name before saving", NotificationType.Warning);
+                       }
+                else if (vmd.selectedEmp.EmpNo == "" || vmd.selectedEmp.EmpNo == null)
+                    {
+                        PopUp.popUp("Empty Value", "Please write Emp No before saving", NotificationType.Warning);
+                    }
+                  
+                else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)
+  
+                    {
+                        PopUp.popUp("Duplication", "Emp no already exit", NotificationType.Warning);
+                    }
+                else
+                    {
+                
+                        context.Emps.Add(vmd.selectedEmp);
+                        context.SaveChanges();
+                        vmd.listOfEmps.Add(vmd.selectedEmp);
+                        PopUp.popUp("Congratulations", "Emp is Created", NotificationType.Warning);
+                    }
+              }
+       
             else
             {
                 Emp emp = context.Emps.First(aa => aa.EmpID == vmd.dummyEmp.EmpID);
@@ -59,15 +81,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                 else
                 {
                     
-                }
-
-
-                
-
-                
+                }                       
                 context.SaveChanges();
-
-                
                 emp.EmpImageID = emp.EmpPhoto.PhotoID;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;

@@ -115,6 +115,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory
         {
             entity = new TAS2013Entities();
             _selectedCat = new Category();
+            
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
             _selectedCat = entity.Categories.ToList().FirstOrDefault();
             this._AddCommand = new AddCommandCat(_selectedCat);

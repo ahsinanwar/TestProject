@@ -19,7 +19,6 @@ namespace TimeAttendanceSystem.Model
             this.Emps = new HashSet<Emp>();
             this.Readers = new HashSet<Reader>();
             this.Shifts = new HashSet<Shift>();
-            this.UserLocations = new HashSet<UserLocation>();
         }
     
         public short LocID { get; set; }
@@ -30,6 +29,5 @@ namespace TimeAttendanceSystem.Model
         public virtual ICollection<Emp> Emps { get; set; }
         public virtual ICollection<Reader> Readers { get; set; }
         public virtual ICollection<Shift> Shifts { get; set; }
-        public virtual ICollection<UserLocation> UserLocations { get; set; }
     }
 }

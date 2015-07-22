@@ -116,6 +116,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision
         {
             entity = new TAS2013Entities();
             _selectedDiv = new Division();
+            
             _listOfDivs = new ObservableCollection<Division>(entity.Divisions.ToList());
             _selectedDiv = entity.Divisions.ToList().FirstOrDefault();
             this._AddCommand = new AddCommandDiv(_selectedDiv);

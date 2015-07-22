@@ -29,7 +29,10 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
         public void Execute(object parameter)
         {
             VMSection vmd = (VMSection)parameter;
-            vmd.selectedSec = new Section();
+            vmd._selectedSec = new Section();
+            vmd._selectedSec.Department=vmd.listOfDepts.FirstOrDefault();
+            vmd._selectedSec.DeptID = vmd.selectedSec.Department.DeptID;
+            vmd.selectedSec = vmd._selectedSec;
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

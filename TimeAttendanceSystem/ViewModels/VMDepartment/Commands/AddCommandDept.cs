@@ -28,7 +28,10 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
         public void Execute(object parameter)
         {
            VMDepartments vmd= (VMDepartments)parameter;
-           vmd.selectedDept = new Department();
+           vmd._selectedDept = new Department();
+           vmd._selectedDept.Division = vmd.listOfDivs.FirstOrDefault();
+           vmd._selectedDept.DivID = vmd.selectedDept.Division.DivisionID;
+           vmd.selectedDept = vmd._selectedDept;
            vmd.isAdding = true;
            vmd.isEnabled = true;
         //   context.SaveChanges();

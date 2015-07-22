@@ -3,126 +3,146 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
-        Title="ShiftView" Width="700">
+        Title="ShiftView" Background="White"  Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
     <!--Main Panel-->
-    <Border BorderBrush="#FF25A0DA" BorderThickness="1">
-        <StackPanel Background="White">
-            <!--Header-->
-            <StackPanel Background="#FF25A0DA" Height="35px">
-                <Label Foreground="White" FontSize="17">Shifts</Label>
-            </StackPanel>
-            <!--List View Panel-->
-            <StackPanel Margin="5,5,5,5">
-                <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
-                        telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
-                        ItemsSource="{Binding listOfShifts}" ShowGroupPanel="False"
-                          SelectedItem="{Binding selectedShift}" 
-                        VerticalAlignment="Top"  MinHeight="150" Grid.RowSpan="2" 
-                        CanUserFreezeColumns="False" MinWidth="387">
-                    <telerik:RadGridView.Columns>
-                        <telerik:GridViewDataColumn Header="Shift Name" DataMemberBinding="{Binding ShiftName}" />
-                        <telerik:GridViewDataColumn Header="Day Off 1" DataMemberBinding="{Binding DayOff1}" />
-                        <telerik:GridViewDataColumn Header="Day Off 2" DataMemberBinding="{Binding DayOff2}" />
-                        <telerik:GridViewDataColumn Header="Start Time" DataMemberBinding="{Binding StartTime}" />
-                        <telerik:GridViewDataColumn Header="Mon Min" DataMemberBinding="{Binding MonMin}" />
-                        <telerik:GridViewDataColumn Header="Tue Min" DataMemberBinding="{Binding TueMin}" />
-                        <telerik:GridViewDataColumn Header="Wed Min" DataMemberBinding="{Binding WedMin}" />
-                        <telerik:GridViewDataColumn Header="Thu Min" DataMemberBinding="{Binding ThuMin}" />
-                        <telerik:GridViewDataColumn Header="Fri Min" DataMemberBinding="{Binding FriMin}" />
-                        <telerik:GridViewDataColumn Header="Sat Min" DataMemberBinding="{Binding SatMin}" />
-                        <telerik:GridViewDataColumn Header="Sun Min" DataMemberBinding="{Binding SunMin}" />
-                        <telerik:GridViewDataColumn Header="Min Hrs" DataMemberBinding="{Binding MinHrs}" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="350"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="570"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Foreground="#004b79" FontSize="23" Height="37">Shifts</Label>
+        <!--List View Panel-->
+        <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="0">
+            <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
+                    telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
+                    ItemsSource="{Binding listOfShifts}" ShowGroupPanel="False"
+                    SelectedItem="{Binding selectedShift}" 
+                    VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
+                    CanUserFreezeColumns="False" MinWidth="387" Height="150" GroupPanelBackground="#FF004B79">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="Shift Name" DataMemberBinding="{Binding ShiftName}" />
+                    <telerik:GridViewDataColumn Header="Start Time" DataMemberBinding="{Binding StartTime}" />
+                    <telerik:GridViewDataColumn Header="Mon Min" DataMemberBinding="{Binding MonMin}" />
+                    <telerik:GridViewDataColumn Header="Tue Min" DataMemberBinding="{Binding TueMin}" />
+                    <telerik:GridViewDataColumn Header="Wed Min" DataMemberBinding="{Binding WedMin}" />
+                    <telerik:GridViewDataColumn Header="Thu Min" DataMemberBinding="{Binding ThuMin}" />
+                    <telerik:GridViewDataColumn Header="Fri Min" DataMemberBinding="{Binding FriMin}" />
+                    <telerik:GridViewDataColumn Header="Sat Min" DataMemberBinding="{Binding SatMin}" />
+                    <telerik:GridViewDataColumn Header="Sun Min" DataMemberBinding="{Binding SunMin}" />
+                    <telerik:GridViewDataColumn Header="Min Hrs" DataMemberBinding="{Binding MinHrs}" />
 
-                    </telerik:RadGridView.Columns>
-                </telerik:RadGridView>
-
-            </StackPanel>
-            <!--Header-->
-            <StackPanel Background="#FF25A0DA" Height="30px">
-                <Label Foreground="White" FontSize="14">Shift Details</Label>
-            </StackPanel>
-            <!--CRUD Panel-->
-            <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
-                <StackPanel Background="White">
-                    <!--Buttons Panel-->
-                    <StackPanel Orientation="Horizontal" Margin="600,0,0,0">
-                        <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
-                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png">
-                            </Image>
-                        </Button>
-                        <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
-                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png">
-                            </Image>
-                        </Button>
-                        <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
-                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png">
-                            </Image>
-                        </Button>
-                    </StackPanel>
-                    <!--Data Input Panel-->
-                    <StackPanel Margin="5,5,5,5">
-                        <Grid Height="260">
-                            <Label Content="Name:" HorizontalAlignment="Left" Margin="39,44,0,0" VerticalAlignment="Top"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="26" Margin="88,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Text="{Binding selectedShift.ShiftName, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <Label Content="Start Time:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,73,0,0"/>
-                            <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker"  Margin="88,75,454,0"  VerticalAlignment="Top"/>
-                            <Label Content="Day Off 1:" HorizontalAlignment="Left" Margin="20,103,0,0" VerticalAlignment="Top"/>
-                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="88,104,0,0" VerticalAlignment="Top" Width="134">
-                                <ComboBoxItem Content="Monday" />
-                                <ComboBoxItem Content="Tuesday" />
-                                <ComboBoxItem Content="Wednesday" />
-                                <ComboBoxItem Content="Thursday" />
-                                <ComboBoxItem Content="Friday" />
-                                <ComboBoxItem Content="Saturday" />
-                                <ComboBoxItem Content="Sunday" />
-                            </telerik:RadComboBox>
-                            <Label Content="Day Off 2:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,129,0,0"/>
-                            <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="88,131,0,0" VerticalAlignment="Top" Width="134">
-                                <ComboBoxItem Content="Monday" />
-                                <ComboBoxItem Content="Tuesday" />
-                                <ComboBoxItem Content="Wednesday" />
-                                <ComboBoxItem Content="Thursday" />
-                                <ComboBoxItem Content="Friday" />
-                                <ComboBoxItem Content="Saturday" />
-                                <ComboBoxItem Content="Sunday" />
-                            </telerik:RadComboBox>
-                            <CheckBox telerik:StyleManager.Theme="Windows8" Content="GZ Holidays" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,158,0,0"/>
-                            <Label Content="Work Minutes" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="375,0,0,589" FontSize="22"/>
-                            <Label Content="Work Minutes For Each Day:" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <Label Content="Monday:" HorizontalAlignment="Left" Margin="258,43,0,0" VerticalAlignment="Top"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="319,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.ShiftName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <Label Content="Tuesday:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="8.261,8.124" Margin="258,68,0,0"/>
-                            <Label Content="Wednesday:" HorizontalAlignment="Left" Margin="240,95,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Thursday:" HorizontalAlignment="Left" Margin="253,124,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Friday:" HorizontalAlignment="Left" Margin="269,151,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Saturday:" HorizontalAlignment="Left" Margin="255,177,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Sunday:" HorizontalAlignment="Left" Margin="262,203,0,0" VerticalAlignment="Top"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="319,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.TueMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="319,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.WedMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="319,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.ShiftThuMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="319,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.ShiftFriMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="319,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.ShiftSatMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="319,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.Shift.SunMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <Label Content="Margins:" HorizontalAlignment="Left" Margin="429,16,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <Label Content="Late In:" HorizontalAlignment="Left" Margin="429,44,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Late Out:" HorizontalAlignment="Left" Margin="421,71,0,0" VerticalAlignment="Top" />
-                            <Label Content="Early In:" HorizontalAlignment="Left" Margin="428,97,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Early Out:" HorizontalAlignment="Left" Margin="418,126,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Min Work:" HorizontalAlignment="Left" Margin="17,175,0,0" VerticalAlignment="Top"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="484,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" Text="{Binding selectedShift.LateIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.42,1.077"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="484,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" Text="{Binding selectedShift.LateOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="484,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" Text="{Binding selectedShift.EarlyIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="484,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" Text="{Binding selectedShift.EarlyOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="88,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Text="{Binding selectedShift.MinHrs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"/>
-                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="560,202,62,31" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
-                            <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="502,202,116,31" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
-                        </Grid>
-                    </StackPanel>
-
-                </StackPanel>
-            </Border>
-
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
         </StackPanel>
-    </Border>
-    
+        <!--CRUD Panel-->
+        <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Grid.Column="0" Grid.Row="2">
+            <StackPanel Background="White">
+                <StackPanel Background="#004b79">
+                    <Label Foreground="White"> Shift Detail</Label>
+                </StackPanel>
+                <!--Buttons Panel-->
+                <StackPanel Orientation="Horizontal" Margin="400,15,0,0">
+                    <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
+                        <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png"/>
+                    </Button>
+                    <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
+                        <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png"/>
+                    </Button>
+                    <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
+                        <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png"/>
+                    </Button>
+                </StackPanel>
+                <!--Data Input Panel-->
+                <StackPanel Margin="5,5,5,5">
+                    <Grid Height="300">
+                        <Label Content="Shift Name:" HorizontalAlignment="Left" Margin="3,16,0,0" VerticalAlignment="Top"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="26" Margin="89,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedShift.ShiftName, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <Label Content="Start Time:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,42,0,0"/>
+                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker"  Margin="89,47,319,0" Width="140"  VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label Content="Day Off 1:" HorizontalAlignment="Left" Margin="12,70,0,0" VerticalAlignment="Top"/>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="89,74,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold">
+                            <ComboBoxItem Content="Monday" />
+                            <ComboBoxItem Content="Tuesday" />
+                            <ComboBoxItem Content="Wednesday" />
+                            <ComboBoxItem Content="Thursday" />
+                            <ComboBoxItem Content="Friday" />
+                            <ComboBoxItem Content="Saturday" />
+                            <ComboBoxItem Content="Sunday" />
+                        </telerik:RadComboBox>
+                        <Label Content="Day Off 2:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,97,0,0"/>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="89,101,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold">
+                            <ComboBoxItem Content="Monday" />
+                            <ComboBoxItem Content="Tuesday" />
+                            <ComboBoxItem Content="Wednesday" />
+                            <ComboBoxItem Content="Thursday" />
+                            <ComboBoxItem Content="Friday" />
+                            <ComboBoxItem Content="Saturday" />
+                            <ComboBoxItem Content="Sunday" />
+                        </telerik:RadComboBox>
+                        <CheckBox telerik:StyleManager.Theme="Windows8" Content="GZ Holidays" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="89,132,0,0"/>
+                        <Label Content="Work Minutes" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="375,0,0,589" FontSize="22"/>
+                        <Label HorizontalAlignment="Left" Margin="244,9,0,0" VerticalAlignment="Top" FontSize="16">
+                            <TextBlock TextDecorations="Underline">Work Minutes For Each Day:</TextBlock>
+                        </Label>
+                        <Label Content="Monday:" HorizontalAlignment="Left" Margin="261,45,0,0" VerticalAlignment="Top"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="322,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.ShiftName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <Label Content="Tuesday:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="8.261,8.124" Margin="396,45,0,0"/>
+                        <Label Content="Wednesday:" HorizontalAlignment="Left" Margin="243,72,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Thursday:" HorizontalAlignment="Left" Margin="389,72,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Friday:" HorizontalAlignment="Left" Margin="272,99,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Saturday:" HorizontalAlignment="Left" Margin="393,99,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Sunday:" HorizontalAlignment="Left" Margin="265,124,0,0" VerticalAlignment="Top"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="457,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.TueMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="322,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.WedMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="457,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.ShiftThuMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="322,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.ShiftFriMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="457,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.ShiftSatMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="322,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.Shift.SunMin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <Label Content="Margins:" HorizontalAlignment="Left" Margin="244,155,0,0" VerticalAlignment="Top" FontSize="16"/>
+                        <Label Content="Late In:" HorizontalAlignment="Left" Margin="269,186,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Late Out:" HorizontalAlignment="Left" Margin="396,186,0,0" VerticalAlignment="Top" />
+                        <Label Content="Early In:" HorizontalAlignment="Left" Margin="265,212,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Early Out:" HorizontalAlignment="Left" Margin="391,212,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Min Work:" HorizontalAlignment="Left" Margin="9,149,0,0" VerticalAlignment="Top"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="322,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.LateIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.42,1.077" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="457,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.LateOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="322,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.EarlyIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="457,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.EarlyOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="89,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedShift.MinHrs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="87" Background="White" Margin="142,200,319,73" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="502,202,116,31" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <!--Employee List View Panel-->
+        <StackPanel Grid.Column="1" Grid.Row="0"  Margin ="0,7,0,0" Background="#004b79">
+            <Label Foreground="White" FontSize="16" Height="40">Employees listed in selected Shift</Label>
+        </StackPanel>
+        <StackPanel Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1">
+            <telerik:RadGridView  AutoGenerateColumns="False" 
+                    telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
+                    ItemsSource="{Binding listOfShifts}" ShowGroupPanel="False"
+                    SelectedItem="{Binding selectedShift}" 
+                    VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
+                    CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding ShiftName}" />
+                    <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding StartTime}" />
+                    <telerik:GridViewDataColumn Header="Designation" DataMemberBinding="{Binding MonMin}" />
+                    <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding TueMin}" />
+                    <telerik:GridViewDataColumn Header="Crew" DataMemberBinding="{Binding WedMin}" />
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </StackPanel>
+    </Grid>
+
+
 </Page>

@@ -11,7 +11,7 @@ using TimeAttendanceSystem.ViewModels.VMSection.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMSection
 {
-    class VMSection: ObservableObject
+    class VMSection : ObservableObject
     {
         #region Intialization
         public Section _selectedSec;
@@ -128,6 +128,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
             _selectedSec = entity.Sections.ToList().FirstOrDefault();
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
+
             this._AddCommand = new AddCommandSec(_selectedSec);
             this._EditCommand = new EditCommandSec(this);
             this._DeleteCommand = new DeleteCommandSec(_selectedSec);

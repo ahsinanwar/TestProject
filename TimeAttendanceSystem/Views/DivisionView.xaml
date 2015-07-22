@@ -51,8 +51,8 @@
                     <StackPanel Margin="5,5,5,5">
                         <Grid Height="150">
                             <Label Content="Name:" HorizontalAlignment="Left" Margin="52,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="106,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Text="{Binding Path=selectedCity.CityName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
-                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="201,55,111,68" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                            <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="106,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Text="{Binding Path=selectedDiv.DivisionName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                            <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="106,51,206,72" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                             <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         </Grid>
                     </StackPanel>

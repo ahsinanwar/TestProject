@@ -6,37 +6,32 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 
-namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
+namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
 {
-    class AddCommand :ICommand
+    class SearchCommandAttEdit:ICommand
     {
-        #region Fields
+          #region Fields
+        VMAttEdit _vmcategory;
         TAS2013Entities context = new TAS2013Entities();
-        LvQuota _vm = new LvQuota();
         #endregion
 
         #region constructors
-        public AddCommand(LvQuota vm)
-        { _vm = vm; }
+        public SearchCommandAttEdit(VMAttEdit vm)
+        { _vmcategory = vm; }
         public bool CanExecute(object parameter)
         {
-            return true;
+            return (_vmcategory.selectedAttData != null);
         }
         #endregion
 
         #region ICommand Members
         public event EventHandler CanExecuteChanged;
+
         public void Execute(object parameter)
         {
-            VMLvQuota vmd = (VMLvQuota)parameter;
-            vmd.selectedLvQuota = new LvQuota();
-            vmd.isAdding = true;
+            VMAttEdit vmd = (VMAttEdit)parameter;
             vmd.isEnabled = true;
-            //   context.SaveChanges();
-            //Console.WriteLine(vmd.DeptName);
-            // Console.WriteLine(vmd.DivID);
-            // Console.WriteLine(vmd.DeptID);
-            // Console.WriteLine(vmd.CompanyID);
+            vmd.isAdding = false;
         }
         #endregion
     }

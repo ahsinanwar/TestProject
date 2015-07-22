@@ -17,9 +17,9 @@ namespace TimeAttendanceSystem.Validation
                 return new ValidationResult(false, "value cannot be empty.");
             else
             {
-                if (value.ToString().Length > 3)
+                if (value.ToString().Length > 100)
                     return new ValidationResult
-                    (false, "Name cannot be more than 3 characters long.");
+                    (false, "Name cannot be more than 100 characters long.");
             }
             return ValidationResult.ValidResult;
         }

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
@@ -34,10 +36,26 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
             VMLocation vmd = (VMLocation)parameter;
            if (vmd.isAdding)
            {
-               context.Locations.Add(vmd.selectedLoc);
-               context.SaveChanges();
-               vmd.listOfLocs.Add(vmd.selectedLoc);
+               if (vmd.selectedLoc.LocName == "" || vmd.selectedLoc.LocName == null)
+               {
+                   PopUp.popUp("Empty Value", "Please write Location before saving", NotificationType.Warning);
+               }
 
+               else
+               {
+                   if (context.Locations.Where(aa => aa.LocName == vmd.selectedLoc.LocName).Count() > 0)
+                   {
+                       PopUp.popUp("Sorry!", "Location name already been created", NotificationType.Warning);
+                   }
+                   else
+                   {
+                       context.Locations.Add(vmd.selectedLoc);
+                       context.SaveChanges();
+                       vmd.listOfLocs.Add(vmd.selectedLoc);
+                       PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+              
+                   }
+               }
            }
            else {
                Location loc = context.Locations.First(aa => aa.LocID == vmd.selectedLoc.LocID);
@@ -45,6 +63,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                vmd.isEnabled = false;
                vmd.isAdding = false;
                context.SaveChanges();
+               PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+              
                 }
          
         }
