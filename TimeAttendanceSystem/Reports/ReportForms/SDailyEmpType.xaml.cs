@@ -31,7 +31,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             startDate.SelectedDate = DateTime.Today.AddDays(-7);
             endDate.SelectedDate = DateTime.Today;
             RBConsolidated.IsChecked = true;
-            LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", ctx.DailySummaries.Where(aa => aa.Criteria == "T").ToList(), "Consolidated Employee type Summary Report");
+            LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", ctx.DailySummaries.Where(aa => aa.Criteria == "T").ToList(), "Consolidated Summary Report by Employement Type");
 
     
          }
@@ -70,7 +70,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
             List<DailySummary> _TempViewList = new List<DailySummary>();
-            List<DailySummary> _ViewList = ctx.DailySummaries.ToList();
+            List<DailySummary> _ViewList = ctx.DailySummaries.Where(aa => aa.Criteria == "T" && aa.Date >= StartDate && aa.Date <= EndDate).ToList();
 
 
             //for department
@@ -86,11 +86,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
             if (RBConsolidated.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Conolidated EmpType Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, "Consolidated Summary by Employement Type");
             if (RBWorkTime.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Conolidated EmpType Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSWorkSummary.rdlc", _ViewList, "Work Time Summary by Employement Type");
             if (RBEmpstrength.IsChecked == true)
-                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Conolidated EmpType Summary Report");
+                LoadReport(Properties.Settings.Default.ReportPath + "DSEmpStrength.rdlc", _ViewList, "Strength Summary by Employement Type");
 
 
             LoadReport(Properties.Settings.Default.ReportPath + "DSConsolidated.rdlc", _ViewList, Title);
@@ -100,7 +100,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         {
             //rptViewer.Reset();
             string Date = "From: " + StartDate.ToString("dd-MMM-yyyy") + " To: " + EndDate.ToString("dd-MMM-yyyy");
-            this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
+            this.rptViewer.LocalReport.DisplayName = Title;
            
             //rptViewer.ProcessingMode = ProcessingMode.Local;
             //rptViewer.LocalReport.ReportPath = "WpfApplication1.Report1.rdlc";

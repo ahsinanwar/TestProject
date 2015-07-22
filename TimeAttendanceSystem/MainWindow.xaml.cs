@@ -157,6 +157,9 @@ namespace TimeAttendanceSystem
                     case "By Shift":
                         _mainFrame.Navigate(new SDailyShift());
                         break;
+                            case "Device Setup":
+                        _mainFrame.Navigate(new ReaderView());
+                        break;
                 }
             }
         }
@@ -200,6 +203,10 @@ namespace TimeAttendanceSystem
         private void btn_JobCard_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new AttEditJobCard());
+        }
+        private void btn_User_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new UserView());
         }
     }
 }

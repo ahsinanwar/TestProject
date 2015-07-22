@@ -72,6 +72,42 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
                 OnPropertyChanged("listOfRdrs");
             }
         }
+
+        private ObservableCollection<Location> _listOfLocs;
+        public ObservableCollection<Location> listOfLocs
+        {
+            get { return _listOfLocs; }
+
+            set
+            {
+                listOfLocs = value;
+                OnPropertyChanged("listOfLocs");
+            }
+        }
+
+        private ObservableCollection<RdrDutyCode> _listOfDutyCodes;
+        public ObservableCollection<RdrDutyCode> listOfDutyCodes
+        {
+            get { return _listOfDutyCodes; }
+
+            set
+            {
+                listOfDutyCodes = value;
+                OnPropertyChanged("listOfDutyCodes");
+            }
+        }
+
+        private ObservableCollection<ReaderType> _listOfRdrTypes;
+        public ObservableCollection<ReaderType> listOfRdrTypes
+        {
+            get { return _listOfRdrTypes; }
+
+            set
+            {
+                listOfRdrTypes = value;
+                OnPropertyChanged("listOfRdrTypes");
+            }
+        }
         #endregion
 
         #region ICommands
@@ -117,6 +153,9 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _selectedRdr = new Reader();
             _listOfRdrs = new ObservableCollection<Reader>(entity.Readers.ToList());
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
+            _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
+            _listOfDutyCodes = new ObservableCollection<RdrDutyCode>(entity.RdrDutyCodes.ToList());
+            _listOfRdrTypes = new ObservableCollection<ReaderType>(entity.ReaderTypes.ToList());
             this._AddCommand = new AddCommandRdr(_selectedRdr);
             this._EditCommand = new EditCommandRdr(this);
             this._DeleteCommand = new DeleteCommandRdr(_selectedRdr);
@@ -124,6 +163,9 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandRdr(this);
             base.OnPropertyChanged("_listOfRdrs");
+            base.OnPropertyChanged("_listOfLocs");
+            base.OnPropertyChanged("_listOfDutyCodes");
+            base.OnPropertyChanged("_listOfRdrTypes");
         }
         #endregion  
     }

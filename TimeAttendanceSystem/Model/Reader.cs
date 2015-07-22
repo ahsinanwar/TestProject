@@ -27,8 +27,6 @@ namespace TimeAttendanceSystem.Model
         public byte RdrTypeID { get; set; }
         public bool Status { get; set; }
         public Nullable<short> LocID { get; set; }
-        public Nullable<bool> isSafe { get; set; }
-        public Nullable<bool> EmgPool { get; set; }
     
         public virtual Location Location { get; set; }
         public virtual ICollection<PollData> PollDatas { get; set; }

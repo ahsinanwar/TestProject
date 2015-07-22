@@ -40,28 +40,11 @@
             </Border>
 
             <Border BorderBrush="LightGray" BorderThickness="1,1,1,1" Margin="5,5,5,5">
-                <StackPanel Grid.Column="0" Grid.Row="1" Background="White">
-                    <StackPanel Background="#efecea">
-                        <Label FontSize="16" Foreground="#004b79" Content="Select Comapny:"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <Grid Height="150" Margin="5,5,0,0">
-                            <telerik:RadListBox x:Name="ListBoxDept" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="136" Margin="2,4,0,0">
-                            </telerik:RadListBox>
-                            <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddDept" Content="Add" HorizontalAlignment="Left" Margin="134,4,0,0" VerticalAlignment="Top" Width="38" Click="btnAddDept_Click" >
-                            </Button>
-                            <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearDept" Content="Clear" HorizontalAlignment="Left" Margin="134,31,0,0" VerticalAlignment="Top" Width="38" Click="btnClearDept_Click" ></Button>
-                        </Grid>
-                    </StackPanel>
-
-                </StackPanel>
-            </Border>
-            <Border BorderBrush="LightGray" BorderThickness="1,1,1,1" Margin="5,5,5,5">
                 <StackPanel Background="White" Height="110">
                     <Label Background="#efecea" FontSize="16" Foreground="#004b79" Content="Select Report Type"></Label>
-                    <RadioButton telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0" Content="Employee Strength"/>
-                    <RadioButton telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0" Content="Work Times"/>
-                    <RadioButton telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0"  Content="Consolidated"/>
+                    <RadioButton x:Name="RBEmpstrength" telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0" Content="Employee Strength"/>
+                    <RadioButton x:Name="RBWorkTime" telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0" Content="Work Times"/>
+                    <RadioButton x:Name="RBConsolidated" telerik:StyleManager.Theme="Windows8" Margin="5,7,0,0"  Content="Consolidated"/>
                 </StackPanel>
             </Border>
         </StackPanel>
