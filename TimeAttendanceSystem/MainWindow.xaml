@@ -71,6 +71,9 @@
                         <telerik:RadMenuSeparatorItem />
                         <telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" >
                         </telerik:RadMenuItem>
+                        <telerik:RadMenuSeparatorItem />
+                        <telerik:RadMenuItem Header="User" Click="btn_User_Click" >
+                        </telerik:RadMenuItem>
                     </telerik:RadMenu>
             </StackPanel>
             </Border>

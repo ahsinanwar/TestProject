@@ -204,5 +204,9 @@ namespace TimeAttendanceSystem
         {
             _mainFrame.Navigate(new AttEditJobCard());
         }
+        private void btn_User_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new UserView());
+        }
     }
 }
