@@ -89,7 +89,9 @@ namespace TimeAttendanceSystem
                     case "Application":
                         _mainFrame.Navigate(new LvApplicationView());
                         break;
-
+                    case "Short Leave":
+                        _mainFrame.Navigate(new ShortLvView());
+                        break;
                     case "Employee":
                         _mainFrame.Navigate(new Employee());
                         break;
@@ -97,7 +99,7 @@ namespace TimeAttendanceSystem
                         _mainFrame.Navigate(new EmpDetail());
                         break;
 
-                    case "Short Leave":
+                    case "Short Leaves":
                         _mainFrame.Navigate(new DFShortLeave());
                         break;
                     case "Quota":
@@ -157,8 +159,14 @@ namespace TimeAttendanceSystem
                     case "By Shift":
                         _mainFrame.Navigate(new SDailyShift());
                         break;
-                            case "Device Setup":
+                    case "Device Setup":
                         _mainFrame.Navigate(new ReaderView());
+                        break;
+                    case "Upload Templates":
+                        _mainFrame.Navigate(new TempUploadView());
+                        break;
+                    case "Delete Templates":
+                        _mainFrame.Navigate(new TempDeleteView());
                         break;
                 }
             }
@@ -176,7 +184,6 @@ namespace TimeAttendanceSystem
         }
         private void btn_home_Click(object sender, RoutedEventArgs e)
         {
-            
             _mainFrame.Navigate(new DashView());
         }
        

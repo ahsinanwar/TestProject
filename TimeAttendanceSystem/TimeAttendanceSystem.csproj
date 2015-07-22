@@ -644,6 +644,7 @@
     <Compile Include="ViewModels\VMShortLv\Commands\EditCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\SaveCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\VMShortLeave.cs" />
+    <Compile Include="ViewModels\VMTempUpload\VMTempUpload.cs" />
     <Compile Include="ViewModels\VMUser\Commands\AddCommandUser.cs" />
     <Compile Include="ViewModels\VMUser\Commands\DeleteCommandUser.cs" />
     <Compile Include="ViewModels\VMUser\Commands\EditCommandUser.cs" />
@@ -706,6 +707,9 @@
     <Compile Include="Views\AttEditView.xaml.cs">
       <DependentUpon>AttEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CardMgrView.xaml.cs">
+      <DependentUpon>CardMgrView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CategoryView.xaml.cs">
       <DependentUpon>CategoryView.xaml</DependentUpon>
     </Compile>
@@ -737,8 +741,14 @@
       <DependentUpon>EmpTypeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ErrorsToMessageConverter.cs" />
+    <Compile Include="Views\TempDeleteView.xaml.cs">
+      <DependentUpon>TempDeleteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HolidayView.xaml.cs">
       <DependentUpon>HolidayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TempUploadView.xaml.cs">
+      <DependentUpon>TempUploadView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LocationView.xaml.cs">
       <DependentUpon>LocationView.xaml</DependentUpon>
@@ -931,6 +941,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CardMgrView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CategoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -971,7 +985,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TempDeleteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HolidayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TempUploadView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -116,8 +116,13 @@
                             <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Quota"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
+                        <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                         <telerik:RadMenuItem Header="Devices">
                             <telerik:RadMenuItem Header="Device Setup"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Upload Templates"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Delete Templates"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Card Manager"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Troubleshoot"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                             <telerik:RadMenuItem Header="Employee Reports">
@@ -130,7 +135,7 @@
                                 <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Absent"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Leave"></telerik:RadMenuItem>
-                                <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="Short Leaves"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Early In"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Early Out"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Late In"></telerik:RadMenuItem>
