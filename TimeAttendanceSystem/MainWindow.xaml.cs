@@ -133,6 +133,33 @@ namespace TimeAttendanceSystem
                     case "Yearly Leaves":
                         _mainFrame.Navigate(new YLSummary());
                         break;
+                    case "Leave Quota":
+                        _mainFrame.Navigate(new MFLeaves());
+                        break;
+                    case "Attendance Sheet":
+                        _mainFrame.Navigate(new MFAttSheetxaml());
+                        break;
+                    case "Attendance Summary":
+                        _mainFrame.Navigate(new MFAttSummary());
+                        break;
+                    case "By Company":
+                        _mainFrame.Navigate(new SDailyCompany());
+                        break;
+                    case "By Department":
+                        _mainFrame.Navigate(new SDailyDept());
+                        break;
+                    case "By Type":
+                        _mainFrame.Navigate(new SDailyEmpType());
+                        break;
+                    case "By Section":
+                        _mainFrame.Navigate(new SDailySection());
+                        break;
+                    case "By Shift":
+                        _mainFrame.Navigate(new SDailyShift());
+                        break;
+                            case "Device Setup":
+                        _mainFrame.Navigate(new ReaderView());
+                        break;
                 }
             }
         }

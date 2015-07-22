@@ -4286,20 +4286,12 @@
           <DataField>GradeName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CompName">
-          <DataField>CompName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="JobTitle">
           <DataField>JobTitle</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CityName">
           <DataField>CityName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="RegionName">
-          <DataField>RegionName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CrewName">
@@ -4377,10 +4369,6 @@
         <Field Name="CardNo">
           <DataField>CardNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CompanyID">
-          <DataField>CompanyID</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
         <Field Name="TypeID">
           <DataField>TypeID</DataField>
@@ -4552,8 +4540,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>TASReportDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\Projects\CNS\Working Projects\WMS General\WMS\WMS\Models\TASReportDataSet.xsd</rd:SchemaPath>
+        <rd:DataSetName>TASReportDataset</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\inven Projects\TimeAttendanceSystem\TimeAttendanceSystem\Model\TASReportDataset.xsd</rd:SchemaPath>
         <rd:TableName>ViewMonthlyData</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

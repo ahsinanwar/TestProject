@@ -16,6 +16,8 @@ namespace TimeAttendanceSystem.Model
     {
         public string SummaryDateCriteria { get; set; }
         public string Criteria { get; set; }
+        public Nullable<short> CriteriaValue { get; set; }
+        public string CriteriaName { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<short> TotalEmps { get; set; }
         public Nullable<short> PresentEmps { get; set; }

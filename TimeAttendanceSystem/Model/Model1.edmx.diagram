@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6e9906e5b1fb4f1e998c4702b29925ae" Name="Diagram1">
+        <EntityTypeShape EntityType="TASDesktopModel.AccessEmp" Width="1.5" PointX="2.2774844012584" PointY="0.60821588365743673" />
+        <EntityTypeShape EntityType="TASDesktopModel.AttCode" Width="1.5" PointX="9.8925664992502735" PointY="11.337778722559" />
+        <EntityTypeShape EntityType="TASDesktopModel.AttData" Width="1.5" PointX="8.0600285604875666" PointY="10.894916271276268" />
+        <EntityTypeShape EntityType="TASDesktopModel.AttDataManEdit" Width="1.5" PointX="6.0073072398115448" PointY="6.3577040463489034" />
+        <EntityTypeShape EntityType="TASDesktopModel.AttDataMonth" Width="1.5" PointX="8.2558602840899766" PointY="29.05419841271555" />
+        <EntityTypeShape EntityType="TASDesktopModel.AttMnData" Width="1.5" PointX="10.40462252982176" PointY="13.443165174426122" />
+        <EntityTypeShape EntityType="TASDesktopModel.AttMnDataPer" Width="1.5" PointX="0.64401373483427515" PointY="12.497703841187853" />
+        <EntityTypeShape EntityType="TASDesktopModel.AttProcess" Width="1.5" PointX="1.8974849367036879" PointY="9.7971311406219055" />
+        <EntityTypeShape EntityType="TASDesktopModel.AuditForm" Width="1.5" PointX="6.0325488215463938" PointY="5.3201321090199665" />
+        <EntityTypeShape EntityType="TASDesktopModel.AuditLog" Width="1.5" PointX="1.1907074214847326" PointY="14.873758486878947" />
+        <EntityTypeShape EntityType="TASDesktopModel.AuditOperation" Width="1.5" PointX="7.0458714063492938" PointY="19.763308817410518" />
+        <EntityTypeShape EntityType="TASDesktopModel.Card" Width="1.5" PointX="9.1272151047024952" PointY="12.114222696104191" />
+        <EntityTypeShape EntityType="TASDesktopModel.CardType" Width="1.5" PointX="1.178394433659685" PointY="10.270239268555418" />
+        <EntityTypeShape EntityType="TASDesktopModel.Category" Width="1.5" PointX="10.408006505299362" PointY="15.974857129144882" />
+        <EntityTypeShape EntityType="TASDesktopModel.City" Width="1.5" PointX="11.698325045266341" PointY="8.4138912299712612" />
+        <EntityTypeShape EntityType="TASDesktopModel.ClientInfo" Width="1.5" PointX="7.4645979681353074" PointY="2.0696221152644707" />
+        <EntityTypeShape EntityType="TASDesktopModel.ClientLicense" Width="1.5" PointX="9.1603239016422648" PointY="26.678850603606016" />
+        <EntityTypeShape EntityType="TASDesktopModel.ClientMAC" Width="1.5" PointX="6.94909574042498" PointY="18.544687041335127" />
+        <EntityTypeShape EntityType="TASDesktopModel.Crew" Width="1.5" PointX="7.8829544688961253" PointY="30.148985191317735" />
+        <EntityTypeShape EntityType="TASDesktopModel.DailySummary" Width="1.5" PointX="5.0986477197607272" PointY="0.81257022955108915" />
+        <EntityTypeShape EntityType="TASDesktopModel.DailyTimeMonitor" Width="1.5" PointX="5.6190342836170615" PointY="12.496660745002638" />
+        <EntityTypeShape EntityType="TASDesktopModel.DaysName" Width="1.5" PointX="6.8960277712419753" PointY="25.094329502943125" />
+        <EntityTypeShape EntityType="TASDesktopModel.Department" Width="1.5" PointX="5.187664693774499" PointY="30.160051002241694" />
+        <EntityTypeShape EntityType="TASDesktopModel.Designation" Width="1.5" PointX="6.7111288321721974" PointY="30.719008445143238" />
+        <EntityTypeShape EntityType="TASDesktopModel.Division" Width="1.5" PointX="5.540756287770698" PointY="30.186889811505978" />
+        <EntityTypeShape EntityType="TASDesktopModel.DownloadTime" Width="1.5" PointX="3.8599338474962552" PointY="31.810973554761603" />
+        <EntityTypeShape EntityType="TASDesktopModel.DutyCode" Width="1.5" PointX="1.9167731375977271" PointY="16.388695679786007" />
+        <EntityTypeShape EntityType="TASDesktopModel.DutyTime" Width="1.5" PointX="2.0514417113975814" PointY="18.309982919278546" />
+        <EntityTypeShape EntityType="TASDesktopModel.EmailPerson" Width="1.5" PointX="3.1008658516690439" PointY="14.265954635229871" />
+        <EntityTypeShape EntityType="TASDesktopModel.Emp" Width="1.5" PointX="3.0732725872999396" PointY="11.223170226078095" />
+        <EntityTypeShape EntityType="TASDesktopModel.EmpAccess" Width="1.5" PointX="5.6775870964292379" PointY="0.044628843685904911" />
+        <EntityTypeShape EntityType="TASDesktopModel.EmpFace" Width="1.5" PointX="2.6858139721144987" PointY="13.601736194268678" />
+        <EntityTypeShape EntityType="TASDesktopModel.EmpFp" Width="1.5" PointX="3.4307264366330239" PointY="25.676037964260225" />
+        <EntityTypeShape EntityType="TASDesktopModel.EmpPhoto" Width="1.5" PointX="7.8808630387675311" PointY="7.03851935595205" />
+        <EntityTypeShape EntityType="TASDesktopModel.EmpType" Width="1.5" PointX="9.7375432000204647" PointY="18.515272789874707" />
+        <EntityTypeShape EntityType="TASDesktopModel.Grade" Width="1.5" PointX="7.7909697088370891" PointY="17.937811666139314" />
+        <EntityTypeShape EntityType="TASDesktopModel.Holiday" Width="1.5" PointX="8.89640182112176" PointY="2.362649561074865" />
+        <EntityTypeShape EntityType="TASDesktopModel.JobCard" Width="1.5" PointX="11.958625148962543" PointY="6.2923296719288127" />
+        <EntityTypeShape EntityType="TASDesktopModel.JobCardApp" Width="1.5" PointX="0.515213035286969" PointY="31.244910776263527" />
+        <EntityTypeShape EntityType="TASDesktopModel.JobCardEmp" Width="1.5" PointX="11.355168817264572" PointY="4.9823341541841319" />
+        <EntityTypeShape EntityType="TASDesktopModel.JobTitle" Width="1.5" PointX="9.140210893536084" PointY="29.035675568988395" />
+        <EntityTypeShape EntityType="TASDesktopModel.Location" Width="1.5" PointX="0.44981513565863263" PointY="1.0086436425375955" />
+        <EntityTypeShape EntityType="TASDesktopModel.LvApplication" Width="1.5" PointX="11.295275363742968" PointY="20.09462102693255" />
+        <EntityTypeShape EntityType="TASDesktopModel.LvConsumed" Width="1.5" PointX="10.85933515562645" PointY="8.0388347245933645" />
+        <EntityTypeShape EntityType="TASDesktopModel.LvData" Width="1.5" PointX="7.9531272649546736" PointY="0.22093905518806495" />
+        <EntityTypeShape EntityType="TASDesktopModel.LvShort" Width="1.5" PointX="3.8533917888316287" PointY="6.7552572818264629" />
+        <EntityTypeShape EntityType="TASDesktopModel.LvType" Width="1.5" PointX="8.2325968594442109" PointY="2.3732236932838444" />
+        <EntityTypeShape EntityType="TASDesktopModel.Option" Width="1.5" PointX="6.6271267396524216" PointY="14.939462579292925" />
+        <EntityTypeShape EntityType="TASDesktopModel.PollData" Width="1.5" PointX="2.0004338072614902" PointY="4.7876711957099252" />
+        <EntityTypeShape EntityType="TASDesktopModel.RdrDutyCode" Width="1.5" PointX="5.9796471269706482" PointY="20.157734552471776" />
+        <EntityTypeShape EntityType="TASDesktopModel.RdrEventLog" Width="1.5" PointX="3.4291560870731046" PointY="10.85782419650714" />
+        <EntityTypeShape EntityType="TASDesktopModel.Reader" Width="1.5" PointX="1.7820849669082484" PointY="28.260077310847155" />
+        <EntityTypeShape EntityType="TASDesktopModel.ReaderType" Width="1.5" PointX="3.5291139704776526" PointY="24.355345260517367" />
+        <EntityTypeShape EntityType="TASDesktopModel.ReaderVendor" Width="1.5" PointX="3.03271326191384" PointY="2.7487454725190745" />
+        <EntityTypeShape EntityType="TASDesktopModel.Reason" Width="1.5" PointX="6.1871357309572108" PointY="31.17818155846474" />
+        <EntityTypeShape EntityType="TASDesktopModel.Region" Width="1.5" PointX="6.3510305594424858" PointY="9.0240648281872566" />
+        <EntityTypeShape EntityType="TASDesktopModel.Roster" Width="1.5" PointX="5.99456417094663" PointY="3.21305941194904" />
+        <EntityTypeShape EntityType="TASDesktopModel.RosterApp" Width="1.5" PointX="7.0684779412432" PointY="18.104556688156237" />
+        <EntityTypeShape EntityType="TASDesktopModel.RosterDetail" Width="1.5" PointX="11.566920680723582" PointY="6.1535269497677341" />
+        <EntityTypeShape EntityType="TASDesktopModel.RosterType" Width="1.5" PointX="5.8053757091077864" PointY="21.053982804088847" />
+        <EntityTypeShape EntityType="TASDesktopModel.Section" Width="1.5" PointX="10.769179080971135" PointY="12.976800045453384" />
+        <EntityTypeShape EntityType="TASDesktopModel.ServiceLog" Width="1.5" PointX="6.6863174935273442" PointY="25.745842811533176" />
+        <EntityTypeShape EntityType="TASDesktopModel.Shift" Width="1.5" PointX="3.0898355073713866" PointY="14.020661941739107" />
+        <EntityTypeShape EntityType="TASDesktopModel.Site" Width="1.5" PointX="10.494082515358032" PointY="21.350514496374185" />
+        <EntityTypeShape EntityType="TASDesktopModel.sysdiagram" Width="1.5" PointX="6.2588668457506547" PointY="16.950204484607188" />
+        <EntityTypeShape EntityType="TASDesktopModel.User" Width="1.5" PointX="0.35918981971181452" PointY="28.586230231721991" />
+        <EntityTypeShape EntityType="TASDesktopModel.UserRole" Width="1.5" PointX="5.7371944141281741" PointY="10.122715626900417" />
+        <EntityTypeShape EntityType="TASDesktopModel.EmpView" Width="1.5" PointX="10.439219220745946" PointY="13.516071519589085" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewAbsent" Width="1.5" PointX="9.1062933714624" PointY="4.9394297175758659" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewCard" Width="1.5" PointX="8.8491273954739462" PointY="5.7653890427972136" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewCrew" Width="1.5" PointX="4.5027696231858663" PointY="26.209481609151457" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewDepartment" Width="1.5" PointX="8.8274272907653017" PointY="22.030157814747728" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewEarlyIN" Width="1.5" PointX="5.7318215862530391" PointY="1.2516466086970859" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewEarlyOut" Width="1.5" PointX="8.5386573097382943" PointY="18.740532213235522" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewEditAttendance" Width="1.5" PointX="5.8214809437382407" PointY="31.567781284250216" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewEmergencyDetail" Width="1.5" PointX="6.0353777865112654" PointY="31.180963202929572" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewEmpPic" Width="1.5" PointX="7.9900009892834358" PointY="26.891742867832885" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewEmpType" Width="1.5" PointX="8.78997137620578" PointY="28.167616186741562" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewLateComer" Width="1.5" PointX="9.3853665801628328" PointY="11.006383766888819" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewLateOut" Width="1.5" PointX="7.507693484196297" PointY="27.3903086462013" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewLeaveData" Width="1.5" PointX="10.63917195733598" PointY="18.736720868729389" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewLeaveQuota" Width="1.5" PointX="6.7719127064439988" PointY="31.548824131278703" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewLvConsumed" Width="1.5" PointX="11.332628264712463" PointY="20.349851260124638" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewMissingAtt" Width="1.5" PointX="9.6468298964420462" PointY="5.8627888289572621" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewMonthlyData" Width="1.5" PointX="2.7656780587349452" PointY="5.3332029903927829" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewMonthlyDataPer" Width="1.5" PointX="9.68291538659619" PointY="25.90569209768702" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewMultipleInOut" Width="1.5" PointX="5.4584452106889554" PointY="9.7156128481568835" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewOverTime" Width="1.5" PointX="3.3924739283474503" PointY="2.5083292734382345" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewPollData" Width="1.5" PointX="8.0388727262797168" PointY="27.800022167991859" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewPresentEmp" Width="1.5" PointX="3.9228694680719034" PointY="6.9879147442932776" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewSection" Width="1.5" PointX="8.71909091841387" PointY="9.24368782771923" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewSLData" Width="1.5" PointX="2.1849619924020773" PointY="17.122530304418191" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewSummary" Width="1.5" PointX="0.32094889521643005" PointY="1.7768763163019328" />
+        <EntityTypeShape EntityType="TASDesktopModel.ViewUserLocation" Width="1.5" PointX="2.7298353476123118" PointY="20.407442236508913" />
+        <AssociationConnector Association="TASDesktopModel.FK_AttData_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_AttDataManEdit_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_AttMnData_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_Card_CardType" />
+        <AssociationConnector Association="TASDesktopModel.FK_Card_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_Card_Reason" />
+        <AssociationConnector Association="TASDesktopModel.FK_EmpType_Category" />
+        <AssociationConnector Association="TASDesktopModel.FK_City_Region" />
+        <AssociationConnector Association="TASDesktopModel.FK_Location_City" />
+        <AssociationConnector Association="TASDesktopModel.FK_Site_City" />
+        <AssociationConnector Association="TASDesktopModel.FK_ClientMAC_ClientInfo" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_Crew" />
+        <AssociationConnector Association="TASDesktopModel.FK_Shift_DaysName" />
+        <AssociationConnector Association="TASDesktopModel.FK_Shift_DaysName1" />
+        <AssociationConnector Association="TASDesktopModel.FK_Department_Division" />
+        <AssociationConnector Association="TASDesktopModel.FK_Section_Department" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_Designation1" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_EmpPhoto" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_Grade" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_JobTitle" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_Location" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_Section" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_ShiftID" />
+        <AssociationConnector Association="TASDesktopModel.FK_Emp_TypeID" />
+        <AssociationConnector Association="TASDesktopModel.FK_EmpAccess_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_EmpFace_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_EmpFp_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_LvApplication_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_LvConsumed_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_LvShort_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_User_Emp" />
+        <AssociationConnector Association="TASDesktopModel.FK_Reader_Location" />
+        <AssociationConnector Association="TASDesktopModel.FK_Shift_Location" />
+        <AssociationConnector Association="TASDesktopModel.FK_LvApplication_User" />
+        <AssociationConnector Association="TASDesktopModel.FK_LvApplications_LvType" />
+        <AssociationConnector Association="TASDesktopModel.FK_LvData_LvApplications" />
+        <AssociationConnector Association="TASDesktopModel.FK_LvData_LvCode" />
+        <AssociationConnector Association="TASDesktopModel.FK_Reader_RdrID" />
+        <AssociationConnector Association="TASDesktopModel.FK_Reader_RdrDutyCode" />
+        <AssociationConnector Association="TASDesktopModel.FK_Reader_ReaderType1" />
+        <AssociationConnector Association="TASDesktopModel.FK_ReaderType_ReaderVendor" />
+        <AssociationConnector Association="TASDesktopModel.FK_RosterApp_RosterType" />
+        <AssociationConnector Association="TASDesktopModel.FK_RosterApp_Shift" />
+        <AssociationConnector Association="TASDesktopModel.FK_RosterDetail_RosterApp" />
+        <AssociationConnector Association="TASDesktopModel.FK_Shift_RosterType" />
+        <AssociationConnector Association="TASDesktopModel.FK_User_UserRole1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

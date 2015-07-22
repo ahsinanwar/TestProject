@@ -182,7 +182,7 @@ namespace TimeAttendanceSystem.Reports.UserControls
         }
         #endregion
 
-        #region -- Employee Type filter --
+        #region -- Crew filter --
         public List<Crew> selectedCrew;
         RFCrews windowCrew;
         private void btnAddCrew_Click(object sender, RoutedEventArgs e)

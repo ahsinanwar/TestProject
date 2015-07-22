@@ -16,7 +16,6 @@ namespace TimeAttendanceSystem.Model
     {
         public Section()
         {
-            this.DailySumSections = new HashSet<DailySumSection>();
             this.Emps = new HashSet<Emp>();
         }
     
@@ -24,7 +23,6 @@ namespace TimeAttendanceSystem.Model
         public string SectionName { get; set; }
         public Nullable<short> DeptID { get; set; }
     
-        public virtual ICollection<DailySumSection> DailySumSections { get; set; }
         public virtual Department Department { get; set; }
         public virtual ICollection<Emp> Emps { get; set; }
     }

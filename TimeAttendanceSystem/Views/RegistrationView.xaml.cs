@@ -75,7 +75,7 @@ namespace TimeAttendanceSystem.Views
                    context.ClientInfoes.Add(clientinfo2);
                    context.SaveChanges();
                    clientinfo2 = context.ClientInfoes.FirstOrDefault(aa => aa.isActive == clientinfo2.isActive && aa.ClientName == clientinfo2.ClientName);
-                   cm.MACAddress = Convert.ToInt16(df.mac);
+                   cm.MACAddress = df.mac;
                    cm.ClientTabID = clientinfo2.ClientID;
                    DownloadingView dv = new DownloadingView(clientinfo2, cm);
                   
@@ -84,7 +84,7 @@ namespace TimeAttendanceSystem.Views
                else
                {
 
-                   cm.MACAddress = Convert.ToInt16(df.mac);
+                   cm.MACAddress = df.mac;
                    cm.ClientTabID = clientinfo.ClientID;
                    DownloadingView dv = new DownloadingView(clientinfo, cm);
                }

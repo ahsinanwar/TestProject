@@ -113,6 +113,9 @@
                             <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Quota"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Devices">
+                            <telerik:RadMenuItem Header="Device Setup"></telerik:RadMenuItem>
+                        </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                             <telerik:RadMenuItem Header="Employee Reports">
                                 <telerik:RadMenuItem Header="Employee"></telerik:RadMenuItem>
@@ -135,16 +138,19 @@
                             </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                             <telerik:RadMenuItem Header="Monthly Reports">
-                                <telerik:RadMenuItem Header="Daily"></telerik:RadMenuItem>
-                                <telerik:RadMenuItem Header="Monthly"></telerik:RadMenuItem>
-                                <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="Leave Quota"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Attendance Sheet"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="Attendance Summary"></telerik:RadMenuItem>
                             </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                             <telerik:RadMenuItem Header="Summary Reports">
                                 <telerik:RadMenuItem Header="Yearly Leaves"></telerik:RadMenuItem>
-                                <telerik:RadMenuItem Header="Monthly"></telerik:RadMenuItem>
-                                <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
-                            </telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="By Company"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="By Department"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="By Shift"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="By Section"></telerik:RadMenuItem>
+                                <telerik:RadMenuItem Header="By Type"></telerik:RadMenuItem>
+                        </telerik:RadMenuItem>
                     </telerik:RadMenu>
                 </StackPanel>
             </StackPanel>

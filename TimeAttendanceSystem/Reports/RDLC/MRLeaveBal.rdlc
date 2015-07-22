@@ -1956,11 +1956,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>9a5409de-5c7f-4c2c-8b9c-1d5aaf6e3e9a</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="TASReportDataset">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>ac7edf07-2831-4100-9bd6-3bdf3fd64e09</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>TASReportDataSet</DataSourceName>
+        <DataSourceName>TASReportDataset</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1996,45 +2003,41 @@
           <DataField>Location</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Company">
-          <DataField>Company</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="TotalCL">
           <DataField>TotalCL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
         <Field Name="TotalSL">
           <DataField>TotalSL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TotalAL">
           <DataField>TotalAL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ConsumedCL">
           <DataField>ConsumedCL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ConsumedSL">
           <DataField>ConsumedSL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ConsumedAL">
           <DataField>ConsumedAL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="BalanceCL">
           <DataField>BalanceCL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="BalanceSL">
           <DataField>BalanceSL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="BalanceAL">
           <DataField>BalanceAL</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Remarks">
           <DataField>Remarks</DataField>
@@ -2046,9 +2049,9 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>TASReportDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\Projects\CNS\Working Projects\WMS General\WMS\WMS\Models\TASReportDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>LvSummaryMonth</rd:TableName>
+        <rd:DataSetName>TASReportDataset</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\inven Projects\TimeAttendanceSystem\TimeAttendanceSystem\Model\TASReportDataset.xsd</rd:SchemaPath>
+        <rd:TableName>ViewMleaveBal</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
