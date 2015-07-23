@@ -741,6 +741,9 @@
       <DependentUpon>EmpTypeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ErrorsToMessageConverter.cs" />
+    <Compile Include="Views\LvSetting.xaml.cs">
+      <DependentUpon>LvSetting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TempDeleteView.xaml.cs">
       <DependentUpon>TempDeleteView.xaml</DependentUpon>
     </Compile>
@@ -982,6 +985,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EmpTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LvSetting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
