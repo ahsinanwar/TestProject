@@ -39,7 +39,7 @@
 
         </StackPanel>
         <Border Grid.Column="0"  Margin="5,5,0,5" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1,1,1,1">
-        <StackPanel  Background="White" >
+            <StackPanel  Background="White" >
             <StackPanel Background="#004b79">
                 <Label Foreground="White">Detail of Leave Application</Label>
             </StackPanel>

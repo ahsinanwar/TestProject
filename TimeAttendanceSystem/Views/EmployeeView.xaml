@@ -82,9 +82,19 @@
                         <StackPanel Width="381">
                             <Grid Height="100" Margin="0,0,22,0">
 
-                                <Image  x:Name="_image" Margin="15,3,261,0" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}">
-                                </Image>
-                                <Button x:Name="btn_imageSelect" Content="..." Margin="66,68,292,15" RenderTransformOrigin="-0.967,0.333" Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}"/>
+
+                                <Border Name="hej1" Margin="15,3,261,0">
+                                    <Image  x:Name="_image" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}">
+                                    </Image>
+                                    <Border.Background>
+                                        <ImageBrush Stretch="Uniform" ImageSource="/TimeAttendanceSystem;component/Images/Blank-Person1.png"/>
+                                    </Border.Background>
+
+                                   
+                                </Border>
+                                <Button x:Name="btn_imageSelect" Content="..." Margin="103,83,236,0" Width="20"  Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}">
+                                </Button>
+                                
 
 
 

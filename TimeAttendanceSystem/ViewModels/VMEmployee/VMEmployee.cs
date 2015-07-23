@@ -74,6 +74,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             get
             {
                 return _selectedCat;
+                
             }
             set
             {
@@ -128,8 +129,6 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
                 _selectedGrade = value;
                 listOfGrades = new ObservableCollection<Grade>(entity.Grades.Where(aa => aa.GradeID == _selectedGrade.GradeID));
                 base.OnPropertyChanged("selectedGrade");
-
-
             }
         }
         public Emp selectedEmp
@@ -325,6 +324,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _selectedDept = new Department();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
+             _dummyEmp = selectedEmp;
          
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
