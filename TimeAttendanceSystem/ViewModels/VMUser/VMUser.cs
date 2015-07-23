@@ -14,9 +14,22 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
     class VMUser:ObservableObject
     {
         #region Intialization
+        public Emp _dummyEmp;
         public User _selectedUser;
+        public User _selectedEmp;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
+        public Boolean _isChecked;
+        public Boolean IsChecked
+        {
+            get { return _isChecked; }
+            set
+            {
+
+                _isChecked = value;
+                OnPropertyChanged("IsChecked");
+            }
+        }
         public Boolean isAdding
         {
             get { return _isAdding; }
@@ -40,6 +53,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
             }
         }
         private ObservableCollection<User> _listOfUsers;
+        private ObservableCollection<Emp> _listOfEmps;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -70,6 +84,35 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
             {
                 listOfUsers = value;
                 OnPropertyChanged("listOfUsers");
+            }
+        }
+
+        public ObservableCollection<Emp> listOfEmps
+        {
+            get
+            {
+                return _listOfEmps;
+            }
+
+            set
+            {
+                listOfEmps = value;
+                OnPropertyChanged("listOfEmps");
+            }
+        }
+        public Emp dummyEmp
+        {
+            get
+            {
+                return _dummyEmp;
+            }
+            set
+            {
+                this.isEnabled = false;
+                _dummyEmp = value;
+                base.OnPropertyChanged("dummyEmp");
+                base.OnPropertyChanged("isEnabled");
+
             }
         }
         #endregion
@@ -115,8 +158,13 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         {
             entity = new TAS2013Entities();
             _selectedUser = new User();
+           
+           
             _listOfUsers = new ObservableCollection<User>(entity.Users.ToList());
             _selectedUser = entity.Users.ToList().FirstOrDefault();
+            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
+           
+         
             this._AddCommand = new AddCommandUser(_selectedUser);
             this._EditCommand = new EditCommandUser(this);
             this._DeleteCommand = new DeleteCommandUser(_selectedUser);
@@ -125,6 +173,11 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
             this._SaveCommand = new SaveCommandUser(this);
             base.OnPropertyChanged("_listOfUsers");
         }
-        #endregion  
+        #endregion 
+        internal void raiseEmpChange()
+        {
+
+            base.OnPropertyChanged("dummyEmp");
+        }
     }
 }
