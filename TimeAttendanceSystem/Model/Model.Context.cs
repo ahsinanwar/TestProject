@@ -44,7 +44,11 @@ namespace TimeAttendanceSystem.Model
         public DbSet<ClientLicense> ClientLicenses { get; set; }
         public DbSet<ClientMAC> ClientMACs { get; set; }
         public DbSet<Crew> Crews { get; set; }
+        public DbSet<DailySumDept> DailySumDepts { get; set; }
+        public DbSet<DailySumLoc> DailySumLocs { get; set; }
         public DbSet<DailySummary> DailySummaries { get; set; }
+        public DbSet<DailySumSection> DailySumSections { get; set; }
+        public DbSet<DailySumShift> DailySumShifts { get; set; }
         public DbSet<DailyTimeMonitor> DailyTimeMonitors { get; set; }
         public DbSet<DaysName> DaysNames { get; set; }
         public DbSet<Department> Departments { get; set; }
