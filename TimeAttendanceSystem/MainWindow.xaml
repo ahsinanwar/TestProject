@@ -115,12 +115,13 @@
                             <telerik:RadMenuItem Header="Application"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Quota"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Settings"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
                         <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
                         <telerik:RadMenuItem Header="Devices">
                             <telerik:RadMenuItem Header="Device Setup"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Device Manager"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Upload Templates"></telerik:RadMenuItem>
-                            <telerik:RadMenuItem Header="Delete Templates"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Card Manager"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Troubleshoot"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
