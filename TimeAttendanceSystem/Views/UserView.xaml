@@ -44,7 +44,7 @@
                     <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
                     <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
                     <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
-                    
+
 
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
@@ -52,7 +52,7 @@
 
         <!--CRUD Panel-->
         <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Grid.Column="0" Grid.Row="2">
-            <StackPanel Background="White" Margin="-1,-1,1,1" >
+            <StackPanel Background="White" Margin="-1,-9,1,-1" >
                 <!--Buttons Panel-->
                 <!--Data Input Panel-->
                 <!--Buttons Panel-->
@@ -84,23 +84,23 @@
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="575*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="Emp No:" HorizontalAlignment="Left" Margin="4,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.49,1.82" Grid.Column="1" Grid.ColumnSpan="2"/>
-                        <Label Content="Status:" HorizontalAlignment="Left" Margin="4,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.1,0.632" Grid.Column="1" Grid.ColumnSpan="2"/>
-                        <Label Content="Role:" HorizontalAlignment="Left" Margin="4,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.642" Grid.Column="1" Grid.ColumnSpan="2"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="77,13,0,0" TextWrapping="Wrap"  x:Name="txtEmpID" Text="{Binding selectedUser.UserID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="10" Grid.Column="2" />
+                        <Label Content="Emp No:" HorizontalAlignment="Left" Margin="4,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.49,1.82" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <Label Content="Status:" HorizontalAlignment="Left" Margin="4,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.1,0.632" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <Label Content="Role:" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.642" Grid.Column="2"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="77,2,0,0" TextWrapping="Wrap"  x:Name="txtEmpID" Text="{Binding selectedUser.UserID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="10" Grid.Column="2" />
                         <Label Content="User Email For Contact" HorizontalAlignment="Left" Margin="663,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.642" Grid.Column="2"/>
-                        <Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="760,8,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding isEnabled}" Height="20" Grid.Column="2"/>
+                        <Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="213,4,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding isEnabled}" Height="21" Grid.Column="2"/>
 
                         <Label Content="User" HorizontalAlignment="Left" Margin="686,2,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="1.1,0.632" Grid.Column="2"/>
 
                         <Image  x:Name="_image" Margin="663,33,369,264" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}" Grid.Column="2"/>
                         <Label Content="User Personal Information:" HorizontalAlignment="Left" Margin="645,141,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="1.1,0.632" Grid.Column="2"/>
                         <Button x:Name="btn_imageSelect" Content="..." Margin="673,33,369,264" RenderTransformOrigin="-0.967,0.333" Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}" Grid.Column="2"/>
-                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="77,68,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" IsEnabled="{Binding isEnabled}" SelectedValue="{Binding selectedUser.Status, Mode=TwoWay}" SelectedValuePath="Tag" Grid.Column="2">
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="77,57,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" IsEnabled="{Binding isEnabled}" SelectedValue="{Binding selectedUser.Status, Mode=TwoWay}" SelectedValuePath="Tag" Grid.Column="2">
                             <telerik:RadComboBoxItem Tag="True" Content="Active"/>
                             <telerik:RadComboBoxItem Tag="False" Content="Inactive"/>
                         </telerik:RadComboBox>
-                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="77,41,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" IsEnabled="{Binding isEnabled}" Grid.Column="2"/>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="77,30,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" IsEnabled="{Binding isEnabled}" Grid.Column="2"/>
                         <Label Content="Operations:" HorizontalAlignment="Left" Margin="213,83,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2"/>
                         <CheckBox Content="Add" HorizontalAlignment="Left" Margin="2,144,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.471,0.062" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.CanAdd, Mode=TwoWay}" Grid.Column="2"/>
                         <CheckBox Content="Edit" HorizontalAlignment="Left" Margin="2,160,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.CanEdit, Mode=TwoWay}" Grid.Column="2"/>

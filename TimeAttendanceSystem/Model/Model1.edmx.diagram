@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6e9906e5b1fb4f1e998c4702b29925ae" Name="Diagram1">
+      <Diagram DiagramId="6e9906e5b1fb4f1e998c4702b29925ae" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="TASDesktopModel.AccessEmp" Width="1.5" PointX="9.90832434869759" PointY="15.656338445682236" />
         <EntityTypeShape EntityType="TASDesktopModel.AttCode" Width="1.5" PointX="5.71368332100738" PointY="18.622155973046159" />
         <EntityTypeShape EntityType="TASDesktopModel.AttData" Width="1.5" PointX="5.7336423647280981" PointY="7.7336940801393679" />

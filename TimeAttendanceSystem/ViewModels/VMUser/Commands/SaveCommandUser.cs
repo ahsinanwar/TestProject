@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
@@ -34,10 +36,16 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
             VMUser vmd = (VMUser)parameter;
             if (vmd.isAdding)
             {
-                context.Users.Add(vmd.selectedUser);
-                context.SaveChanges();
-                vmd.listOfUsers.Add(vmd.selectedUser);
-
+                if ( vmd.selectedUser.EmpID == null)
+                {
+                    PopUp.popUp("Give a Value", "Please write User ID before saving", NotificationType.Warning);   
+                }
+                else
+                {
+                    context.Users.Add(vmd.selectedUser);
+                    context.SaveChanges();
+                    vmd.listOfUsers.Add(vmd.selectedUser);
+                }
             }
             else
             {

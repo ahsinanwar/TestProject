@@ -205,7 +205,7 @@ namespace TimeAttendanceSystem
 
         private void btn_leave_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new LvApplicationView());
+            _mainFrame.Navigate(new LvSetting());
         }
         private void btn_JobCard_Click(object sender, RoutedEventArgs e)
         {
