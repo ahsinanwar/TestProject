@@ -20,6 +20,7 @@ using WPFPieChart;
 using TimeAttendanceSystem.BaseClasses;
 using Telerik.Windows;
 using Telerik.Windows.Controls;
+using TimeAttendanceSystem.Views.AccessControl;
 
 namespace TimeAttendanceSystem
 {
@@ -92,6 +93,9 @@ namespace TimeAttendanceSystem
                     case "Short Leave":
                         _mainFrame.Navigate(new ShortLvView());
                         break;
+                    case "Settings":
+                        _mainFrame.Navigate(new LvSetting());
+                        break;
                     case "Employee":
                         _mainFrame.Navigate(new Employee());
                         break;
@@ -163,10 +167,10 @@ namespace TimeAttendanceSystem
                         _mainFrame.Navigate(new ReaderView());
                         break;
                     case "Upload Templates":
-                        _mainFrame.Navigate(new TempUploadView());
+                        _mainFrame.Navigate(new UploadUsers());
                         break;
-                    case "Delete Templates":
-                        _mainFrame.Navigate(new TempDeleteView());
+                    case "Device Manager":
+                        _mainFrame.Navigate(new DeviceOperation());
                         break;
                 }
             }

@@ -650,6 +650,12 @@
     <Compile Include="ViewModels\VMUser\Commands\EditCommandUser.cs" />
     <Compile Include="ViewModels\VMUser\Commands\SaveCommandUser.cs" />
     <Compile Include="ViewModels\VMUser\VMUser.cs" />
+    <Compile Include="Views\AccessControl\DeviceOperation.xaml.cs">
+      <DependentUpon>DeviceOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControl\UploadUsers.xaml.cs">
+      <DependentUpon>UploadUsers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AttEditJobCard.xaml.cs">
       <DependentUpon>AttEditJobCard.xaml</DependentUpon>
     </Compile>
@@ -935,6 +941,14 @@
     <Page Include="ViewModels\VMDashboard\ScottLogic\PieChart\PiePlotter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AccessControl\DeviceOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AccessControl\UploadUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AttEditJobCard.xaml">
       <SubType>Designer</SubType>
