@@ -98,5 +98,8 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> SecID { get; set; }
         public Nullable<short> DivID { get; set; }
         public Nullable<short> CityID { get; set; }
+        public Nullable<short> ShifMin { get; set; }
+        public string RegionName { get; set; }
+        public Nullable<byte> RegionID { get; set; }
     }
 }

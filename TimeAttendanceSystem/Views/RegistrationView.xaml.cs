@@ -20,6 +20,7 @@ using TimeAttendanceSystem.Model;
 using Microsoft.Win32;
 using System.IO;
 using TimeAttendanceSystem.HelperClasses;
+using System.ComponentModel;
 
 
 
@@ -32,98 +33,193 @@ namespace TimeAttendanceSystem.Views
     {
         ClientInfo clientinfo = new ClientInfo();
         TAS2013Entities context = new TAS2013Entities();
+       
+        private Model.ClientInfo clientinfo2;                   
         public RegistrationView()
         {
-            
-            //Intitial check whether its registered already or not
+           // 
+            int activeMACs = context.ClientMACs.Where(aa => aa.IsUsing == true).ToList().Count;
+            ClientLicense cl;
             ClientInfo checkForRegistered = context.ClientInfoes.FirstOrDefault();
-            if (checkForRegistered != null)
-            {   
-                MainWindow win2 = new MainWindow();
-                win2.Show();
-                this.Close();
-            }
-            else
+           if (checkForRegistered!=null)
+           {
+              
+               if (checkForRegistered.isActive==true)
+               {
+
+                   string json = EncDec.GetString(context.Options.FirstOrDefault().WelcomeNote);
+                   Package df = JsonConvert.DeserializeObject<Package>(json);
+                   cl = context.ClientLicenses.First(aa => aa.LicenseName == df.Licensetype.LicenseName);
+                   ClientMAC mymac= new ClientMAC();
+                   List<ClientMAC> cm = context.ClientMACs.ToList();
+                   for (int i = 0; i < cm.Count; i++)
+                       if (cm[i].MACAddress == EncDec.GetMacAddress())
+                          mymac = cm[i];
+
+
+                   if (mymac.ClientInfo == null)
+                   {
+
+                       
+                       if (activeMACs < cl.NoOfUsers)
+                       {
+                        
+                           mymac.ClientTabID = checkForRegistered.ClientID;
+                           mymac.MACAddress = EncDec.GetMacAddress();
+                           mymac.IsUsing = false;
+                           context.ClientMACs.Add(mymac);
+                           context.SaveChanges();
+                           df.MAC.Clear();
+                           df.MAC.Add(EncDec.GetMacAddress());
+                           DownloadingView dv = new DownloadingView(checkForRegistered, df);
+                           dv.Show();
+                           this.Close();
+                          
+
+                       }
+                       else if (activeMACs >= cl.NoOfUsers)
+                       {
+                           MessageBox.Show("You have exceeded your User limit");
+                           this.Close();
+                       }
+                          
+                       
+                      
+                       
+                   }
+                   else 
+                   {
+                       if (activeMACs > cl.NoOfUsers)
+                       {
+                           MessageBox.Show("You have exceeded your User limit");
+                           this.Close();
+
+                       }
+                       else if(activeMACs <=cl.NoOfUsers && mymac.IsUsing==true)
+                       {
+                           MainWindow mw = new MainWindow();
+                           mw.CommenceTripleChecking();
+                           mw.Show();
+                           this.Close();
+                           
+                          
+                       }
+                       else if (activeMACs <= cl.NoOfUsers && mymac.IsUsing == false)
+                       {
+                           DownloadingView dv = new DownloadingView(checkForRegistered, df);
+                           dv.Show();
+                           this.Close();
+                       }
+
+                   
+                   }
+                   
+                   
+                
+               
+               
+               
+               }
+               else 
+                {
+                    string json = EncDec.GetString(context.Options.FirstOrDefault().WelcomeNote);
+                    Package df = JsonConvert.DeserializeObject<Package>(json); 
+                    DownloadingView dv = new DownloadingView(checkForRegistered, df);
+                    dv.Show();
+                    this.Close();
+               
+               }
+
+           
+           }
+           else
+          
                 InitializeComponent();
         }
 
+       
+     
+       
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
 
-            
+            Boolean MyMACPresentInTheLic = false;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "Inv Files (.inv)|*.inv";
             openFileDialog1.FilterIndex = 1;
 
             if (openFileDialog1.ShowDialog() == true)
             {
-              
+              //OPens a save dialog
                String nameOfFile = openFileDialog1.FileName;
-               string json = File.ReadAllText(nameOfFile);
+               EncDec.Decrypt(nameOfFile, "C:/Users/Public/license.inv", "weareinvenbitches");
+               string json = File.ReadAllText("C:/Users/Public/license.inv");
+               string fileContent = File.ReadAllText("C:/Users/Public/license.inv");
                Package df = JsonConvert.DeserializeObject<Package>(json);
-               ClientInfo clientinfo = new ClientInfo();
-               ClientMAC cm = new ClientMAC();
-               clientinfo = context.ClientInfoes.FirstOrDefault(aa => aa.isActive == df.isActive && aa.ClientName == df.Name);
-               if (clientinfo == null)
+               if (File.Exists("C:/Users/Public/license.inv"))
+                   File.Delete("C:/Users/Public/license.inv");
+               ClientInfo clientinfo2 = new ClientInfo();
+               clientinfo2.isActive = df.IsActive;
+               clientinfo2.CreatedBy = df.CreatedBy;
+               clientinfo2.ClientName = df.Name;
+               clientinfo2.LiscenceTypeID = df.Licensetype.TypeId;
+               clientinfo2.CreatedDate = df.Date;
+               
+               if (df.Licensetype.TypeId > 9)
                {
-                   ClientInfo clientinfo2 = new ClientInfo();
-                   clientinfo2.isActive = df.isActive;
-                   clientinfo2.CreatedBy = df.createdby;
-                   clientinfo2.ClientName = df.Name;
-                   clientinfo2.LiscenceTypeID = df.license.LiscenceTypeID;
-                   context.ClientInfoes.Add(clientinfo2);
+                   ClientLicense cl2 = new ClientLicense();
+                   cl2.LicenseID = df.Licensetype.TypeId;
+                   cl2.LicenseName = df.Licensetype.LicenseName;
+                   cl2.NoOfDevices = (short)df.Licensetype.NoOfDevices;
+                   cl2.NoOfEmp = (short)df.Licensetype.NoOfEmployees;
+                   cl2.NoOfUsers = (short)df.Licensetype.NoOfUsers;
+                  
+                   context.ClientLicenses.Add(cl2);
+                   
+                   context.SaveChanges();
+               
+               }
+               context.ClientInfoes.Add(clientinfo2);
+                   if (context.Options.FirstOrDefault() != null)
+                       context.Options.FirstOrDefault().WelcomeNote = EncDec.GetBytes(fileContent);
+                   else
+                   {
+                       Option opt = new Option();
+                       opt.WelcomeNote = EncDec.GetBytes(fileContent);
+                       context.Options.Add(opt);
+                   
+                   }
                    context.SaveChanges();
                    clientinfo2 = context.ClientInfoes.FirstOrDefault(aa => aa.isActive == clientinfo2.isActive && aa.ClientName == clientinfo2.ClientName);
-                   cm.MACAddress = df.mac;
-                   cm.ClientTabID = clientinfo2.ClientID;
-                   DownloadingView dv = new DownloadingView(clientinfo2, cm);
+                   for (int i = 0; i < df.MAC.Count; i++)
+                   { 
+                   ClientMAC cm = new ClientMAC();
+                   if (df.MAC[i] == EncDec.GetMacAddress())
+                      MyMACPresentInTheLic = true;
+                      cm.MACAddress = df.MAC[i];
+                      cm.IsUsing = false;
+                      cm.ClientTabID = clientinfo2.ClientID;
+                      context.ClientMACs.Add(cm);
+                  
+                   }
+                   if (!MyMACPresentInTheLic)
+                   {
+                       ClientMAC cm = new ClientMAC();
+                       cm.MACAddress = EncDec.GetMacAddress();
+                       cm.ClientTabID = clientinfo2.ClientID;
+                       cm.IsUsing = false;
+                       context.ClientMACs.Add(cm);
+                   }
+                   context.SaveChanges();
+                   DownloadingView dv = new DownloadingView(clientinfo2, df);
+                   dv.Show();
+                   this.Close();
                   
                }
-                   //works if there is already a clientinfo made
-               else
-               {
-
-                   cm.MACAddress = df.mac;
-                   cm.ClientTabID = clientinfo.ClientID;
-                   DownloadingView dv = new DownloadingView(clientinfo, cm);
-               }
-               context.ClientMACs.Add(cm);
-               context.SaveChanges();
-
-             
+        }
               
-
-        }
-
-                           
-            }
-
-               
-        private string GetMacAddress()
-        {
-            const int MIN_MAC_ADDR_LENGTH = 12;
-            
-            long maxSpeed = -1;
-            string macAddress = string.Empty;
-
-            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
-            {
-                
-
-                string tempMac = nic.GetPhysicalAddress().ToString();
-                if (nic.Speed > maxSpeed &&
-                    !string.IsNullOrEmpty(tempMac) &&
-                    tempMac.Length >= MIN_MAC_ADDR_LENGTH)
-                {
-                  
-                    maxSpeed = nic.Speed;
-                    macAddress = tempMac;
-                }
-            }
-
-            return macAddress;
-        }
+                     
       
     }
     }
