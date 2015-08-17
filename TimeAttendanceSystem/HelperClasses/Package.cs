@@ -9,23 +9,22 @@ namespace TimeAttendanceSystem.HelperClasses
 {
     public partial class Package
     {
-        [JsonProperty("Client ID")]
-        public int ClientID { get; set; }
         [JsonProperty("Name")]
         public String Name { get; set; }
-        [JsonProperty("License")]
-        public License  license{ get; set; }
+     
+        [JsonProperty("Licensetype")]
+        public License  Licensetype{ get; set; }
         [JsonProperty("MAC")]
-        public String mac { get; set; }
+        public List<String>  MAC { get; set; }
         [JsonProperty("isActive")]
-        public bool isActive { get; set; }
-        
+        public bool IsActive { get; set; }
         [JsonProperty("createdby")]
-        public String createdby { get; set; }
-        [JsonProperty("key")]
-        public String key { get; set; }
-
+        public String CreatedBy { get; set; }
+        [JsonProperty("Date")]
+        public DateTime Date { get; set; }
+     
+     
 
     }
-
+    
 }

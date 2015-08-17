@@ -16,5 +16,8 @@ namespace TimeAttendanceSystem.Model
     {
         public short LicenseID { get; set; }
         public string LicenseName { get; set; }
+        public Nullable<short> NoOfUsers { get; set; }
+        public Nullable<short> NoOfDevices { get; set; }
+        public Nullable<short> NoOfEmp { get; set; }
     }
 }

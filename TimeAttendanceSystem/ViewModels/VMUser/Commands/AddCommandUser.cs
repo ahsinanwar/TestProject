@@ -30,6 +30,12 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
         {
             VMUser vmd = (VMUser)parameter;
             vmd.selectedUser = new User();
+            vmd.selectedUser.CanAdd = false;
+            vmd.selectedUser.CanDelete = false;
+            vmd.selectedUser.CanEdit = false;
+            vmd.selectedUser.CanView = false;
+            vmd.selectedUser.DateCreated = DateTime.Now;
+            
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

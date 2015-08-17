@@ -56,23 +56,25 @@
                 <telerik:RadMenu telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" Orientation="Horizontal" BorderBrush="#004b79" Background="#004b79" Foreground="White">
                     <telerik:RadMenuItem Header="Home" Click="btn_home_Click" >
                     </telerik:RadMenuItem>
-                    <telerik:RadMenuSeparatorItem />
+                    
                     <telerik:RadMenuItem Header="Employees" Click="btn_employee_Click" >
                     </telerik:RadMenuItem>
-                    <telerik:RadMenuSeparatorItem />
+                   
                     <telerik:RadMenuItem Header="Shifts" Click="btn_shift_Click">
                     </telerik:RadMenuItem>
-                    <telerik:RadMenuSeparatorItem />
+                    
                         <telerik:RadMenuItem Header="Leaves" Click="btn_leave_Click">
                     </telerik:RadMenuItem>
-                    <telerik:RadMenuSeparatorItem />
+                    
                         <telerik:RadMenuItem Header="Attendance Edit" Click="Button_Click_1" >
                     </telerik:RadMenuItem>
-                        <telerik:RadMenuSeparatorItem />
+                       
                         <telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" >
                         </telerik:RadMenuItem>
-                        <telerik:RadMenuSeparatorItem />
+                        
                         <telerik:RadMenuItem Header="User" Click="btn_User_Click" >
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Database" Click="btn_Database_Click" >
                         </telerik:RadMenuItem>
                     </telerik:RadMenu>
             </StackPanel>
@@ -97,27 +99,27 @@
                             <telerik:RadMenuItem Header="Sections"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Departments"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Division"></telerik:RadMenuItem>
-                            <telerik:RadMenuSeparatorItem />
+                           
                             <telerik:RadMenuItem Header="Designation"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Crew"></telerik:RadMenuItem>
-                            <telerik:RadMenuSeparatorItem />
+                            
                             <telerik:RadMenuItem Header="City"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Location"></telerik:RadMenuItem>
-                            <telerik:RadMenuSeparatorItem />
+                            
                             <telerik:RadMenuItem Header="Category"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Emp Types"></telerik:RadMenuItem>
-                            <telerik:RadMenuSeparatorItem />
+                            
                             <telerik:RadMenuItem Header="Holidays"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Users"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
-                        <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
+                        
                         <telerik:RadMenuItem Header="Leaves">
                             <telerik:RadMenuItem Header="Application"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Quota"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Settings"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
-                        <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
+                        
                         <telerik:RadMenuItem Header="Devices">
                             <telerik:RadMenuItem Header="Device Setup"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Device Manager"></telerik:RadMenuItem>
@@ -125,12 +127,12 @@
                             <telerik:RadMenuItem Header="Card Manager"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Troubleshoot"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
-                        <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
+                       
                             <telerik:RadMenuItem Header="Employee Reports">
                                 <telerik:RadMenuItem Header="Employee"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Employee(Excel)"></telerik:RadMenuItem>
                             </telerik:RadMenuItem>
-                        <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
+                       
                             <telerik:RadMenuItem Header="Daily Reports">
                                 <telerik:RadMenuItem Header="Daily"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
@@ -145,13 +147,13 @@
                                 <telerik:RadMenuItem Header="Missing"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Multiple In/Out"></telerik:RadMenuItem>
                             </telerik:RadMenuItem>
-                        <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
+                        
                             <telerik:RadMenuItem Header="Monthly Reports">
                                 <telerik:RadMenuItem Header="Leave Quota"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Attendance Sheet"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="Attendance Summary"></telerik:RadMenuItem>
                             </telerik:RadMenuItem>
-                        <telerik:RadMenuSeparatorItem Margin="-30,0,0,0"  Width="180" />
+                        
                             <telerik:RadMenuItem Header="Summary Reports">
                                 <telerik:RadMenuItem Header="Yearly Leaves"></telerik:RadMenuItem>
                                 <telerik:RadMenuItem Header="By Company"></telerik:RadMenuItem>

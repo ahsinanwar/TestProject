@@ -120,9 +120,6 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                         }
                     }
                 }
-                    
-                
-
             }
             else
             {
