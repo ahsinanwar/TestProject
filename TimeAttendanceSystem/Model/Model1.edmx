@@ -2348,6 +2348,7 @@
           <Property Name="MACAddress" Type="nvarchar(max)" />
           <Property Name="ClientTabID" Type="int" />
           <Property Name="IsUsing" Type="bit" />
+          <Property Name="FirstTime" Type="bit" />
         </EntityType>
         <EntityType Name="Crew">
           <Key>
@@ -6008,6 +6009,7 @@
           <Property Name="MACAddress" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="ClientTabID" Type="Int32" />
           <Property Name="IsUsing" Type="Boolean" />
+          <Property Name="FirstTime" Type="Boolean" />
           <NavigationProperty Name="ClientInfo" Relationship="TASDesktopModel.FK_ClientMAC_ClientInfo" FromRole="ClientMAC" ToRole="ClientInfo" />
         </EntityType>
         <EntityType Name="Crew">
@@ -9345,6 +9347,7 @@
                 <ScalarProperty Name="MACAddress" ColumnName="MACAddress" />
                 <ScalarProperty Name="ClientTabID" ColumnName="ClientTabID" />
                 <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="FirstTime" ColumnName="FirstTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

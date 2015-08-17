@@ -41,7 +41,7 @@
         </StackPanel>
         <!--CRUD Panel-->
         <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Grid.Column="0" Grid.Row="2">
-            <StackPanel Background="White">
+            <StackPanel Background="White" Margin="1.2,-78.8,-0.8,79">
                 <StackPanel Background="#004b79">
                     <Label Foreground="White">Reader Details</Label>
                 </StackPanel>
@@ -78,7 +78,7 @@
                         <Label Content="Type:" HorizontalAlignment="Left" Margin="99,126,0,0" VerticalAlignment="Top"/>
                         <Label Content="Location:" HorizontalAlignment="Left" Margin="79,152,0,0" VerticalAlignment="Top"/>
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedRdr.IpPort, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="71" Background="White" Margin="222,179,255,44" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="71" Background="White" Margin="357,43,120.8,180" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="502,202,116,31" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                     </Grid>
                 </StackPanel>

@@ -18,6 +18,7 @@ namespace TimeAttendanceSystem.Model
         public string MACAddress { get; set; }
         public Nullable<int> ClientTabID { get; set; }
         public Nullable<bool> IsUsing { get; set; }
+        public Nullable<bool> FirstTime { get; set; }
     
         public virtual ClientInfo ClientInfo { get; set; }
     }

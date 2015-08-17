@@ -6,101 +6,151 @@
         Title="UserView" Width="914">
 
     <!--Main Panel-->
-    <Border BorderBrush="#FF25A0DA" BorderThickness="1">
-        <StackPanel Background="White" Height="451" Margin="0,0,-88,0">
-            <!--Header-->
-            <StackPanel Background="#FF25A0DA" Height="35px">
-                <Label Foreground="White" FontSize="17">City</Label>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="350"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1070"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#efecea" Grid.ColumnSpan="2" Grid.Row="0" Margin="5,5,5,5"  BorderBrush="LightGray" BorderThickness="1,1,0,1">
+            <StackPanel Height="30px"  >
+                <Label Foreground="#004b79" FontSize="18">Usser</Label>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,137,0">            <!--List View Panel-->
-            <StackPanel Margin="5,5,5,5">
-                <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
+        </Border>
+
+        <!--List View Panel-->
+        <StackPanel Margin="5,5,30,5" Grid.Row="1" Grid.Column="0">
+            <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
-                        ItemsSource="{Binding listOfCities}" SelectedItem="{Binding selectedCity}" 
-                        VerticalAlignment="Top"  Height="411" Grid.RowSpan="2" 
-                        CanUserFreezeColumns="False" MinWidth="387">
-                    <telerik:RadGridView.Columns>
-                        <telerik:GridViewDataColumn Header="CityName" DataMemberBinding="{Binding CityName}" />
-                    </telerik:RadGridView.Columns>
-                </telerik:RadGridView>
+                        ItemsSource="{Binding listOfUsers}" SelectedItem="{Binding selectedUser}" 
+                        VerticalAlignment="Top"  Height="150" Grid.RowSpan="2" 
+                        CanUserFreezeColumns="False" MinWidth="300" Width="900">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="EmpNo" DataMemberBinding="{Binding UserID}" />
+                    <telerik:GridViewDataColumn Header="EmpID" DataMemberBinding="{Binding EmpID}" />
+                    <telerik:GridViewDataColumn Header="EmpName" DataMemberBinding="{Binding UserName}" />
+                    <telerik:GridViewDataColumn Header="UserName" DataMemberBinding="{Binding UserName}" />
 
-            </StackPanel>
-           
-            <!--CRUD Panel-->
-            <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
-                <StackPanel Background="White" Height="413" Width="503">
-                    <!--Buttons Panel-->
-                        <!--Data Input Panel-->
-                        <!--Buttons Panel-->
-                        <!--Data Input Panel-->
-                        <!--Buttons Panel-->
-                        <!--Data Input Panel-->
-                        <!--Buttons Panel-->
-                        <!--Data Input Panel-->
-                        <!--Data Input Panel-->
-                        <StackPanel Orientation="Horizontal" Margin="359,5,64,5" Width="162">
-                            <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
-                                <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png"/>
-                            </Button>
-                            <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
-                                <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png"/>
-                            </Button>
-                            <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
-                                <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png"/>
-                            </Button>
-                        </StackPanel>
-                        <!--Data Input Panel-->
-                        <StackPanel Margin="5,5,5,5">
-                            <Grid Height="500">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Emp No:" HorizontalAlignment="Left" Margin="73,22,0,0" VerticalAlignment="Top"/>
-                                <Label Content="Status:" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.1,0.632"/>
-                                <Label Content="Role:" HorizontalAlignment="Left" Margin="96,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.642"/>
-                                <TextBox HorizontalAlignment="Left" Height="23" Margin="141,28,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="141,55,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="141,82,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                                <Label Content="Operations:" HorizontalAlignment="Left" Margin="55,109,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Add" HorizontalAlignment="Left" Margin="141,116,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.471,0.062"/>
-                                <CheckBox Content="Edit" HorizontalAlignment="Left" Margin="186,116,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="View" HorizontalAlignment="Left" Margin="229,116,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Delete" HorizontalAlignment="Left" Margin="278,116,0,0" VerticalAlignment="Top"/>
-                                <Label Content="Access:" HorizontalAlignment="Left" Margin="82,129,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Permanent Staff" HorizontalAlignment="Left" Margin="141,142,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Permanent Management" HorizontalAlignment="Left" Margin="141,158,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Contractual Staff" HorizontalAlignment="Left" Margin="141,195,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Contractual Management" HorizontalAlignment="Left" Margin="141,174,0,0" VerticalAlignment="Top" Height="21"/>
-                                <Label Content="Application Modules:" HorizontalAlignment="Left" Margin="-5,215,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="HR" HorizontalAlignment="Left" Margin="141,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.173,-1.849"/>
-                                <CheckBox Content="Device" HorizontalAlignment="Left" Margin="196,224,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Edit Attendance" HorizontalAlignment="Left" Margin="254,224,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Leave" HorizontalAlignment="Left" Margin="141,245,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Report" HorizontalAlignment="Left" Margin="196,245,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="User" HorizontalAlignment="Left" Margin="254,245,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Roster" HorizontalAlignment="Left" Margin="304,245,0,0" VerticalAlignment="Top"/>
-                                <Label Content="Reports:" HorizontalAlignment="Left" Margin="75,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.44"/>
-                                <CheckBox Content="Leave" HorizontalAlignment="Left" Margin="141,269,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Daily" HorizontalAlignment="Left" Margin="197,271,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Manthly" HorizontalAlignment="Left" Margin="254,271,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Audit" HorizontalAlignment="Left" Margin="141,292,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Employee" HorizontalAlignment="Left" Margin="197,292,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Detail" HorizontalAlignment="Left" Margin="350,292,0,0" VerticalAlignment="Top"/>
-                                <CheckBox Content="Summary" HorizontalAlignment="Left" Margin="278,292,0,0" VerticalAlignment="Top"/>
-                                <Label Content="Role:" HorizontalAlignment="Left" Margin="98,314,0,0" VerticalAlignment="Top"/>
-                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="141,319,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                                <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="207,346,232,132"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.824,5.31" />
-                            </Grid>
-                        </StackPanel>
-                    </StackPanel>
-            </Border>
+                    <telerik:GridViewDataColumn Header="CanView" DataMemberBinding="{Binding CanView}" />
+                    <telerik:GridViewDataColumn Header="CanDelete" DataMemberBinding="{Binding CanDelete}" />
+                    <telerik:GridViewDataColumn Header="CanAdd" DataMemberBinding="{Binding CanAdd}" />
+                    <telerik:GridViewDataColumn Header="CanEdit" DataMemberBinding="{Binding CanEdit}" />
+                    <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
+                    <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
+                    <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
+                    <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
+
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
         </StackPanel>
+
+        <!--CRUD Panel-->
+        <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Grid.Column="0" Grid.Row="2">
+            <StackPanel Background="White" Margin="-9.8,-166.8,10,157" >
+                <!--Buttons Panel-->
+                <!--Data Input Panel-->
+                <!--Buttons Panel-->
+                <!--Data Input Panel-->
+                <!--Buttons Panel-->
+                <!--Data Input Panel-->
+                <!--Buttons Panel-->
+                <!--Data Input Panel-->
+                <!--Data Input Panel-->
+
+
+                <!--Buttons Panel-->
+                <StackPanel Orientation="Horizontal" Margin="400,10,110,10">
+                    <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
+                        <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png"/>
+                    </Button>
+                    <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
+                        <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png"/>
+                    </Button>
+                    <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
+                        <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png"/>
+                    </Button>
+                </StackPanel>
+                <!--Data Input Panel-->
+                <StackPanel Margin="5,5,5,5">
+                    <Grid Height="400" Width="1200" Margin="0,0,-190,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="575*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Emp No:" HorizontalAlignment="Left" Margin="4,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.49,1.82" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <Label Content="Status:" HorizontalAlignment="Left" Margin="4,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.1,0.632" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <Label Content="Role:" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.642" Grid.Column="2"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="77,2,0,0" TextWrapping="Wrap"  x:Name="txtEmpID" Text="{Binding selectedUser.UserID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="10" Grid.Column="2" />
+                        <Label Content="User Email For Contact" HorizontalAlignment="Left" Margin="663,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.642" Grid.Column="2"/>
+                        <Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="213,4,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding isEnabled}" Height="21" Grid.Column="2"/>
+
+                        <Label Content="User" HorizontalAlignment="Left" Margin="686,2,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="1.1,0.632" Grid.Column="2"/>
+
+                        <Image  x:Name="_image" Margin="663,33,369,264" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}" Grid.Column="2"/>
+                        <Label Content="User Personal Information:" HorizontalAlignment="Left" Margin="645,141,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="1.1,0.632" Grid.Column="2"/>
+                        <Button x:Name="btn_imageSelect" Content="..." Margin="673,33,369,264" RenderTransformOrigin="-0.967,0.333" Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}" Grid.Column="2"/>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="77,57,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" IsEnabled="{Binding isEnabled}" SelectedValue="{Binding selectedUser.Status, Mode=TwoWay}" SelectedValuePath="Tag" Grid.Column="2">
+                            <telerik:RadComboBoxItem Tag="True" Content="Active"/>
+                            <telerik:RadComboBoxItem Tag="False" Content="Inactive"/>
+                        </telerik:RadComboBox>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="77,30,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" IsEnabled="{Binding isEnabled}" ItemsSource="{Binding listOfUserRoles, Mode=TwoWay}" SelectedValue="{Binding selectedUserRole, Mode=TwoWay}" Grid.Column="2"/>
+                        <Label Content="Operations:" HorizontalAlignment="Left" Margin="213,83,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2"/>
+                        <CheckBox Content="Add" HorizontalAlignment="Left" Margin="2,144,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.471,0.062" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.CanAdd, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Edit" HorizontalAlignment="Left" Margin="2,160,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.CanEdit, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="View" HorizontalAlignment="Left" Margin="2,110,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.CanView, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Delete" HorizontalAlignment="Left" Margin="2,126,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}"
+        					IsChecked="{Binding selectedUser.CanDelete, Mode=TwoWay}" Grid.Column="2"/>
+                        <!--<Label Content="Personal Information" HorizontalAlignment="Left" Margin="2,-21,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2"/>-->
+                        <Label Content="Permissions" HorizontalAlignment="Left" Margin="29,84,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="3"/>
+                        <CheckBox Content="Permanent Staff" HorizontalAlignment="Left" Margin="230,109,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.ViewPermanentStaff, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Permanent Management" HorizontalAlignment="Left" Margin="230,125,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.ViewPermanentMgm, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Contractual Staff" HorizontalAlignment="Left" Margin="230,157,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.ViewContractualStaff, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Contractual Management" HorizontalAlignment="Left" Margin="230,141,0,0" VerticalAlignment="Top" Height="21" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.ViewContractualMgm, Mode=TwoWay}" Grid.Column="2"/>
+                        <Label Content="Application Modules:" HorizontalAlignment="Left" Margin="213,177,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2"/>
+                        <CheckBox Content="HR" HorizontalAlignment="Left" Margin="230,203,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.173,-1.849" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MHR, Mode=TwoWay}" Grid.Column="2" />
+                        <CheckBox Content="Device" HorizontalAlignment="Left" Margin="285,203,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}"
+        					IsChecked="{Binding selectedUser.MDevice, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Edit Attendance" HorizontalAlignment="Left" Margin="343,201,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MEditAtt, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Leave" HorizontalAlignment="Left" Margin="285,218,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MLeave, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Report" HorizontalAlignment="Left" Margin="227,219,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MReport, Mode=TwoWay}" Width="51" Grid.Column="2">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="18.435"/>
+                                    <RotateTransform Angle="-356.604"/>
+                                    <TranslateTransform X="2.667"/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
+                        <CheckBox Content="User" HorizontalAlignment="Left" Margin="343,217,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MUser, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Roster" HorizontalAlignment="Left" Margin="230,234,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MRoster, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5" Grid.Column="2"/>
+                        <Label Content="Reports:" HorizontalAlignment="Left" Margin="29,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.507,-0.44" FontWeight="Bold" Grid.ColumnSpan="3"/>
+                        <CheckBox Content="Leave" HorizontalAlignment="Left" Margin="2,202,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MRLeave, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Daily" HorizontalAlignment="Left" Margin="63,202,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MRDaily, Mode=TwoWay}" RenderTransformOrigin="0.651,-0.938" Grid.Column="2"/>
+                        <CheckBox Content="Manthly" HorizontalAlignment="Left" Margin="137,202,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MRMonthly, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Audit" HorizontalAlignment="Left" Margin="2,218,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MRAudit, Mode=TwoWay}" RenderTransformOrigin="0.87,-1.375" Grid.Column="2"/>
+                        <CheckBox Content="Employee" HorizontalAlignment="Left" Margin="63,216,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MREmployee, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Detail" HorizontalAlignment="Left" Margin="2,234,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MRDetail, Mode=TwoWay}" Grid.Column="2"/>
+                        <CheckBox Content="Summary" HorizontalAlignment="Left" Margin="137,218,0,0" VerticalAlignment="Top" IsChecked="{Binding selectedUser.MRSummary, Mode=TwoWay}" Grid.Column="2"/>
+                        <!--<Label Content="Role:" HorizontalAlignment="Left" Margin="98,314,0,0" VerticalAlignment="Top"/>
+                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="141,319,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>-->
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="2,269,1094,109"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.824,5.31" Grid.Column="2" />
+                    </Grid>
+                </StackPanel>
             </StackPanel>
+        </Border>
 
-    </Border>
 
 
-    <!--<Grid Margin="-1,0,3,-118">
+
+        <!--<Grid Margin="-1,0,3,-118">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -140,4 +190,7 @@
         <Button Content="Add" HorizontalAlignment="Left" Margin="436,321,0,0" VerticalAlignment="Top" Width="49"/>
 
     </Grid>-->
+
+    </Grid>
+
 </Page>

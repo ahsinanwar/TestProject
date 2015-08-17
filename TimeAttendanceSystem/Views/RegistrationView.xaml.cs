@@ -73,6 +73,7 @@ namespace TimeAttendanceSystem.Views
                            df.MAC.Add(EncDec.GetMacAddress());
                            DownloadingView dv = new DownloadingView(checkForRegistered, df);
                            dv.Show();
+                           context.Dispose();
                            this.Close();
                           
 
@@ -97,9 +98,11 @@ namespace TimeAttendanceSystem.Views
                        }
                        else if(activeMACs <=cl.NoOfUsers && mymac.IsUsing==true)
                        {
-                           MainWindow mw = new MainWindow();
-                           mw.CommenceTripleChecking();
+                           LoginPage mw = new LoginPage();
+                           
+                           //mw.CommenceTripleChecking();
                            mw.Show();
+                           context.Dispose();
                            this.Close();
                            
                           
@@ -108,6 +111,7 @@ namespace TimeAttendanceSystem.Views
                        {
                            DownloadingView dv = new DownloadingView(checkForRegistered, df);
                            dv.Show();
+                           context.Dispose();
                            this.Close();
                        }
 
@@ -126,6 +130,7 @@ namespace TimeAttendanceSystem.Views
                     Package df = JsonConvert.DeserializeObject<Package>(json); 
                     DownloadingView dv = new DownloadingView(checkForRegistered, df);
                     dv.Show();
+                    context.Dispose();
                     this.Close();
                
                }
@@ -214,6 +219,7 @@ namespace TimeAttendanceSystem.Views
                    context.SaveChanges();
                    DownloadingView dv = new DownloadingView(clientinfo2, df);
                    dv.Show();
+                   context.Dispose();
                    this.Close();
                   
                }

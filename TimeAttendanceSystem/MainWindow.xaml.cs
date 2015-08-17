@@ -20,10 +20,12 @@ using WPFPieChart;
 using TimeAttendanceSystem.BaseClasses;
 using Telerik.Windows;
 using Telerik.Windows.Controls;
-using System.Net;
+using System.ComponentModel;
 using TimeAttendanceSystem.HelperClasses;
 using Newtonsoft.Json;
-using System.ComponentModel;
+using System.Net;
+using TimeAttendanceSystem.Views.AccessControl;
+
 
 namespace TimeAttendanceSystem
 {
@@ -40,8 +42,10 @@ namespace TimeAttendanceSystem
             InitializeComponent();
             WindowState = WindowState.Maximized;
            
+                _mainFrame.Navigate(new DatabaseSettings());
            
-            _mainFrame.Navigate(new DashView());
+           
+         //   _mainFrame.Navigate(new DashView());
             CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
            
 
@@ -101,6 +105,9 @@ namespace TimeAttendanceSystem
                         break;
                     case "Short Leave":
                         _mainFrame.Navigate(new ShortLvView());
+                        break;
+                    case "Settings":
+                        _mainFrame.Navigate(new LvSetting());
                         break;
                     case "Employee":
                         _mainFrame.Navigate(new Employee());
@@ -173,10 +180,13 @@ namespace TimeAttendanceSystem
                         _mainFrame.Navigate(new ReaderView());
                         break;
                     case "Upload Templates":
-                        _mainFrame.Navigate(new TempUploadView());
+                        _mainFrame.Navigate(new UploadUsers());
                         break;
-                    case "Delete Templates":
-                        _mainFrame.Navigate(new TempDeleteView());
+                    case "Device Manager":
+                        _mainFrame.Navigate(new DeviceOperation());
+                        break;
+                    case "Database":
+                        _mainFrame.Navigate(new DatabaseSettings());
                         break;
                 }
             }
@@ -215,7 +225,7 @@ namespace TimeAttendanceSystem
 
         private void btn_leave_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new LvApplicationView());
+            _mainFrame.Navigate(new LvSetting());
         }
         private void btn_JobCard_Click(object sender, RoutedEventArgs e)
         {
@@ -340,6 +350,11 @@ namespace TimeAttendanceSystem
 
 
 
+        }
+
+        private void btn_Database_Click(object sender, RadRoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new DatabaseSettings());
         }
     }
 }

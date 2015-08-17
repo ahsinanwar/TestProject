@@ -53,6 +53,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
@@ -134,11 +135,14 @@
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
+    <Compile Include="GlobalClasses\Global.cs" />
     <Compile Include="HelperClasses\EncDec.cs" />
     <Compile Include="HelperClasses\License.cs" />
     <Compile Include="HelperClasses\Package.cs" />
+    <Compile Include="HelperClasses\PasswordBoxAssistant.cs" />
     <Compile Include="HelperClasses\PopUp.cs" />
     <Compile Include="HelperClasses\StackedBarObject.cs" />
+    <Compile Include="HelperClasses\UserCredentials.cs" />
     <Compile Include="Model\AccessEmp.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -578,6 +582,8 @@
     <Compile Include="ViewModels\VMDashboard\ScottLogic\Util\FormattingConverter.cs" />
     <Compile Include="ViewModels\VMDashboard\ScottLogic\Util\Utils.cs" />
     <Compile Include="ViewModels\VMDashboard\VMDashboard.cs" />
+    <Compile Include="ViewModels\VMDatabase\Commands\SaveCommandDatabase.cs" />
+    <Compile Include="ViewModels\VMDatabase\VMDataBase.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\AddCommandDept.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\DeleteCommandDept.cs" />
     <Compile Include="ViewModels\VMDepartment\Commands\EditCommandDept.cs" />
@@ -593,6 +599,8 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
+    <Compile Include="ViewModels\VMLogin\VMLogin.cs" />
     <Compile Include="ViewModels\VMLvApplication\CombinedEmpAndLvApps.cs" />
     <Compile Include="ViewModels\VMShortLv\CombinedEmpAndShortLvcs.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
@@ -606,6 +614,12 @@
     <Compile Include="ViewModels\VMUser\Commands\EditCommandUser.cs" />
     <Compile Include="ViewModels\VMUser\Commands\SaveCommandUser.cs" />
     <Compile Include="ViewModels\VMUser\VMUser.cs" />
+    <Compile Include="Views\AccessControl\DeviceOperation.xaml.cs">
+      <DependentUpon>DeviceOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControl\UploadUsers.xaml.cs">
+      <DependentUpon>UploadUsers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AttEditJobCard.xaml.cs">
       <DependentUpon>AttEditJobCard.xaml</DependentUpon>
     </Compile>
@@ -678,6 +692,9 @@
     <Compile Include="Views\DashView.xaml.cs">
       <DependentUpon>DashView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DatabaseSettings.xaml.cs">
+      <DependentUpon>DatabaseSettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DepartmentView.xaml.cs">
       <DependentUpon>DepartmentView.xaml</DependentUpon>
     </Compile>
@@ -697,6 +714,12 @@
       <DependentUpon>EmpTypeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ErrorsToMessageConverter.cs" />
+    <Compile Include="Views\LvSetting.xaml.cs">
+      <DependentUpon>LvSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SQLDATABASE.xaml.cs">
+      <DependentUpon>SQLDATABASE.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TempDeleteView.xaml.cs">
       <DependentUpon>TempDeleteView.xaml</DependentUpon>
     </Compile>
@@ -732,6 +755,9 @@
     </Compile>
     <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -889,6 +915,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\AccessControl\DeviceOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AccessControl\UploadUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AttEditJobCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -917,6 +951,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DatabaseSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\DepartmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -938,6 +976,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EmpTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LvSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SQLDATABASE.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -986,6 +1032,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

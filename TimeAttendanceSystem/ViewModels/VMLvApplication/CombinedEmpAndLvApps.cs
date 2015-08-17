@@ -13,14 +13,16 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
         private Emp _employee;
         private LvApplication _lvapp;
         private LvType _lvtype;
+        private LvConsumed _lvCon;
        
 
-        public CombinedEmpAndLvApps(Emp emp, LvApplication value,LvType lvType)
+        public CombinedEmpAndLvApps(Emp emp, LvApplication value,LvType lvType,LvConsumed lvCon)
         {
             
             this.Employee = emp;
             this.LvApp = value;
             this.LvType = lvType;
+            this.LvCon = lvCon;
         }
 
         public CombinedEmpAndLvApps()
@@ -31,6 +33,21 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
             this.LvApp.FromDate = DateTime.Now;
             this.LvApp.ToDate = DateTime.Now;
             this.LvType = new LvType();
+            this.LvCon = new LvConsumed();
+        }
+        public LvConsumed LvCon
+        {
+            get
+            {
+                return _lvCon;
+            }
+            set
+            {
+                _lvCon = value;
+                base.OnPropertyChanged("LvConsumed");
+
+            }
+
         }
        
         public Emp Employee
