@@ -34,8 +34,9 @@ namespace TimeAttendanceSystem
             InitializeComponent();
             WindowState = WindowState.Maximized;
             CheckForRegistered();
-            _mainFrame.Navigate(new DashView());
-            CommanVariables.CompanyName = "INVEN TECHNOLOGIES"; 
+            //_mainFrame.Navigate(new DashView());
+            _mainFrame.Navigate(new EmployeeView());
+            CommanVariables.CompanyName = "CNS TECHNOLOGIES"; 
         }
 
         private void CheckForRegistered()
@@ -188,7 +189,7 @@ namespace TimeAttendanceSystem
         }
         private void btn_home_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new DashView());
+            //_mainFrame.Navigate(new DashView());
         }
        
         private void btn_employee_Click(object sender, RoutedEventArgs e)

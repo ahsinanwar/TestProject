@@ -56,6 +56,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
+        public ICommand _SearchCommand { get; set; }
         TAS2013Entities entity;
 
         public AttData selectedAttData
@@ -100,6 +101,12 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
         #endregion
 
         #region ICommands
+        public ICommand SearchCommand
+        {
+            get { return _SearchCommand; }
+            
+        
+        }
         public ICommand EditCommand
         {
             get
@@ -125,6 +132,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
             Emp sd = new Emp();
             _attDataShow = new AttData();
             _selectedAttData = new AttData();
+            
             DateTime date = new DateTime(2015,03,15);
             _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.Where(aa=>aa.AttDate==date).ToList());
             _selectedAttData = entity.AttDatas.ToList().FirstOrDefault();
@@ -134,6 +142,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandAttEdit(this);
+            this._SearchCommand = new SearchCommandAttEdit(this);
             base.OnPropertyChanged("_attDataShow");
             base.OnPropertyChanged("_listOfAttData");
             base.OnPropertyChanged("_listOfdutyCodes");

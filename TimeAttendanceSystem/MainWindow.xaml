@@ -43,7 +43,8 @@
                     <Grid Background="#f5f5f1">
                         <Image  Width="96" Source="Images/trackk_logo.png" Margin="0,0,674,0" >
                         </Image>
-                        <Label Content="TRACKK" FontSize="28" FontWeight="ExtraBold" Foreground="#1e5ab0"  Padding="0,0,0,0"   Margin="96,0,568,10" FontFamily="Corbel" />
+                        <!--<Label Content="TRACKK" FontSize="28" FontWeight="ExtraBold" Foreground="#1e5ab0"  Padding="0,0,0,0"   Margin="96,0,568,10" FontFamily="Corbel" />-->
+                        <Label Content="CNS" FontSize="28" FontWeight="ExtraBold" Foreground="#1e5ab0"  Padding="0,0,0,0"   Margin="96,0,568,10" FontFamily="Corbel" />
                         <Label Content="Workforce Management System" FontSize="12" FontWeight="Bold" Foreground="#FF414144"  Padding="0,0,0,0"   Margin="96,29,507,0" FontFamily="Corbel" FontStyle="Italic" >
                         </Label>
                     </Grid>
