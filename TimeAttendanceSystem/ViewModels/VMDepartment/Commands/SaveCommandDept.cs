@@ -47,6 +47,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                     }
                     else
                     {
+                        Department dummy = vmd.selectedDept;
+                        dummy.Division = null;
                         context.Departments.Add(vmd.selectedDept);
                         context.SaveChanges();
                         vmd.listOfDepts.Add(vmd.selectedDept);

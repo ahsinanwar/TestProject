@@ -33,6 +33,9 @@ namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
             VMReader vmd = (VMReader)parameter;
             if (vmd.isAdding)
             {
+                Reader dummy = vmd.selectedRdr;
+                dummy.RdrDutyCode = null;
+                dummy.ReaderType = null;
                 context.Readers.Add(vmd.selectedRdr);
                 context.SaveChanges();
                 vmd.listOfRdrs.Add(vmd.selectedRdr);

@@ -51,9 +51,20 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         PopUp.popUp("Duplication", "Emp no already exit", NotificationType.Warning);
                     }
                 else
-                    {
-                
-                        context.Emps.Add(vmd.selectedEmp);
+                {
+                    Emp dummy = vmd.selectedEmp;
+                    dummy.Section.Department = null;
+                    dummy.Section = null;
+                    dummy.Crew = null;
+                    dummy.Designation = null;
+                    dummy.EmpType = null;
+                   // dummy.EmpID = null;
+                    dummy.Location = null;
+                    dummy.Grade = null;
+                    //dummy.EmpPhoto = null;
+                       // vmd.selectedEmp.Section = null;
+                    dummy.Shift = null;
+                    context.Emps.Add(dummy);
                         context.SaveChanges();
                         vmd.listOfEmps.Add(vmd.selectedEmp);
                         PopUp.popUp("Congratulations", "Emp is Created", NotificationType.Warning);

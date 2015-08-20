@@ -11,6 +11,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDatabase
 {
     class VMDataBase : ObservableObject
     {
+        static public Action CloseAction { get; set; }
         private String _serverName;
         private String _userName;
         private String _password;

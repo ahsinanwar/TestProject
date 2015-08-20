@@ -7,6 +7,8 @@ using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 using System.Configuration;
 using System.Xml;
+using TimeAttendanceSystem.Views;
+using System.Windows;
 
 namespace TimeAttendanceSystem.ViewModels.VMDatabase.Commands
 {
@@ -51,6 +53,10 @@ namespace TimeAttendanceSystem.ViewModels.VMDatabase.Commands
             TAS2013Entities ctx = new TAS2013Entities();
             List<Emp> dsf = new List<Emp>();
             dsf = ctx.Emps.ToList();
+            RegistrationView rv = new RegistrationView();
+
+            
+           
         }
         public void updateConfigFile(string con)
         {
@@ -63,8 +69,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDatabase.Commands
                 if (xElement.Name == "connectionStrings")
                 {
                     String g = xElement.InnerXml.ToString();
-                 //   xElement.LastChild.Attributes[1].Value = con;
-                 //   xElement.LastChild.Attributes[2].Value = "System.Data.EntityClient";
+                    xElement.LastChild.Attributes[1].Value = con;
+                    xElement.LastChild.Attributes[2].Value = "System.Data.EntityClient";
                     //setting the coonection string
                   //  xElement.FirstChild.Attributes[1].Value = con;
                    // xElement.FirstChild.Attributes[2].Value = "System.Data.EntityClient";
