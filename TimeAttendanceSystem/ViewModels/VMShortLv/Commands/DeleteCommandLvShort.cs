@@ -26,23 +26,24 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
 
         public void Execute(object parameter)
         {
-          //  VMShortLeave vmd = (VMShortLeave)parameter;
-            //LvShort selectedShortLv = context.LvShorts.FirstOrDefault(aa => aa.EmpID == vmd.selectedShortLv.EmpID);
-       //     context.LvShorts.Remove(selectedShortLv);
+            //VMShortLeave vmd = (VMShortLeave)parameter;
+            //LvShort selectedShortLv = context.LvShorts.FirstOrDefault(aa => aa.EmpID == vmd.selectedEmpAndShortLv.Employee.EmpID);
+            //context.LvShorts.Remove(selectedShortLv);
+            //context.savechanges();
             //vmd.isAdding = true;
             //vmd.isEnabled = true;
-           // try
-           // {
+            //try
+            //{
             //    if (context.SaveChanges() > 0)
             //    {
-             //       vmd.listOfShortLvs.Remove(vmd.selectedShortLv);
-             //       vmd.selectedShortLv = vmd.listOfShortLvs[0];
-             //   }
-          //  }
-          //  catch (Exception)
-          //  {
-          //      Console.WriteLine("Exception While Deleting...");
-           // }
+            //        vmd.listOfShortLvs.Remove(vmd.selectedShortLv);
+            //        vmd.selectedShortLv = vmd.listOfShortLvs[0];
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    Console.WriteLine("Exception While Deleting...");
+            //}
         }
     }
 }

@@ -714,9 +714,13 @@
       <DependentUpon>EmpTypeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ErrorsToMessageConverter.cs" />
+    <Compile Include="Views\FirstPageDatabase.xaml.cs">
+      <DependentUpon>FirstPageDatabase.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LvSetting.xaml.cs">
       <DependentUpon>LvSetting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RegisterView.cs" />
     <Compile Include="Views\SQLDATABASE.xaml.cs">
       <DependentUpon>SQLDATABASE.xaml</DependentUpon>
     </Compile>
@@ -976,6 +980,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EmpTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FirstPageDatabase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

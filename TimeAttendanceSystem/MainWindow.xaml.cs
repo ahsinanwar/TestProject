@@ -42,10 +42,10 @@ namespace TimeAttendanceSystem
             InitializeComponent();
             WindowState = WindowState.Maximized;
            
-                _mainFrame.Navigate(new DatabaseSettings());
-           
-           
-         //   _mainFrame.Navigate(new DashView());
+              //  _mainFrame.Navigate(new DatabaseSettings());
+
+
+            _mainFrame.Navigate(new EmployeeView());
             CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
            
 
@@ -309,7 +309,7 @@ namespace TimeAttendanceSystem
                     reqparm.Add("clientinfo", ci.ClientName);
                     try
                     {
-                        byte[] responsebytes = client.UploadValues("http://localhost:3000/Editpackage", "POST", reqparm);
+                        byte[] responsebytes = client.UploadValues("https://powerful-lowlands-4417.herokuapp.com/Editpackage", "POST", reqparm);
                         responsebody = Encoding.UTF8.GetString(responsebytes);
 
                         if (responsebody != null)

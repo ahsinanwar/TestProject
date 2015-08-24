@@ -109,7 +109,7 @@ namespace TimeAttendanceSystem.Views
 
                         try
                         {
-                            byte[] responsebytes = client.UploadValues("http://localhost:3000/registration", "POST", reqparm);
+                            byte[] responsebytes = client.UploadValues("https://powerful-lowlands-4417.herokuapp.com/registration", "POST", reqparm);
                             responsebody = Encoding.UTF8.GetString(responsebytes);
 
                             if (responsebody == "\"Success\"")

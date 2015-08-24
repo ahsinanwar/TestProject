@@ -28,5 +28,9 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> CompanyID { get; set; }
         public Nullable<bool> EmergencyStart { get; set; }
         public byte[] WelcomeNote { get; set; }
+        public string servername { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string databasename { get; set; }
     }
 }

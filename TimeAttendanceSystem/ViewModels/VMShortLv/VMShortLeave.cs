@@ -14,8 +14,10 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
     class VMShortLeave :ObservableObject
     {
         #region Intialization
+       
         private ObservableCollection<CombinedEmpAndShortLvcs> _listOfEmpsAndShortLv;
         private CombinedEmpAndShortLvcs _selectedEmpAndShortLv;
+        private CombinedEmpAndShortLvcs _selectedShortLv;
         public CombinedEmpAndShortLvcs selectedEmpAndShortLv
         {
             get
@@ -120,6 +122,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
         {
             entity = new TAS2013Entities();
             _selectedEmpAndShortLv = new CombinedEmpAndShortLvcs();
+            _selectedShortLv = new CombinedEmpAndShortLvcs();
             _listOfEmpsAndShortLv = new ObservableCollection<CombinedEmpAndShortLvcs>();
             List<LvShort> LvShortDatacollection = entity.LvShorts.ToList();// 1 2 3
             foreach (LvShort value in LvShortDatacollection)

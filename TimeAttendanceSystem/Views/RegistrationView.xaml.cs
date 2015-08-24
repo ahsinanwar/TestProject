@@ -37,7 +37,8 @@ namespace TimeAttendanceSystem.Views
         private Model.ClientInfo clientinfo2;                   
         public RegistrationView()
         {
-           // 
+            
+
             int activeMACs = context.ClientMACs.Where(aa => aa.IsUsing == true).ToList().Count;
             ClientLicense cl;
             ClientInfo checkForRegistered = context.ClientInfoes.FirstOrDefault();
