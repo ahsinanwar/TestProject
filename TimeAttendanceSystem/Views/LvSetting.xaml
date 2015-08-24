@@ -74,7 +74,7 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
                         <Label Content="EmpID:" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="118,3,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpID}" VerticalAlignment="Top" Width="117" FontSize="14" IsEnabled="{Binding Path=isEnabled}"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" Height="23" Margin="118,31,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.LvConsumeds}" VerticalAlignment="Top" Width="117" FontSize="14" IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" Height="23" Margin="118,31,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.LvConsumeds}" VerticalAlignment="Top" Width="117" FontSize="14" IsEnabled="{Binding Path=isEnabled}"/>
                         <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="Em" HorizontalAlignment="Left" Height="23" Margin="118,87,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.YearRemaining}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}" />
                         <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtmpID" HorizontalAlignment="Left" Height="23" Margin="118,59,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
                         <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="ad" HorizontalAlignment="Left" Height="23" Margin="118,177,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
@@ -82,8 +82,8 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
 
                         <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="adn" HorizontalAlignment="Left" Height="23" Margin="118,281,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="aad" HorizontalAlignment="Left" Height="23" Margin="118,254,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="and" HorizontalAlignment="Left" Height="23" Margin="118,228,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="aad" HorizontalAlignment="Left" Height="23" Margin="118,254,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.TotalForyear}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="and" HorizontalAlignment="Left" Height="23" Margin="118,228,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.YearRemaining}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
 
 
 

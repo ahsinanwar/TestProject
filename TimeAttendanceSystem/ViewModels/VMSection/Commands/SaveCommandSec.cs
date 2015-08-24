@@ -48,6 +48,9 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
                     }
                     else
                     {
+
+                        Section dummy = vmd.selectedSec;
+                        dummy.Department = null;
                         context.Sections.Add(vmd.selectedSec);
                         context.SaveChanges();
                         vmd.listOfSecs.Add(vmd.selectedSec);

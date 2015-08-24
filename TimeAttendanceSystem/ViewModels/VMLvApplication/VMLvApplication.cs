@@ -153,6 +153,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
             foreach (LvApplication value in LvAppDatacollection)
                 _listOfEmpsAndLvApps.Add(new CombinedEmpAndLvApps(entity.Emps.FirstOrDefault(aa => aa.EmpID == value.EmpID), value,entity.LvTypes.FirstOrDefault(aa => aa.LvTypeID == value.TypeID),entity.LvConsumeds.FirstOrDefault(aa => aa.EmpID == value.EmpID)));
             _selectedEmpAndLvApp = _listOfEmpsAndLvApps.FirstOrDefault();
+            
             this._AddCommand = new AddCommandLvApp(_selectedEmpAndLvApp);
             this._EditCommand = new EditCommandLvApp(this);
             this._DeleteCommand = new DeleteCommandLvApp(_selectedEmpAndLvApp);
