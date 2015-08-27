@@ -97,7 +97,7 @@ namespace TimeAttendanceSystem
                     case "Holidays":
                         _mainFrame.Navigate(new HolidayView());
                         break;
-                    case "User":
+                    case "Users":
                         _mainFrame.Navigate(new SectionView());
                         break;
                     case "Application":
@@ -130,6 +130,9 @@ namespace TimeAttendanceSystem
                         break;
                     case "Present":
                         _mainFrame.Navigate(new DFPresent());
+                        break;
+                    case "Leave":
+                        _mainFrame.Navigate(new DFLeave());
                         break;
                     case "Absent":
                         _mainFrame.Navigate(new DFAbsent());
@@ -184,6 +187,9 @@ namespace TimeAttendanceSystem
                         break;
                     case "Device Manager":
                         _mainFrame.Navigate(new DeviceOperation());
+                        break;
+                    case "Troubleshoot":
+                        _mainFrame.Navigate(new TroubleshootView());
                         break;
                     case "Database":
                         _mainFrame.Navigate(new DatabaseSettings());

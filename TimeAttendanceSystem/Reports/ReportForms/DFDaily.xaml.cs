@@ -136,7 +136,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void LoadReport(string Path, List<ViewMultipleInOut> _List)
         {
             //rptViewer.Reset();
-            string DateToFor = "";
+            string DateToFor = "12-13-2015";
             string _Header = "Daily Attendance Report";
             this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
             //rptViewer.ProcessingMode = ProcessingMode.Local;

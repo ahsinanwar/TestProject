@@ -757,6 +757,9 @@
     <Compile Include="Views\ShortLvView.xaml.cs">
       <DependentUpon>ShortLvView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TroubleshootView.xaml.cs">
+      <DependentUpon>TroubleshootView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
@@ -1036,6 +1039,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShortLvView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TroubleshootView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

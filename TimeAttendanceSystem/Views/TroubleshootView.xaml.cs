@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TimeAttendanceSystem.Views
 {
     /// <summary>
-    /// Interaction logic for CategoryView.xaml
+    /// Interaction logic for TroubleshootView.xaml
     /// </summary>
-    public partial class CategoryView : Page
+    public partial class TroubleshootView : Page
     {
-        public CategoryView()
+        public TroubleshootView()
         {
             InitializeComponent();
         }
