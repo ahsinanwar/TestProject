@@ -22,17 +22,15 @@ namespace TimeAttendanceSystem.Model
     
         public string LvTypeID { get; set; }
         public string LvDesc { get; set; }
-        public string FldName { get; set; }
+        public string ReportName { get; set; }
         public bool HalfLeave { get; set; }
         public string HalfLvCode { get; set; }
         public string HalfAbCode { get; set; }
         public byte MaxDays { get; set; }
-        public bool WorkDays { get; set; }
-        public bool VacDays { get; set; }
         public bool MonthProcess { get; set; }
-        public bool UpdateBalance { get; set; }
-        public bool LvStatus { get; set; }
         public Nullable<bool> Enable { get; set; }
+        public Nullable<bool> HasQuota { get; set; }
+        public Nullable<bool> CarryForward { get; set; }
     
         public virtual ICollection<LvApplication> LvApplications { get; set; }
         public virtual ICollection<LvData> LvDatas { get; set; }

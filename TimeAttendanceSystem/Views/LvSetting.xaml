@@ -24,10 +24,10 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
         <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
-                        telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                          ItemsSource="{Binding listOfEmpsAndLvApps}" 
-                          SelectedItem="{Binding selectedEmpAndLvApp}" 
-                           VerticalAlignment="Stretch" GroupPanelBackground="#FF004B79">
+        		telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
+        		ItemsSource="{Binding listOfEmpsAndLvApps}" 
+        		SelectedItem="{Binding selectedEmpAndLvApp}" 
+        		VerticalAlignment="Stretch" GroupPanelBackground="#FF004B79">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" Width="80" DataMemberBinding="{Binding Employee.EmpNo}" IsReadOnly="false" />
                     <telerik:GridViewDataColumn Header="Name" Width="120" DataMemberBinding="{Binding Employee.EmpName}" IsReadOnly="false" />
@@ -38,7 +38,6 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     <telerik:GridViewDataColumn Header="Days" Width="50" DataMemberBinding="{Binding LvApp.NoOfDays}" IsReadOnly="false" />
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-
         </StackPanel>
         <Border Grid.Column="0"  Margin="5,5,0,5" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1,1,1,1">
             <StackPanel  Background="White" >
@@ -64,29 +63,27 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
                 <StackPanel Margin="5,5,5,5">
                     <Grid MinHeight="350" >
-                        <Label Content="Annual Leave:" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                        <Label Content="Casual Leave:" HorizontalAlignment="Left" Margin="33,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                        <Label Content="Sick Leave:" HorizontalAlignment="Left" Margin="46,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                        <Label Content="Annual Leave:" HorizontalAlignment="Left" Margin="29,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                        <Label Content="Casual Leave:" HorizontalAlignment="Left" Margin="33,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                        <Label Content="Sick Leave:" HorizontalAlignment="Left" Margin="46,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Add Leave Quota Of Employee" HorizontalAlignment="Left" Margin="30,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347" FontWeight="Bold" FontSize="14"/>
                         <Label Content="Emp No:" HorizontalAlignment="Left" Margin="57,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Sick Leave:" HorizontalAlignment="Left" Margin="46,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Casual Leave:" HorizontalAlignment="Left" Margin="33,252,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Annual Leave:" HorizontalAlignment="Left" Margin="30,225,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                        
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="118,24,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="Em" HorizontalAlignment="Left" Height="23" Margin="118,75,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtmpID" HorizontalAlignment="Left" Height="23" Margin="118,50,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="ad" HorizontalAlignment="Left" Height="23" Margin="118,177,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="237,178,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>
 
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="adn" HorizontalAlignment="Left" Height="23" Margin="118,281,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="aad" HorizontalAlignment="Left" Height="23" Margin="118,254,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="and" HorizontalAlignment="Left" Height="23" Margin="118,228,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
+                        <Label Content="EmpID:" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="118,3,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpID}" VerticalAlignment="Top" Width="117" FontSize="14" IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" Height="23" Margin="118,31,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.LvConsumeds}" VerticalAlignment="Top" Width="117" FontSize="14" IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="Em" HorizontalAlignment="Left" Height="23" Margin="118,87,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.YearRemaining}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}" />
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtmpID" HorizontalAlignment="Left" Height="23" Margin="118,59,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="ad" HorizontalAlignment="Left" Height="23" Margin="118,177,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="..." HorizontalAlignment="Left" Margin="237,178,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>
 
 
-
-
-
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="adn" HorizontalAlignment="Left" Height="23" Margin="118,281,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="aad" HorizontalAlignment="Left" Height="23" Margin="118,254,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="and" HorizontalAlignment="Left" Height="23" Margin="118,228,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
 
 
 
@@ -94,21 +91,28 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
 
 
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Apply" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="181,101,75.4,222.4" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+
+
+
+
+
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Apply" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="181,115,75,208" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Apply" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="181,308,75.4,15.4" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
-                        
+
                     </Grid>
                 </StackPanel>
             </StackPanel>
         </Border>
         <Border Grid.Column="2"  Margin="5,5,0,5" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1,1,1,1">
-            <StackPanel  Background="White" Margin="-0.8,-0.8,0,0.6" >
+
+            <StackPanel  Background="White" Margin="-0.8,1.0,0,-9.4" >
+
                 <StackPanel Background="#004b79">
-                    <Label Foreground="White">Detail of Leave Application</Label>
+                    <Label Foreground="White" Content="Detail of Leave Application"/>
                 </StackPanel>
                 <!--Buttons Panel-->
-                <StackPanel Orientation="Horizontal" Margin="230,5,5,5">
+                <StackPanel Orientation="Horizontal" Margin="168,5,5,5">
                     <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
                         <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/add.png">
                         </Image>
@@ -126,20 +130,23 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
                 <StackPanel Margin="5,5,5,5">
                     <Grid MinHeight="350" >
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEID" HorizontalAlignment="Left" Height="23" Margin="118,26,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpD" HorizontalAlignment="Left" Height="23" Margin="118,143,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14" RenderTransformOrigin="0.397,-1.383"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpI" HorizontalAlignment="Left" Height="23" Margin="118,52,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpDl" HorizontalAlignment="Left" Height="23" Margin="118,169,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"/>
-                        <Label Content="Leave Description:" HorizontalAlignment="Left" Margin="7,23,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEID" HorizontalAlignment="Left" Height="23" Margin="118,26,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvType.LvDesc}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}" />
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpD" HorizontalAlignment="Left" Height="23" Margin="118,143,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvType.MaxDays}" VerticalAlignment="Top" Width="117" FontSize="14" RenderTransformOrigin="0.397,-1.383"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpI" HorizontalAlignment="Left" Height="23" Margin="118,52,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvApp.TypeID}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <!--<TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpDl" HorizontalAlignment="Left" Height="23" Margin="118,169,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14" TextChanged="txtEmpDl_TextChanged"/>-->
+                       <Label Content="Leave Description:" HorizontalAlignment="Left" Margin="7,23,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Leave Code:" HorizontalAlignment="Left" Margin="39,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Half Leave:" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Half Absent Code:" HorizontalAlignment="Left" Margin="7,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Half Leave Code:" HorizontalAlignment="Left" Margin="15,89,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Max Days:" HorizontalAlignment="Left" Margin="48,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Enable:" HorizontalAlignment="Left" Margin="64,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                        <CheckBox  telerik:StyleManager.Theme="Windows8" Content="" HorizontalAlignment="Left" Margin="118,171,0,0" VerticalAlignment="Top" Height="15" Width="17" IsEnabled="{Binding Path=isEnabled}" IsChecked="{Binding Path=selectedEmpAndLvApp.LvType.Enable,Mode=TwoWay}"/>
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="118,191,78,132" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         <CheckBox  telerik:StyleManager.Theme="Windows8" Content="" HorizontalAlignment="Left" Margin="117,77,0,0" VerticalAlignment="Top" Height="15" Width="17" IsEnabled="{Binding Path=isEnabled}" IsChecked="{Binding Path=selectedEmpAndLvApp.LvApp.IsHalf,Mode=TwoWay}"/>
-                        <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="118,118,0,0" VerticalAlignment="Top" Width="117" Height="22" DisplayMemberPath="LvDesc" SelectedValuePath="LvTypeID" SelectedValue="{Binding selectedEmpAndLvApp.LvApp.TypeID,Mode=TwoWay}" ItemsSource="{Binding listOfLvTypes}" IsEnabled="{Binding Path=isEnabled}" />
-                        <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="118,93,0,0" VerticalAlignment="Top" Width="117" Height="22" DisplayMemberPath="LvDesc" SelectedValuePath="LvTypeID" SelectedValue="{Binding selectedEmpAndLvApp.LvApp.TypeID,Mode=TwoWay}" ItemsSource="{Binding listOfLvTypes}" IsEnabled="{Binding Path=isEnabled}" />
+                        <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="118,118,0,0" VerticalAlignment="Top" Width="117" Height="22" DisplayMemberPath="HalfAbCode" SelectedValuePath="LvTypeID" SelectedValue="{Binding selectedEmpAndLvApp.LvApp.TypeID,Mode=TwoWay}" ItemsSource="{Binding listOfLvTypes}" IsEnabled="{Binding Path=isEnabled}" />
+                        <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="118,93,0,0" VerticalAlignment="Top" Width="117" Height="22" DisplayMemberPath="HalfLvCode" SelectedValuePath="LvTypeID" SelectedValue="{Binding selectedEmpAndLvApp.LvApp.TypeID,Mode=TwoWay}" ItemsSource="{Binding listOfLvTypes}" IsEnabled="{Binding Path=isEnabled}" />
                     </Grid>
                 </StackPanel>
             </StackPanel>

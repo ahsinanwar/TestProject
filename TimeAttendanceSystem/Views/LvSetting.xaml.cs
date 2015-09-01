@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMLvApplication;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -20,9 +21,26 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class LvSetting : Page
     {
+        SelectEmpWindow window;
+        VMLvApplication vmlvapps;
         public LvSetting()
         {
             InitializeComponent();
+            vmlvapps = new VMLvApplication();
+            this.DataContext = vmlvapps;
         }
+        private void btn_empView_Click(object sender, RoutedEventArgs e)
+        {
+            window = new SelectEmpWindow();
+
+
+            if ((bool)window.ShowDialog())
+            {
+                Console.WriteLine(window._selectedEmp);
+                txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+                vmlvapps.selectedEmpAndLvApp.Employee = window._selectedEmp;
+                vmlvapps.selectedEmpAndLvApp.LvApp.EmpID = window._selectedEmp.EmpID;
+            }
+        }  
     }
 }

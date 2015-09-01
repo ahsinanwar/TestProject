@@ -180,7 +180,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 tempLeaveQuota = leaveQuota.Where(aa => aa.EmpID == emp.EmpID).ToList();
                 foreach (var leave in tempLeaveQuota)
                 {
-                    EmpID = emp.EmpID;
+                    EmpID = (int)emp.EmpID;
                     EmpNo = emp.EmpNo;
                     EmpName = emp.EmpName;
                     DeptID = (short)emp.DeptID;

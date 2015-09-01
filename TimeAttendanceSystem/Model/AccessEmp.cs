@@ -20,5 +20,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<bool> Permission { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
         public Nullable<bool> Processed { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public Nullable<short> AccessType { get; set; }
     }
 }

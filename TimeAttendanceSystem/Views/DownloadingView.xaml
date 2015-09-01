@@ -1,8 +1,15 @@
 ﻿<Window x:Class="TimeAttendanceSystem.Views.DownloadingView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="DownloadingView" Height="83.881" Width="300">
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="DownloadingView" Height="95.081" Width="424.8" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
     <Grid Margin="0,0,-0.4,196">
-        
+
+        <telerik:RadProgressBar  Height="25" IsIndeterminate="True" Foreground="#1e5ab0" Margin="37,17,32.2,-42"/>
+        <Label Content="Downloading Telerik Libraries make sure you have internet connectivity..." FontSize="12" FontWeight="ExtraBold" Foreground="#1e5ab0"  Padding="0,0,0,0" FontFamily="Corbel"  HorizontalAlignment="Left" Height="19" Margin="19,57,0,-76" VerticalAlignment="Top" Width="392"/>
+
     </Grid>
 </Window>

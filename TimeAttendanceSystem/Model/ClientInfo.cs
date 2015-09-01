@@ -24,6 +24,8 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> LiscenceTypeID { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
     
         public virtual ICollection<ClientMAC> ClientMACs { get; set; }
     }
