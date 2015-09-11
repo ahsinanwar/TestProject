@@ -18,8 +18,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Border Background="#FF25A0DA" Grid.ColumnSpan="2" Grid.Row="0" >
-            <Label Foreground="White" FontSize="16">Report : Daily Attendance</Label>
+        <Border Background="#efecea" Grid.ColumnSpan="2" Grid.Row="0" >
+            <Label Foreground="#004b79" FontSize="16">Report : Daily Attendance</Label>
         </Border>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <local:UCReportFilters x:Name="UserControlReport" HorizontalAlignment="Left"  />
@@ -30,7 +30,7 @@
             </WindowsFormsHost>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="2">
-            <Button Background="#FF25A0DA" Foreground="White" Content="Generate" Width="150" Click="Button_Click" Height="34" Margin="0,7,0,0"/>
+            <Button Background="#004b79" Foreground="White" Content="Generate" Width="150" Click="Button_Click" Height="34" Margin="0,7,0,0"/>
         </StackPanel>
     </Grid>
 </Page>

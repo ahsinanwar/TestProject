@@ -41,6 +41,20 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision
             }
         }
         private ObservableCollection<Division> _listOfDivs;
+        private ObservableCollection<Emp> _listOfShiftEmps;
+        public ObservableCollection<Emp> ListOfShiftEmps
+        {
+
+            get { return _listOfShiftEmps; }
+            set
+            {
+
+                _listOfShiftEmps = value;
+
+                base.OnPropertyChanged("ListOfShiftEmps");
+                base.OnPropertyChanged("isEnabled");
+            }
+        }
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -57,6 +71,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision
             {
                 this.isEnabled = false;
                 _selectedDiv = value;
+                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.Department.DivID == _selectedDiv.DivisionID));
                 base.OnPropertyChanged("selectedDiv");
                 base.OnPropertyChanged("isEnabled");
 
@@ -119,6 +134,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision
             
             _listOfDivs = new ObservableCollection<Division>(entity.Divisions.ToList());
             _selectedDiv = entity.Divisions.ToList().FirstOrDefault();
+            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.Department.DivID == _selectedDiv.DivisionID));
             this._AddCommand = new AddCommandDiv(_selectedDiv);
             this._EditCommand = new EditCommandDiv(this);
             this._DeleteCommand = new DeleteCommandDiv(_selectedDiv);

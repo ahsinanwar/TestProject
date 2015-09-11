@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMSection.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMSection
 {
-    class VMSection: ObservableObject
+    class VMSection : ObservableObject
     {
         #region Intialization
         public Section _selectedSec;
@@ -39,12 +40,24 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             }
         }
         private ObservableCollection<Section> _listOfSecs;
+        private ObservableCollection<Emp> _listOfShiftEmps;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
+        public ObservableCollection<Emp> ListOfShiftEmps{
 
+            get { return _listOfShiftEmps; }
+            set
+            {
+               
+                _listOfShiftEmps = value;
+
+                base.OnPropertyChanged("ListOfShiftEmps");
+                base.OnPropertyChanged("isEnabled");
+            }
+        }
         public Section selectedSec
         {
             get
@@ -55,12 +68,24 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             {
                 this.isEnabled = false;
                 _selectedSec = value;
+                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
+                base.OnPropertyChanged("ListOfShiftEmps");
                 base.OnPropertyChanged("selectedSec");
                 base.OnPropertyChanged("isEnabled");
 
             }
         }
+        private ObservableCollection<Department> _listOfDepts;
+        public ObservableCollection<Department> listOfDepts
+        {
+            get { return _listOfDepts; }
 
+            set
+            {
+                listOfDepts = value;
+                OnPropertyChanged("listOfDepts");
+            }
+        }
         public ObservableCollection<Section> listOfSecs
         {
             get { return _listOfSecs; }
@@ -116,13 +141,17 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             _selectedSec = new Section();
             _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
             _selectedSec = entity.Sections.ToList().FirstOrDefault();
-            this._AddCommand = new AddCommand(_selectedSec);
-            this._EditCommand = new EditCommand(this);
-            this._DeleteCommand = new DeleteCommand(_selectedSec);
+            _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
+            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID== _selectedSec.SectionID));
+            this._AddCommand = new AddCommandSec(_selectedSec);
+            this._EditCommand = new EditCommandSec(this);
+            this._DeleteCommand = new DeleteCommandSec(_selectedSec);
             this._isAdding = false;
             this._isEnabled = false;
-            this._SaveCommand = new SaveCommand(this);
+            this._SaveCommand = new SaveCommandSec(this);
             base.OnPropertyChanged("_listOfSecs");
+            base.OnPropertyChanged("_listOfDepts");
+            base.OnPropertyChanged("_listOfShiftEmps");
         }
         #endregion
     }

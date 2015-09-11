@@ -40,12 +40,26 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             }
         }
         private ObservableCollection<Section> _listOfSecs;
+        private ObservableCollection<Emp> _listOfShiftEmps;
+        public ObservableCollection<Emp> ListOfShiftEmps
+        {
+
+            get { return _listOfShiftEmps; }
+            set
+            {
+
+                _listOfShiftEmps = value;
+
+                base.OnPropertyChanged("ListOfShiftEmps");
+                base.OnPropertyChanged("isEnabled");
+            }
+        }
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-
+     
         public Section selectedSec
         {
             get
@@ -56,6 +70,8 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             {
                 this.isEnabled = false;
                 _selectedSec = value;
+                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
+                base.OnPropertyChanged("ListOfShiftEmps");
                 base.OnPropertyChanged("selectedSec");
                 base.OnPropertyChanged("isEnabled");
 
@@ -128,7 +144,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
             _selectedSec = entity.Sections.ToList().FirstOrDefault();
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
-
+            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
             this._AddCommand = new AddCommandSec(_selectedSec);
             this._EditCommand = new EditCommandSec(this);
             this._DeleteCommand = new DeleteCommandSec(_selectedSec);
@@ -137,6 +153,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             this._SaveCommand = new SaveCommandSec(this);
             base.OnPropertyChanged("_listOfSecs");
             base.OnPropertyChanged("_listOfDepts");
+            base.OnPropertyChanged("_listOfShiftEmps");
         }
         #endregion
     }

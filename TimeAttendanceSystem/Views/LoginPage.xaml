@@ -15,7 +15,7 @@
         <PasswordBox x:Name="PasswordBox" Margin="142,192,0,0"
            ff:PasswordBoxAssistant.BindPassword="true"  ff:PasswordBoxAssistant.BoundPassword="{Binding Uc.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
 
-        <telerik:RadButton telerik:StyleManager.Theme="Windows8" Content="Login" HorizontalAlignment="Left" Margin="66,231,0,0" VerticalAlignment="Top" Width="74" Command="{Binding loginCommand}" CommandParameter="{Binding Uc}"/>
+        <telerik:RadButton telerik:StyleManager.Theme="Windows8" Content="Login" HorizontalAlignment="Left" Margin="66,231,0,0" VerticalAlignment="Top" Width="74" Command="{Binding loginCommand}" CommandParameter="{Binding Uc}" IsDefault="True"/>
         <telerik:RadButton telerik:StyleManager.Theme="Windows8" Content="Quit" HorizontalAlignment="Left" Margin="168,231,0,0" VerticalAlignment="Top" Width="74" Command="{Binding exitCommand}" CommandParameter="{Binding Uc}"/>
 
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="63" Background="#FF2914EB" Margin="0,-11,0,0">

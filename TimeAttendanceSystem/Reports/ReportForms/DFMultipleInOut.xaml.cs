@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,34 +13,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Reporting.WinForms;
-using TimeAttendanceSystem.Model;
 using TimeAttendanceSystem.BaseClasses;
+using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.Reports.ReportForms
 {
     /// <summary>
-    /// Interaction logic for DFMissingAtt.xaml
+    /// Interaction logic for DFEarlyOut.xaml
     /// </summary>
-    public partial class DFMissingAtt : Page
+    public partial class DFMultipleInOut : Page
     {
-        TAS2013Entities ctx;
-        public DFMissingAtt()
+        public DFMultipleInOut()
         {
             InitializeComponent();
-            ctx = new TAS2013Entities();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewMissingAtt> listAtt = ctx.ViewMissingAtts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
-            LoadReport(Properties.Settings.Default.ReportPath + "DRMissingAtt.rdlc", listAtt);
+            LoadReport(Properties.Settings.Default.ReportPath + "DRMultipleInOut.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
         }
-        
+        TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
-            List<ViewMissingAtt> _TempViewList = new List<ViewMissingAtt>();
+            List<ViewMultipleInOut> _TempViewList = new List<ViewMultipleInOut>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewMissingAtt> _ViewList = ctx.ViewMissingAtts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewMultipleInOut> _ViewList = ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -134,10 +131,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
 
-            LoadReport(Properties.Settings.Default.ReportPath + "DRMissingAtt.rdlc", _ViewList);
+            LoadReport(Properties.Settings.Default.ReportPath + "DFMultipleInOut.rdlc", _ViewList);
 
         }
-        private void LoadReport(string Path, List<ViewMissingAtt> _List)
+
+        private void LoadReport(string Path, List<ViewMultipleInOut> _List)
         {
             //rptViewer.Reset();
             string DateToFor = "";

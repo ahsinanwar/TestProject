@@ -26,6 +26,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLogin
     
     }
         public ICommand _LoginCommand;
+        public ICommand _ExitCommand;
        
        
         private ObservableCollection<Location> _listOfLocs;
@@ -55,6 +56,14 @@ namespace TimeAttendanceSystem.ViewModels.VMLogin
             }
         }
 
+        public ICommand exitCommand
+        {
+            get
+            {
+                return _ExitCommand;
+            }
+        }
+
        
         #endregion
 
@@ -64,6 +73,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLogin
             entity = new TAS2013Entities();
             _uc = new UserCredentials();
             _LoginCommand = new LoginCommand();
+            _ExitCommand = new ExitCommand();
             base.OnPropertyChanged("_uc");
            
         }

@@ -97,6 +97,7 @@ namespace TimeAttendanceSystem.Model
         public DbSet<ViewCard> ViewCards { get; set; }
         public DbSet<ViewCrew> ViewCrews { get; set; }
         public DbSet<ViewDepartment> ViewDepartments { get; set; }
+        public DbSet<ViewDetailAttData> ViewDetailAttDatas { get; set; }
         public DbSet<ViewEarlyIN> ViewEarlyINs { get; set; }
         public DbSet<ViewEarlyOut> ViewEarlyOuts { get; set; }
         public DbSet<ViewEditAttendance> ViewEditAttendances { get; set; }
