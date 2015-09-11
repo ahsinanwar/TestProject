@@ -41,10 +41,21 @@ namespace TimeAttendanceSystem
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
+<<<<<<< HEAD
             CheckForRegistered(new BackgroundWorker());
             //_mainFrame.Navigate(new DashView());
             _mainFrame.Navigate(new DatabaseSettings());
             CommanVariables.CompanyName = "CNS TECHNOLOGIES"; 
+=======
+           
+              //  _mainFrame.Navigate(new DatabaseSettings());
+
+
+            _mainFrame.Navigate(new EmployeeView());
+            CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
+           
+
+>>>>>>> c78b95552c2a04c650eda70bd22be8307cfa6616
         }
            
         public void CommenceTripleChecking()
@@ -94,7 +105,7 @@ namespace TimeAttendanceSystem
                     case "Holidays":
                         _mainFrame.Navigate(new HolidayView());
                         break;
-                    case "User":
+                    case "Users":
                         _mainFrame.Navigate(new SectionView());
                         break;
                     case "Application":
@@ -127,6 +138,9 @@ namespace TimeAttendanceSystem
                         break;
                     case "Present":
                         _mainFrame.Navigate(new DFPresent());
+                        break;
+                    case "Leave":
+                        _mainFrame.Navigate(new DFLeave());
                         break;
                     case "Absent":
                         _mainFrame.Navigate(new DFAbsent());
@@ -181,6 +195,9 @@ namespace TimeAttendanceSystem
                         break;
                     case "Device Manager":
                         _mainFrame.Navigate(new DeviceOperation());
+                        break;
+                    case "Troubleshoot":
+                        _mainFrame.Navigate(new TroubleshootView());
                         break;
                     case "Database":
                         _mainFrame.Navigate(new DatabaseSettings());
@@ -306,7 +323,11 @@ namespace TimeAttendanceSystem
                     reqparm.Add("clientinfo", ci.ClientName);
                     try
                     {
+<<<<<<< HEAD
                         byte[] responsebytes = client.UploadValues(" https://powerful-lowlands-4417.herokuapp.com/Editpackage", "POST", reqparm);
+=======
+                        byte[] responsebytes = client.UploadValues("https://powerful-lowlands-4417.herokuapp.com/Editpackage", "POST", reqparm);
+>>>>>>> c78b95552c2a04c650eda70bd22be8307cfa6616
                         responsebody = Encoding.UTF8.GetString(responsebytes);
 
                         if (responsebody != null)

@@ -91,7 +91,7 @@
                     <Label Padding="15,2,5,0" FontSize="16px" Foreground="White" >Menu</Label>
                 </StackPanel>-->                    
                 <StackPanel VerticalAlignment="Top">
-                    <telerik:RadMenu telerik:StyleManager.Theme="Windows8" ItemClick="radContextMenu_ItemClick" Orientation="Vertical" Background="#FFF5F5F1">
+                    <telerik:RadMenu telerik:StyleManager.Theme="Windows8" ItemClick="radContextMenu_ItemClick" Orientation="Vertical" Background="#FFF5F5F1" Foreground="Black">
                         <telerik:RadMenuItem Header="Company" Background="#FFF5F5F1">
                             <!--<telerik:RadMenuItem.Icon>
                                 <Image Source="/Images/newFile.png"

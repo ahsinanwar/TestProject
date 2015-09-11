@@ -2773,6 +2773,10 @@
           <Property Name="CompanyID" Type="smallint" />
           <Property Name="EmergencyStart" Type="bit" />
           <Property Name="WelcomeNote" Type="varbinary(max)" />
+          <Property Name="servername" Type="nchar" MaxLength="10" />
+          <Property Name="username" Type="nchar" MaxLength="10" />
+          <Property Name="password" Type="nchar" MaxLength="10" />
+          <Property Name="databasename" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="PollData">
           <Key>
@@ -6484,6 +6488,10 @@
           <Property Name="CompanyID" Type="Int16" />
           <Property Name="EmergencyStart" Type="Boolean" />
           <Property Name="WelcomeNote" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="servername" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="username" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="password" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="databasename" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
         </EntityType>
         <EntityType Name="PollData">
           <Key>
@@ -9802,6 +9810,10 @@
                 <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="EmergencyStart" ColumnName="EmergencyStart" />
                 <ScalarProperty Name="WelcomeNote" ColumnName="WelcomeNote" />
+                <ScalarProperty Name="servername" ColumnName="servername" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="databasename" ColumnName="databasename" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

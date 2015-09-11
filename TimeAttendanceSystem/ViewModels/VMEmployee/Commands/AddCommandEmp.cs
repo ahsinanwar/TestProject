@@ -37,6 +37,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
             vmd._selectedEmp.Grade = vmd.listOfGrades.FirstOrDefault();
             vmd._selectedEmp.GradeID = vmd.selectedEmp.Grade.GradeID;
             vmd._selectedEmp.Shift = vmd.listOfShifts.FirstOrDefault();
+            vmd._selectedDept = vmd.listOfDepts.FirstOrDefault();
+            vmd._selectedSec = vmd.listOfSecs.Where(aa => aa.DeptID == vmd._selectedDept.DeptID).FirstOrDefault();
             vmd._selectedEmp.ShiftID = vmd.selectedEmp.Shift.ShiftID;
             vmd._selectedEmp.Location = vmd.listOfLocs.FirstOrDefault();
             vmd._selectedEmp.LocID = vmd.selectedEmp.Location.LocID;

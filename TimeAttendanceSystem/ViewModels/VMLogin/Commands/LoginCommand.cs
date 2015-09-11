@@ -35,6 +35,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLogin.Commands
             if (g != null)
             {
                 GlobalClasses.Global.user = g;
+                //Application.Current.MainWindow.Close();
                 MainWindow mw = new MainWindow();
              //   mw.CommenceTripleChecking();
                 

@@ -704,9 +704,13 @@
       <DependentUpon>EmpTypeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ErrorsToMessageConverter.cs" />
+    <Compile Include="Views\FirstPageDatabase.xaml.cs">
+      <DependentUpon>FirstPageDatabase.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LvSetting.xaml.cs">
       <DependentUpon>LvSetting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RegisterView.cs" />
     <Compile Include="Views\SQLDATABASE.xaml.cs">
       <DependentUpon>SQLDATABASE.xaml</DependentUpon>
     </Compile>
@@ -742,6 +746,9 @@
     </Compile>
     <Compile Include="Views\ShortLvView.xaml.cs">
       <DependentUpon>ShortLvView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TroubleshootView.xaml.cs">
+      <DependentUpon>TroubleshootView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
@@ -969,6 +976,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FirstPageDatabase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LvSetting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1018,6 +1029,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShortLvView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TroubleshootView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
