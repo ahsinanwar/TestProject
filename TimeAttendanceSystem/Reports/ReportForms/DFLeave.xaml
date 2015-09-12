@@ -10,7 +10,8 @@
 	Title="DFDaily"  Background="#E6E6DC" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="192"/>
+            <ColumnDefinition Width="106.883"/>
+            <ColumnDefinition Width="85.117"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -18,19 +19,19 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Border Background="#FF25A0DA" Grid.ColumnSpan="2" Grid.Row="0" >
-            <Label Foreground="White" FontSize="16" >Report : Leave Balances</Label>
+        <Border Background="#efecea" Grid.ColumnSpan="2" Grid.Row="0" >
+            <Label Foreground="#004b79" FontSize="16" >Report : Leave Balances</Label>
         </Border>
-        <StackPanel Grid.Column="0" Grid.Row="1">
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
             <local:UCReportFilters x:Name="UserControlReport" HorizontalAlignment="Left"  />
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
             <WindowsFormsHost Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualHeight}" x:Name="WinFromHost">
                 <rv:ReportViewer Dock="Fill" x:Name="rptViewer"></rv:ReportViewer>
             </WindowsFormsHost>
         </StackPanel>
-        <StackPanel Grid.Column="0" Grid.Row="2">
-            <Button Background="#FF25A0DA" Foreground="White" Content="Generate" Width="150" Click="ButtonGenerate" Height="34" Margin="0,7,0,0"/>
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+            <Button Background="#004b79" Foreground="White" Content="Generate" Width="150" Click="ButtonGenerate" Height="34" Margin="0,7,0,0"/>
         </StackPanel>
     </Grid>
 </Page>

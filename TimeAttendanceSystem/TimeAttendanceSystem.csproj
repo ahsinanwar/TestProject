@@ -135,6 +135,7 @@
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
+    <Compile Include="DFMultipleInOut.cs" />
     <Compile Include="GlobalClasses\Global.cs" />
     <Compile Include="HelperClasses\EncDec.cs" />
     <Compile Include="HelperClasses\License.cs" />
@@ -383,6 +384,9 @@
     <Compile Include="Model\ViewDepartment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ViewDetailAttData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ViewEarlyIN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -506,6 +510,9 @@
     <Compile Include="Reports\ReportForms\MFLeaves.xaml.cs">
       <DependentUpon>MFLeaves.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\DFMultipleInOut.xaml.cs">
+      <DependentUpon>DFMultipleInOut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportForms\SDailyCompany.xaml.cs">
       <DependentUpon>SDailyCompany.xaml</DependentUpon>
     </Compile>
@@ -599,6 +606,7 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMLogin\Commands\ExitCommand.cs" />
     <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
     <Compile Include="ViewModels\VMLogin\VMLogin.cs" />
     <Compile Include="ViewModels\VMLvApplication\CombinedEmpAndLvApps.cs" />
@@ -854,6 +862,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reports\ReportForms\DFMultipleInOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reports\ReportForms\SDailyCompany.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1085,7 +1097,6 @@
     <EmbeddedResource Include="Reports\RDLC\DRLeaveQuota.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\DRMissingAtt.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\DRMultipleInOut.rdlc" />
-    <EmbeddedResource Include="Reports\RDLC\DROverTime.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\DRPresent.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\DRShortLeave.rdlc" />
     <EmbeddedResource Include="Reports\RDLC\EmpAttSummary.rdlc" />
@@ -1168,7 +1179,10 @@
     <Folder Include="ViewModels\VMJobCard\" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="Images\SplashScreen1.png" />
+    <None Include="Images\SplashScreen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Time_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

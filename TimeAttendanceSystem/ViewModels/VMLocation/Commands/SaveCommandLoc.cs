@@ -14,7 +14,6 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
     {
          #region Fields
         VMLocation _vmloc;
-        TAS2013Entities context = new TAS2013Entities();
         //Department _vm = new Department();
         #endregion
 
@@ -33,39 +32,43 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
       
         public void Execute(object parameter)
         {
-            VMLocation vmd = (VMLocation)parameter;
-           if (vmd.isAdding)
-           {
-               if (vmd.selectedLoc.LocName == "" || vmd.selectedLoc.LocName == null)
-               {
-                   PopUp.popUp("Empty Value", "Please write Location before saving", NotificationType.Warning);
-               }
+            using (var ctx = new TAS2013Entities())
+            {
+                VMLocation vmd = (VMLocation)parameter;
+                if (vmd.isAdding)
+                {
+                    if (vmd.selectedLoc.LocName == "" || vmd.selectedLoc.LocName == null)
+                    {
+                        PopUp.popUp("Empty Value", "Please write Location before saving", NotificationType.Warning);
+                    }
 
-               else
-               {
-                   if (context.Locations.Where(aa => aa.LocName == vmd.selectedLoc.LocName).Count() > 0)
-                   {
-                       PopUp.popUp("Sorry!", "Location name already been created", NotificationType.Warning);
-                   }
-                   else
-                   {
-                       context.Locations.Add(vmd.selectedLoc);
-                       context.SaveChanges();
-                       vmd.listOfLocs.Add(vmd.selectedLoc);
-                       PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
-              
-                   }
-               }
-           }
-           else {
-               Location loc = context.Locations.First(aa => aa.LocID == vmd.selectedLoc.LocID);
-               loc.LocName = vmd.selectedLoc.LocName;
-               vmd.isEnabled = false;
-               vmd.isAdding = false;
-               context.SaveChanges();
-               PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
-              
+                    else
+                    {
+                        if (ctx.Locations.Where(aa => aa.LocName == vmd.selectedLoc.LocName).Count() > 0)
+                        {
+                            PopUp.popUp("Sorry!", "Location name already been created", NotificationType.Warning);
+                        }
+                        else
+                        {
+                            vmd.selectedLoc.City = null;
+                            ctx.Locations.Add(vmd.selectedLoc);
+                            ctx.SaveChanges();
+                            vmd.listOfLocs.Add(vmd.selectedLoc);
+                            PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
+                        }
+                    }
                 }
+                else
+                {
+                    Location loc = ctx.Locations.First(aa => aa.LocID == vmd.selectedLoc.LocID);
+                    loc.LocName = vmd.selectedLoc.LocName;
+                    vmd.isEnabled = false;
+                    vmd.isAdding = false;
+                    ctx.SaveChanges();
+                    PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
+
+                } 
+            }
          
         }
         #endregion

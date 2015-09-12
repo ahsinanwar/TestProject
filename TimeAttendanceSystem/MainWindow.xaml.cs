@@ -98,7 +98,7 @@ namespace TimeAttendanceSystem
                         _mainFrame.Navigate(new HolidayView());
                         break;
                     case "Users":
-                        _mainFrame.Navigate(new SectionView());
+                        _mainFrame.Navigate(new UserView());
                         break;
                     case "Application":
                         _mainFrame.Navigate(new LvApplicationView());
@@ -149,8 +149,14 @@ namespace TimeAttendanceSystem
                     case "Early Out":
                         _mainFrame.Navigate(new DFEarlyOut());
                         break;
-                    case "Over Time":
+                    case "Overtime":
                         _mainFrame.Navigate(new DFOverTime());
+                        break;
+                    case "Missing":
+                        _mainFrame.Navigate(new DFMissingAtt());
+                        break;
+                    case "Multiple In/Out":
+                        _mainFrame.Navigate(new DFMultipleInOut());
                         break;
                     case "Yearly Leaves":
                         _mainFrame.Navigate(new YLSummary());
@@ -362,5 +368,7 @@ namespace TimeAttendanceSystem
         {
             _mainFrame.Navigate(new DatabaseSettings());
         }
+
+      
     }
 }

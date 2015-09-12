@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.ViewModels.VMCategory;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -19,9 +20,12 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class CategoryView : Page
     {
+        VMCategory vmCategory;
         public CategoryView()
         {
             InitializeComponent();
+            vmCategory = new VMCategory();
+            this.DataContext = vmCategory;
         }
     }
 }

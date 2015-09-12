@@ -27,6 +27,7 @@ namespace TimeAttendanceSystem.Views
     public partial class DownloadingView : Window
     {
         private Model.ClientInfo clientinfo2;
+        
         BackgroundWorker bw = new BackgroundWorker();
 
         private Package cm;
