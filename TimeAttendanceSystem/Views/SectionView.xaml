@@ -11,11 +11,11 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="160"/>
-            <RowDefinition Height="350"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="570"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Border Background="#efecea" Grid.ColumnSpan="2" Grid.Row="0" Margin="5,5,0,5"  BorderBrush="LightGray" BorderThickness="1,1,0,1">
@@ -25,12 +25,12 @@
         </Border>
 
         <!--List View Panel-->
-        <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="0">
+        <StackPanel  Grid.Row="1" Grid.Column="0">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
         		telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch"  
         		ItemsSource="{Binding listOfSecs}" SelectedItem="{Binding selectedSec}" ShowGroupPanel="False"
-        		VerticalAlignment="Stretch"  MinHeight="150" 
-        		CanUserFreezeColumns="False" MinWidth="387" Height="149" RenderTransformOrigin="0.477,0.91" Margin="0,0,138,0">
+        		VerticalAlignment="Stretch"  
+        		CanUserFreezeColumns="False"  >
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding SectionName}" />
                     <telerik:GridViewDataColumn Header="Department" DataMemberBinding="{Binding Department.DeptName}" />
@@ -40,8 +40,8 @@
             </telerik:RadGridView>
         </StackPanel>
         <!--CRUD Panel-->
-        <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,0,145,5" Grid.Column="0"  Height="500" VerticalAlignment="Bottom" Grid.RowSpan="2" Grid.Row="1">
-            <StackPanel Background="White" Margin="0,164,0,0">
+        <Border BorderBrush="LightGray" BorderThickness="1" Grid.Column="0"  VerticalAlignment="Bottom"  Grid.Row="2">
+            <StackPanel Background="White">
                 <StackPanel Background="#004b79">
                     <Label Foreground="White" Height="23">Section Detail</Label>
                 </StackPanel>
@@ -64,11 +64,11 @@
                 <StackPanel Margin="5,5,5,5">
                     <Grid Height="150">
                         <Label Content="Section Name:" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="128,0,0,97" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="132" Text="{Binding Path=selectedSec.SectionName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="206,58,288,70"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="128,0,0,97" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="172" Text="{Binding Path=selectedSec.SectionName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="94" Background="White" Margin="206,74,88,54"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         <Label Content="Department Name:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
-                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="128,4,0,0" VerticalAlignment="Top" Width="132"   FontWeight="Bold" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" SelectedItem="{Binding selectedSec.Department,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding listOfDepts}" IsEnabled="{Binding isEnabled}"/>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="128,4,0,0" VerticalAlignment="Top" Width="172"   FontWeight="Bold" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" SelectedItem="{Binding selectedSec.Department,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding listOfDepts}" IsEnabled="{Binding isEnabled}"/>
                         <!--<TextBox HorizontalAlignment="Left" Height="23" Margin="128,0,0,0" TextWrapping="Wrap" Text="{Binding Path=selectedSec.Department.DeptName}" IsEnabled="{Binding Path=isEnabled}"  VerticalAlignment="Top" Width="110"/>-->
                     </Grid>
                 </StackPanel>
@@ -77,12 +77,12 @@
         </Border>
         <!--Employee List View Panel-->
         <StackPanel Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1">
-            <Label Background="#004b79" Margin="-143,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Section</Label>
+            <Label Background="#004b79"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Section</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
                     ItemsSource="{Binding ListOfShiftEmps}" ShowGroupPanel="False"
-                    VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
-                    CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79" Height="444" Margin="-143,0,0,0">
+                    VerticalAlignment="Stretch" 
+                    CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
                     <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
@@ -92,7 +92,7 @@
 
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All" Margin="-143,0,0,0"/>
+            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All" />
         </StackPanel>
     </Grid>
 

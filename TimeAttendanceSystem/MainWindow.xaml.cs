@@ -41,21 +41,13 @@ namespace TimeAttendanceSystem
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
-<<<<<<< HEAD
             CheckForRegistered(new BackgroundWorker());
             //_mainFrame.Navigate(new DashView());
-            _mainFrame.Navigate(new DatabaseSettings());
-            CommanVariables.CompanyName = "CNS TECHNOLOGIES"; 
-=======
-           
-              //  _mainFrame.Navigate(new DatabaseSettings());
-
-
             _mainFrame.Navigate(new EmployeeView());
-            CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
+            CommanVariables.CompanyName = "CNS TECHNOLOGIES"; 
+            //_mainFrame.Navigate(new EmployeeView());
+            //CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
            
-
->>>>>>> c78b95552c2a04c650eda70bd22be8307cfa6616
         }
            
         public void CommenceTripleChecking()
@@ -322,55 +314,51 @@ namespace TimeAttendanceSystem
 
             String responsebody = null;
 
-            if (CheckForInternetConnection() == true)
-                using (WebClient client = new WebClient())
-                {
-                    System.Collections.Specialized.NameValueCollection reqparm = new System.Collections.Specialized.NameValueCollection();
-                    reqparm.Add("clientinfo", ci.ClientName);
-                    try
-                    {
-<<<<<<< HEAD
-                        byte[] responsebytes = client.UploadValues(" https://powerful-lowlands-4417.herokuapp.com/Editpackage", "POST", reqparm);
-=======
-                        byte[] responsebytes = client.UploadValues("https://powerful-lowlands-4417.herokuapp.com/Editpackage", "POST", reqparm);
->>>>>>> c78b95552c2a04c650eda70bd22be8307cfa6616
-                        responsebody = Encoding.UTF8.GetString(responsebytes);
+            //if (CheckForInternetConnection() == true)
+            //    using (WebClient client = new WebClient())
+            //    {
+            //        System.Collections.Specialized.NameValueCollection reqparm = new System.Collections.Specialized.NameValueCollection();
+            //        reqparm.Add("clientinfo", ci.ClientName);
+            //        try
+            //        {
+            //            byte[] responsebytes = client.UploadValues(" https://powerful-lowlands-4417.herokuapp.com/Editpackage", "POST", reqparm);
+            //            responsebody = Encoding.UTF8.GetString(responsebytes);
 
-                        if (responsebody != null)
-                        {
+            //            if (responsebody != null)
+            //            {
                             
-                                Package df = JsonConvert.DeserializeObject<Package>(responsebody);
-                                df = JsonConvert.DeserializeObject<Package>(responsebody);
-                                Option opt = ctx.Options.FirstOrDefault();
-                                opt.WelcomeNote = EncDec.GetBytes(responsebody);
-                                string json = EncDec.GetString(opt.WelcomeNote);
-                                ci.LiscenceTypeID = df.Licensetype.TypeId;
-                                if (df.Licensetype.TypeId == -1)
-                                {
-                                    Application.Current.Shutdown();
+            //                    Package df = JsonConvert.DeserializeObject<Package>(responsebody);
+            //                    df = JsonConvert.DeserializeObject<Package>(responsebody);
+            //                    Option opt = ctx.Options.FirstOrDefault();
+            //                    opt.WelcomeNote = EncDec.GetBytes(responsebody);
+            //                    string json = EncDec.GetString(opt.WelcomeNote);
+            //                    ci.LiscenceTypeID = df.Licensetype.TypeId;
+            //                    if (df.Licensetype.TypeId == -1)
+            //                    {
+            //                        Application.Current.Shutdown();
 
-                                }
-                                var javaScriptSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-                                string jsonString = javaScriptSerializer.Serialize(df);
-                                opt.WelcomeNote = EncDec.GetBytes(jsonString);
-                                string MacAdd = EncDec.GetMacAddress();
-                                ClientMAC cm = ctx.ClientMACs.Where(aa => aa.MACAddress == MacAdd).First();
-                                cm.IsUsing = true;
-                                ctx.SaveChanges();
+            //                    }
+            //                    var javaScriptSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            //                    string jsonString = javaScriptSerializer.Serialize(df);
+            //                    opt.WelcomeNote = EncDec.GetBytes(jsonString);
+            //                    string MacAdd = EncDec.GetMacAddress();
+            //                    ClientMAC cm = ctx.ClientMACs.Where(aa => aa.MACAddress == MacAdd).First();
+            //                    cm.IsUsing = true;
+            //                    ctx.SaveChanges();
 
                             
 
 
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e);
+            //            }
+            //        }
+            //        catch (Exception e)
+            //        {
+            //            Console.WriteLine(e);
 
-                    }
+            //        }
 
 
-                }
+            //    }
 
 
 
