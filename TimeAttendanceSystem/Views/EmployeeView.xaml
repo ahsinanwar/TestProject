@@ -80,7 +80,7 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5">
                         <StackPanel Width="381">
-                            <Grid Height="100" Margin="0,0,22,0">
+                            <Grid Height="111" Margin="0,0,22,0">
 
 
                                 <Border Name="hej1" Margin="15,3,261,0">
@@ -92,7 +92,10 @@
 
                                    
                                 </Border>
-                                <Button x:Name="btn_imageSelect" Content="Upload" Margin="103,80,205,0"  Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}"/>
+                                <Button telerik:StyleManager.Theme="Windows8" BorderThickness="0" x:Name="btn_imageSelect"  Margin="100,83,228,0"  Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}">
+                                    <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/upload.png" RenderTransformOrigin="-0.5,0.667" Height="20" Width="19">
+                                    </Image>
+                                </Button>
 
 
 
@@ -130,8 +133,8 @@
                                 </TextBox>
                             </Grid>
                         </StackPanel>
-                        <StackPanel>
-                            <TabControl Margin="10,10,25,0" Background="White">
+                        <StackPanel Height="372">
+                            <TabControl Margin="10,10,25,0" Background="White" Height="309">
                                 <!--<TabItem Header="Leaves" >
                                         <Label Content="Content goes here..." />
                                     </TabItem>-->
@@ -201,7 +204,7 @@
                                     </Grid>
                                 </TabItem>
                             </TabControl>
-                            <Button  telerik:StyleManager.Theme="Windows8" Width="53" Margin="150,20,0,30" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" />
+                            <Button  telerik:StyleManager.Theme="Windows8" Width="53" Margin="150,20,0,30" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" RenderTransformOrigin="0.472,-0.45" />
                         </StackPanel>
 
                     </StackPanel>
