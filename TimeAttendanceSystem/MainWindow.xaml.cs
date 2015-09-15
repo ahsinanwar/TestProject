@@ -41,6 +41,12 @@ namespace TimeAttendanceSystem
         {
             InitializeComponent();
             WindowState = WindowState.Maximized;
+<<<<<<< HEAD
+            CheckForRegistered(new BackgroundWorker());
+            //_mainFrame.Navigate(new DashView());
+            _mainFrame.Navigate(new DatabaseSettings());
+            CommanVariables.CompanyName = "CNS TECHNOLOGIES"; 
+=======
            
               //  _mainFrame.Navigate(new DatabaseSettings());
 
@@ -49,7 +55,9 @@ namespace TimeAttendanceSystem
             CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
            
 
+>>>>>>> c78b95552c2a04c650eda70bd22be8307cfa6616
         }
+           
         public void CommenceTripleChecking()
         {
              BackgroundWorker bw = new BackgroundWorker();
@@ -216,7 +224,7 @@ namespace TimeAttendanceSystem
         }
         private void btn_home_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new DashView());
+            //_mainFrame.Navigate(new DashView());
         }
        
         private void btn_employee_Click(object sender, RoutedEventArgs e)
@@ -321,7 +329,11 @@ namespace TimeAttendanceSystem
                     reqparm.Add("clientinfo", ci.ClientName);
                     try
                     {
+<<<<<<< HEAD
+                        byte[] responsebytes = client.UploadValues(" https://powerful-lowlands-4417.herokuapp.com/Editpackage", "POST", reqparm);
+=======
                         byte[] responsebytes = client.UploadValues("https://powerful-lowlands-4417.herokuapp.com/Editpackage", "POST", reqparm);
+>>>>>>> c78b95552c2a04c650eda70bd22be8307cfa6616
                         responsebody = Encoding.UTF8.GetString(responsebytes);
 
                         if (responsebody != null)
