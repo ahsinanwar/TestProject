@@ -45,6 +45,20 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
+        private ObservableCollection<Emp> _listOfShiftEmps;
+        public ObservableCollection<Emp> ListOfShiftEmps
+        {
+
+            get { return _listOfShiftEmps; }
+            set
+            {
+
+                _listOfShiftEmps = value;
+
+                base.OnPropertyChanged("ListOfShiftEmps");
+                base.OnPropertyChanged("isEnabled");
+            }
+        }
 
         public Crew selectedCrew
         {
@@ -56,6 +70,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew
             {
                 this.isEnabled = false;
                 _selectedCrew = value;
+                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.CrewID == _selectedCrew.CrewID));
+                base.OnPropertyChanged("ListOfShiftEmps");
                 base.OnPropertyChanged("selectedCrew");
                 base.OnPropertyChanged("isEnabled");
 
@@ -117,6 +133,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew
             _selectedCrew = new Crew();
             _listOfcrews = new ObservableCollection<Crew>(entity.Crews.ToList());
             _selectedCrew = entity.Crews.ToList().FirstOrDefault();
+            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.CrewID == _selectedCrew.CrewID));
             this._AddCommand = new AddCommandCrew(_selectedCrew);
             this._EditCommand = new EditCommandCrew(this);
             this._DeleteCommand = new DeleteCommandCrew(_selectedCrew);

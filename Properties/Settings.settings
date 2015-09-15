@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TimeAttendanceSystem.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TASDesktopConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AWAIS-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID=sa;Password=Cns123;MultipleActiveResultSets=True;Application Name=EntityFramework&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AWAIS-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID=sa;Password=Cns123;MultipleActiveResultSets=True;Application Name=EntityFramework</Value>
+    </Setting>
+    <Setting Name="TASDesktopConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AWAIS-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID=sa;Password=Cns123&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AWAIS-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID=sa;Password=Cns123</Value>
+    </Setting>
+    <Setting Name="ReportPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">E:\\Projects\\inven Projects\\TimeAttendanceSystem\\TimeAttendanceSystem\\Reports\\RDLC\\</Value>
+    </Setting>
+    <Setting Name="TASDesktopConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AHSIN-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID=sa;Password=Cns123&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AHSIN-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID=sa;Password=Cns123</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

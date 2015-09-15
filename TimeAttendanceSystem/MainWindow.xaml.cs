@@ -120,7 +120,7 @@ namespace TimeAttendanceSystem
                         _mainFrame.Navigate(new DFShortLeave());
                         break;
                     case "Quota":
-                        _mainFrame.Navigate(new DFDaily());
+                        _mainFrame.Navigate(new DFLeaveQuota());
                         break;
                     case "Daily":
                         _mainFrame.Navigate(new DFDaily());
@@ -162,7 +162,7 @@ namespace TimeAttendanceSystem
                         _mainFrame.Navigate(new YLSummary());
                         break;
                     case "Leave Quota":
-                        _mainFrame.Navigate(new MFLeaves());
+                        _mainFrame.Navigate(new DFLeaveQuota());
                         break;
                     case "Attendance Sheet":
                         _mainFrame.Navigate(new MFAttSheetxaml());
