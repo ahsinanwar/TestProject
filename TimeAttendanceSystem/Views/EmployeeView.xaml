@@ -80,7 +80,7 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5">
                         <StackPanel Width="381">
-                            <Grid Height="100" Margin="0,0,22,0">
+                            <Grid Height="111" Margin="0,0,22,0">
 
 
                                 <Border Name="hej1" Margin="15,3,261,0">
@@ -92,14 +92,16 @@
 
                                    
                                 </Border>
-                                <Button x:Name="btn_imageSelect" Content="..." Margin="103,83,236,0" Width="20"  Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}">
+                                <Button telerik:StyleManager.Theme="Windows8" BorderThickness="0" x:Name="btn_imageSelect"  Margin="100,83,228,0"  Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}">
+                                    <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/upload.png" RenderTransformOrigin="-0.5,0.667" Height="20" Width="19">
+                                    </Image>
                                 </Button>
-                                
 
 
 
-                                <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="98,10,0,0"></Label>
-                                <TextBox telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Margin="162,14,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
+
+                                <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="98,7,0,0"></Label>
+                                <TextBox telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Margin="162,11,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
 
                                     <TextBox.Text>
                                         <Binding Path="selectedEmp.EmpNo" 
@@ -112,13 +114,13 @@
                                         </Binding>
                                     </TextBox.Text>
                                 </TextBox>
-                                <Label HorizontalAlignment="Left" Content="Name:" VerticalAlignment="Top" Height="28" Width="48"  Margin="109,36,0,0"/>
-                                <Label Content="Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,64,0,0"/>
-                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="165,67,0,0" VerticalAlignment="Top" Width="95" Height="22" IsEnabled="{Binding Path=isEnabled}" SelectedValue="{Binding Path=selectedEmp.Status,Mode=TwoWay}" SelectedValuePath="Tag" FontWeight="Bold">
+                                <Label HorizontalAlignment="Left" Content="Name:" VerticalAlignment="Top" Height="28" Width="48"  Margin="109,33,0,0"/>
+                                <Label Content="Status:" HorizontalAlignment="Left" Margin="109,59,0,15"/>
+                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="165,64,0,0" VerticalAlignment="Top" Width="95" Height="22" IsEnabled="{Binding Path=isEnabled}" SelectedValue="{Binding Path=selectedEmp.Status,Mode=TwoWay}" SelectedValuePath="Tag" FontWeight="Bold">
                                     <telerik:RadComboBoxItem Tag="True" Content="Active"/>
                                     <telerik:RadComboBoxItem Tag="False" Content="Inactive"/>
                                 </telerik:RadComboBox>
-                                <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="162,41,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
+                                <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="162,38,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
                                     <TextBox.Text>
                                         <Binding Path="selectedEmp.EmpName" ValidatesOnExceptions="True" 
              UpdateSourceTrigger="PropertyChanged" 
@@ -131,8 +133,8 @@
                                 </TextBox>
                             </Grid>
                         </StackPanel>
-                        <StackPanel>
-                            <TabControl Margin="10,10,25,0" Background="White">
+                        <StackPanel Height="372">
+                            <TabControl Margin="10,10,25,0" Background="White" Height="309">
                                 <!--<TabItem Header="Leaves" >
                                         <Label Content="Content goes here..." />
                                     </TabItem>-->
@@ -202,7 +204,7 @@
                                     </Grid>
                                 </TabItem>
                             </TabControl>
-                            <Button  telerik:StyleManager.Theme="Windows8" Width="53" Margin="150,20,0,30" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" />
+                            <Button  telerik:StyleManager.Theme="Windows8" Width="53" Margin="150,20,0,30" Height="20" HorizontalAlignment="Left" Command="{Binding SaveCommand}" CommandParameter="{Binding}" Content="Save" RenderTransformOrigin="0.472,-0.45" />
                         </StackPanel>
 
                     </StackPanel>
