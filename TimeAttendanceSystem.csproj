@@ -1,0 +1,1185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9DDAED9B-5502-40AF-AC6C-B0D9F7CAB0A6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TimeAttendanceSystem</RootNamespace>
+    <AssemblyName>TimeAttendanceSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Mantin.Controls.Wpf.Notification">
+      <HintPath>..\..\Mantin.Controls.Wpf.Notification.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Pivot.Core, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Pivot.DataProviders.Adomd, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Pivot.DataProviders.Queryable, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Pivot.DataProviders.Xmla, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Analytics, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Chart, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Charting, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.DataServices50, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Diagrams, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.EntityFramework, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Expressions, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewers, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Pivot, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.PivotFieldList, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Data, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Diagrams.Core, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BaseClasses\BackgroundVisualHost.cs" />
+    <Compile Include="BaseClasses\BusyDecorator.cs" />
+    <Compile Include="BaseClasses\CommanVariables.cs" />
+    <Compile Include="BaseClasses\ObservableObject.cs" />
+    <Compile Include="BaseClasses\VisualTargetPresentationSource.cs" />
+    <Compile Include="Controllers\EditAttController.cs" />
+    <Compile Include="Controllers\JobCardController.cs" />
+    <Compile Include="Controllers\LvController.cs" />
+    <Compile Include="DFMultipleInOut.cs" />
+    <Compile Include="GlobalClasses\Global.cs" />
+    <Compile Include="HelperClasses\EncDec.cs" />
+    <Compile Include="HelperClasses\License.cs" />
+    <Compile Include="HelperClasses\Package.cs" />
+    <Compile Include="HelperClasses\PasswordBoxAssistant.cs" />
+    <Compile Include="HelperClasses\PopUp.cs" />
+    <Compile Include="HelperClasses\StackedBarObject.cs" />
+    <Compile Include="HelperClasses\UserCredentials.cs" />
+    <Compile Include="Model\AccessEmp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttCode.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttDataManEdit.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttDataMonth.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttMnData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttMnDataPer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AttProcess.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditForm.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditLog.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AuditOperation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Card.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CardType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\City.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ClientInfo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ClientLicense.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ClientMAC.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Crew.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailySummary.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DailyTimeMonitor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DaysName.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Department.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Designation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Division.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DownloadTime.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DutyCode.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DutyTime.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmailPerson.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Emp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpAccess.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpFace.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpFp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpPhoto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmpView.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Grade.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Holiday.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCard.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCardApp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobCardEmp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobTitle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Location.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvApplication.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvConsumed.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvShort.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LvType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Option.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PollData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RdrDutyCode.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RdrEventLog.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Reader.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReaderType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReaderVendor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Reason.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Region.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Roster.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterApp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RosterType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Section.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceLog.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Shift.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Site.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TASReportDataset.cs">
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\TASReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserRole.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewAbsent.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewCard.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewCrew.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewDepartment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewDetailAttData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEarlyIN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEarlyOut.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEditAttendance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmergencyDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmpPic.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewEmpType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLateComer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLateOut.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLeaveData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLeaveQuota.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewLvConsumed.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMissingAtt.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMonthlyData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMonthlyDataPer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewMultipleInOut.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewOverTime.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewPollData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewPresentEmp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSection.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSLData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSummary.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewUserLocation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFAbsent.xaml.cs">
+      <DependentUpon>DFAbsent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFDaily.xaml.cs">
+      <DependentUpon>DFDaily.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFEarlyIn.xaml.cs">
+      <DependentUpon>DFEarlyIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFEarlyOut.xaml.cs">
+      <DependentUpon>DFEarlyOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFEmpAttSummary.xaml.cs">
+      <DependentUpon>DFEmpAttSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFLateIn.xaml.cs">
+      <DependentUpon>DFLateIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFLateOut.xaml.cs">
+      <DependentUpon>DFLateOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFLeave.xaml.cs">
+      <DependentUpon>DFLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFLeaveQuota.xaml.cs">
+      <DependentUpon>DFLeaveQuota.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFMissingAtt.xaml.cs">
+      <DependentUpon>DFMissingAtt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFMultupleInOut.xaml.cs">
+      <DependentUpon>DFMultupleInOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFOverTime.xaml.cs">
+      <DependentUpon>DFOverTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFPresent.xaml.cs">
+      <DependentUpon>DFPresent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFShortLeave.xaml.cs">
+      <DependentUpon>DFShortLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\EmpDetail.xaml.cs">
+      <DependentUpon>EmpDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\Employee.xaml.cs">
+      <DependentUpon>Employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MFAttSheetxaml.xaml.cs">
+      <DependentUpon>MFAttSheetxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MFAttSummary.xaml.cs">
+      <DependentUpon>MFAttSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MFLeaves.xaml.cs">
+      <DependentUpon>MFLeaves.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DFMultipleInOut.xaml.cs">
+      <DependentUpon>DFMultipleInOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailyCompany.xaml.cs">
+      <DependentUpon>SDailyCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailyDept.xaml.cs">
+      <DependentUpon>SDailyDept.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailyEmpType.xaml.cs">
+      <DependentUpon>SDailyEmpType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailySection.xaml.cs">
+      <DependentUpon>SDailySection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\SDailyShift.xaml.cs">
+      <DependentUpon>SDailyShift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\YLSummary.xaml.cs">
+      <DependentUpon>YLSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserControls\RFCrews.xaml.cs">
+      <DependentUpon>RFCrews.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserControls\RFSections.xaml.cs">
+      <DependentUpon>RFSections.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserControls\RFEmpTypes.xaml.cs">
+      <DependentUpon>RFEmpTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserControls\RFShifts.xaml.cs">
+      <DependentUpon>RFShifts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserControls\RFLocations.xaml.cs">
+      <DependentUpon>RFLocations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserControls\RFDepts.xaml.cs">
+      <DependentUpon>RFDepts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserControls\RFEmployees.xaml.cs">
+      <DependentUpon>RFEmployees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserControls\UCReportFilters.xaml.cs">
+      <DependentUpon>UCReportFilters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Validation\NameValidator.cs" />
+    <Compile Include="ValueConvertors\DateTimeToTimeSpan.cs" />
+    <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
+    <Compile Include="ViewModels\VMAttEdit\Commands\SearchCommandAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttEdit\SaveCommandAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttJobCard\VMAttJobCard.cs" />
+    <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
+    <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
+    <Compile Include="ViewModels\VMCategory\Commands\EditCommandCat.cs" />
+    <Compile Include="ViewModels\VMCategory\Commands\SaveCommandCat.cs" />
+    <Compile Include="ViewModels\VMCategory\VMCategory.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\AddCommandCity.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\DeleteCommandCity.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\EditCommandCity.cs" />
+    <Compile Include="ViewModels\VMCity\Commands\SaveCommandCity.cs" />
+    <Compile Include="ViewModels\VMCity\VMCity.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\AddCommandCrew.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\DeleteCommandCrew.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\EditCommandCrew.cs" />
+    <Compile Include="ViewModels\VMCrew\Commands\SaveCommandCrew.cs" />
+    <Compile Include="ViewModels\VMCrew\VMCrew.cs" />
+    <Compile Include="ViewModels\VMDashboard\AssetClass.cs" />
+    <Compile Include="ViewModels\VMDashboard\ScottLogic\BaseWPFHelpers.cs" />
+    <Compile Include="ViewModels\VMDashboard\ScottLogic\PieChart\IColorSelector.cs" />
+    <Compile Include="ViewModels\VMDashboard\ScottLogic\PieChart\IndexedColourSelector.cs" />
+    <Compile Include="ViewModels\VMDashboard\ScottLogic\PieChart\PieChartLayout.xaml.cs" />
+    <Compile Include="ViewModels\VMDashboard\ScottLogic\PieChart\PiePlotter.xaml.cs" />
+    <Compile Include="ViewModels\VMDashboard\ScottLogic\Shapes\PiePiece.cs" />
+    <Compile Include="ViewModels\VMDashboard\ScottLogic\Util\FormattingConverter.cs" />
+    <Compile Include="ViewModels\VMDashboard\ScottLogic\Util\Utils.cs" />
+    <Compile Include="ViewModels\VMDashboard\VMDashboard.cs" />
+    <Compile Include="ViewModels\VMDatabase\Commands\SaveCommandDatabase.cs" />
+    <Compile Include="ViewModels\VMDatabase\VMDataBase.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\AddCommandDept.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\DeleteCommandDept.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\EditCommandDept.cs" />
+    <Compile Include="ViewModels\VMDepartment\Commands\SaveCommandDept.cs" />
+    <Compile Include="ViewModels\VMDepartment\VMDepartment.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\AddCommandDesg.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\DeleteCommandDesg.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\EditCommandDesg.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\SaveCommandDesg.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDesignation.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\AddCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\DeleteCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMLogin\Commands\ExitCommand.cs" />
+    <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
+    <Compile Include="ViewModels\VMLogin\VMLogin.cs" />
+    <Compile Include="ViewModels\VMLvApplication\CombinedEmpAndLvApps.cs" />
+    <Compile Include="ViewModels\VMShortLv\CombinedEmpAndShortLvcs.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\EditCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\Commands\SaveCommandLvShort.cs" />
+    <Compile Include="ViewModels\VMShortLv\VMShortLeave.cs" />
+    <Compile Include="ViewModels\VMTempUpload\VMTempUpload.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\AddCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\DeleteCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\EditCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\Commands\SaveCommandUser.cs" />
+    <Compile Include="ViewModels\VMUser\VMUser.cs" />
+    <Compile Include="Views\AccessControl\DeviceOperation.xaml.cs">
+      <DependentUpon>DeviceOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControl\UploadUsers.xaml.cs">
+      <DependentUpon>UploadUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AttEditJobCard.xaml.cs">
+      <DependentUpon>AttEditJobCard.xaml</DependentUpon>
+    </Compile>
+    <!--<Compile Include="ViewModels\VMDesignation\Commands\AddCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\DeleteCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\EditCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDesignation.cs" />
+
+    <Compile Include="ViewModels\VMDivision\Commands\AddCommand.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\DeleteCommand.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\EditCommand.cs" />
+    <Compile Include="ViewModels\VMDivision\Commands\SaveCommand.cs" />
+    <Compile Include="ViewModels\VMDivision\VMDivision.cs" />-->
+    <Compile Include="ViewModels\VMEmployee\Commands\AddCommandEmp.cs" />
+    <Compile Include="ViewModels\VMEmployee\Commands\DeleteCommandEmp.cs" />
+    <Compile Include="ViewModels\VMEmployee\Commands\EditCommandEmp.cs" />
+    <Compile Include="ViewModels\VMEmployee\Commands\SaveCommandEmp.cs" />
+    <Compile Include="ViewModels\VMEmployee\VMEmployee.cs" />
+    <Compile Include="ViewModels\VMEmpType\Commands\AddCommandEmpType.cs" />
+    <Compile Include="ViewModels\VMEmpType\Commands\DeleteCommandEmpType.cs" />
+    <Compile Include="ViewModels\VMEmpType\Commands\EditCommandEmpType.cs" />
+    <Compile Include="ViewModels\VMEmpType\Commands\SaveCommandEmpType.cs" />
+    <Compile Include="ViewModels\VMEmpType\VMEmpType.cs" />
+    <Compile Include="ViewModels\VMHoliday\Commands\AddCommandHol.cs" />
+    <Compile Include="ViewModels\VMHoliday\Commands\DeleteCommandHol.cs" />
+    <Compile Include="ViewModels\VMHoliday\Commands\EditCommandHol.cs" />
+    <Compile Include="ViewModels\VMHoliday\Commands\SaveCommandHol.cs" />
+    <Compile Include="ViewModels\VMHoliday\VMHoliday.cs" />
+    <Compile Include="ViewModels\VMLocation\Commands\AddCommandLoc.cs" />
+    <Compile Include="ViewModels\VMLocation\Commands\DeleteCommandLoc.cs" />
+    <Compile Include="ViewModels\VMLocation\Commands\EditCommandLoc.cs" />
+    <Compile Include="ViewModels\VMLocation\Commands\SaveCommandLoc.cs" />
+    <Compile Include="ViewModels\VMLocation\VMLocation.cs" />
+    <Compile Include="ViewModels\VMLvApplication\Commands\AddCommandLvApp.cs" />
+    <Compile Include="ViewModels\VMLvApplication\Commands\DeleteCommandLvApp.cs" />
+    <Compile Include="ViewModels\VMLvApplication\Commands\EditCommandLvApp.cs" />
+    <Compile Include="ViewModels\VMLvApplication\Commands\SaveCommandLvApp.cs" />
+    <Compile Include="ViewModels\VMLvApplication\VMLvApplication.cs" />
+    <Compile Include="ViewModels\VMReader\Commands\AddCommandRdr.cs" />
+    <Compile Include="ViewModels\VMReader\Commands\DeleteCommandRdr.cs" />
+    <Compile Include="ViewModels\VMReader\Commands\EditCommandRdr.cs" />
+    <Compile Include="ViewModels\VMReader\Commands\SaveCommandRdr.cs" />
+    <Compile Include="ViewModels\VMReader\VMReader.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\AddCommandSec.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\DeleteCommandSec.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\EditCommandSec.cs" />
+    <Compile Include="ViewModels\VMSection\Commands\SaveCommandSec.cs" />
+    <Compile Include="ViewModels\VMSection\VMSection.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\AddCommandShift.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\DeleteCommandShift.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\EditCommandShift.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\SaveCommandShift.cs" />
+    <Compile Include="ViewModels\VMShift\VMShift.cs" />
+    <Compile Include="Views\AttEditView.xaml.cs">
+      <DependentUpon>AttEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardMgrView.xaml.cs">
+      <DependentUpon>CardMgrView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoryView.xaml.cs">
+      <DependentUpon>CategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CityView.xaml.cs">
+      <DependentUpon>CityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrewView.xaml.cs">
+      <DependentUpon>CrewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashView.xaml.cs">
+      <DependentUpon>DashView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DatabaseSettings.xaml.cs">
+      <DependentUpon>DatabaseSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentView.xaml.cs">
+      <DependentUpon>DepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesignationView.xaml.cs">
+      <DependentUpon>DesignationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DivisionView.xaml.cs">
+      <DependentUpon>DivisionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DownloadingView.xaml.cs">
+      <DependentUpon>DownloadingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeView.xaml.cs">
+      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmpTypeView.xaml.cs">
+      <DependentUpon>EmpTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorsToMessageConverter.cs" />
+    <Compile Include="Views\FirstPageDatabase.xaml.cs">
+      <DependentUpon>FirstPageDatabase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LvSetting.xaml.cs">
+      <DependentUpon>LvSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterView.cs" />
+    <Compile Include="Views\SQLDATABASE.xaml.cs">
+      <DependentUpon>SQLDATABASE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TempDeleteView.xaml.cs">
+      <DependentUpon>TempDeleteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HolidayView.xaml.cs">
+      <DependentUpon>HolidayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TempUploadView.xaml.cs">
+      <DependentUpon>TempUploadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocationView.xaml.cs">
+      <DependentUpon>LocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LvApplicationView.xaml.cs">
+      <DependentUpon>LvApplicationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReaderView.xaml.cs">
+      <DependentUpon>ReaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationView.xaml.cs">
+      <DependentUpon>RegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionView.xaml.cs">
+      <DependentUpon>SectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectEmpWindow.xaml.cs">
+      <DependentUpon>SelectEmpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShiftView.xaml.cs">
+      <DependentUpon>ShiftView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShortLvView.xaml.cs">
+      <DependentUpon>ShortLvView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TroubleshootView.xaml.cs">
+      <DependentUpon>TroubleshootView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Reports\ReportForms\DFAbsent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFDaily.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFEarlyIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFEarlyOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFEmpAttSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFLateIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFLateOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFLeave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFLeaveQuota.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFMissingAtt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFMultupleInOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFOverTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFPresent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFShortLeave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\EmpDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\MFAttSheetxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\MFAttSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\MFLeaves.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\DFMultipleInOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailyCompany.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailyDept.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailyEmpType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailySection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\SDailyShift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\YLSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\UserControls\RFCrews.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\UserControls\RFSections.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\UserControls\RFEmpTypes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\UserControls\RFShifts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\UserControls\RFLocations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\UserControls\RFDepts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\UserControls\RFEmployees.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\UserControls\UCReportFilters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewModels\VMDashboard\ScottLogic\PieChart\PieChartLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewModels\VMDashboard\ScottLogic\PieChart\PiePlotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AccessControl\DeviceOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AccessControl\UploadUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AttEditJobCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AttEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardMgrView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CrewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DashView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DatabaseSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DesignationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DivisionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DownloadingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmpTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FirstPageDatabase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LvSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SQLDATABASE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TempDeleteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HolidayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TempUploadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LvApplicationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReaderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectEmpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShiftView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShortLvView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TroubleshootView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RDLC\DSWorkSummary.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DSEmpStrength.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRAbsent.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRDetailed.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DREarlyIn.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DREarlyOut.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRLateIn.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRLateOut.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRLeave.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRLeaveQuota.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRMissingAtt.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRMultipleInOut.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRPresent.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DRShortLeave.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\EmpAttSummary.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\Employee.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\EmployeeDetail.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\DSConsolidated.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MLvApplication.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRDetailExcelC.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRDetailExcelP.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRLeaveBal.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRSheetC.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRSheetP.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRSummary.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MRSummaryC.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\MYLeaveSummary.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\RAuditLog.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\REditAttendance.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\RLeaveQuota.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\RShortLeave.rdlc" />
+    <EmbeddedResource Include="Reports\RDLC\YLSummary.rdlc" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="Model\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </None>
+    <None Include="Model\TASReportDataset.xsc">
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Model\TASReportDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TASReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Model\TASReportDataset.xss">
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Blank-Person1.png" />
+    <Resource Include="Images\TMSHeader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\edit-document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trackk_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\VMJobCard\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\SplashScreen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Time_logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

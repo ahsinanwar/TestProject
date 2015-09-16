@@ -45,6 +45,19 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
+        private ObservableCollection<Emp> _listOfShiftEmps;
+        public ObservableCollection<Emp> ListOfShiftEmps
+        {
+
+            get { return _listOfShiftEmps; }
+            set
+            {
+
+                _listOfShiftEmps = value;
+               
+                base.OnPropertyChanged("isEnabled");
+            }
+        }
 
         public City selectedCity
         {
@@ -57,6 +70,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
                 this.isEnabled = false;
                 _selectedCity = value;
                 base.OnPropertyChanged("selectedCity");
+                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Location.CityID == _selectedCity.CityID));
+                base.OnPropertyChanged("ListOfShiftEmps");
                 base.OnPropertyChanged("isEnabled");
 
             }
@@ -117,6 +132,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
             _selectedCity = new City();
             _listOfCities = new ObservableCollection<City>(entity.Cities.ToList());
             _selectedCity = entity.Cities.ToList().FirstOrDefault();
+            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Location.CityID == _selectedCity.CityID));
             this._AddCommand = new AddCommandCity(_selectedCity);
             this._EditCommand = new EditCommandCity(this);
             this._DeleteCommand = new DeleteCommandCity(_selectedCity);

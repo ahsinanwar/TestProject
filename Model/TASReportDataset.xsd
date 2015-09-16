@@ -1,0 +1,1264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TASReportDataset" targetNamespace="http://tempuri.org/TASReportDataset.xsd" xmlns:mstns="http://tempuri.org/TASReportDataset.xsd" xmlns="http://tempuri.org/TASReportDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TASDesktopConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TASDesktopConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TimeAttendanceSystem.Properties.Settings.GlobalReference.Default.TASDesktopConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TASDesktopConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TASDesktopConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TimeAttendanceSystem.Properties.Settings.GlobalReference.Default.TASDesktopConnectionString2" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewMonthlyDataTableAdapter" GeneratorDataComponentClassName="ViewMonthlyDataTableAdapter" Name="ViewMonthlyData" UserDataComponentName="ViewMonthlyDataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TASDesktopConnectionString (Settings)" DbObjectName="TASDesktop.dbo.ViewMonthlyData" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT EmpID, Period, EmpMonth, EmpNo, EmpName, D1, D2, D3, D4, D5, D6, D7, D8, D9, D11, D10, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D25, D24, D26, D27, D28, D30, D29, D31, TotalDays, WorkDays, PreDays, AbDays, RestDays, GZDays, LeaveDays, OfficialDutyDays, TEarlyIn, TEarlyOut, TLateIn, TLateOut, TWorkTime, TNOT, TGZOT, ExpectedWrkTime, OT1, OT2, OT3, OT4, OT5, OT6, OT7, OT8, OT9, OT10, OT11, OT12, OT13, OT14, OT15, OT16, OT17, OT18, OT19, OT20, OT21, OT22, OT23, OT24, OT26, OT25, OT27, OT28, OT29, OT30, OT31, DesignationName, GradeName, JobTitle, CityName, CrewName, LocName, SectionName, TypeName, DeptName, CatName, ShiftName, MarStatus, JoinDate, ValidDate, IssueDate, ResignDate, Status, Remarks, FlagFP, FlagFace, FlagCard, DivisionName, CardNo, TypeID, CatID, L1, L2, L3, L4, L5, L6, L7, L8, L9, L11, L10, L12, L13, L14, L15, L16, L17, L19, L18, L20, L22, L21, L23, L24, L25, L26, L27, L28, L29, L30, L31, HalfLeavesDay, LocID, CrewID, GradeID, DeptID, ShiftID, SecID, DivID, DesigID FROM dbo.ViewMonthlyData</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EmpID" DataSetColumn="EmpID" />
+              <Mapping SourceColumn="Period" DataSetColumn="Period" />
+              <Mapping SourceColumn="EmpMonth" DataSetColumn="EmpMonth" />
+              <Mapping SourceColumn="EmpNo" DataSetColumn="EmpNo" />
+              <Mapping SourceColumn="EmpName" DataSetColumn="EmpName" />
+              <Mapping SourceColumn="D1" DataSetColumn="D1" />
+              <Mapping SourceColumn="D2" DataSetColumn="D2" />
+              <Mapping SourceColumn="D3" DataSetColumn="D3" />
+              <Mapping SourceColumn="D4" DataSetColumn="D4" />
+              <Mapping SourceColumn="D5" DataSetColumn="D5" />
+              <Mapping SourceColumn="D6" DataSetColumn="D6" />
+              <Mapping SourceColumn="D7" DataSetColumn="D7" />
+              <Mapping SourceColumn="D8" DataSetColumn="D8" />
+              <Mapping SourceColumn="D9" DataSetColumn="D9" />
+              <Mapping SourceColumn="D11" DataSetColumn="D11" />
+              <Mapping SourceColumn="D10" DataSetColumn="D10" />
+              <Mapping SourceColumn="D12" DataSetColumn="D12" />
+              <Mapping SourceColumn="D13" DataSetColumn="D13" />
+              <Mapping SourceColumn="D14" DataSetColumn="D14" />
+              <Mapping SourceColumn="D15" DataSetColumn="D15" />
+              <Mapping SourceColumn="D16" DataSetColumn="D16" />
+              <Mapping SourceColumn="D17" DataSetColumn="D17" />
+              <Mapping SourceColumn="D18" DataSetColumn="D18" />
+              <Mapping SourceColumn="D19" DataSetColumn="D19" />
+              <Mapping SourceColumn="D20" DataSetColumn="D20" />
+              <Mapping SourceColumn="D21" DataSetColumn="D21" />
+              <Mapping SourceColumn="D22" DataSetColumn="D22" />
+              <Mapping SourceColumn="D23" DataSetColumn="D23" />
+              <Mapping SourceColumn="D25" DataSetColumn="D25" />
+              <Mapping SourceColumn="D24" DataSetColumn="D24" />
+              <Mapping SourceColumn="D26" DataSetColumn="D26" />
+              <Mapping SourceColumn="D27" DataSetColumn="D27" />
+              <Mapping SourceColumn="D28" DataSetColumn="D28" />
+              <Mapping SourceColumn="D30" DataSetColumn="D30" />
+              <Mapping SourceColumn="D29" DataSetColumn="D29" />
+              <Mapping SourceColumn="D31" DataSetColumn="D31" />
+              <Mapping SourceColumn="TotalDays" DataSetColumn="TotalDays" />
+              <Mapping SourceColumn="WorkDays" DataSetColumn="WorkDays" />
+              <Mapping SourceColumn="PreDays" DataSetColumn="PreDays" />
+              <Mapping SourceColumn="AbDays" DataSetColumn="AbDays" />
+              <Mapping SourceColumn="RestDays" DataSetColumn="RestDays" />
+              <Mapping SourceColumn="GZDays" DataSetColumn="GZDays" />
+              <Mapping SourceColumn="LeaveDays" DataSetColumn="LeaveDays" />
+              <Mapping SourceColumn="OfficialDutyDays" DataSetColumn="OfficialDutyDays" />
+              <Mapping SourceColumn="TEarlyIn" DataSetColumn="TEarlyIn" />
+              <Mapping SourceColumn="TEarlyOut" DataSetColumn="TEarlyOut" />
+              <Mapping SourceColumn="TLateIn" DataSetColumn="TLateIn" />
+              <Mapping SourceColumn="TLateOut" DataSetColumn="TLateOut" />
+              <Mapping SourceColumn="TWorkTime" DataSetColumn="TWorkTime" />
+              <Mapping SourceColumn="TNOT" DataSetColumn="TNOT" />
+              <Mapping SourceColumn="TGZOT" DataSetColumn="TGZOT" />
+              <Mapping SourceColumn="ExpectedWrkTime" DataSetColumn="ExpectedWrkTime" />
+              <Mapping SourceColumn="OT1" DataSetColumn="OT1" />
+              <Mapping SourceColumn="OT2" DataSetColumn="OT2" />
+              <Mapping SourceColumn="OT3" DataSetColumn="OT3" />
+              <Mapping SourceColumn="OT4" DataSetColumn="OT4" />
+              <Mapping SourceColumn="OT5" DataSetColumn="OT5" />
+              <Mapping SourceColumn="OT6" DataSetColumn="OT6" />
+              <Mapping SourceColumn="OT7" DataSetColumn="OT7" />
+              <Mapping SourceColumn="OT8" DataSetColumn="OT8" />
+              <Mapping SourceColumn="OT9" DataSetColumn="OT9" />
+              <Mapping SourceColumn="OT10" DataSetColumn="OT10" />
+              <Mapping SourceColumn="OT11" DataSetColumn="OT11" />
+              <Mapping SourceColumn="OT12" DataSetColumn="OT12" />
+              <Mapping SourceColumn="OT13" DataSetColumn="OT13" />
+              <Mapping SourceColumn="OT14" DataSetColumn="OT14" />
+              <Mapping SourceColumn="OT15" DataSetColumn="OT15" />
+              <Mapping SourceColumn="OT16" DataSetColumn="OT16" />
+              <Mapping SourceColumn="OT17" DataSetColumn="OT17" />
+              <Mapping SourceColumn="OT18" DataSetColumn="OT18" />
+              <Mapping SourceColumn="OT19" DataSetColumn="OT19" />
+              <Mapping SourceColumn="OT20" DataSetColumn="OT20" />
+              <Mapping SourceColumn="OT21" DataSetColumn="OT21" />
+              <Mapping SourceColumn="OT22" DataSetColumn="OT22" />
+              <Mapping SourceColumn="OT23" DataSetColumn="OT23" />
+              <Mapping SourceColumn="OT24" DataSetColumn="OT24" />
+              <Mapping SourceColumn="OT26" DataSetColumn="OT26" />
+              <Mapping SourceColumn="OT25" DataSetColumn="OT25" />
+              <Mapping SourceColumn="OT27" DataSetColumn="OT27" />
+              <Mapping SourceColumn="OT28" DataSetColumn="OT28" />
+              <Mapping SourceColumn="OT29" DataSetColumn="OT29" />
+              <Mapping SourceColumn="OT30" DataSetColumn="OT30" />
+              <Mapping SourceColumn="OT31" DataSetColumn="OT31" />
+              <Mapping SourceColumn="DesignationName" DataSetColumn="DesignationName" />
+              <Mapping SourceColumn="GradeName" DataSetColumn="GradeName" />
+              <Mapping SourceColumn="JobTitle" DataSetColumn="JobTitle" />
+              <Mapping SourceColumn="CityName" DataSetColumn="CityName" />
+              <Mapping SourceColumn="CrewName" DataSetColumn="CrewName" />
+              <Mapping SourceColumn="LocName" DataSetColumn="LocName" />
+              <Mapping SourceColumn="SectionName" DataSetColumn="SectionName" />
+              <Mapping SourceColumn="TypeName" DataSetColumn="TypeName" />
+              <Mapping SourceColumn="DeptName" DataSetColumn="DeptName" />
+              <Mapping SourceColumn="CatName" DataSetColumn="CatName" />
+              <Mapping SourceColumn="ShiftName" DataSetColumn="ShiftName" />
+              <Mapping SourceColumn="MarStatus" DataSetColumn="MarStatus" />
+              <Mapping SourceColumn="JoinDate" DataSetColumn="JoinDate" />
+              <Mapping SourceColumn="ValidDate" DataSetColumn="ValidDate" />
+              <Mapping SourceColumn="IssueDate" DataSetColumn="IssueDate" />
+              <Mapping SourceColumn="ResignDate" DataSetColumn="ResignDate" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="FlagFP" DataSetColumn="FlagFP" />
+              <Mapping SourceColumn="FlagFace" DataSetColumn="FlagFace" />
+              <Mapping SourceColumn="FlagCard" DataSetColumn="FlagCard" />
+              <Mapping SourceColumn="DivisionName" DataSetColumn="DivisionName" />
+              <Mapping SourceColumn="CardNo" DataSetColumn="CardNo" />
+              <Mapping SourceColumn="TypeID" DataSetColumn="TypeID" />
+              <Mapping SourceColumn="CatID" DataSetColumn="CatID" />
+              <Mapping SourceColumn="L1" DataSetColumn="L1" />
+              <Mapping SourceColumn="L2" DataSetColumn="L2" />
+              <Mapping SourceColumn="L3" DataSetColumn="L3" />
+              <Mapping SourceColumn="L4" DataSetColumn="L4" />
+              <Mapping SourceColumn="L5" DataSetColumn="L5" />
+              <Mapping SourceColumn="L6" DataSetColumn="L6" />
+              <Mapping SourceColumn="L7" DataSetColumn="L7" />
+              <Mapping SourceColumn="L8" DataSetColumn="L8" />
+              <Mapping SourceColumn="L9" DataSetColumn="L9" />
+              <Mapping SourceColumn="L11" DataSetColumn="L11" />
+              <Mapping SourceColumn="L10" DataSetColumn="L10" />
+              <Mapping SourceColumn="L12" DataSetColumn="L12" />
+              <Mapping SourceColumn="L13" DataSetColumn="L13" />
+              <Mapping SourceColumn="L14" DataSetColumn="L14" />
+              <Mapping SourceColumn="L15" DataSetColumn="L15" />
+              <Mapping SourceColumn="L16" DataSetColumn="L16" />
+              <Mapping SourceColumn="L17" DataSetColumn="L17" />
+              <Mapping SourceColumn="L19" DataSetColumn="L19" />
+              <Mapping SourceColumn="L18" DataSetColumn="L18" />
+              <Mapping SourceColumn="L20" DataSetColumn="L20" />
+              <Mapping SourceColumn="L22" DataSetColumn="L22" />
+              <Mapping SourceColumn="L21" DataSetColumn="L21" />
+              <Mapping SourceColumn="L23" DataSetColumn="L23" />
+              <Mapping SourceColumn="L24" DataSetColumn="L24" />
+              <Mapping SourceColumn="L25" DataSetColumn="L25" />
+              <Mapping SourceColumn="L26" DataSetColumn="L26" />
+              <Mapping SourceColumn="L27" DataSetColumn="L27" />
+              <Mapping SourceColumn="L28" DataSetColumn="L28" />
+              <Mapping SourceColumn="L29" DataSetColumn="L29" />
+              <Mapping SourceColumn="L30" DataSetColumn="L30" />
+              <Mapping SourceColumn="L31" DataSetColumn="L31" />
+              <Mapping SourceColumn="HalfLeavesDay" DataSetColumn="HalfLeavesDay" />
+              <Mapping SourceColumn="LocID" DataSetColumn="LocID" />
+              <Mapping SourceColumn="CrewID" DataSetColumn="CrewID" />
+              <Mapping SourceColumn="GradeID" DataSetColumn="GradeID" />
+              <Mapping SourceColumn="DeptID" DataSetColumn="DeptID" />
+              <Mapping SourceColumn="ShiftID" DataSetColumn="ShiftID" />
+              <Mapping SourceColumn="SecID" DataSetColumn="SecID" />
+              <Mapping SourceColumn="DivID" DataSetColumn="DivID" />
+              <Mapping SourceColumn="DesigID" DataSetColumn="DesigID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DailySummaryTableAdapter" GeneratorDataComponentClassName="DailySummaryTableAdapter" Name="DailySummary" UserDataComponentName="DailySummaryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TASDesktopConnectionString (Settings)" DbObjectName="TASDesktop.dbo.DailySummary" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[DailySummary] WHERE (([SummaryDateCriteria] = @Original_SummaryDateCriteria) AND ((@IsNull_Criteria = 1 AND [Criteria] IS NULL) OR ([Criteria] = @Original_Criteria)) AND ((@IsNull_CriteriaValue = 1 AND [CriteriaValue] IS NULL) OR ([CriteriaValue] = @Original_CriteriaValue)) AND ((@IsNull_CriteriaName = 1 AND [CriteriaName] IS NULL) OR ([CriteriaName] = @Original_CriteriaName)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_TotalEmps = 1 AND [TotalEmps] IS NULL) OR ([TotalEmps] = @Original_TotalEmps)) AND ((@IsNull_PresentEmps = 1 AND [PresentEmps] IS NULL) OR ([PresentEmps] = @Original_PresentEmps)) AND ((@IsNull_AbsentEmps = 1 AND [AbsentEmps] IS NULL) OR ([AbsentEmps] = @Original_AbsentEmps)) AND ((@IsNull_LvEmps = 1 AND [LvEmps] IS NULL) OR ([LvEmps] = @Original_LvEmps)) AND ((@IsNull_ShortLvEmps = 1 AND [ShortLvEmps] IS NULL) OR ([ShortLvEmps] = @Original_ShortLvEmps)) AND ((@IsNull_HalfLvEmps = 1 AND [HalfLvEmps] IS NULL) OR ([HalfLvEmps] = @Original_HalfLvEmps)) AND ((@IsNull_LIEmps = 1 AND [LIEmps] IS NULL) OR ([LIEmps] = @Original_LIEmps)) AND ((@IsNull_LOEmps = 1 AND [LOEmps] IS NULL) OR ([LOEmps] = @Original_LOEmps)) AND ((@IsNull_EIEmps = 1 AND [EIEmps] IS NULL) OR ([EIEmps] = @Original_EIEmps)) AND ((@IsNull_EOEmps = 1 AND [EOEmps] IS NULL) OR ([EOEmps] = @Original_EOEmps)) AND ((@IsNull_OTEmps = 1 AND [OTEmps] IS NULL) OR ([OTEmps] = @Original_OTEmps)) AND ((@IsNull_OnTimeEmps = 1 AND [OnTimeEmps] IS NULL) OR ([OnTimeEmps] = @Original_OnTimeEmps)) AND ((@IsNull_DayOffEmps = 1 AND [DayOffEmps] IS NULL) OR ([DayOffEmps] = @Original_DayOffEmps)) AND ((@IsNull_LIMins = 1 AND [LIMins] IS NULL) OR ([LIMins] = @Original_LIMins)) AND ((@IsNull_LOMins = 1 AND [LOMins] IS NULL) OR ([LOMins] = @Original_LOMins)) AND ((@IsNull_EIMins = 1 AND [EIMins] IS NULL) OR ([EIMins] = @Original_EIMins)) AND ((@IsNull_EOMins = 1 AND [EOMins] IS NULL) OR ([EOMins] = @Original_EOMins)) AND ((@IsNull_OTMins = 1 AND [OTMins] IS NULL) OR ([OTMins] = @Original_OTMins)) AND ((@IsNull_ExpectedWorkMins = 1 AND [ExpectedWorkMins] IS NULL) OR ([ExpectedWorkMins] = @Original_ExpectedWorkMins)) AND ((@IsNull_ActualWorkMins = 1 AND [ActualWorkMins] IS NULL) OR ([ActualWorkMins] = @Original_ActualWorkMins)) AND ((@IsNull_LossWorkMins = 1 AND [LossWorkMins] IS NULL) OR ([LossWorkMins] = @Original_LossWorkMins)) AND ((@IsNull_ALIMins = 1 AND [ALIMins] IS NULL) OR ([ALIMins] = @Original_ALIMins)) AND ((@IsNull_ALOMins = 1 AND [ALOMins] IS NULL) OR ([ALOMins] = @Original_ALOMins)) AND ((@IsNull_AEIMins = 1 AND [AEIMins] IS NULL) OR ([AEIMins] = @Original_AEIMins)) AND ((@IsNull_AEOMins = 1 AND [AEOMins] IS NULL) OR ([AEOMins] = @Original_AEOMins)) AND ((@IsNull_AOTMins = 1 AND [AOTMins] IS NULL) OR ([AOTMins] = @Original_AOTMins)) AND ((@IsNull_AExpectedMins = 1 AND [AExpectedMins] IS NULL) OR ([AExpectedMins] = @Original_AExpectedMins)) AND ((@IsNull_AActualMins = 1 AND [AActualMins] IS NULL) OR ([AActualMins] = @Original_AActualMins)) AND ((@IsNull_ALossMins = 1 AND [ALossMins] IS NULL) OR ([ALossMins] = @Original_ALossMins)) AND ((@IsNull_AvgTimeIn = 1 AND [AvgTimeIn] IS NULL) OR ([AvgTimeIn] = @Original_AvgTimeIn)) AND ((@IsNull_AvgTimeOut = 1 AND [AvgTimeOut] IS NULL) OR ([AvgTimeOut] = @Original_AvgTimeOut)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SummaryDateCriteria" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SummaryDateCriteria" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Criteria" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Criteria" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_Criteria" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Criteria" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CriteriaValue" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CriteriaValue" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_CriteriaValue" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="CriteriaValue" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CriteriaName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CriteriaName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CriteriaName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CriteriaName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Date" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TotalEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TotalEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_TotalEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="TotalEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PresentEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PresentEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_PresentEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="PresentEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AbsentEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AbsentEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AbsentEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AbsentEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LvEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LvEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_LvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LvEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ShortLvEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShortLvEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_ShortLvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ShortLvEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HalfLvEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HalfLvEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_HalfLvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="HalfLvEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LIEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LIEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_LIEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LIEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LOEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_LOEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LOEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EIEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EIEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_EIEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="EIEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EOEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EOEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_EOEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="EOEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OTEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OTEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_OTEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="OTEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OnTimeEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OnTimeEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_OnTimeEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="OnTimeEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DayOffEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DayOffEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_DayOffEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="DayOffEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LIMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LIMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EIMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EIMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EOMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EOMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OTMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OTMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_OTMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OTMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ExpectedWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ExpectedWorkMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ExpectedWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ExpectedWorkMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ActualWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ActualWorkMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ActualWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ActualWorkMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LossWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LossWorkMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LossWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LossWorkMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ALIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ALIMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_ALIMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALIMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ALOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ALOMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_ALOMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALOMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AEIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AEIMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AEIMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AEIMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AEOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AEOMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AEOMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AEOMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AOTMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AOTMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AOTMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AOTMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AExpectedMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AExpectedMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AExpectedMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AExpectedMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AActualMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AActualMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AActualMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AActualMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ALossMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ALossMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_ALossMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALossMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AvgTimeIn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AvgTimeIn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@Original_AvgTimeIn" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="AvgTimeIn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AvgTimeOut" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AvgTimeOut" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@Original_AvgTimeOut" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="AvgTimeOut" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[DailySummary] ([SummaryDateCriteria], [Criteria], [CriteriaValue], [CriteriaName], [Date], [TotalEmps], [PresentEmps], [AbsentEmps], [LvEmps], [ShortLvEmps], [HalfLvEmps], [LIEmps], [LOEmps], [EIEmps], [EOEmps], [OTEmps], [OnTimeEmps], [DayOffEmps], [LIMins], [LOMins], [EIMins], [EOMins], [OTMins], [ExpectedWorkMins], [ActualWorkMins], [LossWorkMins], [ALIMins], [ALOMins], [AEIMins], [AEOMins], [AOTMins], [AExpectedMins], [AActualMins], [ALossMins], [AvgTimeIn], [AvgTimeOut]) VALUES (@SummaryDateCriteria, @Criteria, @CriteriaValue, @CriteriaName, @Date, @TotalEmps, @PresentEmps, @AbsentEmps, @LvEmps, @ShortLvEmps, @HalfLvEmps, @LIEmps, @LOEmps, @EIEmps, @EOEmps, @OTEmps, @OnTimeEmps, @DayOffEmps, @LIMins, @LOMins, @EIMins, @EOMins, @OTMins, @ExpectedWorkMins, @ActualWorkMins, @LossWorkMins, @ALIMins, @ALOMins, @AEIMins, @AEOMins, @AOTMins, @AExpectedMins, @AActualMins, @ALossMins, @AvgTimeIn, @AvgTimeOut);
+SELECT SummaryDateCriteria, Criteria, CriteriaValue, CriteriaName, Date, TotalEmps, PresentEmps, AbsentEmps, LvEmps, ShortLvEmps, HalfLvEmps, LIEmps, LOEmps, EIEmps, EOEmps, OTEmps, OnTimeEmps, DayOffEmps, LIMins, LOMins, EIMins, EOMins, OTMins, ExpectedWorkMins, ActualWorkMins, LossWorkMins, ALIMins, ALOMins, AEIMins, AEOMins, AOTMins, AExpectedMins, AActualMins, ALossMins, AvgTimeIn, AvgTimeOut FROM DailySummary WHERE (SummaryDateCriteria = @SummaryDateCriteria)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SummaryDateCriteria" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SummaryDateCriteria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Criteria" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Criteria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@CriteriaValue" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="CriteriaValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CriteriaName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CriteriaName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@TotalEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="TotalEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@PresentEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="PresentEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AbsentEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AbsentEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@LvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LvEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@ShortLvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ShortLvEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@HalfLvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="HalfLvEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@LIEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LIEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@LOEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LOEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@EIEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="EIEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@EOEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="EOEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@OTEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="OTEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@OnTimeEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="OnTimeEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@DayOffEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="DayOffEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LIMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EIMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EOMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@OTMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OTMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ExpectedWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ExpectedWorkMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ActualWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ActualWorkMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LossWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LossWorkMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@ALIMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALIMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@ALOMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALOMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AEIMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AEIMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AEOMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AEOMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AOTMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AOTMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AExpectedMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AExpectedMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AActualMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AActualMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@ALossMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALossMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@AvgTimeIn" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="AvgTimeIn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@AvgTimeOut" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="AvgTimeOut" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SummaryDateCriteria, Criteria, CriteriaValue, CriteriaName, Date, TotalEmps, PresentEmps, AbsentEmps, LvEmps, ShortLvEmps, HalfLvEmps, LIEmps, LOEmps, EIEmps, EOEmps, OTEmps, OnTimeEmps, DayOffEmps, LIMins, LOMins, EIMins, EOMins, OTMins, ExpectedWorkMins, ActualWorkMins, LossWorkMins, ALIMins, ALOMins, AEIMins, AEOMins, AOTMins, AExpectedMins, AActualMins, ALossMins, AvgTimeIn, AvgTimeOut FROM dbo.DailySummary</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[DailySummary] SET [SummaryDateCriteria] = @SummaryDateCriteria, [Criteria] = @Criteria, [CriteriaValue] = @CriteriaValue, [CriteriaName] = @CriteriaName, [Date] = @Date, [TotalEmps] = @TotalEmps, [PresentEmps] = @PresentEmps, [AbsentEmps] = @AbsentEmps, [LvEmps] = @LvEmps, [ShortLvEmps] = @ShortLvEmps, [HalfLvEmps] = @HalfLvEmps, [LIEmps] = @LIEmps, [LOEmps] = @LOEmps, [EIEmps] = @EIEmps, [EOEmps] = @EOEmps, [OTEmps] = @OTEmps, [OnTimeEmps] = @OnTimeEmps, [DayOffEmps] = @DayOffEmps, [LIMins] = @LIMins, [LOMins] = @LOMins, [EIMins] = @EIMins, [EOMins] = @EOMins, [OTMins] = @OTMins, [ExpectedWorkMins] = @ExpectedWorkMins, [ActualWorkMins] = @ActualWorkMins, [LossWorkMins] = @LossWorkMins, [ALIMins] = @ALIMins, [ALOMins] = @ALOMins, [AEIMins] = @AEIMins, [AEOMins] = @AEOMins, [AOTMins] = @AOTMins, [AExpectedMins] = @AExpectedMins, [AActualMins] = @AActualMins, [ALossMins] = @ALossMins, [AvgTimeIn] = @AvgTimeIn, [AvgTimeOut] = @AvgTimeOut WHERE (([SummaryDateCriteria] = @Original_SummaryDateCriteria) AND ((@IsNull_Criteria = 1 AND [Criteria] IS NULL) OR ([Criteria] = @Original_Criteria)) AND ((@IsNull_CriteriaValue = 1 AND [CriteriaValue] IS NULL) OR ([CriteriaValue] = @Original_CriteriaValue)) AND ((@IsNull_CriteriaName = 1 AND [CriteriaName] IS NULL) OR ([CriteriaName] = @Original_CriteriaName)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_TotalEmps = 1 AND [TotalEmps] IS NULL) OR ([TotalEmps] = @Original_TotalEmps)) AND ((@IsNull_PresentEmps = 1 AND [PresentEmps] IS NULL) OR ([PresentEmps] = @Original_PresentEmps)) AND ((@IsNull_AbsentEmps = 1 AND [AbsentEmps] IS NULL) OR ([AbsentEmps] = @Original_AbsentEmps)) AND ((@IsNull_LvEmps = 1 AND [LvEmps] IS NULL) OR ([LvEmps] = @Original_LvEmps)) AND ((@IsNull_ShortLvEmps = 1 AND [ShortLvEmps] IS NULL) OR ([ShortLvEmps] = @Original_ShortLvEmps)) AND ((@IsNull_HalfLvEmps = 1 AND [HalfLvEmps] IS NULL) OR ([HalfLvEmps] = @Original_HalfLvEmps)) AND ((@IsNull_LIEmps = 1 AND [LIEmps] IS NULL) OR ([LIEmps] = @Original_LIEmps)) AND ((@IsNull_LOEmps = 1 AND [LOEmps] IS NULL) OR ([LOEmps] = @Original_LOEmps)) AND ((@IsNull_EIEmps = 1 AND [EIEmps] IS NULL) OR ([EIEmps] = @Original_EIEmps)) AND ((@IsNull_EOEmps = 1 AND [EOEmps] IS NULL) OR ([EOEmps] = @Original_EOEmps)) AND ((@IsNull_OTEmps = 1 AND [OTEmps] IS NULL) OR ([OTEmps] = @Original_OTEmps)) AND ((@IsNull_OnTimeEmps = 1 AND [OnTimeEmps] IS NULL) OR ([OnTimeEmps] = @Original_OnTimeEmps)) AND ((@IsNull_DayOffEmps = 1 AND [DayOffEmps] IS NULL) OR ([DayOffEmps] = @Original_DayOffEmps)) AND ((@IsNull_LIMins = 1 AND [LIMins] IS NULL) OR ([LIMins] = @Original_LIMins)) AND ((@IsNull_LOMins = 1 AND [LOMins] IS NULL) OR ([LOMins] = @Original_LOMins)) AND ((@IsNull_EIMins = 1 AND [EIMins] IS NULL) OR ([EIMins] = @Original_EIMins)) AND ((@IsNull_EOMins = 1 AND [EOMins] IS NULL) OR ([EOMins] = @Original_EOMins)) AND ((@IsNull_OTMins = 1 AND [OTMins] IS NULL) OR ([OTMins] = @Original_OTMins)) AND ((@IsNull_ExpectedWorkMins = 1 AND [ExpectedWorkMins] IS NULL) OR ([ExpectedWorkMins] = @Original_ExpectedWorkMins)) AND ((@IsNull_ActualWorkMins = 1 AND [ActualWorkMins] IS NULL) OR ([ActualWorkMins] = @Original_ActualWorkMins)) AND ((@IsNull_LossWorkMins = 1 AND [LossWorkMins] IS NULL) OR ([LossWorkMins] = @Original_LossWorkMins)) AND ((@IsNull_ALIMins = 1 AND [ALIMins] IS NULL) OR ([ALIMins] = @Original_ALIMins)) AND ((@IsNull_ALOMins = 1 AND [ALOMins] IS NULL) OR ([ALOMins] = @Original_ALOMins)) AND ((@IsNull_AEIMins = 1 AND [AEIMins] IS NULL) OR ([AEIMins] = @Original_AEIMins)) AND ((@IsNull_AEOMins = 1 AND [AEOMins] IS NULL) OR ([AEOMins] = @Original_AEOMins)) AND ((@IsNull_AOTMins = 1 AND [AOTMins] IS NULL) OR ([AOTMins] = @Original_AOTMins)) AND ((@IsNull_AExpectedMins = 1 AND [AExpectedMins] IS NULL) OR ([AExpectedMins] = @Original_AExpectedMins)) AND ((@IsNull_AActualMins = 1 AND [AActualMins] IS NULL) OR ([AActualMins] = @Original_AActualMins)) AND ((@IsNull_ALossMins = 1 AND [ALossMins] IS NULL) OR ([ALossMins] = @Original_ALossMins)) AND ((@IsNull_AvgTimeIn = 1 AND [AvgTimeIn] IS NULL) OR ([AvgTimeIn] = @Original_AvgTimeIn)) AND ((@IsNull_AvgTimeOut = 1 AND [AvgTimeOut] IS NULL) OR ([AvgTimeOut] = @Original_AvgTimeOut)));
+SELECT SummaryDateCriteria, Criteria, CriteriaValue, CriteriaName, Date, TotalEmps, PresentEmps, AbsentEmps, LvEmps, ShortLvEmps, HalfLvEmps, LIEmps, LOEmps, EIEmps, EOEmps, OTEmps, OnTimeEmps, DayOffEmps, LIMins, LOMins, EIMins, EOMins, OTMins, ExpectedWorkMins, ActualWorkMins, LossWorkMins, ALIMins, ALOMins, AEIMins, AEOMins, AOTMins, AExpectedMins, AActualMins, ALossMins, AvgTimeIn, AvgTimeOut FROM DailySummary WHERE (SummaryDateCriteria = @SummaryDateCriteria)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SummaryDateCriteria" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SummaryDateCriteria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Criteria" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Criteria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@CriteriaValue" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="CriteriaValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CriteriaName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CriteriaName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@TotalEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="TotalEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@PresentEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="PresentEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AbsentEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AbsentEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@LvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LvEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@ShortLvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ShortLvEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@HalfLvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="HalfLvEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@LIEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LIEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@LOEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LOEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@EIEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="EIEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@EOEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="EOEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@OTEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="OTEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@OnTimeEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="OnTimeEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@DayOffEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="DayOffEmps" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LIMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EIMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EOMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@OTMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OTMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ExpectedWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ExpectedWorkMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ActualWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ActualWorkMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LossWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LossWorkMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@ALIMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALIMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@ALOMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALOMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AEIMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AEIMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AEOMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AEOMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AOTMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AOTMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AExpectedMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AExpectedMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@AActualMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AActualMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@ALossMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALossMins" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@AvgTimeIn" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="AvgTimeIn" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@AvgTimeOut" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="AvgTimeOut" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SummaryDateCriteria" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SummaryDateCriteria" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Criteria" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Criteria" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_Criteria" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Criteria" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CriteriaValue" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CriteriaValue" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_CriteriaValue" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="CriteriaValue" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CriteriaName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CriteriaName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CriteriaName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CriteriaName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Date" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TotalEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TotalEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_TotalEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="TotalEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PresentEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PresentEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_PresentEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="PresentEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AbsentEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AbsentEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AbsentEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AbsentEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LvEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LvEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_LvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LvEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ShortLvEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShortLvEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_ShortLvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ShortLvEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HalfLvEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HalfLvEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_HalfLvEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="HalfLvEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LIEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LIEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_LIEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LIEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LOEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_LOEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="LOEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EIEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EIEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_EIEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="EIEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EOEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EOEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_EOEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="EOEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OTEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OTEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_OTEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="OTEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OnTimeEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OnTimeEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_OnTimeEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="OnTimeEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DayOffEmps" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DayOffEmps" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_DayOffEmps" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="DayOffEmps" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LIMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LIMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EIMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EIMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_EOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EOMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EOMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OTMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OTMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_OTMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OTMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ExpectedWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ExpectedWorkMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ExpectedWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ExpectedWorkMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ActualWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ActualWorkMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ActualWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ActualWorkMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LossWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LossWorkMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LossWorkMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LossWorkMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ALIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ALIMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_ALIMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALIMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ALOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ALOMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_ALOMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALOMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AEIMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AEIMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AEIMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AEIMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AEOMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AEOMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AEOMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AEOMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AOTMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AOTMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AOTMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AOTMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AExpectedMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AExpectedMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AExpectedMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AExpectedMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AActualMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AActualMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_AActualMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="AActualMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ALossMins" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ALossMins" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int16" Direction="Input" ParameterName="@Original_ALossMins" Precision="0" ProviderType="SmallInt" Scale="0" Size="0" SourceColumn="ALossMins" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AvgTimeIn" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AvgTimeIn" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@Original_AvgTimeIn" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="AvgTimeIn" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AvgTimeOut" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AvgTimeOut" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@Original_AvgTimeOut" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="AvgTimeOut" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SummaryDateCriteria" DataSetColumn="SummaryDateCriteria" />
+              <Mapping SourceColumn="Criteria" DataSetColumn="Criteria" />
+              <Mapping SourceColumn="CriteriaValue" DataSetColumn="CriteriaValue" />
+              <Mapping SourceColumn="CriteriaName" DataSetColumn="CriteriaName" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="TotalEmps" DataSetColumn="TotalEmps" />
+              <Mapping SourceColumn="PresentEmps" DataSetColumn="PresentEmps" />
+              <Mapping SourceColumn="AbsentEmps" DataSetColumn="AbsentEmps" />
+              <Mapping SourceColumn="LvEmps" DataSetColumn="LvEmps" />
+              <Mapping SourceColumn="ShortLvEmps" DataSetColumn="ShortLvEmps" />
+              <Mapping SourceColumn="HalfLvEmps" DataSetColumn="HalfLvEmps" />
+              <Mapping SourceColumn="LIEmps" DataSetColumn="LIEmps" />
+              <Mapping SourceColumn="LOEmps" DataSetColumn="LOEmps" />
+              <Mapping SourceColumn="EIEmps" DataSetColumn="EIEmps" />
+              <Mapping SourceColumn="EOEmps" DataSetColumn="EOEmps" />
+              <Mapping SourceColumn="OTEmps" DataSetColumn="OTEmps" />
+              <Mapping SourceColumn="OnTimeEmps" DataSetColumn="OnTimeEmps" />
+              <Mapping SourceColumn="DayOffEmps" DataSetColumn="DayOffEmps" />
+              <Mapping SourceColumn="LIMins" DataSetColumn="LIMins" />
+              <Mapping SourceColumn="LOMins" DataSetColumn="LOMins" />
+              <Mapping SourceColumn="EIMins" DataSetColumn="EIMins" />
+              <Mapping SourceColumn="EOMins" DataSetColumn="EOMins" />
+              <Mapping SourceColumn="OTMins" DataSetColumn="OTMins" />
+              <Mapping SourceColumn="ExpectedWorkMins" DataSetColumn="ExpectedWorkMins" />
+              <Mapping SourceColumn="ActualWorkMins" DataSetColumn="ActualWorkMins" />
+              <Mapping SourceColumn="LossWorkMins" DataSetColumn="LossWorkMins" />
+              <Mapping SourceColumn="ALIMins" DataSetColumn="ALIMins" />
+              <Mapping SourceColumn="ALOMins" DataSetColumn="ALOMins" />
+              <Mapping SourceColumn="AEIMins" DataSetColumn="AEIMins" />
+              <Mapping SourceColumn="AEOMins" DataSetColumn="AEOMins" />
+              <Mapping SourceColumn="AOTMins" DataSetColumn="AOTMins" />
+              <Mapping SourceColumn="AExpectedMins" DataSetColumn="AExpectedMins" />
+              <Mapping SourceColumn="AActualMins" DataSetColumn="AActualMins" />
+              <Mapping SourceColumn="ALossMins" DataSetColumn="ALossMins" />
+              <Mapping SourceColumn="AvgTimeIn" DataSetColumn="AvgTimeIn" />
+              <Mapping SourceColumn="AvgTimeOut" DataSetColumn="AvgTimeOut" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TASReportDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TASReportDataset" msprop:Generator_UserDSName="TASReportDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ViewYLSummary" msprop:Generator_TableClassName="ViewYLSummaryDataTable" msprop:Generator_TableVarName="tableViewYLSummary" msprop:Generator_TablePropName="ViewYLSummary" msprop:Generator_RowDeletingName="ViewYLSummaryRowDeleting" msprop:Generator_RowChangingName="ViewYLSummaryRowChanging" msprop:Generator_RowEvHandlerName="ViewYLSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewYLSummaryRowDeleted" msprop:Generator_UserTableName="ViewYLSummary" msprop:Generator_RowChangedName="ViewYLSummaryRowChanged" msprop:Generator_RowEvArgName="ViewYLSummaryRowChangeEvent" msprop:Generator_RowClassName="ViewYLSummaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmpID" msprop:Generator_ColumnVarNameInTable="columnEmpID" msprop:Generator_ColumnPropNameInRow="EmpID" msprop:Generator_ColumnPropNameInTable="EmpIDColumn" msprop:Generator_UserColumnName="EmpID" type="xs:long" minOccurs="0" />
+              <xs:element name="EmpNo" msprop:Generator_ColumnVarNameInTable="columnEmpNo" msprop:Generator_ColumnPropNameInRow="EmpNo" msprop:Generator_ColumnPropNameInTable="EmpNoColumn" msprop:Generator_UserColumnName="EmpNo" type="xs:string" minOccurs="0" />
+              <xs:element name="EmpName" msprop:Generator_ColumnVarNameInTable="columnEmpName" msprop:Generator_ColumnPropNameInRow="EmpName" msprop:Generator_ColumnPropNameInTable="EmpNameColumn" msprop:Generator_UserColumnName="EmpName" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalAL" msprop:Generator_ColumnVarNameInTable="columnTotalAL" msprop:Generator_ColumnPropNameInRow="TotalAL" msprop:Generator_ColumnPropNameInTable="TotalALColumn" msprop:Generator_UserColumnName="TotalAL" type="xs:double" minOccurs="0" />
+              <xs:element name="BalAL" msprop:Generator_ColumnVarNameInTable="columnBalAL" msprop:Generator_ColumnPropNameInRow="BalAL" msprop:Generator_ColumnPropNameInTable="BalALColumn" msprop:Generator_UserColumnName="BalAL" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalCL" msprop:Generator_ColumnVarNameInTable="columnTotalCL" msprop:Generator_ColumnPropNameInRow="TotalCL" msprop:Generator_ColumnPropNameInTable="TotalCLColumn" msprop:Generator_UserColumnName="TotalCL" type="xs:double" minOccurs="0" />
+              <xs:element name="BalCL" msprop:Generator_ColumnVarNameInTable="columnBalCL" msprop:Generator_ColumnPropNameInRow="BalCL" msprop:Generator_ColumnPropNameInTable="BalCLColumn" msprop:Generator_UserColumnName="BalCL" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalSL" msprop:Generator_ColumnVarNameInTable="columnTotalSL" msprop:Generator_ColumnPropNameInRow="TotalSL" msprop:Generator_ColumnPropNameInTable="TotalSLColumn" msprop:Generator_UserColumnName="TotalSL" type="xs:double" minOccurs="0" />
+              <xs:element name="BalSL" msprop:Generator_ColumnVarNameInTable="columnBalSL" msprop:Generator_ColumnPropNameInRow="BalSL" msprop:Generator_ColumnPropNameInTable="BalSLColumn" msprop:Generator_UserColumnName="BalSL" type="xs:double" minOccurs="0" />
+              <xs:element name="JanAL" msprop:Generator_ColumnVarNameInTable="columnJanAL" msprop:Generator_ColumnPropNameInRow="JanAL" msprop:Generator_ColumnPropNameInTable="JanALColumn" msprop:Generator_UserColumnName="JanAL" type="xs:double" minOccurs="0" />
+              <xs:element name="JanCL" msprop:Generator_ColumnVarNameInTable="columnJanCL" msprop:Generator_ColumnPropNameInRow="JanCL" msprop:Generator_ColumnPropNameInTable="JanCLColumn" msprop:Generator_UserColumnName="JanCL" type="xs:double" minOccurs="0" />
+              <xs:element name="JanSL" msprop:Generator_ColumnVarNameInTable="columnJanSL" msprop:Generator_ColumnPropNameInRow="JanSL" msprop:Generator_ColumnPropNameInTable="JanSLColumn" msprop:Generator_UserColumnName="JanSL" type="xs:double" minOccurs="0" />
+              <xs:element name="FebAL" msprop:Generator_ColumnVarNameInTable="columnFebAL" msprop:Generator_ColumnPropNameInRow="FebAL" msprop:Generator_ColumnPropNameInTable="FebALColumn" msprop:Generator_UserColumnName="FebAL" type="xs:double" minOccurs="0" />
+              <xs:element name="FebCL" msprop:Generator_ColumnVarNameInTable="columnFebCL" msprop:Generator_ColumnPropNameInRow="FebCL" msprop:Generator_ColumnPropNameInTable="FebCLColumn" msprop:Generator_UserColumnName="FebCL" type="xs:double" minOccurs="0" />
+              <xs:element name="FebSL" msprop:Generator_ColumnVarNameInTable="columnFebSL" msprop:Generator_ColumnPropNameInRow="FebSL" msprop:Generator_ColumnPropNameInTable="FebSLColumn" msprop:Generator_UserColumnName="FebSL" type="xs:double" minOccurs="0" />
+              <xs:element name="MarchAL" msprop:Generator_ColumnVarNameInTable="columnMarchAL" msprop:Generator_ColumnPropNameInRow="MarchAL" msprop:Generator_ColumnPropNameInTable="MarchALColumn" msprop:Generator_UserColumnName="MarchAL" type="xs:double" minOccurs="0" />
+              <xs:element name="MarchCL" msprop:Generator_ColumnVarNameInTable="columnMarchCL" msprop:Generator_ColumnPropNameInRow="MarchCL" msprop:Generator_ColumnPropNameInTable="MarchCLColumn" msprop:Generator_UserColumnName="MarchCL" type="xs:double" minOccurs="0" />
+              <xs:element name="MarchSL" msprop:Generator_ColumnVarNameInTable="columnMarchSL" msprop:Generator_ColumnPropNameInRow="MarchSL" msprop:Generator_ColumnPropNameInTable="MarchSLColumn" msprop:Generator_UserColumnName="MarchSL" type="xs:double" minOccurs="0" />
+              <xs:element name="AprilAL" msprop:Generator_ColumnVarNameInTable="columnAprilAL" msprop:Generator_ColumnPropNameInRow="AprilAL" msprop:Generator_ColumnPropNameInTable="AprilALColumn" msprop:Generator_UserColumnName="AprilAL" type="xs:double" minOccurs="0" />
+              <xs:element name="AprilCL" msprop:Generator_ColumnVarNameInTable="columnAprilCL" msprop:Generator_ColumnPropNameInRow="AprilCL" msprop:Generator_ColumnPropNameInTable="AprilCLColumn" msprop:Generator_UserColumnName="AprilCL" type="xs:double" minOccurs="0" />
+              <xs:element name="AprilSL" msprop:Generator_ColumnVarNameInTable="columnAprilSL" msprop:Generator_ColumnPropNameInRow="AprilSL" msprop:Generator_ColumnPropNameInTable="AprilSLColumn" msprop:Generator_UserColumnName="AprilSL" type="xs:double" minOccurs="0" />
+              <xs:element name="MayAL" msprop:Generator_ColumnVarNameInTable="columnMayAL" msprop:Generator_ColumnPropNameInRow="MayAL" msprop:Generator_ColumnPropNameInTable="MayALColumn" msprop:Generator_UserColumnName="MayAL" type="xs:double" minOccurs="0" />
+              <xs:element name="MayCL" msprop:Generator_ColumnVarNameInTable="columnMayCL" msprop:Generator_ColumnPropNameInRow="MayCL" msprop:Generator_ColumnPropNameInTable="MayCLColumn" msprop:Generator_UserColumnName="MayCL" type="xs:double" minOccurs="0" />
+              <xs:element name="MaySL" msprop:Generator_ColumnVarNameInTable="columnMaySL" msprop:Generator_ColumnPropNameInRow="MaySL" msprop:Generator_ColumnPropNameInTable="MaySLColumn" msprop:Generator_UserColumnName="MaySL" type="xs:double" minOccurs="0" />
+              <xs:element name="JunAL" msprop:Generator_ColumnVarNameInTable="columnJunAL" msprop:Generator_ColumnPropNameInRow="JunAL" msprop:Generator_ColumnPropNameInTable="JunALColumn" msprop:Generator_UserColumnName="JunAL" type="xs:double" minOccurs="0" />
+              <xs:element name="JunCL" msprop:Generator_ColumnVarNameInTable="columnJunCL" msprop:Generator_ColumnPropNameInRow="JunCL" msprop:Generator_ColumnPropNameInTable="JunCLColumn" msprop:Generator_UserColumnName="JunCL" type="xs:double" minOccurs="0" />
+              <xs:element name="JunSL" msprop:Generator_ColumnVarNameInTable="columnJunSL" msprop:Generator_ColumnPropNameInRow="JunSL" msprop:Generator_ColumnPropNameInTable="JunSLColumn" msprop:Generator_UserColumnName="JunSL" type="xs:double" minOccurs="0" />
+              <xs:element name="JulyAL" msprop:Generator_ColumnVarNameInTable="columnJulyAL" msprop:Generator_ColumnPropNameInRow="JulyAL" msprop:Generator_ColumnPropNameInTable="JulyALColumn" msprop:Generator_UserColumnName="JulyAL" type="xs:double" minOccurs="0" />
+              <xs:element name="JulyCL" msprop:Generator_ColumnVarNameInTable="columnJulyCL" msprop:Generator_ColumnPropNameInRow="JulyCL" msprop:Generator_ColumnPropNameInTable="JulyCLColumn" msprop:Generator_UserColumnName="JulyCL" type="xs:double" minOccurs="0" />
+              <xs:element name="JulySL" msprop:Generator_ColumnVarNameInTable="columnJulySL" msprop:Generator_ColumnPropNameInRow="JulySL" msprop:Generator_ColumnPropNameInTable="JulySLColumn" msprop:Generator_UserColumnName="JulySL" type="xs:double" minOccurs="0" />
+              <xs:element name="AugAL" msprop:Generator_ColumnVarNameInTable="columnAugAL" msprop:Generator_ColumnPropNameInRow="AugAL" msprop:Generator_ColumnPropNameInTable="AugALColumn" msprop:Generator_UserColumnName="AugAL" type="xs:double" minOccurs="0" />
+              <xs:element name="AugCL" msprop:Generator_ColumnVarNameInTable="columnAugCL" msprop:Generator_ColumnPropNameInRow="AugCL" msprop:Generator_ColumnPropNameInTable="AugCLColumn" msprop:Generator_UserColumnName="AugCL" type="xs:double" minOccurs="0" />
+              <xs:element name="AugSL" msprop:Generator_ColumnVarNameInTable="columnAugSL" msprop:Generator_ColumnPropNameInRow="AugSL" msprop:Generator_ColumnPropNameInTable="AugSLColumn" msprop:Generator_UserColumnName="AugSL" type="xs:double" minOccurs="0" />
+              <xs:element name="SepAL" msprop:Generator_ColumnVarNameInTable="columnSepAL" msprop:Generator_ColumnPropNameInRow="SepAL" msprop:Generator_ColumnPropNameInTable="SepALColumn" msprop:Generator_UserColumnName="SepAL" type="xs:double" minOccurs="0" />
+              <xs:element name="SepCL" msprop:Generator_ColumnVarNameInTable="columnSepCL" msprop:Generator_ColumnPropNameInRow="SepCL" msprop:Generator_ColumnPropNameInTable="SepCLColumn" msprop:Generator_UserColumnName="SepCL" type="xs:double" minOccurs="0" />
+              <xs:element name="SepSL" msprop:Generator_ColumnVarNameInTable="columnSepSL" msprop:Generator_ColumnPropNameInRow="SepSL" msprop:Generator_ColumnPropNameInTable="SepSLColumn" msprop:Generator_UserColumnName="SepSL" type="xs:double" minOccurs="0" />
+              <xs:element name="OctAL" msprop:Generator_ColumnVarNameInTable="columnOctAL" msprop:Generator_ColumnPropNameInRow="OctAL" msprop:Generator_ColumnPropNameInTable="OctALColumn" msprop:Generator_UserColumnName="OctAL" type="xs:double" minOccurs="0" />
+              <xs:element name="OctCL" msprop:Generator_ColumnVarNameInTable="columnOctCL" msprop:Generator_ColumnPropNameInRow="OctCL" msprop:Generator_ColumnPropNameInTable="OctCLColumn" msprop:Generator_UserColumnName="OctCL" type="xs:double" minOccurs="0" />
+              <xs:element name="OctSL" msprop:Generator_ColumnVarNameInTable="columnOctSL" msprop:Generator_ColumnPropNameInRow="OctSL" msprop:Generator_ColumnPropNameInTable="OctSLColumn" msprop:Generator_UserColumnName="OctSL" type="xs:double" minOccurs="0" />
+              <xs:element name="NovAL" msprop:Generator_ColumnVarNameInTable="columnNovAL" msprop:Generator_ColumnPropNameInRow="NovAL" msprop:Generator_ColumnPropNameInTable="NovALColumn" msprop:Generator_UserColumnName="NovAL" type="xs:double" minOccurs="0" />
+              <xs:element name="NovCL" msprop:Generator_ColumnVarNameInTable="columnNovCL" msprop:Generator_ColumnPropNameInRow="NovCL" msprop:Generator_ColumnPropNameInTable="NovCLColumn" msprop:Generator_UserColumnName="NovCL" type="xs:double" minOccurs="0" />
+              <xs:element name="NovSL" msprop:Generator_ColumnVarNameInTable="columnNovSL" msprop:Generator_ColumnPropNameInRow="NovSL" msprop:Generator_ColumnPropNameInTable="NovSLColumn" msprop:Generator_UserColumnName="NovSL" type="xs:double" minOccurs="0" />
+              <xs:element name="DecAL" msprop:Generator_ColumnVarNameInTable="columnDecAL" msprop:Generator_ColumnPropNameInRow="DecAL" msprop:Generator_ColumnPropNameInTable="DecALColumn" msprop:Generator_UserColumnName="DecAL" type="xs:double" minOccurs="0" />
+              <xs:element name="DecCL" msprop:Generator_ColumnVarNameInTable="columnDecCL" msprop:Generator_ColumnPropNameInRow="DecCL" msprop:Generator_ColumnPropNameInTable="DecCLColumn" msprop:Generator_UserColumnName="DecCL" type="xs:double" minOccurs="0" />
+              <xs:element name="DecSL" msprop:Generator_ColumnVarNameInTable="columnDecSL" msprop:Generator_ColumnPropNameInRow="DecSL" msprop:Generator_ColumnPropNameInTable="DecSLColumn" msprop:Generator_UserColumnName="DecSL" type="xs:double" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" msprop:Generator_UserColumnName="Remarks" type="xs:string" minOccurs="0" />
+              <xs:element name="DeptName" msprop:Generator_ColumnVarNameInTable="columnDeptName" msprop:Generator_ColumnPropNameInRow="DeptName" msprop:Generator_ColumnPropNameInTable="DeptNameColumn" msprop:Generator_UserColumnName="DeptName" type="xs:string" minOccurs="0" />
+              <xs:element name="DeptID" msprop:Generator_ColumnVarNameInTable="columnDeptID" msprop:Generator_ColumnPropNameInRow="DeptID" msprop:Generator_ColumnPropNameInTable="DeptIDColumn" msprop:Generator_UserColumnName="DeptID" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="SecName" msprop:Generator_ColumnVarNameInTable="columnSecName" msprop:Generator_ColumnPropNameInRow="SecName" msprop:Generator_ColumnPropNameInTable="SecNameColumn" msprop:Generator_UserColumnName="SecName" type="xs:string" minOccurs="0" />
+              <xs:element name="SecID" msprop:Generator_ColumnVarNameInTable="columnSecID" msprop:Generator_ColumnPropNameInRow="SecID" msprop:Generator_ColumnPropNameInTable="SecIDColumn" msprop:Generator_UserColumnName="SecID" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="DesgName" msprop:Generator_ColumnVarNameInTable="columnDesgName" msprop:Generator_ColumnPropNameInRow="DesgName" msprop:Generator_ColumnPropNameInTable="DesgNameColumn" msprop:Generator_UserColumnName="DesgName" type="xs:string" minOccurs="0" />
+              <xs:element name="DesgID" msprop:Generator_ColumnVarNameInTable="columnDesgID" msprop:Generator_ColumnPropNameInRow="DesgID" msprop:Generator_ColumnPropNameInTable="DesgIDColumn" msprop:Generator_UserColumnName="DesgID" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="CrewName" msprop:Generator_ColumnVarNameInTable="columnCrewName" msprop:Generator_ColumnPropNameInRow="CrewName" msprop:Generator_ColumnPropNameInTable="CrewNameColumn" msprop:Generator_UserColumnName="CrewName" type="xs:string" minOccurs="0" />
+              <xs:element name="CrewID" msprop:Generator_ColumnVarNameInTable="columnCrewID" msprop:Generator_ColumnPropNameInRow="CrewID" msprop:Generator_ColumnPropNameInTable="CrewIDColumn" msprop:Generator_UserColumnName="CrewID" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="LocationName" msprop:Generator_ColumnVarNameInTable="columnLocationName" msprop:Generator_ColumnPropNameInRow="LocationName" msprop:Generator_ColumnPropNameInTable="LocationNameColumn" msprop:Generator_UserColumnName="LocationName" type="xs:string" minOccurs="0" />
+              <xs:element name="LocationID" msprop:Generator_ColumnVarNameInTable="columnLocationID" msprop:Generator_ColumnPropNameInRow="LocationID" msprop:Generator_ColumnPropNameInTable="LocationIDColumn" msprop:Generator_UserColumnName="LocationID" type="xs:unsignedShort" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewMleaveBal" msprop:Generator_TableClassName="ViewMleaveBalDataTable" msprop:Generator_TableVarName="tableViewMleaveBal" msprop:Generator_TablePropName="ViewMleaveBal" msprop:Generator_RowDeletingName="ViewMleaveBalRowDeleting" msprop:Generator_RowChangingName="ViewMleaveBalRowChanging" msprop:Generator_RowEvHandlerName="ViewMleaveBalRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewMleaveBalRowDeleted" msprop:Generator_UserTableName="ViewMleaveBal" msprop:Generator_RowChangedName="ViewMleaveBalRowChanged" msprop:Generator_RowEvArgName="ViewMleaveBalRowChangeEvent" msprop:Generator_RowClassName="ViewMleaveBalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmpNo" msprop:Generator_ColumnVarNameInTable="columnEmpNo" msprop:Generator_ColumnPropNameInRow="EmpNo" msprop:Generator_ColumnPropNameInTable="EmpNoColumn" msprop:Generator_UserColumnName="EmpNo" type="xs:string" minOccurs="0" />
+              <xs:element name="EmpName" msprop:Generator_ColumnVarNameInTable="columnEmpName" msprop:Generator_ColumnPropNameInRow="EmpName" msprop:Generator_ColumnPropNameInTable="EmpNameColumn" msprop:Generator_UserColumnName="EmpName" type="xs:string" minOccurs="0" />
+              <xs:element name="Designation" msprop:Generator_ColumnVarNameInTable="columnDesignation" msprop:Generator_ColumnPropNameInRow="Designation" msprop:Generator_ColumnPropNameInTable="DesignationColumn" msprop:Generator_UserColumnName="Designation" type="xs:string" minOccurs="0" />
+              <xs:element name="Section" msprop:Generator_ColumnVarNameInTable="columnSection" msprop:Generator_ColumnPropNameInRow="Section" msprop:Generator_ColumnPropNameInTable="SectionColumn" msprop:Generator_UserColumnName="Section" type="xs:string" minOccurs="0" />
+              <xs:element name="Department" msprop:Generator_ColumnVarNameInTable="columnDepartment" msprop:Generator_ColumnPropNameInRow="Department" msprop:Generator_ColumnPropNameInTable="DepartmentColumn" msprop:Generator_UserColumnName="Department" type="xs:string" minOccurs="0" />
+              <xs:element name="EmpType" msprop:Generator_ColumnVarNameInTable="columnEmpType" msprop:Generator_ColumnPropNameInRow="EmpType" msprop:Generator_ColumnPropNameInTable="EmpTypeColumn" msprop:Generator_UserColumnName="EmpType" type="xs:string" minOccurs="0" />
+              <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" type="xs:string" minOccurs="0" />
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalCL" msprop:Generator_ColumnVarNameInTable="columnTotalCL" msprop:Generator_ColumnPropNameInRow="TotalCL" msprop:Generator_ColumnPropNameInTable="TotalCLColumn" msprop:Generator_UserColumnName="TotalCL" type="xs:short" minOccurs="0" />
+              <xs:element name="TotalSL" msprop:Generator_ColumnVarNameInTable="columnTotalSL" msprop:Generator_ColumnPropNameInRow="TotalSL" msprop:Generator_ColumnPropNameInTable="TotalSLColumn" msprop:Generator_UserColumnName="TotalSL" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalAL" msprop:Generator_ColumnVarNameInTable="columnTotalAL" msprop:Generator_ColumnPropNameInRow="TotalAL" msprop:Generator_ColumnPropNameInTable="TotalALColumn" msprop:Generator_UserColumnName="TotalAL" type="xs:string" minOccurs="0" />
+              <xs:element name="ConsumedCL" msprop:Generator_ColumnVarNameInTable="columnConsumedCL" msprop:Generator_ColumnPropNameInRow="ConsumedCL" msprop:Generator_ColumnPropNameInTable="ConsumedCLColumn" msprop:Generator_UserColumnName="ConsumedCL" type="xs:string" minOccurs="0" />
+              <xs:element name="ConsumedSL" msprop:Generator_ColumnVarNameInTable="columnConsumedSL" msprop:Generator_ColumnPropNameInRow="ConsumedSL" msprop:Generator_ColumnPropNameInTable="ConsumedSLColumn" msprop:Generator_UserColumnName="ConsumedSL" type="xs:string" minOccurs="0" />
+              <xs:element name="ConsumedAL" msprop:Generator_ColumnVarNameInTable="columnConsumedAL" msprop:Generator_ColumnPropNameInRow="ConsumedAL" msprop:Generator_ColumnPropNameInTable="ConsumedALColumn" msprop:Generator_UserColumnName="ConsumedAL" type="xs:string" minOccurs="0" />
+              <xs:element name="BalanceCL" msprop:Generator_ColumnVarNameInTable="columnBalanceCL" msprop:Generator_ColumnPropNameInRow="BalanceCL" msprop:Generator_ColumnPropNameInTable="BalanceCLColumn" msprop:Generator_UserColumnName="BalanceCL" type="xs:string" minOccurs="0" />
+              <xs:element name="BalanceSL" msprop:Generator_ColumnVarNameInTable="columnBalanceSL" msprop:Generator_ColumnPropNameInRow="BalanceSL" msprop:Generator_ColumnPropNameInTable="BalanceSLColumn" msprop:Generator_UserColumnName="BalanceSL" type="xs:string" minOccurs="0" />
+              <xs:element name="BalanceAL" msprop:Generator_ColumnVarNameInTable="columnBalanceAL" msprop:Generator_ColumnPropNameInRow="BalanceAL" msprop:Generator_ColumnPropNameInTable="BalanceALColumn" msprop:Generator_UserColumnName="BalanceAL" type="xs:string" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" msprop:Generator_UserColumnName="Remarks" type="xs:string" minOccurs="0" />
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewMonthlyData" msprop:Generator_TableClassName="ViewMonthlyDataDataTable" msprop:Generator_TableVarName="tableViewMonthlyData" msprop:Generator_RowChangedName="ViewMonthlyDataRowChanged" msprop:Generator_TablePropName="ViewMonthlyData" msprop:Generator_RowDeletingName="ViewMonthlyDataRowDeleting" msprop:Generator_RowChangingName="ViewMonthlyDataRowChanging" msprop:Generator_RowEvHandlerName="ViewMonthlyDataRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewMonthlyDataRowDeleted" msprop:Generator_RowClassName="ViewMonthlyDataRow" msprop:Generator_UserTableName="ViewMonthlyData" msprop:Generator_RowEvArgName="ViewMonthlyDataRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmpID" msprop:Generator_ColumnVarNameInTable="columnEmpID" msprop:Generator_ColumnPropNameInRow="EmpID" msprop:Generator_ColumnPropNameInTable="EmpIDColumn" msprop:Generator_UserColumnName="EmpID" type="xs:int" />
+              <xs:element name="Period" msprop:Generator_ColumnVarNameInTable="columnPeriod" msprop:Generator_ColumnPropNameInRow="Period" msprop:Generator_ColumnPropNameInTable="PeriodColumn" msprop:Generator_UserColumnName="Period" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmpMonth" msprop:Generator_ColumnVarNameInTable="columnEmpMonth" msprop:Generator_ColumnPropNameInRow="EmpMonth" msprop:Generator_ColumnPropNameInTable="EmpMonthColumn" msprop:Generator_UserColumnName="EmpMonth">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmpNo" msprop:Generator_ColumnVarNameInTable="columnEmpNo" msprop:Generator_ColumnPropNameInRow="EmpNo" msprop:Generator_ColumnPropNameInTable="EmpNoColumn" msprop:Generator_UserColumnName="EmpNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmpName" msprop:Generator_ColumnVarNameInTable="columnEmpName" msprop:Generator_ColumnPropNameInRow="EmpName" msprop:Generator_ColumnPropNameInTable="EmpNameColumn" msprop:Generator_UserColumnName="EmpName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D1" msprop:Generator_ColumnVarNameInTable="columnD1" msprop:Generator_ColumnPropNameInRow="D1" msprop:Generator_ColumnPropNameInTable="D1Column" msprop:Generator_UserColumnName="D1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D2" msprop:Generator_ColumnVarNameInTable="columnD2" msprop:Generator_ColumnPropNameInRow="D2" msprop:Generator_ColumnPropNameInTable="D2Column" msprop:Generator_UserColumnName="D2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D3" msprop:Generator_ColumnVarNameInTable="columnD3" msprop:Generator_ColumnPropNameInRow="D3" msprop:Generator_ColumnPropNameInTable="D3Column" msprop:Generator_UserColumnName="D3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D4" msprop:Generator_ColumnVarNameInTable="columnD4" msprop:Generator_ColumnPropNameInRow="D4" msprop:Generator_ColumnPropNameInTable="D4Column" msprop:Generator_UserColumnName="D4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D5" msprop:Generator_ColumnVarNameInTable="columnD5" msprop:Generator_ColumnPropNameInRow="D5" msprop:Generator_ColumnPropNameInTable="D5Column" msprop:Generator_UserColumnName="D5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D6" msprop:Generator_ColumnVarNameInTable="columnD6" msprop:Generator_ColumnPropNameInRow="D6" msprop:Generator_ColumnPropNameInTable="D6Column" msprop:Generator_UserColumnName="D6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D7" msprop:Generator_ColumnVarNameInTable="columnD7" msprop:Generator_ColumnPropNameInRow="D7" msprop:Generator_ColumnPropNameInTable="D7Column" msprop:Generator_UserColumnName="D7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D8" msprop:Generator_ColumnVarNameInTable="columnD8" msprop:Generator_ColumnPropNameInRow="D8" msprop:Generator_ColumnPropNameInTable="D8Column" msprop:Generator_UserColumnName="D8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D9" msprop:Generator_ColumnVarNameInTable="columnD9" msprop:Generator_ColumnPropNameInRow="D9" msprop:Generator_ColumnPropNameInTable="D9Column" msprop:Generator_UserColumnName="D9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D11" msprop:Generator_ColumnVarNameInTable="columnD11" msprop:Generator_ColumnPropNameInRow="D11" msprop:Generator_ColumnPropNameInTable="D11Column" msprop:Generator_UserColumnName="D11" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D10" msprop:Generator_ColumnVarNameInTable="columnD10" msprop:Generator_ColumnPropNameInRow="D10" msprop:Generator_ColumnPropNameInTable="D10Column" msprop:Generator_UserColumnName="D10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D12" msprop:Generator_ColumnVarNameInTable="columnD12" msprop:Generator_ColumnPropNameInRow="D12" msprop:Generator_ColumnPropNameInTable="D12Column" msprop:Generator_UserColumnName="D12" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D13" msprop:Generator_ColumnVarNameInTable="columnD13" msprop:Generator_ColumnPropNameInRow="D13" msprop:Generator_ColumnPropNameInTable="D13Column" msprop:Generator_UserColumnName="D13" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D14" msprop:Generator_ColumnVarNameInTable="columnD14" msprop:Generator_ColumnPropNameInRow="D14" msprop:Generator_ColumnPropNameInTable="D14Column" msprop:Generator_UserColumnName="D14" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D15" msprop:Generator_ColumnVarNameInTable="columnD15" msprop:Generator_ColumnPropNameInRow="D15" msprop:Generator_ColumnPropNameInTable="D15Column" msprop:Generator_UserColumnName="D15" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D16" msprop:Generator_ColumnVarNameInTable="columnD16" msprop:Generator_ColumnPropNameInRow="D16" msprop:Generator_ColumnPropNameInTable="D16Column" msprop:Generator_UserColumnName="D16" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D17" msprop:Generator_ColumnVarNameInTable="columnD17" msprop:Generator_ColumnPropNameInRow="D17" msprop:Generator_ColumnPropNameInTable="D17Column" msprop:Generator_UserColumnName="D17" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D18" msprop:Generator_ColumnVarNameInTable="columnD18" msprop:Generator_ColumnPropNameInRow="D18" msprop:Generator_ColumnPropNameInTable="D18Column" msprop:Generator_UserColumnName="D18" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D19" msprop:Generator_ColumnVarNameInTable="columnD19" msprop:Generator_ColumnPropNameInRow="D19" msprop:Generator_ColumnPropNameInTable="D19Column" msprop:Generator_UserColumnName="D19" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D20" msprop:Generator_ColumnVarNameInTable="columnD20" msprop:Generator_ColumnPropNameInRow="D20" msprop:Generator_ColumnPropNameInTable="D20Column" msprop:Generator_UserColumnName="D20" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D21" msprop:Generator_ColumnVarNameInTable="columnD21" msprop:Generator_ColumnPropNameInRow="D21" msprop:Generator_ColumnPropNameInTable="D21Column" msprop:Generator_UserColumnName="D21" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D22" msprop:Generator_ColumnVarNameInTable="columnD22" msprop:Generator_ColumnPropNameInRow="D22" msprop:Generator_ColumnPropNameInTable="D22Column" msprop:Generator_UserColumnName="D22" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D23" msprop:Generator_ColumnVarNameInTable="columnD23" msprop:Generator_ColumnPropNameInRow="D23" msprop:Generator_ColumnPropNameInTable="D23Column" msprop:Generator_UserColumnName="D23" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D25" msprop:Generator_ColumnVarNameInTable="columnD25" msprop:Generator_ColumnPropNameInRow="D25" msprop:Generator_ColumnPropNameInTable="D25Column" msprop:Generator_UserColumnName="D25" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D24" msprop:Generator_ColumnVarNameInTable="columnD24" msprop:Generator_ColumnPropNameInRow="D24" msprop:Generator_ColumnPropNameInTable="D24Column" msprop:Generator_UserColumnName="D24" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D26" msprop:Generator_ColumnVarNameInTable="columnD26" msprop:Generator_ColumnPropNameInRow="D26" msprop:Generator_ColumnPropNameInTable="D26Column" msprop:Generator_UserColumnName="D26" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D27" msprop:Generator_ColumnVarNameInTable="columnD27" msprop:Generator_ColumnPropNameInRow="D27" msprop:Generator_ColumnPropNameInTable="D27Column" msprop:Generator_UserColumnName="D27" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D28" msprop:Generator_ColumnVarNameInTable="columnD28" msprop:Generator_ColumnPropNameInRow="D28" msprop:Generator_ColumnPropNameInTable="D28Column" msprop:Generator_UserColumnName="D28" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D30" msprop:Generator_ColumnVarNameInTable="columnD30" msprop:Generator_ColumnPropNameInRow="D30" msprop:Generator_ColumnPropNameInTable="D30Column" msprop:Generator_UserColumnName="D30" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D29" msprop:Generator_ColumnVarNameInTable="columnD29" msprop:Generator_ColumnPropNameInRow="D29" msprop:Generator_ColumnPropNameInTable="D29Column" msprop:Generator_UserColumnName="D29" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D31" msprop:Generator_ColumnVarNameInTable="columnD31" msprop:Generator_ColumnPropNameInRow="D31" msprop:Generator_ColumnPropNameInTable="D31Column" msprop:Generator_UserColumnName="D31" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalDays" msprop:Generator_ColumnVarNameInTable="columnTotalDays" msprop:Generator_ColumnPropNameInRow="TotalDays" msprop:Generator_ColumnPropNameInTable="TotalDaysColumn" msprop:Generator_UserColumnName="TotalDays" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WorkDays" msprop:Generator_ColumnVarNameInTable="columnWorkDays" msprop:Generator_ColumnPropNameInRow="WorkDays" msprop:Generator_ColumnPropNameInTable="WorkDaysColumn" msprop:Generator_UserColumnName="WorkDays" type="xs:double" minOccurs="0" />
+              <xs:element name="PreDays" msprop:Generator_ColumnVarNameInTable="columnPreDays" msprop:Generator_ColumnPropNameInRow="PreDays" msprop:Generator_ColumnPropNameInTable="PreDaysColumn" msprop:Generator_UserColumnName="PreDays" type="xs:double" minOccurs="0" />
+              <xs:element name="AbDays" msprop:Generator_ColumnVarNameInTable="columnAbDays" msprop:Generator_ColumnPropNameInRow="AbDays" msprop:Generator_ColumnPropNameInTable="AbDaysColumn" msprop:Generator_UserColumnName="AbDays" type="xs:double" minOccurs="0" />
+              <xs:element name="RestDays" msprop:Generator_ColumnVarNameInTable="columnRestDays" msprop:Generator_ColumnPropNameInRow="RestDays" msprop:Generator_ColumnPropNameInTable="RestDaysColumn" msprop:Generator_UserColumnName="RestDays" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="GZDays" msprop:Generator_ColumnVarNameInTable="columnGZDays" msprop:Generator_ColumnPropNameInRow="GZDays" msprop:Generator_ColumnPropNameInTable="GZDaysColumn" msprop:Generator_UserColumnName="GZDays" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="LeaveDays" msprop:Generator_ColumnVarNameInTable="columnLeaveDays" msprop:Generator_ColumnPropNameInRow="LeaveDays" msprop:Generator_ColumnPropNameInTable="LeaveDaysColumn" msprop:Generator_UserColumnName="LeaveDays" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="OfficialDutyDays" msprop:Generator_ColumnVarNameInTable="columnOfficialDutyDays" msprop:Generator_ColumnPropNameInRow="OfficialDutyDays" msprop:Generator_ColumnPropNameInTable="OfficialDutyDaysColumn" msprop:Generator_UserColumnName="OfficialDutyDays" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="TEarlyIn" msprop:Generator_ColumnVarNameInTable="columnTEarlyIn" msprop:Generator_ColumnPropNameInRow="TEarlyIn" msprop:Generator_ColumnPropNameInTable="TEarlyInColumn" msprop:Generator_UserColumnName="TEarlyIn" type="xs:short" minOccurs="0" />
+              <xs:element name="TEarlyOut" msprop:Generator_ColumnVarNameInTable="columnTEarlyOut" msprop:Generator_ColumnPropNameInRow="TEarlyOut" msprop:Generator_ColumnPropNameInTable="TEarlyOutColumn" msprop:Generator_UserColumnName="TEarlyOut" type="xs:short" minOccurs="0" />
+              <xs:element name="TLateIn" msprop:Generator_ColumnVarNameInTable="columnTLateIn" msprop:Generator_ColumnPropNameInRow="TLateIn" msprop:Generator_ColumnPropNameInTable="TLateInColumn" msprop:Generator_UserColumnName="TLateIn" type="xs:short" minOccurs="0" />
+              <xs:element name="TLateOut" msprop:Generator_ColumnVarNameInTable="columnTLateOut" msprop:Generator_ColumnPropNameInRow="TLateOut" msprop:Generator_ColumnPropNameInTable="TLateOutColumn" msprop:Generator_UserColumnName="TLateOut" type="xs:short" minOccurs="0" />
+              <xs:element name="TWorkTime" msprop:Generator_ColumnVarNameInTable="columnTWorkTime" msprop:Generator_ColumnPropNameInRow="TWorkTime" msprop:Generator_ColumnPropNameInTable="TWorkTimeColumn" msprop:Generator_UserColumnName="TWorkTime" type="xs:short" minOccurs="0" />
+              <xs:element name="TNOT" msprop:Generator_ColumnVarNameInTable="columnTNOT" msprop:Generator_ColumnPropNameInRow="TNOT" msprop:Generator_ColumnPropNameInTable="TNOTColumn" msprop:Generator_UserColumnName="TNOT" type="xs:short" minOccurs="0" />
+              <xs:element name="TGZOT" msprop:Generator_ColumnVarNameInTable="columnTGZOT" msprop:Generator_ColumnPropNameInRow="TGZOT" msprop:Generator_ColumnPropNameInTable="TGZOTColumn" msprop:Generator_UserColumnName="TGZOT" type="xs:short" minOccurs="0" />
+              <xs:element name="ExpectedWrkTime" msprop:Generator_ColumnVarNameInTable="columnExpectedWrkTime" msprop:Generator_ColumnPropNameInRow="ExpectedWrkTime" msprop:Generator_ColumnPropNameInTable="ExpectedWrkTimeColumn" msprop:Generator_UserColumnName="ExpectedWrkTime" type="xs:short" minOccurs="0" />
+              <xs:element name="OT1" msprop:Generator_ColumnVarNameInTable="columnOT1" msprop:Generator_ColumnPropNameInRow="OT1" msprop:Generator_ColumnPropNameInTable="OT1Column" msprop:Generator_UserColumnName="OT1" type="xs:short" minOccurs="0" />
+              <xs:element name="OT2" msprop:Generator_ColumnVarNameInTable="columnOT2" msprop:Generator_ColumnPropNameInRow="OT2" msprop:Generator_ColumnPropNameInTable="OT2Column" msprop:Generator_UserColumnName="OT2" type="xs:short" minOccurs="0" />
+              <xs:element name="OT3" msprop:Generator_ColumnVarNameInTable="columnOT3" msprop:Generator_ColumnPropNameInRow="OT3" msprop:Generator_ColumnPropNameInTable="OT3Column" msprop:Generator_UserColumnName="OT3" type="xs:short" minOccurs="0" />
+              <xs:element name="OT4" msprop:Generator_ColumnVarNameInTable="columnOT4" msprop:Generator_ColumnPropNameInRow="OT4" msprop:Generator_ColumnPropNameInTable="OT4Column" msprop:Generator_UserColumnName="OT4" type="xs:short" minOccurs="0" />
+              <xs:element name="OT5" msprop:Generator_ColumnVarNameInTable="columnOT5" msprop:Generator_ColumnPropNameInRow="OT5" msprop:Generator_ColumnPropNameInTable="OT5Column" msprop:Generator_UserColumnName="OT5" type="xs:short" minOccurs="0" />
+              <xs:element name="OT6" msprop:Generator_ColumnVarNameInTable="columnOT6" msprop:Generator_ColumnPropNameInRow="OT6" msprop:Generator_ColumnPropNameInTable="OT6Column" msprop:Generator_UserColumnName="OT6" type="xs:short" minOccurs="0" />
+              <xs:element name="OT7" msprop:Generator_ColumnVarNameInTable="columnOT7" msprop:Generator_ColumnPropNameInRow="OT7" msprop:Generator_ColumnPropNameInTable="OT7Column" msprop:Generator_UserColumnName="OT7" type="xs:short" minOccurs="0" />
+              <xs:element name="OT8" msprop:Generator_ColumnVarNameInTable="columnOT8" msprop:Generator_ColumnPropNameInRow="OT8" msprop:Generator_ColumnPropNameInTable="OT8Column" msprop:Generator_UserColumnName="OT8" type="xs:short" minOccurs="0" />
+              <xs:element name="OT9" msprop:Generator_ColumnVarNameInTable="columnOT9" msprop:Generator_ColumnPropNameInRow="OT9" msprop:Generator_ColumnPropNameInTable="OT9Column" msprop:Generator_UserColumnName="OT9" type="xs:short" minOccurs="0" />
+              <xs:element name="OT10" msprop:Generator_ColumnVarNameInTable="columnOT10" msprop:Generator_ColumnPropNameInRow="OT10" msprop:Generator_ColumnPropNameInTable="OT10Column" msprop:Generator_UserColumnName="OT10" type="xs:short" minOccurs="0" />
+              <xs:element name="OT11" msprop:Generator_ColumnVarNameInTable="columnOT11" msprop:Generator_ColumnPropNameInRow="OT11" msprop:Generator_ColumnPropNameInTable="OT11Column" msprop:Generator_UserColumnName="OT11" type="xs:short" minOccurs="0" />
+              <xs:element name="OT12" msprop:Generator_ColumnVarNameInTable="columnOT12" msprop:Generator_ColumnPropNameInRow="OT12" msprop:Generator_ColumnPropNameInTable="OT12Column" msprop:Generator_UserColumnName="OT12" type="xs:short" minOccurs="0" />
+              <xs:element name="OT13" msprop:Generator_ColumnVarNameInTable="columnOT13" msprop:Generator_ColumnPropNameInRow="OT13" msprop:Generator_ColumnPropNameInTable="OT13Column" msprop:Generator_UserColumnName="OT13" type="xs:short" minOccurs="0" />
+              <xs:element name="OT14" msprop:Generator_ColumnVarNameInTable="columnOT14" msprop:Generator_ColumnPropNameInRow="OT14" msprop:Generator_ColumnPropNameInTable="OT14Column" msprop:Generator_UserColumnName="OT14" type="xs:short" minOccurs="0" />
+              <xs:element name="OT15" msprop:Generator_ColumnVarNameInTable="columnOT15" msprop:Generator_ColumnPropNameInRow="OT15" msprop:Generator_ColumnPropNameInTable="OT15Column" msprop:Generator_UserColumnName="OT15" type="xs:short" minOccurs="0" />
+              <xs:element name="OT16" msprop:Generator_ColumnVarNameInTable="columnOT16" msprop:Generator_ColumnPropNameInRow="OT16" msprop:Generator_ColumnPropNameInTable="OT16Column" msprop:Generator_UserColumnName="OT16" type="xs:short" minOccurs="0" />
+              <xs:element name="OT17" msprop:Generator_ColumnVarNameInTable="columnOT17" msprop:Generator_ColumnPropNameInRow="OT17" msprop:Generator_ColumnPropNameInTable="OT17Column" msprop:Generator_UserColumnName="OT17" type="xs:short" minOccurs="0" />
+              <xs:element name="OT18" msprop:Generator_ColumnVarNameInTable="columnOT18" msprop:Generator_ColumnPropNameInRow="OT18" msprop:Generator_ColumnPropNameInTable="OT18Column" msprop:Generator_UserColumnName="OT18" type="xs:short" minOccurs="0" />
+              <xs:element name="OT19" msprop:Generator_ColumnVarNameInTable="columnOT19" msprop:Generator_ColumnPropNameInRow="OT19" msprop:Generator_ColumnPropNameInTable="OT19Column" msprop:Generator_UserColumnName="OT19" type="xs:short" minOccurs="0" />
+              <xs:element name="OT20" msprop:Generator_ColumnVarNameInTable="columnOT20" msprop:Generator_ColumnPropNameInRow="OT20" msprop:Generator_ColumnPropNameInTable="OT20Column" msprop:Generator_UserColumnName="OT20" type="xs:short" minOccurs="0" />
+              <xs:element name="OT21" msprop:Generator_ColumnVarNameInTable="columnOT21" msprop:Generator_ColumnPropNameInRow="OT21" msprop:Generator_ColumnPropNameInTable="OT21Column" msprop:Generator_UserColumnName="OT21" type="xs:short" minOccurs="0" />
+              <xs:element name="OT22" msprop:Generator_ColumnVarNameInTable="columnOT22" msprop:Generator_ColumnPropNameInRow="OT22" msprop:Generator_ColumnPropNameInTable="OT22Column" msprop:Generator_UserColumnName="OT22" type="xs:short" minOccurs="0" />
+              <xs:element name="OT23" msprop:Generator_ColumnVarNameInTable="columnOT23" msprop:Generator_ColumnPropNameInRow="OT23" msprop:Generator_ColumnPropNameInTable="OT23Column" msprop:Generator_UserColumnName="OT23" type="xs:short" minOccurs="0" />
+              <xs:element name="OT24" msprop:Generator_ColumnVarNameInTable="columnOT24" msprop:Generator_ColumnPropNameInRow="OT24" msprop:Generator_ColumnPropNameInTable="OT24Column" msprop:Generator_UserColumnName="OT24" type="xs:short" minOccurs="0" />
+              <xs:element name="OT26" msprop:Generator_ColumnVarNameInTable="columnOT26" msprop:Generator_ColumnPropNameInRow="OT26" msprop:Generator_ColumnPropNameInTable="OT26Column" msprop:Generator_UserColumnName="OT26" type="xs:short" minOccurs="0" />
+              <xs:element name="OT25" msprop:Generator_ColumnVarNameInTable="columnOT25" msprop:Generator_ColumnPropNameInRow="OT25" msprop:Generator_ColumnPropNameInTable="OT25Column" msprop:Generator_UserColumnName="OT25" type="xs:short" minOccurs="0" />
+              <xs:element name="OT27" msprop:Generator_ColumnVarNameInTable="columnOT27" msprop:Generator_ColumnPropNameInRow="OT27" msprop:Generator_ColumnPropNameInTable="OT27Column" msprop:Generator_UserColumnName="OT27" type="xs:short" minOccurs="0" />
+              <xs:element name="OT28" msprop:Generator_ColumnVarNameInTable="columnOT28" msprop:Generator_ColumnPropNameInRow="OT28" msprop:Generator_ColumnPropNameInTable="OT28Column" msprop:Generator_UserColumnName="OT28" type="xs:short" minOccurs="0" />
+              <xs:element name="OT29" msprop:Generator_ColumnVarNameInTable="columnOT29" msprop:Generator_ColumnPropNameInRow="OT29" msprop:Generator_ColumnPropNameInTable="OT29Column" msprop:Generator_UserColumnName="OT29" type="xs:short" minOccurs="0" />
+              <xs:element name="OT30" msprop:Generator_ColumnVarNameInTable="columnOT30" msprop:Generator_ColumnPropNameInRow="OT30" msprop:Generator_ColumnPropNameInTable="OT30Column" msprop:Generator_UserColumnName="OT30" type="xs:short" minOccurs="0" />
+              <xs:element name="OT31" msprop:Generator_ColumnVarNameInTable="columnOT31" msprop:Generator_ColumnPropNameInRow="OT31" msprop:Generator_ColumnPropNameInTable="OT31Column" msprop:Generator_UserColumnName="OT31" type="xs:short" minOccurs="0" />
+              <xs:element name="DesignationName" msprop:Generator_ColumnVarNameInTable="columnDesignationName" msprop:Generator_ColumnPropNameInRow="DesignationName" msprop:Generator_ColumnPropNameInTable="DesignationNameColumn" msprop:Generator_UserColumnName="DesignationName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GradeName" msprop:Generator_ColumnVarNameInTable="columnGradeName" msprop:Generator_ColumnPropNameInRow="GradeName" msprop:Generator_ColumnPropNameInTable="GradeNameColumn" msprop:Generator_UserColumnName="GradeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JobTitle" msprop:Generator_ColumnVarNameInTable="columnJobTitle" msprop:Generator_ColumnPropNameInRow="JobTitle" msprop:Generator_ColumnPropNameInTable="JobTitleColumn" msprop:Generator_UserColumnName="JobTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CityName" msprop:Generator_ColumnVarNameInTable="columnCityName" msprop:Generator_ColumnPropNameInRow="CityName" msprop:Generator_ColumnPropNameInTable="CityNameColumn" msprop:Generator_UserColumnName="CityName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CrewName" msprop:Generator_ColumnVarNameInTable="columnCrewName" msprop:Generator_ColumnPropNameInRow="CrewName" msprop:Generator_ColumnPropNameInTable="CrewNameColumn" msprop:Generator_UserColumnName="CrewName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LocName" msprop:Generator_ColumnVarNameInTable="columnLocName" msprop:Generator_ColumnPropNameInRow="LocName" msprop:Generator_ColumnPropNameInTable="LocNameColumn" msprop:Generator_UserColumnName="LocName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SectionName" msprop:Generator_ColumnVarNameInTable="columnSectionName" msprop:Generator_ColumnPropNameInRow="SectionName" msprop:Generator_ColumnPropNameInTable="SectionNameColumn" msprop:Generator_UserColumnName="SectionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TypeName" msprop:Generator_ColumnVarNameInTable="columnTypeName" msprop:Generator_ColumnPropNameInRow="TypeName" msprop:Generator_ColumnPropNameInTable="TypeNameColumn" msprop:Generator_UserColumnName="TypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptName" msprop:Generator_ColumnVarNameInTable="columnDeptName" msprop:Generator_ColumnPropNameInRow="DeptName" msprop:Generator_ColumnPropNameInTable="DeptNameColumn" msprop:Generator_UserColumnName="DeptName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CatName" msprop:Generator_ColumnVarNameInTable="columnCatName" msprop:Generator_ColumnPropNameInRow="CatName" msprop:Generator_ColumnPropNameInTable="CatNameColumn" msprop:Generator_UserColumnName="CatName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShiftName" msprop:Generator_ColumnVarNameInTable="columnShiftName" msprop:Generator_ColumnPropNameInRow="ShiftName" msprop:Generator_ColumnPropNameInTable="ShiftNameColumn" msprop:Generator_UserColumnName="ShiftName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MarStatus" msprop:Generator_ColumnVarNameInTable="columnMarStatus" msprop:Generator_ColumnPropNameInRow="MarStatus" msprop:Generator_ColumnPropNameInTable="MarStatusColumn" msprop:Generator_UserColumnName="MarStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JoinDate" msprop:Generator_ColumnVarNameInTable="columnJoinDate" msprop:Generator_ColumnPropNameInRow="JoinDate" msprop:Generator_ColumnPropNameInTable="JoinDateColumn" msprop:Generator_UserColumnName="JoinDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ValidDate" msprop:Generator_ColumnVarNameInTable="columnValidDate" msprop:Generator_ColumnPropNameInRow="ValidDate" msprop:Generator_ColumnPropNameInTable="ValidDateColumn" msprop:Generator_UserColumnName="ValidDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IssueDate" msprop:Generator_ColumnVarNameInTable="columnIssueDate" msprop:Generator_ColumnPropNameInRow="IssueDate" msprop:Generator_ColumnPropNameInTable="IssueDateColumn" msprop:Generator_UserColumnName="IssueDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ResignDate" msprop:Generator_ColumnVarNameInTable="columnResignDate" msprop:Generator_ColumnPropNameInRow="ResignDate" msprop:Generator_ColumnPropNameInTable="ResignDateColumn" msprop:Generator_UserColumnName="ResignDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" msprop:Generator_UserColumnName="Remarks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FlagFP" msprop:Generator_ColumnVarNameInTable="columnFlagFP" msprop:Generator_ColumnPropNameInRow="FlagFP" msprop:Generator_ColumnPropNameInTable="FlagFPColumn" msprop:Generator_UserColumnName="FlagFP" type="xs:boolean" minOccurs="0" />
+              <xs:element name="FlagFace" msprop:Generator_ColumnVarNameInTable="columnFlagFace" msprop:Generator_ColumnPropNameInRow="FlagFace" msprop:Generator_ColumnPropNameInTable="FlagFaceColumn" msprop:Generator_UserColumnName="FlagFace" type="xs:boolean" minOccurs="0" />
+              <xs:element name="FlagCard" msprop:Generator_ColumnVarNameInTable="columnFlagCard" msprop:Generator_ColumnPropNameInRow="FlagCard" msprop:Generator_ColumnPropNameInTable="FlagCardColumn" msprop:Generator_UserColumnName="FlagCard" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DivisionName" msprop:Generator_ColumnVarNameInTable="columnDivisionName" msprop:Generator_ColumnPropNameInRow="DivisionName" msprop:Generator_ColumnPropNameInTable="DivisionNameColumn" msprop:Generator_UserColumnName="DivisionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardNo" msprop:Generator_ColumnVarNameInTable="columnCardNo" msprop:Generator_ColumnPropNameInRow="CardNo" msprop:Generator_ColumnPropNameInTable="CardNoColumn" msprop:Generator_UserColumnName="CardNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TypeID" msprop:Generator_ColumnVarNameInTable="columnTypeID" msprop:Generator_ColumnPropNameInRow="TypeID" msprop:Generator_ColumnPropNameInTable="TypeIDColumn" msprop:Generator_UserColumnName="TypeID" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="CatID" msprop:Generator_ColumnVarNameInTable="columnCatID" msprop:Generator_ColumnPropNameInRow="CatID" msprop:Generator_ColumnPropNameInTable="CatIDColumn" msprop:Generator_UserColumnName="CatID" type="xs:short" minOccurs="0" />
+              <xs:element name="L1" msprop:Generator_ColumnVarNameInTable="columnL1" msprop:Generator_ColumnPropNameInRow="L1" msprop:Generator_ColumnPropNameInTable="L1Column" msprop:Generator_UserColumnName="L1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L2" msprop:Generator_ColumnVarNameInTable="columnL2" msprop:Generator_ColumnPropNameInRow="L2" msprop:Generator_ColumnPropNameInTable="L2Column" msprop:Generator_UserColumnName="L2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L3" msprop:Generator_ColumnVarNameInTable="columnL3" msprop:Generator_ColumnPropNameInRow="L3" msprop:Generator_ColumnPropNameInTable="L3Column" msprop:Generator_UserColumnName="L3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L4" msprop:Generator_ColumnVarNameInTable="columnL4" msprop:Generator_ColumnPropNameInRow="L4" msprop:Generator_ColumnPropNameInTable="L4Column" msprop:Generator_UserColumnName="L4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L5" msprop:Generator_ColumnVarNameInTable="columnL5" msprop:Generator_ColumnPropNameInRow="L5" msprop:Generator_ColumnPropNameInTable="L5Column" msprop:Generator_UserColumnName="L5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L6" msprop:Generator_ColumnVarNameInTable="columnL6" msprop:Generator_ColumnPropNameInRow="L6" msprop:Generator_ColumnPropNameInTable="L6Column" msprop:Generator_UserColumnName="L6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L7" msprop:Generator_ColumnVarNameInTable="columnL7" msprop:Generator_ColumnPropNameInRow="L7" msprop:Generator_ColumnPropNameInTable="L7Column" msprop:Generator_UserColumnName="L7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L8" msprop:Generator_ColumnVarNameInTable="columnL8" msprop:Generator_ColumnPropNameInRow="L8" msprop:Generator_ColumnPropNameInTable="L8Column" msprop:Generator_UserColumnName="L8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L9" msprop:Generator_ColumnVarNameInTable="columnL9" msprop:Generator_ColumnPropNameInRow="L9" msprop:Generator_ColumnPropNameInTable="L9Column" msprop:Generator_UserColumnName="L9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L11" msprop:Generator_ColumnVarNameInTable="columnL11" msprop:Generator_ColumnPropNameInRow="L11" msprop:Generator_ColumnPropNameInTable="L11Column" msprop:Generator_UserColumnName="L11" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L10" msprop:Generator_ColumnVarNameInTable="columnL10" msprop:Generator_ColumnPropNameInRow="L10" msprop:Generator_ColumnPropNameInTable="L10Column" msprop:Generator_UserColumnName="L10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L12" msprop:Generator_ColumnVarNameInTable="columnL12" msprop:Generator_ColumnPropNameInRow="L12" msprop:Generator_ColumnPropNameInTable="L12Column" msprop:Generator_UserColumnName="L12" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L13" msprop:Generator_ColumnVarNameInTable="columnL13" msprop:Generator_ColumnPropNameInRow="L13" msprop:Generator_ColumnPropNameInTable="L13Column" msprop:Generator_UserColumnName="L13" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L14" msprop:Generator_ColumnVarNameInTable="columnL14" msprop:Generator_ColumnPropNameInRow="L14" msprop:Generator_ColumnPropNameInTable="L14Column" msprop:Generator_UserColumnName="L14" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L15" msprop:Generator_ColumnVarNameInTable="columnL15" msprop:Generator_ColumnPropNameInRow="L15" msprop:Generator_ColumnPropNameInTable="L15Column" msprop:Generator_UserColumnName="L15" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L16" msprop:Generator_ColumnVarNameInTable="columnL16" msprop:Generator_ColumnPropNameInRow="L16" msprop:Generator_ColumnPropNameInTable="L16Column" msprop:Generator_UserColumnName="L16" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L17" msprop:Generator_ColumnVarNameInTable="columnL17" msprop:Generator_ColumnPropNameInRow="L17" msprop:Generator_ColumnPropNameInTable="L17Column" msprop:Generator_UserColumnName="L17" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L19" msprop:Generator_ColumnVarNameInTable="columnL19" msprop:Generator_ColumnPropNameInRow="L19" msprop:Generator_ColumnPropNameInTable="L19Column" msprop:Generator_UserColumnName="L19" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L18" msprop:Generator_ColumnVarNameInTable="columnL18" msprop:Generator_ColumnPropNameInRow="L18" msprop:Generator_ColumnPropNameInTable="L18Column" msprop:Generator_UserColumnName="L18" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L20" msprop:Generator_ColumnVarNameInTable="columnL20" msprop:Generator_ColumnPropNameInRow="L20" msprop:Generator_ColumnPropNameInTable="L20Column" msprop:Generator_UserColumnName="L20" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L22" msprop:Generator_ColumnVarNameInTable="columnL22" msprop:Generator_ColumnPropNameInRow="L22" msprop:Generator_ColumnPropNameInTable="L22Column" msprop:Generator_UserColumnName="L22" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L21" msprop:Generator_ColumnVarNameInTable="columnL21" msprop:Generator_ColumnPropNameInRow="L21" msprop:Generator_ColumnPropNameInTable="L21Column" msprop:Generator_UserColumnName="L21" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L23" msprop:Generator_ColumnVarNameInTable="columnL23" msprop:Generator_ColumnPropNameInRow="L23" msprop:Generator_ColumnPropNameInTable="L23Column" msprop:Generator_UserColumnName="L23" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L24" msprop:Generator_ColumnVarNameInTable="columnL24" msprop:Generator_ColumnPropNameInRow="L24" msprop:Generator_ColumnPropNameInTable="L24Column" msprop:Generator_UserColumnName="L24" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L25" msprop:Generator_ColumnVarNameInTable="columnL25" msprop:Generator_ColumnPropNameInRow="L25" msprop:Generator_ColumnPropNameInTable="L25Column" msprop:Generator_UserColumnName="L25" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L26" msprop:Generator_ColumnVarNameInTable="columnL26" msprop:Generator_ColumnPropNameInRow="L26" msprop:Generator_ColumnPropNameInTable="L26Column" msprop:Generator_UserColumnName="L26" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L27" msprop:Generator_ColumnVarNameInTable="columnL27" msprop:Generator_ColumnPropNameInRow="L27" msprop:Generator_ColumnPropNameInTable="L27Column" msprop:Generator_UserColumnName="L27" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L28" msprop:Generator_ColumnVarNameInTable="columnL28" msprop:Generator_ColumnPropNameInRow="L28" msprop:Generator_ColumnPropNameInTable="L28Column" msprop:Generator_UserColumnName="L28" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L29" msprop:Generator_ColumnVarNameInTable="columnL29" msprop:Generator_ColumnPropNameInRow="L29" msprop:Generator_ColumnPropNameInTable="L29Column" msprop:Generator_UserColumnName="L29" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L30" msprop:Generator_ColumnVarNameInTable="columnL30" msprop:Generator_ColumnPropNameInRow="L30" msprop:Generator_ColumnPropNameInTable="L30Column" msprop:Generator_UserColumnName="L30" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L31" msprop:Generator_ColumnVarNameInTable="columnL31" msprop:Generator_ColumnPropNameInRow="L31" msprop:Generator_ColumnPropNameInTable="L31Column" msprop:Generator_UserColumnName="L31" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HalfLeavesDay" msprop:Generator_ColumnVarNameInTable="columnHalfLeavesDay" msprop:Generator_ColumnPropNameInRow="HalfLeavesDay" msprop:Generator_ColumnPropNameInTable="HalfLeavesDayColumn" msprop:Generator_UserColumnName="HalfLeavesDay" type="xs:double" minOccurs="0" />
+              <xs:element name="LocID" msprop:Generator_ColumnVarNameInTable="columnLocID" msprop:Generator_ColumnPropNameInRow="LocID" msprop:Generator_ColumnPropNameInTable="LocIDColumn" msprop:Generator_UserColumnName="LocID" type="xs:short" minOccurs="0" />
+              <xs:element name="CrewID" msprop:Generator_ColumnVarNameInTable="columnCrewID" msprop:Generator_ColumnPropNameInRow="CrewID" msprop:Generator_ColumnPropNameInTable="CrewIDColumn" msprop:Generator_UserColumnName="CrewID" type="xs:short" minOccurs="0" />
+              <xs:element name="GradeID" msprop:Generator_ColumnVarNameInTable="columnGradeID" msprop:Generator_ColumnPropNameInRow="GradeID" msprop:Generator_ColumnPropNameInTable="GradeIDColumn" msprop:Generator_UserColumnName="GradeID" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="DeptID" msprop:Generator_ColumnVarNameInTable="columnDeptID" msprop:Generator_ColumnPropNameInRow="DeptID" msprop:Generator_ColumnPropNameInTable="DeptIDColumn" msprop:Generator_UserColumnName="DeptID" type="xs:short" minOccurs="0" />
+              <xs:element name="ShiftID" msprop:Generator_ColumnVarNameInTable="columnShiftID" msprop:Generator_ColumnPropNameInRow="ShiftID" msprop:Generator_ColumnPropNameInTable="ShiftIDColumn" msprop:Generator_UserColumnName="ShiftID" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="SecID" msprop:Generator_ColumnVarNameInTable="columnSecID" msprop:Generator_ColumnPropNameInRow="SecID" msprop:Generator_ColumnPropNameInTable="SecIDColumn" msprop:Generator_UserColumnName="SecID" type="xs:short" minOccurs="0" />
+              <xs:element name="DivID" msprop:Generator_ColumnVarNameInTable="columnDivID" msprop:Generator_ColumnPropNameInRow="DivID" msprop:Generator_ColumnPropNameInTable="DivIDColumn" msprop:Generator_UserColumnName="DivID" type="xs:short" minOccurs="0" />
+              <xs:element name="DesigID" msprop:Generator_ColumnVarNameInTable="columnDesigID" msprop:Generator_ColumnPropNameInRow="DesigID" msprop:Generator_ColumnPropNameInTable="DesigIDColumn" msprop:Generator_UserColumnName="DesigID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DailySummary" msprop:Generator_TableClassName="DailySummaryDataTable" msprop:Generator_TableVarName="tableDailySummary" msprop:Generator_TablePropName="DailySummary" msprop:Generator_RowDeletingName="DailySummaryRowDeleting" msprop:Generator_RowChangingName="DailySummaryRowChanging" msprop:Generator_RowEvHandlerName="DailySummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="DailySummaryRowDeleted" msprop:Generator_UserTableName="DailySummary" msprop:Generator_RowChangedName="DailySummaryRowChanged" msprop:Generator_RowEvArgName="DailySummaryRowChangeEvent" msprop:Generator_RowClassName="DailySummaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SummaryDateCriteria" msprop:Generator_ColumnVarNameInTable="columnSummaryDateCriteria" msprop:Generator_ColumnPropNameInRow="SummaryDateCriteria" msprop:Generator_ColumnPropNameInTable="SummaryDateCriteriaColumn" msprop:Generator_UserColumnName="SummaryDateCriteria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Criteria" msprop:Generator_ColumnVarNameInTable="columnCriteria" msprop:Generator_ColumnPropNameInRow="Criteria" msprop:Generator_ColumnPropNameInTable="CriteriaColumn" msprop:Generator_UserColumnName="Criteria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CriteriaValue" msprop:Generator_ColumnVarNameInTable="columnCriteriaValue" msprop:Generator_ColumnPropNameInRow="CriteriaValue" msprop:Generator_ColumnPropNameInTable="CriteriaValueColumn" msprop:Generator_UserColumnName="CriteriaValue" type="xs:short" minOccurs="0" />
+              <xs:element name="CriteriaName" msprop:Generator_ColumnVarNameInTable="columnCriteriaName" msprop:Generator_ColumnPropNameInRow="CriteriaName" msprop:Generator_ColumnPropNameInTable="CriteriaNameColumn" msprop:Generator_UserColumnName="CriteriaName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TotalEmps" msprop:Generator_ColumnVarNameInTable="columnTotalEmps" msprop:Generator_ColumnPropNameInRow="TotalEmps" msprop:Generator_ColumnPropNameInTable="TotalEmpsColumn" msprop:Generator_UserColumnName="TotalEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="PresentEmps" msprop:Generator_ColumnVarNameInTable="columnPresentEmps" msprop:Generator_ColumnPropNameInRow="PresentEmps" msprop:Generator_ColumnPropNameInTable="PresentEmpsColumn" msprop:Generator_UserColumnName="PresentEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="AbsentEmps" msprop:Generator_ColumnVarNameInTable="columnAbsentEmps" msprop:Generator_ColumnPropNameInRow="AbsentEmps" msprop:Generator_ColumnPropNameInTable="AbsentEmpsColumn" msprop:Generator_UserColumnName="AbsentEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="LvEmps" msprop:Generator_ColumnVarNameInTable="columnLvEmps" msprop:Generator_ColumnPropNameInRow="LvEmps" msprop:Generator_ColumnPropNameInTable="LvEmpsColumn" msprop:Generator_UserColumnName="LvEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="ShortLvEmps" msprop:Generator_ColumnVarNameInTable="columnShortLvEmps" msprop:Generator_ColumnPropNameInRow="ShortLvEmps" msprop:Generator_ColumnPropNameInTable="ShortLvEmpsColumn" msprop:Generator_UserColumnName="ShortLvEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="HalfLvEmps" msprop:Generator_ColumnVarNameInTable="columnHalfLvEmps" msprop:Generator_ColumnPropNameInRow="HalfLvEmps" msprop:Generator_ColumnPropNameInTable="HalfLvEmpsColumn" msprop:Generator_UserColumnName="HalfLvEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="LIEmps" msprop:Generator_ColumnVarNameInTable="columnLIEmps" msprop:Generator_ColumnPropNameInRow="LIEmps" msprop:Generator_ColumnPropNameInTable="LIEmpsColumn" msprop:Generator_UserColumnName="LIEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="LOEmps" msprop:Generator_ColumnVarNameInTable="columnLOEmps" msprop:Generator_ColumnPropNameInRow="LOEmps" msprop:Generator_ColumnPropNameInTable="LOEmpsColumn" msprop:Generator_UserColumnName="LOEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="EIEmps" msprop:Generator_ColumnVarNameInTable="columnEIEmps" msprop:Generator_ColumnPropNameInRow="EIEmps" msprop:Generator_ColumnPropNameInTable="EIEmpsColumn" msprop:Generator_UserColumnName="EIEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="EOEmps" msprop:Generator_ColumnVarNameInTable="columnEOEmps" msprop:Generator_ColumnPropNameInRow="EOEmps" msprop:Generator_ColumnPropNameInTable="EOEmpsColumn" msprop:Generator_UserColumnName="EOEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="OTEmps" msprop:Generator_ColumnVarNameInTable="columnOTEmps" msprop:Generator_ColumnPropNameInRow="OTEmps" msprop:Generator_ColumnPropNameInTable="OTEmpsColumn" msprop:Generator_UserColumnName="OTEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="OnTimeEmps" msprop:Generator_ColumnVarNameInTable="columnOnTimeEmps" msprop:Generator_ColumnPropNameInRow="OnTimeEmps" msprop:Generator_ColumnPropNameInTable="OnTimeEmpsColumn" msprop:Generator_UserColumnName="OnTimeEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="DayOffEmps" msprop:Generator_ColumnVarNameInTable="columnDayOffEmps" msprop:Generator_ColumnPropNameInRow="DayOffEmps" msprop:Generator_ColumnPropNameInTable="DayOffEmpsColumn" msprop:Generator_UserColumnName="DayOffEmps" type="xs:short" minOccurs="0" />
+              <xs:element name="LIMins" msprop:Generator_ColumnVarNameInTable="columnLIMins" msprop:Generator_ColumnPropNameInRow="LIMins" msprop:Generator_ColumnPropNameInTable="LIMinsColumn" msprop:Generator_UserColumnName="LIMins" type="xs:int" minOccurs="0" />
+              <xs:element name="LOMins" msprop:Generator_ColumnVarNameInTable="columnLOMins" msprop:Generator_ColumnPropNameInRow="LOMins" msprop:Generator_ColumnPropNameInTable="LOMinsColumn" msprop:Generator_UserColumnName="LOMins" type="xs:int" minOccurs="0" />
+              <xs:element name="EIMins" msprop:Generator_ColumnVarNameInTable="columnEIMins" msprop:Generator_ColumnPropNameInRow="EIMins" msprop:Generator_ColumnPropNameInTable="EIMinsColumn" msprop:Generator_UserColumnName="EIMins" type="xs:int" minOccurs="0" />
+              <xs:element name="EOMins" msprop:Generator_ColumnVarNameInTable="columnEOMins" msprop:Generator_ColumnPropNameInRow="EOMins" msprop:Generator_ColumnPropNameInTable="EOMinsColumn" msprop:Generator_UserColumnName="EOMins" type="xs:int" minOccurs="0" />
+              <xs:element name="OTMins" msprop:Generator_ColumnVarNameInTable="columnOTMins" msprop:Generator_ColumnPropNameInRow="OTMins" msprop:Generator_ColumnPropNameInTable="OTMinsColumn" msprop:Generator_UserColumnName="OTMins" type="xs:int" minOccurs="0" />
+              <xs:element name="ExpectedWorkMins" msprop:Generator_ColumnVarNameInTable="columnExpectedWorkMins" msprop:Generator_ColumnPropNameInRow="ExpectedWorkMins" msprop:Generator_ColumnPropNameInTable="ExpectedWorkMinsColumn" msprop:Generator_UserColumnName="ExpectedWorkMins" type="xs:int" minOccurs="0" />
+              <xs:element name="ActualWorkMins" msprop:Generator_ColumnVarNameInTable="columnActualWorkMins" msprop:Generator_ColumnPropNameInRow="ActualWorkMins" msprop:Generator_ColumnPropNameInTable="ActualWorkMinsColumn" msprop:Generator_UserColumnName="ActualWorkMins" type="xs:int" minOccurs="0" />
+              <xs:element name="LossWorkMins" msprop:Generator_ColumnVarNameInTable="columnLossWorkMins" msprop:Generator_ColumnPropNameInRow="LossWorkMins" msprop:Generator_ColumnPropNameInTable="LossWorkMinsColumn" msprop:Generator_UserColumnName="LossWorkMins" type="xs:int" minOccurs="0" />
+              <xs:element name="ALIMins" msprop:Generator_ColumnVarNameInTable="columnALIMins" msprop:Generator_ColumnPropNameInRow="ALIMins" msprop:Generator_ColumnPropNameInTable="ALIMinsColumn" msprop:Generator_UserColumnName="ALIMins" type="xs:short" minOccurs="0" />
+              <xs:element name="ALOMins" msprop:Generator_ColumnVarNameInTable="columnALOMins" msprop:Generator_ColumnPropNameInRow="ALOMins" msprop:Generator_ColumnPropNameInTable="ALOMinsColumn" msprop:Generator_UserColumnName="ALOMins" type="xs:short" minOccurs="0" />
+              <xs:element name="AEIMins" msprop:Generator_ColumnVarNameInTable="columnAEIMins" msprop:Generator_ColumnPropNameInRow="AEIMins" msprop:Generator_ColumnPropNameInTable="AEIMinsColumn" msprop:Generator_UserColumnName="AEIMins" type="xs:short" minOccurs="0" />
+              <xs:element name="AEOMins" msprop:Generator_ColumnVarNameInTable="columnAEOMins" msprop:Generator_ColumnPropNameInRow="AEOMins" msprop:Generator_ColumnPropNameInTable="AEOMinsColumn" msprop:Generator_UserColumnName="AEOMins" type="xs:short" minOccurs="0" />
+              <xs:element name="AOTMins" msprop:Generator_ColumnVarNameInTable="columnAOTMins" msprop:Generator_ColumnPropNameInRow="AOTMins" msprop:Generator_ColumnPropNameInTable="AOTMinsColumn" msprop:Generator_UserColumnName="AOTMins" type="xs:short" minOccurs="0" />
+              <xs:element name="AExpectedMins" msprop:Generator_ColumnVarNameInTable="columnAExpectedMins" msprop:Generator_ColumnPropNameInRow="AExpectedMins" msprop:Generator_ColumnPropNameInTable="AExpectedMinsColumn" msprop:Generator_UserColumnName="AExpectedMins" type="xs:short" minOccurs="0" />
+              <xs:element name="AActualMins" msprop:Generator_ColumnVarNameInTable="columnAActualMins" msprop:Generator_ColumnPropNameInRow="AActualMins" msprop:Generator_ColumnPropNameInTable="AActualMinsColumn" msprop:Generator_UserColumnName="AActualMins" type="xs:short" minOccurs="0" />
+              <xs:element name="ALossMins" msprop:Generator_ColumnVarNameInTable="columnALossMins" msprop:Generator_ColumnPropNameInRow="ALossMins" msprop:Generator_ColumnPropNameInTable="ALossMinsColumn" msprop:Generator_UserColumnName="ALossMins" type="xs:short" minOccurs="0" />
+              <xs:element name="AvgTimeIn" msprop:Generator_ColumnVarNameInTable="columnAvgTimeIn" msprop:Generator_ColumnPropNameInRow="AvgTimeIn" msprop:Generator_ColumnPropNameInTable="AvgTimeInColumn" msprop:Generator_UserColumnName="AvgTimeIn" type="xs:duration" minOccurs="0" />
+              <xs:element name="AvgTimeOut" msprop:Generator_ColumnVarNameInTable="columnAvgTimeOut" msprop:Generator_ColumnPropNameInRow="AvgTimeOut" msprop:Generator_ColumnPropNameInTable="AvgTimeOutColumn" msprop:Generator_UserColumnName="AvgTimeOut" type="xs:duration" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DailySummary" />
+      <xs:field xpath="mstns:SummaryDateCriteria" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

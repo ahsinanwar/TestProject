@@ -14,25 +14,29 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Reporting.WinForms;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.BaseClasses;
 
 namespace TimeAttendanceSystem.Reports.ReportForms
 {
     /// <summary>
-    /// Interaction logic for DFLeaveQuota.xaml
+    /// Interaction logic for DFLateIn.xaml
     /// </summary>
     public partial class DFLeaveQuota : Page
     {
         public DFLeaveQuota()
         {
             InitializeComponent();
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            LoadReport(Properties.Settings.Default.ReportPath + "DRLeaveQuota.rdlc", ctx.ViewLeaveQuotas.ToList());
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
-            List<ViewAbsent> _TempViewList = new List<ViewAbsent>();
+            List<ViewLeaveQuota> _TempViewList = new List<ViewLeaveQuota>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewLeaveQuota> _ViewList = ctx.ViewLeaveQuotas.ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -127,15 +131,17 @@ namespace TimeAttendanceSystem.Reports.ReportForms
                 _TempViewList = _ViewList.ToList();
             _TempViewList.Clear();
 
-            LoadReport(Properties.Settings.Default.ReportPath + "DRDetailed.rdlc", _ViewList);
+            LoadReport(Properties.Settings.Default.ReportPath + "DRLeaveQuota.rdlc", _ViewList);
 
         }
-        private void LoadReport(string Path, List<ViewAbsent> _List)
+        private void LoadReport(string Path, List<ViewLeaveQuota> _List)
         {
+            
+
             //rptViewer.Reset();
             string DateToFor = "";
-            string _Header = "Daily Attendance Report";
-            this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
+            string _Header = "Leave Quota";
+            this.rptViewer.LocalReport.DisplayName = "Leave Quota";
             //rptViewer.ProcessingMode = ProcessingMode.Local;
             //rptViewer.LocalReport.ReportPath = "WpfApplication1.Report1.rdlc";
             rptViewer.LocalReport.ReportPath = Path;
@@ -144,9 +150,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             ReportDataSource datasource1 = new ReportDataSource("DataSet1", _List.AsQueryable());
             rptViewer.LocalReport.DataSources.Clear();
             rptViewer.LocalReport.DataSources.Add(datasource1);
-            ReportParameter rp = new ReportParameter("Date", DateToFor, false);
             ReportParameter rp1 = new ReportParameter("Header", _Header, false);
-            this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp, rp1 });
+            ReportParameter rp2 = new ReportParameter("CompanyName", CommanVariables.CompanyName, false);
+            this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2 });
             rptViewer.RefreshReport();
         }
     }
