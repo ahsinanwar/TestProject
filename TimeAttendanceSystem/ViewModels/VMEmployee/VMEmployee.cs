@@ -127,6 +127,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             get
             {
+                if(_selectedEmp!= null)
                 if (_selectedEmp.Section == null)
                 {
                     _selectedEmp.Section = entity.Sections.FirstOrDefault();
