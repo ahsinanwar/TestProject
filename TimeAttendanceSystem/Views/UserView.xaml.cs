@@ -67,6 +67,8 @@ namespace TimeAttendanceSystem.Views
                 vmusers._selectedUser.Emp.EmpPhoto = new Model.EmpPhoto();
                 vmusers.selectedUser.Emp.EmpPhoto.EmpID = vmusers._selectedUser.Emp.EmpID;
                 vmusers.selectedUser.Emp.EmpPhoto.EmpPic = binaryImage;
+        
+
                 vmusers.raiseEmpChange();
 
 
