@@ -35,11 +35,11 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
         {
             VMUser vmd = (VMUser)parameter;
            int getUserRoleID=-2;
-            String b = vmd.selectedUserRole;
+           UserRole b = vmd.selectedUserRole;
             if (b == null)
             { PopUp.popUp("User Role", "Please select a Role", NotificationType.Warning); }
             else
-           getUserRoleID = context.UserRoles.Where(aa => aa.RoleName == b).FirstOrDefault().RoleID;
+           getUserRoleID = context.UserRoles.Where(aa => aa.RoleName == b.RoleName).FirstOrDefault().RoleID;
             if (vmd.isAdding)
             {
                 if ( vmd.selectedUser.EmpID == null)

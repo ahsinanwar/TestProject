@@ -65,7 +65,7 @@
                     <Grid Height="150">
                         <Label Content="Section Name:" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left"  Margin="128,0,0,97" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="132" Text="{Binding Path=selectedSec.SectionName}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="206,58,148,70"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="2,0.5" />
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="206,58,128,70"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="2,0.5" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         <Label Content="Department Name:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="128,4,0,0" VerticalAlignment="Top" Width="172"   FontWeight="Bold" DisplayMemberPath="DeptName" SelectedValuePath="DeptID" SelectedItem="{Binding selectedSec.Department,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding listOfDepts}" IsEnabled="{Binding isEnabled}"/>
@@ -92,7 +92,7 @@
 
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All" />
+            <telerik:RadDataPager  Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="15" DisplayMode="All" />
         </StackPanel>
     </Grid>
 
