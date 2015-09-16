@@ -76,7 +76,7 @@
                         <Label Content="Duty Code:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,318,0,0" RenderTransformOrigin="0.144,0.448"/>
                         <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="121,324,0,0" VerticalAlignment="Top" Width="135" Height="22" DisplayMemberPath="DutyName" SelectedValuePath="CodeID" SelectedValue="{Binding AttDataShow.DutyCode}" ItemsSource="{Binding listOfDutyCodes}" IsEnabled="{Binding Path=isEnabled}" />
                         <Label Content="Remarks:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,374,0,-20" Width="63"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="185,420,76,-67" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="121,418,183,-65" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="98,17,0,0" Text="{Binding Path=AttDataShow.EmpNo}" VerticalAlignment="Top" Width="110" FontSize="14" RenderTransformOrigin="0.298,-1.404"/>
                         <!--<Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="Selected Employee" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="118" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>-->
@@ -85,8 +85,8 @@
                         <Label Content="Shift Minutes:" HorizontalAlignment="Left" Margin="30,343,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.322,0.634"/>
                         <Label Content="Search Attendance" Foreground="#004b79" HorizontalAlignment="Left" Margin="10,-16,0,0" VerticalAlignment="Top" Width="175" FontSize="18"/>
 
-                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DatePicker"  SelectedValue="{Binding AttDataShow.AttDate, Mode=TwoWay, StringFormat=\{0: h:mm tt\}}" VerticalAlignment="Top"  Margin="98,45,107,0"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Search" Width="54" Background="White" Margin="213,49,48,309" Height="22"  Command="{Binding SearchCommand}" CommandParameter="{Binding AttDataShow}"/>
+                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DatePicker"  SelectedValue="{Binding AttDataShow.AttDate, Mode=TwoWay, StringFormat=\{0: h:mm tt\}}" VerticalAlignment="Top"  Margin="98,45,150,0"/>
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Search" Width="54" Background="White" Margin="214,49,90,309" Height="22"  Command="{Binding SearchCommand}" CommandParameter="{Binding AttDataShow}"/>
                         <Label Content="Date" HorizontalAlignment="Left" Margin="54,45,0,0" VerticalAlignment="Top"/>
                         <Button x:Name="btnOpenEmp" telerik:StyleManager.Theme="Windows8" Content="..." HorizontalAlignment="Left" Margin="214,19,0,0" VerticalAlignment="Top" Width="26" Click="btnOpenEmp_Click"/>
                         <Label Content="Enter New Times" Foreground="#004b79" HorizontalAlignment="Left" VerticalAlignment="Bottom"  FontSize="14" Margin="10,0,0,155"/>
