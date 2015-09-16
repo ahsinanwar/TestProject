@@ -92,7 +92,9 @@
 
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager  Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="15" DisplayMode="All" />
+
+            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All" Margin="-145,0,2,0"/>
+
         </StackPanel>
     </Grid>
 
