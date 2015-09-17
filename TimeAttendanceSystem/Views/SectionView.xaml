@@ -82,7 +82,7 @@
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
                     ItemsSource="{Binding ListOfShiftEmps}" ShowGroupPanel="False"
                     VerticalAlignment="Stretch" 
-                    CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79">
+                    CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" Height="302">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
                     <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
@@ -92,7 +92,12 @@
 
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
+
             <telerik:RadDataPager  Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="15" DisplayMode="All" />
+
+
+           
+
         </StackPanel>
     </Grid>
 

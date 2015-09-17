@@ -34,12 +34,11 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
         public void Execute(object parameter)
         {
             VMUser vmd = (VMUser)parameter;
-           int getUserRoleID=-2;
-            String b = vmd.selectedUserRole;
-            if (b == null)
+           
+           if (vmd.selectedUser.RoleID == null)
             { PopUp.popUp("User Role", "Please select a Role", NotificationType.Warning); }
             else
-           getUserRoleID = context.UserRoles.Where(aa => aa.RoleName == b).FirstOrDefault().RoleID;
+           
             if (vmd.isAdding)
             {
                 if ( vmd.selectedUser.EmpID == null)
@@ -48,7 +47,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                 }
                 else
                 {
-                    vmd.selectedUser.RoleID = (Byte)getUserRoleID;
+                    
                     using (TAS2013Entities ctx = new TAS2013Entities())
                     {
                         vmd.selectedUser.Emp = null;
@@ -63,6 +62,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
             {
                 User user = context.Users.First(aa => aa.UserID == vmd.selectedUser.UserID);
                 user.UserName = vmd.selectedUser.UserName;
+                user.RoleID = vmd.selectedUser.RoleID;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
