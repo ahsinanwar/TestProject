@@ -200,6 +200,9 @@ namespace TimeAttendanceSystem
                     case "Database":
                         _mainFrame.Navigate(new DatabaseSettings());
                         break;
+                    case "Process Attendance":
+                        _mainFrame.Navigate(new AttendanceProcess());
+                        break;
                 }
             }
         }
@@ -246,6 +249,10 @@ namespace TimeAttendanceSystem
         private void btn_User_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new UserView());
+        }
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new AttendanceProcess());
         }
 
         private void CheckForRegistered(BackgroundWorker bw)

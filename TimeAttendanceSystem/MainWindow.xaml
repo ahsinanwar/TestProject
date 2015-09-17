@@ -119,6 +119,7 @@
 
                             <telerik:RadMenuItem Header="Holidays"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Users"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Process Attendance"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 
                         <telerik:RadMenuItem Header="Leaves">
