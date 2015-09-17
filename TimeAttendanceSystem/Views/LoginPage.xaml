@@ -5,11 +5,11 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="TimeAttendanceSystem.Views.LoginPage"
         WindowStartupLocation="CenterScreen"
         Title="Window1" Height="300" Width="300" ResizeMode="NoResize" WindowStyle="None">
-    <Grid Margin="0,10,-0.4,0" RenderTransformOrigin="0.15,0.434">
+    <Grid FocusManager.FocusedElement="{Binding ElementName=userNameBox}" Margin="0,10,-0.4,0" RenderTransformOrigin="0.15,0.434">
         <Label Content="Login" HorizontalAlignment="Left" Margin="112,57,-0.6,0" VerticalAlignment="Top" Height="82" Width="189" FontSize="48" FontFamily="Rockwell Extra Bold"/>
         <Label Content="Username:" HorizontalAlignment="Left" Margin="66,163,0,0" VerticalAlignment="Top" FontFamily="Rockwell"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="66,187,0,0" VerticalAlignment="Top" FontFamily="Rockwell"/>
-        <TextBox HorizontalAlignment="Left" Margin="142,163,0,0" TextWrapping="Wrap" Text="{Binding Uc.Username}" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="userNameBox"  HorizontalAlignment="Left" Margin="142,163,0,0" TextWrapping="Wrap" Text="{Binding Uc.Username}" VerticalAlignment="Top" Width="100"/>
 
         <PasswordBox x:Name="PasswordBox" Margin="142,192,0,0"
            ff:PasswordBoxAssistant.BindPassword="true"  ff:PasswordBoxAssistant.BoundPassword="{Binding Uc.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
