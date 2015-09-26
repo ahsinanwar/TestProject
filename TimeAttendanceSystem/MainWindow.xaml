@@ -1,6 +1,7 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:valueconvertor="clr-namespace:TimeAttendanceSystem.ValueConvertors"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="TimeAttendanceSystem.MainWindow"
         Title="MainWindow"  WindowStartupLocation="CenterScreen" Background="#e8eded">
     <Window.Resources>
