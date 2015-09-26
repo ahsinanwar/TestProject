@@ -1886,6 +1886,7 @@
           </Key>
           <Property Name="AttID" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="AttDesc" Type="varchar" MaxLength="20" />
+          <Property Name="AttLegent" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="AttData">
           <Key>
@@ -2423,7 +2424,7 @@
           <Key>
             <PropertyRef Name="ClientID" />
           </Key>
-          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ClientName" Type="nvarchar" MaxLength="200" />
           <Property Name="LiscenceTypeID" Type="smallint" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
@@ -2757,7 +2758,7 @@
           <Key>
             <PropertyRef Name="LocID" />
           </Key>
-          <Property Name="LocID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LocID" Type="smallint" Nullable="false" />
           <Property Name="LocName" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="CityID" Type="smallint" />
         </EntityType>
@@ -2916,7 +2917,7 @@
           <Key>
             <PropertyRef Name="RdrID" />
           </Key>
-          <Property Name="RdrID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RdrID" Type="smallint" Nullable="false" />
           <Property Name="RdrName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="RdrDutyID" Type="tinyint" Nullable="false" />
           <Property Name="IpAdd" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -3012,7 +3013,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Name="SectionID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SectionID" Type="smallint" Nullable="false" />
           <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
           <Property Name="DeptID" Type="smallint" />
         </EntityType>
@@ -3126,7 +3127,10 @@
       -->
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="RegionID" />
+            <PropertyRef Name="EmpNo" />
+            <PropertyRef Name="EmpName" />
+            <PropertyRef Name="ProcessAtt" />
+            <PropertyRef Name="EmpID" />
           </Key>
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
@@ -3134,8 +3138,8 @@
           <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmpNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpNo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmpName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="DesigID" Type="int" />
           <Property Name="JobID" Type="smallint" />
           <Property Name="Gender" Type="tinyint" />
@@ -3152,7 +3156,7 @@
           <Property Name="IssueDate" Type="date" />
           <Property Name="ResignDate" Type="date" />
           <Property Name="HomeAdd" Type="nvarchar" MaxLength="300" />
-          <Property Name="ProcessAtt" Type="bit" />
+          <Property Name="ProcessAtt" Type="bit" Nullable="false" />
           <Property Name="Status" Type="bit" />
           <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -3173,12 +3177,12 @@
           <Property Name="DeptID" Type="smallint" />
           <Property Name="DivID" Type="smallint" />
           <Property Name="CrewID" Type="smallint" />
-          <Property Name="EmpID" Type="int" />
+          <Property Name="EmpID" Type="int" Nullable="false" />
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="CityID" Type="smallint" />
           <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionID" Type="tinyint" Nullable="false" />
+          <Property Name="RegionID" Type="tinyint" />
           <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -5650,6 +5654,7 @@
           </Key>
           <Property Type="String" Name="AttID" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="AttDesc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AttLegent" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AttData">
           <Key>
@@ -6192,7 +6197,7 @@
           <Key>
             <PropertyRef Name="ClientID" />
           </Key>
-          <Property Type="Int32" Name="ClientID" Nullable="false" />
+          <Property Type="Int32" Name="ClientID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="ClientName" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="LiscenceTypeID" />
           <Property Type="String" Name="CreatedBy" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -6563,7 +6568,7 @@
           <Key>
             <PropertyRef Name="LocID" />
           </Key>
-          <Property Type="Int16" Name="LocID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="LocID" Nullable="false" />
           <Property Type="String" Name="LocName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="CityID" />
           <NavigationProperty Name="City" Relationship="TASDesktopModel.FK_Location_City" FromRole="Location" ToRole="City" />
@@ -6738,7 +6743,7 @@
           <Key>
             <PropertyRef Name="RdrID" />
           </Key>
-          <Property Type="Int16" Name="RdrID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="RdrID" Nullable="false" />
           <Property Type="String" Name="RdrName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Byte" Name="RdrDutyID" Nullable="false" />
           <Property Type="String" Name="IpAdd" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -6849,7 +6854,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Type="Int16" Name="SectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="SectionID" Nullable="false" />
           <Property Type="String" Name="SectionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="DeptID" />
           <NavigationProperty Name="Department" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Section" ToRole="Department" />
@@ -6973,7 +6978,10 @@
         </EntityType>
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="RegionID" />
+            <PropertyRef Name="EmpNo" />
+            <PropertyRef Name="EmpName" />
+            <PropertyRef Name="ProcessAtt" />
+            <PropertyRef Name="EmpID" />
           </Key>
           <Property Type="String" Name="DesignationName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="GradeName" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -6981,8 +6989,8 @@
           <Property Type="String" Name="CrewName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="EmpNo" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="EmpName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="DesigID" />
           <Property Type="Int16" Name="JobID" />
           <Property Type="Byte" Name="Gender" />
@@ -6999,7 +7007,7 @@
           <Property Type="DateTime" Name="IssueDate" Precision="0" />
           <Property Type="DateTime" Name="ResignDate" Precision="0" />
           <Property Type="String" Name="HomeAdd" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="ProcessAtt" />
+          <Property Type="Boolean" Name="ProcessAtt" Nullable="false" />
           <Property Type="Boolean" Name="Status" />
           <Property Type="String" Name="PhoneNo" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7020,12 +7028,12 @@
           <Property Type="Int16" Name="DeptID" />
           <Property Type="Int16" Name="DivID" />
           <Property Type="Int16" Name="CrewID" />
-          <Property Type="Int32" Name="EmpID" />
+          <Property Type="Int32" Name="EmpID" Nullable="false" />
           <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="CityID" />
           <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Byte" Name="RegionID" Nullable="false" />
+          <Property Type="Byte" Name="RegionID" />
           <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ViewAbsent">
@@ -9088,6 +9096,7 @@
           <EntitySetMapping Name="AttCodes">
             <EntityTypeMapping TypeName="TASDesktopModel.AttCode">
               <MappingFragment StoreEntitySet="AttCodes">
+                <ScalarProperty Name="AttLegent" ColumnName="AttLegent" />
                 <ScalarProperty Name="AttDesc" ColumnName="AttDesc" />
                 <ScalarProperty Name="AttID" ColumnName="AttID" />
               </MappingFragment>

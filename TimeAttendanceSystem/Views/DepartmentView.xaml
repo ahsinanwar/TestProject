@@ -43,8 +43,8 @@
                     <Label Foreground="White">Department Detail</Label>
                 </StackPanel>
                 <!--Buttons Panel-->
-                <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
-                    <StackPanel Margin="1,0,9,3" Background="White">
+                <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Height="305">
+                    <StackPanel Margin="1,0,9,-1" Background="White">
                         <!--Buttons Panel-->
                         <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
                             <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">

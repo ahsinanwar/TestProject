@@ -83,6 +83,7 @@ namespace CRUDLesson
                 }
                 context.SaveChanges();
             }
+            RefreshList();
         }
 
         private void btn_Read_Click(object sender, EventArgs e)
