@@ -33,14 +33,11 @@ namespace TimeAttendanceSystem.Views
         private void btn_empView_Click(object sender, RoutedEventArgs e)
         {
             window = new SelectEmpWindow();
-
-
             if ((bool)window.ShowDialog())
             {
-
-              
                 vmlvshorts.selectedEmpAndShortLv.Employee = window._selectedEmp;
-                txtEmpID.Text = window._selectedEmp.EmpNo.ToString();
+                txtEmpID.Text = window._selectedEmp.EmpNo;
+                txtEmpName.Text = window._selectedEmp.EmpName;
             }
         }
 

@@ -117,6 +117,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttendanceProcessor\CreateMissingAttendance.cs" />
+    <Compile Include="AttendanceProcessor\ManualProcess.cs" />
+    <Compile Include="AttendanceProcessor\ProcessAttendance.cs" />
+    <Compile Include="AttendanceProcessor\ProcessEditAttendanceEntries.cs" />
+    <Compile Include="AttendanceProcessor\ProcessJobCard.cs" />
+    <Compile Include="AttendanceProcessor\ProcessManualAttendance.cs" />
     <Compile Include="BaseClasses\BackgroundVisualHost.cs" />
     <Compile Include="BaseClasses\BusyDecorator.cs" />
     <Compile Include="BaseClasses\CommanVariables.cs" />
@@ -675,6 +681,9 @@
     <Compile Include="Views\AttEditView.xaml.cs">
       <DependentUpon>AttEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AttendanceProcess.xaml.cs">
+      <DependentUpon>AttendanceProcess.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CardMgrView.xaml.cs">
       <DependentUpon>CardMgrView.xaml</DependentUpon>
     </Compile>
@@ -937,6 +946,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AttEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AttendanceProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

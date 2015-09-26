@@ -16,23 +16,15 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         #region Intialization
         public Emp _dummyEmp;
         public User _selectedUser;
-        private String _selectedUserRole;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean _isChecked;
-        public String selectedUserRole
-        { get { return _selectedUserRole; }
-            set {
-                _selectedUserRole = value;
-                OnPropertyChanged("selectedUserRole");
-            }
-        }
+       
         public Boolean IsChecked
         {
             get { return _isChecked; }
             set
             {
-
                 _isChecked = value;
                 OnPropertyChanged("IsChecked");
             }
@@ -44,7 +36,6 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
             {
                 _isAdding = value;
                 base.OnPropertyChanged("isAdding");
-
             }
         }
         public Boolean isEnabled
@@ -80,11 +71,10 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
                 _selectedUser = value;
                 base.OnPropertyChanged("selectedUser");
                 base.OnPropertyChanged("isEnabled");
-
             }
         }
-        private ObservableCollection<String> _listOfUserRoles;
-        public ObservableCollection<String> listOfUserRoles
+        private ObservableCollection<UserRole> _listOfUserRoles;
+        public ObservableCollection<UserRole> listOfUserRoles
         {
             get { return _listOfUserRoles; }
             set
@@ -177,13 +167,9 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         {
             entity = new TAS2013Entities();
             _selectedUser = new User();
-            List<UserRole> forRadComboBox = new List<UserRole>();
-            forRadComboBox= entity.UserRoles.ToList();
-            _listOfUserRoles = new ObservableCollection<string>();
-           foreach(UserRole Rd in forRadComboBox)
-           {
-               _listOfUserRoles.Add(Rd.RoleName);
-           }
+           
+            _listOfUserRoles = new ObservableCollection<UserRole>(entity.UserRoles.ToList());
+
             _listOfUsers = new ObservableCollection<User>(entity.Users.ToList());
             _selectedUser = entity.Users.ToList().FirstOrDefault();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
@@ -201,7 +187,6 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         #endregion 
         internal void raiseEmpChange()
         {
-
             base.OnPropertyChanged("dummyEmp");
         }
     }

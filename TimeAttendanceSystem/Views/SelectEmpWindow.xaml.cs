@@ -23,7 +23,7 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class SelectEmpWindow : Window
     {
-        public ObservableCollection<Emp> listOfEmps;
+        public List<Emp> listOfEmps;
         public Emp _selectedEmp;
         public Emp selectedEmp
         {
@@ -41,7 +41,7 @@ namespace TimeAttendanceSystem.Views
         {
             InitializeComponent();
             selectedEmp = new Emp();
-            listOfEmps = new ObservableCollection<Emp>(context.Emps.ToList());
+            listOfEmps = new List<Emp>(context.Emps.ToList());
             lstView_emps.ItemsSource = listOfEmps;
         }
 

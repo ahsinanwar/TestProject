@@ -34,12 +34,11 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
         public void Execute(object parameter)
         {
             VMUser vmd = (VMUser)parameter;
-           int getUserRoleID=-2;
-            String b = vmd.selectedUserRole;
-            if (b == null)
+           
+           if (vmd.selectedUser.RoleID == null)
             { PopUp.popUp("User Role", "Please select a Role", NotificationType.Warning); }
             else
-           getUserRoleID = context.UserRoles.Where(aa => aa.RoleName == b).FirstOrDefault().RoleID;
+           
             if (vmd.isAdding)
             {
                 if ( vmd.selectedUser.EmpID == null)
@@ -48,7 +47,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                 }
                 else
                 {
-                    vmd.selectedUser.RoleID = (Byte)getUserRoleID;
+                    
                     using (TAS2013Entities ctx = new TAS2013Entities())
                     {
                         vmd.selectedUser.Emp = null;
@@ -63,6 +62,30 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
             {
                 User user = context.Users.First(aa => aa.UserID == vmd.selectedUser.UserID);
                 user.UserName = vmd.selectedUser.UserName;
+                user.RoleID = vmd.selectedUser.RoleID;
+                user.CanAdd = vmd.selectedUser.CanAdd;
+                user.CanView = vmd.selectedUser.CanView;
+                user.CanEdit = vmd.selectedUser.CanEdit;
+                user.CanDelete = vmd.selectedUser.CanDelete;
+                user.ViewPermanentStaff = vmd.selectedUser.ViewPermanentStaff;
+                user.ViewPermanentMgm = vmd.selectedUser.ViewPermanentStaff;
+                user.ViewContractualStaff = vmd.selectedUser.ViewContractualStaff;
+                user.ViewContractualMgm = vmd.selectedUser.ViewContractualMgm;
+                user.MLeave = vmd.selectedUser.MLeave;
+                user.MRMonthly = vmd.selectedUser.MRMonthly;
+                user.MRAudit = vmd.selectedUser.MRAudit;
+                user.MREmployee = vmd.selectedUser.MREmployee;
+                user.MRDetail = vmd.selectedUser.MRDetail;
+                user.MRDailyAtt = vmd.selectedUser.MRDailyAtt;
+                user.MRSummary = vmd.selectedUser.MRSummary;
+                user.MHR = vmd.selectedUser.MHR;
+                user.MEditAtt = vmd.selectedUser.MEditAtt;
+                //user.Report = vmd.selectedUser.ViewPermanentStaff;
+                user.MUser = vmd.selectedUser.MUser;
+                user.MRoster = vmd.selectedUser.MRoster;
+                user.MDevice = vmd.selectedUser.MDevice;
+                user.MLeave = vmd.selectedUser.MLeave;
+                
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
