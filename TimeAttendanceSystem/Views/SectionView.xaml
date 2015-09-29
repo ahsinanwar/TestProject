@@ -11,8 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
@@ -25,7 +24,7 @@
         </Border>
 
         <!--List View Panel-->
-        <StackPanel  Grid.Row="1" Grid.Column="0">
+        <StackPanel  Grid.Row="1" Grid.Column="0" Margin="0,0,0,334">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
         		telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch"  
         		ItemsSource="{Binding listOfSecs}" SelectedItem="{Binding selectedSec}" ShowGroupPanel="False"
@@ -40,7 +39,7 @@
             </telerik:RadGridView>
         </StackPanel>
         <!--CRUD Panel-->
-        <Border BorderBrush="LightGray" BorderThickness="1" Grid.Column="0"  VerticalAlignment="Bottom"  Grid.Row="2">
+        <Border BorderBrush="LightGray" BorderThickness="1" Grid.Column="0"  VerticalAlignment="Bottom"  Grid.Row="1">
             <StackPanel Background="White">
                 <StackPanel Background="#004b79">
                     <Label Foreground="White" Height="23">Section Detail</Label>
@@ -76,13 +75,13 @@
             </StackPanel>
         </Border>
         <!--Employee List View Panel-->
-        <StackPanel Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1">
+        <StackPanel Margin="0,0,0,0" Grid.Row="1" Grid.Column="1">
             <Label Background="#004b79"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Section</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
                     ItemsSource="{Binding ListOfShiftEmps}" ShowGroupPanel="False"
                     VerticalAlignment="Stretch" 
-                    CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79">
+                    CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" Height="439">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
                     <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
@@ -93,7 +92,10 @@
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
 
-            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All" Margin="-145,0,2,0"/>
+            <telerik:RadDataPager  Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="15" DisplayMode="All" />
+
+
+           
 
         </StackPanel>
     </Grid>

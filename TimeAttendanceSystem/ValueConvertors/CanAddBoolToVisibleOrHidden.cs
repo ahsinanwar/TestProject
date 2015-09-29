@@ -25,6 +25,7 @@ namespace TimeAttendanceSystem.ValueConvertors
         #region IValueConverter Members
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
+            Permission = (string)parameter;
             bool bValue = false;
             switch (Permission)
             {
@@ -51,9 +52,9 @@ namespace TimeAttendanceSystem.ValueConvertors
             else
             {
                 if (Collapse)
-                    return Visibility.Collapsed;
-                else
                     return Visibility.Hidden;
+                else
+                    return Visibility.Collapsed;
             }
         }
 
