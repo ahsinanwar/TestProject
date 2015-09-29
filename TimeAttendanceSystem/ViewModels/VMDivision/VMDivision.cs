@@ -41,17 +41,17 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision
             }
         }
         private ObservableCollection<Division> _listOfDivs;
-        private ObservableCollection<Emp> _listOfShiftEmps;
-        public ObservableCollection<Emp> ListOfShiftEmps
+        private ObservableCollection<Emp> _listOfDivEmps;
+        public ObservableCollection<Emp> ListOfDivEmps
         {
 
-            get { return _listOfShiftEmps; }
+            get { return _listOfDivEmps; }
             set
             {
 
-                _listOfShiftEmps = value;
+                _listOfDivEmps = value;
 
-                base.OnPropertyChanged("ListOfShiftEmps");
+                base.OnPropertyChanged("ListOfDivEmps");
                 base.OnPropertyChanged("isEnabled");
             }
         }
@@ -71,7 +71,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision
             {
                 this.isEnabled = false;
                 _selectedDiv = value;
-                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.Department.DivID == _selectedDiv.DivisionID));
+                _listOfDivEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.Department.DivID == _selectedDiv.DivisionID));
                 base.OnPropertyChanged("selectedDiv");
                 base.OnPropertyChanged("isEnabled");
 
@@ -134,7 +134,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision
             
             _listOfDivs = new ObservableCollection<Division>(entity.Divisions.ToList());
             _selectedDiv = entity.Divisions.ToList().FirstOrDefault();
-            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.Department.DivID == _selectedDiv.DivisionID));
+            _listOfDivEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.Department.DivID == _selectedDiv.DivisionID));
             this._AddCommand = new AddCommandDiv(_selectedDiv);
             this._EditCommand = new EditCommandDiv(this);
             this._DeleteCommand = new DeleteCommandDiv(_selectedDiv);

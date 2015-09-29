@@ -25,19 +25,15 @@ namespace CRUDLesson
         /// <param name="e"></param>
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            // Create a context for database using entity framework
             CRUDLessonEntities context = new CRUDLessonEntities();
-            // instantiate a list of persons it will have no elements at this time
-            List<Person> list_persons = new List<Person>();
-            // Get persons' data from the database context into the list created
-            list_persons = context.People.ToList();
-            // Iterate over the list using foreach
-            foreach (Person person in list_persons)
-            {
-                // Update Age of each person
-                person.Age = 20;
+            List<Person> list_person = new List<Person>();
+            list_person = context.People.ToList();
+
+            foreach (Person person in list_person) {
+
+                person.Height = 8.9;
+                person.Age = 23;
             }
-            // Commit these changes to the database
             context.SaveChanges();
             RefreshList();
         }
@@ -106,6 +102,18 @@ namespace CRUDLesson
                     lvi.SubItems.Add(person.Height.ToString());
                     lst_persons.Items.Add(lvi);
                 }
+            }
+        }
+
+        private void btn_updateSingle_Click(object sender, EventArgs e)
+        {
+            using (CRUDLessonEntities context = new CRUDLessonEntities())
+            {
+                string name = lst_persons.SelectedItems[0].Text;
+                Person p = context.People.First(person => person.Name == name);
+                p.Age = 90;
+                context.SaveChanges();
+                RefreshList();
             }
         }
     }

@@ -36,7 +36,9 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
             {
                 VMLocation vmd = (VMLocation)parameter;
                 if (vmd.isAdding)
+                    // if a new object is being added
                 {
+                    // validate empty
                     if (vmd.selectedLoc.LocName == "" || vmd.selectedLoc.LocName == null)
                     {
                         PopUp.popUp("Empty Value", "Please write Location before saving", NotificationType.Warning);
@@ -44,21 +46,30 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
 
                     else
                     {
+                        // validate duplicate
                         if (ctx.Locations.Where(aa => aa.LocName == vmd.selectedLoc.LocName).Count() > 0)
                         {
                             PopUp.popUp("Sorry!", "Location name already been created", NotificationType.Warning);
                         }
                         else
                         {
+                            // if everything is ok, save new object to database
                             vmd.selectedLoc.City = null;
                             ctx.Locations.Add(vmd.selectedLoc);
-                            ctx.SaveChanges();
-                            vmd.listOfLocs.Add(vmd.selectedLoc);
-                            PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
+                            if (ctx.SaveChanges() > 0)
+                            {
+                                vmd.listOfLocs.Add(vmd.selectedLoc);
+                                PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
+                            }
+                            else
+                            {
+                                PopUp.popUp("Sorry!", "An error occured while saving.", NotificationType.Warning);
+                            }
                         }
                     }
                 }
                 else
+                    // if old object is being edited
                 {
                     Location loc = ctx.Locations.First(aa => aa.LocID == vmd.selectedLoc.LocID);
                     loc.LocName = vmd.selectedLoc.LocName;

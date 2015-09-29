@@ -38,6 +38,7 @@
             this.Age = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.City = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Height = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_updateSingle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Create
@@ -125,11 +126,22 @@
             this.Height.Text = "Height";
             this.Height.Width = 82;
             // 
+            // btn_updateSingle
+            // 
+            this.btn_updateSingle.Location = new System.Drawing.Point(25, 182);
+            this.btn_updateSingle.Name = "btn_updateSingle";
+            this.btn_updateSingle.Size = new System.Drawing.Size(97, 23);
+            this.btn_updateSingle.TabIndex = 6;
+            this.btn_updateSingle.Text = "Update Single";
+            this.btn_updateSingle.UseVisualStyleBackColor = true;
+            this.btn_updateSingle.Click += new System.EventHandler(this.btn_updateSingle_Click);
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 376);
+            this.Controls.Add(this.btn_updateSingle);
             this.Controls.Add(this.lst_persons);
             this.Controls.Add(this.btn_DeleteMultiple);
             this.Controls.Add(this.btn_Delete);
@@ -154,6 +166,7 @@
         private System.Windows.Forms.ColumnHeader Age;
         private System.Windows.Forms.ColumnHeader City;
         private System.Windows.Forms.ColumnHeader Height;
+        private System.Windows.Forms.Button btn_updateSingle;
     }
 }
 

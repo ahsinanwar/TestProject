@@ -46,15 +46,15 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-        private ObservableCollection<Emp> _listOfShiftEmps;
-        public ObservableCollection<Emp> ListOfShiftEmps
+        private ObservableCollection<Emp> _listOfLocEmps;
+        public ObservableCollection<Emp> ListOfLocEmps
         {
 
-            get { return _listOfShiftEmps; }
+            get { return _listOfLocEmps; }
             set
             {
 
-                _listOfShiftEmps = value;
+                _listOfLocEmps = value;
 
                 base.OnPropertyChanged("isEnabled");
             }
@@ -70,8 +70,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
             {
                 this.isEnabled = false;
                 _selectedLoc = value;
-                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.LocID == _selectedLoc.LocID));
-                base.OnPropertyChanged("ListOfShiftEmps");
+                _listOfLocEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.LocID == _selectedLoc.LocID));
+                base.OnPropertyChanged("ListOfLocEmps");
                 base.OnPropertyChanged("selectedLoc");
                 base.OnPropertyChanged("isEnabled");
 
@@ -146,7 +146,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
             _selectedLoc = entity.Locations.ToList().FirstOrDefault();
             _listOfCities = new ObservableCollection<City>(entity.Cities.ToList());
             _selectedCity = entity.Cities.ToList().FirstOrDefault();
-            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.LocID == _selectedLoc.LocID));
+            _listOfLocEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.LocID == _selectedLoc.LocID));
             this._AddCommand = new AddCommandLoc(_selectedLoc);
             this._EditCommand = new EditCommandLoc(this);
             this._DeleteCommand = new DeleteCommandLoc(_selectedLoc);
