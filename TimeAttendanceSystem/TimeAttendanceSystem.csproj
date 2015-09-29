@@ -118,6 +118,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AttendanceProcessor\CreateMissingAttendance.cs" />
+    <Compile Include="AttendanceProcessor\Downloader.cs" />
     <Compile Include="AttendanceProcessor\ManualProcess.cs" />
     <Compile Include="AttendanceProcessor\ProcessAttendance.cs" />
     <Compile Include="AttendanceProcessor\ProcessEditAttendanceEntries.cs" />
@@ -303,6 +304,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PollData.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PollDataError.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RdrDutyCode.cs">
@@ -1192,6 +1196,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReadersCommLibrary\ReadersCommLibrary.csproj">
+      <Project>{51a6d290-f802-43d5-803f-67ee18cc5826}</Project>
+      <Name>ReadersCommLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

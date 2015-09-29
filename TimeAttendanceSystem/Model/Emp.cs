@@ -67,6 +67,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> ReaderID { get; set; }
         public Nullable<System.DateTime> LastEntryDateTime { get; set; }
         public Nullable<bool> IsSafe { get; set; }
+        public Nullable<bool> HasOT { get; set; }
     
         public virtual ICollection<AttData> AttDatas { get; set; }
         public virtual ICollection<AttDataManEdit> AttDataManEdits { get; set; }

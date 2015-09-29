@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeAttendanceSystem", "Tim
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup3", "Setup3\Setup3.isproj", "{BE1F24B1-4421-4077-A0F5-DA4860810420}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadersCommLibrary", "ReadersCommLibrary\ReadersCommLibrary.csproj", "{51A6D290-F802-43D5-803F-67EE18CC5826}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -34,6 +36,16 @@ Global
 		{BE1F24B1-4421-4077-A0F5-DA4860810420}.Release|Any CPU.Build.0 = SingleImage
 		{BE1F24B1-4421-4077-A0F5-DA4860810420}.SingleImage|Any CPU.ActiveCfg = SingleImage
 		{BE1F24B1-4421-4077-A0F5-DA4860810420}.SingleImage|Any CPU.Build.0 = SingleImage
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{51A6D290-F802-43D5-803F-67EE18CC5826}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

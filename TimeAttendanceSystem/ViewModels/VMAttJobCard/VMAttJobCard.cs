@@ -14,6 +14,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
     {
         #region Intialization
         public AttData _selectedAttData;
+        public JobCardApp _selectedJobCardApp;
         public AttData _attDataShow;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
@@ -52,6 +53,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
         }
         private ObservableCollection<AttData> _listOfAttData;
         private ObservableCollection<JobCard> _listOfJobCards;
+        private ObservableCollection<JobCardApp> _listofJobCardApps;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -97,6 +99,16 @@ namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
                 OnPropertyChanged("_listOfJobCards");
             }
         }
+        public ObservableCollection<JobCardApp> listofJobCardApps
+        {
+            get { return _listofJobCardApps; }
+
+            set
+            {
+                _listofJobCardApps = value;
+                OnPropertyChanged("listofJobCardApps");
+            }
+        }
         #endregion
 
         #region ICommands
@@ -119,6 +131,8 @@ namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
             _attDataShow = new AttData();
             _selectedAttData = new AttData();
             DateTime date = new DateTime(2015, 03, 15);
+            _listofJobCardApps = new ObservableCollection<JobCardApp>(entity.JobCardApps.ToList());
+           
             _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.Where(aa => aa.AttDate == date).ToList());
             _selectedAttData = entity.AttDatas.ToList().FirstOrDefault();
             _attDataShow = entity.AttDatas.ToList().FirstOrDefault();

@@ -45,7 +45,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLogin.Commands
             }
             else 
             {
-                Application.Current.MainWindow.Close();
+                //Application.Current.MainWindow.Close();
 
             }
         }

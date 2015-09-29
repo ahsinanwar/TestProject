@@ -150,15 +150,12 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                         _error = ex.InnerException.Message;
                     else
                         _error = ex.Message;
-                    _myHelperClass.WriteToLogFile("Attendance Processing Error Level 1 " + _error);
                 }
                 context.SaveChanges();
             }
-            _myHelperClass.WriteToLogFile("Attendance Processing Completed");
             context.Dispose();
         }
 
-        MyCustomFunctions _myHelperClass = new MyCustomFunctions();
 
         TimeSpan OpenShiftThresholdStart = new TimeSpan(17, 00, 00);
         
@@ -334,7 +331,6 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                     _error = ex.InnerException.Message;
                 else
                     _error = ex.Message;
-                _myHelperClass.WriteToLogFile("Attendance Processing Error at Markin In/Out " + _error);
             }
         }
 
@@ -713,7 +709,6 @@ namespace TimeAttendanceSystem.AttendanceProcessor
             catch (Exception ex)
             {
                 //Error in TimeIN/OUT
-                _myHelperClass.WriteToLogFile("Error At Creating Attendance");
             }
         }
 
@@ -902,7 +897,7 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                         attendanceRecord.StatusOT = true;
                         attendanceRecord.Remarks = attendanceRecord.Remarks + "[R-OT]";
                         // RoundOff Overtime
-                        if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4) && employee.CompanyID == 1)
+                        if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4))
                         {
                             if (attendanceRecord.OTMin > 0)
                             {
@@ -1085,7 +1080,7 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                             }
                         }
                         // RoundOff Overtime
-                        if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4) && employee.CompanyID == 1)
+                        if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4))
                         {
                             if (attendanceRecord.OTMin > 0)
                             {
@@ -1152,7 +1147,7 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                             attendanceRecord.StatusOT = true;
                             attendanceRecord.Remarks = attendanceRecord.Remarks + "[R-OT]";
                             // RoundOff Overtime
-                            if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4) && employee.CompanyID == 1)
+                            if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4))
                             {
                                 if (attendanceRecord.OTMin > 0)
                                 {
@@ -1219,7 +1214,7 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                                     attendanceRecord.WorkMin = CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek);
                                 }
                                 // RoundOff Overtime
-                                if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4) && employee.CompanyID == 1)
+                                if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4))
                                 {
                                     if (attendanceRecord.OTMin > 0)
                                     {
@@ -1258,12 +1253,6 @@ namespace TimeAttendanceSystem.AttendanceProcessor
             }
             catch (Exception ex)
             {
-                string _error = "";
-                if (ex.InnerException.Message != null)
-                    _error = ex.InnerException.Message;
-                else
-                    _error = ex.Message;
-                _myHelperClass.WriteToLogFile("Attendance Processing at Calculating Times;  " + _error);
             }
             context.SaveChanges();
         }
@@ -1288,7 +1277,7 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                     attendanceRecord.StatusOT = true;
                     attendanceRecord.Remarks = attendanceRecord.Remarks + "[R-OT]";
                     // RoundOff Overtime
-                    if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4) && employee.CompanyID == 1)
+                    if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4) )
                     {
                         if (attendanceRecord.OTMin > 0)
                         {
@@ -1430,7 +1419,7 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                         attendanceRecord.WorkMin = CalculateShiftMinutes(_shift, attendanceRecord.AttDate.Value.DayOfWeek);
                     }
                     // RoundOff Overtime
-                    if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4) && employee.CompanyID == 1)
+                    if ((employee.EmpType.CatID == 2 || employee.EmpType.CatID == 4))
                     {
                         if (attendanceRecord.OTMin > 0)
                         {
@@ -1498,12 +1487,6 @@ namespace TimeAttendanceSystem.AttendanceProcessor
             }
             catch (Exception ex)
             {
-                string _error = "";
-                if (ex.InnerException.Message != null)
-                    _error = ex.InnerException.Message;
-                else
-                    _error = ex.Message;
-                _myHelperClass.WriteToLogFile("Attendance Processing Roster Times" + _error);
             }
         }
         #endregion
@@ -1950,7 +1933,7 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                         }
                         catch (Exception ex)
                         {
-                            _myHelperClass.WriteToLogFile("-------Error In Creating Attendance of Employee: " + emp.EmpNo + " ------" + ex.InnerException.Message);
+                            
                         }
                     }
                 }

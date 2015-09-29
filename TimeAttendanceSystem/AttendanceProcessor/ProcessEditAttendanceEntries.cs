@@ -588,12 +588,6 @@ namespace TimeAttendanceSystem.AttendanceProcessor
             }
             catch (Exception ex)
             {
-                string _error = "";
-                if (ex.InnerException.Message != null)
-                    _error = ex.InnerException.Message;
-                else
-                    _error = ex.Message;
-                _myHelperClass.WriteToLogFile("Attendance Processing at Calculating Times;  " + _error);
             }
         }
         #endregion

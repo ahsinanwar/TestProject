@@ -7,15 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TimeAttendanceSystem.Model
+namespace CRUDLesson
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class AttCode
+    public partial class Person
     {
-        public string AttID { get; set; }
-        public string AttDesc { get; set; }
-        public string AttLegent { get; set; }
+        public int PersonID { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> Age { get; set; }
+        public string City { get; set; }
+        public Nullable<double> Height { get; set; }
     }
 }

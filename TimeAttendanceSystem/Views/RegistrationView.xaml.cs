@@ -89,7 +89,7 @@ namespace TimeAttendanceSystem.Views
                       
                        
                    }
-                   else 
+                   else
                    {
                        if (activeMACs > cl.NoOfUsers)
                        {
@@ -97,16 +97,16 @@ namespace TimeAttendanceSystem.Views
                            this.Close();
 
                        }
-                       else if(activeMACs <=cl.NoOfUsers && mymac.IsUsing==true)
+                       else if (activeMACs <= cl.NoOfUsers && mymac.IsUsing == true)
                        {
                            LoginPage mw = new LoginPage();
-                           
+
                            //mw.CommenceTripleChecking();
                            mw.Show();
                            context.Dispose();
                            this.Close();
-                           
-                          
+
+
                        }
                        else if (activeMACs <= cl.NoOfUsers && mymac.IsUsing == false)
                        {
@@ -116,7 +116,7 @@ namespace TimeAttendanceSystem.Views
                            this.Close();
                        }
 
-                   
+
                    }
                    
                    

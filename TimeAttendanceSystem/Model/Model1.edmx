@@ -209,6 +209,7 @@
           <EntitySet Name="LvType" EntityType="TASDesktopModel.Store.LvType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Option" EntityType="TASDesktopModel.Store.Option" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PollData" EntityType="TASDesktopModel.Store.PollData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PollDataError" EntityType="TASDesktopModel.Store.PollDataError" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RdrDutyCode" EntityType="TASDesktopModel.Store.RdrDutyCode" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RdrEventLog" EntityType="TASDesktopModel.Store.RdrEventLog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Reader" EntityType="TASDesktopModel.Store.Reader" store:Type="Tables" Schema="dbo" />
@@ -1886,6 +1887,7 @@
           </Key>
           <Property Name="AttID" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="AttDesc" Type="varchar" MaxLength="20" />
+          <Property Name="AttLegent" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="AttData">
           <Key>
@@ -2635,6 +2637,7 @@
           <Property Name="ReaderID" Type="smallint" />
           <Property Name="LastEntryDateTime" Type="datetime" />
           <Property Name="IsSafe" Type="bit" />
+          <Property Name="HasOT" Type="bit" />
         </EntityType>
         <EntityType Name="EmpAccess">
           <Key>
@@ -2757,7 +2760,7 @@
           <Key>
             <PropertyRef Name="LocID" />
           </Key>
-          <Property Name="LocID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LocID" Type="smallint" Nullable="false" />
           <Property Name="LocName" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="CityID" Type="smallint" />
         </EntityType>
@@ -2855,6 +2858,7 @@
           <Property Name="Enable" Type="bit" />
           <Property Name="HasQuota" Type="bit" />
           <Property Name="CarryForward" Type="bit" />
+          <Property Name="CountHolidays" Type="bit" />
         </EntityType>
         <EntityType Name="Option">
           <Key>
@@ -2894,6 +2898,17 @@
           <Property Name="RdrDuty" Type="tinyint" />
           <Property Name="Process" Type="bit" />
           <Property Name="Split" Type="bit" />
+          <Property Name="AddedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PollDataError">
+          <Key>
+            <PropertyRef Name="UnID" />
+          </Key>
+          <Property Name="UnID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="EntryTime" Type="datetime" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="DeviceRegID" Type="int" />
         </EntityType>
         <EntityType Name="RdrDutyCode">
           <Key>
@@ -2916,7 +2931,7 @@
           <Key>
             <PropertyRef Name="RdrID" />
           </Key>
-          <Property Name="RdrID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RdrID" Type="smallint" Nullable="false" />
           <Property Name="RdrName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="RdrDutyID" Type="tinyint" Nullable="false" />
           <Property Name="IpAdd" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -3012,7 +3027,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Name="SectionID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SectionID" Type="smallint" Nullable="false" />
           <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
           <Property Name="DeptID" Type="smallint" />
         </EntityType>
@@ -3126,7 +3141,10 @@
       -->
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="RegionID" />
+            <PropertyRef Name="EmpNo" />
+            <PropertyRef Name="EmpName" />
+            <PropertyRef Name="ProcessAtt" />
+            <PropertyRef Name="EmpID" />
           </Key>
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
@@ -3134,8 +3152,8 @@
           <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmpNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpNo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmpName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="DesigID" Type="int" />
           <Property Name="JobID" Type="smallint" />
           <Property Name="Gender" Type="tinyint" />
@@ -3152,7 +3170,7 @@
           <Property Name="IssueDate" Type="date" />
           <Property Name="ResignDate" Type="date" />
           <Property Name="HomeAdd" Type="nvarchar" MaxLength="300" />
-          <Property Name="ProcessAtt" Type="bit" />
+          <Property Name="ProcessAtt" Type="bit" Nullable="false" />
           <Property Name="Status" Type="bit" />
           <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -3173,12 +3191,12 @@
           <Property Name="DeptID" Type="smallint" />
           <Property Name="DivID" Type="smallint" />
           <Property Name="CrewID" Type="smallint" />
-          <Property Name="EmpID" Type="int" />
+          <Property Name="EmpID" Type="int" Nullable="false" />
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="CityID" Type="smallint" />
           <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionID" Type="tinyint" Nullable="false" />
+          <Property Name="RegionID" Type="tinyint" />
           <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -5400,6 +5418,7 @@
           <EntitySet Name="LvTypes" EntityType="TASDesktopModel.LvType" />
           <EntitySet Name="Options" EntityType="TASDesktopModel.Option" />
           <EntitySet Name="PollDatas" EntityType="TASDesktopModel.PollData" />
+          <EntitySet Name="PollDataErrors" EntityType="TASDesktopModel.PollDataError" />
           <EntitySet Name="RdrDutyCodes" EntityType="TASDesktopModel.RdrDutyCode" />
           <EntitySet Name="RdrEventLogs" EntityType="TASDesktopModel.RdrEventLog" />
           <EntitySet Name="Readers" EntityType="TASDesktopModel.Reader" />
@@ -5650,6 +5669,7 @@
           </Key>
           <Property Type="String" Name="AttID" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="AttDesc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AttLegent" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AttData">
           <Key>
@@ -6413,6 +6433,7 @@
           <Property Type="Int16" Name="ReaderID" />
           <Property Type="DateTime" Name="LastEntryDateTime" Precision="3" />
           <Property Type="Boolean" Name="IsSafe" />
+          <Property Type="Boolean" Name="HasOT" />
           <NavigationProperty Name="AttDatas" Relationship="TASDesktopModel.FK_AttData_Emp" FromRole="Emp" ToRole="AttData" />
           <NavigationProperty Name="AttDataManEdits" Relationship="TASDesktopModel.FK_AttDataManEdit_Emp" FromRole="Emp" ToRole="AttDataManEdit" />
           <NavigationProperty Name="AttMnDatas" Relationship="TASDesktopModel.FK_AttMnData_Emp" FromRole="Emp" ToRole="AttMnData" />
@@ -6563,7 +6584,7 @@
           <Key>
             <PropertyRef Name="LocID" />
           </Key>
-          <Property Type="Int16" Name="LocID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="LocID" Nullable="false" />
           <Property Type="String" Name="LocName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="CityID" />
           <NavigationProperty Name="City" Relationship="TASDesktopModel.FK_Location_City" FromRole="Location" ToRole="City" />
@@ -6673,6 +6694,7 @@
           <Property Type="Boolean" Name="Enable" />
           <Property Type="Boolean" Name="HasQuota" />
           <Property Type="Boolean" Name="CarryForward" />
+          <Property Type="Boolean" Name="CountHolidays" />
           <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvType" ToRole="LvApplication" />
           <NavigationProperty Name="LvDatas" Relationship="TASDesktopModel.FK_LvData_LvCode" FromRole="LvType" ToRole="LvData" />
         </EntityType>
@@ -6714,7 +6736,18 @@
           <Property Type="Byte" Name="RdrDuty" />
           <Property Type="Boolean" Name="Process" />
           <Property Type="Boolean" Name="Split" />
+          <Property Type="DateTime" Name="AddedDate" Precision="3" />
           <NavigationProperty Name="Reader" Relationship="TASDesktopModel.FK_Reader_RdrID" FromRole="PollData" ToRole="Reader" />
+        </EntityType>
+        <EntityType Name="PollDataError">
+          <Key>
+            <PropertyRef Name="UnID" />
+          </Key>
+          <Property Type="Int32" Name="UnID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="EntryDate" Precision="0" />
+          <Property Type="DateTime" Name="EntryTime" Precision="3" />
+          <Property Type="DateTime" Name="AddedDate" Precision="3" />
+          <Property Type="Int32" Name="DeviceRegID" />
         </EntityType>
         <EntityType Name="RdrDutyCode">
           <Key>
@@ -6738,7 +6771,7 @@
           <Key>
             <PropertyRef Name="RdrID" />
           </Key>
-          <Property Type="Int16" Name="RdrID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="RdrID" Nullable="false" />
           <Property Type="String" Name="RdrName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Byte" Name="RdrDutyID" Nullable="false" />
           <Property Type="String" Name="IpAdd" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -6849,7 +6882,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Type="Int16" Name="SectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="SectionID" Nullable="false" />
           <Property Type="String" Name="SectionName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="DeptID" />
           <NavigationProperty Name="Department" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Section" ToRole="Department" />
@@ -6973,7 +7006,10 @@
         </EntityType>
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="RegionID" />
+            <PropertyRef Name="EmpNo" />
+            <PropertyRef Name="EmpName" />
+            <PropertyRef Name="ProcessAtt" />
+            <PropertyRef Name="EmpID" />
           </Key>
           <Property Type="String" Name="DesignationName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="GradeName" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -6981,8 +7017,8 @@
           <Property Type="String" Name="CrewName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="TypeName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="EmpNo" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="EmpName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="DesigID" />
           <Property Type="Int16" Name="JobID" />
           <Property Type="Byte" Name="Gender" />
@@ -6999,7 +7035,7 @@
           <Property Type="DateTime" Name="IssueDate" Precision="0" />
           <Property Type="DateTime" Name="ResignDate" Precision="0" />
           <Property Type="String" Name="HomeAdd" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="ProcessAtt" />
+          <Property Type="Boolean" Name="ProcessAtt" Nullable="false" />
           <Property Type="Boolean" Name="Status" />
           <Property Type="String" Name="PhoneNo" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7020,12 +7056,12 @@
           <Property Type="Int16" Name="DeptID" />
           <Property Type="Int16" Name="DivID" />
           <Property Type="Int16" Name="CrewID" />
-          <Property Type="Int32" Name="EmpID" />
+          <Property Type="Int32" Name="EmpID" Nullable="false" />
           <Property Type="String" Name="LocName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="CityID" />
           <Property Type="String" Name="ShiftName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Byte" Name="RegionID" Nullable="false" />
+          <Property Type="Byte" Name="RegionID" />
           <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ViewAbsent">
@@ -9088,6 +9124,7 @@
           <EntitySetMapping Name="AttCodes">
             <EntityTypeMapping TypeName="TASDesktopModel.AttCode">
               <MappingFragment StoreEntitySet="AttCodes">
+                <ScalarProperty Name="AttLegent" ColumnName="AttLegent" />
                 <ScalarProperty Name="AttDesc" ColumnName="AttDesc" />
                 <ScalarProperty Name="AttID" ColumnName="AttID" />
               </MappingFragment>
@@ -9821,6 +9858,7 @@
           <EntitySetMapping Name="Emps">
             <EntityTypeMapping TypeName="TASDesktopModel.Emp">
               <MappingFragment StoreEntitySet="Emp">
+                <ScalarProperty Name="HasOT" ColumnName="HasOT" />
                 <ScalarProperty Name="IsSafe" ColumnName="IsSafe" />
                 <ScalarProperty Name="LastEntryDateTime" ColumnName="LastEntryDateTime" />
                 <ScalarProperty Name="ReaderID" ColumnName="ReaderID" />
@@ -10087,6 +10125,7 @@
           <EntitySetMapping Name="LvTypes">
             <EntityTypeMapping TypeName="TASDesktopModel.LvType">
               <MappingFragment StoreEntitySet="LvType">
+                <ScalarProperty Name="CountHolidays" ColumnName="CountHolidays" />
                 <ScalarProperty Name="CarryForward" ColumnName="CarryForward" />
                 <ScalarProperty Name="HasQuota" ColumnName="HasQuota" />
                 <ScalarProperty Name="Enable" ColumnName="Enable" />
@@ -10128,6 +10167,7 @@
           <EntitySetMapping Name="PollDatas">
             <EntityTypeMapping TypeName="TASDesktopModel.PollData">
               <MappingFragment StoreEntitySet="PollData">
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
                 <ScalarProperty Name="Split" ColumnName="Split" />
                 <ScalarProperty Name="Process" ColumnName="Process" />
                 <ScalarProperty Name="RdrDuty" ColumnName="RdrDuty" />
@@ -10139,6 +10179,17 @@
                 <ScalarProperty Name="EmpDate" ColumnName="EmpDate" />
                 <ScalarProperty Name="EmpID" ColumnName="EmpID" />
                 <ScalarProperty Name="PollID" ColumnName="PollID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PollDataErrors">
+            <EntityTypeMapping TypeName="TASDesktopModel.PollDataError">
+              <MappingFragment StoreEntitySet="PollDataError">
+                <ScalarProperty Name="DeviceRegID" ColumnName="DeviceRegID" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UnID" ColumnName="UnID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

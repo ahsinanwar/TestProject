@@ -282,12 +282,10 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                         }
                         catch (Exception ex)
                         {
-                            _myHelperClass.WriteToLogFile("Error In Creating Attendance of Employee: " + emp.EmpNo);
                         }
                     }
                 }
             }
-            _myHelperClass.WriteToLogFile("Creating Attendance of Date: "+dateTime.ToString());
         }
 
         private Int16 CalculateShiftMinutes(Shift shift, DayOfWeek dayOfWeek)
