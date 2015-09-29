@@ -40,17 +40,17 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             }
         }
         private ObservableCollection<Section> _listOfSecs;
-        private ObservableCollection<Emp> _listOfShiftEmps;
+        private ObservableCollection<Emp> _listOfSecEmps;
         public ObservableCollection<Emp> ListOfShiftEmps
         {
 
-            get { return _listOfShiftEmps; }
+            get { return _listOfSecEmps; }
             set
             {
 
-                _listOfShiftEmps = value;
+                _listOfSecEmps = value;
 
-                base.OnPropertyChanged("ListOfShiftEmps");
+                base.OnPropertyChanged("ListOfSecEmps");
                 base.OnPropertyChanged("isEnabled");
             }
         }
@@ -70,8 +70,8 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             {
                 this.isEnabled = false;
                 _selectedSec = value;
-                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
-                base.OnPropertyChanged("ListOfShiftEmps");
+                _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
+                base.OnPropertyChanged("ListOfSecEmps");
                 base.OnPropertyChanged("selectedSec");
                 base.OnPropertyChanged("isEnabled");
 
@@ -144,7 +144,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
             _selectedSec = entity.Sections.ToList().FirstOrDefault();
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
-            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
+            _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
             this._AddCommand = new AddCommandSec(_selectedSec);
             this._EditCommand = new EditCommandSec(this);
             this._DeleteCommand = new DeleteCommandSec(_selectedSec);
@@ -153,7 +153,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             this._SaveCommand = new SaveCommandSec(this);
             base.OnPropertyChanged("_listOfSecs");
             base.OnPropertyChanged("_listOfDepts");
-            base.OnPropertyChanged("_listOfShiftEmps");
+            base.OnPropertyChanged("_listOfSecEmps");
         }
         #endregion
     }

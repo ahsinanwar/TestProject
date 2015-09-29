@@ -45,15 +45,15 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-        private ObservableCollection<Emp> _listOfShiftEmps;
-        public ObservableCollection<Emp> ListOfShiftEmps
+        private ObservableCollection<Emp> _listOfDesgEmps;
+        public ObservableCollection<Emp> ListOfDesgEmps
         {
 
-            get { return _listOfShiftEmps; }
+            get { return _listOfDesgEmps; }
             set
             {
 
-                _listOfShiftEmps = value;
+                _listOfDesgEmps = value;
                 
                 base.OnPropertyChanged("isEnabled");
             }
@@ -69,8 +69,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation
             {
                 this.isEnabled = false;
                 _selectedDesg = value;
-                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedDesg.DesignationID));
-                base.OnPropertyChanged("ListOfShiftEmps");
+                _listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedDesg.DesignationID));
+                base.OnPropertyChanged("ListOfDesgEmps");
                 base.OnPropertyChanged("selectedDesg");
                 base.OnPropertyChanged("isEnabled");
 
@@ -133,7 +133,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation
             
             _listOfDesg = new ObservableCollection<Designation>(entity.Designations.ToList());
             _selectedDesg = entity.Designations.ToList().FirstOrDefault();
-            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedDesg.DesignationID));
+            _listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedDesg.DesignationID));
             this._AddCommand = new AddCommandDesg(_selectedDesg);
             this._EditCommand = new EditCommandDesg(this);
             this._DeleteCommand = new DeleteCommandDesg(_selectedDesg);

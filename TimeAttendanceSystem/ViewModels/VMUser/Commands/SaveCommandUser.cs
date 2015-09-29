@@ -53,6 +53,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                         vmd.selectedUser.Emp = null;
                         ctx.Users.Add(vmd.selectedUser);
                         ctx.SaveChanges();
+                        PopUp.popUp("User", "Successfully Saved " + vmd.selectedUser.UserName, NotificationType.Information);   
                     }
                    
                     vmd.listOfUsers.Add(vmd.selectedUser);
@@ -89,6 +90,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                PopUp.popUp("User", "Successfully Edited " + vmd.selectedUser.UserName, NotificationType.Information);   
             }
 
         }
