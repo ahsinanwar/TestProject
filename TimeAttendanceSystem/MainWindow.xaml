@@ -61,24 +61,24 @@
                         <!--<telerik:RadMenuItem Header="Home" Click="btn_home_Click"  >
                     </telerik:RadMenuItem>-->
 
-                        <telerik:RadMenuItem Header="Employees" Click="btn_employee_Click">
+                        <telerik:RadMenuItem Header="Employees" Click="btn_employee_Click" Visibility="{Binding MHR, Converter={StaticResource UserPermission},ConverterParameter=MHR}">
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Shifts" Click="btn_shift_Click">
+                        <telerik:RadMenuItem Header="Shifts" Click="btn_shift_Click" Visibility="{Binding MHR, Converter={StaticResource UserPermission},ConverterParameter=MHR}">
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Leaves" Click="btn_leave_Click">
+                        <telerik:RadMenuItem Header="Leaves" Click="btn_leave_Click" Visibility="{Binding MLeave, Converter={StaticResource UserPermission},ConverterParameter=MLeave}">
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Attendance Edit" Click="Button_Click_1" >
+                        <telerik:RadMenuItem Header="Attendance Edit" Click="Button_Click_1" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}" >
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" >
+                        <telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}">
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="User" Click="btn_User_Click" Visibility="{Binding MHR, Converter={StaticResource UserPermission},ConverterParameter=MHR}">
+                        <telerik:RadMenuItem Header="User" Click="btn_User_Click" Visibility="{Binding MUser, Converter={StaticResource UserPermission},ConverterParameter=MUser}">
                         </telerik:RadMenuItem>
-                        <telerik:RadMenuItem Header="Database" Click="btn_Database_Click" >
+                        <telerik:RadMenuItem Header="Database" Click="btn_Database_Click" Visibility="{Binding MHR, Converter={StaticResource UserPermission},ConverterParameter=MHR}">
                         </telerik:RadMenuItem>
                     </telerik:RadMenu>
                 </StackPanel>
@@ -95,7 +95,7 @@
                 </StackPanel>-->
                 <StackPanel VerticalAlignment="Top">
                     <telerik:RadMenu telerik:StyleManager.Theme="Windows8" ItemClick="radContextMenu_ItemClick" Orientation="Vertical" Background="#FFF5F5F1" Foreground="Black">
-                        <telerik:RadMenuItem Header="Company" Background="#FFF5F5F1">
+                        <telerik:RadMenuItem Header="Company" Background="#FFF5F5F1" Visibility="{Binding MHR, Converter={StaticResource UserPermission},ConverterParameter=MHR}">
                             <!--<telerik:RadMenuItem.Icon>
                                 <Image Source="/Images/newFile.png"
                Stretch="None" />
@@ -114,18 +114,18 @@
                             <telerik:RadMenuItem Header="Emp Types"></telerik:RadMenuItem>
 
                             <telerik:RadMenuItem Header="Holidays"></telerik:RadMenuItem>
-                            <telerik:RadMenuItem Header="Users"></telerik:RadMenuItem>
-                            <telerik:RadMenuItem Header="Process Attendance"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Users" Visibility="{Binding MUser, Converter={StaticResource UserPermission},ConverterParameter=MUser}"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Process Attendance"  Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Leaves">
+                        <telerik:RadMenuItem Header="Leaves"  Visibility="{Binding MLeave, Converter={StaticResource UserPermission},ConverterParameter=MLeave}">
                             <telerik:RadMenuItem Header="Application"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Leave Quota"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Settings"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Devices">
+                        <telerik:RadMenuItem Header="Devices" Visibility="{Binding MDevice, Converter={StaticResource UserPermission},ConverterParameter=MDevice}">
                             <telerik:RadMenuItem Header="Device Setup"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Device Manager"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Upload Templates"></telerik:RadMenuItem>
@@ -133,12 +133,12 @@
                             <telerik:RadMenuItem Header="Troubleshoot"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Employee Reports">
+                        <telerik:RadMenuItem Header="Employee Reports" Visibility="{Binding MREmployee, Converter={StaticResource UserPermission},ConverterParameter=MREmployee}">
                             <telerik:RadMenuItem Header="Employee"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Employee(Excel)"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Daily Reports" >
+                        <telerik:RadMenuItem Header="Daily Reports" Visibility="{Binding MRDailyAtt, Converter={StaticResource UserPermission},ConverterParameter=MRDailyAtt}">
                             <telerik:RadMenuItem Header="Daily"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Absent"></telerik:RadMenuItem>
@@ -153,13 +153,13 @@
                             <telerik:RadMenuItem Header="Multiple In/Out"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Monthly Reports">
+                        <telerik:RadMenuItem Header="Monthly Reports" Visibility="{Binding MRMonthly, Converter={StaticResource UserPermission},ConverterParameter=MRMonthly}">
                             <telerik:RadMenuItem Header="Leave Quota"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Attendance Sheet"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Attendance Summary"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Summary Reports">
+                        <telerik:RadMenuItem Header="Summary Reports" Visibility="{Binding MRSummary, Converter={StaticResource UserPermission},ConverterParameter=MRSummary}">
                             <telerik:RadMenuItem Header="Yearly Leaves"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="By Company"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="By Department"></telerik:RadMenuItem>

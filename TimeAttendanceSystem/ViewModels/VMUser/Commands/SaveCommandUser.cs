@@ -51,12 +51,22 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                     using (TAS2013Entities ctx = new TAS2013Entities())
                     {
                         vmd.selectedUser.Emp = null;
-                        ctx.Users.Add(vmd.selectedUser);
-                        ctx.SaveChanges();
-                        PopUp.popUp("User", "Successfully Saved " + vmd.selectedUser.UserName, NotificationType.Information);   
+                        //[user a,user b]
+                        int Duplicate = ctx.Users.Where(aa => aa.UserName == vmd.selectedUser.UserName || aa.EmpID == vmd.selectedUser.EmpID).Count();
+                        if (Duplicate > 0)
+                        {
+                            PopUp.popUp("User", "Duplicate Detacted " + vmd.selectedUser.UserName, NotificationType.Warning);
+                        }
+                        else
+                        {
+                            ctx.Users.Add(vmd.selectedUser);
+                            ctx.SaveChanges();
+                            PopUp.popUp("User", "Successfully Saved " + vmd.selectedUser.UserName, NotificationType.Information);
+                            vmd.listOfUsers.Add(vmd.selectedUser);
+                        }
                     }
                    
-                    vmd.listOfUsers.Add(vmd.selectedUser);
+                  
                 }
             }
             else

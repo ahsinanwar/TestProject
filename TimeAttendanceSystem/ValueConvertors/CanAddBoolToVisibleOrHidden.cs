@@ -41,6 +41,19 @@ namespace TimeAttendanceSystem.ValueConvertors
                     break;
                 case "MLeave": bValue = (bool)GlobalClasses.Global.user.MLeave;
                     break;
+                case "MUser": bValue = (bool)GlobalClasses.Global.user.MUser;
+                    break;
+                case "MDevice": bValue = (bool)GlobalClasses.Global.user.MDevice;
+                    break;
+                case "MREmployee": bValue = (bool)GlobalClasses.Global.user.MREmployee;
+                    break;
+                case "MRDailyAtt": bValue = (bool)GlobalClasses.Global.user.MRDailyAtt;
+                    break;
+                case "MRMonthly": bValue = (bool)GlobalClasses.Global.user.MRMonthly;
+                    break;
+                case "MRSummary": bValue = (bool)GlobalClasses.Global.user.MRSummary;
+                    break;
+
                 
             
             }
