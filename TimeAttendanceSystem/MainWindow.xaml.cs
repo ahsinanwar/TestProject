@@ -40,11 +40,17 @@ namespace TimeAttendanceSystem
         public MainWindow()
         {
             InitializeComponent();
+            User userp = new User();
+            userp = GlobalClasses.Global.user;
+           
+            
             WindowState = WindowState.Maximized;
             CheckForRegistered(new BackgroundWorker());
             //_mainFrame.Navigate(new DashView());
             _mainFrame.Navigate(new EmployeeView());
-            CommanVariables.CompanyName = "CNS TECHNOLOGIES"; 
+            this.DataContext = userp;
+            CommanVariables.CompanyName = "CNS TECHNOLOGIES";
+           // this.DataContext = GlobalClasses.Global;
             //_mainFrame.Navigate(new EmployeeView());
             //CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
            
