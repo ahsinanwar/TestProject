@@ -43,8 +43,8 @@
                     <Label Foreground="White">Department Detail</Label>
                 </StackPanel>
                 <!--Buttons Panel-->
-                <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5">
-                    <StackPanel Margin="1,0,9,3" Background="White">
+                <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Height="305">
+                    <StackPanel Margin="1,0,9,-1" Background="White">
                         <!--Buttons Panel-->
                         <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
                             <Button telerik:StyleManager.Theme="Windows8" Width="18" BorderThickness="0" Command="{Binding AddCommand}" CommandParameter="{Binding}" ToolTip="Add">
@@ -81,7 +81,7 @@
             <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Department</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                    ItemsSource="{Binding ListOfShiftEmps}" ShowGroupPanel="False"
+                    ItemsSource="{Binding ListOfDeptEmps}" ShowGroupPanel="False"
                     VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
                     CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79" Height="444">
                 <telerik:RadGridView.Columns>
@@ -93,7 +93,7 @@
 
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
+            <telerik:RadDataPager Source="{Binding ListOfDeptEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -27,7 +27,7 @@
         <StackPanel Margin="5,5,285,5" Grid.Row="1" Grid.Column="0">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         telerik:StyleManager.Theme="Windows8" 
-                        ItemsSource="{Binding ListOfShiftEmps}" SelectedItem="{Binding selectedLoc}" ShowGroupPanel="False"
+                        ItemsSource="{Binding ListOfLocEmps}" SelectedItem="{Binding selectedLoc}" ShowGroupPanel="False"
                         VerticalAlignment="Top"  Height="260" Grid.RowSpan="2" 
                         CanUserFreezeColumns="False" MinWidth="387" Margin="0,0,115,0">
                 <telerik:RadGridView.Columns>
@@ -87,7 +87,7 @@
                     <telerik:GridViewDataColumn DataMemberBinding="{Binding Crew.CrewName}" Header="Crew"/>
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
+            <telerik:RadDataPager Source="{Binding ListOfLocEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
         </StackPanel>
     </Grid>
 

@@ -8,19 +8,18 @@
         
         mc:Ignorable="d"
         
-        Title="AttendanceProcessView"  Background="White"  Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
+        Title="AttendanceProcessView" Background="White"  Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
 
-    <Grid Height="360">
+    <Grid Height="559">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="0"/>
             <RowDefinition Height="510"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="570"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="970"/>
         </Grid.ColumnDefinitions>
-        <Border Background="#efecea" Grid.Row="0" Margin="5,5,0,5"  BorderBrush="LightGray" BorderThickness="1,1,0,1">
+        <Border Background="#efecea" Grid.Row="0" Margin="5,5,400,5"  BorderBrush="LightGray" BorderThickness="1,1,0,1">
             <StackPanel Height="40px"  >
                 <Label Foreground="#004b79" FontSize="23">Attendance Process</Label>
             </StackPanel>
@@ -39,7 +38,7 @@
             </telerik:RadGridView>
         </StackPanel>-->
         <!--CRUD Panel-->
-        <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Grid.Column="0" Grid.Row="2">
+        <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,405,5" Grid.Column="0" Grid.Row="2">
             <StackPanel Background="White">
                 <StackPanel Background="#004b79">
                     <Label Foreground="White" Height="29">Attendance Process Form</Label>
@@ -85,6 +84,24 @@
 
             </StackPanel>
         </Border>
+        <StackPanel Margin="570,0,0,0" Grid.RowSpan="2" Grid.Row="1">
+            <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Department</Label>
+            <telerik:RadGridView  AutoGenerateColumns="False" 
+                    telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
+                    ItemsSource="{Binding ListOfShiftEmps}" ShowGroupPanel="False"
+                    VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
+                    CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79" Height="444">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
+                    <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
+                    <telerik:GridViewDataColumn Header="Designation" DataMemberBinding="{Binding Designation.DesignationName}" />
+                    <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding Section.SectionName}" />
+                    <telerik:GridViewDataColumn Header="Crew" DataMemberBinding="{Binding Crew.CrewName}" />
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
+        </StackPanel>
         <!--Employee List View Panel-->
         <!--<StackPanel Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1">
             <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Department</Label>

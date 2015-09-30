@@ -14,7 +14,7 @@
                 <telerik:GridViewDataColumn Header="Employee Name"
 											    DataMemberBinding="{Binding EmpName}" />
                 <telerik:GridViewDataColumn Header="Designation"
-											    DataMemberBinding="{Binding Designation.DesigName}" />
+											    DataMemberBinding="{Binding Designation.DesignationName}" />
                 <telerik:GridViewDataColumn Header="Section"
 											    DataMemberBinding="{Binding Section.SectionName}" />
             </telerik:RadGridView.Columns>
