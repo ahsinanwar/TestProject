@@ -22,16 +22,16 @@
         <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                          ItemsSource="{Binding listOfEmpsAndLvApps}" 
-                          SelectedItem="{Binding selectedEmpAndLvApp}" 
+                          ItemsSource="{Binding listofJobCardApps}" 
+                          SelectedItem="{Binding  selectedJobCardApp}" 
                            VerticalAlignment="Stretch" GroupPanelBackground="#FF004B79">
                 <telerik:RadGridView.Columns>
-                    <telerik:GridViewDataColumn Header="Emp No" Width="80" DataMemberBinding="{Binding Employee.EmpNo}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Emp No" Width="80" DataMemberBinding="{Binding selectedAttData.Emp.EmpName}" IsReadOnly="false" />
                     <telerik:GridViewDataColumn Header="Name" Width="120" DataMemberBinding="{Binding Employee.EmpName}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="Section" Width="120" DataMemberBinding="{Binding Employee.Section.SectionName}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="From" Width="90" DataMemberBinding="{Binding LvApp.FromDate}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="To" Width="90" DataMemberBinding="{Binding LvApp.ToDate}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="Type" Width="60" DataMemberBinding="{Binding LvApp.TypeID}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Section" Width="120" DataMemberBinding="{Binding SectionName}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="From" Width="90" DataMemberBinding="{Binding selectedJobCardApp.DateStarted}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="To" Width="90" DataMemberBinding="{Binding selectedJobCardApp.DateEnded}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Job Type" Width="60" DataMemberBinding="{Binding selectedJobCardApp.CardType}" IsReadOnly="false" />
                     <telerik:GridViewDataColumn Header="Days" Width="50" DataMemberBinding="{Binding LvApp.NoOfDays}" IsReadOnly="false" />
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
@@ -55,10 +55,14 @@
                         <DatePicker HorizontalAlignment="Left" Margin="149,116,0,0" VerticalAlignment="Top" Width="140" Height="23" />
                         <Label Content="Job Card:" HorizontalAlignment="Left" Margin="76,57,0,0" VerticalAlignment="Top" />
                         <Label Content="Start Date:" HorizontalAlignment="Left" Margin="69,88,0,0" VerticalAlignment="Top" />
+                        <Label Content="End Date:" HorizontalAlignment="Left" Margin="69,113,0,0" VerticalAlignment="Top" />
+                        <telerik:RadListBox x:Name="ListBoxData" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="115" Margin="69,301,0,0">
+                        </telerik:RadListBox>
                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="149,57,0,0" VerticalAlignment="Top" Width="140" Height="26" DisplayMemberPath="WorkCardName" SelectedValuePath="WorkCardID" ItemsSource="{Binding listOfJobCards}" SelectedItem="{Binding selectedJobCard.CardType}"  FontWeight="Bold" />
                         <Label Content="2) Select Employee Selection Criteria" HorizontalAlignment="Left" Margin="14,166,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="SemiBold" Foreground="#004b79" />
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Apply" HorizontalAlignment="Center" VerticalAlignment="Center" Width="84" Background="White" Margin="205,289,74,161" Height="28"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"  />
-
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Apply" Click="btn_Apply_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="84" Background="White" Margin="205,301,74,149" Height="28"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"  />
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Click to add" Click="btn_JobCardSelect_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="84" Background="White" Margin="136,256,143,194" Height="28"  Command="{Binding SaveCommand}" CommandParameter="{Binding}"  />
+                   
                     </Grid>
                 </StackPanel>
             </StackPanel>
