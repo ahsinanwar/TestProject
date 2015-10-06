@@ -1390,7 +1390,7 @@ namespace TimeAttendanceSystem.AttendanceProcessor
 
                     }
                     //round off work minutes
-                    if (attendanceRecord.WorkMin > CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek) && (attendanceRecord.WorkMin <= (CalculateShiftMinutes(_shift, attendanceRecord.AttDate.Value.DayOfWeek) + _shift.OverTimeMin)))
+                    if (attendanceRecord.WorkMin > CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek) && (attendanceRecord.WorkMin <= (CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek) + shift.OverTimeMin)))
                     {
                         attendanceRecord.WorkMin = CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek);
                     }
