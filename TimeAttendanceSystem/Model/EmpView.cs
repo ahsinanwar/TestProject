@@ -38,7 +38,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<System.DateTime> IssueDate { get; set; }
         public Nullable<System.DateTime> ResignDate { get; set; }
         public string HomeAdd { get; set; }
-        public Nullable<bool> ProcessAtt { get; set; }
+        public bool ProcessAtt { get; set; }
         public Nullable<bool> Status { get; set; }
         public string PhoneNo { get; set; }
         public string Email { get; set; }
@@ -59,12 +59,12 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> DeptID { get; set; }
         public Nullable<short> DivID { get; set; }
         public Nullable<short> CrewID { get; set; }
-        public Nullable<int> EmpID { get; set; }
+        public int EmpID { get; set; }
         public string LocName { get; set; }
         public Nullable<short> CityID { get; set; }
         public string ShiftName { get; set; }
         public string CityName { get; set; }
-        public byte RegionID { get; set; }
+        public Nullable<byte> RegionID { get; set; }
         public string RegionName { get; set; }
     }
 }

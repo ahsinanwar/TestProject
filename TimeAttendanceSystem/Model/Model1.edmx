@@ -209,6 +209,7 @@
           <EntitySet Name="LvType" EntityType="TASDesktopModel.Store.LvType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Option" EntityType="TASDesktopModel.Store.Option" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PollData" EntityType="TASDesktopModel.Store.PollData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PollDataError" EntityType="TASDesktopModel.Store.PollDataError" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RdrDutyCode" EntityType="TASDesktopModel.Store.RdrDutyCode" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RdrEventLog" EntityType="TASDesktopModel.Store.RdrEventLog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Reader" EntityType="TASDesktopModel.Store.Reader" store:Type="Tables" Schema="dbo" />
@@ -2424,7 +2425,7 @@
           <Key>
             <PropertyRef Name="ClientID" />
           </Key>
-          <Property Name="ClientID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
           <Property Name="ClientName" Type="nvarchar" MaxLength="200" />
           <Property Name="LiscenceTypeID" Type="smallint" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
@@ -2636,6 +2637,7 @@
           <Property Name="ReaderID" Type="smallint" />
           <Property Name="LastEntryDateTime" Type="datetime" />
           <Property Name="IsSafe" Type="bit" />
+          <Property Name="HasOT" Type="bit" />
         </EntityType>
         <EntityType Name="EmpAccess">
           <Key>
@@ -2856,6 +2858,7 @@
           <Property Name="Enable" Type="bit" />
           <Property Name="HasQuota" Type="bit" />
           <Property Name="CarryForward" Type="bit" />
+          <Property Name="CountHolidays" Type="bit" />
         </EntityType>
         <EntityType Name="Option">
           <Key>
@@ -2895,6 +2898,17 @@
           <Property Name="RdrDuty" Type="tinyint" />
           <Property Name="Process" Type="bit" />
           <Property Name="Split" Type="bit" />
+          <Property Name="AddedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PollDataError">
+          <Key>
+            <PropertyRef Name="UnID" />
+          </Key>
+          <Property Name="UnID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="EntryTime" Type="datetime" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="DeviceRegID" Type="int" />
         </EntityType>
         <EntityType Name="RdrDutyCode">
           <Key>
@@ -5404,6 +5418,7 @@
           <EntitySet Name="LvTypes" EntityType="TASDesktopModel.LvType" />
           <EntitySet Name="Options" EntityType="TASDesktopModel.Option" />
           <EntitySet Name="PollDatas" EntityType="TASDesktopModel.PollData" />
+          <EntitySet Name="PollDataErrors" EntityType="TASDesktopModel.PollDataError" />
           <EntitySet Name="RdrDutyCodes" EntityType="TASDesktopModel.RdrDutyCode" />
           <EntitySet Name="RdrEventLogs" EntityType="TASDesktopModel.RdrEventLog" />
           <EntitySet Name="Readers" EntityType="TASDesktopModel.Reader" />
@@ -6197,7 +6212,7 @@
           <Key>
             <PropertyRef Name="ClientID" />
           </Key>
-          <Property Type="Int32" Name="ClientID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ClientID" Nullable="false" />
           <Property Type="String" Name="ClientName" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="LiscenceTypeID" />
           <Property Type="String" Name="CreatedBy" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -6418,6 +6433,7 @@
           <Property Type="Int16" Name="ReaderID" />
           <Property Type="DateTime" Name="LastEntryDateTime" Precision="3" />
           <Property Type="Boolean" Name="IsSafe" />
+          <Property Type="Boolean" Name="HasOT" />
           <NavigationProperty Name="AttDatas" Relationship="TASDesktopModel.FK_AttData_Emp" FromRole="Emp" ToRole="AttData" />
           <NavigationProperty Name="AttDataManEdits" Relationship="TASDesktopModel.FK_AttDataManEdit_Emp" FromRole="Emp" ToRole="AttDataManEdit" />
           <NavigationProperty Name="AttMnDatas" Relationship="TASDesktopModel.FK_AttMnData_Emp" FromRole="Emp" ToRole="AttMnData" />
@@ -6678,6 +6694,7 @@
           <Property Type="Boolean" Name="Enable" />
           <Property Type="Boolean" Name="HasQuota" />
           <Property Type="Boolean" Name="CarryForward" />
+          <Property Type="Boolean" Name="CountHolidays" />
           <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvType" ToRole="LvApplication" />
           <NavigationProperty Name="LvDatas" Relationship="TASDesktopModel.FK_LvData_LvCode" FromRole="LvType" ToRole="LvData" />
         </EntityType>
@@ -6719,7 +6736,18 @@
           <Property Type="Byte" Name="RdrDuty" />
           <Property Type="Boolean" Name="Process" />
           <Property Type="Boolean" Name="Split" />
+          <Property Type="DateTime" Name="AddedDate" Precision="3" />
           <NavigationProperty Name="Reader" Relationship="TASDesktopModel.FK_Reader_RdrID" FromRole="PollData" ToRole="Reader" />
+        </EntityType>
+        <EntityType Name="PollDataError">
+          <Key>
+            <PropertyRef Name="UnID" />
+          </Key>
+          <Property Type="Int32" Name="UnID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="EntryDate" Precision="0" />
+          <Property Type="DateTime" Name="EntryTime" Precision="3" />
+          <Property Type="DateTime" Name="AddedDate" Precision="3" />
+          <Property Type="Int32" Name="DeviceRegID" />
         </EntityType>
         <EntityType Name="RdrDutyCode">
           <Key>
@@ -9830,6 +9858,7 @@
           <EntitySetMapping Name="Emps">
             <EntityTypeMapping TypeName="TASDesktopModel.Emp">
               <MappingFragment StoreEntitySet="Emp">
+                <ScalarProperty Name="HasOT" ColumnName="HasOT" />
                 <ScalarProperty Name="IsSafe" ColumnName="IsSafe" />
                 <ScalarProperty Name="LastEntryDateTime" ColumnName="LastEntryDateTime" />
                 <ScalarProperty Name="ReaderID" ColumnName="ReaderID" />
@@ -10096,6 +10125,7 @@
           <EntitySetMapping Name="LvTypes">
             <EntityTypeMapping TypeName="TASDesktopModel.LvType">
               <MappingFragment StoreEntitySet="LvType">
+                <ScalarProperty Name="CountHolidays" ColumnName="CountHolidays" />
                 <ScalarProperty Name="CarryForward" ColumnName="CarryForward" />
                 <ScalarProperty Name="HasQuota" ColumnName="HasQuota" />
                 <ScalarProperty Name="Enable" ColumnName="Enable" />
@@ -10137,6 +10167,7 @@
           <EntitySetMapping Name="PollDatas">
             <EntityTypeMapping TypeName="TASDesktopModel.PollData">
               <MappingFragment StoreEntitySet="PollData">
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
                 <ScalarProperty Name="Split" ColumnName="Split" />
                 <ScalarProperty Name="Process" ColumnName="Process" />
                 <ScalarProperty Name="RdrDuty" ColumnName="RdrDuty" />
@@ -10148,6 +10179,17 @@
                 <ScalarProperty Name="EmpDate" ColumnName="EmpDate" />
                 <ScalarProperty Name="EmpID" ColumnName="EmpID" />
                 <ScalarProperty Name="PollID" ColumnName="PollID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PollDataErrors">
+            <EntityTypeMapping TypeName="TASDesktopModel.PollDataError">
+              <MappingFragment StoreEntitySet="PollDataError">
+                <ScalarProperty Name="DeviceRegID" ColumnName="DeviceRegID" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="UnID" ColumnName="UnID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -74,6 +74,7 @@ namespace TimeAttendanceSystem.Model
         public DbSet<LvType> LvTypes { get; set; }
         public DbSet<Option> Options { get; set; }
         public DbSet<PollData> PollDatas { get; set; }
+        public DbSet<PollDataError> PollDataErrors { get; set; }
         public DbSet<RdrDutyCode> RdrDutyCodes { get; set; }
         public DbSet<RdrEventLog> RdrEventLogs { get; set; }
         public DbSet<Reader> Readers { get; set; }

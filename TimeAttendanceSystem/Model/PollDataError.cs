@@ -12,10 +12,12 @@ namespace TimeAttendanceSystem.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class AttCode
+    public partial class PollDataError
     {
-        public string AttID { get; set; }
-        public string AttDesc { get; set; }
-        public string AttLegent { get; set; }
+        public int UnID { get; set; }
+        public Nullable<System.DateTime> EntryDate { get; set; }
+        public Nullable<System.DateTime> EntryTime { get; set; }
+        public Nullable<System.DateTime> AddedDate { get; set; }
+        public Nullable<int> DeviceRegID { get; set; }
     }
 }
