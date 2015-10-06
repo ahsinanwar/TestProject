@@ -41,7 +41,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
         }
         private ObservableCollection<Section> _listOfSecs;
         private ObservableCollection<Emp> _listOfSecEmps;
-        public ObservableCollection<Emp> ListOfShiftEmps
+        public ObservableCollection<Emp> ListOfSecEmps
         {
 
             get { return _listOfSecEmps; }

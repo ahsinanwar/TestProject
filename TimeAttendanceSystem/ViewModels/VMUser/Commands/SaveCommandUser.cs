@@ -55,7 +55,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                         int Duplicate = ctx.Users.Where(aa => aa.UserName == vmd.selectedUser.UserName || aa.EmpID == vmd.selectedUser.EmpID).Count();
                         if (Duplicate > 0)
                         {
-                            PopUp.popUp("User", "Duplicate Detacted " + vmd.selectedUser.UserName, NotificationType.Warning);
+                            PopUp.popUp("User", "Duplicate Detected " + vmd.selectedUser.UserName, NotificationType.Warning);
                         }
                         else
                         {
