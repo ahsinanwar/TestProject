@@ -147,7 +147,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             IEnumerable<ViewMultipleInOut> ie;
             this.rptViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             ie = _List.AsQueryable();
-            ReportDataSource datasource1 = new ReportDataSource("DataSet1", ie);
+            ReportDataSource datasource1 = new ReportDataSource("DataSet2", ie);
             rptViewer.LocalReport.DataSources.Clear();
             rptViewer.LocalReport.DataSources.Add(datasource1);
             ReportParameter rp = new ReportParameter("Date", DateToFor, false);
