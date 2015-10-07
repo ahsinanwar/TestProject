@@ -1894,6 +1894,7 @@
 		<col def="S255">Data</col>
 		<row><td>PROJECT_ASSISTANT_DEFAULT_FEATURE</td><td>AlwaysInstall</td></row>
 		<row><td>PROJECT_ASSISTANT_FEATURES</td><td>NonSelectable</td></row>
+		<row><td>_Built</td><td/></row>
 	</table>
 
 	<table name="ISBillBoard">
@@ -3852,7 +3853,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
-		<row><td>_Built_5BA240422B4344D184052E3A2A865D57.exe</td><td/><td>&lt;WindowsFolder&gt;\SysWOW64\shell32.dll</td><td>0</td></row>
+		<row><td>_Built_C8497E135DA0441FBA385C070129EE7E.exe</td><td/><td>&lt;WindowsFolder&gt;\SysWOW64\shell32.dll</td><td>167</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3985,7 +3986,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{685BADF0-00E3-4161-98AF-1766CEB5190C}</td></row>
 		<row><td>ISUSSignature</td><td>{A92A8940-D211-4F62-BFC1-791ACAC45A16}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewISToday,viewShortcuts,viewSetupDesign,viewProject</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewISToday,viewShortcuts,viewSetupDesign,viewProject,viewSQLServer,viewComponentServices</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4524,7 +4525,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>_Built</td><td>track</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>TimeAttendanceSystem.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_5BA240422B4344D184052E3A2A865D57.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>track</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>TimeAttendanceSystem.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_C8497E135DA0441FBA385C070129EE7E.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
