@@ -27,6 +27,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             InitializeComponent();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
+
             LoadReport(Properties.Settings.Default.ReportPath + "DRDetailed.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
         }
         TAS2013Entities ctx = new TAS2013Entities();

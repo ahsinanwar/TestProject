@@ -33,7 +33,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<byte> ShiftID { get; set; }
     
         public virtual RosterType RosterType { get; set; }
-        public virtual Shift Shift { get; set; }
         public virtual ICollection<RosterDetail> RosterDetails { get; set; }
     }
 }
