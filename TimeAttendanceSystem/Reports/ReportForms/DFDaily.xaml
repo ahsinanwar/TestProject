@@ -9,6 +9,8 @@
       xmlns:local="clr-namespace:TimeAttendanceSystem.Reports.UserControls"
 	Title="DFDaily"  Background="#E6E6DC" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
     <Grid>
+        
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="192"/>
             <ColumnDefinition Width="*"/>
