@@ -22,9 +22,14 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
         {
             get { return _attDataShow; }
             set {
-
+                AttData temp = new AttData();
+                if (entity.AttDatas.Where(aa => aa.AttDate == value.AttDate && aa.EmpDate == value.EmpDate).Count() > 0)
+                    _attDataShow = entity.AttDatas.Where(aa => aa.AttDate == value.AttDate && aa.EmpDate == value.EmpDate).FirstOrDefault();
                 _attDataShow = value;
+                listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.Where(aa => aa.AttDate == _attDataShow.AttDate).ToList());
                 OnPropertyChanged("AttDataShow");
+                OnPropertyChanged("listOfAttData");
+
             }
         
         }
@@ -71,7 +76,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
                 _selectedAttData = value;
                 AttDataShow = new AttData();
                 AttDataShow = value;
-               // base.OnPropertyChanged("selectedAttData");
+                base.OnPropertyChanged("selectedAttData");
                 base.OnPropertyChanged("AttDataShow");
                 base.OnPropertyChanged("isEnabled");
 
@@ -84,7 +89,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
 
             set
             {
-                listOfAttData = value;
+                _listOfAttData = value;
                 OnPropertyChanged("listOfAttData");
             }
         }
@@ -132,10 +137,11 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit
             Emp sd = new Emp();
             _attDataShow = new AttData();
             _selectedAttData = new AttData();
-            
-            DateTime date = new DateTime(2015,03,15);
-            _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.Where(aa=>aa.AttDate==date).ToList());
+
+           
             _selectedAttData = entity.AttDatas.ToList().FirstOrDefault();
+           //  DateTime date = (DateTime)AttDataShow.AttDate;
+             _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.Where(aa => aa.AttDate == _selectedAttData.AttDate).ToList());
             _attDataShow = entity.AttDatas.ToList().FirstOrDefault();
             _listOfDutyCodes = new ObservableCollection<DutyCode>(entity.DutyCodes.ToList());
             this._EditCommand = new EditCommandAttData(this);

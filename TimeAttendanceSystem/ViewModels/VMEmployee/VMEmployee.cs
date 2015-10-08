@@ -131,12 +131,13 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
                 if (_selectedEmp.Section == null)
                 {
                     _selectedEmp.Section = entity.Sections.FirstOrDefault();
+                    _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedEmp.Section.Department.DeptID));
+                    _selectedSec = _selectedEmp.Section;
+                    base.OnPropertyChanged("selectedSec");
+                    base.OnPropertyChanged("listOfSecs");
                 }
                
-                _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedEmp.Section.Department.DeptID));
-                _selectedSec = _selectedEmp.Section;
-                base.OnPropertyChanged("selectedSec");
-                base.OnPropertyChanged("listOfSecs");
+           
                 return _selectedEmp;
             }
             set

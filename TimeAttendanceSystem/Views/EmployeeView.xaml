@@ -38,12 +38,12 @@
         </StackPanel>
         </Border>
         <!--List View Panel-->
-        <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="0">
+        <StackPanel Margin="5,5,5,10" Grid.Row="1" Grid.Column="0">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
                         ItemsSource="{Binding PagedSource,ElementName=rdpData}" SelectedItem="{Binding selectedEmp}" 
                         VerticalAlignment="Stretch" Grid.RowSpan="2" 
-                        CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79">
+                        CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" Height="509">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
                     <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
@@ -54,7 +54,7 @@
                     <telerik:GridViewDataColumn Header="Type" DataMemberBinding="{Binding EmpType.TypeName}" />
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager Source="{Binding listOfEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
+            <telerik:RadDataPager Source="{Binding listOfEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
             <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,6,5,9" Width="331">

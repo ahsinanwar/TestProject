@@ -29,10 +29,10 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
 
         public void Execute(object parameter)
         {
+            VMAttEdit vmattedit = (VMAttEdit)parameter;
             AttData attData = new AttData();
-            attData = (AttData)parameter;
-            attData = (AttData)context.AttDatas.FirstOrDefault(aa => aa.AttDate == attData.AttDate && aa.EmpID == attData.EmpID);
-            _vmcategory.AttDataShow = attData;
+            attData = (AttData)context.AttDatas.FirstOrDefault(aa => aa.AttDate == vmattedit.AttDataShow.AttDate && aa.EmpID == vmattedit.AttDataShow.EmpID);
+            vmattedit.AttDataShow = attData;
         }
         #endregion
     }

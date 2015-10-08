@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,27 +23,31 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class AttendanceProcess : Page
     {
+        private readonly BackgroundWorker worker = new BackgroundWorker();
+       
         public AttendanceProcess()
         {
             InitializeComponent();
             DateTime DateFrom = new DateTime();
             DateTime DateTo = new DateTime();
             bool isActive = false;
+            worker.DoWork += worker_DoWork;
+            worker.RunWorkerCompleted += worker_RunWorkerCompleted;
+
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            Object[] arg = e.Argument as Object[];
             TAS2013Entities ctx = new TAS2013Entities();
             // Download Attendance From Readers
             Downloader d = new Downloader();
-            d.DownloadDataInIt();
-            DateTime dateStart = dtpStart.SelectedDate.Value;
-            DateTime dateEnd = dtpEnd.SelectedDate.Value;
+         //   d.DownloadDataInIt();
+            DateTime dateStart = (DateTime)arg[0] ;
+            DateTime dateEnd = (DateTime)arg[1];
             List<Emp> emps = new List<Emp>();
             List<AttData> attdata = new List<AttData>();
-            emps = ctx.Emps.Where(aa=>aa.Status==true).ToList();
-            while(dateStart <= dateEnd)
+            emps = ctx.Emps.Where(aa => aa.Status == true).ToList();
+            while (dateStart <= dateEnd)
             {
                 attdata.Clear();
                 if (ctx.AttProcesses.Where(aa => aa.ProcessDate == dateStart).Count() == 0)
@@ -56,8 +61,21 @@ namespace TimeAttendanceSystem.Views
                     attdata = ctx.AttDatas.Where(aa => aa.AttDate == dateStart).ToList();
                     mp.ManualProcessAttendance(dateStart, emps, attdata);
                 }
-                dateStart  = dateStart.AddDays(1);
+                dateStart = dateStart.AddDays(1);
             }
+   // run all background tasks here
+}
+
+private void worker_RunWorkerCompleted(object sender, 
+                                       RunWorkerCompletedEventArgs e)
+{
+  //update ui once worker complete his work
+}
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Object[] args = { dtpStart.SelectedDate.Value, dtpEnd.SelectedDate.Value};
+            worker.RunWorkerAsync(args );
             
         }
     }

@@ -31,7 +31,7 @@
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
                         ItemsSource="{Binding PagedSource, ElementName=rdpData}" SelectedItem="{Binding selectedAttData, UpdateSourceTrigger=PropertyChanged}" 
                         VerticalAlignment="Stretch"  
-                        CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79">
+                        CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" Height="458">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Date" DataMemberBinding="{Binding AttDate, StringFormat=\{0: dd-MMM-yyyy\}}" />
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding Emp.EmpNo}" />
@@ -86,7 +86,7 @@
                         <Label Content="Search Attendance" Foreground="#004b79" HorizontalAlignment="Left" Margin="10,-16,0,0" VerticalAlignment="Top" Width="175" FontSize="18"/>
 
                         <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DatePicker"  SelectedValue="{Binding AttDataShow.AttDate, Mode=TwoWay, StringFormat=\{0: h:mm tt\}}" VerticalAlignment="Top"  Margin="98,45,150,0"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Search" Width="54" Background="White" Margin="214,49,90,309" Height="22"  Command="{Binding SearchCommand}" CommandParameter="{Binding AttDataShow}"/>
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Search" Width="54" Background="White" Margin="214,49,90,309" Height="22"  Command="{Binding SearchCommand}" CommandParameter="{Binding}"/>
                         <Label Content="Date" HorizontalAlignment="Left" Margin="54,45,0,0" VerticalAlignment="Top"/>
                         <Button x:Name="btnOpenEmp" telerik:StyleManager.Theme="Windows8" Content="..." HorizontalAlignment="Left" Margin="214,19,0,0" VerticalAlignment="Top" Width="26" Click="btnOpenEmp_Click"/>
                         <Label Content="Enter New Times" Foreground="#004b79" HorizontalAlignment="Left" VerticalAlignment="Bottom"  FontSize="14" Margin="10,0,0,155"/>

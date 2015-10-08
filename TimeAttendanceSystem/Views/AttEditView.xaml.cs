@@ -50,7 +50,9 @@ namespace TimeAttendanceSystem.Views
                 txtEmpID.Text = window._selectedEmp.EmpNo.ToString();
             }
         }
-       
+
+
+      
        
         //private void btn_empView_Click(object sender, RoutedEventArgs e)
         //{
