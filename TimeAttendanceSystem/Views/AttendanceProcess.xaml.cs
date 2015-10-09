@@ -14,7 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TimeAttendanceSystem.AttendanceProcessor;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
+using Mantin.Controls.Wpf.Notification;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -69,7 +71,7 @@ namespace TimeAttendanceSystem.Views
 private void worker_RunWorkerCompleted(object sender, 
                                        RunWorkerCompletedEventArgs e)
 {
-  //update ui once worker complete his work
+    PopUp.popUp("Proccess Attendance", "Your Attendance Has Been Proccessed", NotificationType.Information);
 }
 
         private void Button_Click(object sender, RoutedEventArgs e)
