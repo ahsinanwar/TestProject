@@ -21,7 +21,5 @@ namespace TimeAttendanceSystem.Model
         public string Fp4 { get; set; }
         public string Fp5 { get; set; }
         public string Fp6 { get; set; }
-    
-        public virtual Emp Emp { get; set; }
     }
 }
