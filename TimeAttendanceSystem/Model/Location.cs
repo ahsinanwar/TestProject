@@ -14,16 +14,10 @@ namespace TimeAttendanceSystem.Model
     
     public partial class Location
     {
-        public Location()
-        {
-            this.Emps = new HashSet<Emp>();
-        }
-    
         public short LocID { get; set; }
         public string LocName { get; set; }
         public Nullable<short> CityID { get; set; }
     
         public virtual City City { get; set; }
-        public virtual ICollection<Emp> Emps { get; set; }
     }
 }

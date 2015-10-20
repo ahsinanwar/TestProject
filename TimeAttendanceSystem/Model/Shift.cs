@@ -14,11 +14,6 @@ namespace TimeAttendanceSystem.Model
     
     public partial class Shift
     {
-        public Shift()
-        {
-            this.Emps = new HashSet<Emp>();
-        }
-    
         public byte ShiftID { get; set; }
         public string ShiftName { get; set; }
         public System.TimeSpan StartTime { get; set; }
@@ -47,7 +42,6 @@ namespace TimeAttendanceSystem.Model
     
         public virtual DaysName DaysName { get; set; }
         public virtual DaysName DaysName1 { get; set; }
-        public virtual ICollection<Emp> Emps { get; set; }
         public virtual RosterType RosterType1 { get; set; }
     }
 }

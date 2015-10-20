@@ -14,14 +14,7 @@ namespace TimeAttendanceSystem.Model
     
     public partial class Grade
     {
-        public Grade()
-        {
-            this.Emps = new HashSet<Emp>();
-        }
-    
         public byte GradeID { get; set; }
         public string GradeName { get; set; }
-    
-        public virtual ICollection<Emp> Emps { get; set; }
     }
 }

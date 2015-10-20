@@ -14,16 +14,10 @@ namespace TimeAttendanceSystem.Model
     
     public partial class ReaderType
     {
-        public ReaderType()
-        {
-            this.Readers = new HashSet<Reader>();
-        }
-    
         public byte RdrTypeID { get; set; }
         public string RdrTypeName { get; set; }
         public Nullable<byte> VendorID { get; set; }
     
-        public virtual ICollection<Reader> Readers { get; set; }
         public virtual ReaderVendor ReaderVendor { get; set; }
     }
 }

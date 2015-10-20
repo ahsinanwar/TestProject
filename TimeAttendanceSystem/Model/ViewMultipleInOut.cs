@@ -101,6 +101,5 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> ShifMin { get; set; }
         public string RegionName { get; set; }
         public Nullable<byte> RegionID { get; set; }
-        public Nullable<int> VA { get; set; }
     }
 }
