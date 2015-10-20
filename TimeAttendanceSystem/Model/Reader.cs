@@ -30,5 +30,6 @@ namespace TimeAttendanceSystem.Model
     
         public virtual ICollection<PollData> PollDatas { get; set; }
         public virtual RdrDutyCode RdrDutyCode { get; set; }
+        public virtual ReaderType ReaderType { get; set; }
     }
 }

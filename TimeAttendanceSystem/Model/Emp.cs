@@ -14,6 +14,13 @@ namespace TimeAttendanceSystem.Model
     
     public partial class Emp
     {
+        public Emp()
+        {
+            this.AttDatas = new HashSet<AttData>();
+            this.LvApplications = new HashSet<LvApplication>();
+            this.Users = new HashSet<User>();
+        }
+    
         public int EmpID { get; set; }
         public string EmpNo { get; set; }
         public string EmpName { get; set; }
@@ -56,11 +63,17 @@ namespace TimeAttendanceSystem.Model
         public Nullable<bool> IsSafe { get; set; }
         public Nullable<bool> HasOT { get; set; }
     
+        public virtual ICollection<AttData> AttDatas { get; set; }
         public virtual Crew Crew { get; set; }
         public virtual Designation Designation { get; set; }
         public virtual EmpPhoto EmpPhoto { get; set; }
+        public virtual Grade Grade { get; set; }
         public virtual JobTitle JobTitle { get; set; }
+        public virtual Location Location { get; set; }
         public virtual Section Section { get; set; }
+        public virtual Shift Shift { get; set; }
         public virtual EmpType EmpType { get; set; }
+        public virtual ICollection<LvApplication> LvApplications { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

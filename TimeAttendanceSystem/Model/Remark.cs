@@ -12,16 +12,10 @@ namespace TimeAttendanceSystem.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Grade
+    public partial class Remark
     {
-        public Grade()
-        {
-            this.Emps = new HashSet<Emp>();
-        }
-    
-        public byte GradeID { get; set; }
-        public string GradeName { get; set; }
-    
-        public virtual ICollection<Emp> Emps { get; set; }
+        public short RemarkID { get; set; }
+        public string RemarkLabel { get; set; }
+        public string RemarkValue { get; set; }
     }
 }

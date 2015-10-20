@@ -42,7 +42,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                        }
                 else if (vmd.selectedEmp.EmpNo == "" || vmd.selectedEmp.EmpNo == null)
                     {
-                        PopUp.popUp("Empty Value", "Please write Emp No before saving", NotificationType.Warning);
+                        PopUp.popUp("Empty Value", "Please write Emp ID before saving", NotificationType.Warning);
                     }
                   
                 else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)

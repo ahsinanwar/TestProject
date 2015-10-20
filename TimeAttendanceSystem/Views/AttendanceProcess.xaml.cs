@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TimeAttendanceSystem.AttendanceProcessor;
+//using TimeAttendanceSystem.AttendanceProcessor;
 using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 using Mantin.Controls.Wpf.Notification;
@@ -42,7 +42,7 @@ namespace TimeAttendanceSystem.Views
             Object[] arg = e.Argument as Object[];
             TAS2013Entities ctx = new TAS2013Entities();
             // Download Attendance From Readers
-            Downloader d = new Downloader();
+          //  Downloader d = new Downloader();
          //   d.DownloadDataInIt();
             DateTime dateStart = (DateTime)arg[0] ;
             DateTime dateEnd = (DateTime)arg[1];
@@ -54,14 +54,14 @@ namespace TimeAttendanceSystem.Views
                 attdata.Clear();
                 if (ctx.AttProcesses.Where(aa => aa.ProcessDate == dateStart).Count() == 0)
                 {
-                    ProcessAttendance p = new ProcessAttendance();
-                    p.ProcessDailyAttendance();
+            //        ProcessAttendance p = new ProcessAttendance();
+              //      p.ProcessDailyAttendance();
                 }
                 else
                 {
-                    ManualProcess mp = new ManualProcess();
+                //    ManualProcess mp = new ManualProcess();
                     attdata = ctx.AttDatas.Where(aa => aa.AttDate == dateStart).ToList();
-                    mp.ManualProcessAttendance(dateStart, emps, attdata);
+                  //  mp.ManualProcessAttendance(dateStart, emps, attdata);
                 }
                 dateStart = dateStart.AddDays(1);
             }

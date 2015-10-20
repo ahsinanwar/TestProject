@@ -53,6 +53,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<bool> ViewContractualStaff { get; set; }
         public Nullable<bool> MRoster { get; set; }
     
+        public virtual Emp Emp { get; set; }
         public virtual ICollection<LvApplication> LvApplications { get; set; }
         public virtual UserRole UserRole { get; set; }
     }

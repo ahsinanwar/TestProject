@@ -101,11 +101,11 @@
 
 
 
-                                <Label HorizontalAlignment="Left" Content="Emp ID:" VerticalAlignment="Top" Width="59" Margin="98,7,0,0"></Label>
+                                <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="98,7,0,0"></Label>
                                 <TextBox telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Margin="162,11,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
 
                                     <TextBox.Text>
-                                        <Binding Path="selectedEmp.EmpID" 
+                                        <Binding Path="selectedEmp.EmpNo" 
              ValidatesOnExceptions="True" 
              UpdateSourceTrigger="PropertyChanged"
              ValidatesOnDataErrors="True">

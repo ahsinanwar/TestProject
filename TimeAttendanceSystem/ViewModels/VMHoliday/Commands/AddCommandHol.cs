@@ -30,6 +30,7 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
         {
             VMHoliday vmd = (VMHoliday)parameter;
             vmd.selectedHoliday = new Holiday();
+          
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();
