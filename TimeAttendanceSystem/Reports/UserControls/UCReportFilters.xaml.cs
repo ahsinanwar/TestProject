@@ -24,16 +24,23 @@ namespace TimeAttendanceSystem.Reports.UserControls
     {
         public UCReportFilters()
         {
-            InitializeComponent();
-            selectedEmps = new List<Emp>();
-            selectedDepts = new List<Department>();
-            selectedSecs = new List<Model.Section>();
-            selectedLoc = new List<Location>();
-            selectedShift = new List<Shift>();
-            selectedType = new List<EmpType>();
-            selectedCrew = new List<Crew>();
-            startDate.SelectedDate = new DateTime(2015,03,20);
-            endDate.SelectedDate = DateTime.Today;
+            try
+            {
+                InitializeComponent();
+                selectedEmps = new List<Emp>();
+                selectedDepts = new List<Department>();
+                selectedSecs = new List<Model.Section>();
+                selectedLoc = new List<Location>();
+                selectedShift = new List<Shift>();
+                selectedType = new List<EmpType>();
+                selectedCrew = new List<Crew>();
+                startDate.SelectedDate = new DateTime(2015, 03, 20);
+                endDate.SelectedDate = DateTime.Today;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(),"Error at UserControler");
+            }
         }
         public DateTime StartDate
         {
