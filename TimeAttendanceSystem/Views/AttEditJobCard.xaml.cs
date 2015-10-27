@@ -67,6 +67,7 @@ namespace TimeAttendanceSystem.Views
                     ListBoxData.Items.Clear();
                     selectedEmps = windowEmp.selectedEmps;
                 }
+                if(selectedEmps!=null)
                 foreach (var item in selectedEmps)
                     ListBoxData.Items.Add(item.EmpName + "-" + item.EmpID.ToString());
             }

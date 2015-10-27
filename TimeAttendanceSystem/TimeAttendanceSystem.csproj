@@ -155,7 +155,6 @@
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
-    <Compile Include="DFMultipleInOut.cs" />
     <Compile Include="GlobalClasses\Global.cs" />
     <Compile Include="HelperClasses\EncDec.cs" />
     <Compile Include="HelperClasses\License.cs" />
@@ -583,6 +582,7 @@
     </Compile>
     <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\CanAddBoolToVisibleOrHidden.cs" />
+    <Compile Include="ValueConvertors\DateTimeToDateConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToTimeSpan.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
     <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
@@ -758,7 +758,6 @@
     <Compile Include="Views\LvSetting.xaml.cs">
       <DependentUpon>LvSetting.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RegisterView.cs" />
     <Compile Include="Views\SQLDATABASE.xaml.cs">
       <DependentUpon>SQLDATABASE.xaml</DependentUpon>
     </Compile>

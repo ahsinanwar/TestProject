@@ -30,7 +30,8 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
         {
             VMHoliday vmd = (VMHoliday)parameter;
             vmd.selectedHoliday = new Holiday();
-          
+            vmd.selectedHoliday.HolDateFrom = new DateTime();
+            vmd.selectedHoliday.HolDateTo = new DateTime();
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();
