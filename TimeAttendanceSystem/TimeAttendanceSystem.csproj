@@ -147,6 +147,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttendanceProcessor\CalculateWorkMins.cs" />
+    <Compile Include="AttendanceProcessor\CreateMissingAttendance.cs" />
+    <Compile Include="AttendanceProcessor\ManualProcess.cs" />
+    <Compile Include="AttendanceProcessor\PlaceTimeInOuts.cs" />
+    <Compile Include="AttendanceProcessor\ProcessAttendance.cs" />
+    <Compile Include="AttendanceProcessor\ProcessEditAttendanceEntries.cs" />
+    <Compile Include="AttendanceProcessor\ProcessJobCard.cs" />
+    <Compile Include="AttendanceProcessor\ProcessSupportFunc.cs" />
     <Compile Include="BaseClasses\BackgroundVisualHost.cs" />
     <Compile Include="BaseClasses\BusyDecorator.cs" />
     <Compile Include="BaseClasses\CommanVariables.cs" />
@@ -350,6 +358,9 @@
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Region.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Remark.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Roster.cs">
@@ -1206,7 +1217,6 @@
     <Resource Include="Images\trackk_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AttendanceProcessor\" />
     <Folder Include="ViewModels\VMJobCard\" />
   </ItemGroup>
   <ItemGroup>

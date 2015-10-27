@@ -20,7 +20,7 @@ namespace TASDownloadService
             DateTime dtTo = new DateTime(2015,9,12);
             DateTime dtFrom = new DateTime(2015, 9, 12);
             List<Remark> remarks = new List<Remark>();
-            remarks = context.Remarks.ToList();
+            
             List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.Process == false)).OrderBy(e => e.EntTime).ToList();
             //List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.EntDate >= dtTo && p.EntDate <= dtFrom) && p.EmpID == 1395).OrderBy(e => e.EntTime).ToList();
             foreach (PollData up in unprocessedPolls)
