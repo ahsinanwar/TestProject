@@ -15,8 +15,7 @@ namespace TimeAttendanceSystem.Model
     public partial class Holiday
     {
         public short HolID { get; set; }
-        public System.DateTime HolDateFrom { get; set; }
+        public System.DateTime HolDate { get; set; }
         public string HolDesc { get; set; }
-        public Nullable<System.DateTime> HolDateTo { get; set; }
     }
 }

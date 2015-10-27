@@ -71,7 +71,7 @@
                     <Label Content="From:" HorizontalAlignment="Left" Margin="67,79,0,0" VerticalAlignment="Top" Height="29" Width="42"/>
                     <DatePicker HorizontalAlignment="Left" Margin="118,79,0,0" VerticalAlignment="Top" FontSize="14" Height="27" Width="117" SelectedDate="{Binding selectedEmpAndLvApp.LvApp.FromDate, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
                     <Label Content="To:" HorizontalAlignment="Left" Margin="82,108,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="27" RenderTransformOrigin="0.261,0.241"/>
-                    <DatePicker HorizontalAlignment="Left" Margin="118,111,0,0" VerticalAlignment="Top" FontSize="14" Height="27" Width="117" SelectedDate="{Binding selectedEmpAndLvApp.LvApp.ToDate }" IsEnabled="{Binding Path=isEnabled}"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="118,111,0,0" VerticalAlignment="Top" FontSize="14" Height="27" Width="117" SelectedDate="{Binding selectedEmpAndLvApp.LvApp.ToDate,Mode=TwoWay }" IsEnabled="{Binding Path=isEnabled}"/>
                     <Label Content="Reason:" HorizontalAlignment="Left" Margin="59,0,0,90" Width="54" VerticalAlignment="Bottom"/>
                     <Label Content="Adress:" HorizontalAlignment="Left" Margin="64,181,0,0" VerticalAlignment="Top" Width="54"/>
                     <Label Content="Half Leave:" HorizontalAlignment="Left" Margin="42,137,0,0" VerticalAlignment="Top" Height="29" Width="67"/>

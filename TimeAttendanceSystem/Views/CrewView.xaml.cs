@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public CrewView()
         {
-            InitializeComponent();
-            vmcrew = new VMCrew();
-            this.DataContext = vmcrew;
+            try
+            {
+                InitializeComponent();
+                vmcrew = new VMCrew();
+                this.DataContext = vmcrew;
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         VMCrew vmcrew; 
     }

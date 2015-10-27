@@ -352,9 +352,6 @@
     <Compile Include="Model\Region.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Remark.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Roster.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>

@@ -39,6 +39,10 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
             {
                 if (vmd.selectedEmpAndShortLv.Lvshort.SHour == null)
                     vmd.selectedEmpAndShortLv.Lvshort.SHour = new TimeSpan(0, 12, 0, 0);
+                if (vmd.selectedEmpAndShortLv.Lvshort.EHour == null)
+                    vmd.selectedEmpAndShortLv.Lvshort.EHour = new TimeSpan(0, 12, 0, 0);
+
+
                 vmd.selectedEmpAndShortLv.Lvshort.THour = vmd.selectedEmpAndShortLv.Lvshort.EHour - vmd.selectedEmpAndShortLv.Lvshort.SHour;
                 vmd.selectedEmpAndShortLv.Lvshort.THour = vmd.selectedEmpAndShortLv.Lvshort.THour.Value.Duration();
                 vmd.selectedEmpAndShortLv.Lvshort.EmpID = vmd.selectedEmpAndShortLv.Employee.EmpID;

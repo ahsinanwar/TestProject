@@ -85,6 +85,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<System.DateTime> Tout14 { get; set; }
         public Nullable<System.DateTime> Tin15 { get; set; }
         public Nullable<System.DateTime> Tout15 { get; set; }
+        public Nullable<int> VA { get; set; }
     
         public virtual Emp Emp { get; set; }
     }

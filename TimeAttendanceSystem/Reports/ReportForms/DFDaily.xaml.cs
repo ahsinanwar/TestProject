@@ -24,11 +24,21 @@ namespace TimeAttendanceSystem.Reports.ReportForms
     {
         public DFDaily()
         {
-            InitializeComponent();
-            DateTime dateFrom = UserControlReport.StartDate;
-            DateTime dateTo = UserControlReport.EndDate;
 
-            LoadReport(Properties.Settings.Default.ReportPath + "DRDetailed.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
+            try
+            {
+                InitializeComponent();
+                DateTime dateFrom = UserControlReport.StartDate;
+                DateTime dateTo = UserControlReport.EndDate;
+                LoadReport(Properties.Settings.Default.ReportPath + "DRDetailed.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void Button_Click(object sender, RoutedEventArgs e)

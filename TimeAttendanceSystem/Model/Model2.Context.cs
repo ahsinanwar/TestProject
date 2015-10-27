@@ -82,7 +82,6 @@ namespace TimeAttendanceSystem.Model
         public DbSet<ReaderVendor> ReaderVendors { get; set; }
         public DbSet<Reason> Reasons { get; set; }
         public DbSet<Region> Regions { get; set; }
-        public DbSet<Remark> Remarks { get; set; }
         public DbSet<Roster> Rosters { get; set; }
         public DbSet<RosterApp> RosterApps { get; set; }
         public DbSet<RosterDetail> RosterDetails { get; set; }

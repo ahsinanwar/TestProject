@@ -39,10 +39,18 @@ namespace TimeAttendanceSystem.Views
         TAS2013Entities context = new TAS2013Entities();
         public SelectEmpWindow()
         {
-            InitializeComponent();
-            selectedEmp = new Emp();
-            listOfEmps = new List<Emp>(context.Emps.ToList());
-            lstView_emps.ItemsSource = listOfEmps;
+            try
+            {
+                InitializeComponent();
+                selectedEmp = new Emp();
+                listOfEmps = new List<Emp>(context.Emps.ToList());
+                lstView_emps.ItemsSource = listOfEmps;
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
 
         private void selectbutton_Click(object sender, RoutedEventArgs e)

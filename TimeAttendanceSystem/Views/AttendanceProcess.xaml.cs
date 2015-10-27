@@ -32,13 +32,21 @@ namespace TimeAttendanceSystem.Views
        
         public AttendanceProcess()
         {
-            InitializeComponent();
-            DateTime DateFrom = new DateTime();
-            DateTime DateTo = new DateTime();
-            bool isActive = false;
-            worker.DoWork += worker_DoWork;
-            worker.RunWorkerCompleted += worker_RunWorkerCompleted;
+            try
+            {
+                InitializeComponent();
+                DateTime DateFrom = new DateTime();
+                DateTime DateTo = new DateTime();
+                bool isActive = false;
+                worker.DoWork += worker_DoWork;
+                worker.RunWorkerCompleted += worker_RunWorkerCompleted;
 
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {

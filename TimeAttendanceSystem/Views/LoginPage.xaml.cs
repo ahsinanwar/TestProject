@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public LoginPage()
         {
-            InitializeComponent();
-            VMLogin login = new VMLogin();
-            this.DataContext = login;
+            try
+            {
+                InitializeComponent();
+                VMLogin login = new VMLogin();
+                this.DataContext = login;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
     }
 }

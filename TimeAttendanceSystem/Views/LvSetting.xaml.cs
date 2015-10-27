@@ -25,9 +25,17 @@ namespace TimeAttendanceSystem.Views
         VMLvApplication vmlvapps;
         public LvSetting()
         {
-            InitializeComponent();
-            vmlvapps = new VMLvApplication();
-            this.DataContext = vmlvapps;
+            try
+            {
+                InitializeComponent();
+                vmlvapps = new VMLvApplication();
+                this.DataContext = vmlvapps;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         private void btn_empView_Click(object sender, RoutedEventArgs e)
         {

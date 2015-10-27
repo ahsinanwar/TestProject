@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public CityView()
         {
-            InitializeComponent();
-            vmcities = new VMCity();
-            this.DataContext = vmcities;
+            try
+            {
+                InitializeComponent();
+                vmcities = new VMCity();
+                this.DataContext = vmcities;
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         VMCity vmcities;
     }
