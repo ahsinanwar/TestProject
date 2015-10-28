@@ -23,9 +23,17 @@ namespace TimeAttendanceSystem.Views
         VMSection vmsecs;
         public SectionView()
         {
+            try
+            {
                 InitializeComponent();
                 vmsecs = new VMSection();
                 this.DataContext = vmsecs;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
     }
 }

@@ -26,9 +26,17 @@ namespace TimeAttendanceSystem.Views
         TAS2013Entities context;
         public ShortLvView()
         {
-            InitializeComponent();
-            vmlvshorts = new VMShortLeave();
-            this.DataContext = vmlvshorts;
+            try
+            {
+                InitializeComponent();
+                vmlvshorts = new VMShortLeave();
+                this.DataContext = vmlvshorts;
+            }
+            catch (Exception ex)
+            {
+                
+             MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         private void btn_empView_Click(object sender, RoutedEventArgs e)
         {

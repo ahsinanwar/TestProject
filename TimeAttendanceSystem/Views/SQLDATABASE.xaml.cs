@@ -22,11 +22,19 @@ namespace TimeAttendanceSystem.Views
     {
         public SQLDATABASE()
         {
-            InitializeComponent();
-            SqlDataSourceEnumerator instance =
-              SqlDataSourceEnumerator.Instance;
-            System.Data.DataTable table = instance.GetDataSources();
-            Console.WriteLine(table.Rows[0].ItemArray[0]);
+            try
+            {
+                InitializeComponent();
+                SqlDataSourceEnumerator instance =
+                  SqlDataSourceEnumerator.Instance;
+                System.Data.DataTable table = instance.GetDataSources();
+                Console.WriteLine(table.Rows[0].ItemArray[0]);
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
 
         }
     }

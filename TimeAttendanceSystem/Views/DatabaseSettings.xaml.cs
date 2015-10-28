@@ -23,8 +23,16 @@ namespace TimeAttendanceSystem.Views
     {
         public DatabaseSettings()
         {
-            InitializeComponent();
-            this.DataContext = new VMDataBase();
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new VMDataBase();
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
     }
 }

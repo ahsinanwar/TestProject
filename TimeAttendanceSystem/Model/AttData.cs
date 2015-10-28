@@ -87,8 +87,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<System.DateTime> Tout15 { get; set; }
         public Nullable<int> VA { get; set; }
     
-        public virtual AttData AttData1 { get; set; }
-        public virtual AttData AttData2 { get; set; }
         public virtual Emp Emp { get; set; }
     }
 }

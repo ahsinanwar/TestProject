@@ -28,9 +28,7 @@ namespace TimeAttendanceSystem.Model
         public bool Status { get; set; }
         public Nullable<short> LocID { get; set; }
     
-        public virtual Location Location { get; set; }
         public virtual ICollection<PollData> PollDatas { get; set; }
-        public virtual RdrDutyCode RdrDutyCode { get; set; }
         public virtual ReaderType ReaderType { get; set; }
     }
 }

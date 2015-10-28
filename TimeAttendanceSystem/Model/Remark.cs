@@ -12,10 +12,10 @@ namespace TimeAttendanceSystem.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class EmpFace
+    public partial class Remark
     {
-        public int EmpID { get; set; }
-        public string Face1 { get; set; }
-        public Nullable<int> Length { get; set; }
+        public short RemarkID { get; set; }
+        public string RemarkLabel { get; set; }
+        public string RemarkValue { get; set; }
     }
 }

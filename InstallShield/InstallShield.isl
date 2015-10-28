@@ -339,7 +339,7 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>TimeAttendanceSystem.Primary_output</td><td>{8FF0D15B-EC40-49C4-9541-2C55167CD4AB}</td><td>INSTALLDIR</td><td>2</td><td/><td>timeattendancesystem.primary</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>TimeAttendanceSystem.Primary_output</td><td>{5562FD6E-9539-43C4-A062-38557E6C3EE9}</td><td>INSTALLDIR</td><td>2</td><td/><td>timeattendancesystem.primary</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -2016,7 +2016,7 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>TimeAttendanceSystem.Primary_output</td><td/><td/><td>_742C1FE6_EB78_4EAF_94EF_32F12A55B08A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>TimeAttendanceSystem.Primary_output</td><td/><td/><td>_AE301C1F_745B_4FF6_ABCB_51C947438251_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2605,7 +2605,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>CNS</td><td>0</td><td/><td>1965232578</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>CNS</td><td>0</td><td/><td>-584858558</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>1428368969</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>1428368969</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>1428368969</td></row>
@@ -3706,8 +3706,8 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>1428368969</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>1428368969</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>1428371017</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.CNS.com</td><td>0</td><td/><td>1965234626</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>CNS</td><td>0</td><td/><td>1965234626</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.CNS.com</td><td>0</td><td/><td>-584858558</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>CNS</td><td>0</td><td/><td>-584858558</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1428368969</td></row>
 	</table>
 

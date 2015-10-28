@@ -25,9 +25,17 @@ namespace TimeAttendanceSystem.Views
     {
         public FirstPageDatabase()
         {
-            InitializeComponent();
-            VMDataBase vdb = new VMDataBase();
-            this.DataContext = vdb;
+            try
+            {
+                InitializeComponent();
+                VMDataBase vdb = new VMDataBase();
+                this.DataContext = vdb;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
            
         }
 

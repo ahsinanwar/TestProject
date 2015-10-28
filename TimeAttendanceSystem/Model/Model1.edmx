@@ -1401,8 +1401,7 @@
       [ViewMultipleInOut].[CityID] AS [CityID], 
       [ViewMultipleInOut].[ShifMin] AS [ShifMin], 
       [ViewMultipleInOut].[RegionName] AS [RegionName], 
-      [ViewMultipleInOut].[RegionID] AS [RegionID], 
-      [ViewMultipleInOut].[VA] AS [VA]
+      [ViewMultipleInOut].[RegionID] AS [RegionID]
       FROM [dbo].[ViewMultipleInOut] AS [ViewMultipleInOut]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewOverTime" EntityType="TASDesktopModel.Store.ViewOverTime" store:Type="Views" store:Schema="dbo" store:Name="ViewOverTime">
@@ -1684,14 +1683,6 @@
       [ViewUserLocation].[UserLocID] AS [UserLocID]
       FROM [dbo].[ViewUserLocation] AS [ViewUserLocation]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_AttData_AttData" Association="TASDesktopModel.Store.FK_AttData_AttData">
-            <End Role="AttData" EntitySet="AttData" />
-            <End Role="AttData1" EntitySet="AttData" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AttData_Emp" Association="TASDesktopModel.Store.FK_AttData_Emp">
-            <End Role="Emp" EntitySet="Emp" />
-            <End Role="AttData" EntitySet="AttData" />
-          </AssociationSet>
           <AssociationSet Name="FK_Card_CardType" Association="TASDesktopModel.Store.FK_Card_CardType">
             <End Role="CardType" EntitySet="CardType" />
             <End Role="Card" EntitySet="Card" />
@@ -1724,24 +1715,12 @@
             <End Role="EmpPhoto" EntitySet="EmpPhoto" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
-          <AssociationSet Name="FK_Emp_Grade" Association="TASDesktopModel.Store.FK_Emp_Grade">
-            <End Role="Grade" EntitySet="Grade" />
-            <End Role="Emp" EntitySet="Emp" />
-          </AssociationSet>
           <AssociationSet Name="FK_Emp_JobTitle" Association="TASDesktopModel.Store.FK_Emp_JobTitle">
             <End Role="JobTitle" EntitySet="JobTitle" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
-          <AssociationSet Name="FK_Emp_Location" Association="TASDesktopModel.Store.FK_Emp_Location">
-            <End Role="Location" EntitySet="Location" />
-            <End Role="Emp" EntitySet="Emp" />
-          </AssociationSet>
           <AssociationSet Name="FK_Emp_Section" Association="TASDesktopModel.Store.FK_Emp_Section">
             <End Role="Section" EntitySet="Section" />
-            <End Role="Emp" EntitySet="Emp" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Emp_Shift" Association="TASDesktopModel.Store.FK_Emp_Shift">
-            <End Role="Shift" EntitySet="Shift" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_TypeID" Association="TASDesktopModel.Store.FK_Emp_TypeID">
@@ -1755,14 +1734,6 @@
           <AssociationSet Name="FK_Location_City" Association="TASDesktopModel.Store.FK_Location_City">
             <End Role="City" EntitySet="City" />
             <End Role="Location" EntitySet="Location" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LvApplication_Emp" Association="TASDesktopModel.Store.FK_LvApplication_Emp">
-            <End Role="Emp" EntitySet="Emp" />
-            <End Role="LvApplication" EntitySet="LvApplication" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LvApplication_Emp1" Association="TASDesktopModel.Store.FK_LvApplication_Emp1">
-            <End Role="Emp" EntitySet="Emp" />
-            <End Role="LvApplication" EntitySet="LvApplication" />
           </AssociationSet>
           <AssociationSet Name="FK_LvApplication_User" Association="TASDesktopModel.Store.FK_LvApplication_User">
             <End Role="User" EntitySet="User" />
@@ -1791,10 +1762,6 @@
           <AssociationSet Name="FK_Reader_RdrID" Association="TASDesktopModel.Store.FK_Reader_RdrID">
             <End Role="Reader" EntitySet="Reader" />
             <End Role="PollData" EntitySet="PollData" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reader_ReaderType" Association="TASDesktopModel.Store.FK_Reader_ReaderType">
-            <End Role="ReaderType" EntitySet="ReaderType" />
-            <End Role="Reader" EntitySet="Reader" />
           </AssociationSet>
           <AssociationSet Name="FK_ReaderType_ReaderVendor" Association="TASDesktopModel.Store.FK_ReaderType_ReaderVendor">
             <End Role="ReaderVendor" EntitySet="ReaderVendor" />
@@ -1827,10 +1794,6 @@
           <AssociationSet Name="FK_Site_City" Association="TASDesktopModel.Store.FK_Site_City">
             <End Role="City" EntitySet="City" />
             <End Role="Site" EntitySet="Site" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Emp" Association="TASDesktopModel.Store.FK_User_Emp">
-            <End Role="Emp" EntitySet="Emp" />
-            <End Role="User" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_User_UserRole1" Association="TASDesktopModel.Store.FK_User_UserRole1">
             <End Role="UserRole" EntitySet="UserRole" />
@@ -1933,7 +1896,6 @@
           <Property Name="Tout14" Type="datetime" />
           <Property Name="Tin15" Type="datetime" />
           <Property Name="Tout15" Type="datetime" />
-          <Property Name="VA" Type="int" />
         </EntityType>
         <EntityType Name="AttDataManEdit">
           <Key>
@@ -2667,8 +2629,9 @@
             <PropertyRef Name="HolID" />
           </Key>
           <Property Name="HolID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="HolDate" Type="date" Nullable="false" />
+          <Property Name="HolDateFrom" Type="date" Nullable="false" />
           <Property Name="HolDesc" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="HolDateTo" Type="date" />
         </EntityType>
         <EntityType Name="JobCard">
           <Key>
@@ -4407,7 +4370,6 @@
           <Property Name="ShifMin" Type="smallint" />
           <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
           <Property Name="RegionID" Type="tinyint" />
-          <Property Name="VA" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'TASDesktop.dbo.ViewOverTime' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -4736,30 +4698,6 @@
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="UserLocID" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_AttData_AttData">
-          <End Role="AttData" Type="TASDesktopModel.Store.AttData" Multiplicity="1" />
-          <End Role="AttData1" Type="TASDesktopModel.Store.AttData" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="AttData">
-              <PropertyRef Name="EmpDate" />
-            </Principal>
-            <Dependent Role="AttData1">
-              <PropertyRef Name="EmpDate" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AttData_Emp">
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="0..1" />
-          <End Role="AttData" Type="TASDesktopModel.Store.AttData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Emp">
-              <PropertyRef Name="EmpID" />
-            </Principal>
-            <Dependent Role="AttData">
-              <PropertyRef Name="EmpID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Card_CardType">
           <End Role="CardType" Type="TASDesktopModel.Store.CardType" Multiplicity="0..1" />
           <End Role="Card" Type="TASDesktopModel.Store.Card" Multiplicity="*" />
@@ -4856,18 +4794,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Emp_Grade">
-          <End Role="Grade" Type="TASDesktopModel.Store.Grade" Multiplicity="0..1" />
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Grade">
-              <PropertyRef Name="GradeID" />
-            </Principal>
-            <Dependent Role="Emp">
-              <PropertyRef Name="GradeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Emp_JobTitle">
           <End Role="JobTitle" Type="TASDesktopModel.Store.JobTitle" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
@@ -4880,18 +4806,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Emp_Location">
-          <End Role="Location" Type="TASDesktopModel.Store.Location" Multiplicity="0..1" />
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocID" />
-            </Principal>
-            <Dependent Role="Emp">
-              <PropertyRef Name="LocID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Emp_Section">
           <End Role="Section" Type="TASDesktopModel.Store.Section" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
@@ -4901,18 +4815,6 @@
             </Principal>
             <Dependent Role="Emp">
               <PropertyRef Name="SecID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Emp_Shift">
-          <End Role="Shift" Type="TASDesktopModel.Store.Shift" Multiplicity="0..1" />
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Shift">
-              <PropertyRef Name="ShiftID" />
-            </Principal>
-            <Dependent Role="Emp">
-              <PropertyRef Name="ShiftID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4949,30 +4851,6 @@
             </Principal>
             <Dependent Role="Location">
               <PropertyRef Name="CityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LvApplication_Emp">
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="1" />
-          <End Role="LvApplication" Type="TASDesktopModel.Store.LvApplication" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Emp">
-              <PropertyRef Name="EmpID" />
-            </Principal>
-            <Dependent Role="LvApplication">
-              <PropertyRef Name="EmpID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LvApplication_Emp1">
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="1" />
-          <End Role="LvApplication" Type="TASDesktopModel.Store.LvApplication" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Emp">
-              <PropertyRef Name="EmpID" />
-            </Principal>
-            <Dependent Role="LvApplication">
-              <PropertyRef Name="EmpID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5057,18 +4935,6 @@
             </Principal>
             <Dependent Role="PollData">
               <PropertyRef Name="RdrID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reader_ReaderType">
-          <End Role="ReaderType" Type="TASDesktopModel.Store.ReaderType" Multiplicity="1" />
-          <End Role="Reader" Type="TASDesktopModel.Store.Reader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReaderType">
-              <PropertyRef Name="RdrTypeID" />
-            </Principal>
-            <Dependent Role="Reader">
-              <PropertyRef Name="RdrTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5165,18 +5031,6 @@
             </Principal>
             <Dependent Role="Site">
               <PropertyRef Name="CityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_User_Emp">
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="0..1" />
-          <End Role="User" Type="TASDesktopModel.Store.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Emp">
-              <PropertyRef Name="EmpID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="EmpID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5341,14 +5195,6 @@
           <EntitySet Name="ViewSLDatas" EntityType="TASDesktopModel.ViewSLData" />
           <EntitySet Name="ViewSummaries" EntityType="TASDesktopModel.ViewSummary" />
           <EntitySet Name="ViewUserLocations" EntityType="TASDesktopModel.ViewUserLocation" />
-          <AssociationSet Name="FK_AttData_AttData" Association="TASDesktopModel.FK_AttData_AttData">
-            <End Role="AttData" EntitySet="AttDatas" />
-            <End Role="AttData1" EntitySet="AttDatas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AttData_Emp" Association="TASDesktopModel.FK_AttData_Emp">
-            <End Role="Emp" EntitySet="Emps" />
-            <End Role="AttData" EntitySet="AttDatas" />
-          </AssociationSet>
           <AssociationSet Name="FK_Card_CardType" Association="TASDesktopModel.FK_Card_CardType">
             <End Role="CardType" EntitySet="CardTypes" />
             <End Role="Card" EntitySet="Cards" />
@@ -5405,30 +5251,19 @@
             <End Role="EmpPhoto" EntitySet="EmpPhotoes" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
-          <AssociationSet Name="FK_Emp_Grade" Association="TASDesktopModel.FK_Emp_Grade">
-            <End Role="Grade" EntitySet="Grades" />
-            <End Role="Emp" EntitySet="Emps" />
-          </AssociationSet>
           <AssociationSet Name="FK_Emp_JobTitle" Association="TASDesktopModel.FK_Emp_JobTitle">
             <End Role="JobTitle" EntitySet="JobTitles" />
-            <End Role="Emp" EntitySet="Emps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Emp_Location" Association="TASDesktopModel.FK_Emp_Location">
-            <End Role="Location" EntitySet="Locations" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_Section" Association="TASDesktopModel.FK_Emp_Section">
             <End Role="Section" EntitySet="Sections" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
-          <AssociationSet Name="FK_Emp_Shift" Association="TASDesktopModel.FK_Emp_Shift">
-            <End Role="Shift" EntitySet="Shifts" />
-            <End Role="Emp" EntitySet="Emps" />
-          </AssociationSet>
           <AssociationSet Name="FK_Emp_TypeID" Association="TASDesktopModel.FK_Emp_TypeID">
             <End Role="EmpType" EntitySet="EmpTypes" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
+<<<<<<< HEAD
           <AssociationSet Name="FK_LvApplication_Emp" Association="TASDesktopModel.FK_LvApplication_Emp">
             <End Role="Emp" EntitySet="Emps" />
             <End Role="LvApplication" EntitySet="LvApplications" />
@@ -5445,6 +5280,8 @@
             <End Role="Location" EntitySet="Locations" />
             <End Role="Reader" EntitySet="Readers" />
           </AssociationSet>
+=======
+>>>>>>> 5882164dbfa3bc960eabdb674c502c69d53ddd9e
           <AssociationSet Name="FK_LvApplication_User" Association="TASDesktopModel.FK_LvApplication_User">
             <End Role="User" EntitySet="Users" />
             <End Role="LvApplication" EntitySet="LvApplications" />
@@ -5467,10 +5304,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Reader_RdrDutyCode" Association="TASDesktopModel.FK_Reader_RdrDutyCode">
             <End Role="RdrDutyCode" EntitySet="RdrDutyCodes" />
-            <End Role="Reader" EntitySet="Readers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reader_ReaderType" Association="TASDesktopModel.FK_Reader_ReaderType">
-            <End Role="ReaderType" EntitySet="ReaderTypes" />
             <End Role="Reader" EntitySet="Readers" />
           </AssociationSet>
           <AssociationSet Name="FK_ReaderType_ReaderVendor" Association="TASDesktopModel.FK_ReaderType_ReaderVendor">
@@ -5590,10 +5423,6 @@
           <Property Name="Tout14" Type="DateTime" Precision="3" />
           <Property Name="Tin15" Type="DateTime" Precision="3" />
           <Property Name="Tout15" Type="DateTime" Precision="3" />
-          <Property Name="VA" Type="Int32" />
-          <NavigationProperty Name="AttData1" Relationship="TASDesktopModel.FK_AttData_AttData" FromRole="AttData" ToRole="AttData1" />
-          <NavigationProperty Name="AttData2" Relationship="TASDesktopModel.FK_AttData_AttData" FromRole="AttData1" ToRole="AttData" />
-          <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_AttData_Emp" FromRole="AttData" ToRole="Emp" />
         </EntityType>
         <EntityType Name="AttDataManEdit">
           <Key>
@@ -6278,19 +6107,12 @@
           <Property Name="LastEntryDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsSafe" Type="Boolean" />
           <Property Name="HasOT" Type="Boolean" />
-          <NavigationProperty Name="AttDatas" Relationship="TASDesktopModel.FK_AttData_Emp" FromRole="Emp" ToRole="AttData" />
           <NavigationProperty Name="Crew" Relationship="TASDesktopModel.FK_Emp_Crew" FromRole="Emp" ToRole="Crew" />
           <NavigationProperty Name="Designation" Relationship="TASDesktopModel.FK_Emp_Designation1" FromRole="Emp" ToRole="Designation" />
           <NavigationProperty Name="EmpPhoto" Relationship="TASDesktopModel.FK_Emp_EmpPhoto" FromRole="Emp" ToRole="EmpPhoto" />
-          <NavigationProperty Name="Grade" Relationship="TASDesktopModel.FK_Emp_Grade" FromRole="Emp" ToRole="Grade" />
           <NavigationProperty Name="JobTitle" Relationship="TASDesktopModel.FK_Emp_JobTitle" FromRole="Emp" ToRole="JobTitle" />
-          <NavigationProperty Name="Location" Relationship="TASDesktopModel.FK_Emp_Location" FromRole="Emp" ToRole="Location" />
           <NavigationProperty Name="Section" Relationship="TASDesktopModel.FK_Emp_Section" FromRole="Emp" ToRole="Section" />
-          <NavigationProperty Name="Shift" Relationship="TASDesktopModel.FK_Emp_Shift" FromRole="Emp" ToRole="Shift" />
           <NavigationProperty Name="EmpType" Relationship="TASDesktopModel.FK_Emp_TypeID" FromRole="Emp" ToRole="EmpType" />
-          <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplication_Emp" FromRole="Emp" ToRole="LvApplication" />
-          <NavigationProperty Name="LvApplications1" Relationship="TASDesktopModel.FK_LvApplication_Emp1" FromRole="Emp" ToRole="LvApplication" />
-          <NavigationProperty Name="Users" Relationship="TASDesktopModel.FK_User_Emp" FromRole="Emp" ToRole="User" />
         </EntityType>
         <EntityType Name="EmpAccess">
           <Key>
@@ -6347,15 +6169,15 @@
           </Key>
           <Property Name="GradeID" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="GradeName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Grade" FromRole="Grade" ToRole="Emp" />
         </EntityType>
         <EntityType Name="Holiday">
           <Key>
             <PropertyRef Name="HolID" />
           </Key>
           <Property Name="HolID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="HolDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HolDateFrom" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="HolDesc" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="HolDateTo" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="JobCard">
           <Key>
@@ -6422,8 +6244,11 @@
           <Property Name="LocName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="CityID" Type="Int16" />
           <NavigationProperty Name="City" Relationship="TASDesktopModel.FK_Location_City" FromRole="Location" ToRole="City" />
+<<<<<<< HEAD
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Location" FromRole="Location" ToRole="Emp" />
           <NavigationProperty Name="Readers" Relationship="TASDesktopModel.FK_Reader_Location" FromRole="Location" ToRole="Reader" />
+=======
+>>>>>>> 5882164dbfa3bc960eabdb674c502c69d53ddd9e
         </EntityType>
         <EntityType Name="LvApplication">
           <Key>
@@ -6445,8 +6270,6 @@
           <Property Name="ApprovedBy" Type="Int32" />
           <Property Name="LvStatus" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
           <Property Name="Active" Type="Boolean" />
-          <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_LvApplication_Emp" FromRole="LvApplication" ToRole="Emp" />
-          <NavigationProperty Name="Emp1" Relationship="TASDesktopModel.FK_LvApplication_Emp1" FromRole="LvApplication" ToRole="Emp" />
           <NavigationProperty Name="User" Relationship="TASDesktopModel.FK_LvApplication_User" FromRole="LvApplication" ToRole="User" />
           <NavigationProperty Name="LvType" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvApplication" ToRole="LvType" />
           <NavigationProperty Name="LvDatas" Relationship="TASDesktopModel.FK_LvData_LvApplications" FromRole="LvApplication" ToRole="LvData" />
@@ -6614,7 +6437,6 @@
           <NavigationProperty Name="Location" Relationship="TASDesktopModel.FK_Reader_Location" FromRole="Reader" ToRole="Location" />
           <NavigationProperty Name="PollDatas" Relationship="TASDesktopModel.FK_Reader_RdrID" FromRole="Reader" ToRole="PollData" />
           <NavigationProperty Name="RdrDutyCode" Relationship="TASDesktopModel.FK_Reader_RdrDutyCode" FromRole="Reader" ToRole="RdrDutyCode" />
-          <NavigationProperty Name="ReaderType" Relationship="TASDesktopModel.FK_Reader_ReaderType" FromRole="Reader" ToRole="ReaderType" />
         </EntityType>
         <EntityType Name="ReaderType">
           <Key>
@@ -6623,7 +6445,6 @@
           <Property Name="RdrTypeID" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="RdrTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="VendorID" Type="Byte" />
-          <NavigationProperty Name="Readers" Relationship="TASDesktopModel.FK_Reader_ReaderType" FromRole="ReaderType" ToRole="Reader" />
           <NavigationProperty Name="ReaderVendor" Relationship="TASDesktopModel.FK_ReaderType_ReaderVendor" FromRole="ReaderType" ToRole="ReaderVendor" />
         </EntityType>
         <EntityType Name="ReaderVendor">
@@ -6761,7 +6582,6 @@
           <Property Name="LocationID" Type="Int16" />
           <NavigationProperty Name="DaysName" Relationship="TASDesktopModel.FK_Shift_DaysName" FromRole="Shift" ToRole="DaysName" />
           <NavigationProperty Name="DaysName1" Relationship="TASDesktopModel.FK_Shift_DaysName1" FromRole="Shift" ToRole="DaysName" />
-          <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Shift" FromRole="Shift" ToRole="Emp" />
           <NavigationProperty Name="RosterType1" Relationship="TASDesktopModel.FK_Shift_RosterType" FromRole="Shift" ToRole="RosterType" />
         </EntityType>
         <EntityType Name="Site">
@@ -6820,7 +6640,6 @@
           <Property Name="ViewContractualMgm" Type="Boolean" />
           <Property Name="ViewContractualStaff" Type="Boolean" />
           <Property Name="MRoster" Type="Boolean" />
-          <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_User_Emp" FromRole="User" ToRole="Emp" />
           <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplication_User" FromRole="User" ToRole="LvApplication" />
           <NavigationProperty Name="UserRole" Relationship="TASDesktopModel.FK_User_UserRole1" FromRole="User" ToRole="UserRole" />
         </EntityType>
@@ -8071,7 +7890,6 @@
           <Property Name="ShifMin" Type="Int16" />
           <Property Name="RegionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="RegionID" Type="Byte" />
-          <Property Name="VA" Type="Int32" />
         </EntityType>
         <EntityType Name="ViewOverTime">
           <Key>
@@ -8379,30 +8197,6 @@
           <Property Name="LocName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="UserLocID" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="FK_AttData_AttData">
-          <End Role="AttData" Type="TASDesktopModel.AttData" Multiplicity="1" />
-          <End Role="AttData1" Type="TASDesktopModel.AttData" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="AttData">
-              <PropertyRef Name="EmpDate" />
-            </Principal>
-            <Dependent Role="AttData1">
-              <PropertyRef Name="EmpDate" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AttData_Emp">
-          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="0..1" />
-          <End Role="AttData" Type="TASDesktopModel.AttData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Emp">
-              <PropertyRef Name="EmpID" />
-            </Principal>
-            <Dependent Role="AttData">
-              <PropertyRef Name="EmpID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Card_CardType">
           <End Role="CardType" Type="TASDesktopModel.CardType" Multiplicity="0..1" />
           <End Role="Card" Type="TASDesktopModel.Card" Multiplicity="*" />
@@ -8571,18 +8365,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Emp_Grade">
-          <End Role="Grade" Type="TASDesktopModel.Grade" Multiplicity="0..1" />
-          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Grade">
-              <PropertyRef Name="GradeID" />
-            </Principal>
-            <Dependent Role="Emp">
-              <PropertyRef Name="GradeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Emp_JobTitle">
           <End Role="JobTitle" Type="TASDesktopModel.JobTitle" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
@@ -8592,18 +8374,6 @@
             </Principal>
             <Dependent Role="Emp">
               <PropertyRef Name="JobID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Emp_Location">
-          <End Role="Location" Type="TASDesktopModel.Location" Multiplicity="0..1" />
-          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="LocID" />
-            </Principal>
-            <Dependent Role="Emp">
-              <PropertyRef Name="LocID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -8619,18 +8389,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Emp_Shift">
-          <End Role="Shift" Type="TASDesktopModel.Shift" Multiplicity="0..1" />
-          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Shift">
-              <PropertyRef Name="ShiftID" />
-            </Principal>
-            <Dependent Role="Emp">
-              <PropertyRef Name="ShiftID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Emp_TypeID">
           <End Role="EmpType" Type="TASDesktopModel.EmpType" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
@@ -8643,6 +8401,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
         <Association Name="FK_LvApplication_Emp">
           <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="1" />
           <End Role="LvApplication" Type="TASDesktopModel.LvApplication" Multiplicity="*" />
@@ -8691,6 +8450,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+=======
+>>>>>>> 5882164dbfa3bc960eabdb674c502c69d53ddd9e
         <Association Name="FK_LvApplication_User">
           <End Role="User" Type="TASDesktopModel.User" Multiplicity="0..1" />
           <End Role="LvApplication" Type="TASDesktopModel.LvApplication" Multiplicity="*" />
@@ -8760,18 +8521,6 @@
             </Principal>
             <Dependent Role="Reader">
               <PropertyRef Name="RdrDutyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reader_ReaderType">
-          <End Role="ReaderType" Type="TASDesktopModel.ReaderType" Multiplicity="1" />
-          <End Role="Reader" Type="TASDesktopModel.Reader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReaderType">
-              <PropertyRef Name="RdrTypeID" />
-            </Principal>
-            <Dependent Role="Reader">
-              <PropertyRef Name="RdrTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -8938,7 +8687,6 @@
                 <ScalarProperty Name="Tout14" ColumnName="Tout14" />
                 <ScalarProperty Name="Tin15" ColumnName="Tin15" />
                 <ScalarProperty Name="Tout15" ColumnName="Tout15" />
-                <ScalarProperty Name="VA" ColumnName="VA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9700,8 +9448,9 @@
             <EntityTypeMapping TypeName="TASDesktopModel.Holiday">
               <MappingFragment StoreEntitySet="Holiday">
                 <ScalarProperty Name="HolID" ColumnName="HolID" />
-                <ScalarProperty Name="HolDate" ColumnName="HolDate" />
+                <ScalarProperty Name="HolDateFrom" ColumnName="HolDateFrom" />
                 <ScalarProperty Name="HolDesc" ColumnName="HolDesc" />
+                <ScalarProperty Name="HolDateTo" ColumnName="HolDateTo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11387,7 +11136,6 @@
                 <ScalarProperty Name="ShifMin" ColumnName="ShifMin" />
                 <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="RegionID" ColumnName="RegionID" />
-                <ScalarProperty Name="VA" ColumnName="VA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

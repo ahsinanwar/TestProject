@@ -65,7 +65,8 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
                     else
                     {
                         Holiday hol = context.Holidays.First(aa => aa.HolID == vmd.selectedHoliday.HolID);
-                        hol.HolDate = vmd.selectedHoliday.HolDate;
+                        hol.HolDateFrom = vmd.selectedHoliday.HolDateFrom;
+                        hol.HolDateTo = vmd.selectedHoliday.HolDateTo;
                         vmd.isEnabled = false;
                         vmd.isAdding = false;
                         context.SaveChanges();

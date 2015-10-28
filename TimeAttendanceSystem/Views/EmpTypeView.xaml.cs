@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public EmpTypeView()
         {
-            InitializeComponent();
-            vmemptypes = new VMEmpType();
-            this.DataContext = vmemptypes;
+            try
+            {
+                InitializeComponent();
+                vmemptypes = new VMEmpType();
+                this.DataContext = vmemptypes;
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         VMEmpType vmemptypes;
     }

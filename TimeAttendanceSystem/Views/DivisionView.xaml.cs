@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public DivisionView()
         {
-            InitializeComponent();
-            vmdivs = new VMDivision();
-            this.DataContext = vmdivs;
+            try
+            {
+                InitializeComponent();
+                vmdivs = new VMDivision();
+                this.DataContext = vmdivs;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         VMDivision vmdivs; 
     }

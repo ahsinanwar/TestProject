@@ -33,71 +33,77 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
         public void Execute(object parameter)
         {
 
-            VMEmployee vmd = (VMEmployee)parameter;
-            if (vmd.isAdding)
+            try
             {
-                if (vmd.selectedEmp.EmpName == "" || vmd.selectedEmp.EmpName == null)
-                       {
-                           PopUp.popUp("Empty Value", "Please write Emp Name before saving", NotificationType.Warning);
-                       }
-                else if (vmd.selectedEmp.EmpNo == "" || vmd.selectedEmp.EmpNo == null)
+                VMEmployee vmd = (VMEmployee)parameter;
+                if (vmd.isAdding)
+                {
+                    if (vmd.selectedEmp.EmpName == "" || vmd.selectedEmp.EmpName == null)
                     {
-                        PopUp.popUp("Empty Value", "Please write Emp No before saving", NotificationType.Warning);
+                        PopUp.popUp("Empty Value", "Please write Emp Name before saving", NotificationType.Warning);
                     }
-                  
-                else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)
-  
+                    else if (vmd.selectedEmp.EmpNo == "" || vmd.selectedEmp.EmpNo == null)
+                    {
+                        PopUp.popUp("Empty Value", "Please write Emp ID before saving", NotificationType.Warning);
+                    }
+
+                    else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)
                     {
                         PopUp.popUp("Duplication", "Emp no already exit", NotificationType.Warning);
                     }
-                else
-                {
-                    Emp dummy = vmd.selectedEmp;
-                    dummy.Section.Department = null;
-                    dummy.Section = null;
-                    dummy.Crew = null;
-                    dummy.Designation = null;
-                    dummy.EmpType = null;
-                   // dummy.EmpID = null;
-                    dummy.Location = null;
-                    dummy.Grade = null;
-                    //dummy.EmpPhoto = null;
-                       // vmd.selectedEmp.Section = null;
-                    dummy.Shift = null;
-                    context.Emps.Add(dummy);
+                    else
+                    {
+                        Emp dummy = vmd.selectedEmp;
+                        dummy.Section.Department = null;
+                        dummy.Section = null;
+                        dummy.Crew = null;
+                        dummy.Designation = null;
+                        dummy.EmpType = null;
+                        // dummy.EmpID = null;
+                        dummy.Location = null;
+                        dummy.Grade = null;
+                        //dummy.EmpPhoto = null;
+                        // vmd.selectedEmp.Section = null;
+                        dummy.Shift = null;
+                        context.Emps.Add(dummy);
                         context.SaveChanges();
                         vmd.listOfEmps.Add(vmd.selectedEmp);
                         PopUp.popUp("Congratulations", "Emp is Created", NotificationType.Warning);
                     }
-              }
-       
-            else
-            {
-                Emp emp = context.Emps.First(aa => aa.EmpID == vmd.dummyEmp.EmpID);
-                emp.EmpName = vmd.dummyEmp.EmpName;
-
-
-                emp.EmpPhoto = context.EmpPhotoes.FirstOrDefault(aa => aa.EmpID == emp.EmpID);
-
-                if (emp.EmpPhoto == null)
-                {
-                    EmpPhoto ep = new EmpPhoto()
-                    {
-                        EmpID = emp.EmpID,
-                        EmpPic = vmd.dummyEmp.EmpPhoto.EmpPic
-                    };
-                    context.EmpPhotoes.Add(ep);
-                    emp.EmpImageID = ep.PhotoID;
                 }
+
                 else
                 {
-                    
-                }                       
-                context.SaveChanges();
-                emp.EmpImageID = emp.EmpPhoto.PhotoID;
-                vmd.isEnabled = false;
-                vmd.isAdding = false;
-                context.SaveChanges();
+                    Emp emp = context.Emps.First(aa => aa.EmpID == vmd.dummyEmp.EmpID);
+                    emp.EmpName = vmd.dummyEmp.EmpName;
+
+
+                    emp.EmpPhoto = context.EmpPhotoes.FirstOrDefault(aa => aa.EmpID == emp.EmpID);
+
+                    if (emp.EmpPhoto == null)
+                    {
+                        EmpPhoto ep = new EmpPhoto()
+                        {
+                            EmpID = emp.EmpID,
+                            EmpPic = vmd.dummyEmp.EmpPhoto.EmpPic
+                        };
+                        context.EmpPhotoes.Add(ep);
+                        emp.EmpImageID = ep.PhotoID;
+                    }
+                    else
+                    {
+
+                    }
+                    context.SaveChanges();
+                    emp.EmpImageID = emp.EmpPhoto.PhotoID;
+                    vmd.isEnabled = false;
+                    vmd.isAdding = false;
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                PopUp.popUp("Eror", ex.InnerException.ToString(), NotificationType.Warning);
             }
 
         }

@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public LocationView()
         {
-            InitializeComponent();
-            vmlocs = new VMLocation();
-            this.DataContext = vmlocs;
+            try
+            {
+                InitializeComponent();
+                vmlocs = new VMLocation();
+                this.DataContext = vmlocs;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         VMLocation vmlocs;
     }

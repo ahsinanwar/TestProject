@@ -24,6 +24,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
     {
         public DFDaily()
         {
+
             try
             {
                 InitializeComponent();
@@ -36,6 +37,8 @@ namespace TimeAttendanceSystem.Reports.ReportForms
 
                 MessageBox.Show(ex.ToString());
             }
+
+
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void Button_Click(object sender, RoutedEventArgs e)

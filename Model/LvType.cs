@@ -31,6 +31,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<bool> Enable { get; set; }
         public Nullable<bool> HasQuota { get; set; }
         public Nullable<bool> CarryForward { get; set; }
+        public Nullable<bool> CountHolidays { get; set; }
     
         public virtual ICollection<LvApplication> LvApplications { get; set; }
         public virtual ICollection<LvData> LvDatas { get; set; }

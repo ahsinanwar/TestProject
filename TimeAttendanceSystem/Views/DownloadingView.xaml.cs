@@ -34,7 +34,15 @@ namespace TimeAttendanceSystem.Views
         public bool IsAvailable { get; set; }
         public DownloadingView()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
 
 
         }

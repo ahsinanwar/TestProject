@@ -22,9 +22,24 @@ namespace TimeAttendanceSystem.Views
     {
         public HolidayView()
         {
-            InitializeComponent();
-            vmhols = new VMHoliday();
-            this.DataContext = vmhols;
+            try
+            {
+                try
+                {
+                    InitializeComponent();
+                    vmhols = new VMHoliday();
+                    this.DataContext = vmhols;
+                }
+                catch (Exception ex)
+                {
+                    
+                    MessageBox.Show(ex.ToString(), "Error Occured");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error Occcured");
+            }
         }
         VMHoliday vmhols;
 

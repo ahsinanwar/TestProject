@@ -29,11 +29,19 @@ namespace TimeAttendanceSystem.Views
         byte[] binaryImage;
         
         public EmployeeView()
-        { 
-            InitializeComponent();
+        {
+            try
+            {
+                InitializeComponent();
 
-            vmemps = new VMEmployee();
-            this.DataContext = vmemps;
+                vmemps = new VMEmployee();
+                this.DataContext = vmemps;
+            }
+            catch (Exception ex)
+            {
+                
+             MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
        
 

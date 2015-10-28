@@ -27,10 +27,17 @@ namespace TimeAttendanceSystem.Views
         VMAttJobCard vmAttJobCard;
         public AttEditJobCard()
         {
-            InitializeComponent();
-            //rbShift.IsChecked = true;
-            vmAttJobCard = new VMAttJobCard();
-            this.DataContext = vmAttJobCard;
+            try
+            {
+                InitializeComponent();
+                //rbShift.IsChecked = true;
+                vmAttJobCard = new VMAttJobCard();
+                this.DataContext = vmAttJobCard;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
 
         private void btn_JobCardSelect_Click(object sender, RoutedEventArgs e)

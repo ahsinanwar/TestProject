@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public DesignationView()
         {
-            InitializeComponent();
-            vmdesgs = new VMDesignation();
-            this.DataContext = vmdesgs;
+            try
+            {
+                InitializeComponent();
+                vmdesgs = new VMDesignation();
+                this.DataContext = vmdesgs;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         VMDesignation vmdesgs;
     }

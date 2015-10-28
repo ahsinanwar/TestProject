@@ -23,9 +23,17 @@ namespace TimeAttendanceSystem.Views
         VMShift vmshifts;
         public ShiftView()
         {
-            InitializeComponent();
-            vmshifts = new VMShift();
-            this.DataContext = vmshifts;
+            try
+            {
+                InitializeComponent();
+                vmshifts = new VMShift();
+                this.DataContext = vmshifts;
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         
     }

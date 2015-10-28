@@ -16,5 +16,6 @@ namespace TimeAttendanceSystem.Model
     {
         public string AttID { get; set; }
         public string AttDesc { get; set; }
+        public string AttLegent { get; set; }
     }
 }
