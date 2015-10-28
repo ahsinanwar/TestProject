@@ -28,10 +28,5 @@
 		</TaggedOutputs> -->
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
-	<ItemGroup>
-		<ProjectReference Include="..\TimeAttendanceSystem\TimeAttendanceSystem.csproj">
-			<Name>TimeAttendanceSystem</Name>
-			<Project>{9DDAED9B-5502-40AF-AC6C-B0D9F7CAB0A6}</Project>
-		</ProjectReference>
-	</ItemGroup>
+	<ItemGroup/>
 </Project>

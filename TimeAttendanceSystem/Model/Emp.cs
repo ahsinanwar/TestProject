@@ -18,7 +18,6 @@ namespace TimeAttendanceSystem.Model
         {
             this.AttDatas = new HashSet<AttData>();
             this.LvApplications = new HashSet<LvApplication>();
-            this.LvApplications1 = new HashSet<LvApplication>();
             this.Users = new HashSet<User>();
         }
     
@@ -75,7 +74,6 @@ namespace TimeAttendanceSystem.Model
         public virtual Shift Shift { get; set; }
         public virtual EmpType EmpType { get; set; }
         public virtual ICollection<LvApplication> LvApplications { get; set; }
-        public virtual ICollection<LvApplication> LvApplications1 { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
 }

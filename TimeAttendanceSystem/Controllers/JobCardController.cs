@@ -10,7 +10,7 @@ namespace TimeAttendanceSystem.Controllers
     class JobCardController
     {
         TAS2013Entities db = new TAS2013Entities();
-        private void AddJobCardData(Emp _selEmp, short _WorkCardID, DateTime _dateStart, DateTime _dateEnd, int _userID)
+        public void AddJobCardData(Emp _selEmp, short _WorkCardID, DateTime _dateStart, DateTime _dateEnd, int _userID)
         {
             int _empID = _selEmp.EmpID;
             string _empDate = "";
@@ -54,7 +54,7 @@ namespace TimeAttendanceSystem.Controllers
             }
         }
 
-        private bool AddJobCardDataToDatabase(string _empDate, int _empID, DateTime _currentDate, int _userID, short _WorkCardID, DateTime dateTime)
+        public bool AddJobCardDataToDatabase(string _empDate, int _empID, DateTime _currentDate, int _userID, short _WorkCardID, DateTime dateTime)
         {
             bool check = false;
             try
@@ -81,7 +81,7 @@ namespace TimeAttendanceSystem.Controllers
 
         #region --Job Cards - AttData ---
 
-        private bool AddJCNorrmalDayAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCNorrmalDayAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
         {
             bool check = false;
             try
@@ -126,7 +126,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddJCODDayToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCODDayToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
         {
 
             bool check = false;
@@ -173,7 +173,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddJCAbsentToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCAbsentToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
         {
             bool check = false;
             try
@@ -216,7 +216,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddJCGZDayToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCGZDayToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
         {
             bool check = false;
             try
@@ -260,7 +260,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddJCDayOffToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCDayOffToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
         {
             bool check = false;
             try
@@ -303,7 +303,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddLateInMarginAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddLateInMarginAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
         {
             bool check = false;
             try

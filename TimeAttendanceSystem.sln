@@ -11,9 +11,6 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "SetupWMS", "SetupWMS\SetupW
 	EndProjectSection
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "InstallShield", "InstallShield\InstallShield.isproj", "{1F56BF77-B7C1-4813-9CC9-853399B00F9E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9DDAED9B-5502-40AF-AC6C-B0D9F7CAB0A6} = {9DDAED9B-5502-40AF-AC6C-B0D9F7CAB0A6}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,8 +64,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

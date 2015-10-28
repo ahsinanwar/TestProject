@@ -20,6 +20,7 @@ using Mantin.Controls.Wpf.Notification;
 using TASDownloadService;
 using TASDownloadService.AttProcessDaily;
 using WMSFFService;
+using TimeAttendanceSystem.Controllers;
 
 namespace TimeAttendanceSystem.Views
 {
