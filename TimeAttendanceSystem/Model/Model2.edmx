@@ -182,13 +182,7 @@
           <EntitySet Name="DailySummary" EntityType="TASDesktopModel.Store.DailySummary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DailyTimeMonitor" EntityType="TASDesktopModel.Store.DailyTimeMonitor" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DaysName" EntityType="TASDesktopModel.Store.DaysName" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Department" EntityType="TASDesktopModel.Store.Department" store:Type="Tables" store:Schema="dbo" store:Name="Department">
-            <DefiningQuery>SELECT 
-      [Department].[DeptID] AS [DeptID], 
-      [Department].[DeptName] AS [DeptName], 
-      [Department].[DivID] AS [DivID]
-      FROM [dbo].[Department] AS [Department]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Department" EntityType="TASDesktopModel.Store.Department" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Designation" EntityType="TASDesktopModel.Store.Designation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Division" EntityType="TASDesktopModel.Store.Division" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DownloadTime" EntityType="TASDesktopModel.Store.DownloadTime" store:Type="Tables" Schema="dbo" />
@@ -1873,6 +1867,10 @@
             <End Role="RosterApp" EntitySet="RosterApp" />
             <End Role="RosterDetail" EntitySet="RosterDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_Section_Department" Association="TASDesktopModel.Store.FK_Section_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
           <AssociationSet Name="FK_Shift_DaysName" Association="TASDesktopModel.Store.FK_Shift_DaysName">
             <End Role="DaysName" EntitySet="DaysName" />
             <End Role="Shift" EntitySet="Shift" />
@@ -2563,13 +2561,9 @@
           <Property Name="ID" Type="tinyint" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'TASDesktop.dbo.Department' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="DeptID" />
-            <PropertyRef Name="DivID" />
           </Key>
           <Property Name="DeptID" Type="smallint" Nullable="false" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
@@ -5219,6 +5213,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Section_Department">
+          <End Role="Department" Type="TASDesktopModel.Store.Department" Multiplicity="0..1" />
+          <End Role="Section" Type="TASDesktopModel.Store.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DeptID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Shift_DaysName">
           <End Role="DaysName" Type="TASDesktopModel.Store.DaysName" Multiplicity="1" />
           <End Role="Shift" Type="TASDesktopModel.Store.Shift" Multiplicity="*" />
@@ -5489,6 +5495,10 @@
           <AssociationSet Name="FK_Department_Division" Association="TASDesktopModel.FK_Department_Division">
             <End Role="Division" EntitySet="Divisions" />
             <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Department" Association="TASDesktopModel.FK_Section_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Section" EntitySet="Sections" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_Designation1" Association="TASDesktopModel.FK_Emp_Designation1">
             <End Role="Designation" EntitySet="Designations" />
@@ -6254,12 +6264,12 @@
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="DeptID" />
-            <PropertyRef Name="DivID" />
           </Key>
           <Property Name="DeptID" Type="Int16" Nullable="false" />
           <Property Name="DeptName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="DivID" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Division" Relationship="TASDesktopModel.FK_Department_Division" FromRole="Department" ToRole="Division" />
+          <NavigationProperty Name="Sections" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Department" ToRole="Section" />
         </EntityType>
         <EntityType Name="Designation">
           <Key>
@@ -6803,6 +6813,7 @@
           <Property Name="SectionID" Type="Int16" Nullable="false" />
           <Property Name="SectionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="DeptID" Type="Int16" />
+          <NavigationProperty Name="Department" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Section" ToRole="Department" />
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Section" FromRole="Section" ToRole="Emp" />
         </EntityType>
         <EntityType Name="ServiceLog">
@@ -8677,6 +8688,18 @@
             </Principal>
             <Dependent Role="Department">
               <PropertyRef Name="DivID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Department">
+          <End Role="Department" Type="TASDesktopModel.Department" Multiplicity="0..1" />
+          <End Role="Section" Type="TASDesktopModel.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DeptID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="DeptID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

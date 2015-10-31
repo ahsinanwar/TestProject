@@ -8,13 +8,13 @@ using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
 {
-    class DeleteCommandEmp : ICommand
+    class DeactiveCommandEmp :ICommand
     {
-        #region Fields
+         #region Fields
         TAS2013Entities context = new TAS2013Entities();
         Emp _vm = new Emp();
         #endregion
-        public DeleteCommandEmp(Emp vm)
+        public DeactiveCommandEmp(Emp vm)
         { _vm = vm; }
 
         public bool CanExecute(object parameter)
@@ -28,27 +28,24 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
         {
             VMEmployee vmd = (VMEmployee)parameter;
             Emp selectedEmp = context.Emps.FirstOrDefault(aa => aa.EmpID == vmd.selectedEmp.EmpID);
-            List<AttData> empdatas = context.AttDatas.Where(aa => aa.EmpID == selectedEmp.EmpID).ToList();
-            foreach (AttData data in empdatas)
-            {
-                context.AttDatas.Remove(data);
-            }
-          //  context.AttDatas.DeleteObjects(empdatas);
-            context.Emps.Remove(selectedEmp);
+            
+           // context.Emps.Remove(selectedEmp);
             //vmd.isAdding = true;
             //vmd.isEnabled = true;
             try
             {
-                context.SaveChanges();
+             
                 
-                    vmd.listOfEmps.Remove(vmd.selectedEmp);
+
+                selectedEmp.Status = false;
                     vmd.selectedEmp = vmd.listOfEmps[0];
-                
+                    context.SaveChanges();
             }
             catch (Exception)
             {
                 Console.WriteLine("Exception While Deleting...");
             }
         }
+
     }
 }

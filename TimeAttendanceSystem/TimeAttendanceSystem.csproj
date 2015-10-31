@@ -663,6 +663,7 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMEmployee\Commands\DeactiveCommandEmp.cs" />
     <Compile Include="ViewModels\VMLogin\Commands\ExitCommand.cs" />
     <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
     <Compile Include="ViewModels\VMLogin\VMLogin.cs" />
@@ -1278,6 +1279,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\deactive.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
