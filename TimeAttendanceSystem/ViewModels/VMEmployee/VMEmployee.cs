@@ -106,7 +106,9 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             set
             {
                 _selectedSec = value;
-                //listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
+                _selectedEmp.Section = _selectedSec;
+                 //listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedDept.DeptID));
+                base.OnPropertyChanged("selectedEmp");
                 base.OnPropertyChanged("selectedSec");
             }
         }
@@ -148,6 +150,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             {
                 this.isEnabled = false;
                 _selectedEmp = value;
+                _selectedEmp.SecID = _selectedSec.SectionID;
                 _dummyEmp = value;
                 base.OnPropertyChanged("dummyEmp");
                 base.OnPropertyChanged("selectedEmp");
@@ -335,7 +338,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
          
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
-            _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.Where(aa=>aa.CatID==_selectedCat.CatID));
+            _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
             _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList());
             _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList());
           

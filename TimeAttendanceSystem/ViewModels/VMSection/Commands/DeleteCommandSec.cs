@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
@@ -28,20 +30,30 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
         {
             VMSection vmd = (VMSection)parameter;
             Section selectedSec = context.Sections.FirstOrDefault(aa => aa.SectionID == vmd.selectedSec.SectionID);
-            context.Sections.Remove(selectedSec);
-            //vmd.isAdding = true;
-            //vmd.isEnabled = true;
-            try
+            List<Emp> emp = new List<Emp>();
+            emp = context.Emps.Where(aa=> aa.SecID == selectedSec.SectionID).ToList();
+
+            if (emp.Count > 0)
             {
-                if (context.SaveChanges() > 0)
-                {
-                    vmd.listOfSecs.Remove(vmd.selectedSec);
-                    vmd.selectedSec = vmd.listOfSecs[0];
-                }
+                PopUp.popUp("Not Deleted", "Please delete Employee before  Section Name Deletion", NotificationType.Warning);
             }
-            catch (Exception)
+            else
             {
-                Console.WriteLine("Exception While Deleting...");
+                context.Sections.Remove(selectedSec);
+                //vmd.isAdding = true;
+                //vmd.isEnabled = true;
+                try
+                {
+                    if (context.SaveChanges() > 0)
+                    {
+                        vmd.listOfSecs.Remove(vmd.selectedSec);
+                        vmd.selectedSec = vmd.listOfSecs[0];
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Exception While Deleting...");
+                }
             }
         }
     }

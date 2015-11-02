@@ -67,8 +67,14 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
                 else
                 {
                     Section sec = context.Sections.First(aa => aa.SectionID == vmd.selectedSec.SectionID);
+                    if (sec.SectionName != vmd.selectedSec.SectionName)
+                    {
+                        PopUp.popUp("Important Note", "It will effect on all this name of section", NotificationType.Warning);
+                    }
+
                     sec.SectionName = vmd.selectedSec.SectionName;
                     sec.DeptID = vmd.selectedSec.Department.DeptID;
+                    
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     context.SaveChanges();

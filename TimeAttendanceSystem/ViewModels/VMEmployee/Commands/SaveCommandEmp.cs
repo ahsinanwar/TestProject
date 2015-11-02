@@ -1,6 +1,7 @@
 ﻿using Mantin.Controls.Wpf.Notification;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,11 +93,16 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                     }
                     else
                         PopUp.popUp("No Photo", "Emloyee Saved Without a Photo", NotificationType.Warning);
+                    //A bad approach but way to handle this when u change the section we need to change its ID too
+                    vmd.selectedEmp.SecID = vmd.selectedEmp.Section.SectionID;
+                    context.Entry(emp).CurrentValues.SetValues(vmd.selectedEmp);
+                   // emp = vmd.selectedEmp;
+                   //context.Entry(emp).State = EntityState.Modified;
+                   
                     context.SaveChanges();
-                 
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
-                    context.SaveChanges();
+                   
                 }
             }
             catch (Exception ex)
