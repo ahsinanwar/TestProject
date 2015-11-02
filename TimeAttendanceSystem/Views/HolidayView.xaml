@@ -62,7 +62,7 @@
                 <!--Data Input Panel-->
                 <StackPanel Margin="5,5,5,5">
                     <Grid Height="150">
-                        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,42,0,0" FontWeight="Bold" Width="120" SelectedDate="{Binding selectedHoliday.HolDateFrom, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
+                        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top"   Margin="127,42,0,0" FontWeight="Bold" Width="120" SelectedDate="{Binding selectedHoliday.HolDateFrom, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
                         <Label Content="Holiday Date From:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Holiday Date To:" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,71,0,0" FontWeight="Bold" Width="120" SelectedDate="{Binding selectedHoliday.HolDateTo, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
