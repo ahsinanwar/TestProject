@@ -29,11 +29,19 @@ namespace TimeAttendanceSystem.Views
        
         public UserView()
         {
-           
-            InitializeComponent();
-         
-            vmusers = new VMUser();
-            this.DataContext = vmusers;
+
+            try
+            {
+                InitializeComponent();
+
+                vmusers = new VMUser();
+                this.DataContext = vmusers;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         private void btn_empView_Click(object sender, RoutedEventArgs e)
         {

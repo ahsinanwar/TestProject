@@ -75,6 +75,11 @@
                             <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png">
                             </Image>
                         </Button>
+                        <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeactiveCommand}" CommandParameter="{Binding}" ToolTip="Deactive">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/deactive.png">
+                            </Image>
+                        </Button>
+                        
                         
 
                     </StackPanel>
@@ -155,7 +160,7 @@
                                         <Label HorizontalAlignment="Left" Margin="157,473,0,-193" VerticalAlignment="Top"/>
                                         <Label Content="Crew:" HorizontalAlignment="Left" Margin="76,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,-0.839"/>
                                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="121,15,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="TypeName" SelectedValuePath="TypeID" ItemsSource="{Binding listOfEmpTypes}" 
-                            				SelectedItem="{Binding selectedEmp.EmpType, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                            				SelectedItem="{Binding selectedEmp.TypeID, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,41,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="DesignationName" SelectedValuePath="DesignationID" ItemsSource="{Binding listOfDesgs}"
                             				SelectedItem="{Binding selectedEmp.Designation, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="120,67,0,0" VerticalAlignment="Top" Width="153" FontSize="12" DisplayMemberPath="GradeName" SelectedValuePath="GradeName" ItemsSource="{Binding listOfGrades}" SelectedItem="{Binding selectedEmp.Grade, Mode=TwoWay}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"                                               />

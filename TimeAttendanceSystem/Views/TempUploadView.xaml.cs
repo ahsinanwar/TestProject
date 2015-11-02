@@ -25,9 +25,17 @@ namespace TimeAttendanceSystem.Views
         public TempUploadView()
         {
 
-            InitializeComponent();
-            vmreader = new VMTempUpload();
-            this.DataContext = vmreader;
+            try
+            {
+                InitializeComponent();
+                vmreader = new VMTempUpload();
+                this.DataContext = vmreader;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
     }
 }

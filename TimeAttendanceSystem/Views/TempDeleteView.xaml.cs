@@ -22,7 +22,15 @@ namespace TimeAttendanceSystem.Views
     {
         public TempDeleteView()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
     }
 }

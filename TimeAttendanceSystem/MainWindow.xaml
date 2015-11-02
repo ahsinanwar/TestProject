@@ -121,7 +121,7 @@
                         <telerik:RadMenuItem Header="Leaves"  Visibility="{Binding MLeave, Converter={StaticResource UserPermission},ConverterParameter=MLeave}">
                             <telerik:RadMenuItem Header="Application"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
-                            <telerik:RadMenuItem Header="Leave Quota"></telerik:RadMenuItem>
+                            <!--<telerik:RadMenuItem Header="Leave Quota"></telerik:RadMenuItem>-->
                             <telerik:RadMenuItem Header="Settings"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 

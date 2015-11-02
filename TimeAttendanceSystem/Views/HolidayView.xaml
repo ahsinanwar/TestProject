@@ -33,8 +33,8 @@
                         CanUserFreezeColumns="False" MinWidth="387" Width="550">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="HolidayName" DataMemberBinding="{Binding HolDesc}" />
-                    <telerik:GridViewDataColumn Header="Holiday DateFrom" DataMemberBinding="{Binding HolDateFrom}" />
-                    <telerik:GridViewDataColumn Header="Holiday DateTo" DataMemberBinding="{Binding HolDateTo}" />
+                    <telerik:GridViewDataColumn Header="HolidayDate" DataMemberBinding="{Binding HolDate}" />
+
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
         </StackPanel>
@@ -42,7 +42,7 @@
         <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Grid.Column="0" Grid.Row="2">
             <StackPanel Background="White">
                 <StackPanel Background="#004b79">
-                    <Label Foreground="White" Content="Holiday Detail"/>
+                    <Label Foreground="White">Holiday Detail</Label>
                 </StackPanel>
                 <!--Buttons Panel-->
                 <StackPanel Orientation="Horizontal" Margin="300,5,5,5">
@@ -62,14 +62,12 @@
                 <!--Data Input Panel-->
                 <StackPanel Margin="5,5,5,5">
                     <Grid Height="150">
-                        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top"   Margin="127,42,0,0" FontWeight="Bold" Width="120" SelectedDate="{Binding selectedHoliday.HolDateFrom, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
-                        <Label Content="Holiday Date From:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                        <Label Content="Holiday Date To:" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
-                        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,71,0,0" FontWeight="Bold" Width="120" SelectedDate="{Binding selectedHoliday.HolDateTo, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
+                        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,41,0,0" FontWeight="Bold" Width="120" SelectedDate="{Binding selectedHoliday.HolDate, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
+                        <Label Content="Holiday Date:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Holiday Name:" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="127,13,0,0" TextWrapping="Wrap" Text="{Binding Path=selectedHoliday.HolDesc}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold" VerticalAlignment="Top" Width="120"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="193,107,301,18" Height="25"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="103,13,0,0" TextWrapping="Wrap" Text="{Binding Path=selectedHoliday.HolDesc}" IsEnabled="{Binding Path=isEnabled}" FontWeight="Bold" VerticalAlignment="Top" Width="120"/>
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="169,70,325,55" Height="25"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
 
                     </Grid>
                 </StackPanel>

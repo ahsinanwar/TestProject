@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public DepartmentView()
         {
-            InitializeComponent();
-            vmdepts = new VMDepartments();
-            this.DataContext = vmdepts;
+            try
+            {
+                InitializeComponent();
+                vmdepts = new VMDepartments();
+                this.DataContext = vmdepts;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         VMDepartments vmdepts;
        

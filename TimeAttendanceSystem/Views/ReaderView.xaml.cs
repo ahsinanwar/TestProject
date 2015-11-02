@@ -22,9 +22,17 @@ namespace TimeAttendanceSystem.Views
     {
         public ReaderView()
         {
-             InitializeComponent();
-            vmreader = new VMReader();
-            this.DataContext = vmreader;
+            try
+            {
+                InitializeComponent();
+                vmreader = new VMReader();
+                this.DataContext = vmreader;
+            }
+            catch (Exception ex)
+            {
+                
+               MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
         VMReader vmreader;
     }

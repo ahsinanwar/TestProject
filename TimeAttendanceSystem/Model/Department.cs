@@ -21,7 +21,7 @@ namespace TimeAttendanceSystem.Model
     
         public short DeptID { get; set; }
         public string DeptName { get; set; }
-        public Nullable<short> DivID { get; set; }
+        public short DivID { get; set; }
     
         public virtual Division Division { get; set; }
         public virtual ICollection<Section> Sections { get; set; }
