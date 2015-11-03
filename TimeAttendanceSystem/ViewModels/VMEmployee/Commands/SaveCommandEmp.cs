@@ -52,9 +52,28 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                     {
                         PopUp.popUp("Duplication", "Emp no already exit", NotificationType.Warning);
                     }
+                        else if (vmd.selectedEmp.Gender1 == null)
+                    {
+                        PopUp.popUp("Empty Value", "Please Select Gender before saving", NotificationType.Warning);
+                    }
+                    else if (vmd.selectedEmp.Married == null)
+                    {
+                        PopUp.popUp("Empty Value", "Please Select MarStatus before saving", NotificationType.Warning);
+                    }
+                    else if (vmd.selectedEmp.BirthDate== null)
+                    {
+                        PopUp.popUp("Empty Value", "Please Select BirthDate before saving", NotificationType.Warning);
+                    }
+
                     else
                     {
-                        Emp dummy = vmd.selectedEmp;
+                        Emp dummy = new Emp();
+                        dummy=vmd.selectedEmp;
+                        
+                        dummy.SecID = dummy.Section.SectionID;
+                        dummy.Gender = dummy.Gender1.GenderID;
+                        dummy.MarStatus = dummy.Married.MarriedID;
+                        vmd.listOfEmps.Add(dummy);
                         dummy.Section.Department = null;
                         dummy.Section = null;
                         dummy.Crew = null;
@@ -63,16 +82,14 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         // dummy.EmpID = null;
                         dummy.Location = null;
                         dummy.Grade = null;
-                        dummy.Gender = dummy.Gender1.GenderID;
                         dummy.Gender1 = null;
-                        dummy.MarStatus = dummy.Married.MarriedID;
                         dummy.Married = null;
-                         //dummy.EmpPhoto = null;
+                        //dummy.EmpPhoto = null;
                         // vmd.selectedEmp.Section = null;
                         dummy.Shift = null;
                         context.Emps.Add(dummy);
                         context.SaveChanges();
-                        vmd.listOfEmps.Add(vmd.selectedEmp);
+                        
                         PopUp.popUp("Congratulations", "Emp is Created", NotificationType.Warning);
                     }
                 }
