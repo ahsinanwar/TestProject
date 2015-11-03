@@ -16,7 +16,6 @@ namespace TimeAttendanceSystem.Model
     {
         public string DesignationName { get; set; }
         public string GradeName { get; set; }
-        public string CompName { get; set; }
         public string JobTitle { get; set; }
         public string CityName { get; set; }
         public string RegionName { get; set; }
@@ -44,7 +43,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<int> ApprovedBy { get; set; }
         public Nullable<bool> Expr1 { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<short> CompanyID { get; set; }
         public Nullable<byte> TypeID { get; set; }
         public Nullable<short> CatID { get; set; }
         public Nullable<short> CrewID { get; set; }

@@ -63,7 +63,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         // dummy.EmpID = null;
                         dummy.Location = null;
                         dummy.Grade = null;
-                        //dummy.EmpPhoto = null;
+                        dummy.Gender = dummy.Gender1.GenderID;
+                        dummy.Gender1 = null;
+                        dummy.MarStatus = dummy.Married.MarriedID;
+                        dummy.Married = null;
+                         //dummy.EmpPhoto = null;
                         // vmd.selectedEmp.Section = null;
                         dummy.Shift = null;
                         context.Emps.Add(dummy);
@@ -95,6 +99,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         PopUp.popUp("No Photo", "Emloyee Saved Without a Photo", NotificationType.Warning);
                     //A bad approach but way to handle this when u change the section we need to change its ID too
                     vmd.selectedEmp.SecID = vmd.selectedEmp.Section.SectionID;
+                    vmd.selectedEmp.Gender = vmd.selectedEmp.Gender1.GenderID;
+                    vmd.selectedEmp.MarStatus = vmd.selectedEmp.Married.MarriedID;
                     context.Entry(emp).CurrentValues.SetValues(vmd.selectedEmp);
                    // emp = vmd.selectedEmp;
                    //context.Entry(emp).State = EntityState.Modified;

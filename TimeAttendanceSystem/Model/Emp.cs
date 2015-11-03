@@ -39,7 +39,7 @@ namespace TimeAttendanceSystem.Model
         public string FatherName { get; set; }
         public string BloodGroup { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
-        public string MarStatus { get; set; }
+        public Nullable<byte> MarStatus { get; set; }
         public Nullable<System.DateTime> JoinDate { get; set; }
         public Nullable<System.DateTime> ValidDate { get; set; }
         public Nullable<System.DateTime> IssueDate { get; set; }
@@ -66,7 +66,11 @@ namespace TimeAttendanceSystem.Model
         public virtual ICollection<AttData> AttDatas { get; set; }
         public virtual Crew Crew { get; set; }
         public virtual Designation Designation { get; set; }
+        public virtual Emp Emp1 { get; set; }
+        public virtual Emp Emp2 { get; set; }
+        public virtual Married Married { get; set; }
         public virtual EmpPhoto EmpPhoto { get; set; }
+        public virtual Gender Gender1 { get; set; }
         public virtual Grade Grade { get; set; }
         public virtual JobTitle JobTitle { get; set; }
         public virtual Location Location { get; set; }
