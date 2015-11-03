@@ -46,7 +46,7 @@ namespace TimeAttendanceSystem
             
             WindowState = WindowState.Maximized;
             CheckForRegistered(new BackgroundWorker());
-            //_mainFrame.Navigate(new DashView());
+           // _mainFrame.Navigate(new DashView());
             _mainFrame.Navigate(new EmployeeView());
             this.DataContext = userp;
             CommanVariables.CompanyName = "CNS TECHNOLOGIES";
