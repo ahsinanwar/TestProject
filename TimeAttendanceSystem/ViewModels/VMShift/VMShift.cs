@@ -41,6 +41,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
         }
         private ObservableCollection<Shift> _listOfShifts;
         private ObservableCollection<Emp> _listOfShiftEmps;
+        private ObservableCollection<RosterType> _listOfRosterType;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -71,6 +72,16 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             {
                 listOfShifts = value;
                 OnPropertyChanged("listOfShifts");
+            }
+        }
+        public ObservableCollection<RosterType> listOfRosterType
+        {
+            get { return _listOfRosterType; }
+
+            set
+            {
+                listOfRosterType = value;
+                OnPropertyChanged("listOfRosterType");
             }
         }
         public ObservableCollection<Emp> listOfShiftEmps
@@ -128,6 +139,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             _selectedShift = new Shift();
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _selectedShift = entity.Shifts.ToList().FirstOrDefault();
+            _listOfRosterType = new ObservableCollection<RosterType>(entity.RosterTypes.ToList()); 
             _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ShiftID == _selectedShift.ShiftID).ToList());
             this._AddCommand = new AddCommandShift(_selectedShift);
             this._EditCommand = new EditCommandShift(this);

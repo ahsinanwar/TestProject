@@ -65,7 +65,7 @@
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="26" Margin="153,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedRdr.IpAdd, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                         <Label Content="IP Address:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,44,0,0"/>
                         <Label Content="Port:" HorizontalAlignment="Left" Margin="102,74,0,0" VerticalAlignment="Top"/>
-                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,156,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" DisplayMemberPath="LocName" SelectedValuePath="LocID" SelectedItem="{Binding selectedRdr.LocID}" ItemsSource="{Binding listofLocs}" IsEnabled="{Binding isEnabled}">
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,156,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" DisplayMemberPath="LocName" SelectedValuePath="LocID" SelectedItem="{Binding selectedRdr.Location}" ItemsSource="{Binding listOfLocs}" IsEnabled="{Binding isEnabled}">
                         </telerik:RadComboBox>
                         <Label Content="Duty:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,98,0,0"/>
                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,100,0,0" VerticalAlignment="Top" Width="140"  FontWeight="Bold" DisplayMemberPath="RdrDutyName" SelectedValuePath="RdrDutyID" SelectedItem="{Binding selectedRdr.RdrDutyCode}" ItemsSource="{Binding listOfDutyCodes}" IsEnabled="{Binding isEnabled}">
@@ -90,7 +90,7 @@
             <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Reader</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                    ItemsSource="{Binding listOfShiftEmps}" ShowGroupPanel="False"
+                    ItemsSource="{Binding listOfRdrEmps}" ShowGroupPanel="False"
                     VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
                     CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79">
                 <telerik:RadGridView.Columns>

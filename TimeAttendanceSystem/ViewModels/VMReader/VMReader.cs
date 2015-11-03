@@ -40,10 +40,22 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             }
         }
         private ObservableCollection<Reader> _listOfRdrs;
+        private ObservableCollection<Emp> _listOfRdrEmps;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
+
+        public ObservableCollection<Emp> listOfRdrEmps
+        {
+            get { return _listOfRdrEmps; }
+
+            set
+            {
+                _listOfRdrEmps = value;
+                OnPropertyChanged("listOfRdrEmps");
+            }
+        }
         TAS2013Entities entity;
 
         public Reader selectedRdr
@@ -153,7 +165,8 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _selectedRdr = new Reader();
             _listOfRdrs = new ObservableCollection<Reader>(entity.Readers.ToList());
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
-       
+            _listOfRdrEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ReaderID == _selectedRdr.RdrID).ToList());
+           
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
         
             _listOfDutyCodes = new ObservableCollection<RdrDutyCode>(entity.RdrDutyCodes.ToList());
