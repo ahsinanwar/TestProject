@@ -186,7 +186,7 @@
 
                                         <DatePicker HorizontalAlignment="Left" Margin="127,92,0,0" VerticalAlignment="Top" Width="143" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
 
-                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.266,-0.312" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
+                                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="127,40,0,0" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.266,-0.312" IsEnabled="{Binding isEnabled}" SelectedItem="{Binding selectedEmp.Gender, Mode=TwoWay}" FontWeight="Bold">
                                             <ComboBoxItem x:Name="CBMale" Content="Male"/>
                                             <ComboBoxItem x:Name="CBFemale" Content="Female"/>
                                         </telerik:RadComboBox>
