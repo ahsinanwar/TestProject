@@ -153,7 +153,9 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _selectedRdr = new Reader();
             _listOfRdrs = new ObservableCollection<Reader>(entity.Readers.ToList());
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
+       
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
+        
             _listOfDutyCodes = new ObservableCollection<RdrDutyCode>(entity.RdrDutyCodes.ToList());
             _listOfRdrTypes = new ObservableCollection<ReaderType>(entity.ReaderTypes.ToList());
             this._AddCommand = new AddCommandRdr(_selectedRdr);

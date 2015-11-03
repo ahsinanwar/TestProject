@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMShift.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMShift
 {

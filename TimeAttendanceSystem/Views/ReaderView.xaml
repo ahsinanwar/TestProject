@@ -65,12 +65,12 @@
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="26" Margin="153,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedRdr.IpAdd, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                         <Label Content="IP Address:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,44,0,0"/>
                         <Label Content="Port:" HorizontalAlignment="Left" Margin="102,74,0,0" VerticalAlignment="Top"/>
-                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,126,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" DisplayMemberPath="LocName" SelectedValuePath="LocID" SelectedItem="{Binding selectedRdr.Location}" ItemsSource="{Binding listofLocs}" IsEnabled="{Binding isEnabled}">
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,156,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" DisplayMemberPath="LocName" SelectedValuePath="LocID" SelectedItem="{Binding selectedRdr.LocID}" ItemsSource="{Binding listofLocs}" IsEnabled="{Binding isEnabled}">
                         </telerik:RadComboBox>
                         <Label Content="Duty:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,98,0,0"/>
                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,100,0,0" VerticalAlignment="Top" Width="140"  FontWeight="Bold" DisplayMemberPath="RdrDutyName" SelectedValuePath="RdrDutyID" SelectedItem="{Binding selectedRdr.RdrDutyCode}" ItemsSource="{Binding listOfDutyCodes}" IsEnabled="{Binding isEnabled}">
                         </telerik:RadComboBox>
-                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,153,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" DisplayMemberPath="RdrTypeName" SelectedValuePath="RdrTypeID" SelectedItem="{Binding selectedRdr.ReaderType}" ItemsSource="{Binding listOfRdrTypes}" IsEnabled="{Binding isEnabled}">
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,127,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" DisplayMemberPath="RdrTypeName" SelectedValuePath="RdrTypeID" SelectedItem="{Binding selectedRdr.ReaderType}" ItemsSource="{Binding listOfRdrTypes}" IsEnabled="{Binding isEnabled}">
                         </telerik:RadComboBox>
                         <CheckBox telerik:StyleManager.Theme="Windows8" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,20,0,0"/>
                         <Label Content="Work Minutes" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="375,0,0,589" FontSize="22"/>
@@ -78,7 +78,7 @@
                         <Label Content="Type:" HorizontalAlignment="Left" Margin="99,126,0,0" VerticalAlignment="Top"/>
                         <Label Content="Location:" HorizontalAlignment="Left" Margin="79,152,0,0" VerticalAlignment="Top"/>
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedRdr.IpPort, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Background="White" Margin="153,180,255,43" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="49" Background="White" Margin="244,183,255,40" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="502,202,116,31" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                     </Grid>
                 </StackPanel>
@@ -87,7 +87,7 @@
         </Border>
         <!--Employee List View Panel-->
         <StackPanel Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1">
-            <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Shift</Label>
+            <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Reader</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
                     ItemsSource="{Binding listOfShiftEmps}" ShowGroupPanel="False"

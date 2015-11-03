@@ -12,22 +12,16 @@ namespace TimeAttendanceSystem.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Location
+    public partial class Gender
     {
-        public Location()
+        public Gender()
         {
             this.Emps = new HashSet<Emp>();
-            this.Readers = new HashSet<Reader>();
-            this.Shifts = new HashSet<Shift>();
         }
     
-        public short LocID { get; set; }
-        public string LocName { get; set; }
-        public Nullable<short> CityID { get; set; }
+        public byte GenderID { get; set; }
+        public string Name { get; set; }
     
-        public virtual City City { get; set; }
         public virtual ICollection<Emp> Emps { get; set; }
-        public virtual ICollection<Reader> Readers { get; set; }
-        public virtual ICollection<Shift> Shifts { get; set; }
     }
 }

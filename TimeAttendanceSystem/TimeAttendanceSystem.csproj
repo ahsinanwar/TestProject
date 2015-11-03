@@ -281,6 +281,9 @@
     <Compile Include="Model\EmpView.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Gender.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Grade.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -315,6 +318,9 @@
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LvType.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Married.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model2.Context.cs">
@@ -651,6 +657,7 @@
     <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
     <Compile Include="ViewModels\VMLogin\VMLogin.cs" />
     <Compile Include="ViewModels\VMLvApplication\CombinedEmpAndLvApps.cs" />
+    <Compile Include="ViewModels\VMShift\Commands\TAS2013Entities.cs" />
     <Compile Include="ViewModels\VMShortLv\CombinedEmpAndShortLvcs.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />

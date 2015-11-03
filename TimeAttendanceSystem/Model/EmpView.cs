@@ -62,9 +62,9 @@ namespace TimeAttendanceSystem.Model
         public int EmpID { get; set; }
         public string LocName { get; set; }
         public Nullable<short> CityID { get; set; }
-        public string ShiftName { get; set; }
         public string CityName { get; set; }
         public Nullable<byte> RegionID { get; set; }
         public string RegionName { get; set; }
+        public string ShiftName { get; set; }
     }
 }
