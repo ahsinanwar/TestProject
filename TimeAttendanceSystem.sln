@@ -8,7 +8,7 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "SetupWMS", "SetupWMS\SetupW
 		{9DDAED9B-5502-40AF-AC6C-B0D9F7CAB0A6} = {9DDAED9B-5502-40AF-AC6C-B0D9F7CAB0A6}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadersCommLibrary", "..\..\Inven Projects\TASLiveView\ReadersCommLibrary\ReadersCommLibrary.csproj", "{51A6D290-F802-43D5-803F-67EE18CC5826}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadersCommLibrary", "ReadersCommLibrary\ReadersCommLibrary.csproj", "{51A6D290-F802-43D5-803F-67EE18CC5826}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
