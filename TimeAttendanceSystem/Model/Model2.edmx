@@ -3098,7 +3098,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Name="SectionID" Type="smallint" Nullable="false" />
+          <Property Name="SectionID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
           <Property Name="DeptID" Type="smallint" />
         </EntityType>
@@ -6944,7 +6944,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Name="SectionID" Type="Int16" Nullable="false" />
+          <Property Name="SectionID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="SectionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="DeptID" Type="Int16" />
           <NavigationProperty Name="Department" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Section" ToRole="Department" />

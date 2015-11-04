@@ -53,6 +53,9 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
                         dummy.Department = null;
                         context.Sections.Add(vmd.selectedSec);
                         context.SaveChanges();
+
+                        vmd.selectedSec.DeptID = vmd.selectedSec.Department.DeptID;
+                        vmd.selectedSec.Department.DivID = vmd.selectedSec.Department.Division.DivisionID;
                         vmd.listOfSecs.Add(vmd.selectedSec);
                         PopUp.popUp("Save", "Section Name is created Successfully", NotificationType.Warning);
                     }
