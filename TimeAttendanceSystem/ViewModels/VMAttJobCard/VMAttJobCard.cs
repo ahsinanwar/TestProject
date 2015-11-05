@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMAttJobCard.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
 {
@@ -55,9 +56,6 @@ namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
         private ObservableCollection<JobCard> _listOfJobCards;
         private ObservableCollection<JobCardApp> _listofJobCardApps;
         public ICommand _AddCommand { get; set; }
-        public ICommand _EditCommand { get; set; }
-        public ICommand _SaveCommand { get; set; }
-        public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
 
         public AttData selectedAttData
@@ -113,11 +111,11 @@ namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
 
         #region ICommands
 
-        public ICommand SaveCommand
+        public ICommand AddCommand
         {
             get
             {
-                return _SaveCommand;
+                return _AddCommand;
             }
 
         }
@@ -139,7 +137,8 @@ namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
             _listOfJobCards = new ObservableCollection<JobCard>(entity.JobCards.ToList());
             this._isAdding = false;
             this._isEnabled = false;
-            //this._SaveCommand = new SaveCommandAttEdit(this);
+
+            this._AddCommand = new AddCommand();
             base.OnPropertyChanged("_listOfJobCards");
         }
         #endregion

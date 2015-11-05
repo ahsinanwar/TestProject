@@ -609,6 +609,7 @@
     <Compile Include="ViewModels\VMAttEdit\Commands\SearchCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttJobCard\Commands\AddCommand.cs" />
     <Compile Include="ViewModels\VMAttJobCard\VMAttJobCard.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
@@ -1266,14 +1267,12 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\ReadersCommLibrary\ReadersCommLibrary.csproj">
       <Project>{51a6d290-f802-43d5-803f-67ee18cc5826}</Project>
       <Name>ReadersCommLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
