@@ -198,12 +198,12 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
                         int FpId = Convert.ToInt32(fpid);
                         emp = entity.Emps.Where(aa => aa.FpID == FpId).FirstOrDefault();
                         if (emp != null)
-                            listOfShiftEmps.Add(emp);
+                            listOfRdrEmps.Add(emp);
 
 
                     }
 
-                    base.OnPropertyChanged("listOfShiftEmps");
+                    base.OnPropertyChanged("listOfRdrEmps");
                     base.OnPropertyChanged("selectedRdr");
                     base.OnPropertyChanged("isEnabled");
                 }
