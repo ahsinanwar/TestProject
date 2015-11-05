@@ -54,17 +54,23 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                         else
                         {
                             // if everything is ok, save new object to database
-                            vmd.selectedLoc.City = null;
+
+
+                            Location dummy = vmd.selectedLoc;
+                            dummy.City = null;
                             ctx.Locations.Add(vmd.selectedLoc);
                             if (ctx.SaveChanges() > 0)
                             {
-                                vmd.listOfLocs.Add(vmd.selectedLoc);
                                 PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
                             }
                             else
                             {
                                 PopUp.popUp("Sorry!", "An error occured while saving.", NotificationType.Warning);
                             }
+
+                            vmd.selectedLoc.City = ctx.Cities.Where(aa => aa.CityID == vmd.selectedLoc.CityID).FirstOrDefault();
+
+                            vmd.listOfLocs.Add(vmd.selectedLoc);
                         }
                     }
                 }
@@ -77,8 +83,9 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                     vmd.isAdding = false;
                     ctx.SaveChanges();
                     PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
-
-                } 
+                }
+                vmd.isAdding = false;
+                vmd.isEnabled = false;
             }
          
         }

@@ -70,6 +70,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
                 this.isEnabled = false;
                 _selectedCity = value;
                 base.OnPropertyChanged("selectedCity");
+                if(_selectedCity != null)
                 _listOfCityEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Location.CityID == _selectedCity.CityID));
                 base.OnPropertyChanged("ListOfCityEmps");
                 base.OnPropertyChanged("isEnabled");
