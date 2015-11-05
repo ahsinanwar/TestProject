@@ -36,18 +36,19 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
             {
                 if (vmd.selectedDept.DeptName == "" || vmd.selectedDept.DeptName == null)
                 {
-                    PopUp.popUp("Empty Value", "Please write Department Name before saving", NotificationType.Warning);
+                    PopUp.popUp("Department", "Please write Department Name before saving", NotificationType.Warning);
                 }
 
                 else
                 {
                     if (context.Departments.Where(aa => aa.DeptName == vmd.selectedDept.DeptName).Count() > 0)
                     {
-                        PopUp.popUp("Duplicate Value", "Department Name must be Unique", NotificationType.Warning);
+                        PopUp.popUp("Department", "Department Name must be Unique", NotificationType.Warning);
                     }
                     else
                     {
                         Department dummy = vmd.selectedDept;
+                        dummy.Division = context.Divisions.Where(aa => aa.DivisionID == dummy.DivID).FirstOrDefault();
                         vmd.listOfDepts.Add(dummy);
                         dummy.Division = null;
                         context.Departments.Add(vmd.selectedDept);
@@ -55,7 +56,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                         vmd.isEnabled = false;
                         vmd.isAdding = false;
                       
-                        PopUp.popUp("Save", dummy.DeptName+" is created Successfully", NotificationType.Warning);
+                        PopUp.popUp("Department", dummy.DeptName+" is created Successfully", NotificationType.Information);
                   
                     }
                 }
@@ -64,7 +65,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
             {
                 if (vmd.selectedDept.DeptName == "" || vmd.selectedDept.DeptName == null)
                 {
-                    PopUp.popUp("Empty Value", "Please write a Section Name before saving", NotificationType.Warning);
+                    PopUp.popUp("Department", "Please write a Section Name before saving", NotificationType.Warning);
                 }
                 else
                 {
@@ -74,7 +75,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     context.SaveChanges();
-                    PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+                    PopUp.popUp("Department", dept.DeptName+" Edited", NotificationType.Information);
               
                 }
             }

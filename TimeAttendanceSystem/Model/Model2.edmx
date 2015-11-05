@@ -2585,7 +2585,7 @@
           <Key>
             <PropertyRef Name="DeptID" />
           </Key>
-          <Property Name="DeptID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeptID" Type="smallint" Nullable="false" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
           <Property Name="DivID" Type="smallint" Nullable="false" />
         </EntityType>
@@ -3098,7 +3098,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Name="SectionID" Type="smallint" Nullable="false" />
+          <Property Name="SectionID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
           <Property Name="DeptID" Type="smallint" />
         </EntityType>
@@ -6376,7 +6376,7 @@
           <Key>
             <PropertyRef Name="DeptID" />
           </Key>
-          <Property Name="DeptID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptID" Type="Int16" Nullable="false" />
           <Property Name="DeptName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="DivID" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Division" Relationship="TASDesktopModel.FK_Department_Division" FromRole="Department" ToRole="Division" />
@@ -6944,7 +6944,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Name="SectionID" Type="Int16" Nullable="false" />
+          <Property Name="SectionID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="SectionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="DeptID" Type="Int16" />
           <NavigationProperty Name="Department" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Section" ToRole="Department" />

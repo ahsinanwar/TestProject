@@ -60,8 +60,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Mantin.Controls.Wpf.Notification">
-      <HintPath>..\..\..\Mantin.Controls.Wpf.Notification.dll</HintPath>
+    <Reference Include="Mantin.Controls.Wpf.Notification, Version=2.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mantin.Controls.Wpf.Notification.2.8.1.0\lib\net40\Mantin.Controls.Wpf.Notification.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json">
@@ -1265,6 +1266,14 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ReadersCommLibrary\ReadersCommLibrary.csproj">
+      <Project>{51a6d290-f802-43d5-803f-67ee18cc5826}</Project>
+      <Name>ReadersCommLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

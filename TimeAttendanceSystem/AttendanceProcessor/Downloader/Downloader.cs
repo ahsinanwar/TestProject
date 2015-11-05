@@ -23,7 +23,7 @@ namespace TASDownloadService.Helper
                 // Ping to Device and recieve true if device exists
                 if (IsConnectedToInternet(reader.IpAdd))
                 {
-
+                   
                     ReadersCommLibrary.IReader readerHelper = new ReadersCommLibrary.ZKReader();
                     if (readerHelper.Connect(reader.IpAdd, reader.IpPort))
                     {
@@ -48,6 +48,8 @@ namespace TASDownloadService.Helper
                     }
                 
                 }
+                else
+                    listOfEmps.Add("NA");
          
         }
         return listOfEmps;
@@ -282,9 +284,12 @@ namespace TASDownloadService.Helper
             Ping p = new Ping();
             try
             {
-                PingReply reply = p.Send(host, 3000);
-                if (reply.Status == IPStatus.Success)
-                    return true;
+                if (host != null)
+                {
+                    PingReply reply = p.Send(host, 3000);
+                    if (reply.Status == IPStatus.Success)
+                        return true;
+                }
             }
             catch { }
             return result;
