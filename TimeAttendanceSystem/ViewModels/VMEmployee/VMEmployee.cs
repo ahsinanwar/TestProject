@@ -365,7 +365,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             
             _selectedDept = new Department();
-            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
+            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(emp => emp.Status == true).ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
              _dummyEmp = selectedEmp;
              _listOfMarried = new ObservableCollection<Married>(entity.Marrieds.ToList());

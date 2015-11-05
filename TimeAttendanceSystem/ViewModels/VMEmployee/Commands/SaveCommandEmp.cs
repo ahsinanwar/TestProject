@@ -138,16 +138,14 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                    //context.Entry(emp).State = EntityState.Modified;
                    
                     context.SaveChanges();
-                    vmd.isEnabled = false;
-                    vmd.isAdding = false;
-                   
                 }
+                vmd.isEnabled = false;
+                vmd.isAdding = false;
             }
             catch (Exception ex)
             {
                 PopUp.popUp("Eror", "Some error while saving", NotificationType.Warning);
             }
-
         }
 
         
