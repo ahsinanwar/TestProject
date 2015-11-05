@@ -14,9 +14,10 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
     class VMShift :ObservableObject
     {
         #region Intialization
-        public Shift _selectedShift;
-        public Boolean _isEnabled = false;
-        public Boolean _isAdding = false;
+        private Shift _selectedShift;
+        private Boolean _isEnabled = false;
+        private Boolean _isAdding = false;
+        private ObservableCollection<DaysName> _listOfDays;
         public Boolean isAdding
         {
             get { return _isAdding; }
@@ -37,6 +38,18 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             {
                 _isEnabled = value;
                 base.OnPropertyChanged("isEnabled");
+            }
+        }
+        public ObservableCollection<DaysName> ListOfDays
+        {
+            get
+            {
+                return _listOfDays;
+            }
+            set
+            {
+                _listOfDays = value;
+                base.OnPropertyChanged("ListOfDays");
             }
         }
         private ObservableCollection<Shift> _listOfShifts;
@@ -139,6 +152,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             _selectedShift = new Shift();
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _selectedShift = entity.Shifts.ToList().FirstOrDefault();
+            _listOfDays = new ObservableCollection<DaysName>(entity.DaysNames.ToList());
             _listOfRosterType = new ObservableCollection<RosterType>(entity.RosterTypes.ToList()); 
             _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ShiftID == _selectedShift.ShiftID).ToList());
             this._AddCommand = new AddCommandShift(_selectedShift);
