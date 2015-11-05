@@ -37,7 +37,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift.Commands
             {
                 if (emp.Count > 0)
                 {
-                    PopUp.popUp("Not Deleted", "Please delete Employee before Shift Deletion", NotificationType.Warning);
+                    PopUp.popUp("Shift", "Please delete Employee before Shift Deletion", NotificationType.Warning);
                 }
                 else
                 {
