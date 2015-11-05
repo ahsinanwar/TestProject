@@ -31,7 +31,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
             VMLocation vmd = (VMLocation)parameter;
             vmd._selectedLoc = new Location();
             vmd._selectedLoc.City = vmd.listOfCities.FirstOrDefault();
-            vmd._selectedLoc.City.CityID = vmd.selectedLoc.City.CityID;
+            vmd._selectedLoc.CityID = vmd.selectedLoc.City.CityID;
             vmd.selectedLoc = vmd._selectedLoc;
 
             //VMEmpType vmd = (VMEmpType)parameter;
