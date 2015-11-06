@@ -25,5 +25,10 @@ namespace TimeAttendanceSystem.Model
     
         public virtual Department Department { get; set; }
         public virtual ICollection<Emp> Emps { get; set; }
+
+        internal static void Refresh()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

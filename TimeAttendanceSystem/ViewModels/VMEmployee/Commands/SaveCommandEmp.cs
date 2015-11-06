@@ -88,7 +88,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         // vmd.selectedEmp.Section = null;
                         dummy.Shift = null;
                         context.Emps.Add(dummy);
+                        
                         context.SaveChanges();
+                        
+
+                        
                         
                         PopUp.popUp("Congratulations", "Emp is Created", NotificationType.Warning);
                     }
@@ -122,7 +126,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                    // emp = vmd.selectedEmp;
                    //context.Entry(emp).State = EntityState.Modified;
                    
-                    context.SaveChanges();
+context.SaveChanges();
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                    
@@ -133,6 +137,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                 PopUp.popUp("Eror", ex.InnerException.ToString(), NotificationType.Warning);
             }
 
+        }
+
+        private void Refresh()
+        {
+            throw new NotImplementedException();
         }
 
         

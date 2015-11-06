@@ -776,8 +776,8 @@
     <Compile Include="Views\FirstPageDatabase.xaml.cs">
       <DependentUpon>FirstPageDatabase.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LvSetting.xaml.cs">
-      <DependentUpon>LvSetting.xaml</DependentUpon>
+    <Compile Include="Views\LvQuota.xaml.cs">
+      <DependentUpon>LvQuota.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SQLDATABASE.xaml.cs">
       <DependentUpon>SQLDATABASE.xaml</DependentUpon>
@@ -1057,7 +1057,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\LvSetting.xaml">
+    <Page Include="Views\LvQuota.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
