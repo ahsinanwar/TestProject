@@ -23,6 +23,7 @@ namespace TimeAttendanceSystem.Model
         public string SectionName { get; set; }
         public Nullable<short> DeptID { get; set; }
     
+        public virtual Department Department { get; set; }
         public virtual ICollection<Emp> Emps { get; set; }
     }
 }

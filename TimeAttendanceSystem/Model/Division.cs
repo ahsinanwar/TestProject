@@ -14,7 +14,14 @@ namespace TimeAttendanceSystem.Model
     
     public partial class Division
     {
+        public Division()
+        {
+            this.Departments = new HashSet<Department>();
+        }
+    
         public short DivisionID { get; set; }
         public string DivisionName { get; set; }
+    
+        public virtual ICollection<Department> Departments { get; set; }
     }
 }

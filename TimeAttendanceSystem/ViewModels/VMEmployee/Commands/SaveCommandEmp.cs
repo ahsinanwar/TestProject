@@ -80,7 +80,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
 
                     emp.EmpPhoto = context.EmpPhotoes.FirstOrDefault(aa => aa.EmpID == emp.EmpID);
 
-                    if (emp.EmpPhoto == null)
+                    if (emp.EmpPhoto == null && vmd.dummyEmp.EmpPhoto != null)
                     {
                         EmpPhoto ep = new EmpPhoto()
                         {
@@ -91,11 +91,9 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         emp.EmpImageID = ep.PhotoID;
                     }
                     else
-                    {
-
-                    }
+                        PopUp.popUp("No Photo", "Emloyee Saved Without a Photo", NotificationType.Warning);
                     context.SaveChanges();
-                    emp.EmpImageID = emp.EmpPhoto.PhotoID;
+                 
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     context.SaveChanges();

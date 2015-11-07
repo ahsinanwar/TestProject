@@ -68,6 +68,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
+        public ICommand _DeactiveCommand { get; set; }
         TAS2013Entities entity;
         public Category selectedCat
         {
@@ -308,6 +309,16 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             }
 
         }
+        public ICommand DeactiveCommand
+        {
+            get
+            {
+                return _DeactiveCommand;
+            }
+
+        }
+
+
         #endregion
 
         #region constructor
@@ -340,6 +351,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             this._AddCommand = new AddCommandEmp(_selectedEmp);
             this._EditCommand = new EditCommandEmp(this);
             this._DeleteCommand = new DeleteCommandEmp(_selectedEmp);
+            this._DeactiveCommand = new DeactiveCommandEmp(_selectedEmp);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandEmp(this);

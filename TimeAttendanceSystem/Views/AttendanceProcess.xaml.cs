@@ -55,14 +55,14 @@ namespace TimeAttendanceSystem.Views
             TAS2013Entities ctx = new TAS2013Entities();
 
             // Download Attendance From Readers
-          //  Downloader d = new Downloader();
-         //   d.DownloadDataInIt();
-            DateTime dateStart = (DateTime)arg[0] ;
+            //  Downloader d = new Downloader();
+            //   d.DownloadDataInIt();
+            DateTime dateStart = (DateTime)arg[0];
             DateTime dateEnd = (DateTime)arg[1];
             List<Emp> emps = new List<Emp>();
             List<AttData> attdata = new List<AttData>();
             emps = ctx.Emps.Where(aa => aa.Status == true).ToList();
-            
+
             while (dateStart <= dateEnd)
             {
                 attdata.Clear();
@@ -84,6 +84,7 @@ namespace TimeAttendanceSystem.Views
             pea.ProcessManualEditAttendance(dateStart, dateEnd);
             //Process Job cards if any
             ApplyJobCard(dateStart, dateEnd);
+        }
             private void ApplyJobCard(DateTime dateStart, DateTime dateEnd)
         {
             TAS2013Entities ctx = new TAS2013Entities();
@@ -93,6 +94,7 @@ namespace TimeAttendanceSystem.Views
             {
                 JobCardController JCController = new JobCardController();
                 int _empID = (int)jcEmp.EmpID;
+              
                 string _empDate = _empID.ToString() + jcEmp.Dated.Value.ToString("yyMMdd");
                 DateTime _Date = (DateTime)jcEmp.Dated;
                 if (ctx.AttProcesses.Where(aa => aa.ProcessDate == jcEmp.Dated).Count() > 0)

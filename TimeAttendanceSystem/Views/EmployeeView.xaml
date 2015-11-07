@@ -75,6 +75,11 @@
                             <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png">
                             </Image>
                         </Button>
+                        <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeactiveCommand}" CommandParameter="{Binding}" ToolTip="Deactive">
+                            <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/deactive.png">
+                            </Image>
+                        </Button>
+                        
                         
 
                     </StackPanel>

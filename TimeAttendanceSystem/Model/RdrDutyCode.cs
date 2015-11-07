@@ -14,7 +14,14 @@ namespace TimeAttendanceSystem.Model
     
     public partial class RdrDutyCode
     {
+        public RdrDutyCode()
+        {
+            this.Readers = new HashSet<Reader>();
+        }
+    
         public byte RdrDutyID { get; set; }
         public string RdrDutyName { get; set; }
+    
+        public virtual ICollection<Reader> Readers { get; set; }
     }
 }
