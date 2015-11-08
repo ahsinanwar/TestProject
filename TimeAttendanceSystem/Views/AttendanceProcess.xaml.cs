@@ -21,6 +21,7 @@ using TASDownloadService;
 using TASDownloadService.AttProcessDaily;
 using WMSFFService;
 using TimeAttendanceSystem.Controllers;
+using TASDownloadService.Helper;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -55,8 +56,7 @@ namespace TimeAttendanceSystem.Views
             TAS2013Entities ctx = new TAS2013Entities();
 
             // Download Attendance From Readers
-            //  Downloader d = new Downloader();
-            //   d.DownloadDataInIt();
+           
             DateTime dateStart = (DateTime)arg[0];
             DateTime dateEnd = (DateTime)arg[1];
             List<Emp> emps = new List<Emp>();

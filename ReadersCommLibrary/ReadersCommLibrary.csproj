@@ -57,7 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmpCard.cs" />
     <Compile Include="EmpFPTemp.cs" />
+    <Compile Include="EmpUpload.cs" />
     <Compile Include="IReader.cs" />
     <Compile Include="Poll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

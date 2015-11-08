@@ -70,10 +70,13 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
             {
                 this.isEnabled = false;
                 _selectedSec = value;
-                _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
-                base.OnPropertyChanged("ListOfSecEmps");
-                base.OnPropertyChanged("selectedSec");
-                base.OnPropertyChanged("isEnabled");
+                if (_selectedSec != null)
+                {
+                    _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
+                    base.OnPropertyChanged("ListOfSecEmps");
+                    base.OnPropertyChanged("selectedSec");
+                    base.OnPropertyChanged("isEnabled");
+                }
 
             }
         }

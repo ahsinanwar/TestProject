@@ -60,8 +60,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Mantin.Controls.Wpf.Notification">
-      <HintPath>..\..\..\Mantin.Controls.Wpf.Notification.dll</HintPath>
+    <Reference Include="Mantin.Controls.Wpf.Notification, Version=2.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mantin.Controls.Wpf.Notification.2.8.1.0\lib\net40\Mantin.Controls.Wpf.Notification.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json">
@@ -131,11 +132,8 @@
     <Reference Include="Telerik.Windows.Controls.ScheduleView, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Controls.Spreadsheet, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Data, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Diagrams.Core, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Maths, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.PersistenceFramework, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Diagrams.Core, Version=2013.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Scheduling.Core, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Zip, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -152,6 +150,7 @@
     </ApplicationDefinition>
     <Compile Include="AttendanceProcessor\CalculateWorkMins.cs" />
     <Compile Include="AttendanceProcessor\CreateMissingAttendance.cs" />
+    <Compile Include="AttendanceProcessor\Downloader\Downloader.cs" />
     <Compile Include="AttendanceProcessor\ManualProcess.cs" />
     <Compile Include="AttendanceProcessor\PlaceTimeInOuts.cs" />
     <Compile Include="AttendanceProcessor\ProcessAttendance.cs" />
@@ -610,6 +609,7 @@
     <Compile Include="ViewModels\VMAttEdit\Commands\SearchCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttJobCard\Commands\AddCommand.cs" />
     <Compile Include="ViewModels\VMAttJobCard\VMAttJobCard.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
@@ -1242,12 +1242,6 @@
     <Resource Include="Images\upload.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReadersCommLibrary\ReadersCommLibrary.csproj">
-      <Project>{51a6d290-f802-43d5-803f-67ee18cc5826}</Project>
-      <Name>ReadersCommLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="adnan.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -1272,6 +1266,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReadersCommLibrary\ReadersCommLibrary.csproj">
+      <Project>{51a6d290-f802-43d5-803f-67ee18cc5826}</Project>
+      <Name>ReadersCommLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

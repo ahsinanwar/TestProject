@@ -101,6 +101,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                 else
                 {
                     Emp emp = context.Emps.First(aa => aa.EmpID == vmd.dummyEmp.EmpID);
+
                     emp.EmpName = vmd.dummyEmp.EmpName;
 
 
@@ -119,24 +120,37 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                     else
                         PopUp.popUp("No Photo", "Emloyee Saved Without a Photo", NotificationType.Warning);
                     //A bad approach but way to handle this when u change the section we need to change its ID too
+
+                    
+                    
+
+                    vmd.selectedEmp.TypeID = vmd.selectedEmp.EmpType.TypeID;
+                    vmd.selectedEmp.DesigID = vmd.selectedEmp.Designation.DesignationID;
+                    vmd.selectedEmp.GradeID = vmd.selectedEmp.Grade.GradeID;
+
+                    vmd.selectedEmp.ShiftID = vmd.selectedEmp.Shift.ShiftID;
                     vmd.selectedEmp.SecID = vmd.selectedEmp.Section.SectionID;
-                    vmd.selectedEmp.Gender = vmd.selectedEmp.Gender1.GenderID;
+                    vmd.selectedEmp.LocID = vmd.selectedEmp.Location.LocID;
+
+                    vmd.selectedEmp.CrewID = vmd.selectedEmp.Crew.CrewID;
                     vmd.selectedEmp.MarStatus = vmd.selectedEmp.Married.MarriedID;
+                    vmd.selectedEmp.Gender = vmd.selectedEmp.Gender1.GenderID;
+                    
+
                     context.Entry(emp).CurrentValues.SetValues(vmd.selectedEmp);
                    // emp = vmd.selectedEmp;
                    //context.Entry(emp).State = EntityState.Modified;
                    
-context.SaveChanges();
-                    vmd.isEnabled = false;
-                    vmd.isAdding = false;
-                   
+                    context.SaveChanges();
+
                 }
+                vmd.isEnabled = false;
+                vmd.isAdding = false;
             }
             catch (Exception ex)
             {
-                PopUp.popUp("Eror", ex.InnerException.ToString(), NotificationType.Warning);
+                PopUp.popUp("Eror", "Some error while saving", NotificationType.Warning);
             }
-
         }
 
         private void Refresh()

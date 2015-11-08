@@ -25,6 +25,8 @@ using TimeAttendanceSystem.HelperClasses;
 using Newtonsoft.Json;
 using System.Net;
 using TimeAttendanceSystem.Views.AccessControl;
+using TASDownloadService.Helper;
+using Mantin.Controls.Wpf.Notification;
 
 
 namespace TimeAttendanceSystem
@@ -35,7 +37,8 @@ namespace TimeAttendanceSystem
     public partial class MainWindow : Window
 
     {
-        
+       
+           
         TAS2013Entities ctx = new TAS2013Entities(); 
         public MainWindow()
         {
@@ -50,11 +53,13 @@ namespace TimeAttendanceSystem
             _mainFrame.Navigate(new EmployeeView());
             this.DataContext = userp;
             CommanVariables.CompanyName = "CNS TECHNOLOGIES";
-           // this.DataContext = GlobalClasses.Global;
+            // this.DataContext = GlobalClasses.Global;
             //_mainFrame.Navigate(new EmployeeView());
             //CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
-           
+            
         }
+
+       
            
         public void CommenceTripleChecking()
         {
@@ -277,7 +282,8 @@ namespace TimeAttendanceSystem
 
 
                 CheckGodsWraith();
-
+                Downloader d = new Downloader();
+                d.DownloadDataInIt();
             });
 
             // what to do when worker completes its task (notify the user)
@@ -296,8 +302,10 @@ namespace TimeAttendanceSystem
                 ctx.SaveChanges();
                 if (df.Licensetype.TypeId == -1)
                     this.Close();
+                
             });
-
+        
+ 
             bw.RunWorkerAsync();
 
 

@@ -38,13 +38,13 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
             {
                 if (vmd.selectedSec.SectionName == "" || vmd.selectedSec.SectionName == null)
                 {
-                    PopUp.popUp("Empty Value", "Please write a Section Name before saving", NotificationType.Warning);
+                    PopUp.popUp("Section", "Please write a Section Name before saving", NotificationType.Warning);
                 }
                 else
                 {
                     if (context.Sections.Where(aa => aa.SectionName == vmd.selectedSec.SectionName).Count() > 0)
                     {
-                        PopUp.popUp("Duplicate Value", "Section Name must be Unique", NotificationType.Warning);
+                        PopUp.popUp("Section", "Section Name must be Unique", NotificationType.Warning);
                     }
                     else
                     {
@@ -53,8 +53,11 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
                         dummy.Department = null;
                         context.Sections.Add(vmd.selectedSec);
                         context.SaveChanges();
+
+                        vmd.selectedSec.Department = context.Departments.Where(aa => aa.DeptID == vmd.selectedSec.DeptID).FirstOrDefault();
+                       
                         vmd.listOfSecs.Add(vmd.selectedSec);
-                        PopUp.popUp("Save", "Section Name is created Successfully", NotificationType.Warning);
+                        PopUp.popUp("Section", "Section " + vmd.selectedSec.SectionName + " is created Successfully", NotificationType.Information);
                     }
                 }
             }
@@ -62,14 +65,14 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
             {
                 if (vmd.selectedSec.SectionName == "" || vmd.selectedSec.SectionName == null)
                 {
-                    PopUp.popUp("Empty Value", "Please write a Section Name before saving", NotificationType.Warning);
+                    PopUp.popUp("Section", "Please write a Section Name before saving", NotificationType.Warning);
                 }
                 else
                 {
                     Section sec = context.Sections.First(aa => aa.SectionID == vmd.selectedSec.SectionID);
                     if (sec.SectionName != vmd.selectedSec.SectionName)
                     {
-                        PopUp.popUp("Important Note", "It will effect on all sections of this name", NotificationType.Warning);
+                        PopUp.popUp("Section", "All Employess associated will be effected", NotificationType.Warning);
                     }
 
                     sec.SectionName = vmd.selectedSec.SectionName;

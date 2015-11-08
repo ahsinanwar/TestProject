@@ -6,41 +6,31 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 
-namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
+namespace TimeAttendanceSystem.ViewModels.VMAttJobCard.Commands
 {
-    class AddCommandLoc : ICommand
+    class AddCommand :ICommand
     {
         #region Fields
         TAS2013Entities context = new TAS2013Entities();
-        Location _vm = new Location();
+       // VMAttJobCard _vm = new VMAttJobCard();
         #endregion
 
-        #region constructors
-        public AddCommandLoc(Location vm)
-        { _vm = vm; }
+        //#region constructors
+        //public AddCommand()
+        //{ _vm = vm; }
         public bool CanExecute(object parameter)
         {
             return true;
         }
-        #endregion
+       // #endregion
 
         #region ICommand Members
         public event EventHandler CanExecuteChanged;
         public void Execute(object parameter)
         {
-            VMLocation vmd = (VMLocation)parameter;
-            vmd._selectedLoc = new Location();
-            vmd._selectedLoc.City = vmd.listOfCities.FirstOrDefault();
-            vmd._selectedLoc.CityID = vmd.selectedLoc.City.CityID;
-            vmd.selectedLoc = vmd._selectedLoc;
-
-            //VMEmpType vmd = (VMEmpType)parameter;
-            //vmd._selectedEmpType = new EmpType();
-            //vmd._selectedEmpType.Category = vmd.listOfCats.FirstOrDefault();
-            //vmd._selectedEmpType.CatID = vmd.selectedEmpType.Category.CatID;
-            //vmd.selectedEmpType = vmd._selectedEmpType;
-
-
+            VMAttJobCard vmd = (VMAttJobCard)parameter;
+            vmd._selectedJobCardApp = new JobCardApp();
+            vmd.selectedAttData = new AttData();
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

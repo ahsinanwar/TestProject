@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
@@ -28,20 +30,31 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
         {
             VMCity vmd = (VMCity)parameter;
             City selectedCity = context.Cities.FirstOrDefault(aa => aa.CityID == vmd.selectedCity.CityID);
-            context.Cities.Remove(selectedCity);
-            //vmd.isAdding = true;
-            //vmd.isEnabled = true;
-            try
+
+            List<Emp> emp = new List<Emp>();
+            emp = context.Emps.Where(aa => aa.Location.CityID == selectedCity.CityID).ToList();
+
+            if (emp.Count > 0)
             {
-                if (context.SaveChanges() > 0)
-                {
-                    vmd.listOfCities.Remove(vmd.selectedCity);
-                    vmd.selectedCity = vmd.listOfCities[0];
-                }
+                PopUp.popUp("Not Deleted", "Please move Employees of this city to another city before making an attempt to delete.", NotificationType.Warning);
             }
-            catch (Exception)
+            else
             {
-                Console.WriteLine("Exception While Deleting...");
+                context.Cities.Remove(selectedCity);
+                //vmd.isAdding = true;
+                //vmd.isEnabled = true;
+                try
+                {
+                    if (context.SaveChanges() > 0)
+                    {
+                        vmd.listOfCities.Remove(vmd.selectedCity);
+                        vmd.selectedCity = vmd.listOfCities[0];
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Exception While Deleting...");
+                }
             }
         }
     }

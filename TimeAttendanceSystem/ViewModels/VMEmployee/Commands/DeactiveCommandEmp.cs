@@ -29,17 +29,15 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
             VMEmployee vmd = (VMEmployee)parameter;
             Emp selectedEmp = context.Emps.FirstOrDefault(aa => aa.EmpID == vmd.selectedEmp.EmpID);
             
-           // context.Emps.Remove(selectedEmp);
+            //context.Emps.Remove(selectedEmp);
             //vmd.isAdding = true;
             //vmd.isEnabled = true;
             try
             {
-             
-                
-
                 selectedEmp.Status = false;
-                    vmd.selectedEmp = vmd.listOfEmps[0];
-                    context.SaveChanges();
+                vmd.listOfEmps.Remove(vmd.selectedEmp);
+                vmd.selectedEmp = vmd.listOfEmps[0];
+                context.SaveChanges();
             }
             catch (Exception)
             {

@@ -182,7 +182,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             {
                 this.isEnabled = false;
                 _selectedEmp = value;
-                if(_selectedEmp !=null)
+                if(_selectedEmp !=null && _selectedSec != null)
                 _selectedEmp.SecID = _selectedSec.SectionID;
                 _dummyEmp = value;
                 base.OnPropertyChanged("dummyEmp");
@@ -365,7 +365,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             
             _selectedDept = new Department();
-            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
+            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(emp => emp.Status == true).ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
              _dummyEmp = selectedEmp;
              _listOfMarried = new ObservableCollection<Married>(entity.Marrieds.ToList());
@@ -380,7 +380,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
-            _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedEmp.Section.Department.DeptID));
+            // We did not get the section list from the  dep id in AHC this will change for different clients.
+            _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
             _selectedSec = _listOfSecs.FirstOrDefault();
             _listOfCrews = new ObservableCollection<Crew>(entity.Crews.ToList());
          
