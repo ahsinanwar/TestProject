@@ -17,10 +17,11 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
     class VMReader: ObservableObject
     {
         #region Intialization
-        public Reader _selectedRdr;
-        public Boolean _isEnabled = false;
+        private Reader _selectedRdr;
+        private Boolean _isEnabled = false;
+        private Boolean _isLive = false;
         Downloader downloadhelper = new Downloader();
-        public Boolean _isAdding = false;
+        private Boolean _isAdding = false;
         public Boolean isAdding
         {
             get { return _isAdding; }
@@ -41,6 +42,18 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             {
                 _isEnabled = value;
                 base.OnPropertyChanged("isEnabled");
+            }
+        }
+        public Boolean isLive
+        {
+            get
+            {
+                return _isLive;
+            }
+            set
+            {
+                _isLive = value;
+                base.OnPropertyChanged("isLive");
             }
         }
         private ObservableCollection<Emp> _listOfShiftEmps;
@@ -86,8 +99,10 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             {
                 this.isEnabled = false;
                 _selectedRdr = value;
+                OnPropertyChanged("selectedRdr");
 
-                GetUsrsFromSelectedReader();
+                if(isLive)
+                    GetUsrsFromSelectedReader();
 
             }
         }
@@ -221,7 +236,7 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
 
             _listOfRdrEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ReaderID == _selectedRdr.RdrID).ToList());
-            GetUsrsFromSelectedReader();
+            //GetUsrsFromSelectedReader();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             _listOfDutyCodes = new ObservableCollection<RdrDutyCode>(entity.RdrDutyCodes.ToList());
             _listOfRdrTypes = new ObservableCollection<ReaderType>(entity.ReaderTypes.ToList());

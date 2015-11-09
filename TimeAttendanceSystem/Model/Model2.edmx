@@ -2994,7 +2994,7 @@
           <Key>
             <PropertyRef Name="RdrID" />
           </Key>
-          <Property Name="RdrID" Type="smallint" Nullable="false" />
+          <Property Name="RdrID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="RdrName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="RdrDutyID" Type="tinyint" Nullable="false" />
           <Property Name="IpAdd" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -6826,7 +6826,7 @@
           <Key>
             <PropertyRef Name="RdrID" />
           </Key>
-          <Property Name="RdrID" Type="Int16" Nullable="false" />
+          <Property Name="RdrID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="RdrName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="RdrDutyID" Type="Byte" Nullable="false" />
           <Property Name="IpAdd" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
