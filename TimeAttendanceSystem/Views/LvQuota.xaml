@@ -67,6 +67,7 @@
                         <!--<Label Content="Sick Leave:" HorizontalAlignment="Left" Margin="46,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>-->
                         <Label Content="Add Leave Quota Of Employee" HorizontalAlignment="Left" Margin="30,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347" FontWeight="Bold" FontSize="14"/>
                         <Label Content="Emp No:" HorizontalAlignment="Left" Margin="57,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                        <Label Content="Emp Name:" HorizontalAlignment="Left" Margin="41,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Sick Leave:" HorizontalAlignment="Left" Margin="46,154,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Casual Leave:" HorizontalAlignment="Left" Margin="33,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
                         <Label Content="Annual Leave:" HorizontalAlignment="Left" Margin="30,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
@@ -77,6 +78,7 @@
                         <!--<TextBox  telerik:StyleManager.Theme="Windows8" x:Name="Em" HorizontalAlignment="Left" Height="23" Margin="118,87,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.YearRemaining}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}" />-->
                         <!--<TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtmpID" HorizontalAlignment="Left" Height="23" Margin="118,59,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>-->
                         <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="118,53,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" Height="23" Margin="118,78,0,0" Text="{Binding Path=selectedEmpAndLvApp.Employee.EmpName}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
                         <Button telerik:StyleManager.Theme="Windows8" Content="..." HorizontalAlignment="Left" Margin="237,54,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>
 
 
