@@ -2585,7 +2585,7 @@
           <Key>
             <PropertyRef Name="DeptID" />
           </Key>
-          <Property Name="DeptID" Type="smallint" Nullable="false" />
+          <Property Name="DeptID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
           <Property Name="DivID" Type="smallint" Nullable="false" />
         </EntityType>
@@ -6376,7 +6376,7 @@
           <Key>
             <PropertyRef Name="DeptID" />
           </Key>
-          <Property Name="DeptID" Type="Int16" Nullable="false" />
+          <Property Name="DeptID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="DeptName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="DivID" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Division" Relationship="TASDesktopModel.FK_Department_Division" FromRole="Department" ToRole="Division" />
