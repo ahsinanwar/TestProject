@@ -659,6 +659,11 @@
     <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
     <Compile Include="ViewModels\VMLogin\VMLogin.cs" />
     <Compile Include="ViewModels\VMLvApplication\CombinedEmpAndLvApps.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\AddCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\DeleteCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\EditCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\SaveCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\VMLvQuota.cs" />
     <Compile Include="ViewModels\VMShortLv\CombinedEmpAndShortLvcs.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
