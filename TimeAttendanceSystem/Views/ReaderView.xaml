@@ -61,7 +61,7 @@
                 <StackPanel Margin="5,5,5,5">
                     <Grid Height="250">
                         <Label Content="Reader Name:" HorizontalAlignment="Left" Margin="52,15,0,0" VerticalAlignment="Top"/>
-                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="26" Margin="153,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedRdr.RdrName, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="26" Margin="153,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding Path=selectedRdr.RdrName}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Height="26" Margin="153,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedRdr.IpAdd, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                         <Label Content="IP Address:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,44,0,0"/>
                         <Label Content="Port:" HorizontalAlignment="Left" Margin="102,74,0,0" VerticalAlignment="Top"/>

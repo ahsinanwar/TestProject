@@ -219,6 +219,7 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _selectedRdr = new Reader();
             _listOfRdrs = new ObservableCollection<Reader>(entity.Readers.ToList());
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
+
             _listOfRdrEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ReaderID == _selectedRdr.RdrID).ToList());
             GetUsrsFromSelectedReader();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
