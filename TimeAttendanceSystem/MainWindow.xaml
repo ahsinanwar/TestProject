@@ -67,8 +67,8 @@
                         <telerik:RadMenuItem Header="Shifts" Click="btn_shift_Click" Visibility="{Binding MHR, Converter={StaticResource UserPermission},ConverterParameter=MHR}">
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Leaves" Click="btn_leave_Click" Visibility="{Binding MLeave, Converter={StaticResource UserPermission},ConverterParameter=MLeave}">
-                        </telerik:RadMenuItem>
+                        <!--<telerik:RadMenuItem Header="Leaves" Click="btn_leave_Click" Visibility="{Binding MLeave, Converter={StaticResource UserPermission},ConverterParameter=MLeave}">
+                        </telerik:RadMenuItem>-->
 
                         <telerik:RadMenuItem Header="Attendance Edit" Click="Button_Click_1" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}" >
                         </telerik:RadMenuItem>
@@ -122,7 +122,7 @@
                             <telerik:RadMenuItem Header="Application"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Short Leave"></telerik:RadMenuItem>
                             <!--<telerik:RadMenuItem Header="Leave Quota"></telerik:RadMenuItem>-->
-                            <telerik:RadMenuItem Header="Settings"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Leave Quota App"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
 
                         <telerik:RadMenuItem Header="Devices" Visibility="{Binding MDevice, Converter={StaticResource UserPermission},ConverterParameter=MDevice}">
