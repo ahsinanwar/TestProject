@@ -29,14 +29,15 @@ namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
         public void Execute(object parameter)
         {
             VMReader vmd = (VMReader)parameter;
-            vmd.selectedRdr = new Reader();
+            vmd.selectedRdr = new Reader() { 
+                IpPort = (short)4370,
+                ReaderType = context.ReaderTypes.FirstOrDefault(),
+                Location = context.Locations.FirstOrDefault(),
+                RdrDutyCode = context.RdrDutyCodes.FirstOrDefault(),
+                Status = true
+            };
             vmd.isAdding = true;
             vmd.isEnabled = true;
-            //   context.SaveChanges();
-            //Console.WriteLine(vmd.DeptName);
-            // Console.WriteLine(vmd.DivID);
-            // Console.WriteLine(vmd.DeptID);
-            // Console.WriteLine(vmd.CompanyID);
         }
         #endregion
     }

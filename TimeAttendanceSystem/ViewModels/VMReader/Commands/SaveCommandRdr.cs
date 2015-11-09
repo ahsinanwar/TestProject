@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
+
 
 namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
 {
@@ -34,22 +38,52 @@ namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
             if (vmd.isAdding)
             {
                 Reader dummy = vmd.selectedRdr;
+                dummy.RdrTypeID = vmd.selectedRdr.ReaderType.RdrTypeID;
+                dummy.RdrDutyID = vmd.selectedRdr.RdrDutyCode.RdrDutyID;
+                dummy.LocID = vmd.selectedRdr.Location.LocID;
                 dummy.RdrDutyCode = null;
                 dummy.ReaderType = null;
-                context.Readers.Add(vmd.selectedRdr);
-                context.SaveChanges();
-                vmd.listOfRdrs.Add(vmd.selectedRdr);
+                dummy.Location = null;
+
+
+
+
+
+
+
+                context.Readers.Add(dummy);
+
+                if (context.SaveChanges() > 0)
+                {
+                    vmd.selectedRdr.RdrDutyCode = context.RdrDutyCodes.FirstOrDefault(aa => aa.RdrDutyID == vmd.selectedRdr.RdrDutyID);
+                    vmd.selectedRdr.ReaderType = context.ReaderTypes.FirstOrDefault(aa => aa.RdrTypeID == vmd.selectedRdr.RdrTypeID);
+                    vmd.selectedRdr.Location = context.Locations.FirstOrDefault(aa => aa.LocID == vmd.selectedRdr.LocID);
+
+                    PopUp.popUp("Reader", "Reader " + vmd.selectedRdr.RdrName + " is created Successfully",                        NotificationType.Information);
+                    vmd.listOfRdrs.Add(vmd.selectedRdr);
+                }
+                
 
             }
             else
             {
                 Reader rdr = context.Readers.First(aa => aa.RdrID == vmd.selectedRdr.RdrID);
-                rdr.RdrName = vmd.selectedRdr.RdrName;
-                vmd.isEnabled = false;
-                vmd.isAdding = false;
-                context.SaveChanges();
-            }
 
+                rdr.RdrName = vmd.selectedRdr.RdrName;
+                rdr.IpAdd = vmd.selectedRdr.IpAdd;
+                rdr.IpPort = vmd.selectedRdr.IpPort;
+                rdr.Status = vmd.selectedRdr.Status;
+                rdr.RdrDutyID = vmd.selectedRdr.RdrDutyCode.RdrDutyID;
+                rdr.RdrTypeID = vmd.selectedRdr.ReaderType.RdrTypeID;
+                rdr.LocID = vmd.selectedRdr.Location.LocID;
+
+                if (context.SaveChanges() > 0)
+                {
+                    PopUp.popUp("Reader", "Reader " + vmd.selectedRdr.RdrName + " is edited and saved Successfully", NotificationType.Information);
+                }
+            }
+            vmd.isEnabled = false;
+            vmd.isAdding = false;
         }
         #endregion
     }

@@ -604,6 +604,7 @@
     <Compile Include="ValueConvertors\DateTimeToDateConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToTimeSpan.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ValueConvertors\InverseBooleanConverter.cs" />
     <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\SearchCommandAttEdit.cs" />

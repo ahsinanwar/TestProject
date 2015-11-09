@@ -2,8 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:l="clr-namespace:TimeAttendanceSystem.ValueConvertors"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
         Title="ShiftView" Background="White"  Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">
+    <Page.Resources>
+        <l:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+    </Page.Resources>
     <!--Main Panel-->
     <Grid>
         <Grid.RowDefinitions>
@@ -53,7 +57,7 @@
                     <Button telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" Width="18" BorderBrush="#FFFFFBFB" BorderThickness="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" ToolTip="Edit" >
                         <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png"/>
                     </Button>
-                    <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
+                    <Button  IsEnabled="{Binding Path=isEnabled, Converter={StaticResource InverseBooleanConverter}}"  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
                         <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png"/>
                     </Button>
                 </StackPanel>
@@ -72,7 +76,7 @@
                         </telerik:RadComboBox>
                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="153,127,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" DisplayMemberPath="RdrTypeName" SelectedValuePath="RdrTypeID" SelectedItem="{Binding selectedRdr.ReaderType}" ItemsSource="{Binding listOfRdrTypes}" IsEnabled="{Binding isEnabled}">
                         </telerik:RadComboBox>
-                        <CheckBox telerik:StyleManager.Theme="Windows8" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,20,0,0"/>
+                        <CheckBox telerik:StyleManager.Theme="Windows8" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,20,0,0" IsChecked="{Binding selectedRdr.Status}" IsEnabled="{Binding isEnabled}" />
                         <Label Content="Work Minutes" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="375,0,0,589" FontSize="22"/>
                         <Label HorizontalAlignment="Left" Margin="244,9,0,0" VerticalAlignment="Top" FontSize="16"/>
                         <Label Content="Type:" HorizontalAlignment="Left" Margin="99,126,0,0" VerticalAlignment="Top"/>
@@ -87,11 +91,12 @@
         </Border>
         <!--Employee List View Panel-->
         <StackPanel Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1">
+            <CheckBox telerik:StyleManager.Theme="Windows8" Content="Keep Readers Live... (Turn off for improved speed)" FontSize="14"  IsChecked="{Binding isLive}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Reader</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
                     ItemsSource="{Binding listOfRdrEmps}" ShowGroupPanel="False"
-                    VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
+                    VerticalAlignment="Stretch"  MinHeight="150" 
                     CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
@@ -102,6 +107,7 @@
 
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
+            
         </StackPanel>
     </Grid>
 </Page>
