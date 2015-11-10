@@ -28,6 +28,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
         {
             VMSection vmd = (VMSection)parameter;
             Section selectedSec = context.Sections.FirstOrDefault(aa => aa.SectionID == vmd.selectedSec.SectionID);
+
             context.Sections.Remove(selectedSec);
             //vmd.isAdding = true;
             //vmd.isEnabled = true;
