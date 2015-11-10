@@ -118,7 +118,7 @@ namespace TimeAttendanceSystem
                         _mainFrame.Navigate(new ShortLvView());
                         break;
                     case "Leave Quota App":
-                        _mainFrame.Navigate(new LvQuota());
+                        _mainFrame.Navigate(new TimeAttendanceSystem.Views.LvQuota());
                         break;
                     case "Employee":
                         _mainFrame.Navigate(new Employee());

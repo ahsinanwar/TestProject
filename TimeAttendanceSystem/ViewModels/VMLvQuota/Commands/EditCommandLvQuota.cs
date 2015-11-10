@@ -20,7 +20,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
         { _vmlvquota = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmlvquota.selectedLvConsumed != null);
+            return (_vmlvquota.selectedLvQuota != null);
             
         }
         #endregion

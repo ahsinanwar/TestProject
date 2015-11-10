@@ -12,11 +12,11 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
     {
         #region Fields
         TAS2013Entities context = new TAS2013Entities();
-        LvConsumed _vm = new LvConsumed();
+        LvQuota _vm = new LvQuota();
         #endregion
 
         #region constructors
-        public AddCommandLvQuota(LvConsumed vm)
+        public AddCommandLvQuota(LvQuota vm)
         { _vm = vm; }
         public bool CanExecute(object parameter)
         {
@@ -29,7 +29,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
         public void Execute(object parameter)
         {
             VMLvQuota vmd = (VMLvQuota)parameter;
-            vmd.selectedLvConsumed = new LvConsumed();
+            vmd.selectedLvQuota = new LvQuota();
             vmd.isAdding = true;
             vmd.isEnabled = true;
             //   context.SaveChanges();

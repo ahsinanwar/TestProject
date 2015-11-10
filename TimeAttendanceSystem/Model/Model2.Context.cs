@@ -71,6 +71,7 @@ namespace TimeAttendanceSystem.Model
         public DbSet<LvApplication> LvApplications { get; set; }
         public DbSet<LvConsumed> LvConsumeds { get; set; }
         public DbSet<LvData> LvDatas { get; set; }
+        public DbSet<LvQuota> LvQuotas { get; set; }
         public DbSet<LvShort> LvShorts { get; set; }
         public DbSet<LvType> LvTypes { get; set; }
         public DbSet<Married> Marrieds { get; set; }

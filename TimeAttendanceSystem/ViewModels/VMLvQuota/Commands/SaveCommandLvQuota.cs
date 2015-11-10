@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
@@ -21,8 +23,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
         { _vmlvquota = vm; }
         public bool CanExecute(object parameter)
         {
-            //return (_vmlvapp.selectedLvApp != null);
-            return true;
+            return (_vmlvquota.selectedLvQuota != null);
+            
         }
         #endregion
 
@@ -33,14 +35,40 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
         {
 
 
-            //LvConsumed lvquota = new LvConsumed();
-            //lvquota = context.LvQuotas.FirstOrDefault(aa => aa.LvID == vmd.selectedEmpAndLvApp.LvApp.LvID);
-            //lvquota = vmd.selectedEmpAndLvApp.LvApp;
-            //    vmd.isEnabled = false;
-            //    vmd.isAdding = false;
-            //    context.SaveChanges();
-            //    PopUp.popUp("Application", "Application has been successfully edited for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
-                            
+            VMLvQuota vmd = (VMLvQuota)parameter;
+            if (vmd.isAdding)
+            {
+                if (vmd.selectedLvQuota.EmpID == null)
+                {
+                    PopUp.popUp("Empty Value", "Please select Emp before saving", NotificationType.Warning);
+                }
+                else
+                {
+                    if (context.LvQuotas.Where(aa => aa.EmpID == vmd.selectedLvQuota.EmpID).Count() > 0)
+                    {
+                        PopUp.popUp("Duplicate", "This Employee have already been a quota", NotificationType.Warning);
+                    }
+                    else
+                    {
+                        context.LvQuotas.Add(vmd.selectedLvQuota);
+                        context.SaveChanges();
+                        vmd.listOfLvQuotas.Add(vmd.selectedLvQuota);
+                        vmd.isEnabled = false;
+                        vmd.isAdding = false;
+                        PopUp.popUp("Congratulations", "Lv Quota  is Created", NotificationType.Warning);
+                    }
+                }
+            }
+            else
+            {
+                LvQuota lvquota = context.LvQuotas.First(aa => aa.EmpID == vmd.selectedLvQuota.EmpID);
+               
+                vmd.isEnabled = false;
+                vmd.isAdding = false;
+                context.SaveChanges();
+                PopUp.popUp("Created Successfully", "Lv Quota  is Created congrats g", NotificationType.Warning);
+            }
+           
             
         }
         #endregion
