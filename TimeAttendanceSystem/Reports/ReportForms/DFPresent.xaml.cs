@@ -28,14 +28,14 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         {
             InitializeComponent();
             DateTime dateFrom = new DateTime();
-            dateFrom=UserControlReport.StartDate;
+            dateFrom = UserControlReport.StartDate;
             DateTime dateTo = new DateTime();
-            dateTo=UserControlReport.EndDate;
+            dateTo = UserControlReport.EndDate;
             List<ViewPresentEmp> _ViewList = new List<ViewPresentEmp>();
-            //Console.Write(dateFrom);
-            //Console.Write(dateTo);
-            //_ViewList =  ctx.ViewPresentEmps.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
-            //LoadReport(Properties.Settings.Default.ReportPath + "DRPresent.rdlc", _ViewList);
+            Console.Write(dateFrom);
+            Console.Write(dateTo);
+            _ViewList = ctx.ViewPresentEmps.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            LoadReport(Properties.Settings.Default.ReportPath + "DRPresent.rdlc", _ViewList);
         }
      
         private void ButtonGenerate(object sender, RoutedEventArgs e)
@@ -44,7 +44,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
             List<ViewPresentEmp> _ViewList = new List<ViewPresentEmp>();
-            _ViewList = ctx.ViewPresentEmps.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            var df=ctx.ViewPresentEmps.ToList();
+            _ViewList = ctx.ViewPresentEmps.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo)).ToList();
+           
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
