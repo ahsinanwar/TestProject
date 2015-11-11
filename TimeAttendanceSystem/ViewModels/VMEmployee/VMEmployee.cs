@@ -58,9 +58,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         private ObservableCollection<EmpType> _listOfEmpTypes;
         private ObservableCollection<Designation> _listOfDesgs;
         private ObservableCollection<Grade> _listOfGrades;
+        private ObservableCollection<Gender> _listOfGenders;
         private ObservableCollection<Shift> _listOfShifts;
         private ObservableCollection<Department> _listOfDepts;
         private ObservableCollection<Location> _listOfLocs;
+        private ObservableCollection<Married> _listOfMarried;
         private ObservableCollection<Section> _listOfSecs;
         private ObservableCollection<Crew> _listOfCrews;
         private ObservableCollection<Emp> _listOfEmps;
@@ -70,6 +72,36 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         public ICommand _DeleteCommand { get; set; }
         public ICommand _DeactiveCommand { get; set; }
         TAS2013Entities entity;
+        public ObservableCollection<Married> listOfMarried
+        {
+            get
+            {
+                return _listOfMarried;
+            }
+
+            set
+            {
+                listOfMarried = value;
+                OnPropertyChanged("listOfMarried");
+            }
+
+
+        }
+        public ObservableCollection<Gender> listOfGenders
+        {
+            get
+            {
+                return _listOfGenders;
+            }
+
+            set
+            {
+                listOfGenders = value;
+                OnPropertyChanged("listOfGenders");
+            }
+        
+        
+        }
         public Category selectedCat
         {
             get
@@ -335,13 +367,13 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
              _dummyEmp = selectedEmp;
-         
+             _listOfMarried = new ObservableCollection<Married>(entity.Marrieds.ToList());
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
             _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList());
             _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList());
-          
+            _listOfGenders = new ObservableCollection<Gender>(entity.Genders.ToList());
             _selectedGrade = entity.Grades.ToList().FirstOrDefault();
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
@@ -358,17 +390,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandEmp(this);
-            base.OnPropertyChanged("_listOfEmps");
-            base.OnPropertyChanged("_listOfCats");
-            base.OnPropertyChanged("_listOfEmpTypes");
-            base.OnPropertyChanged("_listOfDesgs");
-            base.OnPropertyChanged("_listOfGrades");
-            base.OnPropertyChanged("_listOfShifts");
-            base.OnPropertyChanged("_listOfDepts");
-            base.OnPropertyChanged("_listOfLocs");
-            base.OnPropertyChanged("_listOfSecs");
-            base.OnPropertyChanged("_listOfCrews");
-            base.OnPropertyChanged("_listOfSecs");
+            
             IsChecked = true;
         }
         #endregion
