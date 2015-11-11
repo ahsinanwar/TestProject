@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4235e47dc7ab4ad1be11d99ba6f78bc9" Name="Diagram1">
+      <Diagram DiagramId="97a02be6502e475ea9f0d38c2f89dc5f" Name="Diagram1">
         <EntityTypeShape EntityType="TASDesktopModel.AccessEmp" Width="1.5" PointX="15.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TASDesktopModel.AttCode" Width="1.5" PointX="13.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TASDesktopModel.AttData" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
@@ -34,7 +34,7 @@
         <EntityTypeShape EntityType="TASDesktopModel.DutyCode" Width="1.5" PointX="21.75" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TASDesktopModel.DutyTime" Width="1.5" PointX="21.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TASDesktopModel.EmailPerson" Width="1.5" PointX="21.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TASDesktopModel.Emp" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TASDesktopModel.Emp" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TASDesktopModel.EmpAccess" Width="1.5" PointX="23.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TASDesktopModel.EmpFace" Width="1.5" PointX="23.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TASDesktopModel.EmpFp" Width="1.5" PointX="23.75" PointY="7.75" IsExpanded="true" />
@@ -119,7 +119,6 @@
         <AssociationConnector Association="TASDesktopModel.FK_Department_Division" ManuallyRouted="false" />
         <AssociationConnector Association="TASDesktopModel.FK_Section_Department" ManuallyRouted="false" />
         <AssociationConnector Association="TASDesktopModel.FK_Emp_Designation1" ManuallyRouted="false" />
-        <AssociationConnector Association="TASDesktopModel.FK_Emp_Emp" ManuallyRouted="false" />
         <AssociationConnector Association="TASDesktopModel.FK_Emp_Emp1" ManuallyRouted="false" />
         <AssociationConnector Association="TASDesktopModel.FK_Emp_EmpPhoto" ManuallyRouted="false" />
         <AssociationConnector Association="TASDesktopModel.FK_Emp_Gender" ManuallyRouted="false" />
