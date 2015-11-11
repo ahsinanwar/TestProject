@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMDesignation.Commands
@@ -29,20 +31,30 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation.Commands
             VMDesignation vmd = (VMDesignation)parameter;
             Designation selectedDesg = context.Designations.FirstOrDefault(aa => aa.DesignationID == vmd.selectedDesg.DesignationID);
             context.Designations.Remove(selectedDesg);
-            //vmd.isAdding = true;
-            //vmd.isEnabled = true;
-            try
+           vmd.isAdding = true;
+           vmd.isEnabled = true;
+           if (context.Emps.Where(aa => aa.DesigID == vmd.selectedDesg.DesignationID).Count() > 0)
             {
-                if (context.SaveChanges() > 0)
-                {
-                    vmd.listOfDesgs.Remove(vmd.selectedDesg);
-                    vmd.selectedDesg = vmd.listOfDesgs[0];
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Exception While Deleting...");
-            }
-        }
+                PopUp.popUp("Designation", "Employees attached with this designation", NotificationType.Warning);
+           }
+           else
+           {
+               try
+               {
+                   if (context.SaveChanges() > 0)
+                   {
+                       vmd.listOfDesgs.Remove(vmd.selectedDesg);
+                       vmd.selectedDesg = vmd.listOfDesgs[0];
+                   }
+               }
+               catch (Exception)
+               {
+                   Console.WriteLine("Exception While Deleting...");
+               }
+
+           
+           
+           }
+                    }
     }
 }
