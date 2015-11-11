@@ -24,17 +24,17 @@
         <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
         		telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-        		ItemsSource="{Binding listOfEmpsAndLvApps}" 
+        		ItemsSource="{Binding listOfLvQuota}" 
         		SelectedItem="{Binding selectedEmpAndLvApp}" 
         		VerticalAlignment="Stretch" GroupPanelBackground="#FF004B79" Height="415" Width="800">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" Width="80" DataMemberBinding="{Binding Employee.EmpNo}" IsReadOnly="false" />
                     <telerik:GridViewDataColumn Header="Name" Width="120" DataMemberBinding="{Binding Employee.EmpName}" IsReadOnly="false" />
                     <telerik:GridViewDataColumn Header="Section" Width="120" DataMemberBinding="{Binding Employee.Section.SectionName}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="From" Width="90" DataMemberBinding="{Binding LvApp.FromDate}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="To" Width="90" DataMemberBinding="{Binding LvApp.ToDate}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="Type" Width="60" DataMemberBinding="{Binding LvApp.TypeID}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="Days" Width="50" DataMemberBinding="{Binding LvApp.NoOfDays}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Annual" Width="90" DataMemberBinding="{Binding LvApp.FromDate}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Casual" Width="90" DataMemberBinding="{Binding LvApp.ToDate}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Sick" Width="60" DataMemberBinding="{Binding LvApp.TypeID}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="EmpID" Width="50" DataMemberBinding="{Binding LvApp.NoOfDays}" IsReadOnly="false" />
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
         </StackPanel>
