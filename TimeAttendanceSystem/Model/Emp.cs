@@ -78,6 +78,7 @@ namespace TimeAttendanceSystem.Model
         public virtual Shift Shift { get; set; }
         public virtual EmpType EmpType { get; set; }
         public virtual ICollection<LvApplication> LvApplications { get; set; }
+        public virtual LvQuota LvQuota { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
 }

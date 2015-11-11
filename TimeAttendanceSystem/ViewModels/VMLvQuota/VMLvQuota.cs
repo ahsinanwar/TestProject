@@ -14,7 +14,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota
     class VMLvQuota : ObservableObject
     { 
          #region Intialization
-        private LvConsumed _selectedLvConsumed;
+        private LvQuota _selectedLvQuota;
+        private LvQuota _selectedLvQuotaEmp;
         private Boolean _isEnabled = false;
         private Boolean _isAdding = false;
         public Boolean isAdding
@@ -45,50 +46,50 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-        private ObservableCollection<LvConsumed> _listOfLvConsumed;
-        private ObservableCollection<Emp> _listOfLvConsumedEmps;
-        public ObservableCollection<Emp> ListOfLvConsumedEmps
+        private ObservableCollection<LvQuota> _listOfLvQuotas;
+        private ObservableCollection<Emp> _listOfLvQuotaEmps;
+        public ObservableCollection<Emp> ListOfLvQuotaEmps
         {
 
-            get { return _listOfLvConsumedEmps; }
+            get { return _listOfLvQuotaEmps; }
             set
             {
 
-                _listOfLvConsumedEmps = value;
+                _listOfLvQuotaEmps = value;
                 
                 base.OnPropertyChanged("isEnabled");
             }
         }
 
-        public LvConsumed selectedLvConsumed
+        public LvQuota selectedLvQuota
         {
             get
             {
-                return _selectedLvConsumed;
+                return _selectedLvQuota;
             }
             set
             {
                 this.isEnabled = false;
-                _selectedLvConsumed = value;
-                if (_selectedLvConsumed != null)
+                _selectedLvQuota = value;
+                if (_selectedLvQuota != null)
                 {
-                    //_listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedLvConsumed.DesignationID));
-                    //base.OnPropertyChanged("ListOfDesgEmps");
-                    base.OnPropertyChanged("selectedLvConsumed");
+                    _listOfLvQuotaEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpID == _selectedLvQuota.EmpID));
+                    base.OnPropertyChanged("ListOfDesgEmps");
+                    base.OnPropertyChanged("selectedLvQuota");
                     base.OnPropertyChanged("isEnabled");
                 }
                 
             }
         }
 
-        public ObservableCollection<LvConsumed> listOfLvConsumed
+        public ObservableCollection<LvQuota> listOfLvQuotas
         {
-            get { return _listOfLvConsumed; }
+            get { return _listOfLvQuotas; }
 
             set
             {
-                listOfLvConsumed = value;
-                OnPropertyChanged("listOfDesgs");
+                listOfLvQuotas = value;
+                OnPropertyChanged("listOfLvQuotas");
             }
         }
         #endregion
@@ -133,19 +134,21 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota
         public VMLvQuota()
         {
             entity = new TAS2013Entities();
-            _selectedLvConsumed = new LvConsumed();
+            _selectedLvQuota = new LvQuota();
 
-            _listOfLvConsumed = new ObservableCollection<LvConsumed>(entity.LvConsumeds.ToList());
-            _selectedLvConsumed = entity.LvConsumeds.ToList().FirstOrDefault();
-            _listOfLvConsumedEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpID == _selectedLvConsumed.EmpID));
-            this._AddCommand = new AddCommandLvQuota(_selectedLvConsumed);
+            _listOfLvQuotas = new ObservableCollection<LvQuota>(entity.LvQuotas.ToList());
+            _selectedLvQuota = entity.LvQuotas.ToList().FirstOrDefault();
+            
+            _listOfLvQuotaEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpID == _selectedLvQuota.EmpID));
+            this._AddCommand = new AddCommandLvQuota(_selectedLvQuota);
             this._EditCommand = new EditCommandLvQuota(this);
-            this._DeleteCommand = new DeleteCommandLvQuota(_selectedLvConsumed);
+            this._DeleteCommand = new DeleteCommandLvQuota(_selectedLvQuota);
             this._isAdding = false;
             this._isEnabled = false;
             this._SaveCommand = new SaveCommandLvQuota(this);
-            base.OnPropertyChanged("_listOfLvConsumed");
-            base.OnPropertyChanged("_listOfLvConsumedEmps");
+            base.OnPropertyChanged("_listOfLvQuotas");
+            base.OnPropertyChanged("_listOfLvQuotaEmps");
+            base.OnPropertyChanged("_selectedLvQuota");
         }
         #endregion
     }
