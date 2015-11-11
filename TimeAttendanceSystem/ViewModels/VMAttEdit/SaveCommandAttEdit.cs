@@ -56,6 +56,8 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
                     EditAttController _pma = new EditAttController(vmd.AttDataShow.EmpDate, "", false, (DateTime)vmd.AttDataShow.TimeIn, (DateTime)vmd.AttDataShow.TimeOut, vmd.AttDataShow.DutyCode, 1, (TimeSpan)vmd.AttDataShow.DutyTime, vmd.AttDataShow.Remarks, (short)vmd.AttDataShow.ShifMin);
                     AttData tempdata = context.AttDatas.FirstOrDefault(aa => aa.EmpDate == vmd.AttDataShow.EmpDate);
                     vmd.AttDataShow = tempdata;
+                    PopUp.popUp("Attendance Edit", "Attendance edit successful for " + vmd.AttDataShow.Emp.EmpName, NotificationType.Information);
+                    return;
                 }
                 catch (Exception)
                 {
