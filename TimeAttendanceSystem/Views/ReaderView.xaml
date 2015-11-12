@@ -90,7 +90,7 @@
             <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Reader</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                    ItemsSource="{Binding listOfShiftEmps}" ShowGroupPanel="False"
+                    ItemsSource="{Binding listOfRdrEmps}" ShowGroupPanel="False"
                     VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
                     CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79">
                 <telerik:RadGridView.Columns>

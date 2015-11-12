@@ -35,6 +35,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             VMShift vmd = (VMShift)parameter;
             if (vmd.isAdding)
             {
+                vmd.selectedShift.RosterType = vmd.selectedShift.RosterType1.ID;
+                vmd.selectedShift.RosterType1 = null;
                 context.Shifts.Add(vmd.selectedShift);
                 context.SaveChanges();
                 vmd.listOfShifts.Add(vmd.selectedShift);
