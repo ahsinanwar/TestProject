@@ -82,9 +82,9 @@
                         <Button telerik:StyleManager.Theme="Windows8" Content="..." HorizontalAlignment="Left" Margin="237,54,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>
 
 
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="adn" HorizontalAlignment="Left" Height="23" Margin="118,157,0,0" Text="{Binding Path=selectedLvQuota.A}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="adn" HorizontalAlignment="Left" Height="23" Margin="118,157,0,0" Text="{Binding Path=selectedLvQuota.C}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
                         <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="aad" HorizontalAlignment="Left" Height="23" Margin="118,130,0,0" Text="{Binding Path=selectedLvQuota.B}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="and" HorizontalAlignment="Left" Height="23" Margin="118,104,0,0" Text="{Binding Path=selectedLvQuota.C}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="and" HorizontalAlignment="Left" Height="23" Margin="118,104,0,0" Text="{Binding Path=selectedLvQuota.A}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
 
 
 
