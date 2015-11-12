@@ -28,7 +28,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             InitializeComponent();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            LoadReport(Properties.Settings.Default.ReportPath + "DRMultipleInOut.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
+            LoadReport(Properties.Settings.Default.ReportPath + "DRMultipleInOut.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo && ((aa.TimeIn != null && aa.TimeOut == null) || (aa.TimeIn == null && aa.TimeOut != null))).ToList());
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
@@ -36,7 +36,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             List<ViewMultipleInOut> _TempViewList = new List<ViewMultipleInOut>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewMultipleInOut> _ViewList = ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewMultipleInOut> _ViewList = ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo && ((aa.TimeIn!=null && aa.TimeOut==null) || (aa.TimeIn == null && aa.TimeOut !=null)) ).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {

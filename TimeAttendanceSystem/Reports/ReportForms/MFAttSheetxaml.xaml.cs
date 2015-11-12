@@ -28,7 +28,8 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             InitializeComponent();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            LoadReport(Properties.Settings.Default.ReportPath + "MRSheetC.rdlc", ctx.ViewMonthlyDatas.ToList());
+            string period = dateFrom.Date.Month + "" + dateFrom.Date.Year + "";
+            LoadReport(Properties.Settings.Default.ReportPath + "MRSheetC.rdlc", ctx.ViewMonthlyDatas.Where(aa => aa.Period == period).ToList());
      
         }
         TAS2013Entities ctx = new TAS2013Entities();
@@ -37,7 +38,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             List<ViewMonthlyData> _TempViewList = new List<ViewMonthlyData>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewMonthlyData> _ViewList = ctx.ViewMonthlyDatas.ToList();
+            
+            string period = dateFrom.Date.Month +""+ dateFrom.Date.Year + "";
+            List<ViewMonthlyData> _ViewList = ctx.ViewMonthlyDatas.Where(aa=>aa.Period ==period).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
