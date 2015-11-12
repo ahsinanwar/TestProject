@@ -25,8 +25,7 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         </Border>
         <Border Grid.Column="0"  Margin="5,5,0,5" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1,1,1,1">
             <StackPanel  Background="White" >
-                
-                <Label Content="Location:" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                <TreeView x:Name="TVReaders" Height="Auto" SelectedItemChanged="TreeViewControl_SelectedItemChanged"/>
 
                 <!--Buttons Panel-->
                 
@@ -43,7 +42,18 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     <Button telerik:StyleManager.Theme="Windows8" Content="Apply" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                     <Button telerik:StyleManager.Theme="Windows8" Content="Apply" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                 </StackPanel>
-                <Label Content="Readers:" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.232,-0.347"/>
+                <ListView x:Name="LVEmp" Height="100">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="ID" Width="150" DisplayMemberBinding="{Binding Path=ID}"/>
+                            <GridViewColumn Header="Designation" Width="40" DisplayMemberBinding="{Binding Path=Designation}"/>
+                            <GridViewColumn Header="Section" Width="200" DisplayMemberBinding="{Binding Path=Section}"/>
+                            <GridViewColumn Header="Emp No" Width="200" DisplayMemberBinding="{Binding Path=EmpNo}"/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
                 <!--Buttons Panel-->
                
                 <!--Data Input Panel-->

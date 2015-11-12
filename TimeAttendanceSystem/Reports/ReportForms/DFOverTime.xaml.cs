@@ -28,7 +28,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             InitializeComponent();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
+<<<<<<< HEAD
+            LoadReport(Properties.Settings.Default.ReportPath + "DROverTime.rdlc", ctx.ViewOverTimes.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && (aa.StatusOT == true || aa.StatusGZOT == true)).ToList());
+=======
             LoadReport(Properties.Settings.Default.ReportPath + "DROverTime.rdlc", ctx.ViewOverTimes.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && aa.StatusOT == true).ToList());
+>>>>>>> 4829582925ab37ba5d0f36218a7263f7a56c763d
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
@@ -36,7 +40,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             List<ViewOverTime> _TempViewList = new List<ViewOverTime>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
+<<<<<<< HEAD
+            List<ViewOverTime> _ViewList = ctx.ViewOverTimes.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && (aa.StatusOT == true || aa.StatusGZOT == true)).ToList();
+=======
             List<ViewOverTime> _ViewList = ctx.ViewOverTimes.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && aa.StatusOT == true).ToList();
+>>>>>>> 4829582925ab37ba5d0f36218a7263f7a56c763d
 
             if (UserControlReport.selectedEmps.Count > 0)
             {

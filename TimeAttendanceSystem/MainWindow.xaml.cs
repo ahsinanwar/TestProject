@@ -390,6 +390,13 @@ namespace TimeAttendanceSystem
             _mainFrame.Navigate(new DatabaseSettings());
         }
 
+        private void btn_LogOut_Click(object sender, RadRoutedEventArgs e)
+        {
+           
+        }
+
+       
+
       
     }
 }

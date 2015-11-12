@@ -34,5 +34,17 @@ namespace TimeAttendanceSystem.Views
                 MessageBox.Show(ex.ToString(), "Error Occured");
             }
         }
+
+        private void RadButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            //this.Hide();
+            new MainWindow().ShowDialog();
+            
+        }
+
+        private void RadButton_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
