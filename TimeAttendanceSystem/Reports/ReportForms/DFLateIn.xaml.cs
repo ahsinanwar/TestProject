@@ -28,7 +28,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             InitializeComponent();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            LoadReport(Properties.Settings.Default.ReportPath + "DRLateIn.rdlc", ctx.ViewLateComers.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
+            LoadReport(Properties.Settings.Default.ReportPath + "DRLateIn.rdlc", ctx.ViewLateComers.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && aa.StatusLI == true).ToList());
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
@@ -36,7 +36,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             List<ViewLateComer> _TempViewList = new List<ViewLateComer>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewLateComer> _ViewList = ctx.ViewLateComers.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewLateComer> _ViewList = ctx.ViewLateComers.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && aa.StatusLI ==true).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {

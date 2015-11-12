@@ -19,7 +19,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            return (_vm != null);
         }
 
         public event EventHandler CanExecuteChanged;

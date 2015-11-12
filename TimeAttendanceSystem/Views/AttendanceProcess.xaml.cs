@@ -76,7 +76,7 @@ namespace TimeAttendanceSystem.Views
                         if (ctx.AttProcesses.Where(aa => aa.ProcessDate == dateStart).Count() == 0)
                         {
                             ProcessAttendance p = new ProcessAttendance();
-                            p.ProcessDailyAttendance();
+                            p.ProcessDailyAttendance(dateStart);
                         }
                         else
                         {
@@ -97,7 +97,7 @@ namespace TimeAttendanceSystem.Views
                 DateTime dtStart = DateTime.Today.AddDays(-2);
                 DateTime dtend = DateTime.Today;
                 CorrectAttEntriesWithWrongFlags(dtStart, dtend);
-                ProcessMonthlyAttendance(dateStart);
+                ProcessMonthlyAttendance(dateEnd);
             
             
             }

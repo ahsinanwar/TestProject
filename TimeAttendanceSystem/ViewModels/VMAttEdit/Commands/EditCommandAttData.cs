@@ -20,7 +20,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
         { _vmcategory = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmcategory.selectedAttData != null);
+            return (_vmcategory.AttDataShow != null);
         }
         #endregion
 

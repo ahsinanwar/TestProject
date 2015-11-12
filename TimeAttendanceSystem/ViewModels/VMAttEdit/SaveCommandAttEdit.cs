@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Controllers;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
@@ -22,7 +24,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
         { _vmAttData = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmAttData.selectedAttData != null);
+            return (_vmAttData.AttDataShow != null);
         }
         #endregion
 
@@ -42,8 +44,28 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
             }
             else
             {
-                EditAttController _pma = new EditAttController(vmd.selectedAttData.EmpDate, "", false, (DateTime)vmd.selectedAttData.TimeIn, (DateTime)vmd.selectedAttData.TimeOut, vmd.selectedAttData.DutyCode, 1, (TimeSpan)vmd.selectedAttData.DutyTime, vmd.selectedAttData.Remarks, (short)vmd.selectedAttData.ShifMin);
+
+                if (vmd.AttDataShow.TimeIn > vmd.AttDataShow.TimeOut)
+                {
+                    PopUp.popUp("Attendance Edit", "Time Out cannot be greater than Time In", NotificationType.Warning);
+                    return;
+                }
+
+                try
+                {
+                    EditAttController _pma = new EditAttController(vmd.AttDataShow.EmpDate, "", false, (DateTime)vmd.AttDataShow.TimeIn, (DateTime)vmd.AttDataShow.TimeOut, vmd.AttDataShow.DutyCode, 1, (TimeSpan)vmd.AttDataShow.DutyTime, vmd.AttDataShow.Remarks, (short)vmd.AttDataShow.ShifMin);
+                    AttData tempdata = context.AttDatas.FirstOrDefault(aa => aa.EmpDate == vmd.AttDataShow.EmpDate);
+                    vmd.AttDataShow = tempdata;
+                    PopUp.popUp("Attendance Edit", "Attendance edit successful for " + vmd.AttDataShow.Emp.EmpName, NotificationType.Information);
+                    return;
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
             }
+            vmd.isAdding = false;
+            vmd.isEnabled = false;
         }
         #endregion
     }

@@ -15,13 +15,13 @@ namespace TASDownloadService
         TAS2013Entities context = new TAS2013Entities();
         Emp employee = new Emp();
 
-        public void ProcessDailyAttendance()
+        public void ProcessDailyAttendance(DateTime start)
         {
             DateTime dtTo = new DateTime(2015,9,12);
             DateTime dtFrom = new DateTime(2015, 9, 12);
             List<Remark> remarks = new List<Remark>();
             remarks = context.Remarks.ToList();
-            List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.Process == false)).OrderBy(e => e.EntTime).ToList();
+            List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.Process == false) && p.EntDate == start).OrderBy(e => e.EntTime).ToList();
             //List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.EntDate >= dtTo && p.EntDate <= dtFrom) && p.EmpID == 1395).OrderBy(e => e.EntTime).ToList();
             foreach (PollData up in unprocessedPolls)
             {
@@ -435,8 +435,8 @@ namespace TASDownloadService
                             }
                             else
                             {
-                                att.StatusLeave = true;
-                                att.StatusHL = true;
+                                //att.StatusLeave = true;
+                                att.StatusHL = false;
                             }
                             ctx.AttDatas.Add(att);
                             ctx.SaveChanges();

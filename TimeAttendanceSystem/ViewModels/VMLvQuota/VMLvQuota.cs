@@ -138,7 +138,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota
 
             _listOfLvQuotas = new ObservableCollection<LvQuota>(entity.LvQuotas.ToList());
             _selectedLvQuota = entity.LvQuotas.ToList().FirstOrDefault();
-            
+            if(_selectedLvQuota!=null)
             _listOfLvQuotaEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpID == _selectedLvQuota.EmpID));
             this._AddCommand = new AddCommandLvQuota(_selectedLvQuota);
             this._EditCommand = new EditCommandLvQuota(this);
