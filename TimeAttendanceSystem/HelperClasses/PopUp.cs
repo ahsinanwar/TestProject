@@ -22,9 +22,9 @@ namespace TimeAttendanceSystem.HelperClasses
 
                 new ToastPopUp(title, Message, note)
                 {
-                    Background = new SolidColorBrush(Color.FromRgb(37, 160, 218)),
-                    BorderBrush = new SolidColorBrush(Color.FromRgb(37, 160, 218)),
-                    FontColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255))
+                    Background = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
+                    BorderBrush = new SolidColorBrush(Color.FromRgb(75, 121, 132)),
+                    FontColor = new SolidColorBrush(Color.FromRgb(75, 121, 132))
                 }
                .Show();
             }));

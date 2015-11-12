@@ -8,12 +8,12 @@ namespace ReadersCommLibrary
 {
     public class Poll
     {
-        public Int32 ID { get; set; }
+        public Int32 FPID { get; set; }
         public DateTime EntryDateTime { get; set; }
 
-        public Poll(Int32 ID, DateTime EntryDateTime)
+        public Poll(Int32 FPID, DateTime EntryDateTime)
         {
-            this.ID = ID;
+            this.FPID = FPID;
             this.EntryDateTime = EntryDateTime;
         }
     }

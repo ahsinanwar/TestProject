@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TASDownloadService.Helper;
 using TimeAttendanceSystem.BaseClasses;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 using TimeAttendanceSystem.ViewModels.VMReader.Commands;
 
@@ -84,25 +86,7 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             {
                 this.isEnabled = false;
                 _selectedRdr = value;
-                listOfShiftEmps = new ObservableCollection<Emp>();
-                if (_selectedRdr != null)
-                {
-                    List<string> listOfFpID = downloadhelper.GetFpIDFromDevice(_selectedRdr);
-                    foreach (string fpid in listOfFpID)
-                    {
-                        Emp emp = new Emp();
-                        int FpId = Convert.ToInt32(fpid);
-                        emp = entity.Emps.Where(aa => aa.FpID == FpId).FirstOrDefault();
-                        if (emp != null)
-                            listOfShiftEmps.Add(emp);
-
-
-                    }
-
-                    base.OnPropertyChanged("listOfShiftEmps");
-                    base.OnPropertyChanged("selectedRdr");
-                    base.OnPropertyChanged("isEnabled");
-                }
+                GetUsrsFromSelectedReader();
 
             }
         }
@@ -190,7 +174,41 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
 
         }
         #endregion
+        public void GetUsrsFromSelectedReader()
+        {
+            listOfShiftEmps = new ObservableCollection<Emp>();
+            if (_selectedRdr != null)
+            {
+                //the function returns a list of FPids fetched from the Reader, if the reader 
+                //doesnt connect the list is returned with a single element name "NA"
+                //if we get NA a pop should show saying can't connect to the reader
 
+                List<string> listOfFpID = downloadhelper.GetFpIDFromDevice(_selectedRdr);
+                if (listOfFpID.Count() == 1 && listOfFpID[0] == "NA")
+
+                    PopUp.popUp("Reader", "The Reader " + _selectedRdr.RdrName + " is unpingable", NotificationType.Warning);
+
+                else
+                {
+                    foreach (string fpid in listOfFpID)
+                    {
+                        Emp emp = new Emp();
+                        int FpId = Convert.ToInt32(fpid);
+                        emp = entity.Emps.Where(aa => aa.FpID == FpId).FirstOrDefault();
+                        if (emp != null)
+                            listOfShiftEmps.Add(emp);
+
+
+                    }
+
+                    base.OnPropertyChanged("listOfShiftEmps");
+                    base.OnPropertyChanged("selectedRdr");
+                    base.OnPropertyChanged("isEnabled");
+                }
+
+            }
+        
+        }
         #region constructor
         public VMReader()
         {
@@ -199,7 +217,7 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _listOfRdrs = new ObservableCollection<Reader>(entity.Readers.ToList());
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
             _listOfRdrEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ReaderID == _selectedRdr.RdrID).ToList());
-           
+            GetUsrsFromSelectedReader();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             _listOfDutyCodes = new ObservableCollection<RdrDutyCode>(entity.RdrDutyCodes.ToList());
             _listOfRdrTypes = new ObservableCollection<ReaderType>(entity.ReaderTypes.ToList());

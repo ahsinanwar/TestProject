@@ -1275,7 +1275,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Inven Projects\TASLiveView\ReadersCommLibrary\ReadersCommLibrary.csproj">
+    <ProjectReference Include="..\ReadersCommLibrary\ReadersCommLibrary.csproj">
       <Project>{51a6d290-f802-43d5-803f-67ee18cc5826}</Project>
       <Name>ReadersCommLibrary</Name>
     </ProjectReference>
