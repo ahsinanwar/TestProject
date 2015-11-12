@@ -19,14 +19,32 @@ namespace TimeAttendanceSystem.HelperClasses
             Application.Current.Dispatcher.Invoke(DispatcherPriority.Background,
                        new Action(delegate
             {
-
+                if(note == NotificationType.Information)
                 new ToastPopUp(title, Message, note)
                 {
-                    Background = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
+                    Background = new SolidColorBrush(Color.FromRgb(75, 121, 132)),
                     BorderBrush = new SolidColorBrush(Color.FromRgb(75, 121, 132)),
-                    FontColor = new SolidColorBrush(Color.FromRgb(75, 121, 132))
+                    FontColor = new SolidColorBrush(Color.FromRgb(255, 255, 255))
                 }
                .Show();
+
+                if (note == NotificationType.Error)
+                 new ToastPopUp(title, Message, note)
+                {
+                    Background = new SolidColorBrush(Color.FromRgb(139, 0, 0)),
+                    BorderBrush = new SolidColorBrush(Color.FromRgb(139, 0, 0)),
+                    FontColor = new SolidColorBrush(Color.FromRgb(255, 255, 255))
+                }
+               .Show();
+
+                if (note == NotificationType.Warning)
+                    new ToastPopUp(title, Message, note)
+                    {
+                        Background = new SolidColorBrush(Color.FromRgb(173, 255, 47)),
+                        BorderBrush = new SolidColorBrush(Color.FromRgb(173, 255, 47)),
+                        FontColor = new SolidColorBrush(Color.FromRgb(255, 255, 255))
+                    }
+                  .Show();
             }));
         
         }

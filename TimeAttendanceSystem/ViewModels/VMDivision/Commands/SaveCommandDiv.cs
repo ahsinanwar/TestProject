@@ -38,22 +38,23 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision.Commands
            {
                if (vmd.selectedDiv.DivisionName == "" || vmd.selectedDiv.DivisionName == null)
                {
-                   PopUp.popUp("Empty Value", "Please write Division Name before saving", NotificationType.Warning);
+                   PopUp.popUp("Division", "Please write Division Name before saving", NotificationType.Warning);
                }
                else
                {
                    if (context.Divisions.Where(aa => aa.DivisionName == vmd.selectedDiv.DivisionName).Count() > 0)
                    {
-                       PopUp.popUp("Sorry!", "Division Name already been done", NotificationType.Warning);
+                       PopUp.popUp("Division", "Division Name already been done", NotificationType.Warning);
                    }
                    else
                    {
                        context.Divisions.Add(vmd.selectedDiv);
                        context.SaveChanges();
+                       PopUp.popUp("Division",vmd.selectedDiv.DivisionName+ " Created", NotificationType.Information);
                        vmd.listOfDivs.Add(vmd.selectedDiv);
                        vmd.isEnabled = false;
                        vmd.isAdding = false;
-                       PopUp.popUp("Congratulations", "Division Name is Created", NotificationType.Warning);
+                      
                    }
                }
            }
@@ -64,7 +65,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision.Commands
                vmd.isEnabled = false;
                vmd.isAdding = false;
                context.SaveChanges();
-               PopUp.popUp("Congratulations", "Division Name is Created", NotificationType.Warning);
+               PopUp.popUp("Division", vmd.selectedDiv.DivisionName+ " Edited", NotificationType.Information);
            }
          
         }

@@ -30,30 +30,34 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
         {
             VMDepartments vmd = (VMDepartments)parameter;
             Department selectedDept = context.Departments.FirstOrDefault(aa => aa.DeptID == vmd.selectedDept.DeptID);
-            if (context.Emps.Where(aa => aa.Section.DeptID == selectedDept.DeptID).Count() > 0)
+            if (selectedDept != null)
             {
-                PopUp.popUp("Department", "Department has Employees in it. Please remove them.", NotificationType.Warning);
-            }
-            else
-            {
-                context.Departments.Remove(selectedDept);
-                vmd.isAdding = true;
-                vmd.isEnabled = true;
-                try
+                if (context.Emps.Where(aa => aa.Section.DeptID == selectedDept.DeptID).Count() > 0)
                 {
-                    if (context.SaveChanges() > 0)
+                    PopUp.popUp("Department", "Department has Employees in it. Please remove them.", NotificationType.Warning);
+                }
+                else
+                {
+                    context.Departments.Remove(selectedDept);
+                    vmd.isAdding = true;
+                    vmd.isEnabled = true;
+                    try
                     {
+                        if (context.SaveChanges() > 0)
+                        {
 
-                        PopUp.popUp("Department", vmd.selectedDept.DeptName + " has been removed", NotificationType.Warning);
-                        vmd.listOfDepts.Remove(vmd.selectedDept);
-                        vmd.selectedDept = vmd.listOfDepts[0];
+                            PopUp.popUp("Department", vmd.selectedDept.DeptName + " has been removed", NotificationType.Warning);
+                            vmd.listOfDepts.Remove(vmd.selectedDept);
+                            vmd.selectedDept = vmd.listOfDepts[0];
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Exception While Deleting...");
                     }
                 }
-                catch (Exception)
-                {
-                    Console.WriteLine("Exception While Deleting...");
-                }
             }
+            
            
         }
     }
