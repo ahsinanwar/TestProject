@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TimeAttendanceSystem.ViewModels.VMLvApplication;
+using TimeAttendanceSystem.ViewModels.VMLvQuota;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -22,14 +22,14 @@ namespace TimeAttendanceSystem.Views
     public partial class LvQuota : Page
     {
         SelectEmpWindow window;
-        VMLvApplication vmlvapps;
+        VMLvQuota vmlvquota;
         public LvQuota()
         {
             try
             {
                 InitializeComponent();
-                vmlvapps = new VMLvApplication();
-                this.DataContext = vmlvapps;
+                vmlvquota = new VMLvQuota();
+                this.DataContext = vmlvquota;
             }
             catch (Exception ex)
             {
@@ -37,6 +37,7 @@ namespace TimeAttendanceSystem.Views
                 MessageBox.Show(ex.ToString(), "Error Occured");
             }
         }
+        VMLvQuota vmquota;
         private void btn_empView_Click(object sender, RoutedEventArgs e)
         {
             window = new SelectEmpWindow();
@@ -45,9 +46,9 @@ namespace TimeAttendanceSystem.Views
             if ((bool)window.ShowDialog())
             {
                 Console.WriteLine(window._selectedEmp);
-txtEmpID.Text = window._selectedEmp.EmpID.ToString();
-                vmlvapps.selectedEmpAndLvApp.Employee = window._selectedEmp;
-                vmlvapps.selectedEmpAndLvApp.LvApp.EmpID = window._selectedEmp.EmpID;
+                txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+                vmlvquota.selectedLvQuota.Emp = window._selectedEmp;
+                vmlvquota.selectedLvQuota.Emp.EmpID = window._selectedEmp.EmpID;
             }
         }  
     }

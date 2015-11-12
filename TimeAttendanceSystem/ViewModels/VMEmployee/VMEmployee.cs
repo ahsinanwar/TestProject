@@ -182,8 +182,12 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             {
                 this.isEnabled = false;
                 _selectedEmp = value;
-                if(_selectedEmp !=null && _selectedSec != null)
+                if (_selectedEmp != null && _selectedSec != null && _selectedDept != null)
+                {
+                    _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedEmp.Section.DeptID).ToList());
                 _selectedEmp.SecID = _selectedSec.SectionID;
+                _selectedEmp.Section.DeptID = _selectedDept.DeptID;
+                }
                 _dummyEmp = value;
                 base.OnPropertyChanged("dummyEmp");
                 base.OnPropertyChanged("selectedEmp");

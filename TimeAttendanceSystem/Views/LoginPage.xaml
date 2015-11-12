@@ -19,7 +19,7 @@
         <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/login.png" RenderTransformOrigin="-0.5,0.667" Margin="57,68,188.4,181"/>
 
         <telerik:RadButton telerik:StyleManager.Theme="Windows8" Content="Login" HorizontalAlignment="Left" Margin="66,231,0,0" VerticalAlignment="Top" Width="74" Command="{Binding loginCommand}" CommandParameter="{Binding Uc}" IsDefault="True" Click="RadButton_Click_1"/>
-        <telerik:RadButton telerik:StyleManager.Theme="Windows8" Content="Quit" HorizontalAlignment="Left" Margin="168,231,0,0" VerticalAlignment="Top" Width="74" Command="{Binding exitCommand}" CommandParameter="{Binding Uc}"/>
+        <telerik:RadButton telerik:StyleManager.Theme="Windows8" Content="Quit" HorizontalAlignment="Left" Margin="168,231,0,0" VerticalAlignment="Top" Width="74" Command="{Binding exitCommand}" CommandParameter="{Binding Uc}" Click="RadButton_Click_2"/>
 
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="63" Background="#004b79" Margin="0,-11,0,0">
 

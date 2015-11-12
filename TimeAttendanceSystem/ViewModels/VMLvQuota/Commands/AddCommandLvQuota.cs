@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
 
-namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
+namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
 {
-    class AddCommandRdr : ICommand
+    class AddCommandLvQuota : ICommand
     {
         #region Fields
         TAS2013Entities context = new TAS2013Entities();
-        Reader _vm = new Reader();
+        LvQuota _vm = new LvQuota();
         #endregion
 
         #region constructors
-        public AddCommandRdr(Reader vm)
+        public AddCommandLvQuota(LvQuota vm)
         { _vm = vm; }
         public bool CanExecute(object parameter)
         {
@@ -28,16 +28,15 @@ namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
         public event EventHandler CanExecuteChanged;
         public void Execute(object parameter)
         {
-            VMReader vmd = (VMReader)parameter;
-            vmd.selectedRdr = new Reader() { 
-                IpPort = (short)4370,
-                ReaderType = context.ReaderTypes.FirstOrDefault(),
-                Location = context.Locations.FirstOrDefault(),
-                RdrDutyCode = context.RdrDutyCodes.FirstOrDefault(),
-                Status = true
-            };
+            VMLvQuota vmd = (VMLvQuota)parameter;
+            vmd.selectedLvQuota = new LvQuota();
             vmd.isAdding = true;
             vmd.isEnabled = true;
+            //   context.SaveChanges();
+            //Console.WriteLine(vmd.DeptName);
+            // Console.WriteLine(vmd.DivID);
+            // Console.WriteLine(vmd.DeptID);
+            // Console.WriteLine(vmd.CompanyID);
         }
         #endregion
     }

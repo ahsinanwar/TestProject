@@ -37,8 +37,14 @@ namespace TimeAttendanceSystem.Views
 
         private void RadButton_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             new MainWindow().ShowDialog();
+            
+        }
+
+        private void RadButton_Click_2(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

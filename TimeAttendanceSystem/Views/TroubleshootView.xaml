@@ -10,8 +10,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="160"/>
-            <RowDefinition Height="350"/>
+            <RowDefinition Height="510"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="570"/>
@@ -22,13 +21,13 @@
                 <Label Foreground="#004b79" FontSize="23">TroubleshootView</Label>
             </StackPanel>
         </Border>
-        <StackPanel Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1">
-            <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Holiday</Label>
+        <StackPanel Margin="0,0,0,0" Grid.Row="1" Grid.Column="1">
+            <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees list</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
                     ItemsSource="{Binding listOfShiftEmps}" ShowGroupPanel="False"
                     VerticalAlignment="Stretch"  MinHeight="150" 
-                    CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79" Height="444" Width="336">
+                    CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79" Height="366" Width="336">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
                     <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
@@ -40,6 +39,24 @@
             </telerik:RadGridView>
             <telerik:RadDataPager Source="{Binding listOfEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
         </StackPanel>
-        
+        <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="0">
+            <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
+                    telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
+                    ItemsSource="{Binding listOfRdrs}" ShowGroupPanel="False"
+                    SelectedItem="{Binding selectedRdr}" 
+                    VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
+                    CanUserFreezeColumns="False" MinWidth="387" Height="425">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn MinWidth="100" Header="Name" DataMemberBinding="{Binding RdrName}" />
+                    <telerik:GridViewDataColumn MinWidth="120" Header="IP Address" DataMemberBinding="{Binding IpAdd}" />
+                    <telerik:GridViewDataColumn  MinWidth="70" Header="Port" DataMemberBinding="{Binding IpPort}" />
+                    <telerik:GridViewDataColumn  MinWidth="70" Header="Duty" DataMemberBinding="{Binding RdrDutyCode.RdrDutyName}" />
+                    <telerik:GridViewDataColumn  MinWidth="100" Header="Location" DataMemberBinding="{Binding Location.LocName}" />
+                    <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </StackPanel>
+        <telerik:RadButton Content="Upload" HorizontalAlignment="Left" Margin="245,447,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="28"/>
+
     </Grid>
 </Page>
