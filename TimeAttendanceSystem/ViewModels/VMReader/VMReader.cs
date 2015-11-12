@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TASDownloadService.Helper;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
 using TimeAttendanceSystem.ViewModels.VMReader.Commands;
@@ -16,6 +17,7 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
         #region Intialization
         public Reader _selectedRdr;
         public Boolean _isEnabled = false;
+        Downloader downloadhelper = new Downloader();
         public Boolean _isAdding = false;
         public Boolean isAdding
         {
@@ -39,6 +41,20 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
                 base.OnPropertyChanged("isEnabled");
             }
         }
+        private ObservableCollection<Emp> _listOfShiftEmps;
+        public ObservableCollection<Emp> listOfShiftEmps
+        {
+            get { return _listOfShiftEmps; }
+
+            set
+            {
+                _listOfShiftEmps = value;
+
+                OnPropertyChanged("listOfShiftEmps");
+            }
+        
+        
+        }
         private ObservableCollection<Reader> _listOfRdrs;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
@@ -56,8 +72,25 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             {
                 this.isEnabled = false;
                 _selectedRdr = value;
-                base.OnPropertyChanged("selectedRdr");
-                base.OnPropertyChanged("isEnabled");
+                listOfShiftEmps = new ObservableCollection<Emp>();
+                if (_selectedRdr != null)
+                {
+                    List<string> listOfFpID = downloadhelper.GetFpIDFromDevice(_selectedRdr);
+                    foreach (string fpid in listOfFpID)
+                    {
+                        Emp emp = new Emp();
+                        int FpId = Convert.ToInt32(fpid);
+                        emp = entity.Emps.Where(aa => aa.FpID == FpId).FirstOrDefault();
+                        if (emp != null)
+                            listOfShiftEmps.Add(emp);
+
+
+                    }
+
+                    base.OnPropertyChanged("listOfShiftEmps");
+                    base.OnPropertyChanged("selectedRdr");
+                    base.OnPropertyChanged("isEnabled");
+                }
 
             }
         }
@@ -155,7 +188,6 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
        
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
-        
             _listOfDutyCodes = new ObservableCollection<RdrDutyCode>(entity.RdrDutyCodes.ToList());
             _listOfRdrTypes = new ObservableCollection<ReaderType>(entity.ReaderTypes.ToList());
             this._AddCommand = new AddCommandRdr(_selectedRdr);

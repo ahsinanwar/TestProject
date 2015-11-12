@@ -48,11 +48,14 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                     else
                     {
                         Department dummy = vmd.selectedDept;
+                        vmd.listOfDepts.Add(dummy);
                         dummy.Division = null;
                         context.Departments.Add(vmd.selectedDept);
                         context.SaveChanges();
-                        vmd.listOfDepts.Add(vmd.selectedDept);
-                        PopUp.popUp("Save", "Department is created Successfully", NotificationType.Warning);
+                        vmd.isEnabled = false;
+                        vmd.isAdding = false;
+                      
+                        PopUp.popUp("Save", dummy.DeptName+" is created Successfully", NotificationType.Warning);
                   
                     }
                 }
