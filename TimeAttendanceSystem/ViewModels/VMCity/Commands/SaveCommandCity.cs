@@ -65,6 +65,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
                 vmd.isAdding = false;
                 context.SaveChanges();
             }
+            PopUp.popUp("Cities", "City Saved", NotificationType.Information);
 
         }
         #endregion

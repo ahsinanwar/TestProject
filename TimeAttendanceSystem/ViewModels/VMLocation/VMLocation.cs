@@ -70,8 +70,10 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
             {
                 this.isEnabled = false;
                 _selectedLoc = value;
+                if(selectedLoc != null)
                 _listOfLocEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.LocID == _selectedLoc.LocID));
                 base.OnPropertyChanged("ListOfLocEmps");
+
                 base.OnPropertyChanged("selectedLoc");
                 base.OnPropertyChanged("isEnabled");
 
