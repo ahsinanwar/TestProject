@@ -30,33 +30,37 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
         {
             VMSection vmd = (VMSection)parameter;
             Section selectedSec = context.Sections.FirstOrDefault(aa => aa.SectionID == vmd.selectedSec.SectionID);
-            List<Emp> emp = new List<Emp>();
-            emp = context.Emps.Where(aa=> aa.SecID == selectedSec.SectionID).ToList();
+            if (selectedSec != null)
+            {
+                List<Emp> emp = new List<Emp>();
+                emp = context.Emps.Where(aa => aa.SecID == selectedSec.SectionID).ToList();
 
-            if (emp.Count > 0)
-            {
-                PopUp.popUp("Not Deleted", "Please delete Employee before  Section Name Deletion", NotificationType.Warning);
-            }
-            else
-            {
-                context.Sections.Remove(selectedSec);
-                //vmd.isAdding = true;
-                //vmd.isEnabled = true;
-                try
+                if (emp.Count > 0)
                 {
-                    if (context.SaveChanges() > 0)
+                    PopUp.popUp("Not Deleted", "Please delete Employee before  Section Name Deletion", NotificationType.Warning);
+                }
+                else
+                {
+                    context.Sections.Remove(selectedSec);
+                   vmd.isAdding = true;
+                    vmd.isEnabled = true;
+                    try
                     {
-                        vmd.listOfSecs.Remove(vmd.selectedSec);
-                        PopUp.popUp("Section", "Section "+vmd.selectedSec.SectionName+" deleted", NotificationType.Warning);
-                        vmd.selectedSec = vmd.listOfSecs[0];
-                       
+                        if (context.SaveChanges() > 0)
+                        {
+                            vmd.listOfSecs.Remove(vmd.selectedSec);
+                            PopUp.popUp("Section", "Section " + vmd.selectedSec.SectionName + " deleted", NotificationType.Warning);
+                            vmd.selectedSec = vmd.listOfSecs[0];
+
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Exception While Deleting...");
                     }
                 }
-                catch (Exception)
-                {
-                    Console.WriteLine("Exception While Deleting...");
-                }
             }
+           
         }
     }
 }

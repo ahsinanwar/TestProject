@@ -50,6 +50,7 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
                     {
 
                         Section dummy = vmd.selectedSec;
+                        dummy.DeptID = dummy.Department.DeptID;
                         dummy.Department = null;
                         context.Sections.Add(vmd.selectedSec);
                         context.SaveChanges();
