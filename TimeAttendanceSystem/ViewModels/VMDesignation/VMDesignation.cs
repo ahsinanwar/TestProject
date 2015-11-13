@@ -69,11 +69,14 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation
             {
                 this.isEnabled = false;
                 _selectedDesg = value;
-                _listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedDesg.DesignationID));
-                base.OnPropertyChanged("ListOfDesgEmps");
-                base.OnPropertyChanged("selectedDesg");
-                base.OnPropertyChanged("isEnabled");
-
+                if (_selectedDesg != null)
+                {
+                    _listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedDesg.DesignationID));
+                    base.OnPropertyChanged("ListOfDesgEmps");
+                    base.OnPropertyChanged("selectedDesg");
+                    base.OnPropertyChanged("isEnabled");
+                }
+                
             }
         }
 
