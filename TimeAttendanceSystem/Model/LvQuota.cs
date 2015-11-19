@@ -15,11 +15,11 @@ namespace TimeAttendanceSystem.Model
     public partial class LvQuota
     {
         public int EmpID { get; set; }
-        public double A { get; set; }
+        public Nullable<double> A { get; set; }
         public Nullable<double> TA { get; set; }
-        public double B { get; set; }
+        public Nullable<double> B { get; set; }
         public Nullable<double> TB { get; set; }
-        public double C { get; set; }
+        public Nullable<double> C { get; set; }
         public Nullable<double> TC { get; set; }
         public Nullable<double> D { get; set; }
         public Nullable<double> TD { get; set; }
@@ -31,15 +31,14 @@ namespace TimeAttendanceSystem.Model
         public Nullable<double> TG { get; set; }
         public Nullable<double> H { get; set; }
         public Nullable<double> TH { get; set; }
-        public Nullable<double> I { get; set; }
-        public Nullable<double> TI { get; set; }
         public Nullable<double> J { get; set; }
         public Nullable<double> TJ { get; set; }
+        public Nullable<double> I { get; set; }
+        public Nullable<double> TI { get; set; }
         public Nullable<double> K { get; set; }
         public Nullable<double> TK { get; set; }
         public Nullable<double> L { get; set; }
         public Nullable<double> TL { get; set; }
-        public Nullable<short> CompanyID { get; set; }
     
         public virtual Emp Emp { get; set; }
     }

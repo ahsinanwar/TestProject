@@ -24,16 +24,18 @@
         <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
         		telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-        		ItemsSource="{Binding listOfLvQuotas}" 
-        		SelectedItem="{Binding selectedLvQuota}" 
+        		ItemsSource="{Binding listOfLvQuota}" 
+        		SelectedItem="{Binding selectedEmpAndLvApp}" 
         		VerticalAlignment="Stretch" GroupPanelBackground="#FF004B79" Height="415" Width="800">
                 <telerik:RadGridView.Columns>
-                    <telerik:GridViewDataColumn Header="Emp No" Width="80" DataMemberBinding="{Binding selectedLvQuota.Emp.EmpNo}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="Name" Width="120" DataMemberBinding="{Binding selectedLvQuota.Emp.EmpName}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="Annual Leaves" Width="120" DataMemberBinding="{Binding selectedLvQuota.A}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="Sick Leaves" Width="90" DataMemberBinding="{Binding selectedLvQuota.B}" IsReadOnly="false" />
-                    <telerik:GridViewDataColumn Header="Casual Leaves" Width="90" DataMemberBinding="{Binding selectedLvQuota.C}" IsReadOnly="false" />
-                      </telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="Emp No" Width="80" DataMemberBinding="{Binding Employee.EmpNo}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Name" Width="120" DataMemberBinding="{Binding Employee.EmpName}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Section" Width="120" DataMemberBinding="{Binding Employee.Section.SectionName}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Annual" Width="90" DataMemberBinding="{Binding LvApp.FromDate}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Casual" Width="90" DataMemberBinding="{Binding LvApp.ToDate}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="Sick" Width="60" DataMemberBinding="{Binding LvApp.TypeID}" IsReadOnly="false" />
+                    <telerik:GridViewDataColumn Header="EmpID" Width="50" DataMemberBinding="{Binding LvApp.NoOfDays}" IsReadOnly="false" />
+                </telerik:RadGridView.Columns>
             </telerik:RadGridView>
         </StackPanel>
         <Border Grid.Column="0"  Margin="5,5,0,5" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1,1,1,1">
@@ -75,8 +77,8 @@
                         <!--<TextBox  telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" Height="23" Margin="118,31,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.LvConsumeds}" VerticalAlignment="Top" Width="117" FontSize="14" IsEnabled="{Binding Path=isEnabled}"/>-->
                         <!--<TextBox  telerik:StyleManager.Theme="Windows8" x:Name="Em" HorizontalAlignment="Left" Height="23" Margin="118,87,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.YearRemaining}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}" />-->
                         <!--<TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtmpID" HorizontalAlignment="Left" Height="23" Margin="118,59,0,0" Text="{Binding Path=selectedEmpAndLvApp.LvCon.GrandTotal}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>-->
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="118,53,0,0" Text="{Binding Path=selectedLvQuota.Emp.EmpNo}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" Height="23" Margin="118,78,0,0" Text="{Binding Path=selectedLvQuota.Emp.EmpName}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="118,53,0,0" Text="{Binding Path=selectedLvQuota.Emp.EmpNo,Mode=TwoWay}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpName"  HorizontalAlignment="Left" Height="23" Margin="118,78,0,0" Text="{Binding Path=selectedLvQuota.Emp.EmpName,Mode=TwoWay}" VerticalAlignment="Top" Width="117" FontSize="14"  IsEnabled="{Binding Path=isEnabled}"/>
                         <Button telerik:StyleManager.Theme="Windows8" Content="..." HorizontalAlignment="Left" Margin="237,54,0,0" VerticalAlignment="Top" Width="21" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>
 
 

@@ -23,7 +23,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
         { _vmlvquota = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmlvquota.selectedLvQuota != null);
+            return true;
             
         }
         #endregion
@@ -40,22 +40,25 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
             {
                 if (vmd.selectedLvQuota.EmpID == null)
                 {
-                    PopUp.popUp("Empty Value", "Please select Emp before saving", NotificationType.Warning);
+                    PopUp.popUp("Leave Quota", "Please select Employee before saving", NotificationType.Warning);
                 }
                 else
                 {
                     if (context.LvQuotas.Where(aa => aa.EmpID == vmd.selectedLvQuota.EmpID).Count() > 0)
                     {
-                        PopUp.popUp("Duplicate", "This Employee have already been a quota", NotificationType.Warning);
+                        PopUp.popUp("Leave Quota", vmd.selectedLvQuota.Emp.EmpName+ " already has a quota set please Edit instead of Adding", NotificationType.Warning);
                     }
                     else
                     {
-                        context.LvQuotas.Add(vmd.selectedLvQuota);
+                        LvQuota transition = new LvQuota();
+                        transition = vmd.selectedLvQuota;
+                        transition.Emp = null;
+                        context.LvQuotas.Add(transition);
                         context.SaveChanges();
                         vmd.listOfLvQuotas.Add(vmd.selectedLvQuota);
                         vmd.isEnabled = false;
                         vmd.isAdding = false;
-                        PopUp.popUp("Congratulations", "Lv Quota  is Created", NotificationType.Warning);
+                        PopUp.popUp("Leave Quota", "Leave Quota created", NotificationType.Information);
                     }
                 }
             }

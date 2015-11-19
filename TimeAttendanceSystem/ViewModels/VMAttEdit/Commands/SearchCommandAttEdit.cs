@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
         { _vmcategory = vm; }
         public bool CanExecute(object parameter)
         {
-            return (_vmcategory.selectedAttData != null);
+            return (_vmcategory.AttDataShow != null);
         }
         #endregion
 
@@ -31,8 +32,10 @@ namespace TimeAttendanceSystem.ViewModels.VMAttEdit.Commands
         {
             VMAttEdit vmattedit = (VMAttEdit)parameter;
             AttData attData = new AttData();
-            attData = (AttData)context.AttDatas.FirstOrDefault(aa => aa.AttDate == vmattedit.AttDataShow.AttDate && aa.EmpID == vmattedit.AttDataShow.EmpID);
+            attData = (AttData)context.AttDatas.FirstOrDefault(aa => aa.AttDate == vmattedit.selectedDate && aa.EmpID == vmattedit.selectedEmp.EmpID);
+            ObservableCollection<AttData> listAttData = new ObservableCollection<AttData>(context.AttDatas.Where(aa => aa.AttDate == vmattedit.selectedDate && aa.EmpID == vmattedit.selectedEmp.EmpID).ToList());
             vmattedit.AttDataShow = attData;
+            vmattedit.listOfAttData = listAttData;
         }
         #endregion
     }

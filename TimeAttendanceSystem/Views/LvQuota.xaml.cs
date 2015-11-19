@@ -47,8 +47,11 @@ namespace TimeAttendanceSystem.Views
             {
                 Console.WriteLine(window._selectedEmp);
                 txtEmpID.Text = window._selectedEmp.EmpID.ToString();
+                txtEmpName.Text = window._selectedEmp.EmpName.ToString();
                 vmlvquota.selectedLvQuota.Emp = window._selectedEmp;
-                vmlvquota.selectedLvQuota.Emp.EmpID = window._selectedEmp.EmpID;
+                vmlvquota.selectedLvQuota.EmpID = vmlvquota.selectedLvQuota.Emp.EmpID;
+               // vmlvquota.selectedLvQuota.Emp = window._selectedEmp;
+                //vmlvquota.selectedLvQuota.Emp.EmpName = window._selectedEmp.EmpName;
             }
         }  
     }

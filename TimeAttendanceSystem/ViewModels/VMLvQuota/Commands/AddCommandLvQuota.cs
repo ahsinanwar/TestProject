@@ -31,6 +31,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
             VMLvQuota vmd = (VMLvQuota)parameter;
             vmd.selectedLvQuota = new LvQuota();
             vmd.isAdding = true;
+           
             vmd.isEnabled = true;
             //   context.SaveChanges();
             //Console.WriteLine(vmd.DeptName);
