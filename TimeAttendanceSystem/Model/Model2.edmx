@@ -206,6 +206,7 @@
           <EntitySet Name="LvApplication" EntityType="TASDesktopModel.Store.LvApplication" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LvConsumed" EntityType="TASDesktopModel.Store.LvConsumed" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LvData" EntityType="TASDesktopModel.Store.LvData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LvQuota" EntityType="TASDesktopModel.Store.LvQuota" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LvShort" EntityType="TASDesktopModel.Store.LvShort" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LvType" EntityType="TASDesktopModel.Store.LvType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Married" EntityType="TASDesktopModel.Store.Married" store:Type="Tables" Schema="dbo" />
@@ -1787,10 +1788,6 @@
             <End Role="Designation" EntitySet="Designation" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
-          <AssociationSet Name="FK_Emp_Emp" Association="TASDesktopModel.Store.FK_Emp_Emp">
-            <End Role="Emp" EntitySet="Emp" />
-            <End Role="Emp1" EntitySet="Emp" />
-          </AssociationSet>
           <AssociationSet Name="FK_Emp_Emp1" Association="TASDesktopModel.Store.FK_Emp_Emp1">
             <End Role="Married" EntitySet="Married" />
             <End Role="Emp" EntitySet="Emp" />
@@ -1854,6 +1851,10 @@
           <AssociationSet Name="FK_LvData_LvCode" Association="TASDesktopModel.Store.FK_LvData_LvCode">
             <End Role="LvType" EntitySet="LvType" />
             <End Role="LvData" EntitySet="LvData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LvQuota_Emp" Association="TASDesktopModel.Store.FK_LvQuota_Emp">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="LvQuota" EntitySet="LvQuota" />
           </AssociationSet>
           <AssociationSet Name="FK_Reader_Location" Association="TASDesktopModel.Store.FK_Reader_Location">
             <End Role="Location" EntitySet="Location" />
@@ -2585,7 +2586,7 @@
           <Key>
             <PropertyRef Name="DeptID" />
           </Key>
-          <Property Name="DeptID" Type="smallint" Nullable="false" />
+          <Property Name="DeptID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
           <Property Name="DivID" Type="smallint" Nullable="false" />
         </EntityType>
@@ -2881,6 +2882,37 @@
           <Property Name="FirstHalf" Type="bit" />
           <Property Name="HalfLeave" Type="bit" />
           <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="LvQuota">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="A" Type="float" Nullable="false" />
+          <Property Name="TA" Type="float" />
+          <Property Name="B" Type="float" Nullable="false" />
+          <Property Name="TB" Type="float" />
+          <Property Name="C" Type="float" Nullable="false" />
+          <Property Name="TC" Type="float" />
+          <Property Name="D" Type="float" />
+          <Property Name="TD" Type="float" />
+          <Property Name="E" Type="float" />
+          <Property Name="TE" Type="float" />
+          <Property Name="F" Type="float" />
+          <Property Name="TF" Type="float" />
+          <Property Name="G" Type="float" />
+          <Property Name="TG" Type="float" />
+          <Property Name="H" Type="float" />
+          <Property Name="TH" Type="float" />
+          <Property Name="I" Type="float" />
+          <Property Name="TI" Type="float" />
+          <Property Name="J" Type="float" />
+          <Property Name="TJ" Type="float" />
+          <Property Name="K" Type="float" />
+          <Property Name="TK" Type="float" />
+          <Property Name="L" Type="float" />
+          <Property Name="TL" Type="float" />
+          <Property Name="CompanyID" Type="smallint" />
         </EntityType>
         <EntityType Name="LvShort">
           <Key>
@@ -5002,18 +5034,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Emp_Emp">
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="1" />
-          <End Role="Emp1" Type="TASDesktopModel.Store.Emp" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Emp">
-              <PropertyRef Name="EmpID" />
-            </Principal>
-            <Dependent Role="Emp1">
-              <PropertyRef Name="EmpID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Emp_Emp1">
           <End Role="Married" Type="TASDesktopModel.Store.Married" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
@@ -5203,6 +5223,18 @@
             </Principal>
             <Dependent Role="LvData">
               <PropertyRef Name="LvCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LvQuota_Emp">
+          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="1" />
+          <End Role="LvQuota" Type="TASDesktopModel.Store.LvQuota" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpID" />
+            </Principal>
+            <Dependent Role="LvQuota">
+              <PropertyRef Name="EmpID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5485,6 +5517,7 @@
           <EntitySet Name="LvApplications" EntityType="TASDesktopModel.LvApplication" />
           <EntitySet Name="LvConsumeds" EntityType="TASDesktopModel.LvConsumed" />
           <EntitySet Name="LvDatas" EntityType="TASDesktopModel.LvData" />
+          <EntitySet Name="LvQuotas" EntityType="TASDesktopModel.LvQuota" />
           <EntitySet Name="LvShorts" EntityType="TASDesktopModel.LvShort" />
           <EntitySet Name="LvTypes" EntityType="TASDesktopModel.LvType" />
           <EntitySet Name="Marrieds" EntityType="TASDesktopModel.Married" />
@@ -5595,10 +5628,6 @@
             <End Role="Designation" EntitySet="Designations" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
-          <AssociationSet Name="FK_Emp_Emp" Association="TASDesktopModel.FK_Emp_Emp">
-            <End Role="Emp" EntitySet="Emps" />
-            <End Role="Emp1" EntitySet="Emps" />
-          </AssociationSet>
           <AssociationSet Name="FK_Emp_Emp1" Association="TASDesktopModel.FK_Emp_Emp1">
             <End Role="Married" EntitySet="Marrieds" />
             <End Role="Emp" EntitySet="Emps" />
@@ -5638,6 +5667,10 @@
           <AssociationSet Name="FK_LvApplication_Emp" Association="TASDesktopModel.FK_LvApplication_Emp">
             <End Role="Emp" EntitySet="Emps" />
             <End Role="LvApplication" EntitySet="LvApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LvQuota_Emp" Association="TASDesktopModel.FK_LvQuota_Emp">
+            <End Role="Emp" EntitySet="Emps" />
+            <End Role="LvQuota" EntitySet="LvQuotas" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Emp" Association="TASDesktopModel.FK_User_Emp">
             <End Role="Emp" EntitySet="Emps" />
@@ -6376,7 +6409,7 @@
           <Key>
             <PropertyRef Name="DeptID" />
           </Key>
-          <Property Name="DeptID" Type="Int16" Nullable="false" />
+          <Property Name="DeptID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="DeptName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="DivID" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Division" Relationship="TASDesktopModel.FK_Department_Division" FromRole="Department" ToRole="Division" />
@@ -6484,8 +6517,6 @@
           <NavigationProperty Name="AttDatas" Relationship="TASDesktopModel.FK_AttData_Emp" FromRole="Emp" ToRole="AttData" />
           <NavigationProperty Name="Crew" Relationship="TASDesktopModel.FK_Emp_Crew" FromRole="Emp" ToRole="Crew" />
           <NavigationProperty Name="Designation" Relationship="TASDesktopModel.FK_Emp_Designation1" FromRole="Emp" ToRole="Designation" />
-          <NavigationProperty Name="Emp1" Relationship="TASDesktopModel.FK_Emp_Emp" FromRole="Emp" ToRole="Emp1" />
-          <NavigationProperty Name="Emp2" Relationship="TASDesktopModel.FK_Emp_Emp" FromRole="Emp1" ToRole="Emp" />
           <NavigationProperty Name="Married" Relationship="TASDesktopModel.FK_Emp_Emp1" FromRole="Emp" ToRole="Married" />
           <NavigationProperty Name="EmpPhoto" Relationship="TASDesktopModel.FK_Emp_EmpPhoto" FromRole="Emp" ToRole="EmpPhoto" />
           <NavigationProperty Name="Gender1" Relationship="TASDesktopModel.FK_Emp_Gender" FromRole="Emp" ToRole="Gender" />
@@ -6496,6 +6527,7 @@
           <NavigationProperty Name="Shift" Relationship="TASDesktopModel.FK_Emp_Shift" FromRole="Emp" ToRole="Shift" />
           <NavigationProperty Name="EmpType" Relationship="TASDesktopModel.FK_Emp_TypeID" FromRole="Emp" ToRole="EmpType" />
           <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplication_Emp" FromRole="Emp" ToRole="LvApplication" />
+          <NavigationProperty Name="LvQuota" Relationship="TASDesktopModel.FK_LvQuota_Emp" FromRole="Emp" ToRole="LvQuota" />
           <NavigationProperty Name="Users" Relationship="TASDesktopModel.FK_User_Emp" FromRole="Emp" ToRole="User" />
         </EntityType>
         <EntityType Name="EmpAccess">
@@ -6708,6 +6740,38 @@
           <Property Name="Active" Type="Boolean" />
           <NavigationProperty Name="LvApplication" Relationship="TASDesktopModel.FK_LvData_LvApplications" FromRole="LvData" ToRole="LvApplication" />
           <NavigationProperty Name="LvType" Relationship="TASDesktopModel.FK_LvData_LvCode" FromRole="LvData" ToRole="LvType" />
+        </EntityType>
+        <EntityType Name="LvQuota">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" Nullable="false" />
+          <Property Name="A" Type="Double" Nullable="false" />
+          <Property Name="TA" Type="Double" />
+          <Property Name="B" Type="Double" Nullable="false" />
+          <Property Name="TB" Type="Double" />
+          <Property Name="C" Type="Double" Nullable="false" />
+          <Property Name="TC" Type="Double" />
+          <Property Name="D" Type="Double" />
+          <Property Name="TD" Type="Double" />
+          <Property Name="E" Type="Double" />
+          <Property Name="TE" Type="Double" />
+          <Property Name="F" Type="Double" />
+          <Property Name="TF" Type="Double" />
+          <Property Name="G" Type="Double" />
+          <Property Name="TG" Type="Double" />
+          <Property Name="H" Type="Double" />
+          <Property Name="TH" Type="Double" />
+          <Property Name="I" Type="Double" />
+          <Property Name="TI" Type="Double" />
+          <Property Name="J" Type="Double" />
+          <Property Name="TJ" Type="Double" />
+          <Property Name="K" Type="Double" />
+          <Property Name="TK" Type="Double" />
+          <Property Name="L" Type="Double" />
+          <Property Name="TL" Type="Double" />
+          <Property Name="CompanyID" Type="Int16" />
+          <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_LvQuota_Emp" FromRole="LvQuota" ToRole="Emp" />
         </EntityType>
         <EntityType Name="LvShort">
           <Key>
@@ -8845,18 +8909,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Emp_Emp">
-          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="1" />
-          <End Role="Emp1" Type="TASDesktopModel.Emp" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Emp">
-              <PropertyRef Name="EmpID" />
-            </Principal>
-            <Dependent Role="Emp1">
-              <PropertyRef Name="EmpID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Emp_Emp1">
           <End Role="Married" Type="TASDesktopModel.Married" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
@@ -8973,6 +9025,18 @@
               <PropertyRef Name="EmpID" />
             </Principal>
             <Dependent Role="LvApplication">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LvQuota_Emp">
+          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="1" />
+          <End Role="LvQuota" Type="TASDesktopModel.LvQuota" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpID" />
+            </Principal>
+            <Dependent Role="LvQuota">
               <PropertyRef Name="EmpID" />
             </Dependent>
           </ReferentialConstraint>
@@ -10166,6 +10230,38 @@
                 <ScalarProperty Name="FirstHalf" ColumnName="FirstHalf" />
                 <ScalarProperty Name="HalfLeave" ColumnName="HalfLeave" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LvQuotas">
+            <EntityTypeMapping TypeName="TASDesktopModel.LvQuota">
+              <MappingFragment StoreEntitySet="LvQuota">
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="A" ColumnName="A" />
+                <ScalarProperty Name="TA" ColumnName="TA" />
+                <ScalarProperty Name="B" ColumnName="B" />
+                <ScalarProperty Name="TB" ColumnName="TB" />
+                <ScalarProperty Name="C" ColumnName="C" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="D" ColumnName="D" />
+                <ScalarProperty Name="TD" ColumnName="TD" />
+                <ScalarProperty Name="E" ColumnName="E" />
+                <ScalarProperty Name="TE" ColumnName="TE" />
+                <ScalarProperty Name="F" ColumnName="F" />
+                <ScalarProperty Name="TF" ColumnName="TF" />
+                <ScalarProperty Name="G" ColumnName="G" />
+                <ScalarProperty Name="TG" ColumnName="TG" />
+                <ScalarProperty Name="H" ColumnName="H" />
+                <ScalarProperty Name="TH" ColumnName="TH" />
+                <ScalarProperty Name="I" ColumnName="I" />
+                <ScalarProperty Name="TI" ColumnName="TI" />
+                <ScalarProperty Name="J" ColumnName="J" />
+                <ScalarProperty Name="TJ" ColumnName="TJ" />
+                <ScalarProperty Name="K" ColumnName="K" />
+                <ScalarProperty Name="TK" ColumnName="TK" />
+                <ScalarProperty Name="L" ColumnName="L" />
+                <ScalarProperty Name="TL" ColumnName="TL" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

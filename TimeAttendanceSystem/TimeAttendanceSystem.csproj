@@ -317,6 +317,9 @@
     <Compile Include="Model\LvData.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\LvQuota.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\LvShort.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -607,11 +610,13 @@
     <Compile Include="ValueConvertors\DateTimeToDateConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToTimeSpan.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ValueConvertors\InverseBooleanConverter.cs" />
     <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\SearchCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttJobCard\Commands\AddCommand.cs" />
     <Compile Include="ViewModels\VMAttJobCard\VMAttJobCard.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
@@ -660,6 +665,11 @@
     <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
     <Compile Include="ViewModels\VMLogin\VMLogin.cs" />
     <Compile Include="ViewModels\VMLvApplication\CombinedEmpAndLvApps.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\AddCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\DeleteCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\EditCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\SaveCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\VMLvQuota.cs" />
     <Compile Include="ViewModels\VMShortLv\CombinedEmpAndShortLvcs.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
@@ -778,8 +788,8 @@
     <Compile Include="Views\FirstPageDatabase.xaml.cs">
       <DependentUpon>FirstPageDatabase.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LvSetting.xaml.cs">
-      <DependentUpon>LvSetting.xaml</DependentUpon>
+    <Compile Include="Views\LvQuota.xaml.cs">
+      <DependentUpon>LvQuota.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SQLDATABASE.xaml.cs">
       <DependentUpon>SQLDATABASE.xaml</DependentUpon>
@@ -1059,7 +1069,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\LvSetting.xaml">
+    <Page Include="Views\LvQuota.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

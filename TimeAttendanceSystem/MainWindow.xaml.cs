@@ -117,8 +117,8 @@ namespace TimeAttendanceSystem
                     case "Short Leave":
                         _mainFrame.Navigate(new ShortLvView());
                         break;
-                    case "Settings":
-                        _mainFrame.Navigate(new LvSetting());
+                    case "Leave Quota App":
+                        _mainFrame.Navigate(new TimeAttendanceSystem.Views.LvQuota());
                         break;
                     case "Employee":
                         _mainFrame.Navigate(new Employee());
@@ -249,10 +249,10 @@ namespace TimeAttendanceSystem
             _mainFrame.Navigate(new AttEditView());
         }
 
-        private void btn_leave_Click(object sender, RoutedEventArgs e)
-        {
-            _mainFrame.Navigate(new LvSetting());
-        }
+        //private void btn_leave_Click(object sender, RoutedEventArgs e)
+        //{
+        //    _mainFrame.Navigate(new LvSetting());
+        //}
         private void btn_JobCard_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new AttEditJobCard());
