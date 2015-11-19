@@ -39,7 +39,7 @@ namespace TimeAttendanceSystem.Model
         public string FatherName { get; set; }
         public string BloodGroup { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
-        public Nullable<byte> MarStatus { get; set; }
+        public string MarStatus { get; set; }
         public Nullable<System.DateTime> JoinDate { get; set; }
         public Nullable<System.DateTime> ValidDate { get; set; }
         public Nullable<System.DateTime> IssueDate { get; set; }

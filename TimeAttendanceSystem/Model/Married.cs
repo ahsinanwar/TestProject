@@ -19,7 +19,7 @@ namespace TimeAttendanceSystem.Model
             this.Emps = new HashSet<Emp>();
         }
     
-        public byte MarriedID { get; set; }
+        public string MarriedID { get; set; }
         public string Name { get; set; }
     
         public virtual ICollection<Emp> Emps { get; set; }

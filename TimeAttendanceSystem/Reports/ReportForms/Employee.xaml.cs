@@ -26,6 +26,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         public Employee()
         {
             InitializeComponent();
+            List<EmpView> list = new List<EmpView>(ctx.EmpViews.ToList());
             LoadReport(Properties.Settings.Default.ReportPath + "Employee.rdlc", ctx.EmpViews.ToList());
         }
         TAS2013Entities ctx = new TAS2013Entities();

@@ -155,8 +155,8 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                 dailysumm.AOTMins = 0;
                 dailysumm.OTEmps = 0;
                 dailysumm.OTMins = 0;
-                long averageTimeIn = 0;
-                long averageTimeOut = 0;
+                double averageTimeIn = 0;
+                double averageTimeOut = 0;
                 //LV ,short half
                 foreach (var emp in attList)
                 {
@@ -213,10 +213,18 @@ namespace TimeAttendanceSystem.AttendanceProcessor
                 try
                 {
                     if (dailysumm.PresentEmps != 0)
-                        dailysumm.AvgTimeIn = new DateTime((long)(averageTimeIn / dailysumm.PresentEmps)).TimeOfDay;
+                    {
+                        long avgTime = (long)((averageTimeIn / 10000) / dailysumm.PresentEmps);
+                        dailysumm.AvgTimeIn = new DateTime(avgTime).TimeOfDay;
+                    
+                    }
                     if (dailysumm.PresentEmps != 0)
-                        dailysumm.AvgTimeOut = new DateTime((long)(averageTimeOut / dailysumm.PresentEmps)).TimeOfDay;
-                    if (dailysumm.TotalEmps != 0)
+                    {
+                        long avgTime = (long)((averageTimeOut / 10000) / dailysumm.PresentEmps);
+                        dailysumm.AvgTimeOut = new DateTime((avgTime)).TimeOfDay;
+
+                    }
+                                          if (dailysumm.TotalEmps != 0)
                         dailysumm.AActualMins = (short)(dailysumm.ActualWorkMins / dailysumm.TotalEmps);
                     if (dailysumm.TotalEmps != 0)
                         dailysumm.ALossMins = (short)(dailysumm.LossWorkMins / dailysumm.TotalEmps);

@@ -31,14 +31,15 @@ namespace TimeAttendanceSystem.Model
         public Nullable<double> TG { get; set; }
         public Nullable<double> H { get; set; }
         public Nullable<double> TH { get; set; }
-        public Nullable<double> J { get; set; }
-        public Nullable<double> TJ { get; set; }
         public Nullable<double> I { get; set; }
         public Nullable<double> TI { get; set; }
+        public Nullable<double> J { get; set; }
+        public Nullable<double> TJ { get; set; }
         public Nullable<double> K { get; set; }
         public Nullable<double> TK { get; set; }
         public Nullable<double> L { get; set; }
         public Nullable<double> TL { get; set; }
+        public Nullable<int> CompanyID { get; set; }
     
         public virtual Emp Emp { get; set; }
     }

@@ -34,7 +34,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             List<ViewPresentEmp> _ViewList = new List<ViewPresentEmp>();
             Console.Write(dateFrom);
             Console.Write(dateTo);
-            _ViewList = ctx.ViewPresentEmps.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            _ViewList = ctx.ViewPresentEmps.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && aa.StatusP == true).ToList();
             LoadReport(Properties.Settings.Default.ReportPath + "DRPresent.rdlc", _ViewList);
         }
      
@@ -45,7 +45,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             DateTime dateTo = UserControlReport.EndDate;
             List<ViewPresentEmp> _ViewList = new List<ViewPresentEmp>();
             var df=ctx.ViewPresentEmps.ToList();
-            _ViewList = ctx.ViewPresentEmps.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo)).ToList();
+            _ViewList = ctx.ViewPresentEmps.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && aa.StatusP == true).ToList();
            
 
             if (UserControlReport.selectedEmps.Count > 0)
