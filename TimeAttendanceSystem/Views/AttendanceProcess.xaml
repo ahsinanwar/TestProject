@@ -70,9 +70,9 @@
                                 <DatePicker x:Name="dtpEnd" HorizontalAlignment="Left" Margin="205,44,0,0" VerticalAlignment="Top" FontSize="14" Height="27" Width="117" SelectedDate="{Binding selectedEmpAndLvApp.LvApp.ToDate }" IsEnabled="{Binding Path=isEnabled}"/>
                                 
                                 <Label Content="Process Type:" HorizontalAlignment="Left" Margin="97,73,0,0" VerticalAlignment="Top" Width="80"/>
-                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="205,77,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold" IsEnabled="{Binding isEnabled}" SelectedValue="{Binding selectedUser.Status, Mode=TwoWay}" SelectedValuePath="Tag">
-                                    <telerik:RadComboBoxItem Tag="True" Content="Daily"/>
-                                    <telerik:RadComboBoxItem Tag="False" Content="Monthly"/>
+                                <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="205,77,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold" IsEnabled="{Binding isEnabled}" SelectedValue="{Binding ProcessType, Mode=TwoWay}" SelectedValuePath="Tag" SelectionChanged="ProcessType_SelectionChanged">
+                                    <telerik:RadComboBoxItem Tag="Daily" Content="Daily"/>
+                                    <telerik:RadComboBoxItem Tag="Monthly" Content="Monthly"/>
                                 </telerik:RadComboBox>
 
                                 <Button telerik:StyleManager.Theme="Windows8" Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="268,104,204,19" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" Click="Button_Click" />

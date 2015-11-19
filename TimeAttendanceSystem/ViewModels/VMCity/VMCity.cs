@@ -15,6 +15,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
     {
         #region Intialization
         public City _selectedCity;
+      
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean isAdding
@@ -129,7 +130,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity
         #region constructor
         public VMCity()
         {
-            entity = new TAS2013Entities();
+          entity = new TAS2013Entities();
             _selectedCity = new City();
             _listOfCities = new ObservableCollection<City>(entity.Cities.ToList());
             _selectedCity = entity.Cities.ToList().FirstOrDefault();

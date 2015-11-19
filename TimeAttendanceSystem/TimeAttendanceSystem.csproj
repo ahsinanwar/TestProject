@@ -149,7 +149,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AttendanceProcessor\CalculateWorkMins.cs" />
+    <Compile Include="AttendanceProcessor\ContractualMonthlyProcessor.cs" />
     <Compile Include="AttendanceProcessor\CreateMissingAttendance.cs" />
+    <Compile Include="AttendanceProcessor\DailySummaryClass.cs" />
     <Compile Include="AttendanceProcessor\Downloader\Downloader.cs" />
     <Compile Include="AttendanceProcessor\ManualProcess.cs" />
     <Compile Include="AttendanceProcessor\PlaceTimeInOuts.cs" />
@@ -157,6 +159,7 @@
     <Compile Include="AttendanceProcessor\ProcessEditAttendanceEntries.cs" />
     <Compile Include="AttendanceProcessor\ProcessJobCard.cs" />
     <Compile Include="AttendanceProcessor\ProcessSupportFunc.cs" />
+    <Compile Include="AttendanceProcessor\SummaryEntity.cs" />
     <Compile Include="BaseClasses\BackgroundVisualHost.cs" />
     <Compile Include="BaseClasses\BusyDecorator.cs" />
     <Compile Include="BaseClasses\CommanVariables.cs" />

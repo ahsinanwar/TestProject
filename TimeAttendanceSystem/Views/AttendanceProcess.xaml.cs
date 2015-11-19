@@ -22,6 +22,8 @@ using TASDownloadService.AttProcessDaily;
 using WMSFFService;
 using TimeAttendanceSystem.Controllers;
 using TASDownloadService.Helper;
+using Telerik.Windows.Controls;
+using TimeAttendanceSystem.AttendanceProcessor;
 
 namespace TimeAttendanceSystem.Views
 {
@@ -30,13 +32,16 @@ namespace TimeAttendanceSystem.Views
     /// </summary>
     public partial class AttendanceProcess : Page
     {
+        string ProcessType = "";
         private readonly BackgroundWorker worker = new BackgroundWorker();
        
         public AttendanceProcess()
         {
+
             try
             {
                 InitializeComponent();
+                this.DataContext = ProcessType;
                 DateTime DateFrom = new DateTime();
                 DateTime DateTo = new DateTime();
                 bool isActive = false;
@@ -56,34 +61,135 @@ namespace TimeAttendanceSystem.Views
             TAS2013Entities ctx = new TAS2013Entities();
 
             // Download Attendance From Readers
-           
+
             DateTime dateStart = (DateTime)arg[0];
             DateTime dateEnd = (DateTime)arg[1];
             List<Emp> emps = new List<Emp>();
             List<AttData> attdata = new List<AttData>();
             emps = ctx.Emps.Where(aa => aa.Status == true).ToList();
-
-            while (dateStart <= dateEnd)
+            if (ProcessType == "Daily")
             {
-                attdata.Clear();
-                if (ctx.AttProcesses.Where(aa => aa.ProcessDate == dateStart).Count() == 0)
+                while (dateStart <= dateEnd)
                 {
-                    ProcessAttendance p = new ProcessAttendance();
-                    p.ProcessDailyAttendance();
+                    attdata.Clear();
+                    
+                        if (ctx.AttProcesses.Where(aa => aa.ProcessDate == dateStart).Count() == 0)
+                        {
+                            ProcessAttendance p = new ProcessAttendance();
+                            p.ProcessDailyAttendance();
+                        }
+                        else
+                        {
+                            ManualProcess mp = new ManualProcess();
+                            attdata = ctx.AttDatas.Where(aa => aa.AttDate == dateStart).ToList();
+                            mp.ManualProcessAttendance(dateStart, emps, attdata);
+                        }
+                    
+                    
+                    dateStart = dateStart.AddDays(1);
+
                 }
-                else
-                {
-                    ManualProcess mp = new ManualProcess();
-                    attdata = ctx.AttDatas.Where(aa => aa.AttDate == dateStart).ToList();
-                    mp.ManualProcessAttendance(dateStart, emps, attdata);
-                }
-                dateStart = dateStart.AddDays(1);
             }
+            else {
+
+
+                DailySummaryClass dailysum = new DailySummaryClass(dateStart, dateEnd);
+                DateTime dtStart = DateTime.Today.AddDays(-2);
+                DateTime dtend = DateTime.Today;
+                CorrectAttEntriesWithWrongFlags(dtStart, dtend);
+                ProcessMonthlyAttendance(dateStart);
+            
+            
+            }
+             
             // Process Edit Attendance Entries if any
             ProcessEditAttendanceEntries pea = new ProcessEditAttendanceEntries();
             pea.ProcessManualEditAttendance(dateStart, dateEnd);
             //Process Job cards if any
             ApplyJobCard(dateStart, dateEnd);
+        }
+
+        private void ProcessMonthlyAttendance(DateTime date)
+        {
+            //Process Month till end of month
+            DateTime endDate = date.Date;
+            int currentDay = date.Date.Day;
+            int currentMonth = date.Date.Month;
+            int currentYear = date.Date.Year;
+            DateTime startDate = new DateTime(currentYear, currentMonth, 1);
+            if (currentMonth == 1 && currentDay < 10)
+            {
+                currentMonth = 13;
+                currentYear = currentYear - 1;
+            }
+            if (endDate.Day < 10)
+            {
+                currentMonth = currentMonth - 1;
+                int DaysInPreviousMonth = System.DateTime.DaysInMonth(currentYear, currentMonth);
+                endDate = new DateTime(currentYear, currentMonth, DaysInPreviousMonth);
+                startDate = new DateTime(currentYear, currentMonth, 1);
+            }
+            else
+            {
+                startDate = new DateTime(currentYear, currentMonth, 1);
+            }
+
+
+            ProcessMonthly(startDate, endDate);
+        }
+
+        private void ProcessMonthly(DateTime startDate, DateTime endDate)
+        {
+            TAS2013Entities ctx = new TAS2013Entities();
+            // Pass list of selected emp Attendance data to optimize sql query 
+            List<AttData> _AttData = new List<AttData>();
+            List<AttData> _EmpAttData = new List<AttData>();
+            _AttData = ctx.AttDatas.Where(aa => aa.AttDate >= startDate && aa.AttDate <= endDate).ToList();
+            int count = 0;
+            List<Emp> _Emp = ctx.Emps.Where(em => em.Status == true).ToList();
+            List<Emp> _oEmp = ctx.Emps.Where(em => em.Status == true).ToList();
+            _Emp.AddRange(_oEmp);
+            int _TE = _Emp.Count;
+            foreach (Emp emp in _Emp)
+            {
+                count++;
+                try
+                {
+                    ContractualMonthlyProcessor cmp = new ContractualMonthlyProcessor();
+                    _EmpAttData = _AttData.Where(aa => aa.EmpID == emp.EmpID).ToList();
+                    if (!cmp.processContractualMonthlyAttSingle(startDate, endDate, emp, _EmpAttData))
+                    {
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+        }
+
+        private void CorrectAttEntriesWithWrongFlags(DateTime startdate, DateTime endDate)
+        {
+            using (var ctx = new TAS2013Entities())
+            {
+                // where StatusGZ ==1 and DutyCode != G
+                List<AttData> _attDataForGZ = ctx.AttDatas.Where(aa => aa.AttDate >= startdate && aa.AttDate <= endDate && aa.StatusGZ == true && aa.DutyCode != "G").ToList();
+                foreach (var item in _attDataForGZ)
+                {
+                    item.DutyCode = "G";
+                }
+                ctx.SaveChanges();
+
+                // where StatusDO ==1 and DutyCode != R
+                List<AttData> _attDataForDO = ctx.AttDatas.Where(aa => aa.AttDate >= startdate && aa.AttDate <= endDate && aa.StatusDO == true && aa.DutyCode != "R").ToList();
+                foreach (var item in _attDataForGZ)
+                {
+                    item.DutyCode = "R";
+                }
+                ctx.SaveChanges();
+                ctx.Dispose();
+            }
         }
             private void ApplyJobCard(DateTime dateStart, DateTime dateEnd)
         {
@@ -133,9 +239,21 @@ private void worker_RunWorkerCompleted(object sender,
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine(this.DataContext);
             Object[] args = { dtpStart.SelectedDate.Value, dtpEnd.SelectedDate.Value};
             worker.RunWorkerAsync(args );
             
+        }
+
+        private void ProcessType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedValue =(string)((RadComboBox)sender).SelectedValue;
+            if (selectedValue == "Daily")
+            
+                ProcessType = "Daily";
+            
+            else
+            ProcessType = "Monthly"; 
         }
     }
 }
