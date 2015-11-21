@@ -39,13 +39,13 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
             {
                 if (emp.Count > 0)
                 {
-                    PopUp.popUp("Not Deleted", "Please delete Employee before Location Deletion", NotificationType.Warning);
+                    PopUp.popUp("Location", "Please delete Employee before Location Deletion", NotificationType.Information);
                 }
                 else
                 {
                     vmd.listOfLocs.Remove(vmd.selectedLoc);
                     vmd.selectedLoc = vmd.listOfLocs[0];
-                    PopUp.popUp("Deleted", "Locton is Deleted", NotificationType.Warning);
+                    PopUp.popUp("Location", "Location is Deleted", NotificationType.Information);
                 }
             }
             catch (Exception)

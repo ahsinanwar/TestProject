@@ -49,6 +49,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
                     {
                         vmd.listOfCities.Remove(vmd.selectedCity);
                         vmd.selectedCity = vmd.listOfCities[0];
+                        PopUp.popUp("City", "City Removed", NotificationType.Information);
                     }
                 }
                 catch (Exception)

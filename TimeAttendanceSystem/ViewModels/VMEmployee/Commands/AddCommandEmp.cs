@@ -43,10 +43,12 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
             vmd._selectedEmp.Location = vmd.listOfLocs.FirstOrDefault();
             vmd._selectedEmp.LocID = vmd.selectedEmp.Location.LocID;
             vmd._selectedEmp.Crew = vmd.listOfCrews.FirstOrDefault();
+            vmd._selectedEmp.Gender = 1;
+            vmd._selectedEmp.MarStatus = "0";
             vmd._selectedEmp.CrewID = vmd.selectedEmp.Crew.CrewID;
             vmd._selectedEmp.JoinDate = DateTime.Today;
-            //vmd._selectedEmp.Status = vmd.selectedEmp.Status.Value;
-            
+            vmd._selectedEmp.Status = true;
+            vmd._selectedEmp.BirthDate = DateTime.Now;
             vmd._selectedEmp.ValidDate = DateTime.Today.AddYears(10);
            
             vmd.selectedEmp = vmd._selectedEmp;

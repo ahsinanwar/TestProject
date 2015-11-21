@@ -23,12 +23,12 @@
         </Border>
 
         <!--List View Panel-->
-        <StackPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="0">
+        <StackPanel Margin="5,5,5,209" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
-                        telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" 
+                        telerik:StyleManager.Theme="Windows8" 
                         ItemsSource="{Binding listOfDesgs}" SelectedItem="{Binding selectedDesg}" ShowGroupPanel="False"
-                        VerticalAlignment="Top"  Height="260" Grid.RowSpan="2" 
-                        CanUserFreezeColumns="False" MinWidth="387" Width="550">
+                        VerticalAlignment="Top"  Height="300" Grid.RowSpan="2" 
+                        CanUserFreezeColumns="False" MinWidth="387" RenderTransformOrigin="0.501,0.991" Margin="0,0,10,0">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Designation" DataMemberBinding="{Binding DesignationName}" />
                 </telerik:RadGridView.Columns>
@@ -36,10 +36,10 @@
             
         </StackPanel>
         <!--CRUD Panel-->
-        <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,5,5,5" Grid.Column="0" Grid.Row="2">
-            <StackPanel Background="White" Margin="-1,-1,1,1">
+        <Border BorderBrush="LightGray" BorderThickness="1" Margin="10,141,0,0" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Width="560" RenderTransformOrigin="0.499,0.02">
+            <StackPanel Background="White" Margin="-1,9,1,1">
                 <StackPanel Background="#004b79">
-                    <Label Foreground="White">Designation Detail</Label>
+                    <Label Foreground="White" Height="48" Content="Designation Detail"/>
                 </StackPanel>
                 <!--Buttons Panel-->
                 <StackPanel Orientation="Horizontal" Margin="300,5,5,5">

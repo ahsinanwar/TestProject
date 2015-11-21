@@ -195,6 +195,7 @@
           <EntitySet Name="EmpFp" EntityType="TASDesktopModel.Store.EmpFp" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EmpPhoto" EntityType="TASDesktopModel.Store.EmpPhoto" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EmpType" EntityType="TASDesktopModel.Store.EmpType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gender" EntityType="TASDesktopModel.Store.Gender" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Grade" EntityType="TASDesktopModel.Store.Grade" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Holiday" EntityType="TASDesktopModel.Store.Holiday" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="JobCard" EntityType="TASDesktopModel.Store.JobCard" store:Type="Tables" Schema="dbo" />
@@ -205,8 +206,10 @@
           <EntitySet Name="LvApplication" EntityType="TASDesktopModel.Store.LvApplication" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LvConsumed" EntityType="TASDesktopModel.Store.LvConsumed" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LvData" EntityType="TASDesktopModel.Store.LvData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LvQuota" EntityType="TASDesktopModel.Store.LvQuota" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LvShort" EntityType="TASDesktopModel.Store.LvShort" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LvType" EntityType="TASDesktopModel.Store.LvType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Married" EntityType="TASDesktopModel.Store.Married" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Option" EntityType="TASDesktopModel.Store.Option" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PollData" EntityType="TASDesktopModel.Store.PollData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PollDataError" EntityType="TASDesktopModel.Store.PollDataError" store:Type="Tables" Schema="dbo" />
@@ -217,6 +220,7 @@
           <EntitySet Name="ReaderVendor" EntityType="TASDesktopModel.Store.ReaderVendor" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Reason" EntityType="TASDesktopModel.Store.Reason" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Region" EntityType="TASDesktopModel.Store.Region" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Remark" EntityType="TASDesktopModel.Store.Remark" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Roster" EntityType="TASDesktopModel.Store.Roster" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RosterApp" EntityType="TASDesktopModel.Store.RosterApp" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RosterDetail" EntityType="TASDesktopModel.Store.RosterDetail" store:Type="Tables" Schema="dbo" />
@@ -236,16 +240,34 @@
       [EmpView].[CrewName] AS [CrewName], 
       [EmpView].[TypeName] AS [TypeName], 
       [EmpView].[CatName] AS [CatName], 
+      [EmpView].[SectionName] AS [SectionName], 
+      [EmpView].[DeptName] AS [DeptName], 
+      [EmpView].[DivisionName] AS [DivisionName], 
+      [EmpView].[CatID] AS [CatID], 
+      [EmpView].[DeptID] AS [DeptID], 
+      [EmpView].[DivID] AS [DivID], 
+      [EmpView].[LocName] AS [LocName], 
+      [EmpView].[CityID] AS [CityID], 
+      [EmpView].[CityName] AS [CityName], 
+      [EmpView].[RegionID] AS [RegionID], 
+      [EmpView].[RegionName] AS [RegionName], 
+      [EmpView].[ShiftName] AS [ShiftName], 
+      [EmpView].[EmpID] AS [EmpID], 
       [EmpView].[EmpNo] AS [EmpNo], 
       [EmpView].[EmpName] AS [EmpName], 
       [EmpView].[DesigID] AS [DesigID], 
       [EmpView].[JobID] AS [JobID], 
       [EmpView].[Gender] AS [Gender], 
+      [EmpView].[ShiftID] AS [ShiftID], 
+      [EmpView].[LocID] AS [LocID], 
+      [EmpView].[GradeID] AS [GradeID], 
+      [EmpView].[TypeID] AS [TypeID], 
+      [EmpView].[SecID] AS [SecID], 
       [EmpView].[CardNo] AS [CardNo], 
       [EmpView].[FpID] AS [FpID], 
       [EmpView].[PinCode] AS [PinCode], 
-      [EmpView].[FatherName] AS [FatherName], 
       [EmpView].[NicNo] AS [NicNo], 
+      [EmpView].[FatherName] AS [FatherName], 
       [EmpView].[BloodGroup] AS [BloodGroup], 
       [EmpView].[BirthDate] AS [BirthDate], 
       [EmpView].[MarStatus] AS [MarStatus], 
@@ -257,31 +279,13 @@
       [EmpView].[ProcessAtt] AS [ProcessAtt], 
       [EmpView].[Status] AS [Status], 
       [EmpView].[PhoneNo] AS [PhoneNo], 
-      [EmpView].[Email] AS [Email], 
       [EmpView].[Remarks] AS [Remarks], 
+      [EmpView].[Email] AS [Email], 
       [EmpView].[CellNo] AS [CellNo], 
+      [EmpView].[CrewID] AS [CrewID], 
       [EmpView].[FlagFP] AS [FlagFP], 
       [EmpView].[FlagFace] AS [FlagFace], 
-      [EmpView].[FlagCard] AS [FlagCard], 
-      [EmpView].[SectionName] AS [SectionName], 
-      [EmpView].[DeptName] AS [DeptName], 
-      [EmpView].[DivisionName] AS [DivisionName], 
-      [EmpView].[CatID] AS [CatID], 
-      [EmpView].[SecID] AS [SecID], 
-      [EmpView].[ShiftID] AS [ShiftID], 
-      [EmpView].[TypeID] AS [TypeID], 
-      [EmpView].[LocID] AS [LocID], 
-      [EmpView].[GradeID] AS [GradeID], 
-      [EmpView].[DeptID] AS [DeptID], 
-      [EmpView].[DivID] AS [DivID], 
-      [EmpView].[CrewID] AS [CrewID], 
-      [EmpView].[EmpID] AS [EmpID], 
-      [EmpView].[LocName] AS [LocName], 
-      [EmpView].[CityID] AS [CityID], 
-      [EmpView].[ShiftName] AS [ShiftName], 
-      [EmpView].[CityName] AS [CityName], 
-      [EmpView].[RegionID] AS [RegionID], 
-      [EmpView].[RegionName] AS [RegionName]
+      [EmpView].[FlagCard] AS [FlagCard]
       FROM [dbo].[EmpView] AS [EmpView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewAbsent" EntityType="TASDesktopModel.Store.ViewAbsent" store:Type="Views" store:Schema="dbo" store:Name="ViewAbsent">
@@ -335,6 +339,77 @@
       [ViewAbsent].[ResignDate] AS [ResignDate], 
       [ViewAbsent].[Email] AS [Email]
       FROM [dbo].[ViewAbsent] AS [ViewAbsent]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewAttData" EntityType="TASDesktopModel.Store.ViewAttData" store:Type="Views" store:Schema="dbo" store:Name="ViewAttData">
+            <DefiningQuery>SELECT 
+      [ViewAttData].[EmpID] AS [EmpID], 
+      [ViewAttData].[EmpNo] AS [EmpNo], 
+      [ViewAttData].[EmpName] AS [EmpName], 
+      [ViewAttData].[JobTitle] AS [JobTitle], 
+      [ViewAttData].[TypeName] AS [TypeName], 
+      [ViewAttData].[CatName] AS [CatName], 
+      [ViewAttData].[CityName] AS [CityName], 
+      [ViewAttData].[RegionName] AS [RegionName], 
+      [ViewAttData].[LocName] AS [LocName], 
+      [ViewAttData].[DesignationName] AS [DesignationName], 
+      [ViewAttData].[ShiftName] AS [ShiftName], 
+      [ViewAttData].[SectionName] AS [SectionName], 
+      [ViewAttData].[CrewName] AS [CrewName], 
+      [ViewAttData].[FpID] AS [FpID], 
+      [ViewAttData].[PinCode] AS [PinCode], 
+      [ViewAttData].[NicNo] AS [NicNo], 
+      [ViewAttData].[CardNo] AS [CardNo], 
+      [ViewAttData].[Status] AS [Status], 
+      [ViewAttData].[GradeName] AS [GradeName], 
+      [ViewAttData].[DeptName] AS [DeptName], 
+      [ViewAttData].[EmpDate] AS [EmpDate], 
+      [ViewAttData].[AttDate] AS [AttDate], 
+      [ViewAttData].[DutyCode] AS [DutyCode], 
+      [ViewAttData].[DutyTime] AS [DutyTime], 
+      [ViewAttData].[TimeIn] AS [TimeIn], 
+      [ViewAttData].[TimeOut] AS [TimeOut], 
+      [ViewAttData].[WorkMin] AS [WorkMin], 
+      [ViewAttData].[LateIn] AS [LateIn], 
+      [ViewAttData].[LateOut] AS [LateOut], 
+      [ViewAttData].[EarlyIn] AS [EarlyIn], 
+      [ViewAttData].[EarlyOut] AS [EarlyOut], 
+      [ViewAttData].[OTMin] AS [OTMin], 
+      [ViewAttData].[GZOTMin] AS [GZOTMin], 
+      [ViewAttData].[StatusP] AS [StatusP], 
+      [ViewAttData].[StatusAB] AS [StatusAB], 
+      [ViewAttData].[StatusLI] AS [StatusLI], 
+      [ViewAttData].[StatusLO] AS [StatusLO], 
+      [ViewAttData].[StatusEI] AS [StatusEI], 
+      [ViewAttData].[StatusEO] AS [StatusEO], 
+      [ViewAttData].[StatusOT] AS [StatusOT], 
+      [ViewAttData].[StatusGZOT] AS [StatusGZOT], 
+      [ViewAttData].[StatusGZ] AS [StatusGZ], 
+      [ViewAttData].[StatusDO] AS [StatusDO], 
+      [ViewAttData].[StatusHD] AS [StatusHD], 
+      [ViewAttData].[StatusLeave] AS [StatusLeave], 
+      [ViewAttData].[StatusBreak] AS [StatusBreak], 
+      [ViewAttData].[DivisionName] AS [DivisionName], 
+      [ViewAttData].[Remarks] AS [Remarks], 
+      [ViewAttData].[TypeID] AS [TypeID], 
+      [ViewAttData].[CatID] AS [CatID], 
+      [ViewAttData].[ShiftID] AS [ShiftID], 
+      [ViewAttData].[DeptID] AS [DeptID], 
+      [ViewAttData].[CrewID] AS [CrewID], 
+      [ViewAttData].[LocID] AS [LocID], 
+      [ViewAttData].[DivID] AS [DivID], 
+      [ViewAttData].[SecID] AS [SecID], 
+      [ViewAttData].[DesigID] AS [DesigID], 
+      [ViewAttData].[BreakMin] AS [BreakMin], 
+      [ViewAttData].[SLMin] AS [SLMin], 
+      [ViewAttData].[ShifMin] AS [ShifMin], 
+      [ViewAttData].[StatusSL] AS [StatusSL], 
+      [ViewAttData].[StatusOD] AS [StatusOD], 
+      [ViewAttData].[StatusHL] AS [StatusHL], 
+      [ViewAttData].[StatusMN] AS [StatusMN], 
+      [ViewAttData].[StatusIN] AS [StatusIN], 
+      [ViewAttData].[CityID] AS [CityID], 
+      [ViewAttData].[GradeID] AS [GradeID]
+      FROM [dbo].[ViewAttData] AS [ViewAttData]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewCards" EntityType="TASDesktopModel.Store.ViewCards" store:Type="Views" store:Schema="dbo" store:Name="ViewCards">
             <DefiningQuery>SELECT 
@@ -1574,7 +1649,6 @@
             <DefiningQuery>SELECT 
       [ViewSLData].[DesignationName] AS [DesignationName], 
       [ViewSLData].[GradeName] AS [GradeName], 
-      [ViewSLData].[CompName] AS [CompName], 
       [ViewSLData].[JobTitle] AS [JobTitle], 
       [ViewSLData].[CityName] AS [CityName], 
       [ViewSLData].[RegionName] AS [RegionName], 
@@ -1602,7 +1676,6 @@
       [ViewSLData].[ApprovedBy] AS [ApprovedBy], 
       [ViewSLData].[Expr1] AS [Expr1], 
       [ViewSLData].[CreatedDate] AS [CreatedDate], 
-      [ViewSLData].[CompanyID] AS [CompanyID], 
       [ViewSLData].[TypeID] AS [TypeID], 
       [ViewSLData].[CatID] AS [CatID], 
       [ViewSLData].[CrewID] AS [CrewID], 
@@ -1683,6 +1756,10 @@
       [ViewUserLocation].[UserLocID] AS [UserLocID]
       FROM [dbo].[ViewUserLocation] AS [ViewUserLocation]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_AttData_Emp" Association="TASDesktopModel.Store.FK_AttData_Emp">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="AttData" EntitySet="AttData" />
+          </AssociationSet>
           <AssociationSet Name="FK_Card_CardType" Association="TASDesktopModel.Store.FK_Card_CardType">
             <End Role="CardType" EntitySet="CardType" />
             <End Role="Card" EntitySet="Card" />
@@ -1715,12 +1792,24 @@
             <End Role="EmpPhoto" EntitySet="EmpPhoto" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
+          <AssociationSet Name="FK_Emp_Grade" Association="TASDesktopModel.Store.FK_Emp_Grade">
+            <End Role="Grade" EntitySet="Grade" />
+            <End Role="Emp" EntitySet="Emp" />
+          </AssociationSet>
           <AssociationSet Name="FK_Emp_JobTitle" Association="TASDesktopModel.Store.FK_Emp_JobTitle">
             <End Role="JobTitle" EntitySet="JobTitle" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
+          <AssociationSet Name="FK_Emp_Location" Association="TASDesktopModel.Store.FK_Emp_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Emp" EntitySet="Emp" />
+          </AssociationSet>
           <AssociationSet Name="FK_Emp_Section" Association="TASDesktopModel.Store.FK_Emp_Section">
             <End Role="Section" EntitySet="Section" />
+            <End Role="Emp" EntitySet="Emp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Shift" Association="TASDesktopModel.Store.FK_Emp_Shift">
+            <End Role="Shift" EntitySet="Shift" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_TypeID" Association="TASDesktopModel.Store.FK_Emp_TypeID">
@@ -1734,6 +1823,10 @@
           <AssociationSet Name="FK_Location_City" Association="TASDesktopModel.Store.FK_Location_City">
             <End Role="City" EntitySet="City" />
             <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LvApplication_Emp" Association="TASDesktopModel.Store.FK_LvApplication_Emp">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="LvApplication" EntitySet="LvApplication" />
           </AssociationSet>
           <AssociationSet Name="FK_LvApplication_User" Association="TASDesktopModel.Store.FK_LvApplication_User">
             <End Role="User" EntitySet="User" />
@@ -1751,6 +1844,10 @@
             <End Role="LvType" EntitySet="LvType" />
             <End Role="LvData" EntitySet="LvData" />
           </AssociationSet>
+          <AssociationSet Name="FK_LvQuota_Emp" Association="TASDesktopModel.Store.FK_LvQuota_Emp">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="LvQuota" EntitySet="LvQuota" />
+          </AssociationSet>
           <AssociationSet Name="FK_Reader_Location" Association="TASDesktopModel.Store.FK_Reader_Location">
             <End Role="Location" EntitySet="Location" />
             <End Role="Reader" EntitySet="Reader" />
@@ -1762,6 +1859,10 @@
           <AssociationSet Name="FK_Reader_RdrID" Association="TASDesktopModel.Store.FK_Reader_RdrID">
             <End Role="Reader" EntitySet="Reader" />
             <End Role="PollData" EntitySet="PollData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reader_ReaderType" Association="TASDesktopModel.Store.FK_Reader_ReaderType">
+            <End Role="ReaderType" EntitySet="ReaderType" />
+            <End Role="Reader" EntitySet="Reader" />
           </AssociationSet>
           <AssociationSet Name="FK_ReaderType_ReaderVendor" Association="TASDesktopModel.Store.FK_ReaderType_ReaderVendor">
             <End Role="ReaderVendor" EntitySet="ReaderVendor" />
@@ -1787,6 +1888,10 @@
             <End Role="DaysName" EntitySet="DaysName" />
             <End Role="Shift" EntitySet="Shift" />
           </AssociationSet>
+          <AssociationSet Name="FK_Shift_Location" Association="TASDesktopModel.Store.FK_Shift_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Shift" EntitySet="Shift" />
+          </AssociationSet>
           <AssociationSet Name="FK_Shift_RosterType" Association="TASDesktopModel.Store.FK_Shift_RosterType">
             <End Role="RosterType" EntitySet="RosterType" />
             <End Role="Shift" EntitySet="Shift" />
@@ -1794,6 +1899,10 @@
           <AssociationSet Name="FK_Site_City" Association="TASDesktopModel.Store.FK_Site_City">
             <End Role="City" EntitySet="City" />
             <End Role="Site" EntitySet="Site" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Emp" Association="TASDesktopModel.Store.FK_User_Emp">
+            <End Role="Emp" EntitySet="Emp" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_User_UserRole1" Association="TASDesktopModel.Store.FK_User_UserRole1">
             <End Role="UserRole" EntitySet="UserRole" />
@@ -2349,7 +2458,7 @@
           <Key>
             <PropertyRef Name="CityID" />
           </Key>
-          <Property Name="CityID" Type="smallint" Nullable="false" />
+          <Property Name="CityID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
           <Property Name="RegionID" Type="tinyint" />
         </EntityType>
@@ -2471,7 +2580,7 @@
           </Key>
           <Property Name="DeptID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
-          <Property Name="DivID" Type="smallint" />
+          <Property Name="DivID" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="Designation">
           <Key>
@@ -2529,7 +2638,7 @@
           <Key>
             <PropertyRef Name="EmpID" />
           </Key>
-          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="EmpID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="EmpNo" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="EmpName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="DesigID" Type="int" />
@@ -2547,7 +2656,7 @@
           <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
           <Property Name="BloodGroup" Type="nvarchar" MaxLength="6" />
           <Property Name="BirthDate" Type="date" />
-          <Property Name="MarStatus" Type="nvarchar" MaxLength="15" />
+          <Property Name="MarStatus" Type="nvarchar" MaxLength="50" />
           <Property Name="JoinDate" Type="date" />
           <Property Name="ValidDate" Type="date" />
           <Property Name="IssueDate" Type="date" />
@@ -2613,9 +2722,16 @@
           <Key>
             <PropertyRef Name="TypeID" />
           </Key>
-          <Property Name="TypeID" Type="tinyint" Nullable="false" />
+          <Property Name="TypeID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="CatID" Type="smallint" />
+          <Property Name="CatID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="tinyint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Grade">
           <Key>
@@ -2686,7 +2802,7 @@
           <Key>
             <PropertyRef Name="JobID" />
           </Key>
-          <Property Name="JobID" Type="smallint" Nullable="false" />
+          <Property Name="JobID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Location">
@@ -2759,6 +2875,37 @@
           <Property Name="HalfLeave" Type="bit" />
           <Property Name="Active" Type="bit" />
         </EntityType>
+        <EntityType Name="LvQuota">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="A" Type="float" />
+          <Property Name="TA" Type="float" />
+          <Property Name="B" Type="float" />
+          <Property Name="TB" Type="float" />
+          <Property Name="C" Type="float" />
+          <Property Name="TC" Type="float" />
+          <Property Name="D" Type="float" />
+          <Property Name="TD" Type="float" />
+          <Property Name="E" Type="float" />
+          <Property Name="TE" Type="float" />
+          <Property Name="F" Type="float" />
+          <Property Name="TF" Type="float" />
+          <Property Name="G" Type="float" />
+          <Property Name="TG" Type="float" />
+          <Property Name="H" Type="float" />
+          <Property Name="TH" Type="float" />
+          <Property Name="I" Type="float" />
+          <Property Name="TI" Type="float" />
+          <Property Name="J" Type="float" />
+          <Property Name="TJ" Type="float" />
+          <Property Name="K" Type="float" />
+          <Property Name="TK" Type="float" />
+          <Property Name="L" Type="float" />
+          <Property Name="TL" Type="float" />
+          <Property Name="CompanyID" Type="int" />
+        </EntityType>
         <EntityType Name="LvShort">
           <Key>
             <PropertyRef Name="SlID" />
@@ -2793,6 +2940,13 @@
           <Property Name="CarryForward" Type="bit" />
           <Property Name="CountHolidays" Type="bit" />
         </EntityType>
+        <EntityType Name="Married">
+          <Key>
+            <PropertyRef Name="MarriedID" />
+          </Key>
+          <Property Name="MarriedID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Option">
           <Key>
             <PropertyRef Name="ID" />
@@ -2820,7 +2974,7 @@
           <Key>
             <PropertyRef Name="PollID" />
           </Key>
-          <Property Name="PollID" Type="bigint" Nullable="false" />
+          <Property Name="PollID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="EmpID" Type="int" Nullable="false" />
           <Property Name="EmpDate" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="FpID" Type="int" />
@@ -2864,7 +3018,7 @@
           <Key>
             <PropertyRef Name="RdrID" />
           </Key>
-          <Property Name="RdrID" Type="smallint" Nullable="false" />
+          <Property Name="RdrID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="RdrName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="RdrDutyID" Type="tinyint" Nullable="false" />
           <Property Name="IpAdd" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -2901,6 +3055,14 @@
           </Key>
           <Property Name="RegionID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Remark">
+          <Key>
+            <PropertyRef Name="RemarkID" />
+          </Key>
+          <Property Name="RemarkID" Type="smallint" Nullable="false" />
+          <Property Name="RemarkLabel" Type="nvarchar" MaxLength="50" />
+          <Property Name="RemarkValue" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Roster">
           <Key>
@@ -2960,7 +3122,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Name="SectionID" Type="smallint" Nullable="false" />
+          <Property Name="SectionID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
           <Property Name="DeptID" Type="smallint" />
         </EntityType>
@@ -3074,10 +3236,7 @@
       -->
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="EmpNo" />
-            <PropertyRef Name="EmpName" />
-            <PropertyRef Name="ProcessAtt" />
-            <PropertyRef Name="EmpID" />
+            <PropertyRef Name="LocName" />
           </Key>
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
@@ -3085,52 +3244,52 @@
           <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmpNo" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="EmpName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DivisionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CatID" Type="smallint" />
+          <Property Name="DeptID" Type="smallint" />
+          <Property Name="DivID" Type="smallint" />
+          <Property Name="LocName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="CityID" Type="smallint" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegionID" Type="tinyint" />
+          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpID" Type="int" />
+          <Property Name="EmpNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
           <Property Name="DesigID" Type="int" />
           <Property Name="JobID" Type="smallint" />
           <Property Name="Gender" Type="tinyint" />
+          <Property Name="ShiftID" Type="tinyint" />
+          <Property Name="LocID" Type="smallint" />
+          <Property Name="GradeID" Type="tinyint" />
+          <Property Name="TypeID" Type="tinyint" />
+          <Property Name="SecID" Type="smallint" />
           <Property Name="CardNo" Type="char" MaxLength="10" />
           <Property Name="FpID" Type="int" />
           <Property Name="PinCode" Type="char" MaxLength="4" />
-          <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
           <Property Name="NicNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
           <Property Name="BloodGroup" Type="nvarchar" MaxLength="6" />
           <Property Name="BirthDate" Type="date" />
-          <Property Name="MarStatus" Type="nvarchar" MaxLength="15" />
+          <Property Name="MarStatus" Type="tinyint" />
           <Property Name="JoinDate" Type="date" />
           <Property Name="ValidDate" Type="date" />
           <Property Name="IssueDate" Type="date" />
           <Property Name="ResignDate" Type="date" />
           <Property Name="HomeAdd" Type="nvarchar" MaxLength="300" />
-          <Property Name="ProcessAtt" Type="bit" Nullable="false" />
+          <Property Name="ProcessAtt" Type="bit" />
           <Property Name="Status" Type="bit" />
           <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="CellNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CrewID" Type="smallint" />
           <Property Name="FlagFP" Type="bit" />
           <Property Name="FlagFace" Type="bit" />
           <Property Name="FlagCard" Type="bit" />
-          <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
-          <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
-          <Property Name="DivisionName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CatID" Type="smallint" />
-          <Property Name="SecID" Type="smallint" />
-          <Property Name="ShiftID" Type="tinyint" />
-          <Property Name="TypeID" Type="tinyint" />
-          <Property Name="LocID" Type="smallint" />
-          <Property Name="GradeID" Type="tinyint" />
-          <Property Name="DeptID" Type="smallint" />
-          <Property Name="DivID" Type="smallint" />
-          <Property Name="CrewID" Type="smallint" />
-          <Property Name="EmpID" Type="int" Nullable="false" />
-          <Property Name="LocName" Type="varchar" MaxLength="30" />
-          <Property Name="CityID" Type="smallint" />
-          <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegionID" Type="tinyint" />
-          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'TASDesktop.dbo.ViewAbsent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -3187,6 +3346,81 @@
           <Property Name="IssueDate" Type="date" />
           <Property Name="ResignDate" Type="date" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TASDesktop.dbo.ViewAttData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ViewAttData">
+          <Key>
+            <PropertyRef Name="EmpDate" />
+          </Key>
+          <Property Name="EmpID" Type="int" />
+          <Property Name="EmpNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeName" Type="varchar" MaxLength="30" />
+          <Property Name="CatName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LocName" Type="varchar" MaxLength="30" />
+          <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SectionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FpID" Type="int" />
+          <Property Name="PinCode" Type="char" MaxLength="4" />
+          <Property Name="NicNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardNo" Type="char" MaxLength="10" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmpDate" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="AttDate" Type="date" />
+          <Property Name="DutyCode" Type="char" MaxLength="1" />
+          <Property Name="DutyTime" Type="time" />
+          <Property Name="TimeIn" Type="datetime" />
+          <Property Name="TimeOut" Type="datetime" />
+          <Property Name="WorkMin" Type="smallint" />
+          <Property Name="LateIn" Type="smallint" />
+          <Property Name="LateOut" Type="smallint" />
+          <Property Name="EarlyIn" Type="smallint" />
+          <Property Name="EarlyOut" Type="smallint" />
+          <Property Name="OTMin" Type="smallint" />
+          <Property Name="GZOTMin" Type="smallint" />
+          <Property Name="StatusP" Type="bit" />
+          <Property Name="StatusAB" Type="bit" />
+          <Property Name="StatusLI" Type="bit" />
+          <Property Name="StatusLO" Type="bit" />
+          <Property Name="StatusEI" Type="bit" />
+          <Property Name="StatusEO" Type="bit" />
+          <Property Name="StatusOT" Type="bit" />
+          <Property Name="StatusGZOT" Type="bit" />
+          <Property Name="StatusGZ" Type="bit" />
+          <Property Name="StatusDO" Type="bit" />
+          <Property Name="StatusHD" Type="bit" />
+          <Property Name="StatusLeave" Type="bit" />
+          <Property Name="StatusBreak" Type="bit" />
+          <Property Name="DivisionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="100" />
+          <Property Name="TypeID" Type="tinyint" />
+          <Property Name="CatID" Type="smallint" />
+          <Property Name="ShiftID" Type="tinyint" />
+          <Property Name="DeptID" Type="smallint" />
+          <Property Name="CrewID" Type="smallint" />
+          <Property Name="LocID" Type="smallint" />
+          <Property Name="DivID" Type="smallint" />
+          <Property Name="SecID" Type="smallint" />
+          <Property Name="DesigID" Type="int" />
+          <Property Name="BreakMin" Type="smallint" />
+          <Property Name="SLMin" Type="time" />
+          <Property Name="ShifMin" Type="smallint" />
+          <Property Name="StatusSL" Type="bit" />
+          <Property Name="StatusOD" Type="bit" />
+          <Property Name="StatusHL" Type="bit" />
+          <Property Name="StatusMN" Type="bit" />
+          <Property Name="StatusIN" Type="bit" />
+          <Property Name="CityID" Type="smallint" />
+          <Property Name="GradeID" Type="tinyint" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'TASDesktop.dbo.ViewCards' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -4566,9 +4800,6 @@
       -->
         <EntityType Name="ViewSLData">
           <Key>
-            <PropertyRef Name="LocName" />
-            <PropertyRef Name="TypeName" />
-            <PropertyRef Name="ShiftName" />
             <PropertyRef Name="EmpNo" />
             <PropertyRef Name="EmpName" />
             <PropertyRef Name="SlID" />
@@ -4576,15 +4807,14 @@
           </Key>
           <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
           <Property Name="GradeName" Type="nvarchar" MaxLength="20" />
-          <Property Name="CompName" Type="nvarchar" MaxLength="50" />
           <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
           <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LocName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
-          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="TypeName" Type="varchar" MaxLength="30" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ShiftName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShiftName" Type="nvarchar" MaxLength="50" />
           <Property Name="EmpNo" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="EmpName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CardNo" Type="char" MaxLength="10" />
@@ -4604,7 +4834,6 @@
           <Property Name="ApprovedBy" Type="int" />
           <Property Name="Expr1" Type="bit" />
           <Property Name="CreatedDate" Type="date" />
-          <Property Name="CompanyID" Type="smallint" />
           <Property Name="TypeID" Type="tinyint" />
           <Property Name="CatID" Type="smallint" />
           <Property Name="CrewID" Type="smallint" />
@@ -4698,6 +4927,18 @@
           <Property Name="LocName" Type="varchar" MaxLength="30" />
           <Property Name="UserLocID" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_AttData_Emp">
+          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="0..1" />
+          <End Role="AttData" Type="TASDesktopModel.Store.AttData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpID" />
+            </Principal>
+            <Dependent Role="AttData">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Card_CardType">
           <End Role="CardType" Type="TASDesktopModel.Store.CardType" Multiplicity="0..1" />
           <End Role="Card" Type="TASDesktopModel.Store.Card" Multiplicity="*" />
@@ -4747,7 +4988,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Department_Division">
-          <End Role="Division" Type="TASDesktopModel.Store.Division" Multiplicity="0..1" />
+          <End Role="Division" Type="TASDesktopModel.Store.Division" Multiplicity="1" />
           <End Role="Department" Type="TASDesktopModel.Store.Department" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Division">
@@ -4794,6 +5035,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Emp_Grade">
+          <End Role="Grade" Type="TASDesktopModel.Store.Grade" Multiplicity="0..1" />
+          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="GradeID" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="GradeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Emp_JobTitle">
           <End Role="JobTitle" Type="TASDesktopModel.Store.JobTitle" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
@@ -4806,6 +5059,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Emp_Location">
+          <End Role="Location" Type="TASDesktopModel.Store.Location" Multiplicity="0..1" />
+          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocID" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="LocID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Emp_Section">
           <End Role="Section" Type="TASDesktopModel.Store.Section" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
@@ -4815,6 +5080,18 @@
             </Principal>
             <Dependent Role="Emp">
               <PropertyRef Name="SecID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Shift">
+          <End Role="Shift" Type="TASDesktopModel.Store.Shift" Multiplicity="0..1" />
+          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="ShiftID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4831,7 +5108,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmpType_Category">
-          <End Role="Category" Type="TASDesktopModel.Store.Category" Multiplicity="0..1" />
+          <End Role="Category" Type="TASDesktopModel.Store.Category" Multiplicity="1" />
           <End Role="EmpType" Type="TASDesktopModel.Store.EmpType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
@@ -4851,6 +5128,18 @@
             </Principal>
             <Dependent Role="Location">
               <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LvApplication_Emp">
+          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="1" />
+          <End Role="LvApplication" Type="TASDesktopModel.Store.LvApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpID" />
+            </Principal>
+            <Dependent Role="LvApplication">
+              <PropertyRef Name="EmpID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4902,6 +5191,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LvQuota_Emp">
+          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="1" />
+          <End Role="LvQuota" Type="TASDesktopModel.Store.LvQuota" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpID" />
+            </Principal>
+            <Dependent Role="LvQuota">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Reader_Location">
           <End Role="Location" Type="TASDesktopModel.Store.Location" Multiplicity="0..1" />
           <End Role="Reader" Type="TASDesktopModel.Store.Reader" Multiplicity="*" />
@@ -4935,6 +5236,18 @@
             </Principal>
             <Dependent Role="PollData">
               <PropertyRef Name="RdrID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reader_ReaderType">
+          <End Role="ReaderType" Type="TASDesktopModel.Store.ReaderType" Multiplicity="1" />
+          <End Role="Reader" Type="TASDesktopModel.Store.Reader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReaderType">
+              <PropertyRef Name="RdrTypeID" />
+            </Principal>
+            <Dependent Role="Reader">
+              <PropertyRef Name="RdrTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5010,6 +5323,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Shift_Location">
+          <End Role="Location" Type="TASDesktopModel.Store.Location" Multiplicity="0..1" />
+          <End Role="Shift" Type="TASDesktopModel.Store.Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocID" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Shift_RosterType">
           <End Role="RosterType" Type="TASDesktopModel.Store.RosterType" Multiplicity="1" />
           <End Role="Shift" Type="TASDesktopModel.Store.Shift" Multiplicity="*" />
@@ -5031,6 +5356,18 @@
             </Principal>
             <Dependent Role="Site">
               <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Emp">
+          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="0..1" />
+          <End Role="User" Type="TASDesktopModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="EmpID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5134,6 +5471,7 @@
           <EntitySet Name="EmpFps" EntityType="TASDesktopModel.EmpFp" />
           <EntitySet Name="EmpPhotoes" EntityType="TASDesktopModel.EmpPhoto" />
           <EntitySet Name="EmpTypes" EntityType="TASDesktopModel.EmpType" />
+          <EntitySet Name="Genders" EntityType="TASDesktopModel.Gender" />
           <EntitySet Name="Grades" EntityType="TASDesktopModel.Grade" />
           <EntitySet Name="Holidays" EntityType="TASDesktopModel.Holiday" />
           <EntitySet Name="JobCards" EntityType="TASDesktopModel.JobCard" />
@@ -5144,8 +5482,10 @@
           <EntitySet Name="LvApplications" EntityType="TASDesktopModel.LvApplication" />
           <EntitySet Name="LvConsumeds" EntityType="TASDesktopModel.LvConsumed" />
           <EntitySet Name="LvDatas" EntityType="TASDesktopModel.LvData" />
+          <EntitySet Name="LvQuotas" EntityType="TASDesktopModel.LvQuota" />
           <EntitySet Name="LvShorts" EntityType="TASDesktopModel.LvShort" />
           <EntitySet Name="LvTypes" EntityType="TASDesktopModel.LvType" />
+          <EntitySet Name="Marrieds" EntityType="TASDesktopModel.Married" />
           <EntitySet Name="Options" EntityType="TASDesktopModel.Option" />
           <EntitySet Name="PollDatas" EntityType="TASDesktopModel.PollData" />
           <EntitySet Name="PollDataErrors" EntityType="TASDesktopModel.PollDataError" />
@@ -5156,6 +5496,7 @@
           <EntitySet Name="ReaderVendors" EntityType="TASDesktopModel.ReaderVendor" />
           <EntitySet Name="Reasons" EntityType="TASDesktopModel.Reason" />
           <EntitySet Name="Regions" EntityType="TASDesktopModel.Region" />
+          <EntitySet Name="Remarks" EntityType="TASDesktopModel.Remark" />
           <EntitySet Name="Rosters" EntityType="TASDesktopModel.Roster" />
           <EntitySet Name="RosterApps" EntityType="TASDesktopModel.RosterApp" />
           <EntitySet Name="RosterDetails" EntityType="TASDesktopModel.RosterDetail" />
@@ -5169,6 +5510,7 @@
           <EntitySet Name="UserRoles" EntityType="TASDesktopModel.UserRole" />
           <EntitySet Name="EmpViews" EntityType="TASDesktopModel.EmpView" />
           <EntitySet Name="ViewAbsents" EntityType="TASDesktopModel.ViewAbsent" />
+          <EntitySet Name="ViewAttDatas" EntityType="TASDesktopModel.ViewAttData" />
           <EntitySet Name="ViewCards" EntityType="TASDesktopModel.ViewCard" />
           <EntitySet Name="ViewCrews" EntityType="TASDesktopModel.ViewCrew" />
           <EntitySet Name="ViewDepartments" EntityType="TASDesktopModel.ViewDepartment" />
@@ -5195,6 +5537,10 @@
           <EntitySet Name="ViewSLDatas" EntityType="TASDesktopModel.ViewSLData" />
           <EntitySet Name="ViewSummaries" EntityType="TASDesktopModel.ViewSummary" />
           <EntitySet Name="ViewUserLocations" EntityType="TASDesktopModel.ViewUserLocation" />
+          <AssociationSet Name="FK_AttData_Emp" Association="TASDesktopModel.FK_AttData_Emp">
+            <End Role="Emp" EntitySet="Emps" />
+            <End Role="AttData" EntitySet="AttDatas" />
+          </AssociationSet>
           <AssociationSet Name="FK_Card_CardType" Association="TASDesktopModel.FK_Card_CardType">
             <End Role="CardType" EntitySet="CardTypes" />
             <End Role="Card" EntitySet="Cards" />
@@ -5251,26 +5597,37 @@
             <End Role="EmpPhoto" EntitySet="EmpPhotoes" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
+          <AssociationSet Name="FK_Emp_Grade" Association="TASDesktopModel.FK_Emp_Grade">
+            <End Role="Grade" EntitySet="Grades" />
+            <End Role="Emp" EntitySet="Emps" />
+          </AssociationSet>
           <AssociationSet Name="FK_Emp_JobTitle" Association="TASDesktopModel.FK_Emp_JobTitle">
             <End Role="JobTitle" EntitySet="JobTitles" />
+            <End Role="Emp" EntitySet="Emps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emp_Location" Association="TASDesktopModel.FK_Emp_Location">
+            <End Role="Location" EntitySet="Locations" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_Section" Association="TASDesktopModel.FK_Emp_Section">
             <End Role="Section" EntitySet="Sections" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
+          <AssociationSet Name="FK_Emp_Shift" Association="TASDesktopModel.FK_Emp_Shift">
+            <End Role="Shift" EntitySet="Shifts" />
+            <End Role="Emp" EntitySet="Emps" />
+          </AssociationSet>
           <AssociationSet Name="FK_Emp_TypeID" Association="TASDesktopModel.FK_Emp_TypeID">
             <End Role="EmpType" EntitySet="EmpTypes" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
-<<<<<<< HEAD
           <AssociationSet Name="FK_LvApplication_Emp" Association="TASDesktopModel.FK_LvApplication_Emp">
             <End Role="Emp" EntitySet="Emps" />
             <End Role="LvApplication" EntitySet="LvApplications" />
           </AssociationSet>
-          <AssociationSet Name="FK_LvApplication_Emp1" Association="TASDesktopModel.FK_LvApplication_Emp1">
+          <AssociationSet Name="FK_LvQuota_Emp" Association="TASDesktopModel.FK_LvQuota_Emp">
             <End Role="Emp" EntitySet="Emps" />
-            <End Role="LvApplication" EntitySet="LvApplications" />
+            <End Role="LvQuota" EntitySet="LvQuotas" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Emp" Association="TASDesktopModel.FK_User_Emp">
             <End Role="Emp" EntitySet="Emps" />
@@ -5280,8 +5637,10 @@
             <End Role="Location" EntitySet="Locations" />
             <End Role="Reader" EntitySet="Readers" />
           </AssociationSet>
-=======
->>>>>>> 5882164dbfa3bc960eabdb674c502c69d53ddd9e
+          <AssociationSet Name="FK_Shift_Location" Association="TASDesktopModel.FK_Shift_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Shift" EntitySet="Shifts" />
+          </AssociationSet>
           <AssociationSet Name="FK_LvApplication_User" Association="TASDesktopModel.FK_LvApplication_User">
             <End Role="User" EntitySet="Users" />
             <End Role="LvApplication" EntitySet="LvApplications" />
@@ -5304,6 +5663,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Reader_RdrDutyCode" Association="TASDesktopModel.FK_Reader_RdrDutyCode">
             <End Role="RdrDutyCode" EntitySet="RdrDutyCodes" />
+            <End Role="Reader" EntitySet="Readers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reader_ReaderType" Association="TASDesktopModel.FK_Reader_ReaderType">
+            <End Role="ReaderType" EntitySet="ReaderTypes" />
             <End Role="Reader" EntitySet="Readers" />
           </AssociationSet>
           <AssociationSet Name="FK_ReaderType_ReaderVendor" Association="TASDesktopModel.FK_ReaderType_ReaderVendor">
@@ -5423,6 +5786,7 @@
           <Property Name="Tout14" Type="DateTime" Precision="3" />
           <Property Name="Tin15" Type="DateTime" Precision="3" />
           <Property Name="Tout15" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_AttData_Emp" FromRole="AttData" ToRole="Emp" />
         </EntityType>
         <EntityType Name="AttDataManEdit">
           <Key>
@@ -5874,7 +6238,7 @@
           <Key>
             <PropertyRef Name="CityID" />
           </Key>
-          <Property Name="CityID" Type="Int16" Nullable="false" />
+          <Property Name="CityID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="CityName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="RegionID" Type="Byte" />
           <NavigationProperty Name="Region" Relationship="TASDesktopModel.FK_City_Region" FromRole="City" ToRole="Region" />
@@ -6004,7 +6368,7 @@
           </Key>
           <Property Name="DeptID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="DeptName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="DivID" Type="Int16" />
+          <Property Name="DivID" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Division" Relationship="TASDesktopModel.FK_Department_Division" FromRole="Department" ToRole="Division" />
           <NavigationProperty Name="Sections" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Department" ToRole="Section" />
         </EntityType>
@@ -6066,7 +6430,7 @@
           <Key>
             <PropertyRef Name="EmpID" />
           </Key>
-          <Property Name="EmpID" Type="Int32" Nullable="false" />
+          <Property Name="EmpID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="EmpNo" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="EmpName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="DesigID" Type="Int32" />
@@ -6084,7 +6448,7 @@
           <Property Name="FatherName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="BloodGroup" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
           <Property Name="BirthDate" Type="DateTime" Precision="0" />
-          <Property Name="MarStatus" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="MarStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="JoinDate" Type="DateTime" Precision="0" />
           <Property Name="ValidDate" Type="DateTime" Precision="0" />
           <Property Name="IssueDate" Type="DateTime" Precision="0" />
@@ -6107,12 +6471,19 @@
           <Property Name="LastEntryDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsSafe" Type="Boolean" />
           <Property Name="HasOT" Type="Boolean" />
+          <NavigationProperty Name="AttDatas" Relationship="TASDesktopModel.FK_AttData_Emp" FromRole="Emp" ToRole="AttData" />
           <NavigationProperty Name="Crew" Relationship="TASDesktopModel.FK_Emp_Crew" FromRole="Emp" ToRole="Crew" />
           <NavigationProperty Name="Designation" Relationship="TASDesktopModel.FK_Emp_Designation1" FromRole="Emp" ToRole="Designation" />
           <NavigationProperty Name="EmpPhoto" Relationship="TASDesktopModel.FK_Emp_EmpPhoto" FromRole="Emp" ToRole="EmpPhoto" />
+          <NavigationProperty Name="Grade" Relationship="TASDesktopModel.FK_Emp_Grade" FromRole="Emp" ToRole="Grade" />
           <NavigationProperty Name="JobTitle" Relationship="TASDesktopModel.FK_Emp_JobTitle" FromRole="Emp" ToRole="JobTitle" />
+          <NavigationProperty Name="Location" Relationship="TASDesktopModel.FK_Emp_Location" FromRole="Emp" ToRole="Location" />
           <NavigationProperty Name="Section" Relationship="TASDesktopModel.FK_Emp_Section" FromRole="Emp" ToRole="Section" />
+          <NavigationProperty Name="Shift" Relationship="TASDesktopModel.FK_Emp_Shift" FromRole="Emp" ToRole="Shift" />
           <NavigationProperty Name="EmpType" Relationship="TASDesktopModel.FK_Emp_TypeID" FromRole="Emp" ToRole="EmpType" />
+          <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplication_Emp" FromRole="Emp" ToRole="LvApplication" />
+          <NavigationProperty Name="LvQuota" Relationship="TASDesktopModel.FK_LvQuota_Emp" FromRole="Emp" ToRole="LvQuota" />
+          <NavigationProperty Name="Users" Relationship="TASDesktopModel.FK_User_Emp" FromRole="Emp" ToRole="User" />
         </EntityType>
         <EntityType Name="EmpAccess">
           <Key>
@@ -6157,11 +6528,18 @@
           <Key>
             <PropertyRef Name="TypeID" />
           </Key>
-          <Property Name="TypeID" Type="Byte" Nullable="false" />
+          <Property Name="TypeID" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="CatID" Type="Int16" />
+          <Property Name="CatID" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="TASDesktopModel.FK_EmpType_Category" FromRole="EmpType" ToRole="Category" />
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_TypeID" FromRole="EmpType" ToRole="Emp" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="Byte" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="Grade">
           <Key>
@@ -6169,6 +6547,7 @@
           </Key>
           <Property Name="GradeID" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="GradeName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Grade" FromRole="Grade" ToRole="Emp" />
         </EntityType>
         <EntityType Name="Holiday">
           <Key>
@@ -6232,7 +6611,7 @@
           <Key>
             <PropertyRef Name="JobID" />
           </Key>
-          <Property Name="JobID" Type="Int16" Nullable="false" />
+          <Property Name="JobID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="JobTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_JobTitle" FromRole="JobTitle" ToRole="Emp" />
         </EntityType>
@@ -6244,11 +6623,9 @@
           <Property Name="LocName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="CityID" Type="Int16" />
           <NavigationProperty Name="City" Relationship="TASDesktopModel.FK_Location_City" FromRole="Location" ToRole="City" />
-<<<<<<< HEAD
           <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Location" FromRole="Location" ToRole="Emp" />
           <NavigationProperty Name="Readers" Relationship="TASDesktopModel.FK_Reader_Location" FromRole="Location" ToRole="Reader" />
-=======
->>>>>>> 5882164dbfa3bc960eabdb674c502c69d53ddd9e
+          <NavigationProperty Name="Shifts" Relationship="TASDesktopModel.FK_Shift_Location" FromRole="Location" ToRole="Shift" />
         </EntityType>
         <EntityType Name="LvApplication">
           <Key>
@@ -6270,6 +6647,7 @@
           <Property Name="ApprovedBy" Type="Int32" />
           <Property Name="LvStatus" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
           <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_LvApplication_Emp" FromRole="LvApplication" ToRole="Emp" />
           <NavigationProperty Name="User" Relationship="TASDesktopModel.FK_LvApplication_User" FromRole="LvApplication" ToRole="User" />
           <NavigationProperty Name="LvType" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvApplication" ToRole="LvType" />
           <NavigationProperty Name="LvDatas" Relationship="TASDesktopModel.FK_LvData_LvApplications" FromRole="LvApplication" ToRole="LvData" />
@@ -6317,6 +6695,38 @@
           <NavigationProperty Name="LvApplication" Relationship="TASDesktopModel.FK_LvData_LvApplications" FromRole="LvData" ToRole="LvApplication" />
           <NavigationProperty Name="LvType" Relationship="TASDesktopModel.FK_LvData_LvCode" FromRole="LvData" ToRole="LvType" />
         </EntityType>
+        <EntityType Name="LvQuota">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" Nullable="false" />
+          <Property Name="A" Type="Double" />
+          <Property Name="TA" Type="Double" />
+          <Property Name="B" Type="Double" />
+          <Property Name="TB" Type="Double" />
+          <Property Name="C" Type="Double" />
+          <Property Name="TC" Type="Double" />
+          <Property Name="D" Type="Double" />
+          <Property Name="TD" Type="Double" />
+          <Property Name="E" Type="Double" />
+          <Property Name="TE" Type="Double" />
+          <Property Name="F" Type="Double" />
+          <Property Name="TF" Type="Double" />
+          <Property Name="G" Type="Double" />
+          <Property Name="TG" Type="Double" />
+          <Property Name="H" Type="Double" />
+          <Property Name="TH" Type="Double" />
+          <Property Name="I" Type="Double" />
+          <Property Name="TI" Type="Double" />
+          <Property Name="J" Type="Double" />
+          <Property Name="TJ" Type="Double" />
+          <Property Name="K" Type="Double" />
+          <Property Name="TK" Type="Double" />
+          <Property Name="L" Type="Double" />
+          <Property Name="TL" Type="Double" />
+          <Property Name="CompanyID" Type="Int32" />
+          <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_LvQuota_Emp" FromRole="LvQuota" ToRole="Emp" />
+        </EntityType>
         <EntityType Name="LvShort">
           <Key>
             <PropertyRef Name="SlID" />
@@ -6353,6 +6763,13 @@
           <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplications_LvType" FromRole="LvType" ToRole="LvApplication" />
           <NavigationProperty Name="LvDatas" Relationship="TASDesktopModel.FK_LvData_LvCode" FromRole="LvType" ToRole="LvData" />
         </EntityType>
+        <EntityType Name="Married">
+          <Key>
+            <PropertyRef Name="MarriedID" />
+          </Key>
+          <Property Name="MarriedID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Option">
           <Key>
             <PropertyRef Name="ID" />
@@ -6380,7 +6797,7 @@
           <Key>
             <PropertyRef Name="PollID" />
           </Key>
-          <Property Name="PollID" Type="Int64" Nullable="false" />
+          <Property Name="PollID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="EmpID" Type="Int32" Nullable="false" />
           <Property Name="EmpDate" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="FpID" Type="Int32" />
@@ -6426,7 +6843,7 @@
           <Key>
             <PropertyRef Name="RdrID" />
           </Key>
-          <Property Name="RdrID" Type="Int16" Nullable="false" />
+          <Property Name="RdrID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="RdrName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="RdrDutyID" Type="Byte" Nullable="false" />
           <Property Name="IpAdd" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -6437,6 +6854,7 @@
           <NavigationProperty Name="Location" Relationship="TASDesktopModel.FK_Reader_Location" FromRole="Reader" ToRole="Location" />
           <NavigationProperty Name="PollDatas" Relationship="TASDesktopModel.FK_Reader_RdrID" FromRole="Reader" ToRole="PollData" />
           <NavigationProperty Name="RdrDutyCode" Relationship="TASDesktopModel.FK_Reader_RdrDutyCode" FromRole="Reader" ToRole="RdrDutyCode" />
+          <NavigationProperty Name="ReaderType" Relationship="TASDesktopModel.FK_Reader_ReaderType" FromRole="Reader" ToRole="ReaderType" />
         </EntityType>
         <EntityType Name="ReaderType">
           <Key>
@@ -6445,6 +6863,7 @@
           <Property Name="RdrTypeID" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="RdrTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="VendorID" Type="Byte" />
+          <NavigationProperty Name="Readers" Relationship="TASDesktopModel.FK_Reader_ReaderType" FromRole="ReaderType" ToRole="Reader" />
           <NavigationProperty Name="ReaderVendor" Relationship="TASDesktopModel.FK_ReaderType_ReaderVendor" FromRole="ReaderType" ToRole="ReaderVendor" />
         </EntityType>
         <EntityType Name="ReaderVendor">
@@ -6470,6 +6889,14 @@
           <Property Name="RegionID" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="RegionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Cities" Relationship="TASDesktopModel.FK_City_Region" FromRole="Region" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Remark">
+          <Key>
+            <PropertyRef Name="RemarkID" />
+          </Key>
+          <Property Name="RemarkID" Type="Int16" Nullable="false" />
+          <Property Name="RemarkLabel" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RemarkValue" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="Roster">
           <Key>
@@ -6534,7 +6961,7 @@
           <Key>
             <PropertyRef Name="SectionID" />
           </Key>
-          <Property Name="SectionID" Type="Int16" Nullable="false" />
+          <Property Name="SectionID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="SectionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="DeptID" Type="Int16" />
           <NavigationProperty Name="Department" Relationship="TASDesktopModel.FK_Section_Department" FromRole="Section" ToRole="Department" />
@@ -6582,6 +7009,8 @@
           <Property Name="LocationID" Type="Int16" />
           <NavigationProperty Name="DaysName" Relationship="TASDesktopModel.FK_Shift_DaysName" FromRole="Shift" ToRole="DaysName" />
           <NavigationProperty Name="DaysName1" Relationship="TASDesktopModel.FK_Shift_DaysName1" FromRole="Shift" ToRole="DaysName" />
+          <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Shift" FromRole="Shift" ToRole="Emp" />
+          <NavigationProperty Name="Location" Relationship="TASDesktopModel.FK_Shift_Location" FromRole="Shift" ToRole="Location" />
           <NavigationProperty Name="RosterType1" Relationship="TASDesktopModel.FK_Shift_RosterType" FromRole="Shift" ToRole="RosterType" />
         </EntityType>
         <EntityType Name="Site">
@@ -6640,6 +7069,7 @@
           <Property Name="ViewContractualMgm" Type="Boolean" />
           <Property Name="ViewContractualStaff" Type="Boolean" />
           <Property Name="MRoster" Type="Boolean" />
+          <NavigationProperty Name="Emp" Relationship="TASDesktopModel.FK_User_Emp" FromRole="User" ToRole="Emp" />
           <NavigationProperty Name="LvApplications" Relationship="TASDesktopModel.FK_LvApplication_User" FromRole="User" ToRole="LvApplication" />
           <NavigationProperty Name="UserRole" Relationship="TASDesktopModel.FK_User_UserRole1" FromRole="User" ToRole="UserRole" />
         </EntityType>
@@ -6654,10 +7084,7 @@
         </EntityType>
         <EntityType Name="EmpView">
           <Key>
-            <PropertyRef Name="EmpNo" />
-            <PropertyRef Name="EmpName" />
-            <PropertyRef Name="ProcessAtt" />
-            <PropertyRef Name="EmpID" />
+            <PropertyRef Name="LocName" />
           </Key>
           <Property Name="DesignationName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="GradeName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
@@ -6665,52 +7092,52 @@
           <Property Name="CrewName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="TypeName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="CatName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="EmpNo" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="EmpName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SectionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DeptName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DivisionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CatID" Type="Int16" />
+          <Property Name="DeptID" Type="Int16" />
+          <Property Name="DivID" Type="Int16" />
+          <Property Name="LocName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="CityID" Type="Int16" />
+          <Property Name="CityName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RegionID" Type="Byte" />
+          <Property Name="RegionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ShiftName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EmpID" Type="Int32" />
+          <Property Name="EmpNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EmpName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="DesigID" Type="Int32" />
           <Property Name="JobID" Type="Int16" />
           <Property Name="Gender" Type="Byte" />
+          <Property Name="ShiftID" Type="Byte" />
+          <Property Name="LocID" Type="Int16" />
+          <Property Name="GradeID" Type="Byte" />
+          <Property Name="TypeID" Type="Byte" />
+          <Property Name="SecID" Type="Int16" />
           <Property Name="CardNo" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
           <Property Name="FpID" Type="Int32" />
           <Property Name="PinCode" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
-          <Property Name="FatherName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="NicNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FatherName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="BloodGroup" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
           <Property Name="BirthDate" Type="DateTime" Precision="0" />
-          <Property Name="MarStatus" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="MarStatus" Type="Byte" />
           <Property Name="JoinDate" Type="DateTime" Precision="0" />
           <Property Name="ValidDate" Type="DateTime" Precision="0" />
           <Property Name="IssueDate" Type="DateTime" Precision="0" />
           <Property Name="ResignDate" Type="DateTime" Precision="0" />
           <Property Name="HomeAdd" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
-          <Property Name="ProcessAtt" Type="Boolean" Nullable="false" />
+          <Property Name="ProcessAtt" Type="Boolean" />
           <Property Name="Status" Type="Boolean" />
           <Property Name="PhoneNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Remarks" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CellNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CrewID" Type="Int16" />
           <Property Name="FlagFP" Type="Boolean" />
           <Property Name="FlagFace" Type="Boolean" />
           <Property Name="FlagCard" Type="Boolean" />
-          <Property Name="SectionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="DeptName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="DivisionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CatID" Type="Int16" />
-          <Property Name="SecID" Type="Int16" />
-          <Property Name="ShiftID" Type="Byte" />
-          <Property Name="TypeID" Type="Byte" />
-          <Property Name="LocID" Type="Int16" />
-          <Property Name="GradeID" Type="Byte" />
-          <Property Name="DeptID" Type="Int16" />
-          <Property Name="DivID" Type="Int16" />
-          <Property Name="CrewID" Type="Int16" />
-          <Property Name="EmpID" Type="Int32" Nullable="false" />
-          <Property Name="LocName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="CityID" Type="Int16" />
-          <Property Name="ShiftName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CityName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="RegionID" Type="Byte" />
-          <Property Name="RegionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="ViewAbsent">
           <Key>
@@ -6764,6 +7191,78 @@
           <Property Name="IssueDate" Type="DateTime" Precision="0" />
           <Property Name="ResignDate" Type="DateTime" Precision="0" />
           <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ViewAttData">
+          <Key>
+            <PropertyRef Name="EmpDate" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" />
+          <Property Name="EmpNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EmpName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TypeName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="CatName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CityName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RegionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LocName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="DesignationName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ShiftName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SectionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CrewName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FpID" Type="Int32" />
+          <Property Name="PinCode" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="NicNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CardNo" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="GradeName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="DeptName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="EmpDate" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="AttDate" Type="DateTime" Precision="0" />
+          <Property Name="DutyCode" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="DutyTime" Type="Time" Precision="7" />
+          <Property Name="TimeIn" Type="DateTime" Precision="3" />
+          <Property Name="TimeOut" Type="DateTime" Precision="3" />
+          <Property Name="WorkMin" Type="Int16" />
+          <Property Name="LateIn" Type="Int16" />
+          <Property Name="LateOut" Type="Int16" />
+          <Property Name="EarlyIn" Type="Int16" />
+          <Property Name="EarlyOut" Type="Int16" />
+          <Property Name="OTMin" Type="Int16" />
+          <Property Name="GZOTMin" Type="Int16" />
+          <Property Name="StatusP" Type="Boolean" />
+          <Property Name="StatusAB" Type="Boolean" />
+          <Property Name="StatusLI" Type="Boolean" />
+          <Property Name="StatusLO" Type="Boolean" />
+          <Property Name="StatusEI" Type="Boolean" />
+          <Property Name="StatusEO" Type="Boolean" />
+          <Property Name="StatusOT" Type="Boolean" />
+          <Property Name="StatusGZOT" Type="Boolean" />
+          <Property Name="StatusGZ" Type="Boolean" />
+          <Property Name="StatusDO" Type="Boolean" />
+          <Property Name="StatusHD" Type="Boolean" />
+          <Property Name="StatusLeave" Type="Boolean" />
+          <Property Name="StatusBreak" Type="Boolean" />
+          <Property Name="DivisionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Remarks" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TypeID" Type="Byte" />
+          <Property Name="CatID" Type="Int16" />
+          <Property Name="ShiftID" Type="Byte" />
+          <Property Name="DeptID" Type="Int16" />
+          <Property Name="CrewID" Type="Int16" />
+          <Property Name="LocID" Type="Int16" />
+          <Property Name="DivID" Type="Int16" />
+          <Property Name="SecID" Type="Int16" />
+          <Property Name="DesigID" Type="Int32" />
+          <Property Name="BreakMin" Type="Int16" />
+          <Property Name="SLMin" Type="Time" Precision="7" />
+          <Property Name="ShifMin" Type="Int16" />
+          <Property Name="StatusSL" Type="Boolean" />
+          <Property Name="StatusOD" Type="Boolean" />
+          <Property Name="StatusHL" Type="Boolean" />
+          <Property Name="StatusMN" Type="Boolean" />
+          <Property Name="StatusIN" Type="Boolean" />
+          <Property Name="CityID" Type="Int16" />
+          <Property Name="GradeID" Type="Byte" />
         </EntityType>
         <EntityType Name="ViewCard">
           <Key>
@@ -8071,9 +8570,6 @@
         </EntityType>
         <EntityType Name="ViewSLData">
           <Key>
-            <PropertyRef Name="LocName" />
-            <PropertyRef Name="TypeName" />
-            <PropertyRef Name="ShiftName" />
             <PropertyRef Name="EmpNo" />
             <PropertyRef Name="EmpName" />
             <PropertyRef Name="SlID" />
@@ -8081,15 +8577,14 @@
           </Key>
           <Property Name="DesignationName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="GradeName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Name="CompName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="JobTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CityName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="RegionName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="LocName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="LocName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="CrewName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="TypeName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="CatName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="ShiftName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ShiftName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="EmpNo" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="EmpName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CardNo" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
@@ -8109,7 +8604,6 @@
           <Property Name="ApprovedBy" Type="Int32" />
           <Property Name="Expr1" Type="Boolean" />
           <Property Name="CreatedDate" Type="DateTime" Precision="0" />
-          <Property Name="CompanyID" Type="Int16" />
           <Property Name="TypeID" Type="Byte" />
           <Property Name="CatID" Type="Int16" />
           <Property Name="CrewID" Type="Int16" />
@@ -8197,6 +8691,18 @@
           <Property Name="LocName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="UserLocID" Type="Int32" Nullable="false" />
         </EntityType>
+        <Association Name="FK_AttData_Emp">
+          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="0..1" />
+          <End Role="AttData" Type="TASDesktopModel.AttData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emp">
+              <PropertyRef Name="EmpID" />
+            </Principal>
+            <Dependent Role="AttData">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Card_CardType">
           <End Role="CardType" Type="TASDesktopModel.CardType" Multiplicity="0..1" />
           <End Role="Card" Type="TASDesktopModel.Card" Multiplicity="*" />
@@ -8222,7 +8728,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmpType_Category">
-          <End Role="Category" Type="TASDesktopModel.Category" Multiplicity="0..1" />
+          <End Role="Category" Type="TASDesktopModel.Category" Multiplicity="1" />
           <End Role="EmpType" Type="TASDesktopModel.EmpType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
@@ -8318,7 +8824,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Department_Division">
-          <End Role="Division" Type="TASDesktopModel.Division" Multiplicity="0..1" />
+          <End Role="Division" Type="TASDesktopModel.Division" Multiplicity="1" />
           <End Role="Department" Type="TASDesktopModel.Department" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Division">
@@ -8365,6 +8871,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Emp_Grade">
+          <End Role="Grade" Type="TASDesktopModel.Grade" Multiplicity="0..1" />
+          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="GradeID" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="GradeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Emp_JobTitle">
           <End Role="JobTitle" Type="TASDesktopModel.JobTitle" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
@@ -8374,6 +8892,18 @@
             </Principal>
             <Dependent Role="Emp">
               <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emp_Location">
+          <End Role="Location" Type="TASDesktopModel.Location" Multiplicity="0..1" />
+          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocID" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="LocID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -8389,6 +8919,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Emp_Shift">
+          <End Role="Shift" Type="TASDesktopModel.Shift" Multiplicity="0..1" />
+          <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shift">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="Emp">
+              <PropertyRef Name="ShiftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Emp_TypeID">
           <End Role="EmpType" Type="TASDesktopModel.EmpType" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="*" />
@@ -8401,7 +8943,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-<<<<<<< HEAD
         <Association Name="FK_LvApplication_Emp">
           <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="1" />
           <End Role="LvApplication" Type="TASDesktopModel.LvApplication" Multiplicity="*" />
@@ -8414,14 +8955,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LvApplication_Emp1">
+        <Association Name="FK_LvQuota_Emp">
           <End Role="Emp" Type="TASDesktopModel.Emp" Multiplicity="1" />
-          <End Role="LvApplication" Type="TASDesktopModel.LvApplication" Multiplicity="*" />
+          <End Role="LvQuota" Type="TASDesktopModel.LvQuota" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Emp">
               <PropertyRef Name="EmpID" />
             </Principal>
-            <Dependent Role="LvApplication">
+            <Dependent Role="LvQuota">
               <PropertyRef Name="EmpID" />
             </Dependent>
           </ReferentialConstraint>
@@ -8450,8 +8991,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-=======
->>>>>>> 5882164dbfa3bc960eabdb674c502c69d53ddd9e
+        <Association Name="FK_Shift_Location">
+          <End Role="Location" Type="TASDesktopModel.Location" Multiplicity="0..1" />
+          <End Role="Shift" Type="TASDesktopModel.Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocID" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LvApplication_User">
           <End Role="User" Type="TASDesktopModel.User" Multiplicity="0..1" />
           <End Role="LvApplication" Type="TASDesktopModel.LvApplication" Multiplicity="*" />
@@ -8521,6 +9072,18 @@
             </Principal>
             <Dependent Role="Reader">
               <PropertyRef Name="RdrDutyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reader_ReaderType">
+          <End Role="ReaderType" Type="TASDesktopModel.ReaderType" Multiplicity="1" />
+          <End Role="Reader" Type="TASDesktopModel.Reader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReaderType">
+              <PropertyRef Name="RdrTypeID" />
+            </Principal>
+            <Dependent Role="Reader">
+              <PropertyRef Name="RdrTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -9436,6 +9999,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="TASDesktopModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Grades">
             <EntityTypeMapping TypeName="TASDesktopModel.Grade">
               <MappingFragment StoreEntitySet="Grade">
@@ -9588,6 +10159,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LvQuotas">
+            <EntityTypeMapping TypeName="TASDesktopModel.LvQuota">
+              <MappingFragment StoreEntitySet="LvQuota">
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="A" ColumnName="A" />
+                <ScalarProperty Name="TA" ColumnName="TA" />
+                <ScalarProperty Name="B" ColumnName="B" />
+                <ScalarProperty Name="TB" ColumnName="TB" />
+                <ScalarProperty Name="C" ColumnName="C" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="D" ColumnName="D" />
+                <ScalarProperty Name="TD" ColumnName="TD" />
+                <ScalarProperty Name="E" ColumnName="E" />
+                <ScalarProperty Name="TE" ColumnName="TE" />
+                <ScalarProperty Name="F" ColumnName="F" />
+                <ScalarProperty Name="TF" ColumnName="TF" />
+                <ScalarProperty Name="G" ColumnName="G" />
+                <ScalarProperty Name="TG" ColumnName="TG" />
+                <ScalarProperty Name="H" ColumnName="H" />
+                <ScalarProperty Name="TH" ColumnName="TH" />
+                <ScalarProperty Name="I" ColumnName="I" />
+                <ScalarProperty Name="TI" ColumnName="TI" />
+                <ScalarProperty Name="J" ColumnName="J" />
+                <ScalarProperty Name="TJ" ColumnName="TJ" />
+                <ScalarProperty Name="K" ColumnName="K" />
+                <ScalarProperty Name="TK" ColumnName="TK" />
+                <ScalarProperty Name="L" ColumnName="L" />
+                <ScalarProperty Name="TL" ColumnName="TL" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="LvShorts">
             <EntityTypeMapping TypeName="TASDesktopModel.LvShort">
               <MappingFragment StoreEntitySet="LvShort">
@@ -9621,6 +10224,14 @@
                 <ScalarProperty Name="HasQuota" ColumnName="HasQuota" />
                 <ScalarProperty Name="CarryForward" ColumnName="CarryForward" />
                 <ScalarProperty Name="CountHolidays" ColumnName="CountHolidays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marrieds">
+            <EntityTypeMapping TypeName="TASDesktopModel.Married">
+              <MappingFragment StoreEntitySet="Married">
+                <ScalarProperty Name="MarriedID" ColumnName="MarriedID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9740,6 +10351,15 @@
               <MappingFragment StoreEntitySet="Region">
                 <ScalarProperty Name="RegionID" ColumnName="RegionID" />
                 <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Remarks">
+            <EntityTypeMapping TypeName="TASDesktopModel.Remark">
+              <MappingFragment StoreEntitySet="Remark">
+                <ScalarProperty Name="RemarkID" ColumnName="RemarkID" />
+                <ScalarProperty Name="RemarkLabel" ColumnName="RemarkLabel" />
+                <ScalarProperty Name="RemarkValue" ColumnName="RemarkValue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9930,16 +10550,34 @@
                 <ScalarProperty Name="CrewName" ColumnName="CrewName" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+                <ScalarProperty Name="CatID" ColumnName="CatID" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="DivID" ColumnName="DivID" />
+                <ScalarProperty Name="LocName" ColumnName="LocName" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
                 <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
                 <ScalarProperty Name="EmpName" ColumnName="EmpName" />
                 <ScalarProperty Name="DesigID" ColumnName="DesigID" />
                 <ScalarProperty Name="JobID" ColumnName="JobID" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+                <ScalarProperty Name="LocID" ColumnName="LocID" />
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="SecID" ColumnName="SecID" />
                 <ScalarProperty Name="CardNo" ColumnName="CardNo" />
                 <ScalarProperty Name="FpID" ColumnName="FpID" />
                 <ScalarProperty Name="PinCode" ColumnName="PinCode" />
-                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
                 <ScalarProperty Name="NicNo" ColumnName="NicNo" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
                 <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
                 <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
                 <ScalarProperty Name="MarStatus" ColumnName="MarStatus" />
@@ -9951,31 +10589,13 @@
                 <ScalarProperty Name="ProcessAtt" ColumnName="ProcessAtt" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="CrewID" ColumnName="CrewID" />
                 <ScalarProperty Name="FlagFP" ColumnName="FlagFP" />
                 <ScalarProperty Name="FlagFace" ColumnName="FlagFace" />
                 <ScalarProperty Name="FlagCard" ColumnName="FlagCard" />
-                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
-                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
-                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
-                <ScalarProperty Name="CatID" ColumnName="CatID" />
-                <ScalarProperty Name="SecID" ColumnName="SecID" />
-                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
-                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
-                <ScalarProperty Name="LocID" ColumnName="LocID" />
-                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
-                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
-                <ScalarProperty Name="DivID" ColumnName="DivID" />
-                <ScalarProperty Name="CrewID" ColumnName="CrewID" />
-                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
-                <ScalarProperty Name="LocName" ColumnName="LocName" />
-                <ScalarProperty Name="CityID" ColumnName="CityID" />
-                <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
-                <ScalarProperty Name="CityName" ColumnName="CityName" />
-                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10030,6 +10650,79 @@
                 <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
                 <ScalarProperty Name="ResignDate" ColumnName="ResignDate" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewAttDatas">
+            <EntityTypeMapping TypeName="TASDesktopModel.ViewAttData">
+              <MappingFragment StoreEntitySet="ViewAttData">
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="CatName" ColumnName="CatName" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="LocName" ColumnName="LocName" />
+                <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+                <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="CrewName" ColumnName="CrewName" />
+                <ScalarProperty Name="FpID" ColumnName="FpID" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="NicNo" ColumnName="NicNo" />
+                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GradeName" ColumnName="GradeName" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="EmpDate" ColumnName="EmpDate" />
+                <ScalarProperty Name="AttDate" ColumnName="AttDate" />
+                <ScalarProperty Name="DutyCode" ColumnName="DutyCode" />
+                <ScalarProperty Name="DutyTime" ColumnName="DutyTime" />
+                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+                <ScalarProperty Name="WorkMin" ColumnName="WorkMin" />
+                <ScalarProperty Name="LateIn" ColumnName="LateIn" />
+                <ScalarProperty Name="LateOut" ColumnName="LateOut" />
+                <ScalarProperty Name="EarlyIn" ColumnName="EarlyIn" />
+                <ScalarProperty Name="EarlyOut" ColumnName="EarlyOut" />
+                <ScalarProperty Name="OTMin" ColumnName="OTMin" />
+                <ScalarProperty Name="GZOTMin" ColumnName="GZOTMin" />
+                <ScalarProperty Name="StatusP" ColumnName="StatusP" />
+                <ScalarProperty Name="StatusAB" ColumnName="StatusAB" />
+                <ScalarProperty Name="StatusLI" ColumnName="StatusLI" />
+                <ScalarProperty Name="StatusLO" ColumnName="StatusLO" />
+                <ScalarProperty Name="StatusEI" ColumnName="StatusEI" />
+                <ScalarProperty Name="StatusEO" ColumnName="StatusEO" />
+                <ScalarProperty Name="StatusOT" ColumnName="StatusOT" />
+                <ScalarProperty Name="StatusGZOT" ColumnName="StatusGZOT" />
+                <ScalarProperty Name="StatusGZ" ColumnName="StatusGZ" />
+                <ScalarProperty Name="StatusDO" ColumnName="StatusDO" />
+                <ScalarProperty Name="StatusHD" ColumnName="StatusHD" />
+                <ScalarProperty Name="StatusLeave" ColumnName="StatusLeave" />
+                <ScalarProperty Name="StatusBreak" ColumnName="StatusBreak" />
+                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="CatID" ColumnName="CatID" />
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="CrewID" ColumnName="CrewID" />
+                <ScalarProperty Name="LocID" ColumnName="LocID" />
+                <ScalarProperty Name="DivID" ColumnName="DivID" />
+                <ScalarProperty Name="SecID" ColumnName="SecID" />
+                <ScalarProperty Name="DesigID" ColumnName="DesigID" />
+                <ScalarProperty Name="BreakMin" ColumnName="BreakMin" />
+                <ScalarProperty Name="SLMin" ColumnName="SLMin" />
+                <ScalarProperty Name="ShifMin" ColumnName="ShifMin" />
+                <ScalarProperty Name="StatusSL" ColumnName="StatusSL" />
+                <ScalarProperty Name="StatusOD" ColumnName="StatusOD" />
+                <ScalarProperty Name="StatusHL" ColumnName="StatusHL" />
+                <ScalarProperty Name="StatusMN" ColumnName="StatusMN" />
+                <ScalarProperty Name="StatusIN" ColumnName="StatusIN" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11318,7 +12011,6 @@
               <MappingFragment StoreEntitySet="ViewSLData">
                 <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
                 <ScalarProperty Name="GradeName" ColumnName="GradeName" />
-                <ScalarProperty Name="CompName" ColumnName="CompName" />
                 <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="RegionName" ColumnName="RegionName" />
@@ -11346,7 +12038,6 @@
                 <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
                 <ScalarProperty Name="Expr1" ColumnName="Expr1" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
                 <ScalarProperty Name="CrewID" ColumnName="CrewID" />

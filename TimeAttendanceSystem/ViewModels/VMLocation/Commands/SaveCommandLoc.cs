@@ -41,7 +41,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                     // validate empty
                     if (vmd.selectedLoc.LocName == "" || vmd.selectedLoc.LocName == null)
                     {
-                        PopUp.popUp("Empty Value", "Please write Location before saving", NotificationType.Warning);
+                        PopUp.popUp("Location", "Please write Location before saving", NotificationType.Warning);
                     }
 
                     else
@@ -49,7 +49,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                         // validate duplicate
                         if (ctx.Locations.Where(aa => aa.LocName == vmd.selectedLoc.LocName).Count() > 0)
                         {
-                            PopUp.popUp("Sorry!", "Location name already been created", NotificationType.Warning);
+                            PopUp.popUp("Location", "Location name already been created", NotificationType.Warning);
                         }
                         else
                         {
@@ -61,11 +61,11 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                             ctx.Locations.Add(vmd.selectedLoc);
                             if (ctx.SaveChanges() > 0)
                             {
-                                PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
+                                PopUp.popUp("Location", "Location is Created", NotificationType.Warning);
                             }
                             else
                             {
-                                PopUp.popUp("Sorry!", "An error occured while saving.", NotificationType.Warning);
+                                PopUp.popUp("Location", "An error occured while saving.", NotificationType.Warning);
                             }
 
                             vmd.selectedLoc.City = ctx.Cities.Where(aa => aa.CityID == vmd.selectedLoc.CityID).FirstOrDefault();
@@ -82,7 +82,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     ctx.SaveChanges();
-                    PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
+                    PopUp.popUp("Location", "Location is Created", NotificationType.Information);
                 }
                 vmd.isAdding = false;
                 vmd.isEnabled = false;

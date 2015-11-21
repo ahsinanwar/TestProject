@@ -282,8 +282,7 @@ namespace TimeAttendanceSystem
 
 
                 CheckGodsWraith();
-                Downloader d = new Downloader();
-                d.DownloadDataInIt();
+               
             });
 
             // what to do when worker completes its task (notify the user)

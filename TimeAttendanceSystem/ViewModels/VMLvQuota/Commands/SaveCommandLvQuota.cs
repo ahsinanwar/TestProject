@@ -55,10 +55,13 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
                        
 
                         transition = vmd.selectedLvQuota;
+                        Emp temp = new Emp();
+                        temp = transition.Emp;
                         PopulateLvConsumed(transition);
                         transition.Emp = null;
                         context.LvQuotas.Add(transition);
                         context.SaveChanges();
+                        transition.Emp = temp;
                         vmd.listOfLvQuotas.Add(vmd.selectedLvQuota);
                         vmd.isEnabled = false;
                         vmd.isAdding = false;

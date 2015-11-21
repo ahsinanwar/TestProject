@@ -55,14 +55,15 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             }
         }
         private ObservableCollection<Category> _listOfCats;
+        private ObservableCollection<JobTitle> _listOfJobs;
         private ObservableCollection<EmpType> _listOfEmpTypes;
         private ObservableCollection<Designation> _listOfDesgs;
         private ObservableCollection<Grade> _listOfGrades;
-        private ObservableCollection<Gender> _listOfGenders;
+        private ObservableCollection<string> _listOfGenders;
         private ObservableCollection<Shift> _listOfShifts;
         private ObservableCollection<Department> _listOfDepts;
         private ObservableCollection<Location> _listOfLocs;
-        private ObservableCollection<Married> _listOfMarried;
+        private ObservableCollection<string> _listOfMarried;
         private ObservableCollection<Section> _listOfSecs;
         private ObservableCollection<Crew> _listOfCrews;
         private ObservableCollection<Emp> _listOfEmps;
@@ -72,7 +73,24 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         public ICommand _DeleteCommand { get; set; }
         public ICommand _DeactiveCommand { get; set; }
         TAS2013Entities entity;
-        public ObservableCollection<Married> listOfMarried
+        public ObservableCollection<JobTitle> listOfJobs
+        {
+
+            get
+            {
+                return _listOfJobs;
+            }
+
+            set
+            {
+                listOfJobs = value;
+                OnPropertyChanged("listOfJobs");
+            }
+
+
+        
+        }
+        public ObservableCollection<string> listOfMarried
         {
             get
             {
@@ -87,7 +105,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
 
         }
-        public ObservableCollection<Gender> listOfGenders
+        public ObservableCollection<string> listOfGenders
         {
             get
             {
@@ -182,6 +200,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             {
                 this.isEnabled = false;
                 _selectedEmp = value;
+                
                 if (_selectedEmp != null && _selectedSec != null && _selectedDept != null)
                 {
                     _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(aa => aa.DeptID == _selectedEmp.Section.DeptID).ToList());
@@ -367,18 +386,23 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             IsChecked = false;
             entity = new TAS2013Entities();
 
-            
+            _listOfJobs = new ObservableCollection<JobTitle>(entity.JobTitles.ToList());
             _selectedDept = new Department();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(emp => emp.Status == true).ToList());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
              _dummyEmp = selectedEmp;
-             _listOfMarried = new ObservableCollection<Married>(entity.Marrieds.ToList());
+             _listOfMarried = new ObservableCollection<string>();
+             _listOfMarried.Add("Single");
+             _listOfMarried.Add("Married");
+             _listOfMarried.Add("Engaged");
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
             _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList());
             _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList());
-            _listOfGenders = new ObservableCollection<Gender>(entity.Genders.ToList());
+            _listOfGenders = new ObservableCollection<string>();
+            _listOfGenders.Add( "Male");
+            _listOfGenders.Add("Female");
             _selectedGrade = entity.Grades.ToList().FirstOrDefault();
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());

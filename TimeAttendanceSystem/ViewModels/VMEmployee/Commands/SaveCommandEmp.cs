@@ -52,11 +52,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                     {
                         PopUp.popUp("Duplication", "Emp no already exit", NotificationType.Warning);
                     }
-                        else if (vmd.selectedEmp.Gender1 == null)
+                        else if (vmd.selectedEmp.Gender == null)
                     {
                         PopUp.popUp("Empty Value", "Please Select Gender before saving", NotificationType.Warning);
                     }
-                    else if (vmd.selectedEmp.Married == null)
+                    else if (vmd.selectedEmp.MarStatus == null)
                     {
                         PopUp.popUp("Empty Value", "Please Select MarStatus before saving", NotificationType.Warning);
                     }
@@ -67,34 +67,58 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
 
                     else
                     {
+                        vmd.listOfEmps.Add(vmd.selectedEmp);
                         Emp dummy = new Emp();
-                        dummy=vmd.selectedEmp;
-                        
-                        dummy.SecID = dummy.Section.SectionID;
-                        dummy.Gender = dummy.Gender1.GenderID;
-                        dummy.MarStatus = dummy.Married.MarriedID;
-                        vmd.listOfEmps.Add(dummy);
+                        dummy = vmd._selectedEmp;
+                        dummy.JobID = vmd.selectedEmp.JobTitle.JobID;
+                        dummy.SecID = vmd.selectedEmp.Section.SectionID;
+                        dummy.CrewID = vmd.selectedEmp.Crew.CrewID;
+                        dummy.DesigID = vmd.selectedEmp.Designation.DesignationID;
+                        Designation des = new Designation();
+                        des = vmd.selectedEmp.Designation;
+                        JobTitle jt = new JobTitle();
+                        jt = vmd.selectedEmp.JobTitle;
+                        Section sec = new Section();
+                        Crew crew = new Crew();
+                        crew = vmd.selectedEmp.Crew;
+                        sec = vmd.selectedEmp.Section;
+                        Location locheed = new Location();
+                        locheed = vmd.selectedEmp.Location;
+                        EmpType empty = new EmpType();
+                        empty = vmd.selectedEmp.EmpType;
+                        Grade grade = new Grade();
+                        grade = vmd.selectedEmp.Grade;
                         dummy.Section.Department = null;
+                        //vmd.selectedEmp.Section.Department.Division = null;
                         dummy.Section = null;
+                       
                         dummy.Crew = null;
+                        dummy.JobTitle = null;
                         dummy.Designation = null;
                         dummy.EmpType = null;
                         // dummy.EmpID = null;
                         dummy.Location = null;
                         dummy.Grade = null;
-                        dummy.Gender1 = null;
-                        dummy.Married = null;
+
+
+                     
                         //dummy.EmpPhoto = null;
                         // vmd.selectedEmp.Section = null;
                         dummy.Shift = null;
                         context.Emps.Add(dummy);
                         
                         context.SaveChanges();
-                        
+                        dummy.Section = sec;
+                        dummy.Crew = crew;
+                        dummy.JobTitle = jt;
+                        dummy.Designation = des;
+                        dummy.EmpType = empty;
+                        dummy.Location = locheed;
+                        dummy.Grade = grade;
 
                         
                         
-                        PopUp.popUp("Congratulations", "Emp is Created", NotificationType.Warning);
+                        PopUp.popUp("Employee", vmd.selectedEmp.EmpName+ " is created", NotificationType.Information);
                     }
                 }
 
@@ -133,8 +157,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                     vmd.selectedEmp.LocID = vmd.selectedEmp.Location.LocID;
 
                     vmd.selectedEmp.CrewID = vmd.selectedEmp.Crew.CrewID;
-                    vmd.selectedEmp.MarStatus = vmd.selectedEmp.Married.MarriedID;
-                    vmd.selectedEmp.Gender = vmd.selectedEmp.Gender1.GenderID;
+              
                     
 
                     context.Entry(emp).CurrentValues.SetValues(vmd.selectedEmp);
@@ -142,10 +165,10 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                    //context.Entry(emp).State = EntityState.Modified;
                    
                     context.SaveChanges();
-
+                    vmd.isEnabled = false;
+                    vmd.isAdding = false;
                 }
-                vmd.isEnabled = false;
-                vmd.isAdding = false;
+               
             }
             catch (Exception ex)
             {

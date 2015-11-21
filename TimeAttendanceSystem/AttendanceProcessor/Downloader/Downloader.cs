@@ -7,6 +7,8 @@ using System.Net.NetworkInformation;
 using TimeAttendanceSystem.Model;
 using System.Collections.ObjectModel;
 using TimeAttendanceSystem.ViewModels.VMReader;
+using TimeAttendanceSystem.HelperClasses;
+using Mantin.Controls.Wpf.Notification;
 
 namespace TASDownloadService.Helper
 {
@@ -210,7 +212,7 @@ namespace TASDownloadService.Helper
             }
             catch (Exception ex)
             {
-
+                PopUp.popUp("Eror", "Cant ping reader", NotificationType.Warning);
             }
         }
         // Save Rdr Event log
@@ -286,12 +288,20 @@ namespace TASDownloadService.Helper
             {
                 if (host != null)
                 {
-                    PingReply reply = p.Send(host, 3000);
+                    PingReply reply;
+
+                    reply = p.Send(host, 3000);
                     if (reply.Status == IPStatus.Success)
                         return true;
+
+
+
                 }
             }
-            catch { }
+            catch (PingException e)
+            {
+                PopUp.popUp("Ping", "Device not pinging", NotificationType.Error);
+            }
             return result;
         }
 

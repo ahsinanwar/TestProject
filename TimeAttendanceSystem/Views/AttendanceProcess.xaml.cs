@@ -34,6 +34,7 @@ namespace TimeAttendanceSystem.Views
     {
         string ProcessType = "";
         private readonly BackgroundWorker worker = new BackgroundWorker();
+        private readonly BackgroundWorker worker2 = new BackgroundWorker();
        
         public AttendanceProcess()
         {
@@ -46,6 +47,8 @@ namespace TimeAttendanceSystem.Views
                 DateTime DateTo = new DateTime();
                 bool isActive = false;
                 worker.DoWork += worker_DoWork;
+                worker2.DoWork += worker_DoWork2;
+                worker2.RunWorkerCompleted += worker2_RunWorkerCompleted;
                 worker.RunWorkerCompleted += worker_RunWorkerCompleted;
 
             }
@@ -54,6 +57,17 @@ namespace TimeAttendanceSystem.Views
                 
                 MessageBox.Show(ex.ToString(), "Error Occured");
             }
+        }
+
+        private void worker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            PopUp.popUp("PollData", "Data Transferred From Reader to PollData", NotificationType.Information);
+        }
+
+        private void worker_DoWork2(object sender, DoWorkEventArgs e)
+        {
+            Downloader d = new Downloader();
+            d.DownloadDataInIt();
         }
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -254,6 +268,12 @@ private void worker_RunWorkerCompleted(object sender,
             
             else
             ProcessType = "Monthly"; 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            worker2.RunWorkerAsync();
+           
         }
     }
 }

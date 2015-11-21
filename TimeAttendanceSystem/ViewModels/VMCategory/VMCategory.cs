@@ -17,6 +17,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory
         public Category _selectedCat;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
+
         public Boolean isAdding
         {
             get { return _isAdding; }
@@ -40,6 +41,23 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory
             }
         }
         private ObservableCollection<Category> _listOfCats;
+        private ObservableCollection<Emp> _listOfEmps;
+        public ObservableCollection<Emp> listOfEmps
+        {
+            get
+            {
+                return _listOfEmps;
+            }
+            set
+            {
+
+                _listOfEmps = value;
+                  base.OnPropertyChanged("listOfEmps");
+
+            }
+        
+        
+        }
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -56,6 +74,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory
             {
                 this.isEnabled = false;
                 _selectedCat = value;
+                listOfEmps =  new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpType.CatID == _selectedCat.CatID));
+                base.OnPropertyChanged("listOfEmps");
                 base.OnPropertyChanged("selectedCat");
                 base.OnPropertyChanged("isEnabled");
 
@@ -115,9 +135,11 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory
         {
             entity = new TAS2013Entities();
             _selectedCat = new Category();
-            
+          
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
             _selectedCat = entity.Categories.ToList().FirstOrDefault();
+
+            _listOfEmps = new ObservableCollection<Emp>( entity.Emps.Where(aa => aa.EmpType.CatID== _selectedCat.CatID));
             this._AddCommand = new AddCommandCat(_selectedCat);
             this._EditCommand = new EditCommandCat(this);
             this._DeleteCommand = new DeleteCommandCat(_selectedCat);
