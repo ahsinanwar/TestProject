@@ -124,7 +124,6 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
         }
         public Emp selectedEmp
         {
-
             get
             {
                 if(_selectedEmp!= null)
