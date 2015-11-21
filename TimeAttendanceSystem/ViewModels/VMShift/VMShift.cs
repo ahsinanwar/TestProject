@@ -14,9 +14,10 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
     class VMShift :ObservableObject
     {
         #region Intialization
-        public Shift _selectedShift;
-        public Boolean _isEnabled = false;
-        public Boolean _isAdding = false;
+        private Shift _selectedShift;
+        private Boolean _isEnabled = false;
+        private Boolean _isAdding = false;
+        private ObservableCollection<DaysName> _listOfDays;
         public Boolean isAdding
         {
             get { return _isAdding; }
@@ -39,8 +40,21 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
                 base.OnPropertyChanged("isEnabled");
             }
         }
+        public ObservableCollection<DaysName> ListOfDays
+        {
+            get
+            {
+                return _listOfDays;
+            }
+            set
+            {
+                _listOfDays = value;
+                base.OnPropertyChanged("ListOfDays");
+            }
+        }
         private ObservableCollection<Shift> _listOfShifts;
         private ObservableCollection<Emp> _listOfShiftEmps;
+        private ObservableCollection<RosterType> _listOfRosterType;
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -71,6 +85,16 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             {
                 listOfShifts = value;
                 OnPropertyChanged("listOfShifts");
+            }
+        }
+        public ObservableCollection<RosterType> listOfRosterType
+        {
+            get { return _listOfRosterType; }
+
+            set
+            {
+                listOfRosterType = value;
+                OnPropertyChanged("listOfRosterType");
             }
         }
         public ObservableCollection<Emp> listOfShiftEmps
@@ -128,6 +152,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             _selectedShift = new Shift();
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _selectedShift = entity.Shifts.ToList().FirstOrDefault();
+            _listOfDays = new ObservableCollection<DaysName>(entity.DaysNames.ToList());
+            _listOfRosterType = new ObservableCollection<RosterType>(entity.RosterTypes.ToList()); 
             _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ShiftID == _selectedShift.ShiftID).ToList());
             this._AddCommand = new AddCommandShift(_selectedShift);
             this._EditCommand = new EditCommandShift(this);

@@ -26,8 +26,8 @@ namespace TimeAttendanceSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AHSIN-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User I" +
-            "D=sa;Password=Cns123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ASAD-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID" +
+            "=sa;Password=Cns123")]
         public string TASDesktopConnectionString2 {
             get {
                 return ((string)(this["TASDesktopConnectionString2"]));
@@ -37,9 +37,9 @@ namespace TimeAttendanceSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Ahsin-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User I" +
-            "D=sa;Password=Cns123;MultipleActiveResultSets=True;Application Name=EntityFramew" +
-            "ork")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ASAD-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID" +
+            "=sa;Password=Cns123;MultipleActiveResultSets=True;Application Name=EntityFramewo" +
+            "rk")]
         public string TASDesktopConnectionString {
             get {
                 return ((string)(this["TASDesktopConnectionString"]));
@@ -49,8 +49,8 @@ namespace TimeAttendanceSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Ahsin-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User I" +
-            "D=sa;Password=Cns123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ASAD-PC;Initial Catalog=TASDesktop;Persist Security Info=True;User ID" +
+            "=sa;Password=Cns123")]
         public string TASDesktopConnectionString1 {
             get {
                 return ((string)(this["TASDesktopConnectionString1"]));
@@ -59,8 +59,7 @@ namespace TimeAttendanceSystem.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\\\Projects\\\\inven\\\\Development\\\\TAS Desktop\\\\TimeAttendanceSystem\\\\TimeAttendan" +
-            "ceSystem\\\\Reports\\RDLC\\\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Track\\\\TimeAttendanceSystem\\\\Reports\\\\RDLC\\\\")]
         public string ReportPath {
             get {
                 return ((string)(this["ReportPath"]));

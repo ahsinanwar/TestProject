@@ -23,9 +23,17 @@ namespace TimeAttendanceSystem.Views
         VMCategory vmCategory;
         public CategoryView()
         {
-            InitializeComponent();
-            vmCategory = new VMCategory();
-            this.DataContext = vmCategory;
+            try
+            {
+                InitializeComponent();
+                vmCategory = new VMCategory();
+                this.DataContext = vmCategory;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
         }
     }
 }

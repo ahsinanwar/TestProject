@@ -20,7 +20,7 @@
                 <telerik:GridViewDataColumn Header="Department"
 											    DataMemberBinding="{Binding Section.Department.DeptName}" />
                 <telerik:GridViewDataColumn Header="Type"
-											    DataMemberBinding="{Binding EmptYpe.TypeName}" />
+											    DataMemberBinding="{Binding EmpType.TypeName}" />
                 <telerik:GridViewDataColumn Header="Status"
 											    DataMemberBinding="{Binding Status}" />
 

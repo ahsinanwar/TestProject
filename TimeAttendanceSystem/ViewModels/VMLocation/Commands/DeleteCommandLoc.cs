@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
@@ -28,21 +30,29 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
         {
             VMLocation vmd = (VMLocation)parameter;
             Location selectedLoc = context.Locations.FirstOrDefault(aa => aa.LocID == vmd.selectedLoc.LocID);
-            context.Locations.Remove(selectedLoc);
+            List<Emp> emp = new List<Emp>();
+            emp = context.Emps.Where(aa => aa.LocID == selectedLoc.LocID).ToList();
             //vmd.isAdding = true;
             //vmd.isEnabled = true;
+
             try
             {
-                if (context.SaveChanges() > 0)
+                if (emp.Count > 0)
+                {
+                    PopUp.popUp("Location", "Please delete Employee before Location Deletion", NotificationType.Information);
+                }
+                else
                 {
                     vmd.listOfLocs.Remove(vmd.selectedLoc);
                     vmd.selectedLoc = vmd.listOfLocs[0];
+                    PopUp.popUp("Location", "Location is Deleted", NotificationType.Information);
                 }
             }
             catch (Exception)
             {
                 Console.WriteLine("Exception While Deleting...");
             }
+            
         }
     }
 }

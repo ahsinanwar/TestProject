@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
@@ -33,9 +35,18 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
             VMCategory vmd = (VMCategory)parameter;
             if (vmd.isAdding)
             {
-                context.Categories.Add(vmd.selectedCat);
-                context.SaveChanges();
-                vmd.listOfCats.Add(vmd.selectedCat);
+                string catname = vmd.selectedCat.CatName.ToLower();
+                if (context.Categories.Where(aa => aa.CatName.ToLower() == catname).Count() > 0)
+                {
+                    PopUp.popUp("Category", "Category Name Already Exists", NotificationType.Warning);
+                }
+                else {
+                    context.Categories.Add(vmd.selectedCat);
+                    context.SaveChanges();
+                    vmd.listOfCats.Add(vmd.selectedCat);
+                    PopUp.popUp("Category", "Category Created", NotificationType.Information);
+                }
+                
 
             }
             else
@@ -45,6 +56,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                PopUp.popUp("Category", "Category Edited", NotificationType.Information);
             }
 
         }

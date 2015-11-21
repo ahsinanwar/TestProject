@@ -51,11 +51,22 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                     using (TAS2013Entities ctx = new TAS2013Entities())
                     {
                         vmd.selectedUser.Emp = null;
-                        ctx.Users.Add(vmd.selectedUser);
-                        ctx.SaveChanges();
+                        //[user a,user b]
+                        int Duplicate = ctx.Users.Where(aa => aa.UserName == vmd.selectedUser.UserName || aa.EmpID == vmd.selectedUser.EmpID).Count();
+                        if (Duplicate > 0)
+                        {
+                            PopUp.popUp("User", "Duplicate Detected " + vmd.selectedUser.UserName, NotificationType.Warning);
+                        }
+                        else
+                        {
+                            ctx.Users.Add(vmd.selectedUser);
+                            ctx.SaveChanges();
+                            PopUp.popUp("User", "Successfully Saved " + vmd.selectedUser.UserName, NotificationType.Information);
+                            vmd.listOfUsers.Add(vmd.selectedUser);
+                        }
                     }
                    
-                    vmd.listOfUsers.Add(vmd.selectedUser);
+                  
                 }
             }
             else
@@ -63,9 +74,33 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                 User user = context.Users.First(aa => aa.UserID == vmd.selectedUser.UserID);
                 user.UserName = vmd.selectedUser.UserName;
                 user.RoleID = vmd.selectedUser.RoleID;
+                user.CanAdd = vmd.selectedUser.CanAdd;
+                user.CanView = vmd.selectedUser.CanView;
+                user.CanEdit = vmd.selectedUser.CanEdit;
+                user.CanDelete = vmd.selectedUser.CanDelete;
+                user.ViewPermanentStaff = vmd.selectedUser.ViewPermanentStaff;
+                user.ViewPermanentMgm = vmd.selectedUser.ViewPermanentStaff;
+                user.ViewContractualStaff = vmd.selectedUser.ViewContractualStaff;
+                user.ViewContractualMgm = vmd.selectedUser.ViewContractualMgm;
+                user.MLeave = vmd.selectedUser.MLeave;
+                user.MRMonthly = vmd.selectedUser.MRMonthly;
+                user.MRAudit = vmd.selectedUser.MRAudit;
+                user.MREmployee = vmd.selectedUser.MREmployee;
+                user.MRDetail = vmd.selectedUser.MRDetail;
+                user.MRDailyAtt = vmd.selectedUser.MRDailyAtt;
+                user.MRSummary = vmd.selectedUser.MRSummary;
+                user.MHR = vmd.selectedUser.MHR;
+                user.MEditAtt = vmd.selectedUser.MEditAtt;
+                //user.Report = vmd.selectedUser.ViewPermanentStaff;
+                user.MUser = vmd.selectedUser.MUser;
+                user.MRoster = vmd.selectedUser.MRoster;
+                user.MDevice = vmd.selectedUser.MDevice;
+                user.MLeave = vmd.selectedUser.MLeave;
+                
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                PopUp.popUp("User", "Successfully Edited " + vmd.selectedUser.UserName, NotificationType.Information);   
             }
 
         }

@@ -38,20 +38,20 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
             {
                 if (vmd._selectedHoliday.HolDesc == "" || vmd._selectedHoliday.HolDesc == null)
                 {
-                    PopUp.popUp("Empty Value", "Please write Holiday Name before saving", NotificationType.Warning);
+                    PopUp.popUp("Holiday", "Please write Holiday Name before saving", NotificationType.Warning);
                 }
                 else
                 {
                     if (context.Holidays.Where(aa => aa.HolDesc == vmd.selectedHoliday.HolDesc).Count() > 0)
                     {
-                        PopUp.popUp("Duplicate", "Holiday Name must be Unique", NotificationType.Warning);
+                        PopUp.popUp("Holiday", "Holiday Name must be Unique", NotificationType.Warning);
                     }
                     else
                     {
                         context.Holidays.Add(vmd.selectedHoliday);
                         context.SaveChanges();
                         vmd.listOfHolidays.Add(vmd.selectedHoliday);
-                        PopUp.popUp("Save", "Holiday is created Successfully", NotificationType.Warning);
+                        PopUp.popUp("Holiday", "Holiday Created", NotificationType.Information);
                   
                     }
                 }
@@ -65,10 +65,12 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
                     else
                     {
                         Holiday hol = context.Holidays.First(aa => aa.HolID == vmd.selectedHoliday.HolID);
-                        hol.HolDate = vmd.selectedHoliday.HolDate;
+                        hol.HolDateFrom = vmd.selectedHoliday.HolDateFrom;
+                        hol.HolDateTo = vmd.selectedHoliday.HolDateTo;
                         vmd.isEnabled = false;
                         vmd.isAdding = false;
                         context.SaveChanges();
+                        PopUp.popUp("Holiday", "Holiday Edited", NotificationType.Information);
                     }
                 
 

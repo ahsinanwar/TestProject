@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMShift.Commands
@@ -28,21 +30,28 @@ namespace TimeAttendanceSystem.ViewModels.VMShift.Commands
         {
             VMShift vmd = (VMShift)parameter;
             Shift selectedShift = context.Shifts.FirstOrDefault(aa => aa.ShiftID == vmd.selectedShift.ShiftID);
-            context.Shifts.Remove(selectedShift);
-            //vmd.isAdding = true;
-            //vmd.isEnabled = true;
+            List<Emp> emp = new List<Emp>();
+            emp = context.Emps.Where(aa=> aa.ShiftID == selectedShift.ShiftID).ToList();
+
             try
             {
-                if (context.SaveChanges() > 0)
+                if (emp.Count > 0)
+                {
+                    PopUp.popUp("Shift", "Please delete Employee before Shift Deletion", NotificationType.Warning);
+                }
+                else
                 {
                     vmd.listOfShifts.Remove(vmd.selectedShift);
                     vmd.selectedShift = vmd.listOfShifts[0];
+
                 }
             }
             catch (Exception)
             {
+
                 Console.WriteLine("Exception While Deleting...");
             }
+            
         }
     }
 }

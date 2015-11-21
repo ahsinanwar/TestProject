@@ -30,7 +30,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             ctx = new TAS2013Entities();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewMissingAtt> listAtt = ctx.ViewMissingAtts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewMissingAtt> listAtt = ctx.ViewMissingAtts.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && 
+                ((aa.TimeIn != null && aa.TimeOut == null) || (aa.TimeIn == null && aa.TimeOut != null)) 
+                ).ToList();
             LoadReport(Properties.Settings.Default.ReportPath + "DRMissingAtt.rdlc", listAtt);
         }
         
@@ -39,7 +41,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             List<ViewMissingAtt> _TempViewList = new List<ViewMissingAtt>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewMissingAtt> _ViewList = ctx.ViewMissingAtts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewMissingAtt> _ViewList = ctx.ViewMissingAtts.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && 
+                ((aa.TimeIn != null && aa.TimeOut == null) || (aa.TimeIn == null && aa.TimeOut != null)) 
+                ).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {

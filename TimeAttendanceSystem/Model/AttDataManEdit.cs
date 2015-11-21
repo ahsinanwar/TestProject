@@ -32,7 +32,5 @@ namespace TimeAttendanceSystem.Model
         public string NewRemarks { get; set; }
         public Nullable<short> OldShiftMin { get; set; }
         public Nullable<short> NewShiftMin { get; set; }
-    
-        public virtual Emp Emp { get; set; }
     }
 }

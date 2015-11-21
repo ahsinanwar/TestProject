@@ -24,10 +24,21 @@ namespace TimeAttendanceSystem.Reports.ReportForms
     {
         public DFDaily()
         {
-            InitializeComponent();
-            DateTime dateFrom = UserControlReport.StartDate;
-            DateTime dateTo = UserControlReport.EndDate;
-            LoadReport(Properties.Settings.Default.ReportPath + "DRDetailed.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
+
+            try
+            {
+                InitializeComponent();
+                DateTime dateFrom = UserControlReport.StartDate;
+                DateTime dateTo = UserControlReport.EndDate;
+                LoadReport(Properties.Settings.Default.ReportPath + "DRDetailed.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+
         }
         TAS2013Entities ctx = new TAS2013Entities();
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -147,9 +158,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             IEnumerable<ViewMultipleInOut> ie;
             this.rptViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             ie = _List.AsQueryable();
-            ReportDataSource datasource1 = new ReportDataSource("DataSet1", ie);
+            ReportDataSource datasource1 = new ReportDataSource("DataSet2", ie);
+            ReportDataSource datasource = new ReportDataSource("DataSet1", ie);
             rptViewer.LocalReport.DataSources.Clear();
             rptViewer.LocalReport.DataSources.Add(datasource1);
+            rptViewer.LocalReport.DataSources.Add(datasource);
             ReportParameter rp = new ReportParameter("Date", DateToFor, false);
             ReportParameter rp1 = new ReportParameter("Header", _Header, false);
             this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp, rp1 });

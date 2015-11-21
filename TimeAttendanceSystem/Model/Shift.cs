@@ -17,7 +17,6 @@ namespace TimeAttendanceSystem.Model
         public Shift()
         {
             this.Emps = new HashSet<Emp>();
-            this.RosterApps = new HashSet<RosterApp>();
         }
     
         public byte ShiftID { get; set; }
@@ -50,7 +49,6 @@ namespace TimeAttendanceSystem.Model
         public virtual DaysName DaysName1 { get; set; }
         public virtual ICollection<Emp> Emps { get; set; }
         public virtual Location Location { get; set; }
-        public virtual ICollection<RosterApp> RosterApps { get; set; }
         public virtual RosterType RosterType1 { get; set; }
     }
 }

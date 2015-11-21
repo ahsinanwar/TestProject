@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
@@ -37,6 +39,7 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
                 {
                     vmd.listOfHolidays.Remove(vmd.selectedHoliday);
                     vmd.selectedHoliday = vmd.listOfHolidays[0];
+                    PopUp.popUp("Holiday", "Holiday Deleted", NotificationType.Information);
                 }
             }
             catch (Exception)

@@ -7,7 +7,7 @@ using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.Controllers
 {
-    class JobCardController
+    public class JobCardController
     {
         TAS2013Entities db = new TAS2013Entities();
         private void AddJobCardData(Emp _selEmp, short _WorkCardID, DateTime _dateStart, DateTime _dateEnd, int _userID)
@@ -25,28 +25,28 @@ namespace TimeAttendanceSystem.Controllers
                     switch (_WorkCardID)
                     {
                         case 1://Day Off
-                            AddJCDayOffToAttData(_empDate, _empID, _Date, _userID, _WorkCardID);
+                            AddJCDayOffToAttData(_empDate, _empID, _Date, _WorkCardID);
                             break;
                         case 2://GZ Holiday
-                            AddJCGZDayToAttData(_empDate, _empID, _Date, _userID, _WorkCardID);
+                            AddJCGZDayToAttData(_empDate, _empID, _Date, _WorkCardID);
                             break;
                         case 3://Absent
-                            AddJCAbsentToAttData(_empDate, _empID, _Date, _userID, _WorkCardID);
+                            AddJCAbsentToAttData(_empDate, _empID, _Date, _WorkCardID);
                             break;
                         case 4://official Duty
-                            AddJCODDayToAttData(_empDate, _empID, _Date, _userID, _WorkCardID);
+                            AddJCODDayToAttData(_empDate, _empID, _Date, _WorkCardID);
                             break;
                         case 5://Normal Day 565
-                            AddJCNorrmalDayAttData(_empDate, _empID, _Date, _userID, _WorkCardID);
+                            AddJCNorrmalDayAttData(_empDate, _empID, _Date, _WorkCardID);
                             break;
                         case 6://Normal Day 540
-                            AddJCNorrmalDayAttData(_empDate, _empID, _Date, _userID, _WorkCardID);
+                            AddJCNorrmalDayAttData(_empDate, _empID, _Date, _WorkCardID);
                             break;
                         case 7://Normal Day 480
-                            AddJCNorrmalDayAttData(_empDate, _empID, _Date, _userID, _WorkCardID);
+                            AddJCNorrmalDayAttData(_empDate, _empID, _Date, _WorkCardID);
                             break;
                         case 8://Late In Margin
-                            AddLateInMarginAttData(_empDate, _empID, _Date, _userID, _WorkCardID);
+                            AddLateInMarginAttData(_empDate, _empID, _Date, _WorkCardID);
                             break;
                     }
                 }
@@ -80,8 +80,7 @@ namespace TimeAttendanceSystem.Controllers
         }
 
         #region --Job Cards - AttData ---
-
-        private bool AddJCNorrmalDayAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCNorrmalDayAttData(string _empDate, int _empID, DateTime _Date, short _WorkCardID)
         {
             bool check = false;
             try
@@ -126,7 +125,83 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddJCODDayToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddDoubleDutyAttData(string _empDate, int _empID, DateTime _Date, JobCardApp jcApp)
+        {
+            bool check = false;
+            try
+            {
+                //Normal Duty
+                using (var context = new TAS2013Entities())
+                {
+                    AttData _attdata = context.AttDatas.FirstOrDefault(aa => aa.EmpDate == _empDate);
+                    JobCard _jcCard = context.JobCards.FirstOrDefault(aa => aa.WorkCardID == jcApp.CardType);
+                    if (_attdata != null)
+                    {
+                        _attdata.DutyCode = "D";
+                        _attdata.StatusAB = false;
+                        _attdata.StatusDO = false;
+                        _attdata.StatusLeave = false;
+                        _attdata.StatusP = true;
+                        _attdata.WorkMin = _jcCard.WorkMin;
+                        _attdata.Remarks = _attdata.Remarks + "[DD][Manual]";
+                        _attdata.StatusMN = true;
+                        _attdata.TimeIn = null;
+                        _attdata.TimeOut = null;
+                        _attdata.EarlyIn = null;
+                        _attdata.EarlyOut = null;
+                        _attdata.LateIn = null;
+                        _attdata.LateOut = null;
+                        _attdata.OTMin = null;
+                        _attdata.StatusEI = null;
+                        _attdata.StatusEO = null;
+                        _attdata.StatusLI = null;
+                        _attdata.StatusLO = null;
+                        _attdata.StatusP = true;
+                    }
+                    context.SaveChanges();
+                    if (context.SaveChanges() > 0)
+                        check = true;
+                    context.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return check;
+        }
+
+        public bool AddBadliAttData(string _empDate, int _empID, DateTime _Date, JobCardApp jcApp)
+        {
+            bool check = false;
+            try
+            {
+                //Normal Duty
+                using (var context = new TAS2013Entities())
+                {
+                    AttData _attdata = context.AttDatas.FirstOrDefault(aa => aa.EmpDate == _empDate);
+                    JobCard _jcCard = context.JobCards.FirstOrDefault(aa => aa.WorkCardID == jcApp.CardType);
+                    if (_attdata != null)
+                    {
+                        _attdata.DutyCode = "D";
+                        _attdata.StatusAB = false;
+                        _attdata.StatusLeave = false;
+                        _attdata.StatusP = true;
+                        _attdata.Remarks = _attdata.Remarks + "[Badli][Manual]";
+                        _attdata.StatusMN = true;
+                    }
+                    context.SaveChanges();
+                    if (context.SaveChanges() > 0)
+                        check = true;
+                    context.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return check;
+        }
+
+        public bool AddJCODDayToAttData(string _empDate, int _empID, DateTime _Date, short _WorkCardID)
         {
 
             bool check = false;
@@ -144,7 +219,7 @@ namespace TimeAttendanceSystem.Controllers
                         _attdata.StatusLeave = false;
                         _attdata.StatusP = true;
                         _attdata.WorkMin = _attdata.ShifMin;
-                        _attdata.Remarks = "[Official Duty][Manual]";
+                        _attdata.Remarks = _attdata.Remarks + "[Official Duty][Manual]";
                         _attdata.TimeIn = null;
                         _attdata.TimeOut = null;
                         _attdata.WorkMin = null;
@@ -173,7 +248,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddJCAbsentToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCAbsentToAttData(string _empDate, int _empID, DateTime _Date, short _WorkCardID)
         {
             bool check = false;
             try
@@ -216,7 +291,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddJCGZDayToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCGZDayToAttData(string _empDate, int _empID, DateTime _Date, short _WorkCardID)
         {
             bool check = false;
             try
@@ -260,7 +335,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddJCDayOffToAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddJCDayOffToAttData(string _empDate, int _empID, DateTime _Date, short _WorkCardID)
         {
             bool check = false;
             try
@@ -303,7 +378,7 @@ namespace TimeAttendanceSystem.Controllers
             return check;
         }
 
-        private bool AddLateInMarginAttData(string _empDate, int _empID, DateTime _Date, int _userID, short _WorkCardID)
+        public bool AddLateInMarginAttData(string _empDate, int _empID, DateTime _Date, short _WorkCardID)
         {
             bool check = false;
             try
@@ -334,6 +409,12 @@ namespace TimeAttendanceSystem.Controllers
             }
             return check;
         }
+
+        public void AddJCPresentToAttData(string _empDate, int _empID, DateTime _Date, short p)
+        {
+
+        }
+
         #endregion
     }
 }

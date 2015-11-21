@@ -23,21 +23,30 @@ namespace TimeAttendanceSystem.Reports.ReportForms
     /// </summary>
     public partial class DFPresent : Page
     {
+        TAS2013Entities ctx = new TAS2013Entities();
         public DFPresent()
         {
             InitializeComponent();
-            DateTime dateFrom = UserControlReport.StartDate;
-            DateTime dateTo = UserControlReport.EndDate;
-            List<ViewPresentEmp> _ViewList = ctx.ViewPresentEmps.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            DateTime dateFrom = new DateTime();
+            dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = new DateTime();
+            dateTo = UserControlReport.EndDate;
+            List<ViewPresentEmp> _ViewList = new List<ViewPresentEmp>();
+            Console.Write(dateFrom);
+            Console.Write(dateTo);
+            _ViewList = ctx.ViewPresentEmps.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && aa.StatusP == true).ToList();
             LoadReport(Properties.Settings.Default.ReportPath + "DRPresent.rdlc", _ViewList);
         }
-        TAS2013Entities ctx = new TAS2013Entities();
+     
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
             List<ViewPresentEmp> _TempViewList = new List<ViewPresentEmp>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewPresentEmp> _ViewList = ctx.ViewPresentEmps.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewPresentEmp> _ViewList = new List<ViewPresentEmp>();
+            var df=ctx.ViewPresentEmps.ToList();
+            _ViewList = ctx.ViewPresentEmps.Where(aa => (aa.AttDate >= dateFrom && aa.AttDate <= dateTo) && aa.StatusP == true).ToList();
+           
 
             if (UserControlReport.selectedEmps.Count > 0)
             {

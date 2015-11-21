@@ -47,17 +47,17 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
         public ICommand _SaveCommand { get; set; }
         public ICommand _DeleteCommand { get; set; }
         TAS2013Entities entity;
-        private ObservableCollection<Emp> _listOfShiftEmps;
-        public ObservableCollection<Emp> ListOfShiftEmps
+        private ObservableCollection<Emp> _listOfEmpTypeEmps;
+        public ObservableCollection<Emp> ListOfEmpTypeEmps
         {
 
-            get { return _listOfShiftEmps; }
+            get { return _listOfEmpTypeEmps; }
             set
             {
 
-                _listOfShiftEmps = value;
+                _listOfEmpTypeEmps = value;
 
-                base.OnPropertyChanged("ListOfShiftEmps");
+                base.OnPropertyChanged("ListOfEmpTypeEmps");
                 base.OnPropertyChanged("isEnabled");
             }
         }
@@ -72,8 +72,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
             {
                 this.isEnabled = false;
                 _selectedEmpType = value;
-                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpType.TypeID == _selectedEmpType.TypeID));
-                base.OnPropertyChanged("ListOfShiftEmps");
+                _listOfEmpTypeEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpType.TypeID == _selectedEmpType.TypeID));
+                base.OnPropertyChanged("ListOfEmpTypeEmps");
                 base.OnPropertyChanged("selectedEmpType");
                 base.OnPropertyChanged("isEnabled");
 
@@ -147,7 +147,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
             _selectedEmpType = entity.EmpTypes.ToList().FirstOrDefault();
-            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpType.TypeID == _selectedEmpType.TypeID));
+            _listOfEmpTypeEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpType.TypeID == _selectedEmpType.TypeID));
             this._AddCommand = new AddCommandEmpType(_selectedEmpType);
             this._EditCommand = new EditCommandEmpType(this);
             this._DeleteCommand = new DeleteCommandEmpType(_selectedEmpType);

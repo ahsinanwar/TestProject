@@ -39,6 +39,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
             {   
 
                 LvController lvctrl = new LvController();
+               
                 bool chkIsFromToDateValid = lvctrl.IsDateFromToValid(vmd.selectedEmpAndLvApp.LvApp);
                 if (!chkIsFromToDateValid)
                 {

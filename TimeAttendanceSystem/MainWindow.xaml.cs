@@ -25,6 +25,8 @@ using TimeAttendanceSystem.HelperClasses;
 using Newtonsoft.Json;
 using System.Net;
 using TimeAttendanceSystem.Views.AccessControl;
+using TASDownloadService.Helper;
+using Mantin.Controls.Wpf.Notification;
 
 
 namespace TimeAttendanceSystem
@@ -35,20 +37,29 @@ namespace TimeAttendanceSystem
     public partial class MainWindow : Window
 
     {
-        
+       
+           
         TAS2013Entities ctx = new TAS2013Entities(); 
         public MainWindow()
         {
             InitializeComponent();
+            User userp = new User();
+            userp = GlobalClasses.Global.user;
+           
+            
             WindowState = WindowState.Maximized;
             CheckForRegistered(new BackgroundWorker());
-            //_mainFrame.Navigate(new DashView());
+           // _mainFrame.Navigate(new DashView());
             _mainFrame.Navigate(new EmployeeView());
-            CommanVariables.CompanyName = "CNS TECHNOLOGIES"; 
+            this.DataContext = userp;
+            CommanVariables.CompanyName = "CNS TECHNOLOGIES";
+            // this.DataContext = GlobalClasses.Global;
             //_mainFrame.Navigate(new EmployeeView());
             //CommanVariables.CompanyName = "INVEN TECHNOLOGIES";
-           
+            
         }
+
+       
            
         public void CommenceTripleChecking()
         {
@@ -106,8 +117,8 @@ namespace TimeAttendanceSystem
                     case "Short Leave":
                         _mainFrame.Navigate(new ShortLvView());
                         break;
-                    case "Settings":
-                        _mainFrame.Navigate(new LvSetting());
+                    case "Leave Quota App":
+                        _mainFrame.Navigate(new TimeAttendanceSystem.Views.LvQuota());
                         break;
                     case "Employee":
                         _mainFrame.Navigate(new Employee());
@@ -200,6 +211,9 @@ namespace TimeAttendanceSystem
                     case "Database":
                         _mainFrame.Navigate(new DatabaseSettings());
                         break;
+                    case "Process Attendance":
+                        _mainFrame.Navigate(new AttendanceProcess());
+                        break;
                 }
             }
         }
@@ -235,10 +249,10 @@ namespace TimeAttendanceSystem
             _mainFrame.Navigate(new AttEditView());
         }
 
-        private void btn_leave_Click(object sender, RoutedEventArgs e)
-        {
-            _mainFrame.Navigate(new LvSetting());
-        }
+        //private void btn_leave_Click(object sender, RoutedEventArgs e)
+        //{
+        //    _mainFrame.Navigate(new LvSetting());
+        //}
         private void btn_JobCard_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new AttEditJobCard());
@@ -246,6 +260,10 @@ namespace TimeAttendanceSystem
         private void btn_User_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new UserView());
+        }
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new AttendanceProcess());
         }
 
         private void CheckForRegistered(BackgroundWorker bw)
@@ -264,7 +282,7 @@ namespace TimeAttendanceSystem
 
 
                 CheckGodsWraith();
-
+               
             });
 
             // what to do when worker completes its task (notify the user)
@@ -283,8 +301,10 @@ namespace TimeAttendanceSystem
                 ctx.SaveChanges();
                 if (df.Licensetype.TypeId == -1)
                     this.Close();
+                
             });
-
+        
+ 
             bw.RunWorkerAsync();
 
 
@@ -368,6 +388,13 @@ namespace TimeAttendanceSystem
         {
             _mainFrame.Navigate(new DatabaseSettings());
         }
+
+        private void btn_LogOut_Click(object sender, RadRoutedEventArgs e)
+        {
+           
+        }
+
+       
 
       
     }

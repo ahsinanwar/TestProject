@@ -64,7 +64,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
-                PopUp.popUp("Created Successfully", "Designation Name is Created", NotificationType.Warning);
+                PopUp.popUp("Created Successfully", "Designation Name is Created", NotificationType.Information);
             }
 
         }

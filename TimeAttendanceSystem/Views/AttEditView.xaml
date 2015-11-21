@@ -29,9 +29,9 @@
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         BeginningEdit="EditGrid_BeginningEdit"
                         telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                        ItemsSource="{Binding PagedSource, ElementName=rdpData}" SelectedItem="{Binding selectedAttData, UpdateSourceTrigger=PropertyChanged}" 
+                        ItemsSource="{Binding PagedSource, ElementName=rdpData}" SelectedItem="{Binding AttDataShow, UpdateSourceTrigger=PropertyChanged}" 
                         VerticalAlignment="Stretch"  
-                        CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79">
+                        CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" Height="458">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Date" DataMemberBinding="{Binding AttDate, StringFormat=\{0: dd-MMM-yyyy\}}" />
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding Emp.EmpNo}" />
@@ -66,9 +66,9 @@
                 <!--Data Input Panel-->
                 <StackPanel Margin="5,5,5,5" Height="445">
                     <Grid>
-                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DateTimePicker" VerticalAlignment="Top" SelectedValue="{Binding AttDataShow.TimeIn}"  Margin="121,234,59,0" IsEnabled="{Binding Path=isEnabled}"/>
+                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker" VerticalAlignment="Top" SelectedValue="{Binding AttDataShow.TimeIn}"  Margin="121,234,59,0" IsEnabled="{Binding Path=isEnabled}"/>
                         <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker"  SelectedValue="{Binding AttDataShow.DutyTime,Converter={StaticResource DateConverter},StringFormat='{}{0: h:mm tt}', Mode=TwoWay}" VerticalAlignment="Top"  Margin="121,294,59,0" IsEnabled="{Binding Path=isEnabled}"/>
-                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DateTimePicker" SelectedValue="{Binding AttDataShow.TimeOut,StringFormat='{}{0: h:mm tt}'}" VerticalAlignment="Top" Margin="121,263,59,0" IsEnabled="{Binding Path=isEnabled}" Height="22"/>
+                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="TimePicker" SelectedValue="{Binding AttDataShow.TimeOut,StringFormat='{}{0: h:mm tt}'}" VerticalAlignment="Top" Margin="121,263,59,0" IsEnabled="{Binding Path=isEnabled}" Height="22"/>
                         <Label Content="Duty Time:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,293,0,0"/>
                         <Label Content="Time In:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,234,0,0"/>
                         <Label Content="Time Out:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,264,0,0"/>
@@ -76,17 +76,17 @@
                         <Label Content="Duty Code:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,318,0,0" RenderTransformOrigin="0.144,0.448"/>
                         <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="121,324,0,0" VerticalAlignment="Top" Width="135" Height="22" DisplayMemberPath="DutyName" SelectedValuePath="CodeID" SelectedValue="{Binding AttDataShow.DutyCode}" ItemsSource="{Binding listOfDutyCodes}" IsEnabled="{Binding Path=isEnabled}" />
                         <Label Content="Remarks:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,374,0,-20" Width="63"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="185,420,76,-67" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="121,418,183,-65" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
-                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="98,17,0,0" Text="{Binding Path=AttDataShow.EmpNo}" VerticalAlignment="Top" Width="110" FontSize="14" RenderTransformOrigin="0.298,-1.404"/>
+                        <TextBox  telerik:StyleManager.Theme="Windows8" x:Name="txtEmpID" HorizontalAlignment="Left" Height="23" Margin="98,17,0,0" Text="{Binding Path=selectedEmpNo}" VerticalAlignment="Top" Width="110" FontSize="14" RenderTransformOrigin="0.298,-1.404"/>
                         <!--<Button telerik:StyleManager.Theme="Windows8" x:Name="btn_empView" Content="Selected Employee" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="118" Click="btn_empView_Click" RenderTransformOrigin="0.429,-1.391" IsEnabled="{Binding Path=isEnabled}"/>-->
                         <Label Content="Emp No" HorizontalAlignment="Left" Margin="38,15,0,0" VerticalAlignment="Top" Width="55"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="121,351,0,0" TextWrapping="Wrap" Text="{Binding Path= AttDataShow.ShifMin}" VerticalAlignment="Top" Width="119"  IsEnabled="{Binding Path=isEnabled}"/>
                         <Label Content="Shift Minutes:" HorizontalAlignment="Left" Margin="30,343,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.322,0.634"/>
                         <Label Content="Search Attendance" Foreground="#004b79" HorizontalAlignment="Left" Margin="10,-16,0,0" VerticalAlignment="Top" Width="175" FontSize="18"/>
 
-                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DatePicker"  SelectedValue="{Binding AttDataShow.AttDate, Mode=TwoWay, StringFormat=\{0: h:mm tt\}}" VerticalAlignment="Top"  Margin="98,45,107,0"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Search" Width="54" Background="White" Margin="213,49,48,309" Height="22"  Command="{Binding SearchCommand}" CommandParameter="{Binding AttDataShow}"/>
+                        <telerik:RadDateTimePicker telerik:StyleManager.Theme="Windows8" InputMode="DatePicker"  SelectedValue="{Binding selectedDate, Mode=TwoWay, StringFormat=\{0: h:mm tt\}}" VerticalAlignment="Top"  Margin="98,45,150,0"/>
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Search" Width="54" Background="White" Margin="214,49,90,309" Height="22"  Command="{Binding SearchCommand}" CommandParameter="{Binding}"/>
                         <Label Content="Date" HorizontalAlignment="Left" Margin="54,45,0,0" VerticalAlignment="Top"/>
                         <Button x:Name="btnOpenEmp" telerik:StyleManager.Theme="Windows8" Content="..." HorizontalAlignment="Left" Margin="214,19,0,0" VerticalAlignment="Top" Width="26" Click="btnOpenEmp_Click"/>
                         <Label Content="Enter New Times" Foreground="#004b79" HorizontalAlignment="Left" VerticalAlignment="Bottom"  FontSize="14" Margin="10,0,0,155"/>
@@ -94,14 +94,14 @@
                         <Label Content="Late In:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,106,0,0" Foreground="#FF686868"/>
                         <Label Content="{Binding Path=AttDataShow.LateOut}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,125,0,0" FontWeight="Bold" Foreground="#FF25A0DA" Height="26" Width="60"/>
                         <Label Content="Late Out:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,125,0,0" Foreground="#FF686868"/>
-                        <Label Content="{Binding Path=AttDataShow.EarlyIn}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,106,0,0" FontWeight="Bold" Foreground="#FF25A0DA" Height="26" Width="64"/>
+                        <Label Content="{Binding Path=AttDataShow.EarlyIn, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,106,0,0" FontWeight="Bold" Foreground="#FF25A0DA" Height="26" Width="64"/>
                         <Label Content="Early In:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="166,106,0,0" Foreground="#FF686868"/>
-                        <Label Content="{Binding Path=AttDataShow.LateIn}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,106,0,0" FontWeight="Bold" Foreground="#FF25A0DA" Height="26" Width="60"/>
+                        <Label Content="{Binding Path=AttDataShow.LateIn, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,106,0,0" FontWeight="Bold" Foreground="#FF25A0DA" Height="26" Width="60"/>
                         <Label Content="Overtime:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,144,0,0" Foreground="#FF686868"/>
-                        <Label Content="{Binding Path=AttDataShow.OTMin}"   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,144,0,0" FontWeight="Bold" Foreground="#FF686868" Height="26" Width="57"/>
-                        <Label Content="{Binding Path=AttDataShow.WorkMin,Converter={StaticResource converter}}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="223,144,0,0" FontWeight="Bold" Foreground="#FF686868" Height="26" Width="67"/>
-                        <Label Content="Work Min:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,144,0,0" Foreground="#FF686868"/>
-                        <Label Content="{Binding Path=AttDataShow.EarlyOut}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,125,0,0" FontWeight="Bold" Foreground="#FF25A0DA" Height="26" Width="66"/>
+                        <Label Content="{Binding Path=AttDataShow.OTMin, Mode=TwoWay}"   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,144,0,0" FontWeight="Bold" Foreground="#FF686868" Height="26" Width="57"/>
+                        <Label Content="{Binding Path=AttDataShow.WorkMin,Converter={StaticResource converter}, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="223,144,0,0" FontWeight="Bold" Foreground="#FF686868" Height="26" Width="67"/>
+                        <Label Content="Work Hrs:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,144,0,0" Foreground="#FF686868"/>
+                        <Label Content="{Binding Path=AttDataShow.EarlyOut, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,125,0,0" FontWeight="Bold" Foreground="#FF25A0DA" Height="26" Width="66"/>
                         <Label Content="Early Out:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="156,125,0,0" Foreground="#FF686868"/>
                     </Grid>
                 </StackPanel>

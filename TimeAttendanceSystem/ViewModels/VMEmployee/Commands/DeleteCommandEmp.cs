@@ -28,7 +28,12 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
         {
             VMEmployee vmd = (VMEmployee)parameter;
             Emp selectedEmp = context.Emps.FirstOrDefault(aa => aa.EmpID == vmd.selectedEmp.EmpID);
-            
+            List<AttData> empdatas = context.AttDatas.Where(aa => aa.EmpID == selectedEmp.EmpID).ToList();
+            foreach (AttData data in empdatas)
+            {
+                context.AttDatas.Remove(data);
+            }
+          //  context.AttDatas.DeleteObjects(empdatas);
             context.Emps.Remove(selectedEmp);
             //vmd.isAdding = true;
             //vmd.isEnabled = true;

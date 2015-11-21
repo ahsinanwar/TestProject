@@ -13,6 +13,21 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +48,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>adnan.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -42,8 +60,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Mantin.Controls.Wpf.Notification">
-      <HintPath>..\..\Mantin.Controls.Wpf.Notification.dll</HintPath>
+    <Reference Include="Mantin.Controls.Wpf.Notification, Version=2.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mantin.Controls.Wpf.Notification.2.8.1.0\lib\net40\Mantin.Controls.Wpf.Notification.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json">
@@ -56,6 +75,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -80,29 +100,41 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Telerik.Pivot.Core, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Pivot.DataProviders.Adomd, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Pivot.DataProviders.Queryable, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Pivot.DataProviders.Xmla, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Analytics, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Chart, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Charting, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Data, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.DataServices50, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Diagrams, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.EntityFramework, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Expressions, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewers, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.GridView, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Input, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Pivot, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.PivotFieldList, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Data, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Diagrams.Core, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Pivot.Core, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Pivot.DataProviders.Adomd, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Pivot.DataProviders.Xmla, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Chart, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Charting, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.DataServices, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Diagrams, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Diagrams.Extensions, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.EntityFramework, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Expressions, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewers, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.GanttView, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Gauge, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Pivot, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.PivotFieldList, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.ScheduleView, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Spreadsheet, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Data, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Diagrams.Core, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Scheduling.Core, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -117,6 +149,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttendanceProcessor\CalculateWorkMins.cs" />
+    <Compile Include="AttendanceProcessor\ContractualMonthlyProcessor.cs" />
+    <Compile Include="AttendanceProcessor\CreateMissingAttendance.cs" />
+    <Compile Include="AttendanceProcessor\DailySummaryClass.cs" />
+    <Compile Include="AttendanceProcessor\Downloader\Downloader.cs" />
+    <Compile Include="AttendanceProcessor\ManualProcess.cs" />
+    <Compile Include="AttendanceProcessor\PlaceTimeInOuts.cs" />
+    <Compile Include="AttendanceProcessor\ProcessAttendance.cs" />
+    <Compile Include="AttendanceProcessor\ProcessEditAttendanceEntries.cs" />
+    <Compile Include="AttendanceProcessor\ProcessJobCard.cs" />
+    <Compile Include="AttendanceProcessor\ProcessSupportFunc.cs" />
+    <Compile Include="AttendanceProcessor\SummaryEntity.cs" />
     <Compile Include="BaseClasses\BackgroundVisualHost.cs" />
     <Compile Include="BaseClasses\BusyDecorator.cs" />
     <Compile Include="BaseClasses\CommanVariables.cs" />
@@ -125,7 +169,6 @@
     <Compile Include="Controllers\EditAttController.cs" />
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
-    <Compile Include="DFMultipleInOut.cs" />
     <Compile Include="GlobalClasses\Global.cs" />
     <Compile Include="HelperClasses\EncDec.cs" />
     <Compile Include="HelperClasses\License.cs" />
@@ -242,6 +285,9 @@
     <Compile Include="Model\EmpView.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Gender.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Grade.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -272,10 +318,16 @@
     <Compile Include="Model\LvData.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\LvQuota.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\LvShort.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LvType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Married.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model1.Context.cs">
@@ -299,6 +351,9 @@
     <Compile Include="Model\PollData.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\PollDataError.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\RdrDutyCode.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -318,6 +373,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Region.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Remark.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Roster.cs">
@@ -352,9 +410,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\TASReportDataset.Designer.cs">
+      <DependentUpon>TASReportDataset.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TASReportDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -363,6 +421,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ViewAbsent.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewAttData.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ViewCard.cs">
@@ -546,13 +607,19 @@
       <DependentUpon>UCReportFilters.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation\NameValidator.cs" />
+    <Compile Include="ValueConvertors\CanAddBoolToVisibleOrHidden.cs" />
+    <Compile Include="ValueConvertors\DateTimeToDateConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToTimeSpan.cs" />
+    <Compile Include="ValueConvertors\EmpGenderByteToStringConvetor.cs" />
+    <Compile Include="ValueConvertors\EmpMarriedStringToStringConvertor.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
+    <Compile Include="ValueConvertors\InverseBooleanConverter.cs" />
     <Compile Include="ValueConvertors\minuteToHourMinuteConverter.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\EditCommandAttData.cs" />
     <Compile Include="ViewModels\VMAttEdit\Commands\SearchCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\SaveCommandAttEdit.cs" />
     <Compile Include="ViewModels\VMAttEdit\VMAttEdit.cs" />
+    <Compile Include="ViewModels\VMAttJobCard\Commands\AddCommand.cs" />
     <Compile Include="ViewModels\VMAttJobCard\VMAttJobCard.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\AddCommandCat.cs" />
     <Compile Include="ViewModels\VMCategory\Commands\DeleteCommandCat.cs" />
@@ -596,10 +663,16 @@
     <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
     <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMEmployee\Commands\DeactiveCommandEmp.cs" />
     <Compile Include="ViewModels\VMLogin\Commands\ExitCommand.cs" />
     <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
     <Compile Include="ViewModels\VMLogin\VMLogin.cs" />
     <Compile Include="ViewModels\VMLvApplication\CombinedEmpAndLvApps.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\AddCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\DeleteCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\EditCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\Commands\SaveCommandLvQuota.cs" />
+    <Compile Include="ViewModels\VMLvQuota\VMLvQuota.cs" />
     <Compile Include="ViewModels\VMShortLv\CombinedEmpAndShortLvcs.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\AddCommandLvShort.cs" />
     <Compile Include="ViewModels\VMShortLv\Commands\DeleteCommandLvShort.cs" />
@@ -675,6 +748,9 @@
     <Compile Include="Views\AttEditView.xaml.cs">
       <DependentUpon>AttEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AttendanceProcess.xaml.cs">
+      <DependentUpon>AttendanceProcess.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CardMgrView.xaml.cs">
       <DependentUpon>CardMgrView.xaml</DependentUpon>
     </Compile>
@@ -715,18 +791,17 @@
     <Compile Include="Views\FirstPageDatabase.xaml.cs">
       <DependentUpon>FirstPageDatabase.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LvSetting.xaml.cs">
-      <DependentUpon>LvSetting.xaml</DependentUpon>
+    <Compile Include="Views\HolidayView.xaml.cs">
+      <DependentUpon>HolidayView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RegisterView.cs" />
+    <Compile Include="Views\LvQuota.xaml.cs">
+      <DependentUpon>LvQuota.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SQLDATABASE.xaml.cs">
       <DependentUpon>SQLDATABASE.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TempDeleteView.xaml.cs">
       <DependentUpon>TempDeleteView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\HolidayView.xaml.cs">
-      <DependentUpon>HolidayView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TempUploadView.xaml.cs">
       <DependentUpon>TempUploadView.xaml</DependentUpon>
@@ -940,6 +1015,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AttendanceProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CardMgrView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -992,7 +1071,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LvSetting.xaml">
+    <Page Include="Views\HolidayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LvQuota.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1001,10 +1084,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TempDeleteView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\HolidayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1179,6 +1258,38 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="adnan.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\deactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReadersCommLibrary\ReadersCommLibrary.csproj">
+      <Project>{51a6d290-f802-43d5-803f-67ee18cc5826}</Project>
+      <Name>ReadersCommLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

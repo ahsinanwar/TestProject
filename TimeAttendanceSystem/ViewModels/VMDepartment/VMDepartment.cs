@@ -41,17 +41,17 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
         }
         private ObservableCollection<Department> _listOfDepts;
         private ObservableCollection<Division> _listOfDivs;
-        private ObservableCollection<Emp> _listOfShiftEmps;
-        public ObservableCollection<Emp> ListOfShiftEmps
+        private ObservableCollection<Emp> _listOfDeptEmps;
+        public ObservableCollection<Emp> ListOfDeptEmps
         {
 
-            get { return _listOfShiftEmps; }
+            get { return _listOfDeptEmps; }
             set
             {
 
-                _listOfShiftEmps = value;
+                _listOfDeptEmps = value;
 
-                base.OnPropertyChanged("ListOfShiftEmps");
+                base.OnPropertyChanged("ListOfDeptEmps");
                 base.OnPropertyChanged("isEnabled");
             }
         }
@@ -71,8 +71,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             {
                 this.isEnabled = false;
                 _selectedDept = value;
-                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.DeptID == _selectedDept.DeptID));
-                base.OnPropertyChanged("ListOfShiftEmps");
+                _listOfDeptEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.DeptID == _selectedDept.DeptID));
+                base.OnPropertyChanged("ListOfDeptEmps");
                 base.OnPropertyChanged("selectedDept");
                 base.OnPropertyChanged("isEnabled");
 
@@ -145,7 +145,7 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
             _listOfDivs = new ObservableCollection<Division>(entity.Divisions.ToList());
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
-            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.DeptID == _selectedDept.DeptID));
+            _listOfDeptEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.Section.DeptID == _selectedDept.DeptID));
             this._AddCommand = new AddCommandDept(_selectedDept);
             this._EditCommand = new EditCommandDept(this);
             this._DeleteCommand = new DeleteCommandDept(_selectedDept);

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.HelperClasses;
 
 namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
 {
@@ -28,6 +30,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
         {
             VMUser vmd = (VMUser)parameter;
             User selectedUser = context.Users.FirstOrDefault(aa => aa.UserID == vmd.selectedUser.UserID);
+            PopUp.popUp("User", "Successfully Deleted " + selectedUser.UserName, NotificationType.Information);  
             context.Users.Remove(selectedUser);
             //vmd.isAdding = true;
             //vmd.isEnabled = true;
@@ -36,6 +39,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                 if (context.SaveChanges() > 0)
                 {
                     vmd.listOfUsers.Remove(vmd.selectedUser);
+                    
                     vmd.selectedUser = vmd.listOfUsers[0];
                 }
             }

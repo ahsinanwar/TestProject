@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
@@ -28,21 +29,32 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
         {
             VMCategory vmd = (VMCategory)parameter;
             Category selectedCat = context.Categories.FirstOrDefault(aa => aa.CatID == vmd.selectedCat.CatID);
-            context.Categories.Remove(selectedCat);
-            //vmd.isAdding = true;
-            //vmd.isEnabled = true;
-            try
+            int emptypecount = context.EmpTypes.Where(aa => aa.CatID == selectedCat.CatID).Count();
+            if (emptypecount > 0)
             {
-                if (context.SaveChanges() > 0)
+                PopUp.popUp("Category", "Delete Employee Types linked with this Category first", Mantin.Controls.Wpf.Notification.NotificationType.Information);
+            
+            }
+            else
+            {
+                context.Categories.Remove(selectedCat);
+                //vmd.isAdding = true;
+                //vmd.isEnabled = true;
+                try
                 {
-                    vmd.listOfCats.Remove(vmd.selectedCat);
-                    vmd.selectedCat = vmd.listOfCats[0];
+                    if (context.SaveChanges() > 0)
+                    {
+                        vmd.listOfCats.Remove(vmd.selectedCat);
+                        vmd.selectedCat = vmd.listOfCats[0];
+                        PopUp.popUp("Category", "Category Deleted", Mantin.Controls.Wpf.Notification.NotificationType.Information);
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Exception While Deleting...");
                 }
             }
-            catch (Exception)
-            {
-                Console.WriteLine("Exception While Deleting...");
-            }
+            
         }
     }
 }

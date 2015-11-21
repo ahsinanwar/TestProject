@@ -38,14 +38,14 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
             {
                 if (vmd.selectedCrew.CrewName == "" || vmd.selectedCrew.CrewName == null)
                 {
-                    PopUp.popUp("Empty Value", "Please write Crew name before saving", NotificationType.Warning);
+                    PopUp.popUp("Crew", "Please write Crew name before saving", NotificationType.Warning);
                 }
 
                 else
                 {
                     if (context.Crews.Where(aa => aa.CrewName == vmd.selectedCrew.CrewName).Count() > 0)
                     {
-                        PopUp.popUp("Sorry!", "Crew already been created", NotificationType.Warning);
+                        PopUp.popUp("Crew", "Crew already been created", NotificationType.Warning);
                     }
                     else
                     {
@@ -54,7 +54,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
                         vmd.listOfCrews.Add(vmd.selectedCrew);
                         vmd.isEnabled = false;
                         vmd.isAdding = false;
-                        PopUp.popUp("Congratulations", "A Crew is Created", NotificationType.Warning);
+                        PopUp.popUp("Crew", "Crew is Created", NotificationType.Information);
                   
                     }
                 }
@@ -67,7 +67,7 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
-                PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+                PopUp.popUp("Crew", "Crew Updated", NotificationType.Information);
                   
             }
 

@@ -71,7 +71,7 @@
             <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected City</Label>
             <telerik:RadGridView  AutoGenerateColumns="False" 
                     telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                    ItemsSource="{Binding ListOfShiftEmps}" ShowGroupPanel="False"
+                    ItemsSource="{Binding ListOfCityEmps}" ShowGroupPanel="False"
                     VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
                     CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79" Height="445">
                 <telerik:RadGridView.Columns>
@@ -83,7 +83,7 @@
 
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
+            <telerik:RadDataPager Source="{Binding ListOfCityEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
         </StackPanel>
     </Grid>
     <!--<Grid HorizontalAlignment="Left" Height="355" Margin="0,10,0,0" VerticalAlignment="Top" Width="313">

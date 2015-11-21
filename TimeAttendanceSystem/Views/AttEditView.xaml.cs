@@ -24,9 +24,17 @@ namespace TimeAttendanceSystem.Views
         VMAttEdit vmAttEdit;
         public AttEditView()
         {
-            InitializeComponent();
-            vmAttEdit = new VMAttEdit();
-            this.DataContext = vmAttEdit;
+            try
+            {
+                InitializeComponent();
+                vmAttEdit = new VMAttEdit();
+                this.DataContext = vmAttEdit;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error Occured");
+            }
            // this.radGridView.BeginningEdit += new EventHandler<Telerik.Windows.Controls.GridViewBeginningEditRoutedEventArgs>(radGridView_BeginningEdit);
         }
         private void EditGrid_BeginningEdit(object sender, Telerik.Windows.Controls.GridViewBeginningEditRoutedEventArgs e)
@@ -48,9 +56,12 @@ namespace TimeAttendanceSystem.Views
             if ((bool)window.ShowDialog())
             {
                 txtEmpID.Text = window._selectedEmp.EmpNo.ToString();
+                vmAttEdit.selectedEmpNo = window._selectedEmp.EmpNo.ToString();
             }
         }
-       
+
+
+      
        
         //private void btn_empView_Click(object sender, RoutedEventArgs e)
         //{

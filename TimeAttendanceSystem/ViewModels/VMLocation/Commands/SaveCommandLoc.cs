@@ -36,38 +36,56 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
             {
                 VMLocation vmd = (VMLocation)parameter;
                 if (vmd.isAdding)
+                    // if a new object is being added
                 {
+                    // validate empty
                     if (vmd.selectedLoc.LocName == "" || vmd.selectedLoc.LocName == null)
                     {
-                        PopUp.popUp("Empty Value", "Please write Location before saving", NotificationType.Warning);
+                        PopUp.popUp("Location", "Please write Location before saving", NotificationType.Warning);
                     }
 
                     else
                     {
+                        // validate duplicate
                         if (ctx.Locations.Where(aa => aa.LocName == vmd.selectedLoc.LocName).Count() > 0)
                         {
-                            PopUp.popUp("Sorry!", "Location name already been created", NotificationType.Warning);
+                            PopUp.popUp("Location", "Location name already been created", NotificationType.Warning);
                         }
                         else
                         {
-                            vmd.selectedLoc.City = null;
+                            // if everything is ok, save new object to database
+
+
+                            Location dummy = vmd.selectedLoc;
+                            dummy.City = null;
                             ctx.Locations.Add(vmd.selectedLoc);
-                            ctx.SaveChanges();
+                            if (ctx.SaveChanges() > 0)
+                            {
+                                PopUp.popUp("Location", "Location is Created", NotificationType.Warning);
+                            }
+                            else
+                            {
+                                PopUp.popUp("Location", "An error occured while saving.", NotificationType.Warning);
+                            }
+
+                            vmd.selectedLoc.City = ctx.Cities.Where(aa => aa.CityID == vmd.selectedLoc.CityID).FirstOrDefault();
+
                             vmd.listOfLocs.Add(vmd.selectedLoc);
-                            PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
                         }
                     }
                 }
                 else
+                    // if old object is being edited
                 {
                     Location loc = ctx.Locations.First(aa => aa.LocID == vmd.selectedLoc.LocID);
                     loc.LocName = vmd.selectedLoc.LocName;
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     ctx.SaveChanges();
-                    PopUp.popUp("Congratulations", "Location is Created", NotificationType.Warning);
-
-                } 
+                    PopUp.popUp("Location", "Location is Created", NotificationType.Information);
+                }
+                vmd.isAdding = false;
+                vmd.isEnabled = false;
             }
          
         }

@@ -176,7 +176,7 @@ namespace TimeAttendanceSystem.Controllers
             using (var ctx = new TAS2013Entities())
             {
                 List<LvConsumed> _lvConsumed = new List<LvConsumed>();
-                string empLvType = lvappl.EmpID.ToString() + lvappl.LvType;
+                string empLvType = lvappl.EmpID.ToString() + lvappl.TypeID;
                 _lvConsumed = ctx.LvConsumeds.Where(aa => aa.EmpLvType == empLvType).ToList();
                 float _NoOfDays = lvappl.NoOfDays;
                 if (_lvConsumed.Count > 0)
@@ -729,6 +729,7 @@ namespace TimeAttendanceSystem.Controllers
         #region -- Add Short Leave --
         public void AddShortLeaveToAttData(LvShort lvshort)
         {
+
             DateTime datetime = new DateTime();
             using (var db = new TAS2013Entities())
             {
@@ -738,9 +739,12 @@ namespace TimeAttendanceSystem.Controllers
                     _EmpAttData = db.AttDatas.First(aa => aa.EmpDate == lvshort.EmpDate);
                     _EmpAttData.StatusAB = false;
                     _EmpAttData.StatusSL = true;
+                    _EmpAttData.ShifMin = (short)(_EmpAttData.ShifMin - (short)lvshort.THour.Value.Minutes);
                     _EmpAttData.Remarks = _EmpAttData.Remarks + "[Short Leave]";
                     db.SaveChanges();
+                    
                 }
+                db.Dispose();
             }
         }
         #endregion
@@ -754,6 +758,20 @@ namespace TimeAttendanceSystem.Controllers
                 lv = ctx.LvConsumeds.Where(aa => aa.EmpID == empID && aa.LeaveType == lvType).ToList();
                 if (lv.Count > 0)
                     check = true;
+            }
+            return check;
+        }
+
+        public bool ValidateShortLeave(LvShort lvShort)
+        {
+            bool check = false;
+            List<LvShort> _Lv = new List<LvShort>();
+            using (var context = new TAS2013Entities())
+            {
+                if (_Lv.Where(aa => aa.EmpDate == lvShort.EmpDate).Count() > 0)
+                {
+                    check = true;
+                }
             }
             return check;
         }

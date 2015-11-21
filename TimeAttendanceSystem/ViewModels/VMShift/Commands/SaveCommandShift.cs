@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Mantin.Controls.Wpf.Notification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.ViewModels.VMShift.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMShift
 {
@@ -34,15 +37,19 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             VMShift vmd = (VMShift)parameter;
             if (vmd.isAdding)
             {
+                vmd.selectedShift.RosterType = vmd.selectedShift.RosterType1.ID;
+                vmd.selectedShift.RosterType1 = null;
                 context.Shifts.Add(vmd.selectedShift);
                 context.SaveChanges();
                 vmd.listOfShifts.Add(vmd.selectedShift);
+                PopUp.popUp("Shift", vmd.selectedShift.ShiftName + " is Created", NotificationType.Information);
 
             }
             else
             {
                 Shift shift = context.Shifts.First(aa => aa.ShiftID == vmd.selectedShift.ShiftID);
-                shift.ShiftName = vmd.selectedShift.ShiftName;
+                context.Entry(shift).CurrentValues.SetValues(vmd.selectedShift);
+                PopUp.popUp("Shift", vmd.selectedShift.ShiftName+" is Modified", NotificationType.Information);
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();

@@ -11,8 +11,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="160"/>
-            <RowDefinition Height="350"/>
+            <RowDefinition Height="269"/>
+            <RowDefinition Height="241"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="800"/>
@@ -27,11 +27,11 @@
         <StackPanel Margin="5,5,285,5" Grid.Row="1" Grid.Column="0">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
                         telerik:StyleManager.Theme="Windows8" 
-                        ItemsSource="{Binding ListOfShiftEmps}" SelectedItem="{Binding selectedLoc}" ShowGroupPanel="False"
+                        ItemsSource="{Binding listOfLocs}" SelectedItem="{Binding selectedLoc}" ShowGroupPanel="False"
                         VerticalAlignment="Top"  Height="260" Grid.RowSpan="2" 
-                        CanUserFreezeColumns="False" MinWidth="387" Margin="0,0,115,0">
+                        CanUserFreezeColumns="False" MinWidth="387" HorizontalAlignment="Left" Width="395">
                 <telerik:RadGridView.Columns>
-                    <telerik:GridViewDataColumn Header="Location" DataMemberBinding="{Binding    LocName}" />
+                    <telerik:GridViewDataColumn Header="Location" DataMemberBinding="{Binding LocName}" />
                     <telerik:GridViewDataColumn Header="City" DataMemberBinding="{Binding City.CityName}" />
 
 
@@ -67,7 +67,7 @@
                         <Button Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.481,-0.045" Margin="181,82,145,46" telerik:StyleManager.Theme="Windows8" />
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="286,107,22,16" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         <Label Content="City:" HorizontalAlignment="Left" Margin="72,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.963,0.318" FontSize="12"/>
-                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" Margin="110,55,145,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityID}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" Margin="110,55,145,0" DisplayMemberPath="CityName" SelectedValuePath="CityID" SelectedValue="{Binding selectedLoc.CityID}" ItemsSource="{Binding listOfCities}" VerticalAlignment="Top" FontWeight="Bold" IsEnabled="{Binding isEnabled}"/>
 
                     </Grid>
                 </StackPanel>
@@ -78,7 +78,7 @@
         <StackPanel Margin="400,0,0,0" Grid.RowSpan="2" Grid.Row="1">
             <Label Background="#004b79" Margin="0,3,0,0"  Foreground="White" FontSize="16" Height="35">Employees listed in selected Location</Label>
             <telerik:RadGridView HorizontalAlignment="Left"
-                    VerticalAlignment="Stretch"  MinHeight="150" MinWidth="400" Height="439" AutoGenerateColumns="False" CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" ItemsSource="{Binding listOfShiftEmps}" ShowGroupPanel="False" telerik:StyleManager.Theme="Windows8" Width="400" RenderTransformOrigin="0.488,0.515">
+                    VerticalAlignment="Stretch"  MinHeight="150" MinWidth="400" Height="439" AutoGenerateColumns="False" CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" ItemsSource="{Binding ListOfLocEmps}" ShowGroupPanel="False" telerik:StyleManager.Theme="Windows8" Width="400" RenderTransformOrigin="0.488,0.515">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn DataMemberBinding="{Binding EmpNo}" Header="Emp No"/>
                     <telerik:GridViewDataColumn DataMemberBinding="{Binding EmpName}" Header="Name"/>
@@ -87,7 +87,7 @@
                     <telerik:GridViewDataColumn DataMemberBinding="{Binding Crew.CrewName}" Header="Crew"/>
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager Source="{Binding ListOfShiftEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
+            <telerik:RadDataPager Source="{Binding ListOfLocEmps}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All"/>
         </StackPanel>
     </Grid>
 
