@@ -50,6 +50,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
             vmd._selectedEmp.Status = true;
             vmd._selectedEmp.BirthDate = DateTime.Now;
             vmd._selectedEmp.ValidDate = DateTime.Today.AddYears(10);
+            vmd._selectedEmp.CardNo = "00000000";
            
             vmd.selectedEmp = vmd._selectedEmp;
 

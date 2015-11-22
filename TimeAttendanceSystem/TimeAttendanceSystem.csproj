@@ -610,6 +610,7 @@
     <Compile Include="ValueConvertors\CanAddBoolToVisibleOrHidden.cs" />
     <Compile Include="ValueConvertors\DateTimeToDateConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToTimeSpan.cs" />
+    <Compile Include="ValueConvertors\EmpCardNoPostpendConvertor.cs" />
     <Compile Include="ValueConvertors\EmpGenderByteToStringConvetor.cs" />
     <Compile Include="ValueConvertors\EmpMarriedStringToStringConvertor.cs" />
     <Compile Include="ValueConvertors\IgnoreNewItemPlaceHolderConverter.cs" />
