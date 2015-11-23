@@ -11,6 +11,7 @@
     <Page.Resources>
             <l:EmpGenderByteToStringConvetor x:Key="converter" />
             <l:EmpMarriedStringToStringConvertor x:Key="DateConverter"/>
+        <l:EmpCardNoPostpendConvertor x:Key="PostpendConvertor"></l:EmpCardNoPostpendConvertor>
         
         <Style TargetType="TextBox">
             <Style.Triggers>
@@ -87,24 +88,22 @@
                     <!--Data Input Panel-->
                     <StackPanel Margin="5,5,5,5" Height="491">
                         <StackPanel Width="381">
-                            <Grid Height="111" Margin="0,0,22,0">
-
-
-                                <Border x:Name="hej1" Margin="15,3,261,0">
-                                    <Border.Background>
-                                        <ImageBrush Stretch="Uniform" ImageSource="/TimeAttendanceSystem;component/Images/Blank-Person1.png"/>
-                                    </Border.Background>
-
-
-                                    <Image  x:Name="_image" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}"/>
-
-
-                                </Border>
+                            <Grid Height="121" Margin="0,0,22,0">
 
 
 
 
                                 <Label HorizontalAlignment="Left" Content="Emp No:" VerticalAlignment="Top" Width="59" Margin="98,7,0,0"/>
+                                <Border x:Name="hej1" Margin="15,-3,261,6">
+                                    <Border.Background>
+                                        <ImageBrush Stretch="Uniform" ImageSource="/TimeAttendanceSystem;component/Images/Blank-Person1.png"/>
+                                    </Border.Background>
+
+
+                                    <Image  x:Name="_image" Stretch="Uniform" Source="{Binding dummyEmp.EmpPhoto.EmpPic}" Margin="0,22,0,-22"/>
+
+
+                                </Border>
                                 <TextBox telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Margin="162,11,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
 
                                     <Binding Path="selectedEmp.EmpNo" 
@@ -129,12 +128,22 @@
                                     <telerik:RadComboBoxItem Tag="True" Content="Active"/>
                                     <telerik:RadComboBoxItem Tag="False" Content="Inactive"/>
                                 </telerik:RadComboBox>
-                                <Button telerik:StyleManager.Theme="Windows8" BorderThickness="0" x:Name="btn_imageSelect"  Margin="100,83,228,0"  Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}">
+                                <Button telerik:StyleManager.Theme="Windows8" BorderThickness="0" x:Name="btn_imageSelect"  Margin="0,82,328,1"  Click="btn_imageSelect_Click" IsEnabled="{Binding isEnabled}">
                                     <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/upload.png" RenderTransformOrigin="-0.5,0.667" Height="20" Width="19"/>
                                 </Button>
 
                                 <Label HorizontalAlignment="Left" Content="Name:" VerticalAlignment="Top" Height="28" Width="48"  Margin="109,33,0,0"/>
                                 <Label Content="Status:" HorizontalAlignment="Left" Margin="109,59,0,15"/>
+                                <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="165,92,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
+                                    <Binding Path="selectedEmp.CardNo"
+                                             Mode="TwoWay"
+                                             Converter="{StaticResource PostpendConvertor}"
+                                             ValidatesOnExceptions="True" 
+                                		UpdateSourceTrigger="PropertyChanged">
+                                       
+                                    </Binding>
+                                </TextBox>
+                                <Label HorizontalAlignment="Left" Content="Card No:" VerticalAlignment="Top" Height="28" Width="57"  Margin="100,87,0,0"/>
 
 
                             </Grid>
