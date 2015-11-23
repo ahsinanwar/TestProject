@@ -17,6 +17,9 @@ namespace TASDownloadService.AttProcessDaily
                 //Calculate WorkMin
                 attendanceRecord.Remarks = "";
                 TimeSpan mins = (TimeSpan)(attendanceRecord.TimeOut - attendanceRecord.TimeIn);
+
+                mins = DeductBreak(mins, attendanceRecord.AttDate, attendanceRecord.Emp.Shift);
+
                 //Check if GZ holiday then place all WorkMin in GZOTMin
                 if (attendanceRecord.StatusGZ == true)
                 {
@@ -265,6 +268,28 @@ namespace TASDownloadService.AttProcessDaily
             {
 
             }
+        }
+
+        private static TimeSpan DeductBreak(TimeSpan mins, DateTime attDate, Shift shift)
+        {
+            short newMins = (short)mins.TotalMinutes;
+
+            if (attDate.DayOfWeek == DayOfWeek.Friday)
+            {
+                newMins = (short)(newMins - shift.FriMin);
+            }
+            else if (attDate.DayOfWeek == DayOfWeek.Saturday)
+            {
+                newMins = (short)(newMins - shift.SatMin);
+            }
+            else if((bool)shift.HasBreak)
+            {
+                newMins = (short)(newMins - shift.BreakMin);
+            }
+
+            mins = TimeSpan.FromMinutes(newMins);
+            
+            return mins;
         }
 
         public static void CalculateOpenShiftTimes(AttData attendanceRecord, Shift shift, List<Remark> remarks)
