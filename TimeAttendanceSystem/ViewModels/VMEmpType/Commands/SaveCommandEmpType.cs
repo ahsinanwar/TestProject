@@ -38,25 +38,28 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
            {
                if (vmd.selectedEmpType.TypeName == "" || vmd.selectedEmpType.TypeName == null)
                {
-                   PopUp.popUp("Empty Value", "Please write Emp Type before saving", NotificationType.Warning);
+                   PopUp.popUp("Employee Type", "Please write Employee type before saving", NotificationType.Warning);
                }
 
                else
                {
                    if (context.EmpTypes.Where(aa => aa.TypeName == vmd.selectedEmpType.TypeName).Count() > 0)
                    {
-                       PopUp.popUp("Sorry!", "Emptype already been created", NotificationType.Warning);
+                       PopUp.popUp("Employee Type", "Employee type already been created", NotificationType.Warning);
                    }
                    else
                    {
                        EmpType dummy = vmd.selectedEmpType;
+                       Category cat = new Category();
+                       cat = vmd.selectedEmpType.Category;
                        dummy.Category = null;
-                       context.EmpTypes.Add(vmd.selectedEmpType);
+                       context.EmpTypes.Add(dummy);
                        context.SaveChanges();
-                       vmd.listOfEmpTypes.Add(vmd.selectedEmpType);
+                       dummy.Category = cat;
+                       vmd.listOfEmpTypes.Add(dummy);
                        vmd.isEnabled = false;
                        vmd.isAdding = false;
-                       PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+                       PopUp.popUp("Employee Type", "Employee type Created", NotificationType.Information);
                    }
                }
 
@@ -67,7 +70,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
                vmd.isEnabled = false;
                vmd.isAdding = false;
                context.SaveChanges();
-               PopUp.popUp("Congratulations", "Emptype is Created", NotificationType.Warning);
+               PopUp.popUp("Employee Type", "Employee type Edited", NotificationType.Information);
                 }
          
         }

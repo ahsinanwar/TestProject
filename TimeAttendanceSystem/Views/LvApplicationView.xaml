@@ -67,7 +67,7 @@
 
 
                     <Label Content="Type:" HorizontalAlignment="Left" Margin="71,48,0,0" VerticalAlignment="Top" Width="38"/>
-                    <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="118,52,0,0" VerticalAlignment="Top" Width="117" Height="22" DisplayMemberPath="LvDesc" SelectedValuePath="LvTypeID" SelectedValue="{Binding selectedEmpAndLvApp.LvApp.TypeID,Mode=TwoWay}" ItemsSource="{Binding listOfLvTypes}" IsEnabled="{Binding Path=isEnabled}" />
+                        <telerik:RadComboBox  telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="118,52,0,0" VerticalAlignment="Top" Width="117" Height="22" DisplayMemberPath="LvDesc" SelectedValuePath="LvTypeID" SelectedValue="{Binding selectedEmpAndLvApp.LvApp.TypeID,Mode=TwoWay}" ItemsSource="{Binding listOfLvTypes}" IsEnabled="{Binding Path=isEnabled}" />
                     <Label Content="From:" HorizontalAlignment="Left" Margin="67,79,0,0" VerticalAlignment="Top" Height="29" Width="42"/>
                     <DatePicker HorizontalAlignment="Left" Margin="118,79,0,0" VerticalAlignment="Top" FontSize="14" Height="27" Width="117" SelectedDate="{Binding selectedEmpAndLvApp.LvApp.FromDate, Mode=TwoWay}" IsEnabled="{Binding Path=isEnabled}"/>
                     <Label Content="To:" HorizontalAlignment="Left" Margin="82,108,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="27" RenderTransformOrigin="0.261,0.241"/>

@@ -75,8 +75,12 @@
                                     <telerik:RadComboBoxItem Tag="Monthly" Content="Monthly"/>
                                 </telerik:RadComboBox>
 
-                                <Button telerik:StyleManager.Theme="Windows8" Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="268,104,204,19" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" Click="Button_Click" />
-
+                                <Button telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="268,104,204,19" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" Click="Button_Click" >
+                                   Apply
+                                </Button>
+                                <Button telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="169" Background="White" Margin="347,14,10,109" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.418,0.404" Click="Button_Click_1" >
+                                    Download Data From Readers
+                                </Button>
                             </Grid>
                         </StackPanel>
                     </StackPanel>

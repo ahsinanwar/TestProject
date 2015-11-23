@@ -143,8 +143,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication
         {
             entity = new TAS2013Entities();
             _selectedEmpAndLvApp = new CombinedEmpAndLvApps();
-            
-                
+           
             _listOfEmpsAndLvApps = new ObservableCollection<CombinedEmpAndLvApps>();
             _listOfLvTypes = new ObservableCollection<LvType>(entity.LvTypes.ToList());
             _listOfLvCon = new ObservableCollection<LvConsumed>(entity.LvConsumeds.ToList());

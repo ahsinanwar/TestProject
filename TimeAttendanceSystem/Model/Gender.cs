@@ -14,14 +14,7 @@ namespace TimeAttendanceSystem.Model
     
     public partial class Gender
     {
-        public Gender()
-        {
-            this.Emps = new HashSet<Emp>();
-        }
-    
         public byte GenderID { get; set; }
         public string Name { get; set; }
-    
-        public virtual ICollection<Emp> Emps { get; set; }
     }
 }

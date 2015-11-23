@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
@@ -28,21 +29,31 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew.Commands
         {
             VMCrew vmd = (VMCrew)parameter;
             Crew selectedCrew = context.Crews.FirstOrDefault(aa => aa.CrewID == vmd.selectedCrew.CrewID);
-            context.Crews.Remove(selectedCrew);
-            //vmd.isAdding = true;
-            //vmd.isEnabled = true;
-            try
-            {
-                if (context.SaveChanges() > 0)
-                {
-                    vmd.listOfCrews.Remove(vmd.selectedCrew);
-                    vmd.selectedCrew = vmd.listOfCrews[0];
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Exception While Deleting...");
-            }
+             int no = context.Emps.Where(aa => aa.CrewID == vmd.selectedCrew.CrewID).Count();
+             if (no > 0)
+             {
+                 PopUp.popUp("Crew", "There are Employees in this Crew. Please remove them first", Mantin.Controls.Wpf.Notification.NotificationType.Error);
+             }
+             else
+             {
+                 context.Crews.Remove(selectedCrew);
+                 //vmd.isAdding = true;
+                 //vmd.isEnabled = true;
+                 try
+                 {
+                     if (context.SaveChanges() > 0)
+                     {
+                         vmd.listOfCrews.Remove(vmd.selectedCrew);
+                         vmd.selectedCrew = vmd.listOfCrews[0];
+                         PopUp.popUp("Crew", "Crew Deleted", Mantin.Controls.Wpf.Notification.NotificationType.Information);
+                     }
+                 }
+                 catch (Exception)
+                 {
+                     Console.WriteLine("Exception While Deleting...");
+                 }
+             }
+           
         }
     }
 }
