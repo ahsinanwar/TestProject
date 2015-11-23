@@ -170,6 +170,8 @@
     <Compile Include="GlobalClasses\Global.cs" />
     <Compile Include="HelperClasses\EncDec.cs" />
     <Compile Include="HelperClasses\License.cs" />
+    <Compile Include="HelperClasses\MyEnums.cs" />
+    <Compile Include="HelperClasses\MyHelper.cs" />
     <Compile Include="HelperClasses\Package.cs" />
     <Compile Include="HelperClasses\PasswordBoxAssistant.cs" />
     <Compile Include="HelperClasses\PopUp.cs" />

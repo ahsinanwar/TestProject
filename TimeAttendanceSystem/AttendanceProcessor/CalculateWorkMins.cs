@@ -17,8 +17,6 @@ namespace TASDownloadService.AttProcessDaily
                 //Calculate WorkMin
                 attendanceRecord.Remarks = "";
                 TimeSpan mins = (TimeSpan)(attendanceRecord.TimeOut - attendanceRecord.TimeIn);
-
-
                 //Check if GZ holiday then place all WorkMin in GZOTMin
                 if (attendanceRecord.StatusGZ == true)
                 {
@@ -64,9 +62,11 @@ namespace TASDownloadService.AttProcessDaily
                     {
 
 
+
                         mins = DeductBreak(attendanceRecord, shift, mins);
 
                    
+
                     }
                     
                     {
