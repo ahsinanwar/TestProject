@@ -108,6 +108,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         context.Emps.Add(dummy);
                         
                         context.SaveChanges();
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Employee, (byte)MyEnums.Operation.Add, DateTime.Now);
                         dummy.Section = sec;
                         dummy.Crew = crew;
                         dummy.JobTitle = jt;
