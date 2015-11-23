@@ -18,7 +18,6 @@ namespace TASDownloadService.AttProcessDaily
                 attendanceRecord.Remarks = "";
                 TimeSpan mins = (TimeSpan)(attendanceRecord.TimeOut - attendanceRecord.TimeIn);
 
-                mins = DeductBreak(mins, (DateTime)attendanceRecord.AttDate, attendanceRecord.Emp.Shift);
 
                 //Check if GZ holiday then place all WorkMin in GZOTMin
                 if (attendanceRecord.StatusGZ == true)
@@ -63,10 +62,13 @@ namespace TASDownloadService.AttProcessDaily
                     /////////// to-do -----calculate Margins for those shifts which has break mins 
                     if (shift.HasBreak == true)
                     {
-                        attendanceRecord.WorkMin = (short)(mins.TotalMinutes - shift.BreakMin);
-                        attendanceRecord.ShifMin = (short)(ProcessSupportFunc.CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek) - (short)shift.BreakMin);
+
+
+                        mins = DeductBreak(attendanceRecord, shift, mins);
+
+                   
                     }
-                    else
+                    
                     {
                         attendanceRecord.Remarks.Replace(remarks.Where(aa => aa.RemarkLabel == "Absent").First().RemarkValue, "");
                         attendanceRecord.StatusAB = false;
@@ -270,28 +272,6 @@ namespace TASDownloadService.AttProcessDaily
             }
         }
 
-        private static TimeSpan DeductBreak(TimeSpan mins, DateTime attDate, Shift shift)
-        {
-            short newMins = (short)mins.TotalMinutes;
-
-            if (attDate.DayOfWeek == DayOfWeek.Friday)
-            {
-                newMins = (short)(newMins - shift.FriMin);
-            }
-            else if (attDate.DayOfWeek == DayOfWeek.Saturday)
-            {
-                newMins = (short)(newMins - shift.SatMin);
-            }
-            else if((bool)shift.HasBreak)
-            {
-                newMins = (short)(newMins - shift.BreakMin);
-            }
-
-            mins = TimeSpan.FromMinutes(newMins);
-            
-            return mins;
-        }
-
         public static void CalculateOpenShiftTimes(AttData attendanceRecord, Shift shift, List<Remark> remarks)
         {
             try
@@ -340,8 +320,7 @@ namespace TASDownloadService.AttProcessDaily
                         {
                             if (shift.HasBreak == true)
                             {
-                                attendanceRecord.WorkMin = (short)(mins.TotalMinutes - shift.BreakMin);
-                                attendanceRecord.ShifMin = (short)(ProcessSupportFunc.CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek) - (short)shift.BreakMin);
+                                mins = DeductBreak(attendanceRecord, shift, mins);
                             }
                             else
                             {
@@ -429,6 +408,26 @@ namespace TASDownloadService.AttProcessDaily
             catch (Exception ex)
             {
             }
+        }
+
+        private static TimeSpan DeductBreak(AttData attendanceRecord, Shift shift, TimeSpan mins)
+        {
+            if (attendanceRecord.AttDate.Value.DayOfWeek == DayOfWeek.Friday)
+            {
+                attendanceRecord.WorkMin = (short)(mins.TotalMinutes - shift.FriBreakMin);
+                attendanceRecord.ShifMin = (short)(ProcessSupportFunc.CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek) - (short)shift.FriBreakMin);
+            }
+            else if (attendanceRecord.AttDate.Value.DayOfWeek == DayOfWeek.Saturday)
+            {
+                attendanceRecord.WorkMin = (short)(mins.TotalMinutes - shift.SatBreakMin);
+                attendanceRecord.ShifMin = (short)(ProcessSupportFunc.CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek) - (short)shift.SatBreakMin);
+            }
+            else
+            {
+                attendanceRecord.WorkMin = (short)(mins.TotalMinutes - shift.BreakMin);
+                attendanceRecord.ShifMin = (short)(ProcessSupportFunc.CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek) - (short)shift.BreakMin);
+            }
+            return mins;
         }
 
         public static void CalculateRosterTimes(AttData attendanceRecord, Roster roster, Shift _shift, List<Remark> remarks)
