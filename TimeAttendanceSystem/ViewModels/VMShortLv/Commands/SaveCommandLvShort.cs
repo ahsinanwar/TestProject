@@ -69,10 +69,10 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
                 vmd.selectedEmpAndShortLv.Lvshort.THour = vmd.selectedEmpAndShortLv.Lvshort.THour.Value.Duration();
                 vmd.selectedEmpAndShortLv.Lvshort.EmpID = vmd.selectedEmpAndShortLv.Employee.EmpID;
                 vmd.selectedEmpAndShortLv.Lvshort.EmpDate = vmd.selectedEmpAndShortLv.Employee.EmpID.ToString() + vmd.selectedEmpAndShortLv.Lvshort.DutyDate.Value.ToString("yyMMdd");
-                vmd.isEnabled = false;
-                vmd.isAdding = false;
                 context.SaveChanges();
             }
+            vmd.isEnabled = false;
+            vmd.isAdding = false;
         }
         #endregion
     }

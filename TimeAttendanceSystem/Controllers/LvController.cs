@@ -729,11 +729,10 @@ namespace TimeAttendanceSystem.Controllers
         #region -- Add Short Leave --
         public void AddShortLeaveToAttData(LvShort lvshort)
         {
-
             DateTime datetime = new DateTime();
             using (var db = new TAS2013Entities())
             {
-                if (db.AttProcesses.Where(aa => aa.ProcessDate == datetime).Count() > 0)
+                if (db.AttProcesses.Where(aa => aa.ProcessDate == lvshort.DutyDate).Count() > 0)
                 {
                     AttData _EmpAttData = new AttData();
                     _EmpAttData = db.AttDatas.First(aa => aa.EmpDate == lvshort.EmpDate);
@@ -742,7 +741,6 @@ namespace TimeAttendanceSystem.Controllers
                     _EmpAttData.ShifMin = (short)(_EmpAttData.ShifMin - (short)lvshort.THour.Value.Minutes);
                     _EmpAttData.Remarks = _EmpAttData.Remarks + "[Short Leave]";
                     db.SaveChanges();
-                    
                 }
                 db.Dispose();
             }
