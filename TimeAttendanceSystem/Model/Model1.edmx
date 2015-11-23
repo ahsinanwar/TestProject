@@ -1784,17 +1784,13 @@
             <End Role="Crew" EntitySet="Crew" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
-          <AssociationSet Name="FK_Emp_Designation1" Association="TASDesktopModel.Store.FK_Emp_Designation1">
+          <AssociationSet Name="FK_Emp_Designation" Association="TASDesktopModel.Store.FK_Emp_Designation">
             <End Role="Designation" EntitySet="Designation" />
             <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_Emp" Association="TASDesktopModel.Store.FK_Emp_Emp">
             <End Role="Emp" EntitySet="Emp" />
             <End Role="Emp1" EntitySet="Emp" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Emp_Emp1" Association="TASDesktopModel.Store.FK_Emp_Emp1">
-            <End Role="Married" EntitySet="Married" />
-            <End Role="Emp" EntitySet="Emp" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_EmpPhoto" Association="TASDesktopModel.Store.FK_Emp_EmpPhoto">
             <End Role="EmpPhoto" EntitySet="EmpPhoto" />
@@ -5029,7 +5025,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Emp_Designation1">
+        <Association Name="FK_Emp_Designation">
           <End Role="Designation" Type="TASDesktopModel.Store.Designation" Multiplicity="0..1" />
           <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
           <ReferentialConstraint>
@@ -5050,18 +5046,6 @@
             </Principal>
             <Dependent Role="Emp1">
               <PropertyRef Name="EmpID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Emp_Emp1">
-          <End Role="Married" Type="TASDesktopModel.Store.Married" Multiplicity="0..1" />
-          <End Role="Emp" Type="TASDesktopModel.Store.Emp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Married">
-              <PropertyRef Name="MarriedID" />
-            </Principal>
-            <Dependent Role="Emp">
-              <PropertyRef Name="MarStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5642,17 +5626,13 @@
             <End Role="Department" EntitySet="Departments" />
             <End Role="Section" EntitySet="Sections" />
           </AssociationSet>
-          <AssociationSet Name="FK_Emp_Designation1" Association="TASDesktopModel.FK_Emp_Designation1">
+          <AssociationSet Name="FK_Emp_Designation" Association="TASDesktopModel.FK_Emp_Designation">
             <End Role="Designation" EntitySet="Designations" />
             <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_Emp" Association="TASDesktopModel.FK_Emp_Emp">
             <End Role="Emp" EntitySet="Emps" />
             <End Role="Emp1" EntitySet="Emps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Emp_Emp1" Association="TASDesktopModel.FK_Emp_Emp1">
-            <End Role="Married" EntitySet="Marrieds" />
-            <End Role="Emp" EntitySet="Emps" />
           </AssociationSet>
           <AssociationSet Name="FK_Emp_EmpPhoto" Association="TASDesktopModel.FK_Emp_EmpPhoto">
             <End Role="EmpPhoto" EntitySet="EmpPhotoes" />
@@ -6443,7 +6423,7 @@
           </Key>
           <Property Type="Int32" Name="DesignationID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="DesignationName" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Designation1" FromRole="Designation" ToRole="Emp" />
+          <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Designation" FromRole="Designation" ToRole="Emp" />
         </EntityType>
         <EntityType Name="Division">
           <Key>
@@ -6538,10 +6518,9 @@
           <Property Type="Boolean" Name="HasOT" />
           <NavigationProperty Name="AttDatas" Relationship="TASDesktopModel.FK_AttData_Emp" FromRole="Emp" ToRole="AttData" />
           <NavigationProperty Name="Crew" Relationship="TASDesktopModel.FK_Emp_Crew" FromRole="Emp" ToRole="Crew" />
-          <NavigationProperty Name="Designation" Relationship="TASDesktopModel.FK_Emp_Designation1" FromRole="Emp" ToRole="Designation" />
+          <NavigationProperty Name="Designation" Relationship="TASDesktopModel.FK_Emp_Designation" FromRole="Emp" ToRole="Designation" />
           <NavigationProperty Name="Emp1" Relationship="TASDesktopModel.FK_Emp_Emp" FromRole="Emp" ToRole="Emp1" />
           <NavigationProperty Name="Emp2" Relationship="TASDesktopModel.FK_Emp_Emp" FromRole="Emp1" ToRole="Emp" />
-          <NavigationProperty Name="Married" Relationship="TASDesktopModel.FK_Emp_Emp1" FromRole="Emp" ToRole="Married" />
           <NavigationProperty Name="EmpPhoto" Relationship="TASDesktopModel.FK_Emp_EmpPhoto" FromRole="Emp" ToRole="EmpPhoto" />
           <NavigationProperty Name="Gender1" Relationship="TASDesktopModel.FK_Emp_Gender" FromRole="Emp" ToRole="Gender" />
           <NavigationProperty Name="Grade" Relationship="TASDesktopModel.FK_Emp_Grade" FromRole="Emp" ToRole="Grade" />
@@ -6838,7 +6817,6 @@
           </Key>
           <Property Type="String" Name="MarriedID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Emps" Relationship="TASDesktopModel.FK_Emp_Emp1" FromRole="Married" ToRole="Emp" />
         </EntityType>
         <EntityType Name="Option">
           <Key>
@@ -8924,7 +8902,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Emp_Designation1">
+        <Association Name="FK_Emp_Designation">
           <End Type="TASDesktopModel.Designation" Role="Designation" Multiplicity="0..1" />
           <End Type="TASDesktopModel.Emp" Role="Emp" Multiplicity="*" />
           <ReferentialConstraint>
@@ -8945,18 +8923,6 @@
             </Principal>
             <Dependent Role="Emp1">
               <PropertyRef Name="EmpID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Emp_Emp1">
-          <End Type="TASDesktopModel.Married" Role="Married" Multiplicity="0..1" />
-          <End Type="TASDesktopModel.Emp" Role="Emp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Married">
-              <PropertyRef Name="MarriedID" />
-            </Principal>
-            <Dependent Role="Emp">
-              <PropertyRef Name="MarStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
