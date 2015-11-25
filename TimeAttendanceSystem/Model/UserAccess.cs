@@ -12,9 +12,11 @@ namespace TimeAttendanceSystem.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Married
+    public partial class UserAccess
     {
-        public byte MarriedID { get; set; }
-        public string Name { get; set; }
+        public short UserDataID { get; set; }
+        public int UserID { get; set; }
+        public string Criteria { get; set; }
+        public int CriteriaData { get; set; }
     }
 }

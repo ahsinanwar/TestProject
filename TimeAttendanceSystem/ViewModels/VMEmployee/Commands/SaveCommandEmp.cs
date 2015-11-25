@@ -167,6 +167,10 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                    //context.Entry(emp).State = EntityState.Modified;
                    
                     context.SaveChanges();
+
+
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Employee, (byte)MyEnums.Operation.Edit, DateTime.Now);
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                 }

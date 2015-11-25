@@ -14,14 +14,7 @@ namespace TimeAttendanceSystem.Model
     
     public partial class JobTitle
     {
-        public JobTitle()
-        {
-            this.Emps = new HashSet<Emp>();
-        }
-    
         public short JobID { get; set; }
         public string JobTitle1 { get; set; }
-    
-        public virtual ICollection<Emp> Emps { get; set; }
     }
 }

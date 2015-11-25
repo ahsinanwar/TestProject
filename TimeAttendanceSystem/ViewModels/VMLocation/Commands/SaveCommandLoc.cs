@@ -61,6 +61,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                             ctx.Locations.Add(vmd.selectedLoc);
                             if (ctx.SaveChanges() > 0)
                             {
+                                int _userID = GlobalClasses.Global.user.UserID;
+                                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Location, (byte)MyEnums.Operation.Add, DateTime.Now);
                                 PopUp.popUp("Location", "Location is Created", NotificationType.Warning);
                             }
                             else
@@ -82,6 +84,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     ctx.SaveChanges();
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Location, (byte)MyEnums.Operation.Edit, DateTime.Now);
                     PopUp.popUp("Location", "Location is Created", NotificationType.Information);
                 }
                 vmd.isAdding = false;

@@ -52,7 +52,10 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                         vmd.listOfDepts.Add(dummy);
                         dummy.Division = null;
                         context.Departments.Add(vmd.selectedDept);
-                        context.SaveChanges();
+                       context.SaveChanges();
+                       int _userID = GlobalClasses.Global.user.UserID;
+                       HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Department, (byte)MyEnums.Operation.Add, DateTime.Now);
+
                         vmd.isEnabled = false;
                         vmd.isAdding = false;
                       
@@ -75,6 +78,9 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     context.SaveChanges();
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Department, (byte)MyEnums.Operation.Edit, DateTime.Now);
+
                     PopUp.popUp("Department", dept.DeptName+" Edited", NotificationType.Information);
               
                 }

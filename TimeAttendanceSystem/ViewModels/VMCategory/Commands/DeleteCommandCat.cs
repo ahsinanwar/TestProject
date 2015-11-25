@@ -44,6 +44,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
                 {
                     if (context.SaveChanges() > 0)
                     {
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Category, (byte)MyEnums.Operation.Delete, DateTime.Now);
                         vmd.listOfCats.Remove(vmd.selectedCat);
                         vmd.selectedCat = vmd.listOfCats[0];
                         PopUp.popUp("Category", "Category Deleted", Mantin.Controls.Wpf.Notification.NotificationType.Information);

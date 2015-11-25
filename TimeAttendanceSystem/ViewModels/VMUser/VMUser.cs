@@ -16,6 +16,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         #region Intialization
         public Emp _dummyEmp;
         public User _selectedUser;
+        public UserAccess _userAcess;
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean _isChecked;
@@ -124,7 +125,24 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
 
             }
         }
-        #endregion
+
+        
+        public UserAccess userAcess
+        {
+            get
+            {
+                return _userAcess;
+            }
+            set
+            {
+                this.isEnabled = false;
+                _userAcess = value;
+                base.OnPropertyChanged("userAcess");
+                base.OnPropertyChanged("isEnabled");
+
+            }
+        }
+              #endregion
 
         #region ICommands
         public ICommand EditCommand

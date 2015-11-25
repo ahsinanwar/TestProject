@@ -22,7 +22,14 @@ namespace TimeAttendanceSystem.HelperClasses
             Department,
             User,
             LogIn,
-            LogOut
+            LogOut,Category,
+            City,
+            Division,
+            LeaveApplication,
+            Section,
+            EmpType,
+            Holiday,Location
+
         }
         public enum Operation
         {

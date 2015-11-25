@@ -50,6 +50,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation.Commands
                     {
                 context.Designations.Add(vmd.selectedDesg);
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Designation, (byte)MyEnums.Operation.Add, DateTime.Now);
                 vmd.listOfDesgs.Add(vmd.selectedDesg);
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
@@ -64,6 +66,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Designation, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 PopUp.popUp("Created Successfully", "Designation Name is Created", NotificationType.Information);
             }
 

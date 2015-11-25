@@ -53,6 +53,8 @@ namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
                 {
                     if (context.SaveChanges() > 0)
                     {
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Reader, (byte)MyEnums.Operation.Delete, DateTime.Now);
                         PopUp.popUp("Reader", "Reader Deleted Successfully", NotificationType.Warning);
                         vmd.listOfRdrs.Remove(vmd.selectedRdr);
                         vmd.selectedRdr = vmd.listOfRdrs[0];
