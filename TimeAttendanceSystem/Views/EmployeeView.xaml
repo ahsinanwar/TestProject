@@ -49,7 +49,7 @@
                         VerticalAlignment="Stretch" Grid.RowSpan="2" 
                         CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" Height="509">
                 <telerik:RadGridView.Columns>
-                    <telerik:GridViewDataColumn Header="Emp ID" DataMemberBinding="{Binding EmpID}" />
+                    <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
                     <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
                     <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
                     <telerik:GridViewDataColumn Header="Designation" DataMemberBinding="{Binding Designation.DesignationName}" />
@@ -137,7 +137,7 @@
                                 <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="165,92,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
                                     <Binding Path="selectedEmp.CardNo"
                                              Mode="TwoWay"
-                                             Converter="{StaticResource PostpendConvertor}"
+                                            
                                              ValidatesOnExceptions="True" 
                                 		UpdateSourceTrigger="PropertyChanged">
                                        

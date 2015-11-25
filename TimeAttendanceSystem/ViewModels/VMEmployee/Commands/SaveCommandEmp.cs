@@ -153,15 +153,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                     vmd.selectedEmp.TypeID = vmd.selectedEmp.EmpType.TypeID;
                     vmd.selectedEmp.DesigID = vmd.selectedEmp.Designation.DesignationID;
                     vmd.selectedEmp.GradeID = vmd.selectedEmp.Grade.GradeID;
-
+                    vmd.selectedEmp.CardNo = vmd.selectedEmp.CardNo.Trim();
                     vmd.selectedEmp.ShiftID = vmd.selectedEmp.Shift.ShiftID;
                     vmd.selectedEmp.SecID = vmd.selectedEmp.Section.SectionID;
                     vmd.selectedEmp.LocID = vmd.selectedEmp.Location.LocID;
-
                     vmd.selectedEmp.CrewID = vmd.selectedEmp.Crew.CrewID;
-              
-                    
-
                     context.Entry(emp).CurrentValues.SetValues(vmd.selectedEmp);
                    // emp = vmd.selectedEmp;
                    //context.Entry(emp).State = EntityState.Modified;
