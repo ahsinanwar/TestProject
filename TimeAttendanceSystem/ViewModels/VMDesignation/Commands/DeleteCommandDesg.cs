@@ -43,6 +43,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation.Commands
                {
                    if (context.SaveChanges() > 0)
                    {
+                       int _userID = GlobalClasses.Global.user.UserID;
+                       HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Designation, (byte)MyEnums.Operation.Delete, DateTime.Now);
                        vmd.listOfDesgs.Remove(vmd.selectedDesg);
                        vmd.selectedDesg = vmd.listOfDesgs[0];
                    }

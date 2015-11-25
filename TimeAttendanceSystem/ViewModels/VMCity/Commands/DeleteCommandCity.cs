@@ -47,6 +47,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
                 {
                     if (context.SaveChanges() > 0)
                     {
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.City, (byte)MyEnums.Operation.Delete, DateTime.Now);
                         vmd.listOfCities.Remove(vmd.selectedCity);
                         vmd.selectedCity = vmd.listOfCities[0];
                         PopUp.popUp("City", "City Removed", NotificationType.Information);

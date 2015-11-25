@@ -38,6 +38,8 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
             {
                 if (context.SaveChanges() > 0)
                 {
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.User, (byte)MyEnums.Operation.Delete, DateTime.Now);
                     vmd.listOfUsers.Remove(vmd.selectedUser);
                     
                     vmd.selectedUser = vmd.listOfUsers[0];

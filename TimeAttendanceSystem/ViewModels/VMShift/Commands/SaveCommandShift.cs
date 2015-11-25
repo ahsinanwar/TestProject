@@ -41,6 +41,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
                 vmd.selectedShift.RosterType1 = null;
                 context.Shifts.Add(vmd.selectedShift);
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Shift, (byte)MyEnums.Operation.Add, DateTime.Now);
                 vmd.listOfShifts.Add(vmd.selectedShift);
                 PopUp.popUp("Shift", vmd.selectedShift.ShiftName + " is Created", NotificationType.Information);
 
@@ -53,6 +55,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Shift, (byte)MyEnums.Operation.Edit, DateTime.Now);
             }
 
         }

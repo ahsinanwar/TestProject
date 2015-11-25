@@ -54,6 +54,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
                     context.LvShorts.Add(vmd.selectedEmpAndShortLv.Lvshort);
                     if (context.SaveChanges() > 0)
                     {
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.ShortLeave, (byte)MyEnums.Operation.Add, DateTime.Now);
                         vmd.listOfEmpsAndShortLv.Add(new CombinedEmpAndShortLvcs(vmd.selectedEmpAndShortLv.Employee, vmd.selectedEmpAndShortLv.Lvshort));
                         lvController.AddShortLeaveToAttData(vmd.selectedEmpAndShortLv.Lvshort);
                     }
@@ -70,6 +72,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv.Commands
                 vmd.selectedEmpAndShortLv.Lvshort.EmpID = vmd.selectedEmpAndShortLv.Employee.EmpID;
                 vmd.selectedEmpAndShortLv.Lvshort.EmpDate = vmd.selectedEmpAndShortLv.Employee.EmpID.ToString() + vmd.selectedEmpAndShortLv.Lvshort.DutyDate.Value.ToString("yyMMdd");
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.ShortLeave, (byte)MyEnums.Operation.Edit, DateTime.Now);
             }
             vmd.isEnabled = false;
             vmd.isAdding = false;

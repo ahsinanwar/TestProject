@@ -44,6 +44,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation.Commands
                 else
                 {
                     vmd.listOfLocs.Remove(vmd.selectedLoc);
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Location, (byte)MyEnums.Operation.Delete, DateTime.Now);
                     vmd.selectedLoc = vmd.listOfLocs[0];
                     PopUp.popUp("Location", "Location is Deleted", NotificationType.Information);
                 }

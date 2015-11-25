@@ -77,6 +77,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                                     vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (float)0.5;
                                     context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
                                     context.SaveChanges();
+                                    int _userID = GlobalClasses.Global.user.UserID;
+                                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LeaveApplication, (byte)MyEnums.Operation.Add, DateTime.Now);
                                     lvctrl.AddHalfLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
                                     lvctrl.AddHalfLeaveToAttData(vmd.selectedEmpAndLvApp.LvApp);
                                     lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
@@ -101,6 +103,7 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                                 vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days + 1;
                                 context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
                                 context.SaveChanges();
+                               
                                 vmd.selectedEmpAndLvApp.LvApp.LvDate = DateTime.Now;
                                 lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
                                 lvctrl.AddLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
@@ -130,6 +133,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LeaveApplication, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 PopUp.popUp("Application", "Application has been successfully edited for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
                             
             }

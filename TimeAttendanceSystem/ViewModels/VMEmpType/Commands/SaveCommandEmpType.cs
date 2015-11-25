@@ -55,6 +55,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
                        dummy.Category = null;
                        context.EmpTypes.Add(dummy);
                        context.SaveChanges();
+                       int _userID = GlobalClasses.Global.user.UserID;
+                       HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.EmpType, (byte)MyEnums.Operation.Add, DateTime.Now);
                        dummy.Category = cat;
                        vmd.listOfEmpTypes.Add(dummy);
                        vmd.isEnabled = false;
@@ -70,6 +72,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
                vmd.isEnabled = false;
                vmd.isAdding = false;
                context.SaveChanges();
+               int _userID = GlobalClasses.Global.user.UserID;
+               HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.EmpType, (byte)MyEnums.Operation.Edit, DateTime.Now);
                PopUp.popUp("Employee Type", "Employee type Edited", NotificationType.Information);
                 }
          

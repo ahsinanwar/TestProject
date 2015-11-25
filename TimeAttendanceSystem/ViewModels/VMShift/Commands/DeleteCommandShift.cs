@@ -42,6 +42,8 @@ namespace TimeAttendanceSystem.ViewModels.VMShift.Commands
                 else
                 {
                     vmd.listOfShifts.Remove(vmd.selectedShift);
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Shift, (byte)MyEnums.Operation.Delete, DateTime.Now);
                     vmd.selectedShift = vmd.listOfShifts[0];
 
                 }

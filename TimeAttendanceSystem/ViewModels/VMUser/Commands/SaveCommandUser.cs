@@ -61,6 +61,8 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                         {
                             ctx.Users.Add(vmd.selectedUser);
                             ctx.SaveChanges();
+                            int _userID = GlobalClasses.Global.user.UserID;
+                            HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.User, (byte)MyEnums.Operation.Add, DateTime.Now);
                             PopUp.popUp("User", "Successfully Saved " + vmd.selectedUser.UserName, NotificationType.Information);
                             vmd.listOfUsers.Add(vmd.selectedUser);
                         }
@@ -100,6 +102,8 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.User, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 PopUp.popUp("User", "Successfully Edited " + vmd.selectedUser.UserName, NotificationType.Information);   
             }
 

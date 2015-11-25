@@ -43,6 +43,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision.Commands
                 {
                     if (context.SaveChanges() > 0)
                     {
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Division, (byte)MyEnums.Operation.Delete, DateTime.Now);
                         PopUp.popUp("Division","Division "+ vmd.selectedDiv.DivisionName + " has been removed", NotificationType.Information);
                         vmd.listOfDivs.Remove(vmd.selectedDiv);
                         vmd.selectedDiv = vmd.listOfDivs[0];

@@ -50,6 +50,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision.Commands
                    {
                        context.Divisions.Add(vmd.selectedDiv);
                        context.SaveChanges();
+                       int _userID = GlobalClasses.Global.user.UserID;
+                       HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Division, (byte)MyEnums.Operation.Add, DateTime.Now);
                        PopUp.popUp("Division",vmd.selectedDiv.DivisionName+ " Created", NotificationType.Information);
                        vmd.listOfDivs.Add(vmd.selectedDiv);
                        vmd.isEnabled = false;
@@ -65,6 +67,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDivision.Commands
                vmd.isEnabled = false;
                vmd.isAdding = false;
                context.SaveChanges();
+               int _userID = GlobalClasses.Global.user.UserID;
+               HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Division, (byte)MyEnums.Operation.Edit, DateTime.Now);
                PopUp.popUp("Division", vmd.selectedDiv.DivisionName+ " Edited", NotificationType.Information);
            }
          

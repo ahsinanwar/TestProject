@@ -39,7 +39,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<double> TK { get; set; }
         public Nullable<double> L { get; set; }
         public Nullable<double> TL { get; set; }
-        public Nullable<int> CompanyID { get; set; }
     
         public virtual Emp Emp { get; set; }
     }

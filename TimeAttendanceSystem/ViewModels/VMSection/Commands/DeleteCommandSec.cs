@@ -48,6 +48,8 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
                     {
                         if (context.SaveChanges() > 0)
                         {
+                            int _userID = GlobalClasses.Global.user.UserID;
+                            HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Section, (byte)MyEnums.Operation.Delete, DateTime.Now);
                             vmd.listOfSecs.Remove(vmd.selectedSec);
                             PopUp.popUp("Section", "Section " + vmd.selectedSec.SectionName + " deleted", NotificationType.Warning);
                             vmd.selectedSec = vmd.listOfSecs[0];

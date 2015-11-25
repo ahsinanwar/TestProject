@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.Model;
-
+using TimeAttendanceSystem.HelperClasses;
 namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
 {
     class DeleteCommandEmp : ICommand
@@ -39,8 +39,10 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
             //vmd.isEnabled = true;
             try
             {
+
                 context.SaveChanges();
-                
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Employee, (byte)MyEnums.Operation.Delete, DateTime.Now);
                     vmd.listOfEmps.Remove(vmd.selectedEmp);
                     vmd.selectedEmp = vmd.listOfEmps[0];
                 

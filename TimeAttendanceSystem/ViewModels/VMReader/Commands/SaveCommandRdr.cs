@@ -55,6 +55,8 @@ namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
 
                 if (context.SaveChanges() > 0)
                 {
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Reader, (byte)MyEnums.Operation.Add, DateTime.Now);
                     vmd.selectedRdr.RdrDutyCode = context.RdrDutyCodes.FirstOrDefault(aa => aa.RdrDutyID == vmd.selectedRdr.RdrDutyID);
                     vmd.selectedRdr.ReaderType = context.ReaderTypes.FirstOrDefault(aa => aa.RdrTypeID == vmd.selectedRdr.RdrTypeID);
                     vmd.selectedRdr.Location = context.Locations.FirstOrDefault(aa => aa.LocID == vmd.selectedRdr.LocID);
@@ -79,6 +81,8 @@ namespace TimeAttendanceSystem.ViewModels.VMReader.Commands
 
                 if (context.SaveChanges() > 0)
                 {
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Reader, (byte)MyEnums.Operation.Edit, DateTime.Now);
                     PopUp.popUp("Reader", "Reader " + vmd.selectedRdr.RdrName + " is edited and saved Successfully", NotificationType.Information);
                 }
             }

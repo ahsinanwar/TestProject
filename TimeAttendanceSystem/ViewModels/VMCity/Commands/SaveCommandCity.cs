@@ -51,6 +51,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
                     {
                         context.Cities.Add(vmd.selectedCity);
                         context.SaveChanges();
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.City, (byte)MyEnums.Operation.Add, DateTime.Now);
                         vmd.listOfCities.Add(vmd.selectedCity);
                         vmd.isEnabled = false;
                         vmd.isAdding = false;
@@ -64,6 +66,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCity.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.City, (byte)MyEnums.Operation.Edit, DateTime.Now);
             }
             PopUp.popUp("Cities", "City Saved", NotificationType.Information);
 

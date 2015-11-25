@@ -61,6 +61,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
                         transition.Emp = null;
                         context.LvQuotas.Add(transition);
                         context.SaveChanges();
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LeaveQuota, (byte)MyEnums.Operation.Add, DateTime.Now);
                         transition.Emp = temp;
                         vmd.listOfLvQuotas.Add(vmd.selectedLvQuota);
                         vmd.isEnabled = false;
@@ -76,6 +78,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LeaveQuota, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 PopUp.popUp("Created Successfully", "Lv Quota  is Created congrats g", NotificationType.Warning);
             }
            

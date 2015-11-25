@@ -52,7 +52,7 @@
 
         <!--CRUD Panel-->
         <Border BorderBrush="LightGray" BorderThickness="1" Margin="5,165,5,5" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <StackPanel Background="White" Margin="-4,-170,2,-1" >
+            <StackPanel Background="White" Margin="-11,-170,9,-1" >
                 <!--Buttons Panel-->
                 <!--Data Input Panel-->
                 <!--Buttons Panel-->
@@ -132,11 +132,22 @@
                         <CheckBox Content="Employee" HorizontalAlignment="Left" Margin="7,277,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MREmployee, Mode=TwoWay}" Grid.Column="2"/>
                         <CheckBox Content="Detail" HorizontalAlignment="Left" Margin="7,216,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MRDetail, Mode=TwoWay}" Grid.Column="2"/>
                         <CheckBox Content="Summary" HorizontalAlignment="Left" Margin="7,237,0,0" VerticalAlignment="Top" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedUser.MRSummary, Mode=TwoWay}" Grid.Column="2"/>
+                        <Label Content="Acess All" HorizontalAlignment="Left" Margin="16,329,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.642" Grid.Column="2"/>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="91,329,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" IsEnabled="{Binding isEnabled}"  SelectedValuePath="Tag" Grid.Column="2">
+                            <telerik:RadComboBoxItem Tag="" Content="Section"/>
+                            <telerik:RadComboBoxItem Tag="" Content="City"/>
+                            <telerik:RadComboBoxItem Tag="" Content="Location"/>
+                        </telerik:RadComboBox>
+                        <telerik:RadComboBox telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" Margin="309,933,0,-555" VerticalAlignment="Top" Width="120" FontWeight="Bold" IsEnabled="{Binding isEnabled}"   DisplayMemberPath="RoleName" SelectedValuePath="RoleID" SelectedValue="{Binding selectedUser.RoleID, Mode=TwoWay}"  Grid.Column="2"/>
+
                         <!--<Label Content="Role:" HorizontalAlignment="Left" Margin="98,314,0,0" VerticalAlignment="Top"/>
                                 <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="141,319,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>-->
                         <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="54" Background="White" Margin="24,388,1024,-10"   Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.824,5.31" Grid.Column="2" />
                         <Label Content="Password:" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.49,1.82" Grid.Column="2"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="108,112,0,0" TextWrapping="Wrap"   Text="{Binding selectedUser.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="10" Grid.Column="2" />
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="228,52,0,0" VerticalAlignment="Top" Width="100"/>
+
+
                     </Grid>
                 </StackPanel>
             </StackPanel>
@@ -185,21 +196,17 @@
 
     </Grid>-->
         <StackPanel Margin="620,0,-1,0" Grid.Row="1" Grid.ColumnSpan="2">
-            <Label Background="#004b79" Margin="10,3,0,0"  Foreground="White" FontSize="16" Height="35">List of Available users</Label>
-            <telerik:RadGridView  AutoGenerateColumns="False" 
-                    telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
-                     ItemsSource="{Binding listOfUsers}" SelectedItem="{Binding selectedUser}" ShowGroupPanel="False"
-                    VerticalAlignment="Stretch"  MinHeight="150" Grid.RowSpan="2" 
-                    CanUserFreezeColumns="False" MinWidth="400" GroupPanelBackground="#FF004B79" Height="444" Margin="10,0,0,0">
+            <Label Background="#004b79" Margin="10,3,0,0"  Foreground="White" FontSize="16" Height="35" Content="List of Available users"/>
+            <telerik:RadGridView HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"  MinHeight="150" 
+                    MinWidth="400" Height="444" Margin="10,0,0,0" AutoGenerateColumns="False" CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" ItemsSource="{Binding listOfUsers}" SelectedItem="{Binding selectedUser}" ShowGroupPanel="False" telerik:StyleManager.Theme="Windows8">
                 <telerik:RadGridView.Columns>
-                    <telerik:GridViewDataColumn Header="User Name" DataMemberBinding="{Binding UserName}" />
-                    <telerik:GridViewDataColumn Header="Data Role" DataMemberBinding="{Binding RoleID}" />
-                    <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
-                    
-
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding UserName}" Header="User Name"/>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding RoleID}" Header="Data Role"/>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Status}" Header="Status"/>
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView>
-            <telerik:RadDataPager Source="{Binding listOfUsers}" x:Name="rdpData" NumericButtonCount="20" PageSize="17" DisplayMode="All" Margin="10,0,0,0"/>
+            <telerik:RadDataPager x:Name="rdpData" Margin="10,0,0,0" DisplayMode="All" NumericButtonCount="20" PageSize="17" Source="{Binding listOfUsers}"/>
         </StackPanel>
     </Grid>
 

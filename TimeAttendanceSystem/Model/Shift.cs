@@ -48,7 +48,6 @@ namespace TimeAttendanceSystem.Model
         public virtual DaysName DaysName { get; set; }
         public virtual DaysName DaysName1 { get; set; }
         public virtual ICollection<Emp> Emps { get; set; }
-        public virtual Location Location { get; set; }
         public virtual RosterType RosterType1 { get; set; }
     }
 }
