@@ -387,30 +387,30 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             _listOfJobs = new ObservableCollection<JobTitle>(entity.JobTitles.ToList());
             _selectedDept = new Department();
-            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(emp => emp.Status == true).ToList());
+            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(emp => emp.Status == true).ToList().OrderByDescending(x => x.EmpNo));
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
              _dummyEmp = selectedEmp;
              _listOfMarried = new ObservableCollection<string>();
              _listOfMarried.Add("Single");
              _listOfMarried.Add("Married");
              _listOfMarried.Add("Engaged");
-            _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
+             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList().OrderByDescending(x => x.CatName));
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
-            _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
-            _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList());
-            _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList());
+             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList().OrderByDescending(x => x.TypeName));
+             _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList().OrderByDescending(x => x.DesignationName));
+             _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList().OrderByDescending(x => x.GradeName));
             _listOfGenders = new ObservableCollection<string>();
             _listOfGenders.Add( "Male");
             _listOfGenders.Add("Female");
             _selectedGrade = entity.Grades.ToList().FirstOrDefault();
-            _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
+            _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList().OrderByDescending(x => x.ShiftName));
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             // We did not get the section list from the  dep id in AHC this will change for different clients.
-            _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
+            _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList().OrderByDescending(x => x.SectionName));
             _selectedSec = _listOfSecs.FirstOrDefault();
-            _listOfCrews = new ObservableCollection<Crew>(entity.Crews.ToList());
+            _listOfCrews = new ObservableCollection<Crew>(entity.Crews.ToList().OrderByDescending(x => x.CrewName));
          
             this._AddCommand = new AddCommandEmp(_selectedEmp);
             this._EditCommand = new EditCommandEmp(this);

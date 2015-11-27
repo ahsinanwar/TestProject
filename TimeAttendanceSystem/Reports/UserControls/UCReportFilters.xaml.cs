@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.Reports.UserControls
@@ -22,6 +23,7 @@ namespace TimeAttendanceSystem.Reports.UserControls
     /// </summary>
     public partial class UCReportFilters : UserControl
     {
+        TAS2013Entities ctx = new TAS2013Entities();
         public UCReportFilters()
         {
             try
@@ -34,8 +36,27 @@ namespace TimeAttendanceSystem.Reports.UserControls
                 selectedShift = new List<Shift>();
                 selectedType = new List<EmpType>();
                 selectedCrew = new List<Crew>();
-                startDate.SelectedDate = new DateTime(2015, 03, 20);
-                endDate.SelectedDate = DateTime.Today;
+                List<AttData> listOfAttData = new List<AttData>(ctx.AttDatas.ToList());
+
+                if (listOfAttData.Count() > 0)
+                {
+                    startDate.SelectedDate = ctx.AttDatas
+                        .OrderByDescending(c => c.AttDate)
+                        .Select(c => c.AttDate)
+                        .FirstOrDefault();
+                    endDate.SelectedDate = ctx.AttDatas
+                        .OrderByDescending(c => c.AttDate)
+                        .Select(c => c.AttDate)
+                        .FirstOrDefault();
+                }
+                else
+                {
+                    PopUp.popUp("Attendance Date", "There is no Attendance Data", Mantin.Controls.Wpf.Notification.NotificationType.Information);
+                    startDate.SelectedDate = DateTime.Now;
+                    endDate.SelectedDate = DateTime.Now;
+                
+                }
+ 
             }
             catch (Exception ex)
             {
