@@ -79,6 +79,10 @@
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -327,9 +331,6 @@
     <Compile Include="Model\LvType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Married.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -420,6 +421,9 @@
     <Compile Include="Model\UserAccess.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\UserAccessRole.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\UserRole.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -507,6 +511,8 @@
     <Compile Include="Model\ViewUserLocation.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="QueryBuilders\ExtensionUtility.cs" />
+    <Compile Include="QueryBuilders\QueryBuilderForSection.cs" />
     <Compile Include="Reports\ReportForms\DFAbsent.xaml.cs">
       <DependentUpon>DFAbsent.xaml</DependentUpon>
     </Compile>
@@ -611,6 +617,7 @@
     </Compile>
     <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\CanAddBoolToVisibleOrHidden.cs" />
+    <Compile Include="ValueConvertors\DataRoleFrontEndToCriteriaDataConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToDateConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToTimeSpan.cs" />
     <Compile Include="ValueConvertors\EmpCardNoPostpendConvertor.cs" />

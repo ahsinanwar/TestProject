@@ -17,6 +17,7 @@ namespace TimeAttendanceSystem.Model
         public User()
         {
             this.LvApplications = new HashSet<LvApplication>();
+            this.UserAccesses = new HashSet<UserAccess>();
         }
     
         public int UserID { get; set; }
@@ -56,5 +57,6 @@ namespace TimeAttendanceSystem.Model
         public virtual Emp Emp { get; set; }
         public virtual ICollection<LvApplication> LvApplications { get; set; }
         public virtual UserRole UserRole { get; set; }
+        public virtual ICollection<UserAccess> UserAccesses { get; set; }
     }
 }

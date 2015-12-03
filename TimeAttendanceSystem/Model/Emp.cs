@@ -62,13 +62,13 @@ namespace TimeAttendanceSystem.Model
         public Nullable<System.DateTime> LastEntryDateTime { get; set; }
         public Nullable<bool> IsSafe { get; set; }
         public Nullable<bool> HasOT { get; set; }
-        public string OldEmpNo { get; set; }
     
         public virtual ICollection<AttData> AttDatas { get; set; }
         public virtual Crew Crew { get; set; }
         public virtual Designation Designation { get; set; }
         public virtual EmpPhoto EmpPhoto { get; set; }
         public virtual Grade Grade { get; set; }
+        public virtual JobTitle JobTitle { get; set; }
         public virtual Location Location { get; set; }
         public virtual Section Section { get; set; }
         public virtual Shift Shift { get; set; }

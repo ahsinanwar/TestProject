@@ -50,7 +50,7 @@
                         CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" Height="509">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
-                    <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
+                   
                     <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
                     <telerik:GridViewDataColumn Header="Designation" DataMemberBinding="{Binding Designation.DesignationName}" />
                     <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding Section.SectionName}" />

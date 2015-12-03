@@ -12,20 +12,20 @@ namespace TimeAttendanceSystem.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class City
+    public partial class UserAccessRole
     {
-        public City()
+        public UserAccessRole()
         {
-            this.Locations = new HashSet<Location>();
-            this.Sites = new HashSet<Site>();
+            this.UserAccesses = new HashSet<UserAccess>();
+            this.UserAccesses1 = new HashSet<UserAccess>();
         }
     
-        public short CityID { get; set; }
-        public string CityName { get; set; }
-        public Nullable<byte> RegionID { get; set; }
+        public int UserDataAccessID { get; set; }
+        public string DataAccessRole { get; set; }
+        public string DataAccessLegend { get; set; }
+        public int DataAccessType { get; set; }
     
-        public virtual Region Region { get; set; }
-        public virtual ICollection<Location> Locations { get; set; }
-        public virtual ICollection<Site> Sites { get; set; }
+        public virtual ICollection<UserAccess> UserAccesses { get; set; }
+        public virtual ICollection<UserAccess> UserAccesses1 { get; set; }
     }
 }

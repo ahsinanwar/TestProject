@@ -74,7 +74,6 @@ namespace TimeAttendanceSystem.Model
         public DbSet<LvQuota> LvQuotas { get; set; }
         public DbSet<LvShort> LvShorts { get; set; }
         public DbSet<LvType> LvTypes { get; set; }
-        public DbSet<Married> Marrieds { get; set; }
         public DbSet<Option> Options { get; set; }
         public DbSet<PollData> PollDatas { get; set; }
         public DbSet<PollDataError> PollDataErrors { get; set; }
@@ -97,6 +96,7 @@ namespace TimeAttendanceSystem.Model
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserAccess> UserAccesses { get; set; }
+        public DbSet<UserAccessRole> UserAccessRoles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<EmpView> EmpViews { get; set; }
         public DbSet<ViewAbsent> ViewAbsents { get; set; }

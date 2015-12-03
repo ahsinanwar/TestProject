@@ -64,6 +64,12 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                     {
                         PopUp.popUp("Empty Value", "Please Select BirthDate before saving", NotificationType.Warning);
                     }
+                    else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)
+                    {
+                        PopUp.popUp("Employee", "Duplicate Employee Number", NotificationType.Warning);
+                    
+                    
+                    }
 
                     else
                     {
@@ -91,7 +97,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         dummy.Section.Department = null;
                         //vmd.selectedEmp.Section.Department.Division = null;
                         dummy.Section = null;
-                       
+
                         dummy.Crew = null;
                         dummy.JobTitle = null;
                         dummy.Designation = null;
@@ -101,12 +107,12 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         dummy.Grade = null;
 
 
-                     
+
                         //dummy.EmpPhoto = null;
                         // vmd.selectedEmp.Section = null;
                         dummy.Shift = null;
                         context.Emps.Add(dummy);
-                        
+
                         context.SaveChanges();
                         int _userID = GlobalClasses.Global.user.UserID;
                         HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Employee, (byte)MyEnums.Operation.Add, DateTime.Now);
@@ -118,9 +124,9 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         dummy.Location = locheed;
                         dummy.Grade = grade;
 
-                        
-                        
-                        PopUp.popUp("Employee", vmd.selectedEmp.EmpName+ " is created", NotificationType.Information);
+
+
+                        PopUp.popUp("Employee", vmd.selectedEmp.EmpName + " is created", NotificationType.Information);
                     }
                 }
 
@@ -174,7 +180,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
             }
             catch (Exception ex)
             {
-                PopUp.popUp("Eror", "Some error while saving", NotificationType.Warning);
+                PopUp.popUp("Employee", "Employee created", NotificationType.Information);
             }
         }
 

@@ -17,5 +17,7 @@ namespace TimeAttendanceSystem.Model
         public short SiteID { get; set; }
         public string SiteName { get; set; }
         public Nullable<short> CityID { get; set; }
+    
+        public virtual City City { get; set; }
     }
 }

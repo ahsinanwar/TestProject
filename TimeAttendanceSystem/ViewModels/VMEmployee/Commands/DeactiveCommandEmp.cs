@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 
 namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
@@ -38,6 +39,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                 vmd.listOfEmps.Remove(vmd.selectedEmp);
                 vmd.selectedEmp = vmd.listOfEmps[0];
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Employee, (byte)MyEnums.Operation.Delete, DateTime.Now);
             }
             catch (Exception)
             {

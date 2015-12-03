@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Linq.Dynamic;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.QueryBuilders;
 using TimeAttendanceSystem.ViewModels.VMDesignation.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMDesignation
@@ -71,7 +73,10 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation
                 _selectedDesg = value;
                 if (_selectedDesg != null)
                 {
-                    _listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedDesg.DesignationID));
+                    User _user = GlobalClasses.Global.user;
+                    QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                    string query = queryForSection.MakeCustomizeQuerySection(_user);
+                    _listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.DesigID == _selectedDesg.DesignationID));
                     base.OnPropertyChanged("ListOfDesgEmps");
                     base.OnPropertyChanged("selectedDesg");
                     base.OnPropertyChanged("isEnabled");
@@ -136,7 +141,11 @@ namespace TimeAttendanceSystem.ViewModels.VMDesignation
             
             _listOfDesg = new ObservableCollection<Designation>(entity.Designations.ToList());
             _selectedDesg = entity.Designations.ToList().FirstOrDefault();
-            _listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.DesigID == _selectedDesg.DesignationID));
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySection(_user);
+            _listOfDesgEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.DesigID == _selectedDesg.DesignationID));
+          
             this._AddCommand = new AddCommandDesg(_selectedDesg);
             this._EditCommand = new EditCommandDesg(this);
             this._DeleteCommand = new DeleteCommandDesg(_selectedDesg);

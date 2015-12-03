@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.QueryBuilders;
 using TimeAttendanceSystem.ViewModels.VMUser.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMUser
@@ -16,7 +17,8 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         #region Intialization
         public Emp _dummyEmp;
         public User _selectedUser;
-        public UserAccess _userAcess;
+       
+      
         public Boolean _isEnabled = false;
         public Boolean _isAdding = false;
         public Boolean _isChecked;
@@ -53,7 +55,22 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         }
         private ObservableCollection<User> _listOfUsers;
         private ObservableCollection<Emp> _listOfEmps;
-       
+        private ObservableCollection<Section> _listOfSections;
+        public ObservableCollection<Section> listOfSections
+        {
+
+            get
+            {
+                return _listOfSections;
+            }
+            set
+            {
+                
+                _listOfSections = value;
+
+                base.OnPropertyChanged("listOfSections");
+            }
+        }
         public ICommand _AddCommand { get; set; }
         public ICommand _EditCommand { get; set; }
         public ICommand _SaveCommand { get; set; }
@@ -70,6 +87,9 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
             {
                 this.isEnabled = false;
                 _selectedUser = value;
+                QueryBuilderForSection qbs = new QueryBuilderForSection();
+                listOfSections = new ObservableCollection<Section>(qbs.GetSectionsFromUserAccess(_selectedUser));
+            
                 base.OnPropertyChanged("selectedUser");
                 base.OnPropertyChanged("isEnabled");
             }
@@ -127,21 +147,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         }
 
         
-        public UserAccess userAcess
-        {
-            get
-            {
-                return _userAcess;
-            }
-            set
-            {
-                this.isEnabled = false;
-                _userAcess = value;
-                base.OnPropertyChanged("userAcess");
-                base.OnPropertyChanged("isEnabled");
-
-            }
-        }
+      
               #endregion
 
         #region ICommands
@@ -185,14 +191,15 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
         {
             entity = new TAS2013Entities();
             _selectedUser = new User();
+            QueryBuilderForSection qbs = new QueryBuilderForSection();
+            listOfSections = new ObservableCollection<Section>(qbs.GetSectionsFromUserAccess(GlobalClasses.Global.user));
+            
            
             _listOfUserRoles = new ObservableCollection<UserRole>(entity.UserRoles.ToList());
-
             _listOfUsers = new ObservableCollection<User>(entity.Users.ToList());
             _selectedUser = entity.Users.ToList().FirstOrDefault();
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.ToList());
-          
-            this._AddCommand = new AddCommandUser(_selectedUser);
+             this._AddCommand = new AddCommandUser(_selectedUser);
             this._EditCommand = new EditCommandUser(this);
             this._DeleteCommand = new DeleteCommandUser(_selectedUser);
             this._isAdding = false;

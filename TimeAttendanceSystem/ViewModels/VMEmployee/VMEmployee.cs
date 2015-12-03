@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.QueryBuilders;
 using TimeAttendanceSystem.ViewModels.VMEmployee.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMEmployee
@@ -236,6 +239,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
+                 
                 listOfEmps = value;
                 OnPropertyChanged("listOfEmps");
             }
@@ -387,7 +391,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             _listOfJobs = new ObservableCollection<JobTitle>(entity.JobTitles.ToList());
             _selectedDept = new Department();
-            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(emp => emp.Status == true).ToList());
+             User _user = GlobalClasses.Global.user;
+             QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+             string query = queryForSection.MakeCustomizeQuerySection(_user);
+
+             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable());
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
              _dummyEmp = selectedEmp;
              _listOfMarried = new ObservableCollection<string>();

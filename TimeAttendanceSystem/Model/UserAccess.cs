@@ -14,9 +14,13 @@ namespace TimeAttendanceSystem.Model
     
     public partial class UserAccess
     {
-        public short UserDataID { get; set; }
+        public int UserAccessID { get; set; }
         public int UserID { get; set; }
-        public string Criteria { get; set; }
+        public int UserAccessRoleID { get; set; }
         public int CriteriaData { get; set; }
+    
+        public virtual User User { get; set; }
+        public virtual UserAccessRole UserAccessRole { get; set; }
+        public virtual UserAccessRole UserAccessRole1 { get; set; }
     }
 }
