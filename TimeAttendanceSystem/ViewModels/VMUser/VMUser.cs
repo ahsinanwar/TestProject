@@ -89,7 +89,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser
                 _selectedUser = value;
                 QueryBuilderForSection qbs = new QueryBuilderForSection();
                 listOfSections = new ObservableCollection<Section>(qbs.GetSectionsFromUserAccess(_selectedUser));
-            
+                base.OnPropertyChanged("listOfSections");
                 base.OnPropertyChanged("selectedUser");
                 base.OnPropertyChanged("isEnabled");
             }

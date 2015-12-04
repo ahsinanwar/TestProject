@@ -37,9 +37,7 @@ namespace TimeAttendanceSystem.Views
                 InitializeComponent();
 
                 vmusers = new VMUser();
-                foreach (var item in vmusers.listOfSections)
-                      ListBoxSec.Items.Add(item.SectionName);
-                                 
+                ListBoxSec.ItemsSource = vmusers.listOfSections;
                 this.DataContext = vmusers;
             }
             catch (Exception ex)
