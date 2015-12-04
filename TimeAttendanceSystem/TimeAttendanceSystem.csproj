@@ -669,11 +669,11 @@
     <Compile Include="ViewModels\VMDesignation\Commands\EditCommandDesg.cs" />
     <Compile Include="ViewModels\VMDesignation\Commands\SaveCommandDesg.cs" />
     <Compile Include="ViewModels\VMDesignation\VMDesignation.cs" />
-    <Compile Include="ViewModels\VMDivision\Commands\AddCommandDiv.cs" />
-    <Compile Include="ViewModels\VMDivision\Commands\DeleteCommandDiv.cs" />
-    <Compile Include="ViewModels\VMDivision\Commands\EditCommandDiv.cs" />
-    <Compile Include="ViewModels\VMDivision\Commands\SaveCommandDiv.cs" />
-    <Compile Include="ViewModels\VMDivision\VMDivision.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDivision\Commands\AddCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDivision\Commands\DeleteCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDivision\Commands\EditCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDivision\Commands\SaveCommandDiv.cs" />
+    <Compile Include="ViewModels\VMDesignation\VMDivision\VMDivision.cs" />
     <Compile Include="ViewModels\VMEmployee\Commands\DeactiveCommandEmp.cs" />
     <Compile Include="ViewModels\VMLogin\Commands\ExitCommand.cs" />
     <Compile Include="ViewModels\VMLogin\Commands\LoginCommand.cs" />
