@@ -97,10 +97,9 @@ namespace TimeAttendanceSystem.Views
                 selectedSecs.Clear();
                 selectedSecs = windowSec.selectedSecs;
             }
-            ListBoxSec.ItemsSource = selectedSecs;
-            selectedSecs = new List<Model.Section>();
-            foreach (var item in selectedSecs)
-                vmusers.listOfSections.Add(item);
+           vmusers.listOfSections = new ObservableCollection<Model.Section>(selectedSecs);
+            
+           
                       
         }
 

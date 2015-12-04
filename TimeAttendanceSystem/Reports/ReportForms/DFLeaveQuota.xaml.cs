@@ -139,7 +139,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             
 
             //rptViewer.Reset();
-            string DateToFor = "";
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            string DateToFor = dateFrom.ToShortDateString() + " to " + dateTo.ToShortDateString();
             string _Header = "Leave Quota";
             this.rptViewer.LocalReport.DisplayName = "Leave Quota";
             //rptViewer.ProcessingMode = ProcessingMode.Local;

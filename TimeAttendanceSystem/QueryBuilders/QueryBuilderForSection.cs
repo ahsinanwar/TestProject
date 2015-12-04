@@ -72,5 +72,27 @@ namespace TimeAttendanceSystem.QueryBuilders
             return listOfSections;
         
         }
+
+        internal string MakeCustomizeQuerySec(User _user)
+        {
+            TAS2013Entities db = new TAS2013Entities();
+            string query = "(";
+            List<UserAccess> listOfUserAccess = new List<UserAccess>();
+            listOfUserAccess = db.UserAccesses.Where(aa => aa.UserID == _user.UserID).ToList();
+            foreach (UserAccess uAccess in listOfUserAccess)
+            {
+
+                query = query + "SectionID=" + uAccess.CriteriaData + " or ";
+
+            }
+            if (query.Length > 2)
+            {
+                query = query.Substring(0, query.Length - 4);
+                query = query + ")";
+            }
+            else
+                query = query + ")";
+            return query;
+        }
     }
 }

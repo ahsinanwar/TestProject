@@ -73,8 +73,8 @@
                         <telerik:RadMenuItem Header="Attendance Edit" Click="Button_Click_1" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}" >
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}">
-                        </telerik:RadMenuItem>
+                        <!--<telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}">
+                        </telerik:RadMenuItem>-->
 
                         <telerik:RadMenuItem Header="User" Click="btn_User_Click" Visibility="{Binding MUser, Converter={StaticResource UserPermission},ConverterParameter=MUser}">
                         </telerik:RadMenuItem>

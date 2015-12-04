@@ -396,7 +396,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
              string query = queryForSection.MakeCustomizeQuerySection(_user);
 
              _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable());
-             _selectedEmp = entity.Emps.ToList().FirstOrDefault();
+             _selectedEmp = _listOfEmps.FirstOrDefault();
+             Designation des = _selectedEmp.Designation;
              _dummyEmp = selectedEmp;
              _listOfMarried = new ObservableCollection<string>();
              _listOfMarried.Add("Single");
@@ -405,7 +406,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
-            _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList());
+            _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList().OrderBy(s=>s.DesignationName));
             _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList());
             _listOfGenders = new ObservableCollection<string>();
             _listOfGenders.Add( "Male");
@@ -416,7 +417,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             // We did not get the section list from the  dep id in AHC this will change for different clients.
-            _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
+            query = queryForSection.MakeCustomizeQuerySec(_user);
+            _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(query));
             _selectedSec = _listOfSecs.FirstOrDefault();
             _listOfCrews = new ObservableCollection<Crew>(entity.Crews.ToList());
          

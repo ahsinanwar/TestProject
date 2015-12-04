@@ -149,12 +149,13 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
         {
             entity = new TAS2013Entities();
             _selectedSec = new Section();
-            _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
-            _selectedSec = entity.Sections.ToList().FirstOrDefault();
-            _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
             User _user = GlobalClasses.Global.user;
             QueryBuilderForSection queryForSection = new QueryBuilderForSection();
-            string query = queryForSection.MakeCustomizeQuerySection(_user);
+            string query = queryForSection.MakeCustomizeQuerySec(_user);
+            _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(query).AsQueryable());
+            _selectedSec = entity.Sections.ToList().FirstOrDefault();
+            _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
+            query =  queryForSection.MakeCustomizeQuerySection(_user);
             _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.SecID == selectedSec.SectionID));
             this._AddCommand = new AddCommandSec(_selectedSec);
             this._EditCommand = new EditCommandSec(this);

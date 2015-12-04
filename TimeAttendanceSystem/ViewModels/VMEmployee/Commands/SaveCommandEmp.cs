@@ -41,28 +41,28 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                 {
                     if (vmd.selectedEmp.EmpName == "" || vmd.selectedEmp.EmpName == null)
                     {
-                        PopUp.popUp("Empty Value", "Please write Emp Name before saving", NotificationType.Warning);
+                        PopUp.popUp("Employee", "Please write Employee Name before saving", NotificationType.Warning);
                     }
                     else if (vmd.selectedEmp.EmpNo == "" || vmd.selectedEmp.EmpNo == null)
                     {
-                        PopUp.popUp("Empty Value", "Please write Emp ID before saving", NotificationType.Warning);
+                        PopUp.popUp("Employee", "Please write Employee ID before saving", NotificationType.Warning);
                     }
 
                     else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)
                     {
-                        PopUp.popUp("Duplication", "Emp no already exit", NotificationType.Warning);
+                        PopUp.popUp("Employee", "Employee number already exists", NotificationType.Warning);
                     }
                         else if (vmd.selectedEmp.Gender == null)
                     {
-                        PopUp.popUp("Empty Value", "Please Select Gender before saving", NotificationType.Warning);
+                        PopUp.popUp("Employee", "Please Select Gender before saving", NotificationType.Warning);
                     }
                     else if (vmd.selectedEmp.MarStatus == null)
                     {
-                        PopUp.popUp("Empty Value", "Please Select MarStatus before saving", NotificationType.Warning);
+                        PopUp.popUp("Employee", "Please Select Martial Status before saving", NotificationType.Warning);
                     }
                     else if (vmd.selectedEmp.BirthDate== null)
                     {
-                        PopUp.popUp("Empty Value", "Please Select BirthDate before saving", NotificationType.Warning);
+                        PopUp.popUp("Employee", "Please Select Birth Date before saving", NotificationType.Warning);
                     }
                     else if (context.Emps.Where(aa => aa.EmpNo == vmd.selectedEmp.EmpNo).Count() > 0)
                     {
@@ -153,9 +153,9 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                         PopUp.popUp("No Photo", "Emloyee Saved Without a Photo", NotificationType.Warning);
                     //A bad approach but way to handle this when u change the section we need to change its ID too
 
-                    
-                    
 
+
+                    vmd.selectedEmp.JobID = vmd.selectedEmp.JobTitle.JobID;
                     vmd.selectedEmp.TypeID = vmd.selectedEmp.EmpType.TypeID;
                     vmd.selectedEmp.DesigID = vmd.selectedEmp.Designation.DesignationID;
                     vmd.selectedEmp.GradeID = vmd.selectedEmp.Grade.GradeID;
