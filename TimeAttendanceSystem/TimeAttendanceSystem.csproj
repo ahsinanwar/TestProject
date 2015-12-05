@@ -163,6 +163,7 @@
     <Compile Include="AttendanceProcessor\ProcessJobCard.cs" />
     <Compile Include="AttendanceProcessor\ProcessSupportFunc.cs" />
     <Compile Include="AttendanceProcessor\SummaryEntity.cs" />
+    <Compile Include="AttendanceProcessor\TAS2013Entities.cs" />
     <Compile Include="BaseClasses\BackgroundVisualHost.cs" />
     <Compile Include="BaseClasses\BusyDecorator.cs" />
     <Compile Include="BaseClasses\CommanVariables.cs" />
