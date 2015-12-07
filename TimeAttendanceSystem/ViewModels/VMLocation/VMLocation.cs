@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.QueryBuilders;
 using TimeAttendanceSystem.ViewModels.VMLocation.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMLocation
@@ -70,8 +72,15 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
             {
                 this.isEnabled = false;
                 _selectedLoc = value;
-                if(selectedLoc != null)
-                _listOfLocEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.LocID == _selectedLoc.LocID));
+                if (selectedLoc != null)
+                {
+                    User _user = GlobalClasses.Global.user;
+                    QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                    string query = queryForSection.MakeCustomizeQuerySection(_user);
+                    List<Emp> listOfEmps = new List<Emp>();
+                    listOfEmps = entity.Emps.Where(query).ToList();
+                    _listOfLocEmps = new ObservableCollection<Emp>(listOfEmps.Where(aa => aa.LocID == _selectedLoc.LocID));
+                }
                 base.OnPropertyChanged("ListOfLocEmps");
 
                 base.OnPropertyChanged("selectedLoc");
@@ -143,12 +152,17 @@ namespace TimeAttendanceSystem.ViewModels.VMLocation
         {
             entity = new TAS2013Entities();
             _selectedLoc = new Location();
-         
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySection(_user);
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             _selectedLoc = entity.Locations.ToList().FirstOrDefault();
             _listOfCities = new ObservableCollection<City>(entity.Cities.ToList());
             _selectedCity = entity.Cities.ToList().FirstOrDefault();
-            _listOfLocEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.LocID == _selectedLoc.LocID));
+            List<Emp> listOfEmps = new List<Emp>();
+            listOfEmps = entity.Emps.Where(query).ToList();
+
+            _listOfLocEmps = new ObservableCollection<Emp>(listOfEmps.Where(aa => aa.LocID == _selectedLoc.LocID));
             this._AddCommand = new AddCommandLoc(_selectedLoc);
             this._EditCommand = new EditCommandLoc(this);
             this._DeleteCommand = new DeleteCommandLoc(_selectedLoc);

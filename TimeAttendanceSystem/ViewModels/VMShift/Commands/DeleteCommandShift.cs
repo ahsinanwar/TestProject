@@ -45,6 +45,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift.Commands
                     int _userID = GlobalClasses.Global.user.UserID;
                     HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Shift, (byte)MyEnums.Operation.Delete, DateTime.Now);
                     vmd.selectedShift = vmd.listOfShifts[0];
+                    PopUp.popUp("Shift", "Shift Deleted", NotificationType.Information);
 
                 }
             }

@@ -630,7 +630,7 @@ namespace TimeAttendanceSystem.Controllers
             List<LvConsumed> _lvConsumed = new List<LvConsumed>();
             using (var ctx = new TAS2013Entities())
             {
-                string empLvType = lvappl.EmpID.ToString() + lvappl.LvType;
+                string empLvType = lvappl.EmpID.ToString() + lvappl.LvType.LvTypeID;
                 _lvConsumed = ctx.LvConsumeds.Where(aa => aa.EmpLvType == empLvType).ToList();
                 if (_lvConsumed.Count > 0)
                 {

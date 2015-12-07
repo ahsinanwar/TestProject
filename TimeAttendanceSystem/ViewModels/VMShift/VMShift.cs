@@ -73,6 +73,11 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             {
                 this.isEnabled = false;
                 _selectedShift = value;
+                User _user = GlobalClasses.Global.user;
+                QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                string query = queryForSection.MakeCustomizeQuerySection(_user);
+                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.ShiftID == selectedShift.ShiftID));
+                base.OnPropertyChanged("listOfShiftEmps");
                 base.OnPropertyChanged("selectedShift");
                 base.OnPropertyChanged("isEnabled");
 
@@ -106,10 +111,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             set
             {
                 _listOfShiftEmps = value;
-                User _user = GlobalClasses.Global.user;
-                QueryBuilderForSection queryForSection = new QueryBuilderForSection();
-                string query = queryForSection.MakeCustomizeQuerySection(_user);
-                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.ShiftID == selectedShift.ShiftID));
+               
                 OnPropertyChanged("listOfShiftEmps");
             }
         }

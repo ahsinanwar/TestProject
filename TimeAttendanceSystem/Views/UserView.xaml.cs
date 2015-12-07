@@ -37,9 +37,7 @@ namespace TimeAttendanceSystem.Views
                 InitializeComponent();
 
                 vmusers = new VMUser();
-                foreach (var item in vmusers.listOfSections)
-                      ListBoxSec.Items.Add(item.SectionName);
-                                 
+                ListBoxSec.ItemsSource = vmusers.listOfSections;
                 this.DataContext = vmusers;
             }
             catch (Exception ex)
@@ -99,10 +97,9 @@ namespace TimeAttendanceSystem.Views
                 selectedSecs.Clear();
                 selectedSecs = windowSec.selectedSecs;
             }
-            ListBoxSec.ItemsSource = selectedSecs;
-            selectedSecs = new List<Model.Section>();
-            foreach (var item in selectedSecs)
-                vmusers.listOfSections.Add(item);
+           vmusers.listOfSections = new ObservableCollection<Model.Section>(selectedSecs);
+            
+           
                       
         }
 

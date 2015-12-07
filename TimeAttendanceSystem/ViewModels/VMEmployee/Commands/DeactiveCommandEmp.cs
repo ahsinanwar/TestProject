@@ -41,6 +41,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee.Commands
                 context.SaveChanges();
                 int _userID = GlobalClasses.Global.user.UserID;
                 HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Employee, (byte)MyEnums.Operation.Delete, DateTime.Now);
+                PopUp.popUp("Employee", "Employee has been deactived", Mantin.Controls.Wpf.Notification.NotificationType.Information);
             }
             catch (Exception)
             {

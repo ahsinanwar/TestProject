@@ -618,6 +618,7 @@
     </Compile>
     <Compile Include="Validation\NameValidator.cs" />
     <Compile Include="ValueConvertors\CanAddBoolToVisibleOrHidden.cs" />
+    <Compile Include="ValueConvertors\CRLFtoBlankConvertor.cs" />
     <Compile Include="ValueConvertors\DataRoleFrontEndToCriteriaDataConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToDateConvertor.cs" />
     <Compile Include="ValueConvertors\DateTimeToTimeSpan.cs" />

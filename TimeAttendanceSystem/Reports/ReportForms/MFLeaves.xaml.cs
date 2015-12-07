@@ -137,7 +137,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void LoadReport(string Path, DataTable _List)
         {
             //rptViewer.Reset();
-            string DateToFor = "";
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            string DateToFor = dateFrom.ToShortDateString() + " to " + dateTo.ToShortDateString();
             string _Header = "Summary Report";
             this.rptViewer.LocalReport.DisplayName = "Summary Report";
             //rptViewer.ProcessingMode = ProcessingMode.Local;
