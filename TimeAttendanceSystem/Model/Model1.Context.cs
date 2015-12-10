@@ -74,6 +74,7 @@ namespace TimeAttendanceSystem.Model
         public DbSet<LvQuota> LvQuotas { get; set; }
         public DbSet<LvShort> LvShorts { get; set; }
         public DbSet<LvType> LvTypes { get; set; }
+        public DbSet<Married> Marrieds { get; set; }
         public DbSet<Option> Options { get; set; }
         public DbSet<PollData> PollDatas { get; set; }
         public DbSet<PollDataError> PollDataErrors { get; set; }

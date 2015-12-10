@@ -17,15 +17,13 @@ namespace TimeAttendanceSystem.Model
         public UserAccessRole()
         {
             this.UserAccesses = new HashSet<UserAccess>();
-            this.UserAccesses1 = new HashSet<UserAccess>();
         }
     
         public int UserDataAccessID { get; set; }
         public string DataAccessRole { get; set; }
-        public string DataAccessLegend { get; set; }
-        public int DataAccessType { get; set; }
+        public string DataAccessLegent { get; set; }
+        public Nullable<int> DataAccessType { get; set; }
     
         public virtual ICollection<UserAccess> UserAccesses { get; set; }
-        public virtual ICollection<UserAccess> UserAccesses1 { get; set; }
     }
 }
