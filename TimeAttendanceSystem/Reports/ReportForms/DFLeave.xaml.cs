@@ -30,10 +30,10 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         TAS2013Entities ctx = new TAS2013Entities();
         private void ButtonGenerate(object sender, RoutedEventArgs e)
         {
-            List<ViewAbsent> _TempViewList = new List<ViewAbsent>();
+            List<ViewLeaveData> _TempViewList = new List<ViewLeaveData>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewAbsent> _ViewList = ctx.ViewAbsents.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
+            List<ViewLeaveData> _ViewList = ctx.ViewLeaveDatas.Where(aa => aa.FromDate >= dateFrom && aa.FromDate <= dateTo).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -131,7 +131,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             LoadReport(Properties.Settings.Default.ReportPath + "DRLeave.rdlc", _ViewList);
 
         }
-        private void LoadReport(string Path, List<ViewAbsent> _List)
+        private void LoadReport(string Path, List<ViewLeaveData> _List)
         {
             //rptViewer.Reset();
             DateTime dateFrom = UserControlReport.StartDate;
