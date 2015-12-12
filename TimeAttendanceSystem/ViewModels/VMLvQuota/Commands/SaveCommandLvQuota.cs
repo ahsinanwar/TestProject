@@ -77,7 +77,10 @@ namespace TimeAttendanceSystem.ViewModels.VMLvQuota.Commands
              
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
-                context.SaveChanges();
+                using (context = new TAS2013Entities())
+                {
+                    context.SaveChanges(); 
+                }
                 int _userID = GlobalClasses.Global.user.UserID;
                 HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LeaveQuota, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 PopUp.popUp("Created Successfully", "Lv Quota  is Created congrats g", NotificationType.Warning);

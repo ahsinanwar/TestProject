@@ -15,13 +15,12 @@ namespace TimeAttendanceSystem.Model
     public partial class UserAccess
     {
         public int UserAccessID { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<int> UserAccessRoleID { get; set; }
-        public Nullable<int> CriteriaData { get; set; }
+        public int UserID { get; set; }
+        public int UserAccessRoleID { get; set; }
+        public int CriteriaData { get; set; }
     
         public virtual User User { get; set; }
-        public virtual UserAccess UserAccess1 { get; set; }
-        public virtual UserAccess UserAccess2 { get; set; }
         public virtual UserAccessRole UserAccessRole { get; set; }
+        public virtual UserAccessRole UserAccessRole1 { get; set; }
     }
 }

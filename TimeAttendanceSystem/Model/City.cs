@@ -17,6 +17,7 @@ namespace TimeAttendanceSystem.Model
         public City()
         {
             this.Locations = new HashSet<Location>();
+            this.Sites = new HashSet<Site>();
         }
     
         public short CityID { get; set; }
@@ -25,5 +26,6 @@ namespace TimeAttendanceSystem.Model
     
         public virtual Region Region { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
+        public virtual ICollection<Site> Sites { get; set; }
     }
 }

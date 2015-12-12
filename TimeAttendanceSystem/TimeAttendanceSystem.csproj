@@ -574,6 +574,9 @@
     <Compile Include="Reports\ReportForms\DFMultipleInOut.xaml.cs">
       <DependentUpon>DFMultipleInOut.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\MRLeaveBal.xaml.cs">
+      <DependentUpon>MRLeaveBal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportForms\SDailyCompany.xaml.cs">
       <DependentUpon>SDailyCompany.xaml</DependentUpon>
     </Compile>
@@ -941,6 +944,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reports\ReportForms\DFMultipleInOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportForms\MRLeaveBal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

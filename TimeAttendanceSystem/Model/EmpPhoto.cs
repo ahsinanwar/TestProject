@@ -14,10 +14,15 @@ namespace TimeAttendanceSystem.Model
     
     public partial class EmpPhoto
     {
+        public EmpPhoto()
+        {
+            this.Emps = new HashSet<Emp>();
+        }
+    
         public int PhotoID { get; set; }
         public byte[] EmpPic { get; set; }
         public Nullable<int> EmpID { get; set; }
     
-        public virtual Emp Emp { get; set; }
+        public virtual ICollection<Emp> Emps { get; set; }
     }
 }

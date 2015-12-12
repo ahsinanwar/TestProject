@@ -145,6 +145,7 @@
                             <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Absent"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Leave"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Leave Balance"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Short Leaves"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Early In"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Early Out"></telerik:RadMenuItem>
