@@ -84,9 +84,9 @@ namespace TimeAttendanceSystem
                     case "Departments":
                         _mainFrame.Navigate(new DepartmentView());
                         break;
-                    case "Division":
-                        _mainFrame.Navigate(new DivisionView());
-                        break;
+                    //case "Division":
+                    //    _mainFrame.Navigate(new DivisionView());
+                    //    break;
                     case "Designation":
                         _mainFrame.Navigate(new DesignationView());
                         break;

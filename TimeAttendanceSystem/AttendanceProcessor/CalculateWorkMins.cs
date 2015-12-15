@@ -60,16 +60,10 @@ namespace TASDownloadService.AttProcessDaily
                     /////////// to-do -----calculate Margins for those shifts which has break mins 
                     if (shift.HasBreak == true)
                     {
-
-
-
                         mins = DeductBreak(attendanceRecord, shift, mins);
-
-                   
-
                     }
                     
-                    {
+                    
                         attendanceRecord.Remarks.Replace(remarks.Where(aa => aa.RemarkLabel == "Absent").First().RemarkValue, "");
                         attendanceRecord.StatusAB = false;
                         attendanceRecord.StatusP = true;
@@ -198,29 +192,31 @@ namespace TASDownloadService.AttProcessDaily
                             {
                                 attendanceRecord.WorkMin = ProcessSupportFunc.CalculateShiftMinutes(shift, attendanceRecord.AttDate.Value.DayOfWeek);
                             }
+
                         //Calculate OverTime = OT, Compare margin with Shift OverTime
                         //----to-do----- Handle from shift
-                        //if (attendanceRecord.EarlyIn > shift.EarlyIn || attendanceRecord.LateOut > shift.LateOut)
-                        //{
-                        //    if (attendanceRecord.StatusGZ != true || attendanceRecord.StatusDO != true)
-                        //    {
-                        //        short _EarlyIn;
-                        //        short _LateOut;
-                        //        if (attendanceRecord.EarlyIn == null)
-                        //            _EarlyIn = 0;
-                        //        else
-                        //            _EarlyIn = 0;
+                        if (attendanceRecord.EarlyIn > shift.EarlyIn || attendanceRecord.LateOut > shift.LateOut)
+                        {
+                            if (attendanceRecord.StatusGZ != true || attendanceRecord.StatusDO != true)
+                            {
+                                short _EarlyIn;
+                                short _LateOut;
+                                if (attendanceRecord.EarlyIn == null)
+                                    _EarlyIn = 0;
+                                else
+                                    _EarlyIn = 0;
 
-                        //        if (attendanceRecord.LateOut == null)
-                        //            _LateOut = 0;
-                        //        else
-                        //            _LateOut = (short)attendanceRecord.LateOut;
+                                if (attendanceRecord.LateOut == null)
+                                    _LateOut = 0;
+                                else
+                                    _LateOut = (short)attendanceRecord.LateOut;
 
-                        //        attendanceRecord.OTMin = (short)(_EarlyIn + _LateOut);
-                        //        attendanceRecord.StatusOT = true;
-                        //        attendanceRecord.Remarks = attendanceRecord.Remarks + "[N-OT]";
-                        //    }
-                        //}
+                                attendanceRecord.OTMin = (short)(_EarlyIn + _LateOut);
+                                attendanceRecord.StatusOT = true;
+                                attendanceRecord.Remarks = attendanceRecord.Remarks + "[N-OT]";
+                            }
+                        }
+                        
                         if ((attendanceRecord.StatusGZ != true || attendanceRecord.StatusDO != true) && attendanceRecord.Emp.HasOT == true)
                         {
                             if (attendanceRecord.LateOut != null)
@@ -263,7 +259,7 @@ namespace TASDownloadService.AttProcessDaily
                             }
 
                         }
-                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -322,8 +318,8 @@ namespace TASDownloadService.AttProcessDaily
                             {
                                 mins = DeductBreak(attendanceRecord, shift, mins);
                             }
-                            else
-                            {
+                            
+                            
                                 attendanceRecord.Remarks.Replace(remarks.Where(aa => aa.RemarkLabel == "Absent").First().RemarkValue, "");
                                 attendanceRecord.StatusAB = false;
                                 attendanceRecord.StatusP = true;
@@ -400,7 +396,7 @@ namespace TASDownloadService.AttProcessDaily
                                     }
 
                                 }
-                            }
+                            
                         }
                     }
                 }
