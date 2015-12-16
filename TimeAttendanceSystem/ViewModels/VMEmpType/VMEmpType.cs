@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
+using TimeAttendanceSystem.QueryBuilders;
+
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
@@ -72,7 +75,10 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
             {
                 this.isEnabled = false;
                 _selectedEmpType = value;
-                _listOfEmpTypeEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpType.TypeID == _selectedEmpType.TypeID));
+                User _user = GlobalClasses.Global.user;
+                QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                string query = queryForSection.MakeCustomizeQuerySection(_user);
+                _listOfEmpTypeEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.EmpType.TypeID == selectedEmpType.TypeID));
                 base.OnPropertyChanged("ListOfEmpTypeEmps");
                 base.OnPropertyChanged("selectedEmpType");
                 base.OnPropertyChanged("isEnabled");
@@ -147,7 +153,11 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType
             _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
             _selectedEmpType = entity.EmpTypes.ToList().FirstOrDefault();
-            _listOfEmpTypeEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpType.TypeID == _selectedEmpType.TypeID));
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySection(_user);
+            _listOfEmpTypeEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.EmpType.TypeID == selectedEmpType.TypeID));
+            
             this._AddCommand = new AddCommandEmpType(_selectedEmpType);
             this._EditCommand = new EditCommandEmpType(this);
             this._DeleteCommand = new DeleteCommandEmpType(_selectedEmpType);

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
+using TimeAttendanceSystem.QueryBuilders;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
@@ -71,6 +73,11 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             {
                 this.isEnabled = false;
                 _selectedShift = value;
+                User _user = GlobalClasses.Global.user;
+                QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                string query = queryForSection.MakeCustomizeQuerySection(_user);
+                _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.ShiftID == selectedShift.ShiftID));
+                base.OnPropertyChanged("listOfShiftEmps");
                 base.OnPropertyChanged("selectedShift");
                 base.OnPropertyChanged("isEnabled");
 
@@ -104,6 +111,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             set
             {
                 _listOfShiftEmps = value;
+               
                 OnPropertyChanged("listOfShiftEmps");
             }
         }
@@ -153,8 +161,11 @@ namespace TimeAttendanceSystem.ViewModels.VMShift
             _listOfShifts = new ObservableCollection<Shift>(entity.Shifts.ToList());
             _selectedShift = entity.Shifts.ToList().FirstOrDefault();
             _listOfDays = new ObservableCollection<DaysName>(entity.DaysNames.ToList());
-            _listOfRosterType = new ObservableCollection<RosterType>(entity.RosterTypes.ToList()); 
-            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ShiftID == _selectedShift.ShiftID).ToList());
+            _listOfRosterType = new ObservableCollection<RosterType>(entity.RosterTypes.ToList());
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySection(_user);
+            _listOfShiftEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.ShiftID == selectedShift.ShiftID));
             this._AddCommand = new AddCommandShift(_selectedShift);
             this._EditCommand = new EditCommandShift(this);
             this._DeleteCommand = new DeleteCommandShift(_selectedShift);

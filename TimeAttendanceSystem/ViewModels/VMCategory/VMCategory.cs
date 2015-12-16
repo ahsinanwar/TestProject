@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
+using TimeAttendanceSystem.QueryBuilders;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
@@ -74,7 +76,10 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory
             {
                 this.isEnabled = false;
                 _selectedCat = value;
-                listOfEmps =  new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.EmpType.CatID == _selectedCat.CatID));
+                User _user = GlobalClasses.Global.user;
+                QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                string query = queryForSection.MakeCustomizeQuerySection(_user);
+                _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.EmpType.CatID == selectedCat.CatID));
                 base.OnPropertyChanged("listOfEmps");
                 base.OnPropertyChanged("selectedCat");
                 base.OnPropertyChanged("isEnabled");
@@ -138,8 +143,11 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory
           
             _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList());
             _selectedCat = entity.Categories.ToList().FirstOrDefault();
-
-            _listOfEmps = new ObservableCollection<Emp>( entity.Emps.Where(aa => aa.EmpType.CatID== _selectedCat.CatID));
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySection(_user);
+            _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.EmpType.CatID == selectedCat.CatID));
+            
             this._AddCommand = new AddCommandCat(_selectedCat);
             this._EditCommand = new EditCommandCat(this);
             this._DeleteCommand = new DeleteCommandCat(_selectedCat);

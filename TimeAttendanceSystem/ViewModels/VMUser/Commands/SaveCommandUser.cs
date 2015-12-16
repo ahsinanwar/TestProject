@@ -45,6 +45,10 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                 {
                     PopUp.popUp("Give a Value", "Please write User ID before saving", NotificationType.Warning);   
                 }
+                else if (vmd.listOfSections.Count() == 0)
+                {
+                    PopUp.popUp("User", "Please Select a Section to give access to the User", NotificationType.Information);
+                }
                 else
                 {
                     
@@ -61,6 +65,19 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                         {
                             ctx.Users.Add(vmd.selectedUser);
                             ctx.SaveChanges();
+                            foreach (Section sec in vmd.listOfSections)
+                            {
+
+                                UserAccess uAccess = new UserAccess();
+                                uAccess.UserID = (int)vmd.selectedUser.UserID;
+                                uAccess.UserAccessRoleID = 1;
+                                uAccess.CriteriaData = sec.SectionID;
+                                ctx.UserAccesses.Add(uAccess);
+                                ctx.SaveChanges();
+                               
+                            }
+                            //int _userID = GlobalClasses.Global.user.UserID;
+                            //HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.User, (byte)MyEnums.Operation.Add, DateTime.Now);
                             PopUp.popUp("User", "Successfully Saved " + vmd.selectedUser.UserName, NotificationType.Information);
                             vmd.listOfUsers.Add(vmd.selectedUser);
                         }
@@ -69,6 +86,7 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                   
                 }
             }
+           
             else
             {
                 User user = context.Users.First(aa => aa.UserID == vmd.selectedUser.UserID);
@@ -96,10 +114,28 @@ namespace TimeAttendanceSystem.ViewModels.VMUser.Commands
                 user.MRoster = vmd.selectedUser.MRoster;
                 user.MDevice = vmd.selectedUser.MDevice;
                 user.MLeave = vmd.selectedUser.MLeave;
-                
+                //Code For User Access deletion and addition with new Sections
+                List<UserAccess> listOfUserAcccess = new List<UserAccess>();
+                listOfUserAcccess = context.UserAccesses.Where(aa => aa.UserID == user.UserID).ToList();
+                foreach (UserAccess UAcess in listOfUserAcccess)
+                    context.UserAccesses.Remove(UAcess);
+                context.SaveChanges();
+                foreach (Section sec in vmd.listOfSections)
+                {
+
+                    UserAccess uAccess = new UserAccess();
+                    uAccess.UserID = (int)vmd.selectedUser.UserID;
+                    uAccess.UserAccessRoleID = 1;
+                    uAccess.CriteriaData = sec.SectionID;
+                    context.UserAccesses.Add(uAccess);
+                    context.SaveChanges();
+
+                }
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                //int _userID = GlobalClasses.Global.user.UserID;
+                //HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.User, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 PopUp.popUp("User", "Successfully Edited " + vmd.selectedUser.UserName, NotificationType.Information);   
             }
 

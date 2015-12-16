@@ -37,6 +37,8 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
             {
                 if (context.SaveChanges() > 0)
                 {
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Holiday, (byte)MyEnums.Operation.Delete, DateTime.Now);
                     vmd.listOfHolidays.Remove(vmd.selectedHoliday);
                     vmd.selectedHoliday = vmd.listOfHolidays[0];
                     PopUp.popUp("Holiday", "Holiday Deleted", NotificationType.Information);

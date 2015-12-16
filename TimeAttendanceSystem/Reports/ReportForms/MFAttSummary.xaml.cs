@@ -27,7 +27,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             InitializeComponent();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            LoadReport(Properties.Settings.Default.ReportPath + "MRSummary.rdlc", ctx.ViewMonthlyDatas.ToList());
+            string period = dateFrom.Month.ToString() + dateFrom.Year.ToString();
+            List<ViewMonthlyData> _ViewList = ctx.ViewMonthlyDatas.Where(aa => aa.Period == period).ToList();
+            LoadReport(Properties.Settings.Default.ReportPath + "MRSummary.rdlc", _ViewList);
      
         }
         TAS2013Entities ctx = new TAS2013Entities();
@@ -36,7 +38,8 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             List<ViewMonthlyData> _TempViewList = new List<ViewMonthlyData>();
             DateTime dateFrom = UserControlReport.StartDate;
             DateTime dateTo = UserControlReport.EndDate;
-            List<ViewMonthlyData> _ViewList = ctx.ViewMonthlyDatas.ToList();
+            string period = dateFrom.Month.ToString() + dateFrom.Year.ToString(); 
+            List<ViewMonthlyData> _ViewList = ctx.ViewMonthlyDatas.Where(aa => aa.Period == period).ToList();
 
             if (UserControlReport.selectedEmps.Count > 0)
             {
@@ -137,7 +140,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void LoadReport(string Path, List<ViewMonthlyData> _List)
         {
             //rptViewer.Reset();
-            string DateToFor = "";
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            string DateToFor = "For the month of " + dateFrom.ToString("MMM") + " - " + dateFrom.ToString("yyyy");
             string _Header = "Attendance Summary";
             this.rptViewer.LocalReport.DisplayName = "Attendance Summary";
             //rptViewer.ProcessingMode = ProcessingMode.Local;
@@ -150,7 +155,7 @@ namespace TimeAttendanceSystem.Reports.ReportForms
             rptViewer.LocalReport.DataSources.Add(datasource1);
             ReportParameter rp1 = new ReportParameter("Header", _Header, false);
             //ReportParameter rp2 = new ReportParameter("CompanyName", CommanVariables.CompanyName, false);
-            ReportParameter rp2 = new ReportParameter("Date", DateTime.Today.ToString(), false);
+            ReportParameter rp2 = new ReportParameter("Date",DateToFor, false);
             this.rptViewer.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2 });
             rptViewer.RefreshReport();
         }

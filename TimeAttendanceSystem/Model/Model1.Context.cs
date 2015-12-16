@@ -95,6 +95,8 @@ namespace TimeAttendanceSystem.Model
         public DbSet<Site> Sites { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserAccess> UserAccesses { get; set; }
+        public DbSet<UserAccessRole> UserAccessRoles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<EmpView> EmpViews { get; set; }
         public DbSet<ViewAbsent> ViewAbsents { get; set; }

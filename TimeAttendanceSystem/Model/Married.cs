@@ -14,7 +14,7 @@ namespace TimeAttendanceSystem.Model
     
     public partial class Married
     {
-        public string MarriedID { get; set; }
+        public byte MarriedID { get; set; }
         public string Name { get; set; }
     }
 }

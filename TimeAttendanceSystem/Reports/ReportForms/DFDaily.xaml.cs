@@ -151,6 +151,10 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void LoadReport(string Path, List<ViewMultipleInOut> _List)
         {
             //rptViewer.Reset();
+
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+
             string DateToFor = dateFrom.ToShortDateString() + " to " + dateTo.ToShortDateString();
             string _Header = "Daily Attendance Report";
             this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";

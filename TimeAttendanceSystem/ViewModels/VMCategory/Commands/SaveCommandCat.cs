@@ -43,6 +43,8 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
                 else {
                     context.Categories.Add(vmd.selectedCat);
                     context.SaveChanges();
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Category, (byte)MyEnums.Operation.Add, DateTime.Now);
                     vmd.listOfCats.Add(vmd.selectedCat);
                     PopUp.popUp("Category", "Category Created", NotificationType.Information);
                 }
@@ -55,7 +57,9 @@ namespace TimeAttendanceSystem.ViewModels.VMCategory.Commands
                 cat.CatName = vmd.selectedCat.CatName;
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
-                context.SaveChanges();
+              context.SaveChanges();
+              int _userID = GlobalClasses.Global.user.UserID;
+              HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Category, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 PopUp.popUp("Category", "Category Edited", NotificationType.Information);
             }
 

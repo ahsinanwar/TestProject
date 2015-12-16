@@ -14,10 +14,9 @@ namespace TimeAttendanceSystem.Model
     
     public partial class ViewLeaveQuota
     {
-        public int EmpID { get; set; }
+        public Nullable<int> EmpID { get; set; }
         public string DesignationName { get; set; }
         public string GradeName { get; set; }
-        public string CompName { get; set; }
         public string JobTitle { get; set; }
         public string CityName { get; set; }
         public string RegionName { get; set; }
@@ -34,8 +33,8 @@ namespace TimeAttendanceSystem.Model
         public string DeptName { get; set; }
         public string DivisionName { get; set; }
         public int Expr1 { get; set; }
-        public double B { get; set; }
-        public double C { get; set; }
+        public Nullable<double> B { get; set; }
+        public Nullable<double> C { get; set; }
         public Nullable<double> D { get; set; }
         public Nullable<double> E { get; set; }
         public Nullable<double> F { get; set; }
@@ -45,7 +44,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<double> J { get; set; }
         public Nullable<double> K { get; set; }
         public Nullable<double> L { get; set; }
-        public double A { get; set; }
+        public Nullable<double> A { get; set; }
         public Nullable<double> TA { get; set; }
         public Nullable<double> TB { get; set; }
         public Nullable<double> TC { get; set; }
@@ -58,7 +57,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<double> TJ { get; set; }
         public Nullable<double> TK { get; set; }
         public Nullable<double> TL { get; set; }
-        public Nullable<short> CompanyID { get; set; }
         public Nullable<byte> TypeID { get; set; }
         public Nullable<short> CatID { get; set; }
         public Nullable<int> DesigID { get; set; }

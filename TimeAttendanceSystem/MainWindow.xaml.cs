@@ -214,6 +214,9 @@ namespace TimeAttendanceSystem
                     case "Process Attendance":
                         _mainFrame.Navigate(new AttendanceProcess());
                         break;
+                    case "Leave Balance":
+                        _mainFrame.Navigate(new MRLeaveBalance());
+                        break;
                 }
             }
         }

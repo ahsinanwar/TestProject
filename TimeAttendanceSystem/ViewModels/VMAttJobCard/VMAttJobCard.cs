@@ -130,7 +130,6 @@ namespace TimeAttendanceSystem.ViewModels.VMAttJobCard
             _selectedAttData = new AttData();
             DateTime date = new DateTime(2015, 03, 15);
             _listofJobCardApps = new ObservableCollection<JobCardApp>(entity.JobCardApps.ToList());
-           
             _listOfAttData = new ObservableCollection<AttData>(entity.AttDatas.Where(aa => aa.AttDate == date).ToList());
             _selectedAttData = entity.AttDatas.ToList().FirstOrDefault();
             _attDataShow = entity.AttDatas.ToList().FirstOrDefault();

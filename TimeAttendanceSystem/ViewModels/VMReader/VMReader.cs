@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
+using TimeAttendanceSystem.QueryBuilders;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TASDownloadService.Helper;
@@ -84,6 +86,10 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             set
             {
                 _listOfRdrEmps = value;
+                User _user = GlobalClasses.Global.user;
+                QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                string query = queryForSection.MakeCustomizeQuerySection(_user);
+                _listOfRdrEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.ReaderID == selectedRdr.RdrID));
                 OnPropertyChanged("listOfRdrEmps");
             }
         }
@@ -234,8 +240,11 @@ namespace TimeAttendanceSystem.ViewModels.VMReader
             _selectedRdr = new Reader();
             _listOfRdrs = new ObservableCollection<Reader>(entity.Readers.ToList());
             _selectedRdr = entity.Readers.ToList().FirstOrDefault();
-
-            _listOfRdrEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.ReaderID == _selectedRdr.RdrID).ToList());
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySection(_user);
+            _listOfRdrEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.ReaderID == selectedRdr.RdrID));
+            
             //GetUsrsFromSelectedReader();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             _listOfDutyCodes = new ObservableCollection<RdrDutyCode>(entity.RdrDutyCodes.ToList());

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
+using TimeAttendanceSystem.QueryBuilders;
 using TimeAttendanceSystem.ViewModels.VMEmployee.Commands;
 
 namespace TimeAttendanceSystem.ViewModels.VMEmployee
@@ -236,6 +239,7 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             set
             {
+                 
                 listOfEmps = value;
                 OnPropertyChanged("listOfEmps");
             }
@@ -387,8 +391,18 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
 
             _listOfJobs = new ObservableCollection<JobTitle>(entity.JobTitles.ToList());
             _selectedDept = new Department();
+
             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(emp => emp.Status == true).ToList().OrderByDescending(x => x.EmpNo));
              _selectedEmp = entity.Emps.ToList().FirstOrDefault();
+
+             User _user = GlobalClasses.Global.user;
+             QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+             string query = queryForSection.MakeCustomizeQuerySection(_user);
+
+             _listOfEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable());
+             _selectedEmp = _listOfEmps.FirstOrDefault();
+             Designation des = _selectedEmp.Designation;
+
              _dummyEmp = selectedEmp;
              _listOfMarried = new ObservableCollection<string>();
              _listOfMarried.Add("Single");
@@ -396,9 +410,15 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
              _listOfMarried.Add("Engaged");
              _listOfCats = new ObservableCollection<Category>(entity.Categories.ToList().OrderByDescending(x => x.CatName));
              _selectedCat = entity.Categories.ToList().FirstOrDefault();
+
              _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList().OrderByDescending(x => x.TypeName));
              _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList().OrderByDescending(x => x.DesignationName));
              _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList().OrderByDescending(x => x.GradeName));
+
+            _listOfEmpTypes = new ObservableCollection<EmpType>(entity.EmpTypes.ToList());
+            _listOfDesgs = new ObservableCollection<Designation>(entity.Designations.ToList().OrderBy(s=>s.DesignationName));
+            _listOfGrades = new ObservableCollection<Grade>(entity.Grades.ToList());
+
             _listOfGenders = new ObservableCollection<string>();
             _listOfGenders.Add( "Male");
             _listOfGenders.Add("Female");
@@ -408,7 +428,12 @@ namespace TimeAttendanceSystem.ViewModels.VMEmployee
             _selectedDept = entity.Departments.ToList().FirstOrDefault();
             _listOfLocs = new ObservableCollection<Location>(entity.Locations.ToList());
             // We did not get the section list from the  dep id in AHC this will change for different clients.
+
             _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList().OrderByDescending(x => x.SectionName));
+
+            query = queryForSection.MakeCustomizeQuerySec(_user);
+            _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(query));
+
             _selectedSec = _listOfSecs.FirstOrDefault();
             _listOfCrews = new ObservableCollection<Crew>(entity.Crews.ToList().OrderByDescending(x => x.CrewName));
          

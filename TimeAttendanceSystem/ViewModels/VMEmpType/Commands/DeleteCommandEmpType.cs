@@ -42,6 +42,8 @@ namespace TimeAttendanceSystem.ViewModels.VMEmpType.Commands
                 {
                     if (context.SaveChanges() > 0)
                     {
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.EmpType, (byte)MyEnums.Operation.Delete, DateTime.Now);
                         vmd.listOfEmpTypes.Remove(vmd.selectedEmpType);
                         vmd.selectedEmpType = vmd.listOfEmpTypes[0];
                         PopUp.popUp("Employee Type", "Employee Type Deleted", Mantin.Controls.Wpf.Notification.NotificationType.Information);
