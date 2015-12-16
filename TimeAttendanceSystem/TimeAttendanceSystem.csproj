@@ -791,9 +791,6 @@
     <Compile Include="Views\DesignationView.xaml.cs">
       <DependentUpon>DesignationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DivisionView.xaml.cs">
-      <DependentUpon>DivisionView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\DownloadingView.xaml.cs">
       <DependentUpon>DownloadingView.xaml</DependentUpon>
     </Compile>
@@ -1068,10 +1065,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DesignationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DivisionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
