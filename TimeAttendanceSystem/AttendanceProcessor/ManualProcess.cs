@@ -17,13 +17,13 @@ namespace TASDownloadService.AttProcessDaily
 
         public void ManualProcessAttendance(DateTime date,List<Emp> emps, List<AttData> _AttDatas)
         {
-            BootstrapAttendance(date, emps, _AttDatas);
+            BootstrapAttendance(date, emps);
             DateTime dateEnd = date.AddDays(1);
             List<Remark> remarks = new List<Remark>();
             remarks = context.Remarks.ToList();
             List<AttData> attData = new List<AttData>();
             attData= context.AttDatas.Where(aa => aa.AttDate == date).ToList();
-            List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.EntDate >= date && p.EntDate <=dateEnd)).OrderBy(e => e.EntTime).ToList();
+            List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.EntDate >= date && p.EntDate <=dateEnd) && p.EmpID==6965).OrderBy(e => e.EntTime).ToList();
             foreach (PollData up in unprocessedPolls)
             {
                 try
@@ -117,7 +117,7 @@ namespace TASDownloadService.AttProcessDaily
                             }
                         }
                         //If TimeIn and TimeOut are not null, then calculate other Atributes
-                        if (context.AttDatas.First(attd => attd.EmpDate == up.EmpDate).TimeIn != null && context.AttDatas.First(attd => attd.EmpDate == up.EmpDate).TimeOut != null)
+                        if (attendanceRecord.TimeIn != null && attendanceRecord.TimeOut != null)
                         {
                             if (context.Rosters.Where(r => r.EmpDate == up.EmpDate).Count() > 0)
                             {
@@ -162,21 +162,21 @@ namespace TASDownloadService.AttProcessDaily
         }
 
 
-        public void BootstrapAttendance(DateTime dateTime, List<Emp> emps, List<AttData> _AttData)
+        public void BootstrapAttendance(DateTime dateTime, List<Emp> emps)
         {
             using (var ctx = new TAS2013Entities())
             {
                 List<Roster> _Roster = new List<Roster>();
-                _Roster = context.Rosters.Where(aa => aa.RosterDate == dateTime).ToList();
+                _Roster = ctx.Rosters.Where(aa => aa.RosterDate == dateTime).ToList();
                 List<RosterDetail> _NewRoster = new List<RosterDetail>();
-                _NewRoster = context.RosterDetails.Where(aa => aa.RosterDate == dateTime).ToList();
+                _NewRoster = ctx.RosterDetails.Where(aa => aa.RosterDate == dateTime).ToList();
                 List<LvData> _LvData = new List<LvData>();
-                _LvData = context.LvDatas.Where(aa => aa.AttDate == dateTime).ToList();
+                _LvData = ctx.LvDatas.Where(aa => aa.AttDate == dateTime).ToList();
                 List<LvShort> _lvShort = new List<LvShort>();
-                _lvShort = context.LvShorts.Where(aa => aa.DutyDate == dateTime).ToList();
+                _lvShort = ctx.LvShorts.Where(aa => aa.DutyDate == dateTime).ToList();
                 //List<AttData> _AttData = context.AttDatas.Where(aa => aa.AttDate == dateTime).ToList();
                 List<AttData> attData = new List<AttData>();
-                attData = context.AttDatas.Where(aa => aa.AttDate == dateTime).ToList();
+                attData = ctx.AttDatas.Where(aa => aa.AttDate == dateTime).ToList();
                 List<Remark> remarks = new List<Remark>();
                 remarks = ctx.Remarks.ToList();
                 foreach (var emp in emps)
@@ -249,6 +249,7 @@ namespace TASDownloadService.AttProcessDaily
                             att.EmpNo = emp.EmpNo;
                             att.EmpDate = emp.EmpID + dateTime.ToString("yyMMdd");
                             att.ShifMin = ProcessSupportFunc.CalculateShiftMinutes(emp.Shift, dateTime.DayOfWeek);
+                            att.BreakMin = ProcessSupportFunc.CalculateShiftBreakMinutes(emp.Shift, dateTime.DayOfWeek);
                             //////////////////////////
                             //  Check for Rest Day //
                             ////////////////////////
@@ -400,13 +401,15 @@ namespace TASDownloadService.AttProcessDaily
                             //////////////////////////
                             foreach (var sLeave in _lvShort.Where(aa => aa.EmpDate == att.EmpDate))
                             {
-                                if (_lvShort.Where(lv => lv.EmpDate == att.EmpDate).Count() > 0)
-                                {
-                                    att.StatusSL = true;
-                                    att.StatusAB = null;
-                                    att.DutyCode = "L";
-                                    att.Remarks = "[Short Leave]";
-                                }
+                                    if (_lvShort.Where(lv => lv.EmpDate == att.EmpDate).Count() > 0)
+                                    {
+                                        att.StatusSL = true;
+                                        att.StatusAB = null;
+                                        att.SLMin = sLeave.THour;
+                                        att.ShifMin = (short)(att.ShifMin - Convert.ToInt16(sLeave.THour.Value.TotalMinutes));
+                                        att.DutyCode = "D";
+                                        att.Remarks = "[Short Leave]";
+                                    }
                             }
 
                             //////////////////////////
@@ -423,22 +426,7 @@ namespace TASDownloadService.AttProcessDaily
                                     att.DutyCode = "L";
                                     att.StatusDO = false;
                                     if (Leave.LvCode == "A")
-                                    {
-                                        //att.Remarks = "[CL]";
-                                        att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
-                                    }
-                                    else if (Leave.LvCode == "B")
-                                    {
-                                        //att.Remarks = "[AL]";
-                                        att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
-                                    }
-                                    else if (Leave.LvCode == "C")
-                                    {
-                                        //att.Remarks = "[SL]";
-                                        att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
-                                    }
-                                    else
-                                        att.Remarks = "[" + _Leave.FirstOrDefault().LvType.LvDesc + "]";
+                                    att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
                                 }
                                 else
                                 {
@@ -457,28 +445,11 @@ namespace TASDownloadService.AttProcessDaily
                                 att.DutyCode = "L";
                                 att.StatusHL = true;
                                 att.StatusDO = false;
-                                if (_HalfLeave.FirstOrDefault().LvCode == "A")
-                                {
-                                    //att.Remarks = "[H-CL]";
-                                    att.Remarks = _HalfLeave.FirstOrDefault().LvType.HalfLvCode;
-                                }
-                                else if (_HalfLeave.FirstOrDefault().LvCode == "B")
-                                {
-                                    //att.Remarks = "[S-AL]";
-                                    att.Remarks = _HalfLeave.FirstOrDefault().LvType.HalfLvCode;
-                                }
-                                else if (_HalfLeave.FirstOrDefault().LvCode == "C")
-                                {
-                                    //att.Remarks = "[H-SL]";
-                                    att.Remarks = _HalfLeave.FirstOrDefault().LvType.HalfLvCode;
-                                }
-                                else
-                                    att.Remarks = "[Half Leave]";
+                                att.Remarks = _HalfLeave.FirstOrDefault().LvType.HalfLvCode;
                             }
                             else
                             {
-                                att.StatusLeave = true;
-                                att.StatusHL = true;
+                                att.StatusHL = false;
                             }
                             ctx.SaveChanges();
                         }

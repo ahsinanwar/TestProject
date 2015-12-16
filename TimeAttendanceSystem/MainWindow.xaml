@@ -161,7 +161,9 @@
                             <telerik:RadMenuItem Header="Attendance Sheet"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Attendance Summary"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
-
+                        <telerik:RadMenuItem Header="Summary Reports" Visibility="{Binding MRMonthly, Converter={StaticResource UserPermission},ConverterParameter=MRMonthly}">
+                            <telerik:RadMenuItem Header="Employee Consolidated"></telerik:RadMenuItem>
+                        </telerik:RadMenuItem>
                         <!--<telerik:RadMenuItem Header="Summary Reports" Visibility="{Binding MRSummary, Converter={StaticResource UserPermission},ConverterParameter=MRSummary}" Margin="-1,0,1,0">
                             <telerik:RadMenuItem Header="Yearly Leaves"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="By Company"></telerik:RadMenuItem>

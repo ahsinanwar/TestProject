@@ -734,11 +734,14 @@ namespace TimeAttendanceSystem.Controllers
             {
                 if (db.AttProcesses.Where(aa => aa.ProcessDate == lvshort.DutyDate).Count() > 0)
                 {
+                    List<Remark> remarks = new List<Remark>();
+                    remarks = db.Remarks.ToList();
                     AttData _EmpAttData = new AttData();
                     _EmpAttData = db.AttDatas.First(aa => aa.EmpDate == lvshort.EmpDate);
                     _EmpAttData.StatusAB = false;
                     _EmpAttData.StatusSL = true;
                     _EmpAttData.ShifMin = (short)(_EmpAttData.ShifMin - (short)lvshort.THour.Value.Minutes);
+                    _EmpAttData.Remarks.Replace(remarks.Where(aa => aa.RemarkLabel == "Absent").First().RemarkValue, "");
                     _EmpAttData.Remarks = _EmpAttData.Remarks + "[Short Leave]";
                     db.SaveChanges();
                 }

@@ -217,6 +217,9 @@ namespace TimeAttendanceSystem
                     case "Leave Balance":
                         _mainFrame.Navigate(new MRLeaveBalance());
                         break;
+                    case "Employee Consolidated":
+                        _mainFrame.Navigate(new DFEmpAttSummary());
+                        break;
                 }
             }
         }

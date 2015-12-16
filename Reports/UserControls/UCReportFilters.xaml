@@ -1,0 +1,114 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"                      x:Class="TimeAttendanceSystem.Reports.UserControls.UCReportFilters" 
+             mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical">
+        <!--Date Filter-->
+        <StackPanel Background="White"  Margin="3,20,3,3">
+            <Expander Header="Date" BorderBrush="Gray" BorderThickness="1" Width="185" IsExpanded="True" >
+                <StackPanel Height="69">
+                    <Grid Height="60" Margin="5,5,0,0" Background="White">
+                        <Label Content="From" Margin="3,4,124,32" />
+                        <telerik:RadDatePicker x:Name="startDate" Margin="49,4,10,32" />
+                        <Label Content="To" Margin="8,31,124,5"/>
+                        <telerik:RadDatePicker x:Name="endDate" Margin="49,31,10,3"/>
+                    </Grid>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+        <!--Employee Filter-->
+        <StackPanel Background="White"  Margin="3,3,3,3">
+            <Expander Header="Employees" BorderBrush="Gray" BorderThickness="1" >
+                <StackPanel Background="White">
+                    <Grid Height="120" Margin="5,5,0,0">
+                        <telerik:RadListBox x:Name="ListBoxEmp" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="115">
+                        </telerik:RadListBox>
+                        <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddEmployee" Content="Add" HorizontalAlignment="Left" Margin="134,1,0,0" VerticalAlignment="Top" Width="38" Click="btnAddEmployee_Click">
+                        </Button>
+                        <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearEmployee" Content="Clear" HorizontalAlignment="Left" Margin="134,33,0,0" VerticalAlignment="Top" Width="38" Click="btnClearEmployee_Click"></Button>
+
+                    </Grid>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+        <!--Department Filter-->
+        <StackPanel Background="White"  Margin="3,3,3,3">
+            <Expander Header="Department" BorderBrush="Gray" BorderThickness="1" >
+                <Grid Height="120" Margin="5,5,0,0">
+                    <telerik:RadListBox x:Name="ListBoxDept" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="115">
+                    </telerik:RadListBox>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddDept" Content="Add" HorizontalAlignment="Left" Margin="133,0,0,0" VerticalAlignment="Top" Width="38" Click="btnAddDept_Click" >
+                    </Button>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearDept" Content="Clear" HorizontalAlignment="Left" Margin="135,33,0,0" VerticalAlignment="Top" Width="38" Click="btnClearDept_Click" ></Button>
+                </Grid>
+            </Expander>
+        </StackPanel>
+        <!--Section Filter-->
+        <StackPanel Background="White"  Margin="3,3,3,3">
+            <Expander Header="Sections" BorderBrush="Gray" BorderThickness="1" >
+                <Grid Height="120" Margin="5,5,0,0">
+                    <telerik:RadListBox x:Name="ListBoxSec" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="115">
+                    </telerik:RadListBox>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddSec" Content="Add" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="38" Click="btnAddSec_Click">
+                    </Button>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearSec" Content="Clear" HorizontalAlignment="Left" Margin="135,33,0,0" VerticalAlignment="Top" Width="38" Click="btnClearSec_Click"></Button>
+                </Grid>
+            </Expander>
+        </StackPanel>
+        <!--Location Filter-->
+        <StackPanel Background="White"  Margin="3,3,3,3">
+            <Expander Header="Locations" BorderBrush="Gray" BorderThickness="1" >
+                <Grid Height="120" Margin="5,5,0,0">
+                    <telerik:RadListBox x:Name="ListBoxLoc" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="115">
+                    </telerik:RadListBox>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddLoc" Content="Add" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="38" Click="btnAddLoc_Click">
+                    </Button>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearLoc" Content="Clear" HorizontalAlignment="Left" Margin="135,33,0,0" VerticalAlignment="Top" Width="38" Click="btnClearLoc_Click"></Button>
+
+                </Grid>
+            </Expander>
+        </StackPanel>
+        <!--Shift Filter-->
+        <StackPanel Background="White"  Margin="3,3,3,3">
+            <Expander Header="Shifts" BorderBrush="Gray" BorderThickness="1" >
+                <Grid Height="120" Margin="5,5,0,0">
+                    <telerik:RadListBox x:Name="ListBoxShift" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="115">
+                    </telerik:RadListBox>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddShift" Content="Add" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="38" Click="btnAddShift_Click">
+                    </Button>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearShift" Content="Clear" HorizontalAlignment="Left" Margin="135,33,0,0" VerticalAlignment="Top" Width="38" Click="btnClearShift_Click" ></Button>
+                </Grid>
+            </Expander>
+        </StackPanel>
+        <!--Crew Filter-->
+        <StackPanel Background="White" Margin="3,3,3,3">
+            <Expander Header="Crew"  BorderBrush="Gray" BorderThickness="1" >
+                <Grid Height="120" Margin="5,5,0,0">
+                    <telerik:RadListBox x:Name="ListBoxCrew" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="115">
+                    </telerik:RadListBox>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddCrew" Content="Add" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="38" Click="btnAddCrew_Click" Height="23">
+                    </Button>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearCrew" Content="Clear" HorizontalAlignment="Left" Margin="135,33,0,0" VerticalAlignment="Top" Width="38" Click="btnClearCrew_Click" Height="23"></Button>
+
+                </Grid>
+            </Expander>
+        </StackPanel>
+        <!--Employe Type Filter-->
+        <StackPanel Background="White"  Margin="3,3,3,3">
+            <Expander Header="Employee Type" BorderBrush="Gray" BorderThickness="1" >
+                <Grid Height="120" Margin="5,5,0,0">
+                    <telerik:RadListBox x:Name="ListBoxEmpType" telerik:StyleManager.Theme="Windows8"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="115">
+                    </telerik:RadListBox>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnAddEmpType" Content="Add" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="38" Click="btnAddEmpType_Click" Height="23">
+                    </Button>
+                    <Button telerik:StyleManager.Theme="Windows8" x:Name="btnClearEmpType" Content="Clear" HorizontalAlignment="Left" Margin="135,33,0,0" VerticalAlignment="Top" Width="38" Click="btnClearEmpType_Click" Height="23"></Button>
+                </Grid>
+            </Expander>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>
