@@ -81,7 +81,7 @@ namespace TimeAttendanceSystem.Views
             List<Emp> emps = new List<Emp>();
             List<AttData> attdata = new List<AttData>();
             //emps = ctx.Emps.Where(aa => aa.Status == true).ToList();
-            emps = ctx.Emps.Where(aa => aa.EmpID == 6965).ToList();
+            emps = ctx.Emps.Where(aa => aa.Status == true).ToList();
             if (ProcessType == "Daily")
             {
                 while (dateStart <= dateEnd)

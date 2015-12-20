@@ -23,7 +23,7 @@ namespace TASDownloadService.AttProcessDaily
             remarks = context.Remarks.ToList();
             List<AttData> attData = new List<AttData>();
             attData= context.AttDatas.Where(aa => aa.AttDate == date).ToList();
-            List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.EntDate >= date && p.EntDate <=dateEnd) && p.EmpID==6965).OrderBy(e => e.EntTime).ToList();
+            List<PollData> unprocessedPolls = context.PollDatas.Where(p => (p.EntDate >= date && p.EntDate <=dateEnd)).OrderBy(e => e.EntTime).ToList();
             foreach (PollData up in unprocessedPolls)
             {
                 try
@@ -425,8 +425,7 @@ namespace TASDownloadService.AttProcessDaily
                                     att.StatusAB = false;
                                     att.DutyCode = "L";
                                     att.StatusDO = false;
-                                    if (Leave.LvCode == "A")
-                                    att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
+                                    att.Remarks = _Leave.FirstOrDefault().LvType.ReportName;
                                 }
                                 else
                                 {
