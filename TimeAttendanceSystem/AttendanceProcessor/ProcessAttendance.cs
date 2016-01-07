@@ -383,7 +383,7 @@ namespace TASDownloadService
                                     att.StatusAB = false;
                                     att.DutyCode = "L";
                                     att.StatusDO = false;
-                                    att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
+                                    att.Remarks = _Leave.FirstOrDefault().LvType.ReportName;
                                 }
                                 else
                                 {

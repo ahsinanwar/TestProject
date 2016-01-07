@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.Controllers;
+using TimeAttendanceSystem.Model;
 using TimeAttendanceSystem.ViewModels.VMLogin;
 
 namespace TimeAttendanceSystem.Views
