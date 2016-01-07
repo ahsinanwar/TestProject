@@ -60,7 +60,6 @@ namespace TimeAttendanceSystem.Model
         public DbSet<EmpFp> EmpFps { get; set; }
         public DbSet<EmpPhoto> EmpPhotoes { get; set; }
         public DbSet<EmpType> EmpTypes { get; set; }
-        public DbSet<Gender> Genders { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
         public DbSet<JobCard> JobCards { get; set; }
@@ -71,10 +70,8 @@ namespace TimeAttendanceSystem.Model
         public DbSet<LvApplication> LvApplications { get; set; }
         public DbSet<LvConsumed> LvConsumeds { get; set; }
         public DbSet<LvData> LvDatas { get; set; }
-        public DbSet<LvQuota> LvQuotas { get; set; }
         public DbSet<LvShort> LvShorts { get; set; }
         public DbSet<LvType> LvTypes { get; set; }
-        public DbSet<Married> Marrieds { get; set; }
         public DbSet<Option> Options { get; set; }
         public DbSet<PollData> PollDatas { get; set; }
         public DbSet<PollDataError> PollDataErrors { get; set; }

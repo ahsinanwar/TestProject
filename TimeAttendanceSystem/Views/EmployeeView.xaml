@@ -11,6 +11,7 @@
     <Page.Resources>
             <l:EmpGenderByteToStringConvetor x:Key="converter" />
             <l:EmpMarriedStringToStringConvertor x:Key="DateConverter"/>
+        <l:CRLFtoBlankConvertor x:Key="CRLFConvertor"></l:CRLFtoBlankConvertor>
         <l:EmpCardNoPostpendConvertor x:Key="PostpendConvertor"></l:EmpCardNoPostpendConvertor>
         
         <Style TargetType="TextBox">
@@ -46,13 +47,19 @@
         <StackPanel Margin="5,5,5,10" Grid.Row="1" Grid.Column="0">
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
                         ItemsSource="{Binding PagedSource,ElementName=rdpData}" SelectedItem="{Binding selectedEmp}" 
-                        VerticalAlignment="Stretch" Grid.RowSpan="2" 
+                        VerticalAlignment="Stretch" Grid.RowSpan="2"
                         CanUserFreezeColumns="False" GroupPanelBackground="#FF004B79" Height="509">
                 <telerik:RadGridView.Columns>
-                    <telerik:GridViewDataColumn Header="Emp ID" DataMemberBinding="{Binding EmpID}" />
-                    <telerik:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" />
+                    <telerik:GridViewDataColumn Header="Emp No" DataMemberBinding="{Binding EmpNo}" />
+                   
                     <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding EmpName}" />
-                    <telerik:GridViewDataColumn Header="Designation" DataMemberBinding="{Binding Designation.DesignationName}" />
+                    <telerik:GridViewDataColumn Header="Designation" DataMemberBinding="{Binding Designation.DesignationName,Converter={StaticResource CRLFConvertor}}">
+                        <telerik:GridViewDataColumn.CellEditTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Designation.DesignationName}" AcceptsReturn="False"/>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellEditTemplate>
+                    </telerik:GridViewDataColumn>
                     <telerik:GridViewDataColumn Header="Section" DataMemberBinding="{Binding Section.SectionName}" />
                     <telerik:GridViewDataColumn Header="Job Title" DataMemberBinding="{Binding JobTitle.JobTitle1}" />
                     <telerik:GridViewDataColumn Header="Location" DataMemberBinding="{Binding Location.LocName}" />
@@ -137,7 +144,7 @@
                                 <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="165,92,0,0" IsEnabled="{Binding isEnabled}" FontWeight="Bold">
                                     <Binding Path="selectedEmp.CardNo"
                                              Mode="TwoWay"
-                                             Converter="{StaticResource PostpendConvertor}"
+                                            
                                              ValidatesOnExceptions="True" 
                                 		UpdateSourceTrigger="PropertyChanged">
                                        

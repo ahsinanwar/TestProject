@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
+using TimeAttendanceSystem.QueryBuilders;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
@@ -70,7 +72,10 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew
             {
                 this.isEnabled = false;
                 _selectedCrew = value;
-                _listOfCrewEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.CrewID == _selectedCrew.CrewID));
+                User _user = GlobalClasses.Global.user;
+                QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                string query = queryForSection.MakeCustomizeQuerySection(_user);
+                _listOfCrewEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.CrewID == selectedCrew.CrewID));
                 base.OnPropertyChanged("ListOfCrewEmps");
                 base.OnPropertyChanged("selectedCrew");
                 base.OnPropertyChanged("isEnabled");
@@ -133,7 +138,10 @@ namespace TimeAttendanceSystem.ViewModels.VMCrew
             _selectedCrew = new Crew();
             _listOfcrews = new ObservableCollection<Crew>(entity.Crews.ToList());
             _selectedCrew = entity.Crews.ToList().FirstOrDefault();
-            _listOfCrewEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.CrewID == _selectedCrew.CrewID));
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySection(_user);
+            _listOfCrewEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.CrewID == selectedCrew.CrewID));
             this._AddCommand = new AddCommandCrew(_selectedCrew);
             this._EditCommand = new EditCommandCrew(this);
             this._DeleteCommand = new DeleteCommandCrew(_selectedCrew);

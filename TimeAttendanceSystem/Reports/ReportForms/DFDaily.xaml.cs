@@ -22,14 +22,18 @@ namespace TimeAttendanceSystem.Reports.ReportForms
     /// </summary>
     public partial class DFDaily : Page
     {
+        DateTime dateFrom ;
+        DateTime dateTo ;
         public DFDaily()
         {
 
             try
             {
                 InitializeComponent();
-                DateTime dateFrom = UserControlReport.StartDate;
-                DateTime dateTo = UserControlReport.EndDate;
+                dateFrom = new DateTime();
+                dateTo = new DateTime();
+                dateFrom = UserControlReport.StartDate;
+                dateTo = UserControlReport.EndDate;
                 LoadReport(Properties.Settings.Default.ReportPath + "DRDetailed.rdlc", ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList());
             }
             catch (Exception ex)
@@ -43,8 +47,8 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         TAS2013Entities ctx = new TAS2013Entities();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DateTime dateFrom = UserControlReport.StartDate;
-            DateTime dateTo = UserControlReport.EndDate;
+            dateFrom = UserControlReport.StartDate;
+            dateTo = UserControlReport.EndDate;
             List<ViewMultipleInOut> _TempViewList = new List<ViewMultipleInOut>();
             List<ViewMultipleInOut> _ViewList = ctx.ViewMultipleInOuts.Where(aa => aa.AttDate >= dateFrom && aa.AttDate <= dateTo).ToList();
 
@@ -147,7 +151,11 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void LoadReport(string Path, List<ViewMultipleInOut> _List)
         {
             //rptViewer.Reset();
-            string DateToFor = "12-13-2015";
+
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+
+            string DateToFor = dateFrom.ToShortDateString() + " to " + dateTo.ToShortDateString();
             string _Header = "Daily Attendance Report";
             this.rptViewer.LocalReport.DisplayName = "Daily Attendance Report";
             //rptViewer.ProcessingMode = ProcessingMode.Local;

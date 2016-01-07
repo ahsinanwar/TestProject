@@ -14,10 +14,9 @@ namespace TimeAttendanceSystem.Model
     
     public partial class ViewLeaveData
     {
-        public int EmpID { get; set; }
+        public Nullable<int> EmpID { get; set; }
         public string DesignationName { get; set; }
         public string GradeName { get; set; }
-        public string CompName { get; set; }
         public string JobTitle { get; set; }
         public string CityName { get; set; }
         public string RegionName { get; set; }
@@ -33,7 +32,6 @@ namespace TimeAttendanceSystem.Model
         public string DivisionName { get; set; }
         public string DeptName { get; set; }
         public string SectionName { get; set; }
-        public int LvID { get; set; }
         public System.DateTime LvDate { get; set; }
         public System.DateTime FromDate { get; set; }
         public System.DateTime ToDate { get; set; }
@@ -41,10 +39,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<bool> IsHalf { get; set; }
         public string LvReason { get; set; }
         public string LvAddress { get; set; }
-        public string LvDesc { get; set; }
-        public string FldName { get; set; }
         public string LvStatus { get; set; }
-        public Nullable<short> CompanyID { get; set; }
         public Nullable<byte> TypeID { get; set; }
         public Nullable<short> CatID { get; set; }
         public Nullable<int> DesigID { get; set; }
@@ -55,5 +50,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> DeptID { get; set; }
         public Nullable<short> DivID { get; set; }
         public Nullable<short> CrewID { get; set; }
+        public string LvDesc { get; set; }
     }
 }

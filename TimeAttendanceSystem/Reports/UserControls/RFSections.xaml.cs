@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Linq.Dynamic;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -16,6 +17,7 @@ using Telerik.Windows.Controls.GridView;
 using TimeAttendanceSystem.BaseClasses;
 using TimeAttendanceSystem.Model;
 using Telerik.Windows.Controls;
+using TimeAttendanceSystem.QueryBuilders;
 
 namespace TimeAttendanceSystem.Reports.UserControls
 {
@@ -41,8 +43,11 @@ namespace TimeAttendanceSystem.Reports.UserControls
         public RFSections(List<TimeAttendanceSystem.Model.Section> _selectedSecs)
         {
             InitializeComponent();
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySec(_user);
             selectedSecs = new List<TimeAttendanceSystem.Model.Section>();
-            listOfSecs = new ObservableCollection<TimeAttendanceSystem.Model.Section>(context.Sections.ToList());
+            listOfSecs = new ObservableCollection<TimeAttendanceSystem.Model.Section>(context.Sections.Where(query));
             lstView_emps.ItemsSource = listOfSecs;
 
             //lstView_emps.Items.Clear();

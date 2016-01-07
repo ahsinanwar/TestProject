@@ -135,7 +135,9 @@ namespace TimeAttendanceSystem.Reports.ReportForms
         private void LoadReport(string Path, List<EmpView> _List)
         {
             //rptViewer.Reset();
-            string DateToFor = "";
+            DateTime dateFrom = UserControlReport.StartDate;
+            DateTime dateTo = UserControlReport.EndDate;
+            string DateToFor = dateFrom.ToShortDateString() + " to " + dateTo.ToShortDateString();
             string _Header = "Employee Detail Report";
             this.rptViewer.LocalReport.DisplayName = "Employee Detail(Excel)";
             this.rptViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;

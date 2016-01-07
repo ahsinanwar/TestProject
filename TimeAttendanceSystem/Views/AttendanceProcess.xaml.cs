@@ -80,7 +80,8 @@ namespace TimeAttendanceSystem.Views
             DateTime dateEnd = (DateTime)arg[1];
             List<Emp> emps = new List<Emp>();
             List<AttData> attdata = new List<AttData>();
-            emps = ctx.Emps.Where(aa => aa.Status == true).ToList();
+            //emps = ctx.Emps.Where(aa => aa.Status == true).ToList();
+            emps = ctx.Emps.Where(aa => aa.EmpID == 6965).ToList();
             if (ProcessType == "Daily")
             {
                 while (dateStart <= dateEnd)
@@ -90,6 +91,7 @@ namespace TimeAttendanceSystem.Views
                         if (ctx.AttProcesses.Where(aa => aa.ProcessDate == dateStart).Count() == 0)
                         {
                             ProcessAttendance p = new ProcessAttendance();
+                            p.CreateAttendance(dateStart, ctx.Remarks.ToList());
                             p.ProcessDailyAttendance(dateStart);
                         }
                         else

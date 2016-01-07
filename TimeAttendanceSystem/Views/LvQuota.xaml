@@ -25,7 +25,7 @@
             <telerik:RadGridView x:Name="radGridView" AutoGenerateColumns="False" 
         		telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Stretch" 
         		 ItemsSource="{Binding PagedSource,ElementName=rdpData}" 
-        		SelectedItem="{Binding selectedEmpAndLvApp}" 
+        		SelectedItem="{Binding selectedLvQuota}" 
         		VerticalAlignment="Stretch" GroupPanelBackground="#FF004B79" Height="415" Width="800">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="Emp No" Width="80" DataMemberBinding="{Binding Emp.EmpNo}" IsReadOnly="false" />
@@ -54,10 +54,10 @@
                         <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/edit-document.png">
                         </Image>
                     </Button>
-                    <Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
+                    <!--<Button  Width="18" telerik:StyleManager.Theme="Windows8" Margin="10,0,0,0" BorderBrush="#FFF9F9F9" BorderThickness="0" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" ToolTip="Delete">
                         <Image  Stretch="Uniform" Source="/TimeAttendanceSystem;component/Images/delete.png">
                         </Image>
-                    </Button>
+                    </Button>-->
                 </StackPanel>
                 <!--Data Input Panel-->
 

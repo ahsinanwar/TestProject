@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
       xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
       xmlns:local="clr-namespace:TimeAttendanceSystem.Reports.UserControls"
 	Title="DFDaily"  Background="White" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualHeight}" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Frame}}, Path=ActualWidth}">

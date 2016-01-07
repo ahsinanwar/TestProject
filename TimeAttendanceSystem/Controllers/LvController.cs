@@ -630,7 +630,7 @@ namespace TimeAttendanceSystem.Controllers
             List<LvConsumed> _lvConsumed = new List<LvConsumed>();
             using (var ctx = new TAS2013Entities())
             {
-                string empLvType = lvappl.EmpID.ToString() + lvappl.LvType;
+                string empLvType = lvappl.EmpID.ToString() + lvappl.LvType.LvTypeID;
                 _lvConsumed = ctx.LvConsumeds.Where(aa => aa.EmpLvType == empLvType).ToList();
                 if (_lvConsumed.Count > 0)
                 {
@@ -729,20 +729,21 @@ namespace TimeAttendanceSystem.Controllers
         #region -- Add Short Leave --
         public void AddShortLeaveToAttData(LvShort lvshort)
         {
-
             DateTime datetime = new DateTime();
             using (var db = new TAS2013Entities())
             {
-                if (db.AttProcesses.Where(aa => aa.ProcessDate == datetime).Count() > 0)
+                if (db.AttProcesses.Where(aa => aa.ProcessDate == lvshort.DutyDate).Count() > 0)
                 {
+                    List<Remark> remarks = new List<Remark>();
+                    remarks = db.Remarks.ToList();
                     AttData _EmpAttData = new AttData();
                     _EmpAttData = db.AttDatas.First(aa => aa.EmpDate == lvshort.EmpDate);
                     _EmpAttData.StatusAB = false;
                     _EmpAttData.StatusSL = true;
                     _EmpAttData.ShifMin = (short)(_EmpAttData.ShifMin - (short)lvshort.THour.Value.Minutes);
+                    _EmpAttData.Remarks.Replace(remarks.Where(aa => aa.RemarkLabel == "Absent").First().RemarkValue, "");
                     _EmpAttData.Remarks = _EmpAttData.Remarks + "[Short Leave]";
                     db.SaveChanges();
-                    
                 }
                 db.Dispose();
             }

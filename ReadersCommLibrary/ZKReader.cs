@@ -266,7 +266,31 @@ namespace ReadersCommLibrary
                 czkem.EnableDevice(iMachineNumber, true);//enable the device
                
             }
+            if (data.Count > 0)
+            {
+                ClearAttDataFromDevice(iMachineNumber);
+            }
             return data;
+        }
+        public void ClearAttDataFromDevice(int _iMachineNum)
+        {
+            try
+            {
+                int idwErrorCode = 0;
+                czkem.EnableDevice(_iMachineNum, false);//disable the device
+                if (czkem.ClearGLog(_iMachineNum))
+                {
+                    czkem.RefreshData(_iMachineNum);//the data in the device should be refreshed
+                }
+                else
+                {
+                    czkem.GetLastError(ref idwErrorCode);
+                }
+                czkem.EnableDevice(iMachineNumber, true);//enable the device
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private bool CheckChar(string sdwEnrollNumber)

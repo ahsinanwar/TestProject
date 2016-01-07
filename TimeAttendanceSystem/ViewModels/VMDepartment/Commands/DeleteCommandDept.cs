@@ -45,7 +45,8 @@ namespace TimeAttendanceSystem.ViewModels.VMDepartment.Commands
                     {
                         if (context.SaveChanges() > 0)
                         {
-
+                            int _userID = GlobalClasses.Global.user.UserID;
+                            HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Department, (byte)MyEnums.Operation.Delete, DateTime.Now);
                             PopUp.popUp("Department", vmd.selectedDept.DeptName + " has been removed", NotificationType.Warning);
                             vmd.listOfDepts.Remove(vmd.selectedDept);
                             vmd.selectedDept = vmd.listOfDepts[0];

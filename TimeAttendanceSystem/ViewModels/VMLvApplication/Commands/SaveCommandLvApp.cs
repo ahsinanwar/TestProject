@@ -56,71 +56,80 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
 
                 }
                 else
-                {
+                    if (context.LvQuotas.Where(aa => aa.EmpID == vmd.selectedEmpAndLvApp.LvApp.EmpID).Count() == 0)
+                    {
+                        PopUp.popUp("Leave Quota", "Please create a Leave Quota for this Employee first", NotificationType.Warning);
 
-                    // IF Leave is half Leave
-                    if (vmd.selectedEmpAndLvApp.LvApp.IsHalf == true)
+                    }
+                    else
                     {
 
-                        if (vmd.selectedEmpAndLvApp.LvApp.FirstHalf == null)
+                        // IF Leave is half Leave
+                        if (vmd.selectedEmpAndLvApp.LvApp.IsHalf == true)
                         {
-                            PopUp.popUp("Half Day", "Please select First Half or Second Half", NotificationType.Warning);
 
+                            if (vmd.selectedEmpAndLvApp.LvApp.FirstHalf == null)
+                            {
+                                PopUp.popUp("Half Day", "Please select First Half or Second Half", NotificationType.Warning);
+
+                            }
+                            else
+                                if ((vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days == 0)
+                                {
+
+                                    bool chkdup = lvctrl.CheckDuplicateLeave(vmd.selectedEmpAndLvApp.LvApp);
+                                    if (chkdup == false)
+                                    {
+                                        vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (float)0.5;
+                                        context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
+                                        context.SaveChanges();
+                                        int _userID = GlobalClasses.Global.user.UserID;
+                                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LeaveApplication, (byte)MyEnums.Operation.Add, DateTime.Now);
+                                        lvctrl.AddHalfLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
+                                        lvctrl.AddHalfLeaveToAttData(vmd.selectedEmpAndLvApp.LvApp);
+                                        lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
+                                        vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
+                                        PopUp.popUp("Application", "Application has been successfully registered for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
+                                        vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
+                                    }
+                                }
+                                else
+                                {
+                                    PopUp.popUp("Half Day", "Please select same Dates", NotificationType.Warning);
+                                }
                         }
                         else
-                            if ((vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days == 0)
+                        {
+                            bool chkdup = lvctrl.CheckDuplicateLeave(vmd.selectedEmpAndLvApp.LvApp);
+                            if (chkdup == false)
                             {
-
-                                bool chkdup = lvctrl.CheckDuplicateLeave(vmd.selectedEmpAndLvApp.LvApp);
-                                if (chkdup == false)
+                                bool chkbal = lvctrl.CheckLeaveBalance(vmd.selectedEmpAndLvApp.LvApp);
+                                if (chkbal == true)
                                 {
-                                    vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (float)0.5;
+                                    vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days + 1;
                                     context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
                                     context.SaveChanges();
-                                    lvctrl.AddHalfLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
-                                    lvctrl.AddHalfLeaveToAttData(vmd.selectedEmpAndLvApp.LvApp);
+
+                                    vmd.selectedEmpAndLvApp.LvApp.LvDate = DateTime.Now;
+                                    lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
+                                    lvctrl.AddLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
                                     lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
                                     vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
                                     PopUp.popUp("Application", "Application has been successfully registered for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
                                     vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
+
+                                }
+                                else
+                                {
+                                    PopUp.popUp("Exceeds", "Leave balance exceeds", NotificationType.Warning);
                                 }
                             }
                             else
                             {
-                                PopUp.popUp("Half Day", "Please select same Dates", NotificationType.Warning);
-                            }
-                    }
-                    else
-                    {
-                        bool chkdup = lvctrl.CheckDuplicateLeave(vmd.selectedEmpAndLvApp.LvApp);
-                        if (chkdup == false)
-                        {
-                            bool chkbal = lvctrl.CheckLeaveBalance(vmd.selectedEmpAndLvApp.LvApp);
-                            if (chkbal == true)
-                            {
-                                vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days + 1;
-                                context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
-                                context.SaveChanges();
-                                vmd.selectedEmpAndLvApp.LvApp.LvDate = DateTime.Now;
-                                lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
-                                lvctrl.AddLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
-                                lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
-                                vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
-                                PopUp.popUp("Application", "Application has been successfully registered for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
-                                vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
-
-                            }
-                            else
-                            {
-                                PopUp.popUp("Exceeds", "Leave balance exceeds", NotificationType.Warning);
+                                PopUp.popUp("Duplicate", "Leave is duplicate, Please select unqiue days", NotificationType.Warning);
                             }
                         }
-                        else
-                        {
-                            PopUp.popUp("Duplicate", "Leave is duplicate, Please select unqiue days", NotificationType.Warning);
-                        }
                     }
-                }
             }
             else
             {
@@ -130,6 +139,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
                 vmd.isEnabled = false;
                 vmd.isAdding = false;
                 context.SaveChanges();
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LeaveApplication, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 PopUp.popUp("Application", "Application has been successfully edited for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
                             
             }

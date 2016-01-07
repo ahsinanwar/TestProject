@@ -53,6 +53,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
             {
                 if (context.SaveChanges() > 0)
                 {
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LeaveApplication, (byte)MyEnums.Operation.Delete, DateTime.Now);
                    vmd.listOfEmpsAndLvApps.Remove(vmd.selectedEmpAndLvApp);
                     if(vmd.listOfEmpsAndLvApps.Count>0)
                     vmd.selectedEmpAndLvApp = vmd.listOfEmpsAndLvApps[0];

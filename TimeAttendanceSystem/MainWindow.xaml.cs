@@ -84,9 +84,9 @@ namespace TimeAttendanceSystem
                     case "Departments":
                         _mainFrame.Navigate(new DepartmentView());
                         break;
-                    case "Division":
-                        _mainFrame.Navigate(new DivisionView());
-                        break;
+                    //case "Division":
+                    //    _mainFrame.Navigate(new DivisionView());
+                    //    break;
                     case "Designation":
                         _mainFrame.Navigate(new DesignationView());
                         break;
@@ -213,6 +213,12 @@ namespace TimeAttendanceSystem
                         break;
                     case "Process Attendance":
                         _mainFrame.Navigate(new AttendanceProcess());
+                        break;
+                    case "Leave Balance":
+                        _mainFrame.Navigate(new MRLeaveBalance());
+                        break;
+                    case "Employee Consolidated":
+                        _mainFrame.Navigate(new DFEmpAttSummary());
                         break;
                 }
             }

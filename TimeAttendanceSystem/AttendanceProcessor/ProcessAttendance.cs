@@ -207,6 +207,7 @@ namespace TASDownloadService
                             att.EmpNo = emp.EmpNo;
                             att.EmpDate = emp.EmpID + dateTime.ToString("yyMMdd");
                             att.ShifMin = ProcessSupportFunc.CalculateShiftMinutes(emp.Shift, dateTime.DayOfWeek);
+                            att.BreakMin = ProcessSupportFunc.CalculateShiftBreakMinutes(emp.Shift, dateTime.DayOfWeek);
                             //////////////////////////
                             //  Check for Rest Day //
                             ////////////////////////
@@ -362,7 +363,9 @@ namespace TASDownloadService
                                 {
                                     att.StatusSL = true;
                                     att.StatusAB = null;
-                                    att.DutyCode = "L";
+                                    att.SLMin = sLeave.THour;
+                                    att.ShifMin = (short)(att.ShifMin - Convert.ToInt16(sLeave.THour.Value.TotalMinutes));
+                                    att.DutyCode = "D";
                                     att.Remarks = "[Short Leave]";
                                 }
                             }
@@ -380,23 +383,7 @@ namespace TASDownloadService
                                     att.StatusAB = false;
                                     att.DutyCode = "L";
                                     att.StatusDO = false;
-                                    if (Leave.LvCode == "A")
-                                    {
-                                        //att.Remarks = "[CL]";
-                                        att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
-                                    }
-                                    else if (Leave.LvCode == "B")
-                                    {
-                                        //att.Remarks = "[AL]";
-                                        att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
-                                    }
-                                    else if (Leave.LvCode == "C")
-                                    {
-                                        //att.Remarks = "[SL]";
-                                        att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
-                                    }
-                                    else
-                                        att.Remarks = "[" + _Leave.FirstOrDefault().LvType.LvDesc + "]";
+                                    att.Remarks = _Leave.FirstOrDefault().LvType.LvDesc;
                                 }
                                 else
                                 {
@@ -415,23 +402,7 @@ namespace TASDownloadService
                                 att.DutyCode = "L";
                                 att.StatusHL = true;
                                 att.StatusDO = false;
-                                if (_HalfLeave.FirstOrDefault().LvCode == "A")
-                                {
-                                    //att.Remarks = "[H-CL]";
-                                    att.Remarks = _HalfLeave.FirstOrDefault().LvType.HalfLvCode;
-                                }
-                                else if (_HalfLeave.FirstOrDefault().LvCode == "B")
-                                {
-                                    //att.Remarks = "[S-AL]";
-                                    att.Remarks = _HalfLeave.FirstOrDefault().LvType.HalfLvCode;
-                                }
-                                else if (_HalfLeave.FirstOrDefault().LvCode == "C")
-                                {
-                                    //att.Remarks = "[H-SL]";
-                                    att.Remarks = _HalfLeave.FirstOrDefault().LvType.HalfLvCode;
-                                }
-                                else
-                                    att.Remarks = "[Half Leave]";
+                                 att.Remarks = _HalfLeave.FirstOrDefault().LvType.HalfLvCode;
                             }
                             else
                             {

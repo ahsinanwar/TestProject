@@ -50,7 +50,7 @@ namespace TASDownloadService.AttProcessDaily
                                             attendanceRecord.TimeIn = up.EntTime;
                                             attendanceRecord.StatusAB = false;
                                             attendanceRecord.StatusP = true;
-                                            attendanceRecord.Remarks = null;
+                                            //attendanceRecord.Remarks = null;
                                             attendanceRecord.StatusIN = true;
                                         }
                                     }
@@ -60,7 +60,7 @@ namespace TASDownloadService.AttProcessDaily
                                         attendanceRecord.TimeIn = up.EntTime;
                                         attendanceRecord.StatusAB = false;
                                         attendanceRecord.StatusP = true;
-                                        attendanceRecord.Remarks = null;
+                                        //attendanceRecord.Remarks = null;
                                         attendanceRecord.StatusIN = true;
                                     }
                                 }
@@ -70,7 +70,7 @@ namespace TASDownloadService.AttProcessDaily
                                     attendanceRecord.TimeIn = up.EntTime;
                                     attendanceRecord.StatusAB = false;
                                     attendanceRecord.StatusP = true;
-                                    attendanceRecord.Remarks = null;
+                                    //attendanceRecord.Remarks = null;
                                     attendanceRecord.StatusIN = true;
                                 }
                             }
@@ -80,7 +80,7 @@ namespace TASDownloadService.AttProcessDaily
                                 attendanceRecord.TimeIn = up.EntTime;
                                 attendanceRecord.StatusAB = false;
                                 attendanceRecord.StatusP = true;
-                                attendanceRecord.Remarks = null;
+                                //attendanceRecord.Remarks = null;
                                 attendanceRecord.StatusIN = true;
                             }
 
@@ -276,7 +276,7 @@ namespace TASDownloadService.AttProcessDaily
                             attendanceRecord.TimeIn = up.EntTime;
                             attendanceRecord.StatusAB = false;
                             attendanceRecord.StatusP = true;
-                            attendanceRecord.Remarks = null;
+                            //attendanceRecord.Remarks = null;
                         }
                         else if (attendanceRecord.Tin1 == null)
                         {
@@ -554,7 +554,7 @@ namespace TASDownloadService.AttProcessDaily
                             attendanceRecord.TimeIn = up.EntTime;
                             attendanceRecord.StatusAB = false;
                             attendanceRecord.StatusP = true;
-                            attendanceRecord.Remarks = null;
+                            //attendanceRecord.Remarks = null;
                         }
                         break;
                 }

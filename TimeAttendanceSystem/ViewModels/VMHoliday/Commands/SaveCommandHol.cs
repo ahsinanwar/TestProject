@@ -50,6 +50,8 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
                     {
                         context.Holidays.Add(vmd.selectedHoliday);
                         context.SaveChanges();
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Holiday, (byte)MyEnums.Operation.Add, DateTime.Now);
                         vmd.listOfHolidays.Add(vmd.selectedHoliday);
                         PopUp.popUp("Holiday", "Holiday Created", NotificationType.Information);
                   
@@ -70,6 +72,8 @@ namespace TimeAttendanceSystem.ViewModels.VMHoliday.Commands
                         vmd.isEnabled = false;
                         vmd.isAdding = false;
                         context.SaveChanges();
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Holiday, (byte)MyEnums.Operation.Edit, DateTime.Now);
                         PopUp.popUp("Holiday", "Holiday Edited", NotificationType.Information);
                     }
                 

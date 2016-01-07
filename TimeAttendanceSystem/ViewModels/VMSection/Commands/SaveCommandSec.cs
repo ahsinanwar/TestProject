@@ -53,6 +53,8 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
                         dummy.Department = null;
                         context.Sections.Add(vmd.selectedSec);
                         context.SaveChanges();
+                        int _userID = GlobalClasses.Global.user.UserID;
+                        HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Section, (byte)MyEnums.Operation.Add, DateTime.Now);
                         vmd.selectedSec.Department = context.Departments.Where(aa => aa.DeptID == vmd.selectedSec.DeptID).FirstOrDefault();
                         vmd.listOfSecs.Add(vmd.selectedSec);
                         PopUp.popUp("Section", "Section " + vmd.selectedSec.SectionName + " is created Successfully", NotificationType.Information);
@@ -79,6 +81,8 @@ namespace TimeAttendanceSystem.ViewModels.VMSection.Commands
                     vmd.isEnabled = false;
                     vmd.isAdding = false;
                     context.SaveChanges();
+                    int _userID = GlobalClasses.Global.user.UserID;
+                    HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.Section, (byte)MyEnums.Operation.Edit, DateTime.Now);
                 }
             }
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimeAttendanceSystem.Reports.UserControls;
 using TimeAttendanceSystem.ViewModels.VMUser;
 
 namespace TimeAttendanceSystem.Views
@@ -35,6 +37,7 @@ namespace TimeAttendanceSystem.Views
                 InitializeComponent();
 
                 vmusers = new VMUser();
+                ListBoxSec.ItemsSource = vmusers.listOfSections;
                 this.DataContext = vmusers;
             }
             catch (Exception ex)
@@ -75,18 +78,38 @@ namespace TimeAttendanceSystem.Views
                 vmusers._selectedUser.Emp.EmpPhoto = new Model.EmpPhoto();
                 vmusers.selectedUser.Emp.EmpPhoto.EmpID = vmusers._selectedUser.Emp.EmpID;
                 vmusers.selectedUser.Emp.EmpPhoto.EmpPic = binaryImage;
-        
-
                 vmusers.raiseEmpChange();
-
-
-               // vmusers._selectedEmp.Emp.EmpPhoto = new Model.EmpPhoto();
-
-               // vmusers._selectedEmp.Emp.EmpPhoto.EmpID = vmusers._selectedEmp.Emp.EmpID;
-               // vmusers._selectedEmp.Emp.EmpPhoto.EmpPic = binaryImage;
-                
-               //vmusers.raiseEmpChange();
             }
         }
+
+       
+
+        #region -- Section filter --
+        public List<TimeAttendanceSystem.Model.Section> selectedSecs;
+        RFSections windowSec;
+        private void btnAddSec_Click(object sender, RoutedEventArgs e)
+        {
+            selectedSecs = new List<Model.Section>();
+            ListBoxSec.ItemsSource = new List<Section>();
+            windowSec = new RFSections(selectedSecs);
+            if ((bool)windowSec.ShowDialog())
+            {
+                selectedSecs.Clear();
+                selectedSecs = windowSec.selectedSecs;
+            }
+           vmusers.listOfSections = new ObservableCollection<Model.Section>(selectedSecs);
+            
+           
+                      
+        }
+
+        private void btnClearSec_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxSec.ItemsSource = new List<Section>();
+            vmusers.listOfSections = new ObservableCollection<Model.Section>();
+            if(selectedSecs!=null)
+            selectedSecs.Clear();
+        }
+        #endregion
     }
 }

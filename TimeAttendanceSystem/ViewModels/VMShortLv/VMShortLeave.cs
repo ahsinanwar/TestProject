@@ -26,7 +26,7 @@ namespace TimeAttendanceSystem.ViewModels.VMShortLv
             }
             set
             {
-              
+                this.isEnabled = false;
                 _selectedEmpAndShortLv = value;
                 base.OnPropertyChanged("selectedEmpAndShortLv");
 

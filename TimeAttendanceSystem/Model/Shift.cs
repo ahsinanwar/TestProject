@@ -44,6 +44,8 @@ namespace TimeAttendanceSystem.Model
         public Nullable<bool> GZDays { get; set; }
         public Nullable<bool> OpenShift { get; set; }
         public Nullable<short> LocationID { get; set; }
+        public Nullable<short> FriBreakMin { get; set; }
+        public Nullable<short> SatBreakMin { get; set; }
     
         public virtual DaysName DaysName { get; set; }
         public virtual DaysName DaysName1 { get; set; }

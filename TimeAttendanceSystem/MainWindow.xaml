@@ -73,8 +73,8 @@
                         <telerik:RadMenuItem Header="Attendance Edit" Click="Button_Click_1" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}" >
                         </telerik:RadMenuItem>
 
-                        <telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}">
-                        </telerik:RadMenuItem>
+                        <!--<telerik:RadMenuItem Header="Job Cards" Click="btn_JobCard_Click" Visibility="{Binding MEditAtt, Converter={StaticResource UserPermission},ConverterParameter=MEditAtt}">
+                        </telerik:RadMenuItem>-->
 
                         <telerik:RadMenuItem Header="User" Click="btn_User_Click" Visibility="{Binding MUser, Converter={StaticResource UserPermission},ConverterParameter=MUser}">
                         </telerik:RadMenuItem>
@@ -145,6 +145,7 @@
                             <telerik:RadMenuItem Header="Present"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Absent"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Leave"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Header="Leave Balance"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Short Leaves"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Early In"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Early Out"></telerik:RadMenuItem>
@@ -160,7 +161,9 @@
                             <telerik:RadMenuItem Header="Attendance Sheet"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="Attendance Summary"></telerik:RadMenuItem>
                         </telerik:RadMenuItem>
-
+                        <telerik:RadMenuItem Header="Summary Reports" Visibility="{Binding MRMonthly, Converter={StaticResource UserPermission},ConverterParameter=MRMonthly}">
+                            <telerik:RadMenuItem Header="Employee Consolidated"></telerik:RadMenuItem>
+                        </telerik:RadMenuItem>
                         <!--<telerik:RadMenuItem Header="Summary Reports" Visibility="{Binding MRSummary, Converter={StaticResource UserPermission},ConverterParameter=MRSummary}" Margin="-1,0,1,0">
                             <telerik:RadMenuItem Header="Yearly Leaves"></telerik:RadMenuItem>
                             <telerik:RadMenuItem Header="By Company"></telerik:RadMenuItem>

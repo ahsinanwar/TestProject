@@ -156,5 +156,63 @@ namespace TASDownloadService.AttProcessDaily
         }
 
         #endregion
+
+        internal static short? CalculateShiftBreakMinutes(Shift shift, DayOfWeek dayOfWeek)
+        {
+            Int16 breakMins = 0;
+            try
+            {
+                switch (dayOfWeek)
+                {
+                    case DayOfWeek.Monday:
+                        if (shift.MonMin > 0)
+                            breakMins = (short)shift.SatBreakMin;
+                        else
+                            breakMins = 0;
+                        break;
+                    case DayOfWeek.Tuesday:
+                        if (shift.TueMin > 0)
+                            breakMins = (short)shift.SatBreakMin;
+                        else
+                            breakMins = 0;
+                        break;
+                    case DayOfWeek.Wednesday:
+                        if (shift.WedMin > 0)
+                            breakMins = (short)shift.SatBreakMin;
+                        else
+                            breakMins = 0;
+                        break;
+                    case DayOfWeek.Thursday:
+                        if (shift.ThuMin > 0)
+                            breakMins = (short)shift.SatBreakMin;
+                        else
+                            breakMins = 0;
+                        break;
+                    case DayOfWeek.Friday:
+                        if (shift.FriMin > 0)
+                            breakMins = (short)shift.FriBreakMin;
+                        else
+                            breakMins = 0;
+                        break;
+                    case DayOfWeek.Saturday:
+                        if (shift.SatMin > 0)
+                            breakMins = (short)shift.SatBreakMin;
+                        else
+                            breakMins = 0;
+                        break;
+                    case DayOfWeek.Sunday:
+                        if (shift.SunMin > 0)
+                            breakMins = (short)shift.SatBreakMin;
+                        else
+                            breakMins = 0;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return breakMins;
+        }
     }
 }

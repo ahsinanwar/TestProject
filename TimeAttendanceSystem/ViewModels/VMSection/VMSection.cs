@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Linq.Dynamic;
+using TimeAttendanceSystem.QueryBuilders;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TimeAttendanceSystem.BaseClasses;
@@ -72,7 +74,10 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
                 _selectedSec = value;
                 if (_selectedSec != null)
                 {
-                    _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
+                    User _user = GlobalClasses.Global.user;
+                    QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+                    string query = queryForSection.MakeCustomizeQuerySection(_user);
+                    _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.SecID == selectedSec.SectionID));
                     base.OnPropertyChanged("ListOfSecEmps");
                     base.OnPropertyChanged("selectedSec");
                     base.OnPropertyChanged("isEnabled");
@@ -144,10 +149,14 @@ namespace TimeAttendanceSystem.ViewModels.VMSection
         {
             entity = new TAS2013Entities();
             _selectedSec = new Section();
-            _listOfSecs = new ObservableCollection<Section>(entity.Sections.ToList());
+            User _user = GlobalClasses.Global.user;
+            QueryBuilderForSection queryForSection = new QueryBuilderForSection();
+            string query = queryForSection.MakeCustomizeQuerySec(_user);
+            _listOfSecs = new ObservableCollection<Section>(entity.Sections.Where(query).AsQueryable());
             _selectedSec = entity.Sections.ToList().FirstOrDefault();
             _listOfDepts = new ObservableCollection<Department>(entity.Departments.ToList());
-            _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(aa => aa.SecID == _selectedSec.SectionID));
+            query =  queryForSection.MakeCustomizeQuerySection(_user);
+            _listOfSecEmps = new ObservableCollection<Emp>(entity.Emps.Where(query).AsQueryable().Where(aa => aa.SecID == selectedSec.SectionID));
             this._AddCommand = new AddCommandSec(_selectedSec);
             this._EditCommand = new EditCommandSec(this);
             this._DeleteCommand = new DeleteCommandSec(_selectedSec);

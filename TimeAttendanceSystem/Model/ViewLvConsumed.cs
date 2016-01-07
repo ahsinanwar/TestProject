@@ -17,7 +17,6 @@ namespace TimeAttendanceSystem.Model
         public string LeaveType { get; set; }
         public string DesignationName { get; set; }
         public string GradeName { get; set; }
-        public string CompName { get; set; }
         public string JobTitle { get; set; }
         public string RegionName { get; set; }
         public string CityName { get; set; }
@@ -48,7 +47,6 @@ namespace TimeAttendanceSystem.Model
         public string PhoneNo { get; set; }
         public string SectionName { get; set; }
         public string DeptName { get; set; }
-        public Nullable<short> CompanyID { get; set; }
         public Nullable<byte> TypeID { get; set; }
         public Nullable<short> CatID { get; set; }
         public Nullable<double> JanConsumed { get; set; }
@@ -68,7 +66,6 @@ namespace TimeAttendanceSystem.Model
         public Nullable<double> GrandTotal { get; set; }
         public Nullable<double> GrandTotalRemaining { get; set; }
         public string EmpLvType { get; set; }
-        public string LvDesc { get; set; }
         public Nullable<byte> ShiftID { get; set; }
         public Nullable<short> DeptID { get; set; }
         public Nullable<byte> GradeID { get; set; }
@@ -77,6 +74,7 @@ namespace TimeAttendanceSystem.Model
         public Nullable<short> SecID { get; set; }
         public string DivisionName { get; set; }
         public Nullable<short> DivID { get; set; }
-        public int EmpID { get; set; }
+        public Nullable<int> EmpID { get; set; }
+        public string LvDesc { get; set; }
     }
 }
