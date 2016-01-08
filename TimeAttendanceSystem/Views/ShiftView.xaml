@@ -102,18 +102,22 @@
                         <Label Content="Early In:" HorizontalAlignment="Left" Margin="265,212,0,0" VerticalAlignment="Top"/>
                         <Label Content="Early Out:" HorizontalAlignment="Left" Margin="391,212,0,0" VerticalAlignment="Top"/>
                         <Label Content="Min Work:" HorizontalAlignment="Left" Margin="9,149,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Roster Type:" HorizontalAlignment="Left" Margin="12,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.192"/>
+                        <Label Content="Roster Type:" HorizontalAlignment="Left" Margin="12,182,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Break Time:" HorizontalAlignment="Left" Margin="12,212,0,0" VerticalAlignment="Top"/>
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="322,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.LateIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" RenderTransformOrigin="0.42,1.077" FontWeight="Bold"/>
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="457,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.LateOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="322,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.EarlyIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="457,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="{Binding selectedShift.EarlyOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
                         
                         <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="89,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="{Binding selectedShift.MinHrs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding isEnabled}" FontWeight="Bold"/>
-                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="87" Background="White" Margin="142,222,319,51" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
+                        <Button telerik:StyleManager.Theme="Windows8" Content="Ok" HorizontalAlignment="Center" VerticalAlignment="Center" Width="87" Background="White" Margin="432,243,29,30" Height="27"  Command="{Binding SaveCommand}" CommandParameter="{Binding}" IsEnabled="{Binding isEnabled}" />
                         
                         <Button telerik:StyleManager.Theme="Windows8" Content="Cancel" HorizontalAlignment="Center" Width="58" Background="White" Margin="502,202,116,31" Height="27" VerticalAlignment="Center" Visibility="Hidden"/>
                         <telerik:RadComboBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="89,186,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" DisplayMemberPath="Name" SelectedValuePath="ID" SelectedItem="{Binding selectedShift.RosterType1, Mode = TwoWay}" ItemsSource="{Binding listOfRosterType}" IsEnabled="{Binding isEnabled}">
                         </telerik:RadComboBox>
+                        <TextBox telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="89,214,0,0" VerticalAlignment="Top" Width="140" FontWeight="Bold" Text="{Binding selectedShift.BreakMin, Mode = TwoWay}" IsEnabled="{Binding selectedShift.HasBreak}">
+                        </TextBox>
+                        <CheckBox telerik:StyleManager.Theme="Windows8" Content="Enable Break For Shift" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="89,240,0,0" IsEnabled="{Binding isEnabled}" IsChecked="{Binding selectedShift.HasBreak}"/>
                     </Grid>
                 </StackPanel>
 

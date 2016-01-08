@@ -76,6 +76,7 @@ namespace TASDownloadService.Helper
                         // Connect function and recieve true if connection established
                         if (readerHelper.Connect(reader.IpAdd, reader.IpPort))
                         {
+                            PopUp.popUp("Poll Data", "Data Transfering From Reader "+reader.RdrName, NotificationType.Information);
                             try
                             {
                                 // Download Records from Device and store it to records
@@ -87,6 +88,8 @@ namespace TASDownloadService.Helper
                                 {
                                     SaveAttDataToPollData(records, reader.RdrID);
                                     // Enter Service log -- ErrorCode = 5 -- Data Downloaded Complete
+                                    PopUp.popUp("Poll Data", "Total Records are: " + records.Count.ToString(), NotificationType.Information);
+                           
                                     SaveServiceLog(reader.RdrID, "Data Downloaded Complete-Total Records are:" + records.Count.ToString(), 5);
                                     // Enter Reader Event log of performed operation
                                     SaveRdrEventLog(reader.RdrID, "Download", 5);
@@ -107,6 +110,8 @@ namespace TASDownloadService.Helper
                         else
                         {
                             // enter Service log for Reader failed to Connect -- //ErrorCode = 2 -- notconnected
+                            PopUp.popUp("Poll Data", "Reader failed to Connect: " +reader.RdrName, NotificationType.Warning);
+                           
                             SaveServiceLog(reader.RdrID, "Reader failed to Connect", 2); 
                         }
                     }
@@ -115,6 +120,7 @@ namespace TASDownloadService.Helper
                         //Service Log for reader not pinged
                         //ErrorCode = 1 -- notpinged
                         SaveServiceLog(reader.RdrID,"Reader Not Pinged",1);
+                        PopUp.popUp("Poll Data", "Reader Not Pinged " + records.Count.ToString(), NotificationType.Information);
                     }
 
                 }

@@ -61,7 +61,8 @@ namespace TimeAttendanceSystem.Views
 
         private void worker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            PopUp.popUp("PollData", "Data Transferred From Reader to PollData", NotificationType.Information);
+          //  PopUp.popUp("PollData", "Data Transferred From Reader to PollData", NotificationType.Information);
+           
         }
 
         private void worker_DoWork2(object sender, DoWorkEventArgs e)
@@ -251,6 +252,7 @@ private void worker_RunWorkerCompleted(object sender,
                                        RunWorkerCompletedEventArgs e)
 {
     PopUp.popUp("Proccess Attendance", "Your Attendance Has Been Proccessed", NotificationType.Information);
+    Apply_btn.IsEnabled = true;
 }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -275,6 +277,7 @@ private void worker_RunWorkerCompleted(object sender,
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             worker2.RunWorkerAsync();
+            Apply_btn.IsEnabled = false;
            
         }
     }
