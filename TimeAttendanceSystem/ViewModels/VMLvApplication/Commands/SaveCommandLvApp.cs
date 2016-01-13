@@ -110,15 +110,17 @@ namespace TimeAttendanceSystem.ViewModels.VMLvApplication.Commands
 
                                     vmd.selectedEmpAndLvApp.LvApp.NoOfDays = (vmd.selectedEmpAndLvApp.LvApp.ToDate - vmd.selectedEmpAndLvApp.LvApp.FromDate).Days + 1;
                                     vmd.selectedEmpAndLvApp.LvApp.LvDate = DateTime.Now;
+                                    context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
+                                    context.SaveChanges();
                                     lvctrl.AddLeaveToLeaveAttData(vmd.selectedEmpAndLvApp.LvApp);
                                     int numberOfLeaves = lvctrl.AddLeaveToLeaveData(vmd.selectedEmpAndLvApp.LvApp);
+                                    
                                     vmd.selectedEmpAndLvApp.LvApp.NoOfDays = numberOfLeaves;
                                     lvctrl.BalanceLeaves(vmd.selectedEmpAndLvApp.LvApp);
                                     vmd.listOfEmpsAndLvApps.Add(vmd.selectedEmpAndLvApp);
                                     PopUp.popUp("Application", "Application has been successfully registered for " + vmd.selectedEmpAndLvApp.Employee.EmpName, NotificationType.Warning);
                                     vmd.selectedEmpAndLvApp = new CombinedEmpAndLvApps();
-                                    context.LvApplications.Add(vmd.selectedEmpAndLvApp.LvApp);
-                                    context.SaveChanges();
+                                   
 
                                 }
                                 else

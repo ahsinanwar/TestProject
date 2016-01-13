@@ -9,6 +9,7 @@ using TimeAttendanceSystem.Model;
 using Mantin.Controls.Wpf.Notification;
 using System.Windows.Media;
 using TimeAttendanceSystem.HelperClasses;
+using System.Data.Entity;
 
 namespace TimeAttendanceSystem.Controllers
 {
@@ -176,6 +177,10 @@ namespace TimeAttendanceSystem.Controllers
                 datetime = datetime.AddDays(1);
                 // Balance Leaves from Emp Table
             }
+            LvApplication lvapp = context.LvApplications.Where(aa => aa.LvID ==  lvappl.LvID).FirstOrDefault();
+            lvapp.NoOfDays = numberOFLeaves;
+            context.Entry(lvapp).State = EntityState.Modified;
+            context.SaveChanges();
             //BalanceLeaves(lvappl);
             return numberOFLeaves;
         }
