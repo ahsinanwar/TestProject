@@ -83,6 +83,8 @@ namespace TimeAttendanceSystem.Controllers
                 datetime = lvappl.FromDate;
                 for (int i = 0; i < lvappl.NoOfDays; i++)
                 {
+                    if (datetime.DayOfWeek != DayOfWeek.Saturday || datetime.DayOfWeek != DayOfWeek.Sunday)
+                    {
                     string _EmpDate = lvappl.EmpID + datetime.Date.ToString("yyMMdd");
                     using (var context = new TAS2013Entities())
                     {
@@ -120,6 +122,7 @@ namespace TimeAttendanceSystem.Controllers
                             context.SaveChanges();
                         }
                     }
+                    } 
                     datetime = datetime.AddDays(1);
                 }
             }
@@ -137,25 +140,28 @@ namespace TimeAttendanceSystem.Controllers
             datetime = lvappl.FromDate;
             for (int i = 0; i < lvappl.NoOfDays; i++)
             {
-                string _EmpDate = lvappl.EmpID + datetime.Date.ToString("yyMMdd");
-                LvData _LVData = new LvData();
-                _LVData.EmpID = lvappl.EmpID;
-                _LVData.EmpDate = _EmpDate;
-                _LVData.Remarks = lvappl.LvReason;
-                _LVData.LvID = lvappl.LvID;
-                _LVData.AttDate = datetime.Date;
-                _LVData.LvCode = lvappl.TypeID;
-                try
+                if (datetime.DayOfWeek != DayOfWeek.Saturday || datetime.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    using (var context = new TAS2013Entities())
+                    string _EmpDate = lvappl.EmpID + datetime.Date.ToString("yyMMdd");
+                    LvData _LVData = new LvData();
+                    _LVData.EmpID = lvappl.EmpID;
+                    _LVData.EmpDate = _EmpDate;
+                    _LVData.Remarks = lvappl.LvReason;
+                    _LVData.LvID = lvappl.LvID;
+                    _LVData.AttDate = datetime.Date;
+                    _LVData.LvCode = lvappl.TypeID;
+                    try
                     {
-                        context.LvDatas.Add(_LVData);
-                        context.SaveChanges();
+                        using (var context = new TAS2013Entities())
+                        {
+                            context.LvDatas.Add(_LVData);
+                            context.SaveChanges();
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
+                    catch (Exception ex)
+                    {
 
+                    }
                 }
                 datetime = datetime.AddDays(1);
                 // Balance Leaves from Emp Table
