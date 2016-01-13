@@ -37,11 +37,13 @@ namespace TimeAttendanceSystem.ViewModels.VMLogin.Commands
                 GlobalClasses.Global.user = g;
                 int _userID = GlobalClasses.Global.user.UserID;
                 HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LogIn, (byte)MyEnums.Operation.LogIn, DateTime.Now);
-                //Application.Current.MainWindow.Close();
+               
                 MainWindow mw = new MainWindow();
              //   mw.CommenceTripleChecking();
                 
                 mw.Show();
+               
+                Application.Current.Shutdown();
                
                 
             }

@@ -89,7 +89,7 @@ namespace TimeAttendanceSystem.Controllers
                 for (int i = 0; i < lvappl.NoOfDays; i++)
                 {
 
-                    if (datetime.DayOfWeek != DayOff1 || datetime.DayOfWeek != DayOff2)
+                    if (datetime.DayOfWeek != DayOff1 && datetime.DayOfWeek != DayOff2 && !IsHoliday(datetime))
                     {
 
                     string _EmpDate = lvappl.EmpID + datetime.Date.ToString("yyMMdd");
@@ -140,6 +140,30 @@ namespace TimeAttendanceSystem.Controllers
 
         }
 
+        private bool IsHoliday(DateTime datetime)
+        {
+            TAS2013Entities ctx  = new TAS2013Entities();
+            List<Holiday> listOfHolidays = ctx.Holidays.ToList();
+            foreach (Holiday holi in listOfHolidays)
+            {
+                DateTime holdateto = (DateTime)holi.HolDateTo;
+               
+                DateTime from = new DateTime(DateTime.Now.Year, holi.HolDateFrom.Month, holi.HolDateFrom.Day);
+                DateTime to = new DateTime(DateTime.Now.Year, holdateto.Month, holdateto.Day);
+                if (from >= datetime && to <= datetime)
+                    return true;
+            
+            
+            }
+                
+               
+            return false;
+            
+            
+            
+            
+        }
+
         public int AddLeaveToLeaveData(LvApplication lvappl)
         {
             int numberOFLeaves = 0;
@@ -151,7 +175,7 @@ namespace TimeAttendanceSystem.Controllers
             DayOfWeek DayOff2 = ConvertorDayOfWeek.ReturnDayOfWeek(context.DaysNames.Where(aa => aa.ID == employee.Shift.DayOff2).FirstOrDefault().Name);
             for (int i = 0; i < lvappl.NoOfDays; i++)
             {
-                if (datetime.DayOfWeek != DayOff1 || datetime.DayOfWeek != DayOff2)
+                if (datetime.DayOfWeek != DayOff1 && datetime.DayOfWeek != DayOff2 && !IsHoliday(datetime))
                 {
                     numberOFLeaves++;
                     string _EmpDate = lvappl.EmpID + datetime.Date.ToString("yyMMdd");
