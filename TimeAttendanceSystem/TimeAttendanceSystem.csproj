@@ -193,6 +193,7 @@
     <Compile Include="Controllers\JobCardController.cs" />
     <Compile Include="Controllers\LvController.cs" />
     <Compile Include="GlobalClasses\Global.cs" />
+    <Compile Include="HelperClasses\ConvertorDayOfWeek.cs" />
     <Compile Include="HelperClasses\EncDec.cs" />
     <Compile Include="HelperClasses\License.cs" />
     <Compile Include="HelperClasses\MyEnums.cs" />

@@ -81,13 +81,18 @@ namespace TimeAttendanceSystem.Controllers
             {
                 DateTime datetime = new DateTime();
                 datetime = lvappl.FromDate;
+                TAS2013Entities context = new TAS2013Entities();
+                Emp employee = context.Emps.Where(aa => aa.EmpID == lvappl.EmpID).FirstOrDefault();
+                DayOfWeek DayOff1 = ConvertorDayOfWeek.ReturnDayOfWeek(context.DaysNames.Where(aa => aa.ID == employee.Shift.DayOff1).FirstOrDefault().Name);
+                DayOfWeek DayOff2 = ConvertorDayOfWeek.ReturnDayOfWeek(context.DaysNames.Where(aa => aa.ID == employee.Shift.DayOff2).FirstOrDefault().Name);   
                 for (int i = 0; i < lvappl.NoOfDays; i++)
                 {
-                    if (datetime.DayOfWeek != DayOfWeek.Saturday || datetime.DayOfWeek != DayOfWeek.Sunday)
+
+                    if (datetime.DayOfWeek != DayOff1 || datetime.DayOfWeek != DayOff2)
                     {
+
                     string _EmpDate = lvappl.EmpID + datetime.Date.ToString("yyMMdd");
-                    using (var context = new TAS2013Entities())
-                    {
+                   
                         if (context.AttProcesses.Where(aa => aa.ProcessDate == datetime).Count() > 0)
                         {
                             AttData _EmpAttData = new AttData();
@@ -121,8 +126,8 @@ namespace TimeAttendanceSystem.Controllers
                             _EmpAttData.StatusLeave = true;
                             context.SaveChanges();
                         }
+                  
                     }
-                    } 
                     datetime = datetime.AddDays(1);
                 }
             }
@@ -134,14 +139,20 @@ namespace TimeAttendanceSystem.Controllers
 
         }
 
-        public bool AddLeaveToLeaveData(LvApplication lvappl)
+        public int AddLeaveToLeaveData(LvApplication lvappl)
         {
+            int numberOFLeaves = 0;
             DateTime datetime = new DateTime();
             datetime = lvappl.FromDate;
+            TAS2013Entities context = new TAS2013Entities();
+            Emp employee = context.Emps.Where(aa => aa.EmpID == lvappl.EmpID).FirstOrDefault();
+            DayOfWeek DayOff1 = ConvertorDayOfWeek.ReturnDayOfWeek(context.DaysNames.Where(aa => aa.ID == employee.Shift.DayOff1).FirstOrDefault().Name);
+            DayOfWeek DayOff2 = ConvertorDayOfWeek.ReturnDayOfWeek(context.DaysNames.Where(aa => aa.ID == employee.Shift.DayOff2).FirstOrDefault().Name);
             for (int i = 0; i < lvappl.NoOfDays; i++)
             {
-                if (datetime.DayOfWeek != DayOfWeek.Saturday || datetime.DayOfWeek != DayOfWeek.Sunday)
+                if (datetime.DayOfWeek != DayOff1 || datetime.DayOfWeek != DayOff2)
                 {
+                    numberOFLeaves++;
                     string _EmpDate = lvappl.EmpID + datetime.Date.ToString("yyMMdd");
                     LvData _LVData = new LvData();
                     _LVData.EmpID = lvappl.EmpID;
@@ -152,11 +163,10 @@ namespace TimeAttendanceSystem.Controllers
                     _LVData.LvCode = lvappl.TypeID;
                     try
                     {
-                        using (var context = new TAS2013Entities())
-                        {
+                       
                             context.LvDatas.Add(_LVData);
                             context.SaveChanges();
-                        }
+                       
                     }
                     catch (Exception ex)
                     {
@@ -167,7 +177,7 @@ namespace TimeAttendanceSystem.Controllers
                 // Balance Leaves from Emp Table
             }
             //BalanceLeaves(lvappl);
-            return true;
+            return numberOFLeaves;
         }
         public bool IsDateFromToValid(LvApplication lvappl)
         {
