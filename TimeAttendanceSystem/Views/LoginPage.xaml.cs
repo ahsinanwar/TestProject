@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TimeAttendanceSystem.Controllers;
+using TimeAttendanceSystem.HelperClasses;
 using TimeAttendanceSystem.Model;
 using TimeAttendanceSystem.ViewModels.VMLogin;
 
@@ -37,6 +38,38 @@ namespace TimeAttendanceSystem.Views
             }
         }
 
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            TAS2013Entities context = new TAS2013Entities();
+            string username = userNameBox.Text;
+            string password = PasswordBox.Password;
+            User g = context.Users.Where(aa => aa.UserName == username && aa.Password == password).FirstOrDefault();
+            if (g != null)
+            {
+                GlobalClasses.Global.user = g;
+                int _userID = GlobalClasses.Global.user.UserID;
+                HelperClasses.MyHelper.SaveAuditLog(_userID, (byte)MyEnums.FormName.LogIn, (byte)MyEnums.Operation.LogIn, DateTime.Now);
+
+                MainWindow mw = new MainWindow();
+                //   mw.CommenceTripleChecking();
+
+                mw.Show();
+                context.Dispose();
+                this.Close();
+
+                //
+
+
+            }
+            else
+            {
+                //Application.Current.MainWindow.Close();
+
+            }
+            Console.WriteLine(username);
+            Console.WriteLine(password);
+        }
+        
         private void RadButton_Click_1(object sender, RoutedEventArgs e)
         {
             //this.Hide();

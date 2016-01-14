@@ -42,8 +42,8 @@ namespace TimeAttendanceSystem.ViewModels.VMLogin.Commands
              //   mw.CommenceTripleChecking();
                 
                 mw.Show();
-               
-                Application.Current.Shutdown();
+       
+                //
                
                 
             }
